@@ -3,6 +3,6 @@
 Members:
 Elad Solomon
 Erez Shmueli
-Or Kandabi
+Or Kandabi  
 Shahar Bardugo
 Dorin Matzrafi

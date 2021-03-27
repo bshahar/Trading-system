@@ -1,4 +1,4 @@
-public class Bag {
 
+public class Bag {
     private Store store;
 }

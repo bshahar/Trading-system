@@ -1,0 +1,2 @@
+Mar 27, 2021 7:15:36 PM KingLogger logEvent
+INFO: this is a info logger test

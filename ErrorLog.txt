@@ -1,0 +1,2 @@
+Mar 27, 2021 7:15:37 PM KingLogger logError
+WARNING: this is a warning logger test

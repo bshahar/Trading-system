@@ -20,12 +20,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d2abe74c-3ee9-4164-b09a-1502011813c6" name="Default Changelist" comment="User side #27">
+      <change afterPath="$PROJECT_DIR$/src/client.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_03_2021_10_53__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_03_2021_10_53__Default_Changelist_.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PaymentAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PaymentAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -70,15 +67,15 @@
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
-    <configuration name="TradingSystem" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TradingSystem" />
+    <configuration name="Server" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server" />
       <module name="Trading-system" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -134,18 +131,20 @@
     <option name="LAST_COMMIT_MESSAGE" value="User side #27" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1506" y="185" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616585811604">
-      <screen x="-1920" y="10" width="1920" height="1040" />
+    <state x="2334" y="175" width="1092" height="762" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1617031304768">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1506" y="185" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585811604" />
+    <state x="2334" y="175" width="1092" height="762" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617031304768" />
     <state x="2685" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1617004826203">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2685" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617004826203" />
-    <state x="-1231" y="332" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1616585810086">
-      <screen x="-1920" y="10" width="1920" height="1040" />
+    <state x="2609" y="322" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1617031302907">
+      <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1231" y="332" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585810086" />
+    <state x="2609" y="322" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617031302907" />
     <state width="422" height="466" key="DebuggerActiveHint" timestamp="1617008809323">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>

@@ -1,71 +1,70 @@
-import java.util.*;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
+import java.net.Socket;
+import java.util.Scanner;
 import java.util.logging.Level;
 
-public class TradingSystem {
+public class client {
 
-    private static int userCounter ;
-
-    private  PaymentAdapter paymentAdapter;
-    private  SupplementAdapter supplementAdapter;
-    private  List<Store> stores;
-    private  Registered systemManager; //TODO change to whatever you want
-    private  List<Receipt> receipts;
-    private  List<User> users; //TODO every user is a thread
-    private  HashMap<String,String> userPass; // TODO change that the password will be secure
-
-
-
-    public TradingSystem (Registered systemManager) {
-        this.stores = new LinkedList<>();
-        this.receipts = new LinkedList<>();
-        this.systemManager = systemManager;
-        this.users = new LinkedList<>();
-        this.userPass = new LinkedHashMap<>();
-        this.userCounter = 1;
+    public static void main(String []args) throws IOException {
+        client client = new client();
+        client.startConnection("127.0.0.1", 5555);
+        System.out.println("Welcome to EOE Trading System!\n");
+        int ans = 0;
+        do
+        {
+            printMainMenu();
+            Scanner scanner = new Scanner(System.in);
+            ans = getValidInput(1,4);
+            switch(ans) {
+                case 1:
+                    guestEnter();
+                    break;
+                case 2:
+                    login();
+                    break;
+                case 3:
+                    register();
+                    break;
+                case 4:
+                    System.out.println("Bye Bye!\n");
+                    break;
+            }
+        }
+        while(ans!=4);
     }
-
-
-    public void register(String inputLine) {
-        System.out.println("hereee");
+    private static void register() throws IOException {
         //TODO add restriction on password
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please Enter user name");
         String userName = scanner.nextLine();
         System.out.println("Please Enter password");
         String pass = scanner.nextLine();
-        if(userPass.containsKey(userName))
-        {
-            System.out.println("User"+userName+"already exist , try again\n");
-        }
-        else
-        {
-            userPass.put(userName,pass);
-            KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
-            System.out.println("Register Successfully! You can now enter the system");
-            users.add(new User(userName,userCounter++));
-        }
+        String response = client.sendMessage("REGISTER name "+userName+" pass "+pass);
+        System.out.println(response);
+//        if(userPass.containsKey(userName))
+//        {
+//            System.out.println("User"+userName+"already exist , try again\n");
+//        }
+//        else
+//        {
+//            userPass.put(userName,pass);
+//            KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
+//            System.out.println("Register Successfully! You can now enter the system");
+//            users.add(new User(userName,userCounter++));
+//        }
     }
 
-    public void login(String inputLine) {
-        System.out.println("ggg");
+    private static void login() throws IOException {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Please Enter Your user name");
         String userName = scanner.nextLine();
         System.out.println("Please Enter Your password");
         String pass = scanner.nextLine();
-        if(loginAuthentication(userName,pass))
-        {
+        if(loginAuthentication(userName,pass)) {
             System.out.println("Login successfully!\n");
-            KingLogger.logEvent(Level.INFO,"User "+userName+" enter the system\n");
-            int id = -1;
-            for(User user : users)
-            {
-                if(user.getUserName() == userName)
-                {
-                    id = user.getId();
-                }
-            }
-            systemMainPageRegister(id);
         }
         else
         {
@@ -73,28 +72,18 @@ public class TradingSystem {
         }
     }
 
-    private boolean loginAuthentication(String userName, String pass) {
-        if(userPass.containsKey(userName))//write like this for the error log
-        {
-            if(userPass.get(userName).equals(pass))
-                return true;
-            else
-                KingLogger.logEvent(Level.INFO,"User try to login with name "+userName+" and pass "+pass+" and Failed");
-        }
-        else
-        {
-            KingLogger.logEvent(Level.INFO,"User try to login with name "+userName+" that doesn't exist");
-        }
-        return false;
+    private static boolean loginAuthentication(String userName, String pass) throws IOException {
+        String response = client.sendMessage("LOGIN name "+userName+" pass "+pass);
+        System.out.println(response);
+        return (response.equals("TRUE"));
     }
 
-    private void guestEnter() {
-        users.add(new User("Guest",-1));//TODO check what to give to guest user
+    private static void guestEnter() throws IOException {
+        //users.add(new User("Guest",-1));//TODO check what to give to guest user
         systemMainPageGuest(-1);
     }
 
-    private void systemMainPageGuest(int userId)
-    {
+    private static void systemMainPageGuest(int userId) throws IOException {
         int ans = -1;
         do {
             printSystemMainPageGuest(userId);
@@ -111,7 +100,7 @@ public class TradingSystem {
                     editBag(userId);
                     break;
                 case 4:
-                    register("");
+                    register();
                     break;
                 case 5:
                     System.out.println("Bye Bye!");
@@ -124,7 +113,7 @@ public class TradingSystem {
 
 
     //main page when login to the system
-    private void systemMainPageRegister(int userId)
+    private static void systemMainPageRegister(int userId)
     {
         int ans = -1;
         do {
@@ -167,47 +156,48 @@ public class TradingSystem {
 
     }
 
-    private void editInfo(int userId) {
+    private static void editInfo(int userId) {
     }
 
-    private void purchasesHistory(int userId) {
+    private static void purchasesHistory(int userId) {
     }
 
-    private void contact(int userId) {
+    private static void contact(int userId) {
     }
 
-    private void rank(int userId) {
+    private static void rank(int userId) {
     }
 
-    private void writeReview(int userId) {
+    private static void writeReview(int userId) {
     }
 
-    private void openStore(int userId) {
+    private static void openStore(int userId) {
     }
 
-    private void editBag(int userId) {
+    private static void editBag(int userId) {
     }
 
-    private void search(int userId) {
+    private static void search(int userId) {
     }
 
-    private void storesInfo() {
+    private static void storesInfo() {
         //TODO print the stores names and let the user choose one
-        int storeIndex = getValidInput(1, stores.size());
-        if(storeIndex != -1) {
-            Store s = getStoreByIndex(storeIndex);
-            System.out.print(s.getStoreInfo());
-        }
-        else
-            System.out.println("invalid choice, try again");
+//        int storeIndex = getValidInput(1, stores.size());
+//        if(storeIndex != -1) {
+//            Store s = getStoreByIndex(storeIndex);
+//            System.out.print(s.getStoreInfo());
+//        }
+//        else
+//            System.out.println("invalid choice, try again");
     }
 
-    private Store getStoreByIndex(int index) {
-        Store[] storesArr = (Store[]) stores.toArray();
-        return storesArr[index-1];
-    }
+//    private static Store getStoreByIndex(int index) {
+//        //Store[] storesArr = (Store[]) stores.toArray();
+//        //return storesArr[index-1];
+//        return null;
+//    }
 
-    private int getValidInput(int min , int max)
+    private static int getValidInput(int min , int max)
     {
         int ans = -1;
         do {
@@ -228,7 +218,7 @@ public class TradingSystem {
     }
 
 
-    private void printMainMenu()
+    private static void printMainMenu()
     {
         System.out.println("Enter your choose:");
         System.out.println("1.Enter as guest");
@@ -237,7 +227,7 @@ public class TradingSystem {
         System.out.println("4.Exit");
     }
 
-    private void printSystemMainPageRegister(int userId)
+    private static void printSystemMainPageRegister(int userId)
     {
         System.out.println("Enter your choose:");
         System.out.println("1.Info about stores and products");
@@ -253,7 +243,7 @@ public class TradingSystem {
 
     }
 
-    private void printSystemMainPageGuest(int userId)
+    private static void printSystemMainPageGuest(int userId)
     {
         System.out.println("Enter your choose:");
         System.out.println("1.Info about stores and products");
@@ -266,8 +256,25 @@ public class TradingSystem {
 
 
 
+        private Socket clientSocket;
+        private static PrintWriter out;
+        private static BufferedReader in;
 
+        public void startConnection(String ip, int port) throws IOException {
+            clientSocket = new Socket(ip, port);
+            out = new PrintWriter(clientSocket.getOutputStream(), true);
+            in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+        }
 
+        public static String sendMessage(String msg) throws IOException {
+            out.println(msg);
+            String resp = in.readLine();
+            return resp;
+        }
 
-
-}
+        public void stopConnection() throws IOException {
+            in.close();
+            out.close();
+            clientSocket.close();
+        }
+    }

@@ -1,2 +1,3 @@
-Mar 27, 2021 7:15:37 PM KingLogger logError
-WARNING: this is a warning logger test
+Mar 29, 2021 12:06:58 PM KingLogger logError
+WARNING: User try to login with name ee and pass r and Failed
+

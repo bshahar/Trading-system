@@ -1,2 +1,2 @@
-public class Registered {
+public class Registered extends State {
 }

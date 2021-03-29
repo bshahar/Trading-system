@@ -23,7 +23,7 @@ class KingLogger {
             if (KingLogger.Eventlogger == null) {
                 try {
                     Eventlogger = Logger.getLogger(name);
-                    EventHandler = new FileHandler("eventLog.txt");
+                    EventHandler = new FileHandler("eventLog.txt", true);
                     fm1 = new SimpleFormatter();
                     EventHandler.setFormatter(fm1);
                     Eventlogger.addHandler(EventHandler);
@@ -37,7 +37,7 @@ class KingLogger {
             if (KingLogger.Errorlogger == null) {
                 try {
                     Errorlogger = Logger.getLogger(name);
-                    ErrorHandler = new FileHandler("errorLog.txt");
+                    ErrorHandler = new FileHandler("errorLog.txt", true);
                     fm2 = new SimpleFormatter();
                     ErrorHandler.setFormatter(fm2);
                     Errorlogger.addHandler(ErrorHandler);

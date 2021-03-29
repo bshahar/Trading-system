@@ -1,6 +1,2 @@
-Mar 29, 2021 12:07:14 PM KingLogger logEvent
-INFO: User ee register to the system
-
-Mar 29, 2021 12:07:21 PM KingLogger logEvent
-INFO: User ee enter the system
-
+Mar 29, 2021 8:39:21 PM KingLogger logEvent
+WARNING: HII

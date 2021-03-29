@@ -1,2 +1,6 @@
-Mar 27, 2021 7:15:36 PM KingLogger logEvent
-INFO: this is a info logger test
+Mar 29, 2021 12:07:14 PM KingLogger logEvent
+INFO: User ee register to the system
+
+Mar 29, 2021 12:07:21 PM KingLogger logEvent
+INFO: User ee enter the system
+

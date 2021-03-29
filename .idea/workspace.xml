@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="d2abe74c-3ee9-4164-b09a-1502011813c6" name="Default Changelist" comment="User side #27" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1qCZ5UhrZYmhAYt30y68bik97Ie" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="TradingSystem" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="TradingSystem" />
+      <module name="Trading-system" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="d2abe74c-3ee9-4164-b09a-1502011813c6" name="Default Changelist" comment="" />
+      <created>1616585348118</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1616585348118</updated>
+    </task>
+    <task id="LOCAL-00001" summary="delete user file">
+      <created>1616585398700</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1616585398700</updated>
+    </task>
+    <task id="LOCAL-00002" summary="add files #23">
+      <created>1616585836534</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1616585836534</updated>
+    </task>
+    <task id="LOCAL-00003" summary="User side #27">
+      <created>1617004884000</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1617004884000</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <MESSAGE value="delete user file" />
+    <MESSAGE value="add files #23" />
+    <MESSAGE value="User side #27" />
+    <option name="LAST_COMMIT_MESSAGE" value="User side #27" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="-1506" y="185" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616585811604">
+      <screen x="-1920" y="10" width="1920" height="1040" />
+    </state>
+    <state x="-1506" y="185" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585811604" />
+    <state x="2685" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1617004826203">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2685" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617004826203" />
+    <state x="-1231" y="332" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1616585810086">
+      <screen x="-1920" y="10" width="1920" height="1040" />
+    </state>
+    <state x="-1231" y="332" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585810086" />
+    <state x="-1180" y="285" key="FileChooserDialogImpl" timestamp="1616585423335">
+      <screen x="-1920" y="10" width="1920" height="1040" />
+    </state>
+    <state x="-1180" y="285" key="FileChooserDialogImpl/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585423335" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1616619416397">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585884626" />
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1616619416397" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1616619416397">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585884626" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1616619416397" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1616619416397">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585884626" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1616619416397" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1616619416397">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585884626" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616619416397" />
+    <state x="2258" y="172" key="MergeDialog" timestamp="1617004416455">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="2258" y="172" key="MergeDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617004416455" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1617004890019">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1368" y="263" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585878146" />
+    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617004890019" />
+    <state x="2697" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617004382318">
+      <screen x="1920" y="0" width="1920" height="1040" />
+    </state>
+    <state x="-1143" y="444" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585870901" />
+    <state x="2697" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617004382318" />
+  </component>
+</project>

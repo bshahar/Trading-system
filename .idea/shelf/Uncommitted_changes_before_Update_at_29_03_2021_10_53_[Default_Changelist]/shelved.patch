@@ -1,0 +1,17 @@
+Index: src/TradingSystem.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>\r\n\r\npublic class TradingSystem {\r\n    public static void main(String[] args) {\r\n        System.out.println(\"FooBar123!\");\r\n\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- src/TradingSystem.java	(revision d01420df843e8dd59264bb46026196b5c26bd93d)
++++ src/TradingSystem.java	(date 1616586575332)
+@@ -1,6 +1,6 @@
+-
+ 
+ public class TradingSystem {
++
+     public static void main(String[] args) {
+         System.out.println("FooBar123!");
+ 

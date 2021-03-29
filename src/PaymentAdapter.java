@@ -5,7 +5,7 @@ public class PaymentAdapter {
 
     }
 
-    public boolean pay(Bag bag /*or amount*/, String creditCardNumber) { //TODO fix args & implement
+    public boolean pay(double amount, String creditCardNumber) { //TODO fix args & implement
         return true;
     }
 }

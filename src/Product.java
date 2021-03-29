@@ -8,7 +8,7 @@ public class Product {
         Other
     } //TODO add more categories
 
-
+    private int id;
     private String name;
     private List<Category> categories;
     private double price;
@@ -17,7 +17,8 @@ public class Product {
     private String description;
     private List<String> reviews;
 
-    public Product(String name, List<Category> categories, double price ,double rate, String description) {
+    public Product(int id, String name, List<Category> categories, double price ,double rate, String description) {
+        this.id = id;
         this.name = name;
         this.categories = categories;
         this.price = price;

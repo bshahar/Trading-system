@@ -31,4 +31,8 @@ public class Store {
         this.bosses.add(boss);
     }
 
+    public String getStoreInfo() {
+        String str = "";
+        return "";
+    }
 }

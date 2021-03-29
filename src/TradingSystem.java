@@ -128,7 +128,7 @@ public class TradingSystem {
             switch (ans)
             {
                 case 1:
-                    storeInfo(userId);
+                    storesInfo();
                     break;
                 case 2:
                     search(userId);
@@ -154,12 +154,12 @@ public class TradingSystem {
     {
         int ans = -1;
         do {
-            printSystemMainPageReister(userId);
+            printSystemMainPageRegister(userId);
             ans = getValidInput(1,10);
             switch (ans)
             {
                 case 1:
-                    storeInfo(userId);
+                    storesInfo();
                     break;
                 case 2:
                     search(userId);
@@ -217,7 +217,20 @@ public class TradingSystem {
     private static void search(int userId) {
     }
 
-    private static void storeInfo(int userId) {
+    private static void storesInfo() {
+        //TODO print the stores names and let the user choose one
+        int storeIndex = getValidInput(1, stores.size());
+        if(storeIndex != -1) {
+            Store s = getStoreByIndex(storeIndex);
+            System.out.print(s.getStoreInfo());
+        }
+        else
+            System.out.println("invalid choice, try again");
+    }
+
+    private static Store getStoreByIndex(int index) {
+        Store[] storesArr = (Store[]) stores.toArray();
+        return storesArr[index-1];
     }
 
     private static int getValidInput(int min , int max)
@@ -250,7 +263,7 @@ public class TradingSystem {
         System.out.println("4.Exit");
     }
 
-    private static void printSystemMainPageReister(int userId)
+    private static void printSystemMainPageRegister(int userId)
     {
         System.out.println("Enter your choose:");
         System.out.println("1.Info about stores and products");

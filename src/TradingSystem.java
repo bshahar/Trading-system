@@ -26,35 +26,23 @@ public class TradingSystem {
 
 
     public boolean register(String userName, String pass) {
-//        System.out.println("hereee");
         //TODO add restriction on password
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("Please Enter user name");
-//        String userName = scanner.nextLine();
-//        System.out.println("Please Enter password");
-//        String pass = scanner.nextLine();
+
         if(userPass.containsKey(userName))
         {
-//            System.out.println("User"+userName+"already exist , try again\n");
             return false;
         }
         else
         {
             userPass.put(userName,pass);
             KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
-//            System.out.println("Register Successfully! You can now enter the system");
             users.add(new User(userName,userCounter++));
             return true;
         }
     }
 
-    public void login(String userName,String pass) {
-//        System.out.println("ggg");
-//        Scanner scanner = new Scanner(System.in);
-//        System.out.println("Please Enter Your user name");
-//        String userName = scanner.nextLine();
-//        System.out.println("Please Enter Your password");
-//        String pass = scanner.nextLine();
+    //if the user login successfully return his id. else return -1
+    public int login(String userName,String pass) {
         if(loginAuthentication(userName,pass))
         {
             System.out.println("Login successfully!\n");
@@ -64,14 +52,14 @@ public class TradingSystem {
             {
                 if(user.getUserName() == userName)
                 {
-                    id = user.getId();
+                    return user.getId();
                 }
             }
-//            systemMainPageRegister(id);
+            return -1;
         }
         else
         {
-            System.out.println("Error Login with user name or password , try again!\n");
+            return -1;
         }
     }
 
@@ -90,118 +78,27 @@ public class TradingSystem {
         return false;
     }
 
-    private void guestEnter() {
-        users.add(new User("Guest",-1));//TODO check what to give to guest user
-//        systemMainPageGuest(-1);
+    public int guestLogin() {
+        User guest=new User("Guest",userCounter++);
+        users.add(guest);
+        return guest.getId();
     }
 
-//    private void systemMainPageGuest(int userId)
-//    {
-//        int ans = -1;
-//        do {
-//            printSystemMainPageGuest(userId);
-//            ans = getValidInput(1,5);
-//            switch (ans)
-//            {
-//                case 1:
-//                    storesInfo();
-//                    break;
-//                case 2:
-//                    search(userId);
-//                    break;
-//                case 3:
-//                    editBag(userId);
-//                    break;
-//                case 4:
-//                    register();
-//                    break;
-//                case 5:
-//                    System.out.println("Bye Bye!");
-//                    break;
-//            }
-//        }while (ans != 4);
-//
-//    }
 
-
-
-    //main page when login to the system
-//    private void systemMainPageRegister(int userId)
-//    {
-//        int ans = -1;
-//        do {
-//            printSystemMainPageRegister(userId);
-//            ans = getValidInput(1,10);
-//            switch (ans)
-//            {
-//                case 1:
-//                    storesInfo();
-//                    break;
-//                case 2:
-//                    search(userId);
-//                    break;
-//                case 3:
-//                    editBag(userId);
-//                    break;
-//                case 4:
-//                    openStore(userId);
-//                    break;
-//                case 5:
-//                    writeReview(userId);
-//                    break;
-//                case 6:
-//                    rank(userId);
-//                    break;
-//                case 7:
-//                    contact(userId);
-//                    break;
-//                case 8:
-//                    purchasesHistory(userId);
-//                    break;
-//                case 9:
-//                    editInfo(userId);
-//                    break;
-//                case 10:
-//                    System.out.println("Bye Bye!");
-//                    break;
-//            }
-//        }while (ans != 4);
-//
-//    }
-
-    private void editInfo(int userId) {
+    private String getPurchasesHistory(int userId) {
+        return null;
     }
 
-    private void purchasesHistory(int userId) {
-    }
 
-    private void contact(int userId) {
-    }
 
-    private void rank(int userId) {
-    }
-
-    private void writeReview(int userId) {
-    }
-
-    private void openStore(int userId) {
-    }
-
-    private void editBag(int userId) {
-    }
-
-    private void search(int userId) {
-    }
-
-    private void storesInfo(int storeIndex) {
+    private String storesInfo(int storeIndex) {
         //TODO print the stores names and let the user choose one
-//        int storeIndex = getValidInput(1, stores.size());
         if(storeIndex != -1) {
             Store s = getStoreByIndex(storeIndex);
-            System.out.print(s.getStoreInfo());
+            return (s.getStoreInfo());
         }
         else
-            System.out.println("invalid choice, try again");
+            return null;
     }
 
     private Store getStoreByIndex(int index) {
@@ -209,63 +106,115 @@ public class TradingSystem {
         return storesArr[index-1];
     }
 
-//
-//    private int getValidInput(int min , int max)
-//    {
-//        int ans = -1;
-//        do {
-//            Scanner scanner = new Scanner(System.in);
-//            String input = scanner.nextLine();
-//            try {
-//                ans = Integer.parseInt(input);
-//                if (ans < min || ans > max) {
-//                    System.out.println("invalid choice, try again");
-//                }
-//                else
-//                    return ans;
-//            } catch (Exception e) {
-//                System.out.println("invalid choice, try again");
-//            }
-//        }while (ans>=min || ans<=max);
-//        return -1;
-//    }
+    public boolean logout(String userName, String password) {
+        //TODO
+        return false;
+    }
 
-//
-//    private void printMainMenu()
-//    {
-//        System.out.println("Enter your choose:");
-//        System.out.println("1.Enter as guest");
-//        System.out.println("2.Login");
-//        System.out.println("3.Register");
-//        System.out.println("4.Exit");
-//    }
-//
-//    private void printSystemMainPageRegister(int userId)
-//    {
-//        System.out.println("Enter your choose:");
-//        System.out.println("1.Info about stores and products");
-//        System.out.println("2.Search & add products to bag");
-//        System.out.println("3.Edit my bags");
-//        System.out.println("4.Open Store");
-//        System.out.println("5.Write review");
-//        System.out.println("6.Rank store & products");
-//        System.out.println("7.Contact us!(Questions , request , complains)");
-//        System.out.println("8.Purchases history");
-//        System.out.println("9.Show and edit details");
-//        System.out.println("10.Logout");
-//
-//    }
-//
-//    private void printSystemMainPageGuest(int userId)
-//    {
-//        System.out.println("Enter your choose:");
-//        System.out.println("1.Info about stores and products");
-//        System.out.println("2.Search & add products to bag");
-//        System.out.println("3.Edit my bags");
-//        System.out.println("4.Register");
-//        System.out.println("5.Exit the system");
-//
-//    }
+    public int getNumOfUsers(){
+        return users.size();
+    }
+
+    public boolean guestLogout(int id) {
+        //TODO
+        return false;
+    }
+
+    public String getAllStoresInfo() {
+        //TODO
+        return null;
+    }
+
+    public List<Integer> getProducts(String searchType, String param, String[] filter){
+        //TODO
+        return null;
+    }
+
+    public boolean saveProductInBug(int userId, int storeId){
+        //TODO
+        return false;
+    }
+
+    public String getChart(int userId){
+        //TODO
+        return null;
+    }
+
+    public boolean addProductToChart(int userId,int storeId, int ProductId){
+        //TODO
+        return false;
+    }
+
+    public boolean RemoveProductFromChart(int userId,int storeId, int ProductId){
+        //TODO
+        return false;
+    }
+
+    public boolean buyProducts(int userId, int StoreId, String CreditInfo){
+        //TODO
+        return false;
+    }
+
+    public boolean addProductToStore(int userId,String name, List<Product.Category> categories,double price, String description){
+        //TODO
+        return false;
+    }
+
+    //returns the new store id
+    public int openStore(int userId, String storeName){
+        //TODO
+        return -1;
+    }
+
+    public boolean addStoreOwner(int ownerId, int userId,int storeId){
+        //TODO
+        return false;
+    }
+
+    public boolean addStoreManager(int ownerId, int userId, int storeId){
+        //TODO
+        return false;
+    }
+
+    public boolean addPermission(int ownerId, int managerId, int storeId, Permissions permission){
+        //TODO
+        return false;
+    }
+
+    public boolean removePermission(int ownerId, int managerId, int storeId, Permissions permission){
+        //TODO
+        return false;
+    }
+
+    public boolean removeManager(int ownerId, int managerId, int storeId){
+        //TODO
+        return false;
+    }
+
+    public String getWorkersInformation(int ownerId, int storeId){
+        //TODO
+        return null;
+    }
+
+    public String getStorePurchaseHistory(int ownerId, int storeId){
+        //TODO
+        return null;
+    }
+
+    public boolean doSomething(int mangaerId, int storeId, Permissions permission){
+        //TODO
+        return false;
+    }
+
+    public String getAllPurchases(int systemManager){
+        //TODO
+        return null;
+    }
+
+
+
+
+
 
 
 

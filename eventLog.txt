@@ -1,2 +1,4 @@
 Mar 29, 2021 8:39:21 PM KingLogger logEvent
 WARNING: HII
+מרץ 30, 2021 4:12:44 PM KingLogger logEvent
+INFO: User kandabior register to the system

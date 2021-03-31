@@ -1,9 +1,11 @@
+import javax.crypto.NoSuchPaddingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.logging.Level;
 
 public class TradingSystem {
 
-    private static int userCounter ;
+    private static counter userCounter;
 
     private PaymentAdapter paymentAdapter;
     private SupplementAdapter supplementAdapter;
@@ -12,6 +14,7 @@ public class TradingSystem {
     private  List<Receipt> receipts;
     private  List<User> users; //TODO every user is a thread
     private  HashMap<String,String> userPass; // TODO change that the password will be secure
+    private Encryptor encryptor;
 
 
 
@@ -21,22 +24,21 @@ public class TradingSystem {
         this.systemManager =null;
         this.users = new LinkedList<>();
         this.userPass = new LinkedHashMap<>();
-        this.userCounter = 1;
+        this.encryptor = new Encryptor();
+        this.userCounter = new counter();
     }
 
 
     public boolean register(String userName, String pass) {
-        //TODO add restriction on password
-
         if(userPass.containsKey(userName))
         {
             return false;
         }
         else
         {
-            userPass.put(userName,pass);
+            userPass.put(userName,this.encryptor.encrypt(pass));
             KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
-            users.add(new User(userName,userCounter++));
+            users.add(new User(userName,userCounter.inc()));
             return true;
         }
     }
@@ -55,18 +57,14 @@ public class TradingSystem {
                     return user.getId();
                 }
             }
-            return -1;
         }
-        else
-        {
-            return -1;
-        }
+        return -1;
     }
 
     private boolean loginAuthentication(String userName, String pass) {
         if(userPass.containsKey(userName))//write like this for the error log
         {
-            if(userPass.get(userName).equals(pass))
+            if(userPass.get(userName).equals(encryptor.encrypt(pass)))
                 return true;
             else
                 KingLogger.logEvent(Level.INFO,"User try to login with name "+userName+" and pass "+pass+" and Failed");
@@ -79,10 +77,18 @@ public class TradingSystem {
     }
 
     public int guestLogin() {
-        User guest=new User("Guest",userCounter++);
+        User guest=new User("Guest",userCounter.inc());
         users.add(guest);
         return guest.getId();
     }
+    public boolean isLogged(int userId)
+    {
+        User user =getUserById(userId);
+        if(user != null)
+            return user.isLooged();
+        return false;
+    }
+
 
 
     private String getPurchasesHistory(int userId) {
@@ -107,22 +113,41 @@ public class TradingSystem {
     }
 
     public boolean guestRegister (int userId,String userName,String password){
-        //TODO
-        return false;
+        if(userPass.containsKey(userName))
+        {
+            return false;
+        }
+        else
+        {
+            userPass.put(userName,this.encryptor.encrypt(password));
+            KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
+            users.add(new User(userName,userId));
+            return true;
+        }
     }
 
     public boolean logout(int userId) {
-        //TODO
+        if(getUserById(userId) != null)
+        {
+            getUserById(userId).setLooged(false);
+            return true;
+        }
         return false;
     }
+
+    private User getUserById(int userId)
+    {
+        for(User user : users)
+        {
+            if(user.getId() == userId)
+                return user;
+        }
+        return null;
+    }
+
 
     public int getNumOfUsers(){
         return users.size();
-    }
-
-    public boolean guestLogout(int id) {
-        //TODO
-        return false;
     }
 
     public String getAllStoresInfo() {

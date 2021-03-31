@@ -19,9 +19,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2abe74c-3ee9-4164-b09a-1502011813c6" name="Default Changelist" comment="Additional methods to Permissions class #24">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="5c719c11-8791-451b-8edb-d6da659c6586" name="Default Changelist" comment="User side #27">
+      <change afterPath="$PROJECT_DIR$/src/storeTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/userTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,18 +46,13 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="dorin" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
-  </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="-10" />
-    <option name="width" value="979" />
-    <option name="height" value="1040" />
   </component>
   <component name="ProjectId" id="1qCZ5UhrZYmhAYt30y68bik97Ie" />
   <component name="ProjectLevelVcsManager">
@@ -64,34 +64,108 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="false" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
-  <component name="RunManager">
-    <configuration name="TradingSystem" type="Application" factoryName="Application" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="TradingSystem" />
+  <component name="RunManager" selected="JUnit.userTest">
+    <configuration name="Bag" type="Application" factoryName="Application" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server" />
       <module name="Trading-system" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="AuthTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AuthTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthTest.guestLoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AuthTest" />
+      <option name="METHOD_NAME" value="guestLoginTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthTest.loginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AuthTest" />
+      <option name="METHOD_NAME" value="loginTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthTest.scalabilityUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="AuthTest" />
+      <option name="METHOD_NAME" value="scalabilityUserTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="userTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value=".*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="userTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.userTest" />
+        <item itemvalue="JUnit.AuthTest.scalabilityUserTest" />
+        <item itemvalue="JUnit.AuthTest.loginTest" />
+        <item itemvalue="JUnit.AuthTest.guestLoginTest" />
+        <item itemvalue="JUnit.AuthTest" />
+      </list>
+    </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="d2abe74c-3ee9-4164-b09a-1502011813c6" name="Default Changelist" comment="" />
+      <changelist id="5c719c11-8791-451b-8edb-d6da659c6586" name="Default Changelist" comment="User side #27" />
       <created>1616585348118</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1616585348118</updated>
-      <workItem from="1617025153351" duration="37000" />
     </task>
     <task id="LOCAL-00001" summary="delete user file">
       <created>1616585398700</created>
@@ -114,32 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617004884000</updated>
     </task>
-    <task id="LOCAL‎00004" summary="workspace.xml">
-      <created>1617025251920</created>
+    <task id="LOCAL‎00004" summary="User side #27">
+      <created>1617105124754</created>
       <option name="number" value="LOCAL‎00004" />
       <option name="presentableId" value="LOCAL‎00004" />
-      <updated>1617025251920</updated>
+      <updated>1617105124754</updated>
     </task>
-    <task id="LOCAL‎00005" summary="Start work on permission class #24">
-      <created>1617026907884</created>
-      <option name="number" value="LOCAL‎00005" />
-      <option name="presentableId" value="LOCAL‎00005" />
-      <updated>1617026907884</updated>
-    </task>
-    <task id="LOCAL‎00006" summary="tmp #24">
-      <created>1617036039555</created>
-      <option name="number" value="LOCAL‎00006" />
-      <option name="presentableId" value="LOCAL‎00006" />
-      <updated>1617036039555</updated>
-    </task>
-    <option name="localTasksCounter" value="7" />
+    <option name="localTasksCounter" value="5" />
     <servers />
-  </component>
-  <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="37000" />
-  </component>
-  <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -151,20 +207,6 @@
         </entry>
       </map>
     </option>
-    <option name="RECENT_FILTERS">
-      <map>
-        <entry key="Branch">
-          <value>
-            <list />
-          </value>
-        </entry>
-        <entry key="User">
-          <value>
-            <list />
-          </value>
-        </entry>
-      </map>
-    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
@@ -172,94 +214,6 @@
     <MESSAGE value="delete user file" />
     <MESSAGE value="add files #23" />
     <MESSAGE value="User side #27" />
-    <MESSAGE value="workspace.xml" />
-    <MESSAGE value="Start work on permission class #24" />
-    <MESSAGE value="tmp #24" />
-    <option name="LAST_COMMIT_MESSAGE" value="tmp #24" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="-1506" y="185" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616585811604">
-      <screen x="-1920" y="10" width="1920" height="1040" />
-    </state>
-    <state x="-1506" y="185" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585811604" />
-    <state x="2685" y="236" key="#com.intellij.ide.util.MemberChooser" timestamp="1617004826203">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2685" y="236" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617004826203" />
-    <state x="-1231" y="332" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1616585810086">
-      <screen x="-1920" y="10" width="1920" height="1040" />
-    </state>
-    <state x="-1231" y="332" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585810086" />
-    <state width="422" height="466" key="DebuggerActiveHint" timestamp="1617008809323">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="422" height="466" key="DebuggerActiveHint/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617008809323" />
-    <state x="-1180" y="285" key="FileChooserDialogImpl" timestamp="1616585423335">
-      <screen x="-1920" y="10" width="1920" height="1040" />
-    </state>
-    <state x="-1180" y="285" key="FileChooserDialogImpl/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585423335" />
-    <state width="1877" height="418" key="GridCell.Tab.0.bottom" timestamp="1617010815133">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585884626" />
-    <state width="1877" height="418" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617010815133" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1616619416397" />
-    <state width="1877" height="418" key="GridCell.Tab.0.center" timestamp="1617010815133">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585884626" />
-    <state width="1877" height="418" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617010815133" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1616619416397" />
-    <state width="1877" height="418" key="GridCell.Tab.0.left" timestamp="1617010815133">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585884626" />
-    <state width="1877" height="418" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617010815133" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1616619416397" />
-    <state width="1877" height="418" key="GridCell.Tab.0.right" timestamp="1617010815133">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585884626" />
-    <state width="1877" height="418" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617010815133" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616619416397" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1617008827961">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617008827961" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1617008827961">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617008827961" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1617008827961">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617008827961" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1617008827961">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617008827961" />
-    <state x="2258" y="172" key="MergeDialog" timestamp="1617004416455">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2258" y="172" key="MergeDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617004416455" />
-    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1617036047527">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="-1368" y="263" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585878146" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617004890019" />
-    <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1617036047527" />
-    <state x="2697" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617004382318">
-      <screen x="1920" y="0" width="1920" height="1040" />
-    </state>
-    <state x="-1143" y="444" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585870901" />
-    <state x="2697" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617004382318" />
-    <state x="478" y="147" width="579" height="530" key="find.popup" timestamp="1617114322682">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="478" y="147" width="579" height="530" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1617114322682" />
-    <state x="472" y="201" key="git4idea.merge.GitPullDialog" timestamp="1617188362893">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="472" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1617188362893" />
+    <option name="LAST_COMMIT_MESSAGE" value="User side #27" />
   </component>
 </project>

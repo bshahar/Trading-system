@@ -1,3 +1,4 @@
+import java.util.logging.Level;
 
 public class Bag {
     private Store store;
@@ -10,5 +11,4 @@ public class Bag {
         this.user = user;
         this.store = store;
     }
-
 }

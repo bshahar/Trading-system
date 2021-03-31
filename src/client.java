@@ -1,10 +1,12 @@
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.Socket;
 import java.util.Scanner;
-import java.util.logging.Level;
+import org.json.simple.JSONObject;
+
 
 public class client {
 
@@ -42,19 +44,15 @@ public class client {
         String userName = scanner.nextLine();
         System.out.println("Please Enter password");
         String pass = scanner.nextLine();
-        String response = client.sendMessage("REGISTER name "+userName+" pass "+pass);
+
+        JSONObject obj = new JSONObject();
+        obj.put("type", "REGISTER");
+        obj.put("name", userName);
+        obj.put("pass", pass);
+        String msg = obj.toJSONString();
+
+        String response = client.sendMessage(msg);
         System.out.println(response);
-//        if(userPass.containsKey(userName))
-//        {
-//            System.out.println("User"+userName+"already exist , try again\n");
-//        }
-//        else
-//        {
-//            userPass.put(userName,pass);
-//            KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
-//            System.out.println("Register Successfully! You can now enter the system");
-//            users.add(new User(userName,userCounter++));
-//        }
     }
 
     private static void login() throws IOException {

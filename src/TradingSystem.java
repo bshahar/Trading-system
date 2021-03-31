@@ -1,3 +1,5 @@
+import org.json.simple.JSONObject;
+
 import java.util.*;
 import java.util.logging.Level;
 
@@ -25,16 +27,13 @@ public class TradingSystem {
     }
 
 
-    public void register(String inputLine) {
-        System.out.println("hereee");
-        //TODO add restriction on password
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please Enter user name");
-        String userName = scanner.nextLine();
-        System.out.println("Please Enter password");
-        String pass = scanner.nextLine();
+    public void register(String userName, String pass) {
         if(userPass.containsKey(userName))
         {
+            JSONObject obj = new JSONObject();
+            obj.put("type", "FAIL");
+            obj.put("msg", userName+"userName"+"already exist , try again\n");
+            String msg = obj.toJSONString();
             System.out.println("User"+userName+"already exist , try again\n");
         }
         else
@@ -46,13 +45,7 @@ public class TradingSystem {
         }
     }
 
-    public void login(String inputLine) {
-        System.out.println("ggg");
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Please Enter Your user name");
-        String userName = scanner.nextLine();
-        System.out.println("Please Enter Your password");
-        String pass = scanner.nextLine();
+    public void login(String userName,String pass) {
         if(loginAuthentication(userName,pass))
         {
             System.out.println("Login successfully!\n");
@@ -111,7 +104,7 @@ public class TradingSystem {
                     editBag(userId);
                     break;
                 case 4:
-                    register("");
+                    register(null,null);
                     break;
                 case 5:
                     System.out.println("Bye Bye!");

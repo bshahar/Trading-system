@@ -1,4 +1,7 @@
 
+import org.json.simple.JSONObject;
+import org.json.simple.JSONValue;
+
 import java.net.*;
 import java.io.*;
 
@@ -48,14 +51,15 @@ class Server {
                 in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 String inputLine;
                 while ((inputLine = in.readLine()) != null) {
-                    String action = inputLine.substring(0, inputLine.indexOf(' '));
+                    JSONObject jsonObject = (JSONObject) JSONValue.parse(inputLine);;
+                    String action = (String)jsonObject.get("type");
                     switch (action)
                     {
                         case "LOGIN":
-                            tradingSystem.login(inputLine);
+                            tradingSystem.login((String)jsonObject.get("name"),(String)jsonObject.get("pass"));
                             break;
                         case "REGISTER":
-                            tradingSystem.register(inputLine);
+                            tradingSystem.register((String)jsonObject.get("name"),(String)jsonObject.get("pass"));
                             break;
                     }
                     if (".".equals(inputLine)) {

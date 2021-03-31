@@ -20,17 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c719c11-8791-451b-8edb-d6da659c6586" name="Default Changelist" comment="User side #27">
-      <change afterPath="$PROJECT_DIR$/docs/~$e case.docx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AuthTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/StoreTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Use case.docx" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Use case.docx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/client.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/storeTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/userTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/userTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/userTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +47,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="EladSolomon" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -155,10 +149,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.userTest" />
-        <item itemvalue="JUnit.AuthTest" />
         <item itemvalue="JUnit.AuthTest.scalabilityUserTest" />
-        <item itemvalue="JUnit.AuthTest.guestLoginTest" />
         <item itemvalue="JUnit.AuthTest.loginTest" />
+        <item itemvalue="JUnit.AuthTest.guestLoginTest" />
+        <item itemvalue="JUnit.AuthTest" />
       </list>
     </recent_temporary>
   </component>

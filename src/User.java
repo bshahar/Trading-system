@@ -5,6 +5,7 @@ public class User {
     private State state;
     private List<Bag> bags;
     private String userName;
+    private boolean looged;
     private int id;
 
 
@@ -13,6 +14,15 @@ public class User {
         this.bags = new LinkedList<>();
         this.userName = userName;
         this.id = id;
+        this.looged = true;
+    }
+
+    public void setLooged(boolean looged) {
+        this.looged = looged;
+    }
+
+    public boolean isLooged() {
+        return looged;
     }
 
     public int getId() {

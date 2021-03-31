@@ -2,6 +2,9 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.crypto.NoSuchPaddingException;
+import java.security.NoSuchAlgorithmException;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class AuthTest {
@@ -9,9 +12,8 @@ public class AuthTest {
     TradingSystem tradingSystem;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() {
         tradingSystem= new TradingSystem();
-
     }
 
     @Test
@@ -35,7 +37,9 @@ public class AuthTest {
         String userName="kandabior";
         String password= "or321654";
         tradingSystem.register(userName,password);
-        assertEquals(1,tradingSystem.login(userName,password));
+        int index = tradingSystem.login(userName,password);
+        assertEquals(index,tradingSystem.login(userName,password));
+        assertTrue(tradingSystem.isLogged(index));
     }
 
     @Test
@@ -52,17 +56,16 @@ public class AuthTest {
         tradingSystem.register(userName,password);
         tradingSystem.login(userName,password);
         assertTrue(tradingSystem.logout(1));
+        assertFalse(tradingSystem.isLogged(1));
     }
 
     @Test
     public void guestLoginTest() throws  Exception{
-        assertEquals(1, tradingSystem.guestLogin());
-    }
+        int index = tradingSystem.guestLogin();
+        System.out.println(index);
+        assertEquals(index, 1);
+        assertTrue(tradingSystem.isLogged(index));
 
-    @Test
-    public void guestLogoutTest() throws  Exception{
-        int id= tradingSystem.guestLogin();
-        assertEquals(true, tradingSystem.guestLogout(id));
     }
 
     @Test
@@ -80,6 +83,7 @@ public class AuthTest {
     public void guestRegisterTest() throws  Exception{
         int guestId= tradingSystem.guestLogin();
         assertTrue(tradingSystem.guestRegister(guestId,"or","or321654"));
+        assertTrue(tradingSystem.isLogged(guestId));
     }
 
 

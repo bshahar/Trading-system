@@ -106,7 +106,12 @@ public class TradingSystem {
         return storesArr[index-1];
     }
 
-    public boolean logout(String userName, String password) {
+    public boolean guestRegister (int userId,String userName,String password){
+        //TODO
+        return false;
+    }
+
+    public boolean logout(int userId) {
         //TODO
         return false;
     }
@@ -135,7 +140,7 @@ public class TradingSystem {
         return false;
     }
 
-    public String getChart(int userId){
+    public List<Integer> getChart(int userId){
         //TODO
         return null;
     }

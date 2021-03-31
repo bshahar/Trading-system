@@ -16,6 +16,7 @@ public class AuthTest {
 
     @Test
     public void registerTest() throws Exception{
+
         String userName="kandabior";
         String password= "or321654";
         assertTrue(tradingSystem.register(userName,password));
@@ -50,7 +51,7 @@ public class AuthTest {
         String password= "or321654";
         tradingSystem.register(userName,password);
         tradingSystem.login(userName,password);
-        assertTrue(tradingSystem.logout(userName,password));
+        assertTrue(tradingSystem.logout(1));
     }
 
     @Test
@@ -73,6 +74,12 @@ public class AuthTest {
             }
         }
         assertEquals(999,tradingSystem.getNumOfUsers());
+    }
+
+    @Test
+    public void guestRegisterTest() throws  Exception{
+        int guestId= tradingSystem.guestLogin();
+        assertTrue(tradingSystem.guestRegister(guestId,"or","or321654"));
     }
 
 

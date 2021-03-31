@@ -1,5 +1,3 @@
-import org.json.simple.JSONObject;
-
 import java.util.*;
 import java.util.logging.Level;
 
@@ -7,45 +5,56 @@ public class TradingSystem {
 
     private static int userCounter ;
 
-    private  PaymentAdapter paymentAdapter;
-    private  SupplementAdapter supplementAdapter;
+    private PaymentAdapter paymentAdapter;
+    private SupplementAdapter supplementAdapter;
     private  List<Store> stores;
-    private  Registered systemManager; //TODO change to whatever you want
+    private Registered systemManager; //TODO change to whatever you want
     private  List<Receipt> receipts;
     private  List<User> users; //TODO every user is a thread
     private  HashMap<String,String> userPass; // TODO change that the password will be secure
 
 
 
-    public TradingSystem (Registered systemManager) {
+    public TradingSystem () {
         this.stores = new LinkedList<>();
         this.receipts = new LinkedList<>();
-        this.systemManager = systemManager;
+        this.systemManager =null;
         this.users = new LinkedList<>();
         this.userPass = new LinkedHashMap<>();
         this.userCounter = 1;
     }
 
 
-    public void register(String userName, String pass) {
+    public boolean register(String userName, String pass) {
+//        System.out.println("hereee");
+        //TODO add restriction on password
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Please Enter user name");
+//        String userName = scanner.nextLine();
+//        System.out.println("Please Enter password");
+//        String pass = scanner.nextLine();
         if(userPass.containsKey(userName))
         {
-            JSONObject obj = new JSONObject();
-            obj.put("type", "FAIL");
-            obj.put("msg", userName+"userName"+"already exist , try again\n");
-            String msg = obj.toJSONString();
-            System.out.println("User"+userName+"already exist , try again\n");
+//            System.out.println("User"+userName+"already exist , try again\n");
+            return false;
         }
         else
         {
             userPass.put(userName,pass);
             KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
-            System.out.println("Register Successfully! You can now enter the system");
+//            System.out.println("Register Successfully! You can now enter the system");
             users.add(new User(userName,userCounter++));
+            return true;
         }
     }
 
     public void login(String userName,String pass) {
+//        System.out.println("ggg");
+//        Scanner scanner = new Scanner(System.in);
+//        System.out.println("Please Enter Your user name");
+//        String userName = scanner.nextLine();
+//        System.out.println("Please Enter Your password");
+//        String pass = scanner.nextLine();
         if(loginAuthentication(userName,pass))
         {
             System.out.println("Login successfully!\n");
@@ -58,7 +67,7 @@ public class TradingSystem {
                     id = user.getId();
                 }
             }
-            systemMainPageRegister(id);
+//            systemMainPageRegister(id);
         }
         else
         {
@@ -83,82 +92,82 @@ public class TradingSystem {
 
     private void guestEnter() {
         users.add(new User("Guest",-1));//TODO check what to give to guest user
-        systemMainPageGuest(-1);
+//        systemMainPageGuest(-1);
     }
 
-    private void systemMainPageGuest(int userId)
-    {
-        int ans = -1;
-        do {
-            printSystemMainPageGuest(userId);
-            ans = getValidInput(1,5);
-            switch (ans)
-            {
-                case 1:
-                    storesInfo();
-                    break;
-                case 2:
-                    search(userId);
-                    break;
-                case 3:
-                    editBag(userId);
-                    break;
-                case 4:
-                    register(null,null);
-                    break;
-                case 5:
-                    System.out.println("Bye Bye!");
-                    break;
-            }
-        }while (ans != 4);
-
-    }
+//    private void systemMainPageGuest(int userId)
+//    {
+//        int ans = -1;
+//        do {
+//            printSystemMainPageGuest(userId);
+//            ans = getValidInput(1,5);
+//            switch (ans)
+//            {
+//                case 1:
+//                    storesInfo();
+//                    break;
+//                case 2:
+//                    search(userId);
+//                    break;
+//                case 3:
+//                    editBag(userId);
+//                    break;
+//                case 4:
+//                    register();
+//                    break;
+//                case 5:
+//                    System.out.println("Bye Bye!");
+//                    break;
+//            }
+//        }while (ans != 4);
+//
+//    }
 
 
 
     //main page when login to the system
-    private void systemMainPageRegister(int userId)
-    {
-        int ans = -1;
-        do {
-            printSystemMainPageRegister(userId);
-            ans = getValidInput(1,10);
-            switch (ans)
-            {
-                case 1:
-                    storesInfo();
-                    break;
-                case 2:
-                    search(userId);
-                    break;
-                case 3:
-                    editBag(userId);
-                    break;
-                case 4:
-                    openStore(userId);
-                    break;
-                case 5:
-                    writeReview(userId);
-                    break;
-                case 6:
-                    rank(userId);
-                    break;
-                case 7:
-                    contact(userId);
-                    break;
-                case 8:
-                    purchasesHistory(userId);
-                    break;
-                case 9:
-                    editInfo(userId);
-                    break;
-                case 10:
-                    System.out.println("Bye Bye!");
-                    break;
-            }
-        }while (ans != 4);
-
-    }
+//    private void systemMainPageRegister(int userId)
+//    {
+//        int ans = -1;
+//        do {
+//            printSystemMainPageRegister(userId);
+//            ans = getValidInput(1,10);
+//            switch (ans)
+//            {
+//                case 1:
+//                    storesInfo();
+//                    break;
+//                case 2:
+//                    search(userId);
+//                    break;
+//                case 3:
+//                    editBag(userId);
+//                    break;
+//                case 4:
+//                    openStore(userId);
+//                    break;
+//                case 5:
+//                    writeReview(userId);
+//                    break;
+//                case 6:
+//                    rank(userId);
+//                    break;
+//                case 7:
+//                    contact(userId);
+//                    break;
+//                case 8:
+//                    purchasesHistory(userId);
+//                    break;
+//                case 9:
+//                    editInfo(userId);
+//                    break;
+//                case 10:
+//                    System.out.println("Bye Bye!");
+//                    break;
+//            }
+//        }while (ans != 4);
+//
+//    }
 
     private void editInfo(int userId) {
     }
@@ -184,9 +193,9 @@ public class TradingSystem {
     private void search(int userId) {
     }
 
-    private void storesInfo() {
+    private void storesInfo(int storeIndex) {
         //TODO print the stores names and let the user choose one
-        int storeIndex = getValidInput(1, stores.size());
+//        int storeIndex = getValidInput(1, stores.size());
         if(storeIndex != -1) {
             Store s = getStoreByIndex(storeIndex);
             System.out.print(s.getStoreInfo());
@@ -200,62 +209,63 @@ public class TradingSystem {
         return storesArr[index-1];
     }
 
-    private int getValidInput(int min , int max)
-    {
-        int ans = -1;
-        do {
-            Scanner scanner = new Scanner(System.in);
-            String input = scanner.nextLine();
-            try {
-                ans = Integer.parseInt(input);
-                if (ans < min || ans > max) {
-                    System.out.println("invalid choice, try again");
-                }
-                else
-                    return ans;
-            } catch (Exception e) {
-                System.out.println("invalid choice, try again");
-            }
-        }while (ans>=min || ans<=max);
-        return -1;
-    }
+//
+//    private int getValidInput(int min , int max)
+//    {
+//        int ans = -1;
+//        do {
+//            Scanner scanner = new Scanner(System.in);
+//            String input = scanner.nextLine();
+//            try {
+//                ans = Integer.parseInt(input);
+//                if (ans < min || ans > max) {
+//                    System.out.println("invalid choice, try again");
+//                }
+//                else
+//                    return ans;
+//            } catch (Exception e) {
+//                System.out.println("invalid choice, try again");
+//            }
+//        }while (ans>=min || ans<=max);
+//        return -1;
+//    }
 
-
-    private void printMainMenu()
-    {
-        System.out.println("Enter your choose:");
-        System.out.println("1.Enter as guest");
-        System.out.println("2.Login");
-        System.out.println("3.Register");
-        System.out.println("4.Exit");
-    }
-
-    private void printSystemMainPageRegister(int userId)
-    {
-        System.out.println("Enter your choose:");
-        System.out.println("1.Info about stores and products");
-        System.out.println("2.Search & add products to bag");
-        System.out.println("3.Edit my bags");
-        System.out.println("4.Open Store");
-        System.out.println("5.Write review");
-        System.out.println("6.Rank store & products");
-        System.out.println("7.Contact us!(Questions , request , complains)");
-        System.out.println("8.Purchases history");
-        System.out.println("9.Show and edit details");
-        System.out.println("10.Logout");
-
-    }
-
-    private void printSystemMainPageGuest(int userId)
-    {
-        System.out.println("Enter your choose:");
-        System.out.println("1.Info about stores and products");
-        System.out.println("2.Search & add products to bag");
-        System.out.println("3.Edit my bags");
-        System.out.println("4.Register");
-        System.out.println("5.Exit the system");
-
-    }
+//
+//    private void printMainMenu()
+//    {
+//        System.out.println("Enter your choose:");
+//        System.out.println("1.Enter as guest");
+//        System.out.println("2.Login");
+//        System.out.println("3.Register");
+//        System.out.println("4.Exit");
+//    }
+//
+//    private void printSystemMainPageRegister(int userId)
+//    {
+//        System.out.println("Enter your choose:");
+//        System.out.println("1.Info about stores and products");
+//        System.out.println("2.Search & add products to bag");
+//        System.out.println("3.Edit my bags");
+//        System.out.println("4.Open Store");
+//        System.out.println("5.Write review");
+//        System.out.println("6.Rank store & products");
+//        System.out.println("7.Contact us!(Questions , request , complains)");
+//        System.out.println("8.Purchases history");
+//        System.out.println("9.Show and edit details");
+//        System.out.println("10.Logout");
+//
+//    }
+//
+//    private void printSystemMainPageGuest(int userId)
+//    {
+//        System.out.println("Enter your choose:");
+//        System.out.println("1.Info about stores and products");
+//        System.out.println("2.Search & add products to bag");
+//        System.out.println("3.Edit my bags");
+//        System.out.println("4.Register");
+//        System.out.println("5.Exit the system");
+//
+//    }
 
 
 

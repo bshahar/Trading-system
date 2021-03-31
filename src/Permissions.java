@@ -115,9 +115,15 @@ public class Permissions {
                         if (this.roles.get(u2) == MANAGER) { //if new user was already a store manager
                             this.roles.replace(u2, MANAGER, OWNER);
                             addOwnerPermissions(u2);
+                            for (int id1: this.appointments.keySet()) { //if new user was already appointed
+                                if(this.appointments.get(id1) == newUserId)
+                                    this.appointments.remove(id1, newUserId);
+                            }
+                            this.appointments.put(currUserId, newUserId);
                         }
                         else if(!this.roles.containsKey(u2)) {
                             this.roles.put(u2, OWNER);
+                            this.appointments.put(currUserId, newUserId);
                             addOwnerPermissions(u2);
                         }
                         return true;
@@ -165,6 +171,8 @@ public class Permissions {
      * @return true true in case of success, false otherwise.
      */
     public boolean appointManager(int currUserId, int newUserId) {
+        if(this.roles.containsKey(getUserById(newUserId))) //user already had a role in this store
+            return false;
         for (User u1: this.roles.keySet()) {
             if (u1.getId() == currUserId && roles.get(u1) == OWNER) { //if current user is an owner of the store
                 for (User u2: this.roles.keySet()) {
@@ -186,9 +194,7 @@ public class Permissions {
         p.add(Operations.GetBossesInfo);
         p.add(Operations.ViewMessages);
         p.add(Operations.ReplayMessages);
-
-        if(this.usersPermissions.replace(user, p) == null) //if the user did not exist in the list before
-            this.usersPermissions.put(user, p);
+        this.usersPermissions.put(user, p);
     }
 
     /**
@@ -198,19 +204,6 @@ public class Permissions {
      * @return true true in case of success, false otherwise.
      */
     public boolean removeAppointment(int currUserId, int toRemoveId) {
-        /*for (User u1: this.roles.keySet()) {
-            if (u1.getId() == currUserId) { //find the removing user in the list
-                int u2_id = this.roles.get(u1);
-                if(u2_id == newUserId) { //find the removed user in the list
-                    this.roles.remove(u1.getId(), u2_id);
-                    //this.usersPermissions.remove(getUserById(u2));
-                    for (int id: ) {
-
-                    }
-                }
-            }
-        } */
-
         for (int id: this.appointments.keySet()) {
             if(id == currUserId && this.appointments.get(currUserId) == toRemoveId) {
                 this.roles.remove(getUserById(toRemoveId));

@@ -149,6 +149,96 @@ public class StoreTest {
         assertEquals(-1,tradingSystem.openStore(guestId1,"guest store"));
     }
 
+    @Test
+    public void addProductTest() throws Exception{
+        List<Product.Category> categories= new LinkedList<>();
+        categories.add(Product.Category.Food);
+        assertTrue(tradingSystem.addProductToStore(registerId1,"water",categories,5,"drink"));
+
+    }
+
+    @Test
+    public void addProductFailTest() throws Exception{
+        List<Product.Category> categories= new LinkedList<>();
+        categories.add(Product.Category.Food);
+        assertTrue(tradingSystem.addProductToStore(registerId2,"water",categories,5,"drink"));
+    }
+
+    @Test
+    public void removeProductTest() throws Exception{
+        tradingSystem.removeProductFromStore(registerId1,storeId1,1);
+        assertEquals(0,tradingSystem.getProductsFromStore(storeId1).size());
+    }
+
+    @Test
+    public void removeProductFailTest() throws Exception{
+        tradingSystem.removeProductFromStore(registerId2,storeId1,1);
+        assertEquals(0,tradingSystem.getProductsFromStore(storeId1).size());
+    }
+
+    @Test
+    public void addOwnerTest() throws Exception{
+        assertTrue(tradingSystem.addStoreOwner(registerId1,registerId2,storeId1));
+    }
+
+    @Test
+    public void addGuestOwnerFailTest() throws Exception{
+        guestId1=tradingSystem.guestLogin();
+        assertFalse(tradingSystem.addStoreOwner(registerId1,guestId1,storeId1));
+    }
+
+    @Test
+    public void addOwnerFailTest() throws Exception{
+        tradingSystem.addStoreOwner(registerId1,registerId2,storeId1);
+        assertFalse(tradingSystem.addStoreOwner(registerId2,registerId1,storeId1));
+    }
+
+    @Test
+    public void addManagerTest() throws Exception{
+        assertTrue(tradingSystem.addStoreManager(registerId1,registerId2,storeId1));
+    }
+
+    @Test
+    public void addGuestManagerFailTest() throws Exception{
+        guestId1=tradingSystem.guestLogin();
+        assertFalse(tradingSystem.addStoreManager(registerId1,guestId1,storeId1));
+    }
+
+    @Test
+    public void removeManagerTest() throws Exception{
+        tradingSystem.addStoreManager(registerId1,registerId2,storeId1);
+        assertTrue(tradingSystem.removeManager(registerId1,registerId2,storeId1));
+    }
+
+    @Test
+    public void removeManagerFailTest() throws Exception{
+        tradingSystem.addStoreOwner(registerId1,registerId2,storeId1);
+        tradingSystem.addStoreManager(registerId2,registerId3,storeId1);
+        assertFalse(tradingSystem.removeManager(registerId1,registerId3,storeId1));
+    }
+
+
+    @Test
+    public void getStoreInfoTest() throws Exception{
+        assertNotNull(tradingSystem.getWorkersInformation(registerId1,storeId1));
+    }
+
+    @Test
+    public void getStoreInfoFailTest() throws Exception{
+        assertNull(tradingSystem.getWorkersInformation(registerId2,storeId1));
+    }
+
+    @Test
+    public void getPurchaseHistoryTest() throws Exception{
+        assertNotNull(tradingSystem.getStorePurchaseHistory(registerId1,storeId1));
+    }
+
+
+
+
+
+
+
 
 
 

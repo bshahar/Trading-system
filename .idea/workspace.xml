@@ -19,14 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="d2abe74c-3ee9-4164-b09a-1502011813c6" name="Default Changelist" comment="User side #27">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_03_2021_10_53__Default_Changelist_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_03_2021_10_53__Default_Changelist_.xml" afterDir="false" />
+    <list default="true" id="d2abe74c-3ee9-4164-b09a-1502011813c6" name="Default Changelist" comment="Additional methods to Permissions class #24">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PaymentAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PaymentAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +49,11 @@
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="width" value="979" />
+    <option name="height" value="1040" />
+  </component>
   <component name="ProjectId" id="1qCZ5UhrZYmhAYt30y68bik97Ie" />
   <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
@@ -67,6 +67,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
   <component name="RunManager">
@@ -89,6 +91,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1616585348118</updated>
+      <workItem from="1617025153351" duration="37000" />
     </task>
     <task id="LOCAL-00001" summary="delete user file">
       <created>1616585398700</created>
@@ -111,8 +114,32 @@
       <option name="project" value="LOCAL" />
       <updated>1617004884000</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL‎00004" summary="workspace.xml">
+      <created>1617025251920</created>
+      <option name="number" value="LOCAL‎00004" />
+      <option name="presentableId" value="LOCAL‎00004" />
+      <updated>1617025251920</updated>
+    </task>
+    <task id="LOCAL‎00005" summary="Start work on permission class #24">
+      <created>1617026907884</created>
+      <option name="number" value="LOCAL‎00005" />
+      <option name="presentableId" value="LOCAL‎00005" />
+      <updated>1617026907884</updated>
+    </task>
+    <task id="LOCAL‎00006" summary="tmp #24">
+      <created>1617036039555</created>
+      <option name="number" value="LOCAL‎00006" />
+      <option name="presentableId" value="LOCAL‎00006" />
+      <updated>1617036039555</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="37000" />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -124,6 +151,20 @@
         </entry>
       </map>
     </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
+          </value>
+        </entry>
+      </map>
+    </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
@@ -131,7 +172,10 @@
     <MESSAGE value="delete user file" />
     <MESSAGE value="add files #23" />
     <MESSAGE value="User side #27" />
-    <option name="LAST_COMMIT_MESSAGE" value="User side #27" />
+    <MESSAGE value="workspace.xml" />
+    <MESSAGE value="Start work on permission class #24" />
+    <MESSAGE value="tmp #24" />
+    <option name="LAST_COMMIT_MESSAGE" value="tmp #24" />
   </component>
   <component name="WindowStateProjectService">
     <state x="-1506" y="185" width="1092" height="738" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616585811604">
@@ -198,15 +242,24 @@
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="2258" y="172" key="MergeDialog/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617004416455" />
-    <state x="2472" y="253" key="Vcs.Push.Dialog.v2" timestamp="1617004890019">
-      <screen x="1920" y="0" width="1920" height="1040" />
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2" timestamp="1617036047527">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-1368" y="263" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585878146" />
     <state x="2472" y="253" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617004890019" />
+    <state x="442" y="200" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1617036047527" />
     <state x="2697" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1617004382318">
       <screen x="1920" y="0" width="1920" height="1040" />
     </state>
     <state x="-1143" y="444" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/-1920.10.1920.1040@-1920.10.1920.1040" timestamp="1616585870901" />
     <state x="2697" y="434" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824/1920.0.1920.1040@1920.0.1920.1040" timestamp="1617004382318" />
+    <state x="478" y="147" width="579" height="530" key="find.popup" timestamp="1617114322682">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="147" width="579" height="530" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1617114322682" />
+    <state x="472" y="201" key="git4idea.merge.GitPullDialog" timestamp="1617188362893">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="472" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1617188362893" />
   </component>
 </project>

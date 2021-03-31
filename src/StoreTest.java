@@ -2,6 +2,8 @@
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import javax.crypto.NoSuchPaddingException;
+import java.security.NoSuchAlgorithmException;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -22,7 +24,7 @@ public class StoreTest {
     int storeId2;
 
     @BeforeEach
-    public void setUp(){
+    public void setUp() throws NoSuchAlgorithmException, NoSuchPaddingException {
         tradingSystem= new TradingSystem();
         String userName1="kandabior";
         String password1= "or321654";

@@ -150,7 +150,7 @@ public class TradingSystem {
         return false;
     }
 
-    public boolean RemoveProductFromChart(int userId,int storeId, int ProductId){
+    public boolean removeProductFromChart(int userId,int storeId, int ProductId){
         //TODO
         return false;
     }
@@ -161,6 +161,11 @@ public class TradingSystem {
     }
 
     public boolean addProductToStore(int userId,String name, List<Product.Category> categories,double price, String description){
+        //TODO
+        return false;
+    }
+
+    public boolean removeProductFromStore(int userId,int storeId, int prodeuctId){
         //TODO
         return false;
     }
@@ -217,14 +222,9 @@ public class TradingSystem {
     }
 
 
+    public List<Integer> getProductsFromStore(int storeId1) {
+        //TODO
+        return null;
 
-
-
-
-
-
-
-
-
-
+    }
 }

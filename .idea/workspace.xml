@@ -19,14 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c719c11-8791-451b-8edb-d6da659c6586" name="Default Changelist" comment="User side #27">
-      <change afterPath="$PROJECT_DIR$/src/storeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/userTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
+    <list default="true" id="5c719c11-8791-451b-8edb-d6da659c6586" name="Default Changelist" comment="update auth and store tests #26">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +36,9 @@
         <option value="Class" />
       </list>
     </option>
+  </component>
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="tests" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -194,7 +191,19 @@
       <option name="presentableId" value="LOCAL‎00004" />
       <updated>1617105124754</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL‎00005" summary="update auth and store tests #26">
+      <created>1617185130045</created>
+      <option name="number" value="LOCAL‎00005" />
+      <option name="presentableId" value="LOCAL‎00005" />
+      <updated>1617185130045</updated>
+    </task>
+    <task id="LOCAL‎00006" summary="update auth and store tests #26">
+      <created>1617185199224</created>
+      <option name="number" value="LOCAL‎00006" />
+      <option name="presentableId" value="LOCAL‎00006" />
+      <updated>1617185199224</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -214,6 +223,7 @@
     <MESSAGE value="delete user file" />
     <MESSAGE value="add files #23" />
     <MESSAGE value="User side #27" />
-    <option name="LAST_COMMIT_MESSAGE" value="User side #27" />
+    <MESSAGE value="update auth and store tests #26" />
+    <option name="LAST_COMMIT_MESSAGE" value="update auth and store tests #26" />
   </component>
 </project>

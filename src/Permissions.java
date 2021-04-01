@@ -229,6 +229,19 @@ public class Permissions {
         }
     }
 
+    public Set<User> getBosses() {
+        return this.roles.keySet();
+    }
+
+    public boolean validatePermission(User user, Operations op) {
+        for (User u: this.usersPermissions.keySet()) {
+            if(user.getId() == u.getId()) {
+                return this.usersPermissions.get(u).contains(op);
+            }
+        }
+        return false; //user is not an owner/ manager of this store
+    }
+
     //TODO replace with real implementation
     private User getUserById(int id) {
         return new User("tmp", 1);

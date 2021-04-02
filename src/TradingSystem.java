@@ -154,9 +154,8 @@ public class TradingSystem {
         //TODO
         return null;
     }
-
+    //TODO
     public List<Integer> getProducts(String searchType, String param, String[] filter){
-        //TODO
         return null;
     }
 
@@ -164,34 +163,34 @@ public class TradingSystem {
         //TODO
         return false;
     }
-
+    //TODO
     public List<Integer> getChart(int userId){
-        //TODO
+
         return null;
     }
-
+    //TODO
     public boolean addProductToChart(int userId,int storeId, int ProductId){
-        //TODO
+
         return false;
     }
-
+    //TODO
     public boolean removeProductFromChart(int userId,int storeId, int ProductId){
-        //TODO
+
         return false;
     }
-
+    //TODO
     public boolean buyProducts(int userId, int StoreId, String CreditInfo){
-        //TODO
+
         return false;
     }
-
+    //TODO
     public boolean addProductToStore(int userId,String name, List<Product.Category> categories,double price, String description){
-        //TODO
+
         return false;
     }
-
+    //TODO
     public boolean removeProductFromStore(int userId,int storeId, int prodeuctId){
-        //TODO
+
         return false;
     }
 

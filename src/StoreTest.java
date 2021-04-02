@@ -54,7 +54,7 @@ public class StoreTest {
     @Test
     public void getProductByNameTest() throws Exception{
         String[]arr = new String[0];
-        //assume the first product get id of 1
+        //assume the first product gets id of 1
         assertEquals(1,tradingSystem.getProducts("NAME","milk",arr).get(0));
     }
 
@@ -67,7 +67,7 @@ public class StoreTest {
     @Test
     public void getProductByCategoryTest() throws Exception{
         String[]arr = new String[0];
-        //assume the first product get id of 1
+        //assume the first product gets id of 1
         assertEquals(1,tradingSystem.getProducts("CATEGORY","food",arr).get(0));
     }
 

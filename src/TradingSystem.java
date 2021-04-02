@@ -13,7 +13,7 @@ public class TradingSystem {
     private Registered systemManager; //TODO change to whatever you want
     private  List<Receipt> receipts;
     private  List<User> users; //TODO every user is a thread
-    private  HashMap<String,String> userPass; // TODO change that the password will be secure
+    private  HashMap<String,String> userPass;
     private Encryptor encryptor;
 
 
@@ -38,7 +38,7 @@ public class TradingSystem {
         {
             userPass.put(userName,this.encryptor.encrypt(pass));
             KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
-            users.add(new User(userName,userCounter.inc()));
+            users.add(new User(userName,userCounter.inc(),1));
             return true;
         }
     }
@@ -77,7 +77,7 @@ public class TradingSystem {
     }
 
     public int guestLogin() {
-        User guest=new User("Guest",userCounter.inc());
+        User guest=new User("Guest",userCounter.inc(),0);
         users.add(guest);
         return guest.getId();
     }
@@ -121,7 +121,7 @@ public class TradingSystem {
         {
             userPass.put(userName,this.encryptor.encrypt(password));
             KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
-            users.add(new User(userName,userId));
+            getUserById(userId).setRegistered();
             return true;
         }
     }
@@ -202,23 +202,19 @@ public class TradingSystem {
     }
 
     public boolean addStoreOwner(int ownerId, int userId,int storeId){
-        //TODO
-        return false;
+        return getStoreById(storeId).getPermissions().appointOwner(ownerId,storeId);
     }
 
     public boolean addStoreManager(int ownerId, int userId, int storeId){
-        //TODO
-        return false;
+        return getStoreById(storeId).getPermissions().appointManager(ownerId,storeId);
     }
 
-    public boolean addPermission(int ownerId, int managerId, int storeId, Permissions permission){
-        //TODO
-        return false;
+    public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> permissions){
+        return getStoreById(storeId).getPermissions().addPermissions(ownerId,storeId,permissions);
     }
 
-    public boolean removePermission(int ownerId, int managerId, int storeId, Permissions permission){
-        //TODO
-        return false;
+    public boolean removePermissions(int ownerId, int managerId, int storeId,List<Integer> permissions){
+        return getStoreById(storeId).getPermissions().addPermissions(ownerId,storeId,permissions);
     }
 
     public boolean removeManager(int ownerId, int managerId, int storeId){
@@ -243,6 +239,16 @@ public class TradingSystem {
 
     public String getAllPurchases(int systemManager){
         //TODO
+        return null;
+    }
+
+    public Store getStoreById(int storeId)
+    {
+        for(Store store : stores)
+        {
+            if(store.getStoreId() == storeId)
+                return store;
+        }
         return null;
     }
 

@@ -52,4 +52,12 @@ public class Store {
         String str = "";
         return "";
     }
+
+    public int getStoreId() {
+        return storeId;
+    }
+
+    public Permissions getPermissions() {
+        return permissions;
+    }
 }

@@ -2,19 +2,24 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class User {
-    private State state;
+    private Registered registered = null;
     private List<Bag> bags;
     private String userName;
     private boolean looged;
     private int id;
 
 
-    public User(String userName, int id) {
-        this.state = new State();
+    public User(String userName, int id,int registered) {
+        if(registered == 1)
+            this.registered = new Registered();
         this.bags = new LinkedList<>();
         this.userName = userName;
         this.id = id;
         this.looged = true;
+    }
+
+    public void setRegistered() {
+        this.registered = new Registered();
     }
 
     public void setLooged(boolean looged) {
@@ -33,9 +38,6 @@ public class User {
         return bags;
     }
 
-    public State getState() {
-        return state;
-    }
 
     public String getUserName() {
         return userName;
@@ -47,10 +49,6 @@ public class User {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setState(State state) {
-        this.state = state;
     }
 
     public void setUserName(String userName) {

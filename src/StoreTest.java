@@ -41,7 +41,7 @@ public class StoreTest {
         storeId1=tradingSystem.openStore(registerId1,"kandabior store");
         LinkedList <Product.Category> catList= new LinkedList<>();
         catList.add(Product.Category.Food);
-        tradingSystem.addProductToStore(1,"milk",catList ,10,"food" );
+        tradingSystem.addProductToStore(1,1, storeId1,"milk",catList ,10,"food", 5 );
 
     }
 
@@ -55,7 +55,7 @@ public class StoreTest {
     public void getProductByNameTest() throws Exception{
         String[]arr = new String[0];
         //assume the first product gets id of 1
-        assertEquals(1,tradingSystem.getProducts("NAME","milk",arr).get(0));
+        assertEquals(1,tradingSystem.getProducts("NAME","milk",arr).get(storeId1));
     }
 
     @Test
@@ -68,13 +68,13 @@ public class StoreTest {
     public void getProductByCategoryTest() throws Exception{
         String[]arr = new String[0];
         //assume the first product gets id of 1
-        assertEquals(1,tradingSystem.getProducts("CATEGORY","food",arr).get(0));
+        assertEquals(1,tradingSystem.getProducts("CATEGORY","Food",arr).get(0));
     }
 
     @Test
     public void failGetProductByCategoryTest() throws Exception{
         String[]arr = new String[0];
-        assertEquals(0,tradingSystem.getProducts("CATEGORY","drinks",arr).size());
+        assertEquals(0,tradingSystem.getProducts("CATEGORY","Drinks",arr).size());
     }
 
     @Test
@@ -153,7 +153,7 @@ public class StoreTest {
     public void addProductTest() throws Exception{
         List<Product.Category> categories= new LinkedList<>();
         categories.add(Product.Category.Food);
-        assertTrue(tradingSystem.addProductToStore(registerId1,"water",categories,5,"drink"));
+        assertTrue(tradingSystem.addProductToStore(registerId1, 2, storeId1, "water",categories,5,"drink", 5));
 
     }
 
@@ -161,7 +161,8 @@ public class StoreTest {
     public void addProductFailTest() throws Exception{
         List<Product.Category> categories= new LinkedList<>();
         categories.add(Product.Category.Food);
-        assertTrue(tradingSystem.addProductToStore(registerId2,"water",categories,5,"drink"));
+        //TODO check if false or true
+        assertFalse(tradingSystem.addProductToStore(registerId2,3, storeId1, "water",categories,5,"drink", 5));
     }
 
     @Test

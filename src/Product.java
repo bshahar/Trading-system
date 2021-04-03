@@ -4,6 +4,7 @@ import java.util.List;
 public class Product {
     enum Category {
         Food,
+        Drinks,
         Entertainment,
         Other
     } //TODO add more categories
@@ -17,14 +18,17 @@ public class Product {
     private String description;
     private List<String> reviews;
 
-    public Product(int id, String name, List<Category> categories, double price ,double rate, String description) {
+    public Product(int id, String name, List<Category> categories, double price , String description) {
         this.id = id;
         this.name = name;
         this.categories = categories;
         this.price = price;
         this.ratesCount = 0;
         this.description = description;
+        this.rate = 0;
     }
+
+    public int getId() {return id; }
 
     public String getName() {
         return name;
@@ -57,5 +61,27 @@ public class Product {
 
     public void addReview(String review) {
         this.reviews.add(review);
+    }
+
+    public String toString() {
+        String output =  "Name - " + this.name + " Categories -  ";
+        for (Category c: categories) {
+            output += c + ", ";
+        }
+        if (output.endsWith(", "))
+            output.substring(0,output.length()-2);
+        output = output + "Price - " + this.price + " Rate - " + this.rate + " Description - " + this.description + " Reviews - ";
+        for (String r: reviews) {
+            output+=r;
+        }
+        return output;
+    }
+
+    public boolean containsCategory(String category){
+        Category c = Category.valueOf(category);/*
+        for (Category cat:categories) {
+
+        }*/
+        return false;
     }
 }

@@ -1,3 +1,5 @@
+import javafx.util.Pair;
+
 import javax.crypto.NoSuchPaddingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
@@ -151,12 +153,39 @@ public class TradingSystem {
     }
 
     public String getAllStoresInfo() {
-        //TODO
-        return null;
+        String output = "";
+        Store[] storesArr = (Store[]) stores.toArray();
+        for (int i = 0; i < storesArr.length ; i ++){
+            output += storesInfo(i);
+        }
+        return output;
     }
-    //TODO
-    public List<Integer> getProducts(String searchType, String param, String[] filter){
-        return null;
+    //TODO return the store id, product id
+    public Map<Integer,Integer> getProducts(String searchType, String param, String[] filter){
+        Map<Integer,Integer> output = new HashMap<>();
+        switch (searchType){
+            case "NAME":
+                for (Store s: stores) {
+                    List<Integer> ps = s.getProductsByName(param);
+                    for (int productId: ps) {
+                        output.put(s.getStoreId(),productId);
+                    }
+                }
+                break;
+            case "CATEGORY":
+                for (Store s: stores) {
+                    List<Integer> ps = s.getProductsByCategory(param);
+                    for (int productId: ps) {
+                        output.put(s.getStoreId(),productId);
+                    }
+                }
+                break;
+
+            default:
+                break;
+        }
+
+        return output;
     }
 
     public boolean saveProductInBug(int userId, int storeId){
@@ -184,12 +213,12 @@ public class TradingSystem {
         return false;
     }
     //TODO
-    public boolean addProductToStore(int userId,String name, List<Product.Category> categories,double price, String description){
-
-        return false;
+    public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity){
+        Store store = getStoreById(storeId);
+        return store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity);
     }
     //TODO
-    public boolean removeProductFromStore(int userId,int storeId, int prodeuctId){
+    public boolean removeProductFromStore(int userId,int storeId, int productId){
 
         return false;
     }

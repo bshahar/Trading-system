@@ -1,13 +1,16 @@
+import javafx.util.Pair;
+import java.util.*;
+
 public class Receipt {
 
     private int storeId;
     private String userName; //Unique
-    private double totalPrice;
-    //TODO - do we want information about the products here? Ids or more than that?
+    private Map<Pair<String, Double>, Integer> purchases;
 
-    public Receipt(int storeId, String userName, double totalPrice) {
+    public Receipt(int storeId, String userName, Map<Pair<String, Double>, Integer> purchases) {
         this.storeId = storeId;
         this.userName = userName;
-        this.totalPrice = totalPrice;
+        this.purchases = purchases;
     }
+
 }

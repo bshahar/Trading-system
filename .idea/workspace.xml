@@ -19,12 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c719c11-8791-451b-8edb-d6da659c6586" name="Default Changelist" comment="User side #27">
+    <list default="true" id="5c719c11-8791-451b-8edb-d6da659c6586" name="Default Changelist" comment="changes in Store, Permissions, Inventory #24">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Receipt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,15 +41,20 @@
     </option>
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$" value="dorin" />
       </map>
     </option>
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="-10" />
+    <option name="width" value="980" />
+    <option name="height" value="1040" />
   </component>
   <component name="ProjectId" id="1qCZ5UhrZYmhAYt30y68bik97Ie" />
   <component name="ProjectLevelVcsManager">
@@ -69,6 +73,8 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
@@ -164,6 +170,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1616585348118</updated>
+      <workItem from="1617362069780" duration="83000" />
     </task>
     <task id="LOCAL-00001" summary="delete user file">
       <created>1616585398700</created>
@@ -195,12 +202,32 @@
     <option name="localTasksCounter" value="5" />
     <servers />
   </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="83000" />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
             <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="RECENT_FILTERS">
+      <map>
+        <entry key="Branch">
+          <value>
+            <list />
+          </value>
+        </entry>
+        <entry key="User">
+          <value>
+            <list />
           </value>
         </entry>
       </map>
@@ -215,9 +242,17 @@
     <option name="LAST_COMMIT_MESSAGE" value="User side #27" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="387" y="152" key="FileChooserDialogImpl" timestamp="1617298844604">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="387" y="152" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1617298844604" />
     <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1617191669843">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1617191669843" />
+    <state x="77" y="58" key="new project wizard" timestamp="1617298845913">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="77" y="58" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1617298845913" />
   </component>
 </project>

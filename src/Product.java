@@ -2,6 +2,8 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Product {
+
+
     enum Category {
         Food,
         Drinks,
@@ -78,10 +80,31 @@ public class Product {
     }
 
     public boolean containsCategory(String category){
-        Category c = Category.valueOf(category);/*
+        Category c = Category.valueOf(category);
         for (Category cat:categories) {
-
-        }*/
+            if(cat.equals(c))
+                return true;
+        }
         return false;
     }
+
+    public boolean containsKeyWords(String[] keyWords) {
+        boolean contains = false;
+        for (int i = 0 ; i < keyWords.length ; i++){
+            if(description.contains(keyWords[i]))
+                contains = true;
+        }
+        return contains;
+    }
+
+    public boolean inPriceRange(String[] prices) {
+        if(prices.length > 2) {
+            int lower = Integer.parseInt(prices[0]);
+            int upper = Integer.parseInt(prices[1]);
+            if (this.price >= lower && this.price <= upper)
+               return true;
+        }
+        return false;
+    }
+
 }

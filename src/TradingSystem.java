@@ -180,6 +180,24 @@ public class TradingSystem {
                     }
                 }
                 break;
+            case "KEYWORDS":
+                for (Store s: stores) {
+                    List<Integer> ps = s.getProductsByKeyWords(filter);
+                    for (int productId: ps) {
+                        output.put(s.getStoreId(),productId);
+                    }
+                }
+                break;
+            case "PRICERANGE":
+                for (Store s: stores) {
+                    List<Integer> ps = s.getProductsByPriceRange(filter);
+                    for (int productId: ps) {
+                        output.put(s.getStoreId(),productId);
+                    }
+                }
+                break;
+
+
 
             default:
                 break;
@@ -192,9 +210,8 @@ public class TradingSystem {
         //TODO
         return false;
     }
-    //TODO
     public List<Integer> getChart(int userId){
-
+        //TODO need to add list of products in Bag class
         return null;
     }
     //TODO
@@ -235,7 +252,9 @@ public class TradingSystem {
     public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity){
         Store store = getStoreById(storeId);
         return store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity);
+
     }
+
     //TODO
     public boolean removeProductFromStore(int userId,int storeId, int productId){
 
@@ -244,8 +263,12 @@ public class TradingSystem {
 
     //returns the new store id
     public int openStore(int userId, String storeName){
-        //TODO
-        return -1;
+        //if(getUserById(userId).isRegistered()) { TODO implement method
+        int newId = stores.size() + 1;
+        Store store = new Store(newId, storeName, getUserById(userId));
+        return newId;
+        // }
+        // return -1;
     }
 
     public boolean addStoreOwner(int ownerId, int userId,int storeId){
@@ -256,17 +279,19 @@ public class TradingSystem {
         return getStoreById(storeId).getPermissions().appointManager(ownerId,storeId);
     }
 
-    public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> permissions){
-        return getStoreById(storeId).getPermissions().addPermissions(ownerId,storeId,permissions);
+    public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
+        Store s = getStoreById(storeId);
+        return s.getPermissions().addPermissions(ownerId, managerId, opIndexes);
     }
 
-    public boolean removePermissions(int ownerId, int managerId, int storeId,List<Integer> permissions){
-        return getStoreById(storeId).getPermissions().addPermissions(ownerId,storeId,permissions);
+    public boolean removePermission(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
+        Store s = getStoreById(storeId);
+        return s.getPermissions().removePermissions(ownerId, managerId, opIndexes);
     }
 
     public boolean removeManager(int ownerId, int managerId, int storeId){
-        //TODO
-        return false;
+        Store s = getStoreById(storeId);
+        return s.getPermissions().removeAppointment(ownerId, managerId);
     }
 
     public String getWorkersInformation(int ownerId, int storeId){

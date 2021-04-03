@@ -241,8 +241,12 @@ public class Permissions {
         }
         return false; //user is not an owner/ manager of this store
     }
-
+    //TODO swap with real impl
     private User getUserById(int id) {
         return new User("tmp", 1,0);
+    }
+
+    public Map<User, List<Operations>> getUserPermissions() {
+        return this.usersPermissions;
     }
 }

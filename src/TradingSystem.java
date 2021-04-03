@@ -180,27 +180,8 @@ public class TradingSystem {
         return false;
     }
 
-    public boolean buyProducts(int userId, int storeId, List<Integer> productsIds, String creditInfo){
+    public boolean buyProducts(int userId, int StoreId, String CreditInfo){
         //TODO
-        double totalCost = 0;
-        List<Product> products = new LinkedList<>();
-        for (int id: productsIds) {
-            //Product p =
-            //totalCost += p.getPrice();
-        }
-        for (Store s: stores) {
-            if(true) { //change to s.getId() == storeId
-                if(true) { //s.buy ...
-                    boolean paid = paymentAdapter.pay(totalCost, creditInfo);
-                    if(paid) {
-                        // TODO add to log
-                        return true;
-                    }
-                    return false;
-                }
-            }
-        }
-        //TODO add to log
         return false;
     }
 

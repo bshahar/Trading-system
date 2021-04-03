@@ -242,8 +242,7 @@ public class Permissions {
         return false; //user is not an owner/ manager of this store
     }
 
-    //TODO replace with real implementation
     private User getUserById(int id) {
-        return new User("tmp", 1);
+        return new User("tmp", 1,0);
     }
 }

@@ -249,11 +249,11 @@ public class TradingSystem {
     }
 
     public boolean addStoreOwner(int ownerId, int userId,int storeId){
-        return getStoreById(storeId).getPermissions().appointOwner(ownerId,storeId);
+        return getStoreById(storeId).getPermissions().appointOwner(ownerId,userId);
     }
 
     public boolean addStoreManager(int ownerId, int userId, int storeId){
-        return getStoreById(storeId).getPermissions().appointManager(ownerId,storeId);
+        return getStoreById(storeId).getPermissions().appointManager(ownerId,userId);
     }
 
     public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> permissions){

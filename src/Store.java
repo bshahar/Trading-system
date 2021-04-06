@@ -51,7 +51,7 @@ public class Store {
     public boolean addBoss(User appointer, User appointee, int role) { //role = 1 -> owner, role  = 2 -> manager
         if(role == 1)
             return this.permissions.appointOwner(appointer.getId(), appointee);
-        return this.permissions.appointManager(appointer.getId(), appointee.getId());
+        return this.permissions.appointManager(appointer.getId(), appointee);
     }
 
     public void rateStore(double newRate) {
@@ -89,7 +89,7 @@ public class Store {
 
     public boolean removeProductFromStore(User user, int productId) {
         if( this.permissions.validatePermission(user, Permissions.Operations.RemoveProduct)){
-            if(validateProductId(productId)){
+            if(this.inventory.prodExists(productId)){
                 return this.inventory.removeProduct(productId);
             }
         }
@@ -112,15 +112,16 @@ public class Store {
     public List<Integer> getProductsByPriceRange(String[] filter) {
         return this.inventory.getProductsByPriceRange(filter);
     }
-
+/*
     public boolean appointOwner(int ownerId, User user) {
         return this.permissions.appointOwner(ownerId, user);
     }
-
+*/
+/*
     public boolean appointManager(int ownerId, int userId) {
-        return this.appointManager(ownerId,userId);
+        return this.permissions.appointManager(ownerId,userId);
     }
-
+*/
     public boolean addPermissions(int ownerId, int managerId, List<Integer> opIndexes) {
         return this.permissions.addPermissions(ownerId,managerId,opIndexes);
     }

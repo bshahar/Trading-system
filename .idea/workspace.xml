@@ -24,11 +24,9 @@
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +77,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="JUnit.StoreTest.addOwnerTest">
+  <component name="RunManager" selected="JUnit.StoreTest">
     <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
@@ -89,41 +87,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest.addOwnerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest.addManagerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StoreTest" />
-      <option name="METHOD_NAME" value="addOwnerTest" />
+      <option name="METHOD_NAME" value="addManagerTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest.addToBagGuestTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest.addOwnerFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StoreTest" />
-      <option name="METHOD_NAME" value="addToBagGuestTest" />
+      <option name="METHOD_NAME" value="addOwnerFailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest.getProductByCategoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest.addToBagLogoutTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StoreTest" />
-      <option name="METHOD_NAME" value="getProductByCategoryTest" />
+      <option name="METHOD_NAME" value="addToBagLogoutTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest.removeProductFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest.removeProductTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StoreTest" />
-      <option name="METHOD_NAME" value="removeProductFailTest" />
+      <option name="METHOD_NAME" value="removeProductTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -131,11 +129,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StoreTest.addOwnerTest" />
         <item itemvalue="JUnit.StoreTest" />
-        <item itemvalue="JUnit.StoreTest.removeProductFailTest" />
-        <item itemvalue="JUnit.StoreTest.addToBagGuestTest" />
-        <item itemvalue="JUnit.StoreTest.getProductByCategoryTest" />
+        <item itemvalue="JUnit.StoreTest.addManagerTest" />
+        <item itemvalue="JUnit.StoreTest.removeProductTest" />
+        <item itemvalue="JUnit.StoreTest.addToBagLogoutTest" />
+        <item itemvalue="JUnit.StoreTest.addOwnerFailTest" />
       </list>
     </recent_temporary>
   </component>
@@ -151,6 +149,7 @@
       <updated>1617440370224</updated>
       <workItem from="1617440371798" duration="9756000" />
       <workItem from="1617723869195" duration="331000" />
+      <workItem from="1617736721312" duration="2265000" />
     </task>
     <task id="LOCAL‎00001" summary="Dorin's changes #24">
       <created>1617455826555</created>
@@ -169,7 +168,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -191,42 +190,50 @@
     <option name="LAST_COMMIT_MESSAGE" value="connect trading system to stores #27" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="404" height="466" key="DebuggerActiveHint" timestamp="1617733830679">
+    <state x="669" y="-1026" key="CommitChangelistDialog2" timestamp="1617739110372">
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
-    <state width="404" height="466" key="DebuggerActiveHint/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617733830679" />
-    <state width="1877" height="396" key="GridCell.Tab.0.bottom" timestamp="1617736316724">
+    <state x="669" y="-1026" key="CommitChangelistDialog2/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739110372" />
+    <state width="420" height="466" key="DebuggerActiveHint" timestamp="1617737541311">
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
-    <state width="1877" height="396" key="GridCell.Tab.0.bottom/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617736316724" />
-    <state width="1877" height="396" key="GridCell.Tab.0.center" timestamp="1617736316724">
+    <state width="420" height="466" key="DebuggerActiveHint/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617737541311" />
+    <state width="1877" height="321" key="GridCell.Tab.0.bottom" timestamp="1617739027545">
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
-    <state width="1877" height="396" key="GridCell.Tab.0.center/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617736316724" />
-    <state width="1877" height="396" key="GridCell.Tab.0.left" timestamp="1617736316724">
+    <state width="1877" height="321" key="GridCell.Tab.0.bottom/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739027545" />
+    <state width="1877" height="321" key="GridCell.Tab.0.center" timestamp="1617739027545">
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
-    <state width="1877" height="396" key="GridCell.Tab.0.left/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617736316724" />
-    <state width="1877" height="396" key="GridCell.Tab.0.right" timestamp="1617736316724">
+    <state width="1877" height="321" key="GridCell.Tab.0.center/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739027545" />
+    <state width="1877" height="321" key="GridCell.Tab.0.left" timestamp="1617739027545">
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
-    <state width="1877" height="396" key="GridCell.Tab.0.right/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617736316724" />
-    <state width="1877" height="396" key="GridCell.Tab.1.bottom" timestamp="1617736316724">
+    <state width="1877" height="321" key="GridCell.Tab.0.left/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739027545" />
+    <state width="1877" height="321" key="GridCell.Tab.0.right" timestamp="1617739027545">
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
-    <state width="1877" height="396" key="GridCell.Tab.1.bottom/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617736316724" />
-    <state width="1877" height="396" key="GridCell.Tab.1.center" timestamp="1617736316724">
+    <state width="1877" height="321" key="GridCell.Tab.0.right/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739027545" />
+    <state width="1877" height="396" key="GridCell.Tab.1.bottom" timestamp="1617739020248">
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
-    <state width="1877" height="396" key="GridCell.Tab.1.center/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617736316724" />
-    <state width="1877" height="396" key="GridCell.Tab.1.left" timestamp="1617736316724">
+    <state width="1877" height="396" key="GridCell.Tab.1.bottom/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739020248" />
+    <state width="1877" height="396" key="GridCell.Tab.1.center" timestamp="1617739020248">
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
-    <state width="1877" height="396" key="GridCell.Tab.1.left/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617736316724" />
-    <state width="1877" height="396" key="GridCell.Tab.1.right" timestamp="1617736316724">
+    <state width="1877" height="396" key="GridCell.Tab.1.center/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739020248" />
+    <state width="1877" height="396" key="GridCell.Tab.1.left" timestamp="1617739020248">
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
-    <state width="1877" height="396" key="GridCell.Tab.1.right/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617736316724" />
+    <state width="1877" height="396" key="GridCell.Tab.1.left/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739020248" />
+    <state width="1877" height="396" key="GridCell.Tab.1.right" timestamp="1617739020248">
+      <screen x="84" y="-1200" width="1920" height="1160" />
+    </state>
+    <state width="1877" height="396" key="GridCell.Tab.1.right/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739020248" />
+    <state x="636" y="-887" key="Vcs.Push.Dialog.v2" timestamp="1617739124365">
+      <screen x="84" y="-1200" width="1920" height="1160" />
+    </state>
+    <state x="636" y="-887" key="Vcs.Push.Dialog.v2/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739124365" />
     <state x="739" y="-1022" width="740" height="804" key="find.popup" timestamp="1617735601562">
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
@@ -237,21 +244,21 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-method">
           <url>file://$PROJECT_DIR$/src/Permissions.java</url>
-          <line>111</line>
-          <properties class="Permissions" method="appointOwner">
+          <line>175</line>
+          <properties class="Permissions" method="appointManager">
             <option name="EMULATED" value="true" />
           </properties>
-          <option name="timeStamp" value="6" />
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/TradingSystem.java</url>
-          <line>200</line>
-          <option name="timeStamp" value="20" />
+          <url>file://$PROJECT_DIR$/src/Store.java</url>
+          <line>90</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/StoreTest.java</url>
-          <line>188</line>
-          <option name="timeStamp" value="22" />
+          <line>205</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

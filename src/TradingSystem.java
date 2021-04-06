@@ -199,14 +199,18 @@ public class TradingSystem {
 
     public boolean addProductToBag(int userId, int storeId, int prodId){
         Bag b = getUserById(userId).getBagByStoreId(storeId);
-        if(b != null) {
-            b.addProduct(prodId);
-            KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to Bag of store " + storeId + " for user " + userId);
+        if(getUserById(userId).isLogged()) {
+            if (b != null) {
+                b.addProduct(prodId);
+                KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to Bag of store " + storeId + " for user " + userId);
+                return true;
+            }
+            getUserById(userId).createNewBag(getStoreById(storeId), prodId);
             return true;
         }
-        getUserById(userId).createNewBag(getStoreById(storeId), prodId);
-        return true;
+        return false;
     }
+
     public Map<Integer, List<Integer>> getCart(int userId){
         Map<Integer, List<Integer>> m = new HashMap<>();
         List<Bag> bags = getUserById(userId).getBags();
@@ -285,12 +289,11 @@ public class TradingSystem {
     }
 
     public boolean addStoreOwner(int ownerId, int userId,int storeId){
-       //return getStoreById(storeId).appointOwner(ownerId,userId);
-    return true;
+       return getStoreById(storeId).getPermissions().appointOwner(ownerId,getUserById(userId));
     }
 
     public boolean addStoreManager(int ownerId, int userId, int storeId){
-        return getStoreById(storeId).appointManager(ownerId,userId);
+        return getStoreById(storeId).getPermissions().appointManager(ownerId,getUserById(userId));
     }
 
     public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){

@@ -7417,3 +7417,3512 @@ INFO: User erez enter the system
 
 Apr 06, 2021 10:07:26 PM KingLogger logEvent
 INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:28 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 2 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User dorin register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User dorin enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:25:29 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:26:13 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:26:13 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:26:13 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:26:13 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:26:13 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:26:13 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:26:13 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:30:06 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:30:06 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:30:06 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:30:06 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:30:06 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:30:06 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:30:06 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:30:49 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:30:49 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:30:49 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:30:49 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:30:49 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:30:49 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:30:49 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:32:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:32:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:32:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:32:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:32:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:32:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:32:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:32:45 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:32:45 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:32:45 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:32:45 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:32:45 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:32:45 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:32:45 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:00 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:00 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:00 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:00 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:00 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:00 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:00 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 2 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User dorin register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User dorin enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:34:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:35:37 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:35:37 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:35:37 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:35:37 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:35:37 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:35:37 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:35:37 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:35:58 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:35:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:35:58 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:35:58 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:35:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:35:58 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:35:58 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:37:02 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:37:02 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:37:02 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:37:02 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:37:02 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:37:02 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:37:02 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:37:13 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:37:13 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:37:13 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:37:13 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:37:13 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:37:13 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:37:13 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:20 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:21 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:21 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:21 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:21 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:21 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:21 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:52 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:52 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:52 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:52 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:52 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:52 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:52 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 2 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User dorin register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User dorin enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:38:54 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:39:17 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:39:17 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:39:17 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:39:17 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:39:17 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:39:17 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:39:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:40:36 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:40:36 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:40:36 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:40:36 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:40:36 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:40:36 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:40:37 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:42:04 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:42:04 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:42:04 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:42:04 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:42:04 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:42:04 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:42:05 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:48:11 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:48:11 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:48:11 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:48:11 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:48:11 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:48:11 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:48:11 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:48:29 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:48:30 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:48:30 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:48:30 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:48:30 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:48:30 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:48:30 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:24 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:24 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:24 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:24 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:24 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:24 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:24 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:24 PM KingLogger logEvent
+INFO: Product number 1 was remove to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 2 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was remove to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User dorin register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User dorin enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:34 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:52:52 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:52:52 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:52:52 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:52:52 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:52:52 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:52:52 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:52:52 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 2 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was remove to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User dorin register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User dorin enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:18 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:56:30 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:56:30 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:56:30 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:56:30 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:56:30 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:56:30 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:56:31 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:01 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:01 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:01 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:01 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:01 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:01 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:01 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 2 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was remove to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User dorin register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User dorin enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez register to the system
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 06, 2021 10:57:09 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1

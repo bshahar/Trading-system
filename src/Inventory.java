@@ -22,11 +22,26 @@ public class Inventory {
     }
 
     public boolean validateProductId(int id){
+        for (Product p: products.keySet()) {
+            if(p.getId() == id)
+                return false;
+        }
+        /*
         for (Map.Entry<Product, Integer> p : products.entrySet()) {
             if (p.getKey().getId() == id)
                 return false;
         }
+        */
         return true;
+    }
+
+    public boolean prodExists(int id){
+        boolean found = false;
+        for (Product p: products.keySet()) {
+            if(p.getId() == id)
+                found = true;
+        }
+        return found;
     }
 
     public boolean CanBuyProduct(Product prod, int numOfProd) {

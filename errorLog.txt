@@ -1,0 +1,6 @@
+Apr 06, 2021 9:22:02 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+Apr 06, 2021 9:22:48 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+Apr 06, 2021 9:23:33 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1

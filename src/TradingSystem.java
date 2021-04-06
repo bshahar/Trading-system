@@ -1,3 +1,5 @@
+import javafx.util.Pair;
+
 import javax.crypto.NoSuchPaddingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.*;
@@ -13,7 +15,7 @@ public class TradingSystem {
     private Registered systemManager; //TODO change to whatever you want
     private  List<Receipt> receipts;
     private  List<User> users; //TODO every user is a thread
-    private  HashMap<String,String> userPass; // TODO change that the password will be secure
+    private  HashMap<String,String> userPass;
     private Encryptor encryptor;
 
 
@@ -38,7 +40,7 @@ public class TradingSystem {
         {
             userPass.put(userName,this.encryptor.encrypt(pass));
             KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
-            users.add(new User(userName,userCounter.inc()));
+            users.add(new User(userName,userCounter.inc(),1));
             return true;
         }
     }
@@ -77,7 +79,7 @@ public class TradingSystem {
     }
 
     public int guestLogin() {
-        User guest=new User("Guest",userCounter.inc());
+        User guest=new User("Guest",userCounter.inc(),0);
         users.add(guest);
         return guest.getId();
     }
@@ -121,7 +123,7 @@ public class TradingSystem {
         {
             userPass.put(userName,this.encryptor.encrypt(password));
             KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
-            users.add(new User(userName,userId));
+            getUserById(userId).setRegistered();
             return true;
         }
     }
@@ -151,74 +153,145 @@ public class TradingSystem {
     }
 
     public String getAllStoresInfo() {
-        //TODO
-        return null;
+        String output = "";
+        Store[] storesArr = (Store[]) stores.toArray();
+        for (int i = 0; i < storesArr.length ; i ++){
+            output += storesInfo(i);
+        }
+        return output;
+    }
+    //TODO return the store id, product id
+    public Map<Integer,Integer> getProducts(String searchType, String param, String[] filter){
+        Map<Integer,Integer> output = new HashMap<>();
+        switch (searchType){
+            case "NAME":
+                for (Store s: stores) {
+                    List<Integer> ps = s.getProductsByName(param);
+                    for (int productId: ps) {
+                        output.put(s.getStoreId(),productId);
+                    }
+                }
+                break;
+            case "CATEGORY":
+                for (Store s: stores) {
+                    List<Integer> ps = s.getProductsByCategory(param);
+                    for (int productId: ps) {
+                        output.put(s.getStoreId(),productId);
+                    }
+                }
+                break;
+            case "KEYWORDS":
+                for (Store s: stores) {
+                    List<Integer> ps = s.getProductsByKeyWords(filter);
+                    for (int productId: ps) {
+                        output.put(s.getStoreId(),productId);
+                    }
+                }
+                break;
+            case "PRICERANGE":
+                for (Store s: stores) {
+                    List<Integer> ps = s.getProductsByPriceRange(filter);
+                    for (int productId: ps) {
+                        output.put(s.getStoreId(),productId);
+                    }
+                }
+                break;
+
+
+
+            default:
+                break;
+        }
+
+        return output;
     }
 
-    public List<Integer> getProducts(String searchType, String param, String[] filter){
+    public boolean saveProductInBug(int userId, int storeId){
         //TODO
-        return null;
+        return false;
     }
-
     public List<Integer> getChart(int userId){
-        //TODO
+        //TODO need to add list of products in Bag class
         return null;
     }
-
+    //TODO
     public boolean addProductToChart(int userId,int storeId, int ProductId){
-        //TODO
+
         return false;
     }
-
+    //TODO
     public boolean removeProductFromChart(int userId,int storeId, int ProductId){
-        //TODO
+
         return false;
     }
-
-    public boolean buyProducts(int userId, int StoreId, String CreditInfo){
+    //TODO
+    public boolean buyProducts(int userId, int storeId, List<Integer> productsIds, String creditInfo){
         //TODO
+        double totalCost = 0;
+        List<Product> products = new LinkedList<>();
+        for (int id: productsIds) {
+            //Product p =
+            //totalCost += p.getPrice();
+        }
+        for (Store s: stores) {
+            if(true) { //change to s.getId() == storeId
+                if(true) { //s.buy ...
+                    boolean paid = paymentAdapter.pay(totalCost, creditInfo);
+                    if(paid) {
+                        // TODO add to log
+                        return true;
+                    }
+                    return false;
+                }
+            }
+        }
+        //TODO add to log
         return false;
     }
+    //TODO
+    public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity){
+        Store store = getStoreById(storeId);
+        return store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity);
 
-    public boolean addProductToStore(int userId,String name, List<Product.Category> categories,double price, String description){
-        //TODO
-        return false;
     }
 
-    public boolean removeProductFromStore(int userId,int storeId, int prodeuctId){
-        //TODO
+    //TODO
+    public boolean removeProductFromStore(int userId,int storeId, int productId){
+
         return false;
     }
 
     //returns the new store id
     public int openStore(int userId, String storeName){
-        //TODO
-        return -1;
+        //if(getUserById(userId).isRegistered()) { TODO implement method
+        int newId = stores.size() + 1;
+        Store store = new Store(newId, storeName, getUserById(userId));
+        return newId;
+        // }
+        // return -1;
     }
 
     public boolean addStoreOwner(int ownerId, int userId,int storeId){
-        //TODO
-        return false;
+        return getStoreById(storeId).getPermissions().appointOwner(ownerId,userId);
     }
 
     public boolean addStoreManager(int ownerId, int userId, int storeId){
-        //TODO
-        return false;
+        return getStoreById(storeId).getPermissions().appointManager(ownerId,userId);
     }
 
-    public boolean addPermission(int ownerId, int managerId, int storeId, Permissions permission){
-        //TODO
-        return false;
+    public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
+        Store s = getStoreById(storeId);
+        return s.getPermissions().addPermissions(ownerId, managerId, opIndexes);
     }
 
-    public boolean removePermission(int ownerId, int managerId, int storeId, Permissions permission){
-        //TODO
-        return false;
+    public boolean removePermission(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
+        Store s = getStoreById(storeId);
+        return s.getPermissions().removePermissions(ownerId, managerId, opIndexes);
     }
 
     public boolean removeManager(int ownerId, int managerId, int storeId){
-        //TODO
-        return false;
+        Store s = getStoreById(storeId);
+        return s.getPermissions().removeAppointment(ownerId, managerId);
     }
 
     public String getWorkersInformation(int ownerId, int storeId){
@@ -238,6 +311,16 @@ public class TradingSystem {
 
     public String getAllPurchases(int systemManager){
         //TODO
+        return null;
+    }
+
+    public Store getStoreById(int storeId)
+    {
+        for(Store store : stores)
+        {
+            if(store.getStoreId() == storeId)
+                return store;
+        }
         return null;
     }
 

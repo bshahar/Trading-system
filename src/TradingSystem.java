@@ -206,25 +206,37 @@ public class TradingSystem {
         return output;
     }
 
-    public boolean saveProductInBug(int userId, int storeId){
-        //TODO
+    public boolean addProductToBag(int userId, int storeId, int prodId){
+        Bag b = getUserById(userId).getBagByStoreId(storeId);
+        if(b != null) {
+            b.addProduct(prodId);
+            KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to Bag of store " + storeId + " for user " + userId);
+            return true;
+        }
+        KingLogger.logError(Level.WARNING,  "user Id " + userId + " didnt found");
         return false;
     }
-    public List<Integer> getChart(int userId){
-        //TODO need to add list of products in Bag class
-        return null;
+    public Map<Integer, List<Integer>> getCart(int userId){
+        Map<Integer, List<Integer>> m = new HashMap<>();
+        List<Bag> bags = getUserById(userId).getBags();
+        for (Bag b : bags){
+            m.put(b.getStoreId(), b.getProductIds());
+            KingLogger.logEvent(Level.INFO, "added Bag of Store number " + b.getStoreId() + " to the cart");
+        }
+        return m;
     }
-    //TODO
-    public boolean addProductToChart(int userId,int storeId, int ProductId){
 
+    public boolean removeProductFromBag(int userId,int storeId, int prodId){
+        Bag b = getUserById(userId).getBagByStoreId(storeId);
+        if(b != null) {
+            b.removeProduct(prodId);
+            KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was remove from Bag of store " + storeId + " for user " + userId);
+            return true;
+        }
+        KingLogger.logError(Level.WARNING,  "user Id " + userId + " didnt found");
         return false;
     }
-    //TODO
-    public boolean removeProductFromChart(int userId,int storeId, int ProductId){
 
-        return false;
-    }
-    //TODO
     public boolean buyProducts(int userId, int storeId, List<Integer> productsIds, String creditInfo){
         //TODO
         double totalCost = 0;
@@ -251,13 +263,22 @@ public class TradingSystem {
     //TODO
     public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity){
         Store store = getStoreById(storeId);
-        return store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity);
-
+        if(store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity)){
+            KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
+            return true;
+        }
+        KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
+        return false;
     }
 
-    //TODO
-    public boolean removeProductFromStore(int userId,int storeId, int productId){
 
+    public boolean removeProductFromStore(int userId,int storeId, int productId){
+        Store store = getStoreById(storeId);
+        if(store.removeProductFromStore(getUserById(userId),productId)){
+            KingLogger.logEvent(Level.INFO, "Product number " + productId + " was remove to store " + storeId + " by user " + userId);
+            return true;
+        }
+        KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! remove to store " + storeId + " by user " + userId);
         return false;
     }
 

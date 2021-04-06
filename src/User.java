@@ -18,6 +18,14 @@ public class User {
         this.looged = true;
     }
 
+    public Bag getBagByStoreId(int storeId){
+        for (Bag bag : bags){
+            if (bag.getStoreId() == storeId)
+                return bag;
+        }
+        return null;
+    }
+
     public void setRegistered() {
         this.registered = new Registered();
     }

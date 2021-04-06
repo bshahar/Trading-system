@@ -90,6 +90,15 @@ public class Store {
         return false; // TODO add logger
     }
 
+    public boolean removeProductFromStore(User user, int productId) {
+        if( this.permissions.validatePermission(user, Permissions.Operations.RemoveProduct)){
+            if(validateProductId(productId)){
+                return this.inventory.removeProduct(productId);
+            }
+        }
+        return false; // TODO add logger
+    }
+
     public List<Integer> getProductsByName(String name){
          return this.inventory.getProductsByName(name);
     }

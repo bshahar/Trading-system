@@ -106,31 +106,31 @@ public class Permissions {
     /**
      * Appoint a new store owner.
      * @param currUserId owner who makes the appointment
-     * @param newUserId new owner of the store
+     * @param newUser new owner of the store
      * @return true true in case of success, false otherwise.
      */
-    public boolean appointOwner(int currUserId, int newUserId) {
+    public boolean appointOwner(int currUserId, User newUser) {
         for (User u1: this.roles.keySet()) {
             if (u1.getId() == currUserId && roles.get(u1) == OWNER) { //if current user is an owner of the store
-                for (User u2: this.roles.keySet()) {
-                    if(u2.getId() == newUserId) {
+                for (User u2 : this.roles.keySet()) {
+                    if (u2.getId() == newUser.getId()) {
                         if (this.roles.get(u2) == MANAGER) { //if new user was already a store manager
                             this.roles.replace(u2, MANAGER, OWNER);
                             addOwnerPermissions(u2);
-                            for (int id1: this.appointments.keySet()) { //if new user was already appointed
-                                if(this.appointments.get(id1) == newUserId)
-                                    this.appointments.remove(id1, newUserId);
+                            for (int id1 : this.appointments.keySet()) { //if new user was already appointed
+                                if (this.appointments.get(id1) == u2.getId())
+                                    this.appointments.remove(id1, u2.getId());
                             }
-                            this.appointments.put(currUserId, newUserId);
+                            this.appointments.put(currUserId, u2.getId());
                         }
-                        else if(!this.roles.containsKey(u2)) {
-                            this.roles.put(u2, OWNER);
-                            this.appointments.put(currUserId, newUserId);
-                            addOwnerPermissions(u2);
-                        }
-                        return true;
                     }
                 }
+                if (!this.roles.containsKey(newUser.getId())) {
+                    this.roles.put(newUser, OWNER);
+                    this.appointments.put(currUserId, newUser.getId());
+                    addOwnerPermissions(newUser);
+                }
+                return true;
             }
         }
         return false;

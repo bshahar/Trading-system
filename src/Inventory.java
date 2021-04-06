@@ -109,4 +109,21 @@ public class Inventory {
         }
         return output;
     }
+
+    public Product getProductById( int prodId){
+        for(Product p : this.products.keySet()){
+            if(p.getId() == prodId)
+                return p;
+        }
+        return null;
+    }
+
+    public boolean removeProduct(int productId) {
+        Product p = getProductById(productId);
+        if (p != null){
+            products.remove(p);
+            return true;
+        }
+        return false;
+    }
 }

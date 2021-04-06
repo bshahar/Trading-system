@@ -6,6 +6,7 @@ import javax.crypto.NoSuchPaddingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,7 +26,8 @@ public class StoreTest {
 
     @BeforeEach
     public void setUp() throws NoSuchAlgorithmException, NoSuchPaddingException {
-        tradingSystem= new TradingSystem();
+        User systemManager = new User("Elad",1,1);
+        tradingSystem= new TradingSystem(systemManager);
         String userName1="kandabior";
         String password1= "or321654";
         String userName2="elad";
@@ -81,54 +83,56 @@ public class StoreTest {
 
     @Test
     public void addToChartTest() throws Exception{
-        assertTrue(tradingSystem.addProductToChart(registerId2,storeId1,1));
+        assertTrue(tradingSystem.addProductToBag(registerId2,storeId1,1));
     }
 
     @Test
     public void addToChartGuestTest() throws Exception{
         guestId1=tradingSystem.guestLogin();
-        assertTrue(tradingSystem.addProductToChart(guestId1,storeId1,1));
+        assertTrue(tradingSystem.addProductToBag(guestId1,storeId1,1));
     }
 
     @Test
     public void addToChartWrongProdTest() throws Exception{
-        assertFalse(tradingSystem.addProductToChart(registerId2,storeId1,2));
+        assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,2));
     }
 
     @Test
     public void addToChartLogoutTest() throws Exception{
         tradingSystem.logout(registerId2);
-        assertFalse(tradingSystem.addProductToChart(registerId2,storeId1,1));
+        assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,1));
     }
 
     @Test
     public void addToChartTest2() throws Exception{
-        tradingSystem.addProductToChart(registerId2,storeId1,1);
+        tradingSystem.addProductToBag(registerId2,storeId1,1);
         tradingSystem.logout(registerId2);
         tradingSystem.login("elad","elad321654");
-        List<Integer> products=tradingSystem.getChart(registerId2);
-        assertEquals(1, products.get(0));
+
+        Map<Integer, List<Integer>> products=tradingSystem.getCart(registerId2);
+        assertEquals(1, products.get(storeId1).get(0));
     }
 
     @Test
     public void addToChartTest3() throws Exception{
         guestId1=tradingSystem.guestLogin();
-        tradingSystem.addProductToChart(guestId1,storeId1,1);
+        tradingSystem.addProductToBag(guestId1,storeId1,1);
         tradingSystem.guestRegister(guestId1,"dorin","dorin321654");
         tradingSystem.logout(guestId1);
         tradingSystem.login("dorin","dorin321654");
-        assertEquals( 1,tradingSystem.getChart(guestId1).get(0));
+        Map<Integer, List<Integer>> products=tradingSystem.getCart(guestId1);
+        assertEquals( 1,products.get(storeId1).get(0));
     }
 
     @Test
     public void purchaseTest() throws Exception{
-        tradingSystem.addProductToChart(registerId2,storeId1,1);
+        tradingSystem.addProductToBag(registerId2,storeId1,1);
         //assertTrue(tradingSystem.buyProducts(registerId2,1,"123456789"));
     }
 
     @Test
     public void failPurchaseTest() throws Exception{
-        tradingSystem.addProductToChart(registerId2,storeId1,1);
+        tradingSystem.addProductToBag(registerId2,storeId1,1);
         tradingSystem.logout(registerId2);
         //assertFalse(tradingSystem.buyProducts(registerId2,1,"123456789"));
     }
@@ -136,7 +140,7 @@ public class StoreTest {
     @Test
     public void guestPurchaseTest() throws Exception{
         guestId1=tradingSystem.guestLogin();
-        tradingSystem.addProductToChart(guestId1,storeId1,1);
+        tradingSystem.addProductToBag(guestId1,storeId1,1);
         //assertTrue(tradingSystem.buyProducts(guestId1,1,"123456789"));
     }
 

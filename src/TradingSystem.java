@@ -1,15 +1,16 @@
-
 import java.util.*;
+
 import java.util.logging.Level;
 
 public class TradingSystem {
 
     private static counter userCounter;
+    private static counter storeCounter;
 
     private PaymentAdapter paymentAdapter;
     private SupplementAdapter supplementAdapter;
     private  List<Store> stores;
-    private Registered systemManager; //TODO change to whatever you want
+    private User systemManager;
     private  List<Receipt> receipts;
     private  List<User> users; //TODO every user is a thread
     private  HashMap<String,String> userPass;
@@ -17,14 +18,15 @@ public class TradingSystem {
 
 
 
-    public TradingSystem () {
+    public TradingSystem (User systemManager) {
         this.stores = new LinkedList<>();
         this.receipts = new LinkedList<>();
-        this.systemManager =null;
+        this.systemManager =systemManager;
         this.users = new LinkedList<>();
         this.userPass = new LinkedHashMap<>();
         this.encryptor = new Encryptor();
         this.userCounter = new counter();
+        this.storeCounter = new counter();
     }
 
 
@@ -84,7 +86,7 @@ public class TradingSystem {
     {
         User user =getUserById(userId);
         if(user != null)
-            return user.isLooged();
+            return user.isLogged();
         return false;
     }
 
@@ -128,7 +130,7 @@ public class TradingSystem {
     public boolean logout(int userId) {
         if(getUserById(userId) != null)
         {
-            getUserById(userId).setLooged(false);
+            getUserById(userId).setLogged(false);
             return true;
         }
         return false;
@@ -193,25 +195,37 @@ public class TradingSystem {
         return output;
     }
 
-    public boolean saveProductInBug(int userId, int storeId){
-        //TODO
+    public boolean addProductToBag(int userId, int storeId, int prodId){
+        Bag b = getUserById(userId).getBagByStoreId(storeId);
+        if(b != null) {
+            b.addProduct(prodId);
+            KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to Bag of store " + storeId + " for user " + userId);
+            return true;
+        }
+        KingLogger.logError(Level.WARNING,  "user Id " + userId + " didnt found");
         return false;
     }
-    public List<Integer> getChart(int userId){
-        //TODO need to add list of products in Bag class
-        return null;
+    public Map<Integer, List<Integer>> getCart(int userId){
+        Map<Integer, List<Integer>> m = new HashMap<>();
+        List<Bag> bags = getUserById(userId).getBags();
+        for (Bag b : bags){
+            m.put(b.getStoreId(), b.getProductIds());
+            KingLogger.logEvent(Level.INFO, "added Bag of Store number " + b.getStoreId() + " to the cart");
+        }
+        return m;
     }
-    //TODO
-    public boolean addProductToChart(int userId,int storeId, int ProductId){
 
+    public boolean removeProductFromBag(int userId,int storeId, int prodId){
+        Bag b = getUserById(userId).getBagByStoreId(storeId);
+        if(b != null) {
+            b.removeProduct(prodId);
+            KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was remove from Bag of store " + storeId + " for user " + userId);
+            return true;
+        }
+        KingLogger.logError(Level.WARNING,  "user Id " + userId + " didnt found");
         return false;
     }
-    //TODO
-    public boolean removeProductFromChart(int userId,int storeId, int ProductId){
 
-        return false;
-    }
-    //TODO
     public boolean buyProducts(int userId, int storeId, List<Integer> productsIds, String creditInfo){
         //TODO
         double totalCost = 0;
@@ -238,66 +252,82 @@ public class TradingSystem {
     //TODO
     public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity){
         Store store = getStoreById(storeId);
-        return store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity);
-
+        if(store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity)){
+            KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
+            return true;
+        }
+        KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
+        return false;
     }
 
-    //TODO
-    public boolean removeProductFromStore(int userId,int storeId, int productId){
 
+    public boolean removeProductFromStore(int userId,int storeId, int productId){
+        Store store = getStoreById(storeId);
+        if(store.removeProductFromStore(getUserById(userId),productId)){
+            KingLogger.logEvent(Level.INFO, "Product number " + productId + " was remove to store " + storeId + " by user " + userId);
+            return true;
+        }
+        KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! remove to store " + storeId + " by user " + userId);
         return false;
     }
 
     //returns the new store id
     public int openStore(int userId, String storeName){
-        //if(getUserById(userId).isRegistered()) { TODO implement method
-        int newId = stores.size() + 1;
-        Store store = new Store(newId, storeName, getUserById(userId));
-        return newId;
-        // }
-        // return -1;
+        if(getUserById(userId).isRegistered()) {
+            int newId = storeCounter.inc();
+            Store store = new Store(storeCounter.inc(), storeName, getUserById(userId));
+            this.stores.add(store);
+            return newId;
+        }
+        return -1;
     }
 
     public boolean addStoreOwner(int ownerId, int userId,int storeId){
-        return getStoreById(storeId).getPermissions().appointOwner(ownerId,userId);
+        return getStoreById(storeId).appointOwner(ownerId,userId);
     }
 
     public boolean addStoreManager(int ownerId, int userId, int storeId){
-        return getStoreById(storeId).getPermissions().appointManager(ownerId,userId);
+        return getStoreById(storeId).appointManager(ownerId,userId);
     }
 
     public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
         Store s = getStoreById(storeId);
-        return s.getPermissions().addPermissions(ownerId, managerId, opIndexes);
+        return s.addPermissions(ownerId, managerId, opIndexes);
     }
 
     public boolean removePermission(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
         Store s = getStoreById(storeId);
-        return s.getPermissions().removePermissions(ownerId, managerId, opIndexes);
+        return s.removePermissions(ownerId, managerId, opIndexes);
     }
 
     public boolean removeManager(int ownerId, int managerId, int storeId){
         Store s = getStoreById(storeId);
-        return s.getPermissions().removeAppointment(ownerId, managerId);
+        return s.removeAppointment(ownerId, managerId);
     }
 
     public String getWorkersInformation(int ownerId, int storeId){
-        //TODO
-        return null;
+        Store s = getStoreById(storeId);
+        return s.getWorkersInformation(ownerId);
     }
 
-    public String getStorePurchaseHistory(int ownerId, int storeId){
-        //TODO
-        return null;
+    public List<Receipt> getStorePurchaseHistory(int ownerId, int storeId){
+        List<Receipt> purchaseHistory = new LinkedList<>();
+        if(getStoreById(storeId).getStorePurchaseHistory(ownerId))
+        {
+            for(Receipt receipt : receipts)
+            {
+                if(receipt.getStoreId() == storeId)
+                    purchaseHistory.add(receipt);
+            }
+        }
+        return purchaseHistory;
     }
 
-    public boolean doSomething(int mangaerId, int storeId, Permissions permission){
-        //TODO
-        return false;
-    }
-
-    public String getAllPurchases(int systemManager){
-        //TODO
+    public List<Receipt> getAllPurchases(int systemManager){
+        if(this.systemManager.getId() == systemManager)
+        {
+            return this.receipts;
+        }
         return null;
     }
 
@@ -310,7 +340,6 @@ public class TradingSystem {
         }
         return null;
     }
-
 
     public List<Integer> getProductsFromStore(int storeId1) {
         //TODO

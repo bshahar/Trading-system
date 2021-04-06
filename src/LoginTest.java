@@ -7,13 +7,14 @@ import java.security.NoSuchAlgorithmException;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-public class AuthTest {
+public class LoginTest {
 
     TradingSystem tradingSystem;
 
     @BeforeEach
     public void setUp() {
-        tradingSystem= new TradingSystem();
+        User systemManager = new User("Elad",1,1);
+        tradingSystem= new TradingSystem(systemManager);
     }
 
     @Test

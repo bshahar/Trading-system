@@ -44,12 +44,12 @@ public class Inventory {
         return found;
     }
 
-    public boolean CanBuyProduct(Product prod, int numOfProd) {
+    public boolean canBuyProduct(Product prod, int numOfProd) {
         if(this.products.containsKey(prod) && products.get(prod) >= numOfProd) //TODO add to logger, print an error message?
            return true;
         return false;
     }
-    public boolean BuyProduct(Product prod, int numOfProd){
+    public boolean buyProduct(Product prod, int numOfProd){
         synchronized (this) {
             if (this.products.containsKey(prod) && products.get(prod) >= numOfProd){
                 products.put(prod, products.get(prod) - numOfProd);

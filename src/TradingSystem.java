@@ -160,11 +160,6 @@ public class TradingSystem {
         return null;
     }
 
-    public boolean saveProductInBug(int userId, int storeId){
-        //TODO
-        return false;
-    }
-
     public List<Integer> getChart(int userId){
         //TODO
         return null;

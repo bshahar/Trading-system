@@ -5,11 +5,11 @@ public class Product {
 
 
     enum Category {
-        Food,
-        Drinks,
-        Entertainment,
-        Other
-    } //TODO add more categories
+        FOOD,
+        DRINKS,
+        ENTERTAINMENT,
+        OTHER
+    }
 
     private int id;
     private String name;

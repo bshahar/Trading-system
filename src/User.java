@@ -28,6 +28,7 @@ public class User {
             if (bag.getStoreId() == storeId)
                 return bag;
         }
+
         return null;
     }
 
@@ -64,5 +65,10 @@ public class User {
             info.append(" ID: ");
             info.append(this.id);
             return info.toString();
+    }
+
+    public void createNewBag(Store store, int prodId) {
+        Bag b = new Bag(store);
+        this.bags.add(b);
     }
 }

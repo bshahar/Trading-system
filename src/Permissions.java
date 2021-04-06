@@ -2,6 +2,8 @@ import java.util.*;
 
 public class Permissions {
 
+
+
     enum Operations {
         AddProduct,
         RemoveProduct,
@@ -20,7 +22,7 @@ public class Permissions {
         EditDiscountFormat,
         CloseStore, //only for store creator
         ReopenStore,
-        GetBossesInfo,
+        GetWorkersInfo,
         ViewMessages,
         ReplayMessages,
         ViewPurchaseHistory
@@ -152,7 +154,7 @@ public class Permissions {
         p.add(Operations.DefineDiscountFormat);
         p.add(Operations.EditDiscountFormat);
         p.add(Operations.ReopenStore);
-        p.add(Operations.GetBossesInfo);
+        p.add(Operations.GetWorkersInfo);
         p.add(Operations.ViewMessages);
         p.add(Operations.ReplayMessages);
         p.add(Operations.ViewPurchaseHistory);
@@ -191,7 +193,7 @@ public class Permissions {
 
     private void addManagerPermissions(User user) {
         List<Operations> p = new LinkedList<>();
-        p.add(Operations.GetBossesInfo);
+        p.add(Operations.GetWorkersInfo);
         p.add(Operations.ViewMessages);
         p.add(Operations.ReplayMessages);
         this.usersPermissions.put(user, p);
@@ -229,10 +231,6 @@ public class Permissions {
         }
     }
 
-    public Set<User> getBosses() {
-        return this.roles.keySet();
-    }
-
     public boolean validatePermission(User user, Operations op) {
         for (User u: this.usersPermissions.keySet()) {
             if(user.getId() == u.getId()) {
@@ -241,12 +239,35 @@ public class Permissions {
         }
         return false; //user is not an owner/ manager of this store
     }
-    //TODO swap with real impl
     private User getUserById(int id) {
-        return new User("tmp", 1,0);
+        for(User user : usersPermissions.keySet())
+        {
+            if(user.getId() == id)
+                return user;
+        }
+        return null;
     }
 
     public Map<User, List<Operations>> getUserPermissions() {
         return this.usersPermissions;
     }
+
+    public String getWorkersInformation(int userId) {
+        StringBuilder usersInfo = new StringBuilder();
+        if(validatePermission(getUserById(userId),Operations.GetWorkersInfo))
+        {
+            for(User user: usersPermissions.keySet())
+            {
+                usersInfo.append(user.toString());
+            }
+        }
+        return usersInfo.toString();
+    }
+
+    public boolean getStorePurchaseHistory(int userId) {
+        return validatePermission(getUserById(userId),Operations.ViewPurchaseHistory);
+    }
+
+
+
 }

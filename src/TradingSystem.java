@@ -163,38 +163,43 @@ public class TradingSystem {
     }
     //TODO return the store id, product id
     public Map<Integer,Integer> getProducts(Filter filter){
-        Map<Integer,Integer> output = new HashMap<>();
-        switch (filter.searchType){
-            case "NAME":
-                for (Store s: stores) {
-                    List<Integer> ps = s.getProductsByName(filter);
-                    for (int productId: ps) {
-                        output.put(s.getStoreId(),productId);
-                    }
-                }
-                break;
-            case "CATEGORY":
-                for (Store s: stores) {
-                    List<Integer> ps = s.getProductsByCategory(filter);
-                    for (int productId: ps) {
-                        output.put(s.getStoreId(),productId);
-                    }
-                }
-                break;
-            case "KEYWORDS":
-                for (Store s: stores) {
-                    List<Integer> ps = s.getProductsByKeyWords(filter);
-                    for (int productId: ps) {
-                        output.put(s.getStoreId(),productId);
-                    }
-                }
-                break;
+        try{
 
-            default:
-                break;
+            Map<Integer,Integer> output = new HashMap<>();
+            switch (filter.searchType){
+                case "NAME":
+                    for (Store s: stores) {
+                        List<Integer> ps = s.getProductsByName(filter);
+                        for (int productId: ps) {
+                            output.put(s.getStoreId(),productId);
+                        }
+                    }
+                    break;
+                case "CATEGORY":
+                    for (Store s: stores) {
+                        List<Integer> ps = s.getProductsByCategory(filter);
+                        for (int productId: ps) {
+                            output.put(s.getStoreId(),productId);
+                        }
+                    }
+                    break;
+                case "KEYWORDS":
+                    for (Store s: stores) {
+                        List<Integer> ps = s.getProductsByKeyWords(filter);
+                        for (int productId: ps) {
+                            output.put(s.getStoreId(),productId);
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+            return output;
+        }catch (Exception e){
+            return new HashMap<>();
         }
-
-        return output;
     }
 
     public boolean addProductToBag(int userId, int storeId, int prodId){

@@ -89,6 +89,18 @@ public class StoreTest {
     }
 
     @Test
+    public void failGetProductByNameAndCategoryTest() throws Exception{
+        Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"Drinks",-1);
+        assertEquals(0,tradingSystem.getProducts(filter).size());
+    }
+
+    @Test
+    public void GetProductByNameAndCategoryTest() throws Exception{
+        Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"FOOD",-1);
+        assertEquals(1,tradingSystem.getProducts(filter).size());
+    }
+
+    @Test
     public void addToCartTest() throws Exception{
         assertTrue(tradingSystem.addProductToBag(registerId2,storeId1,1));
     }

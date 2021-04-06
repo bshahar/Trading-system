@@ -2,21 +2,26 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class User {
-    private Registered registered = null;
+    private int registered ;
     private List<Bag> bags;
     private String userName;
-    private boolean looged;
+    private boolean logged;
     private int id;
 
 
     public User(String userName, int id,int registered) {
-        if(registered == 1)
-            this.registered = new Registered();
+        this.registered = registered;
         this.bags = new LinkedList<>();
         this.userName = userName;
         this.id = id;
-        this.looged = true;
+        this.logged = true;
     }
+
+    public boolean isRegistered()
+    {
+        return (1==this.registered);
+    }
+
 
     public Bag getBagByStoreId(int storeId){
         for (Bag bag : bags){
@@ -27,15 +32,15 @@ public class User {
     }
 
     public void setRegistered() {
-        this.registered = new Registered();
+        this.registered = 1;
     }
 
-    public void setLooged(boolean looged) {
-        this.looged = looged;
+    public void setLogged(boolean logged) {
+        this.logged = logged;
     }
 
-    public boolean isLooged() {
-        return looged;
+    public boolean isLogged() {
+        return logged;
     }
 
     public int getId() {
@@ -46,20 +51,18 @@ public class User {
         return bags;
     }
 
-
     public String getUserName() {
         return userName;
     }
 
-    public void setBags(List<Bag> bags) {
-        this.bags = bags;
-    }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public String toString()
+        {
+            StringBuilder info = new StringBuilder();
+            info.append("User Name: ");
+            info.append(this.userName);
+            info.append(" ID: ");
+            info.append(this.id);
+            return info.toString();
     }
 }

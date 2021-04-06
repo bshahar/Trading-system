@@ -39,9 +39,6 @@ public class Store {
         return rate;
     }
 
-    public Set<User> getBosses() {
-        return this.permissions.getBosses();
-    }
 
     public boolean addToInventory(User currUser, Product prod, int numOfProd) {
         return this.inventory.addProduct(prod , numOfProd);
@@ -99,19 +96,48 @@ public class Store {
         return false; // TODO add logger
     }
 
-    public List<Integer> getProductsByName(String name){
-         return this.inventory.getProductsByName(name);
+    public List<Integer> getProductsByName(Filter filter){
+         return this.inventory.getProductsByName(filter,this.rate);
     }
 
-    public List<Integer> getProductsByCategory(String category) {
-        return this.inventory.getProductsByCategory(category);
+    public List<Integer> getProductsByCategory(Filter filter) {
+        return this.inventory.getProductsByCategory(filter,this.rate);
     }
 
-    public List<Integer> getProductsByKeyWords(String[] filter) {
-        return this.inventory.getProductsByKeyWords(filter);
+    public List<Integer> getProductsByKeyWords(Filter filter) {
+
+        return this.inventory.getProductsByKeyWords(filter, this.rate);
     }
 
     public List<Integer> getProductsByPriceRange(String[] filter) {
         return this.inventory.getProductsByPriceRange(filter);
+    }
+
+    public boolean appointOwner(int ownerId, int userId) {
+        return this.permissions.appointOwner(ownerId,userId);
+    }
+
+    public boolean appointManager(int ownerId, int userId) {
+        return this.appointManager(ownerId,userId);
+    }
+
+    public boolean addPermissions(int ownerId, int managerId, List<Integer> opIndexes) {
+        return this.permissions.addPermissions(ownerId,managerId,opIndexes);
+    }
+
+    public boolean removePermissions(int ownerId, int managerId, List<Integer> opIndexes) {
+        return this.permissions.removePermissions(ownerId,managerId,opIndexes);
+    }
+
+    public boolean removeAppointment(int ownerId, int managerId) {
+        return this.permissions.removeAppointment(ownerId,managerId);
+    }
+
+    public String getWorkersInformation(int ownerId) {
+        return this.permissions.getWorkersInformation(ownerId);
+    }
+
+    public boolean getStorePurchaseHistory(int ownerId) {
+        return this.permissions.getStorePurchaseHistory(ownerId);
     }
 }

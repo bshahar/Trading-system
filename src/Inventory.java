@@ -53,28 +53,49 @@ public class Inventory {
         return output;
     }
 
-    public List<Integer> getProductsByName(String name) {
+    public List<Integer> getProductsByName(Filter filter,double storeRank) {
+        String name=filter.param;
         List<Integer> output = new LinkedList<>();
         for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            if(p.getKey().getName().equals(name))
+            if(p.getKey().getName().equals(name) && checkFilter(p.getKey(),filter,storeRank))
                 output.add(p.getKey().getId());
         }
         return output;
     }
 
-    public List<Integer> getProductsByCategory(String category) {
+    private boolean checkFilter(Product product, Filter filter,double storeRank) {
+        if(filter.minPrice>product.getPrice()){
+            return false;
+        }
+        if(filter.maxPrice<product.getPrice()){
+            return false;
+        }
+        if(filter.prodRank>product.getRate()){
+            return false;
+        }
+        if(filter.category!="" && !product.containsCategory(filter.category)){
+            return false;
+        }
+        if(filter.storeRank>storeRank){
+            return false;
+        }
+        return true;
+    }
+
+
+    public List<Integer> getProductsByCategory(Filter filter, double storeRate) {
         List<Integer> output = new LinkedList<>();
         for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            if(p.getKey().containsCategory(category))
+            if(p.getKey().containsCategory(filter.param) && checkFilter(p.getKey(),filter,storeRate))
                 output.add(p.getKey().getId());
         }
         return output;
     }
 
-    public List<Integer> getProductsByKeyWords(String[] keyWords) {
+    public List<Integer> getProductsByKeyWords(Filter filter, double storeRate) {
         List<Integer> output = new LinkedList<>();
         for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            if(p.getKey().containsKeyWords(keyWords))
+            if(p.getKey().containsKeyWords(filter.param) && checkFilter(p.getKey(),filter,storeRate) )
                 output.add(p.getKey().getId());
         }
         return output;

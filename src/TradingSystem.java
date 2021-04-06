@@ -9,11 +9,11 @@ public class TradingSystem {
 
     private PaymentAdapter paymentAdapter;
     private SupplementAdapter supplementAdapter;
-    private  List<Store> stores;
+    private List<Store> stores;
     private User systemManager;
-    private  List<Receipt> receipts;
-    private  List<User> users; //TODO every user is a thread
-    private  HashMap<String,String> userPass;
+    private List<Receipt> receipts;
+    private List<User> users; //TODO every user is a thread
+    private HashMap<String,String> userPass;
     private Encryptor encryptor;
 
 
@@ -226,30 +226,32 @@ public class TradingSystem {
         return false;
     }
 
-    public boolean buyProducts(int userId, int storeId, List<Integer> productsIds, String creditInfo){
-        //TODO
+    public boolean buyProducts(int userId, int storeId, Map<Integer,Integer> productsIds, String creditInfo){
+        Store store =getStoreById(storeId);
         double totalCost = 0;
-        List<Product> products = new LinkedList<>();
-        for (int id: productsIds) {
-            //Product p =
-            //totalCost += p.getPrice();
+        Map<Product,Integer> products = new HashMap<>();
+        for (int id: productsIds.keySet()) {
+            Product p=store.getProductById(id);
+            products.put(p,productsIds.get(id));
+            totalCost += p.getPrice()*productsIds.get(id);
         }
-        for (Store s: stores) {
-            if(true) { //change to s.getId() == storeId
-                if(true) { //s.buy ...
-                    boolean paid = paymentAdapter.pay(totalCost, creditInfo);
-                    if(paid) {
-                        // TODO add to log
-                        return true;
-                    }
-                    return false;
+        synchronized (store) {
+            boolean canBuy = true;
+            for (Integer prodId : productsIds.keySet()) {
+                if (!store.canBuyProduct(prodId, productsIds.get(prodId))) {
+                    canBuy = false;
                 }
             }
+            if (canBuy && paymentAdapter.pay(totalCost, creditInfo)) {
+                for (Integer prodId : productsIds.keySet()) {
+                    store.buyProduct(prodId, productsIds.get(prodId));//remove amount from product
+                }
+                this.receipts.add(new Receipt(storeId,getUserById(userId).getUserName(),products));
+            }
         }
-        //TODO add to log
         return false;
     }
-    //TODO
+
     public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity){
         Store store = getStoreById(storeId);
         if(store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity)){

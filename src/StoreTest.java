@@ -43,7 +43,7 @@ public class StoreTest {
         storeId1=tradingSystem.openStore(registerId1,"kandabior store");
         LinkedList <Product.Category> catList= new LinkedList<>();
         catList.add(Product.Category.Food);
-        tradingSystem.addProductToStore(1,1, storeId1,"milk",catList ,10,"food", 5 );
+        tradingSystem.addProductToStore(1,1, storeId1,"milk",catList ,10,"FOOD", 5 );
 
     }
 
@@ -55,22 +55,27 @@ public class StoreTest {
 
     @Test
     public void getProductByNameTest() throws Exception{
-        Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
+        Filter filter=new Filter("NAME","milk",9,15,-1,"",-1);
         //assume the first product gets id of 1
-
         assertEquals(1,tradingSystem.getProducts(filter).get(storeId1));
     }
 
     @Test
-    public void failGetProductTest() throws Exception{
+    public void getProductByNameFailTest() throws Exception{
+        Filter filter=new Filter("NAME","milk",1,5,-1,"",-1);
+        //assume the first product gets id of 1
+        assertEquals(0,tradingSystem.getProducts(filter).size());
+    }
 
-        Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
+    @Test
+    public void failGetProductTest() throws Exception{
+        Filter filter=new Filter("NAME","dani",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
         assertEquals(0,tradingSystem.getProducts(filter).size());
     }
 
     @Test
     public void getProductByCategoryTest() throws Exception{
-        Filter filter=new Filter("CATEGORY","FOOD",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
+        Filter filter=new Filter("CATEGORY","FOOD",9, 15,-1,"",-1);
         //assume the first product gets id of 1
         assertEquals(1,tradingSystem.getProducts(filter).get(0));
     }

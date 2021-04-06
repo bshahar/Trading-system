@@ -140,4 +140,16 @@ public class Store {
     public boolean getStorePurchaseHistory(int ownerId) {
         return this.permissions.getStorePurchaseHistory(ownerId);
     }
+
+    public Product getProductById(int id) {
+        return inventory.getProductById(id);
+    }
+
+    public boolean canBuyProduct(int id,int amount) {
+        return inventory.canBuyProduct(getProductById(id),amount);
+    }
+
+    public void buyProduct(Integer prodId, Integer amount) {
+        inventory.buyProduct(getProductById(prodId),amount);
+    }
 }

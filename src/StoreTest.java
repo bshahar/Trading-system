@@ -99,7 +99,7 @@ public class StoreTest {
     }
 
     @Test
-    public void addToChartLogoutTest() throws Exception{
+    public void addToBagLogoutTest() throws Exception{
         tradingSystem.logout(registerId2);
         assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,1));
     }

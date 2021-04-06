@@ -13,4 +13,8 @@ public class Receipt {
         this.userName = userName;
         this.purchases = purchases;
     }
+
+    public int getStoreId() {
+        return storeId;
+    }
 }

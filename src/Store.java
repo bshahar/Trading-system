@@ -39,9 +39,6 @@ public class Store {
         return rate;
     }
 
-    public Set<User> getBosses() {
-        return this.permissions.getBosses();
-    }
 
     public boolean addToInventory(User currUser, Product prod, int numOfProd) {
         return this.inventory.addProduct(prod , numOfProd);
@@ -113,5 +110,33 @@ public class Store {
 
     public List<Integer> getProductsByPriceRange(String[] filter) {
         return this.inventory.getProductsByPriceRange(filter);
+    }
+
+    public boolean appointOwner(int ownerId, int userId) {
+        return this.permissions.appointOwner(ownerId,userId);
+    }
+
+    public boolean appointManager(int ownerId, int userId) {
+        return this.appointManager(ownerId,userId);
+    }
+
+    public boolean addPermissions(int ownerId, int managerId, List<Integer> opIndexes) {
+        return this.permissions.addPermissions(ownerId,managerId,opIndexes);
+    }
+
+    public boolean removePermissions(int ownerId, int managerId, List<Integer> opIndexes) {
+        return this.permissions.removePermissions(ownerId,managerId,opIndexes);
+    }
+
+    public boolean removeAppointment(int ownerId, int managerId) {
+        return this.permissions.removeAppointment(ownerId,managerId);
+    }
+
+    public String getWorkersInformation(int ownerId) {
+        return this.permissions.getWorkersInformation(ownerId);
+    }
+
+    public boolean getStorePurchaseHistory(int ownerId) {
+        return this.permissions.getStorePurchaseHistory(ownerId);
     }
 }

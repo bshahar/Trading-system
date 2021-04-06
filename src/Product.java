@@ -88,7 +88,8 @@ public class Product {
         return false;
     }
 
-    public boolean containsKeyWords(String[] keyWords) {
+    public boolean containsKeyWords(String keyWordsStr) {
+        String []keyWords = keyWordsStr.split(" ");
         boolean contains = false;
         for (int i = 0 ; i < keyWords.length ; i++){
             if(description.contains(keyWords[i]))

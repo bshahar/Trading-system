@@ -1,7 +1,4 @@
-import javafx.util.Pair;
 
-import javax.crypto.NoSuchPaddingException;
-import java.security.NoSuchAlgorithmException;
 import java.util.*;
 import java.util.logging.Level;
 
@@ -161,12 +158,12 @@ public class TradingSystem {
         return output;
     }
     //TODO return the store id, product id
-    public Map<Integer,Integer> getProducts(String searchType, String param, String[] filter){
+    public Map<Integer,Integer> getProducts(Filter filter){
         Map<Integer,Integer> output = new HashMap<>();
-        switch (searchType){
+        switch (filter.searchType){
             case "NAME":
                 for (Store s: stores) {
-                    List<Integer> ps = s.getProductsByName(param);
+                    List<Integer> ps = s.getProductsByName(filter);
                     for (int productId: ps) {
                         output.put(s.getStoreId(),productId);
                     }
@@ -174,7 +171,7 @@ public class TradingSystem {
                 break;
             case "CATEGORY":
                 for (Store s: stores) {
-                    List<Integer> ps = s.getProductsByCategory(param);
+                    List<Integer> ps = s.getProductsByCategory(filter);
                     for (int productId: ps) {
                         output.put(s.getStoreId(),productId);
                     }
@@ -188,16 +185,6 @@ public class TradingSystem {
                     }
                 }
                 break;
-            case "PRICERANGE":
-                for (Store s: stores) {
-                    List<Integer> ps = s.getProductsByPriceRange(filter);
-                    for (int productId: ps) {
-                        output.put(s.getStoreId(),productId);
-                    }
-                }
-                break;
-
-
 
             default:
                 break;

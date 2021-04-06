@@ -19,15 +19,26 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_03_2021_10_53_[Default_Changelist]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_29_03_2021_10_53__Default_Changelist_.xml" beforeDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="update auth and store tests #26">
+      <change afterPath="$PROJECT_DIR$/src/Filter.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Merge.Settings">
     <option name="BRANCH" value="EladSolomon" />
@@ -106,27 +117,5 @@
     <MESSAGE value="store and products update #24" />
     <MESSAGE value="stores and products updates2 #24" />
     <option name="LAST_COMMIT_MESSAGE" value="stores and products updates2 #24" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="546" y="167" key="FileChooserDialogImpl" timestamp="1617442399028">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="546" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1617442399028" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1617462130286">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1617462130286" />
-    <state x="478" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1617444208095">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="478" y="304" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1536.824@0.0.1536.824" timestamp="1617444208095" />
-    <state x="484" y="201" key="git4idea.merge.GitMergeDialog" timestamp="1617462181551">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="484" y="201" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1617462181551" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1617441515528">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1617441515528" />
   </component>
 </project>

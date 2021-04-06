@@ -53,28 +53,30 @@ public class StoreTest {
 
     @Test
     public void getProductByNameTest() throws Exception{
-        String[]arr = new String[0];
+        Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
         //assume the first product gets id of 1
-        assertEquals(1,tradingSystem.getProducts("NAME","milk",arr).get(storeId1));
+
+        assertEquals(1,tradingSystem.getProducts(filter).get(storeId1));
     }
 
     @Test
     public void failGetProductTest() throws Exception{
-        String[]arr = new String[0];
-        assertEquals(0,tradingSystem.getProducts("NAME","cheese",arr).size());
+
+        Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
+        assertEquals(0,tradingSystem.getProducts(filter).size());
     }
 
     @Test
     public void getProductByCategoryTest() throws Exception{
-        String[]arr = new String[0];
+        Filter filter=new Filter("CATEGORY","FOOD",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
         //assume the first product gets id of 1
-        assertEquals(1,tradingSystem.getProducts("CATEGORY","Food",arr).get(0));
+        assertEquals(1,tradingSystem.getProducts(filter).get(0));
     }
 
     @Test
     public void failGetProductByCategoryTest() throws Exception{
-        String[]arr = new String[0];
-        assertEquals(0,tradingSystem.getProducts("CATEGORY","Drinks",arr).size());
+        Filter filter=new Filter("CATEGORY","DRINK",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
+        assertEquals(0,tradingSystem.getProducts(filter).size());
     }
 
     @Test

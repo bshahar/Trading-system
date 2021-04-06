@@ -90,16 +90,17 @@ public class Store {
         return false; // TODO add logger
     }
 
-    public List<Integer> getProductsByName(String name){
-         return this.inventory.getProductsByName(name);
+    public List<Integer> getProductsByName(Filter filter){
+         return this.inventory.getProductsByName(filter,this.rate);
     }
 
-    public List<Integer> getProductsByCategory(String category) {
-        return this.inventory.getProductsByCategory(category);
+    public List<Integer> getProductsByCategory(Filter filter) {
+        return this.inventory.getProductsByCategory(filter,this.rate);
     }
 
-    public List<Integer> getProductsByKeyWords(String[] filter) {
-        return this.inventory.getProductsByKeyWords(filter);
+    public List<Integer> getProductsByKeyWords(Filter filter) {
+
+        return this.inventory.getProductsByKeyWords(filter, this.rate);
     }
 
     public List<Integer> getProductsByPriceRange(String[] filter) {

@@ -151,13 +151,15 @@ public class TradingSystem {
         return users.size();
     }
 
-    public String getAllStoresInfo() {
-        String output = "";
-        Store[] storesArr = (Store[]) stores.toArray();
-        for (int i = 0; i < storesArr.length ; i ++){
-            output += storesInfo(i);
-        }
-        return output;
+    public List<Store> getAllStoresInfo() {
+        return this.stores;
+        //TODO in the GUI we need to use the comments code.
+//        String output = "";
+//        Store[] storesArr = (Store[]) stores.toArray();
+//        for (int i = 0; i < storesArr.length ; i ++){
+//            output += storesInfo(i);
+//        }
+//        return output;
     }
     //TODO return the store id, product id
     public Map<Integer,Integer> getProducts(Filter filter){
@@ -202,8 +204,8 @@ public class TradingSystem {
             KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to Bag of store " + storeId + " for user " + userId);
             return true;
         }
-        KingLogger.logError(Level.WARNING,  "user Id " + userId + " didnt found");
-        return false;
+        getUserById(userId).createNewBag(getStoreById(storeId), prodId);
+        return true;
     }
     public Map<Integer, List<Integer>> getCart(int userId){
         Map<Integer, List<Integer>> m = new HashMap<>();
@@ -252,7 +254,7 @@ public class TradingSystem {
     //TODO
     public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity){
         Store store = getStoreById(storeId);
-        if(store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity)){
+        if(store != null && store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity)){
             KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
             return true;
         }
@@ -263,7 +265,7 @@ public class TradingSystem {
 
     public boolean removeProductFromStore(int userId,int storeId, int productId){
         Store store = getStoreById(storeId);
-        if(store.removeProductFromStore(getUserById(userId),productId)){
+        if(store != null && store.removeProductFromStore(getUserById(userId),productId)){
             KingLogger.logEvent(Level.INFO, "Product number " + productId + " was remove to store " + storeId + " by user " + userId);
             return true;
         }
@@ -275,7 +277,7 @@ public class TradingSystem {
     public int openStore(int userId, String storeName){
         if(getUserById(userId).isRegistered()) {
             int newId = storeCounter.inc();
-            Store store = new Store(storeCounter.inc(), storeName, getUserById(userId));
+            Store store = new Store(newId, storeName, getUserById(userId));
             this.stores.add(store);
             return newId;
         }
@@ -283,7 +285,8 @@ public class TradingSystem {
     }
 
     public boolean addStoreOwner(int ownerId, int userId,int storeId){
-        return getStoreById(storeId).appointOwner(ownerId,userId);
+       //return getStoreById(storeId).appointOwner(ownerId,userId);
+    return true;
     }
 
     public boolean addStoreManager(int ownerId, int userId, int storeId){
@@ -341,9 +344,7 @@ public class TradingSystem {
         return null;
     }
 
-    public List<Integer> getProductsFromStore(int storeId1) {
-        //TODO
-        return null;
-
+    public List<Integer> getProductsFromStore(int storeId) {
+        return getStoreById(storeId).getInventory().getProductsIds();
     }
 }

@@ -78,6 +78,7 @@ public class Store {
     }
 
     public boolean addProductToStore(User user, int productId,  String name, List<Product.Category> categories, double price, String description, int quantity) {
+
         if( this.permissions.validatePermission(user, Permissions.Operations.AddProduct)){
             if(validateProductId(productId)){
                 Product p = new Product(productId, name, categories, price, description);

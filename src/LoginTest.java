@@ -61,12 +61,19 @@ public class LoginTest {
     }
 
     @Test
+    //AT-1
     public void guestLoginTest() throws  Exception{
         int index = tradingSystem.guestLogin();
-        System.out.println(index);
         assertEquals(index, 1);
         assertTrue(tradingSystem.isLogged(index));
 
+    }
+    @Test
+    //AT-2
+    public void guestLogoutTest() throws  Exception{
+        int index = tradingSystem.guestLogin();
+        assertTrue(tradingSystem.logout(index));
+        assertFalse(tradingSystem.isLogged(index));
     }
 
     @Test

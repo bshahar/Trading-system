@@ -136,7 +136,7 @@ public class TradingSystem {
         return false;
     }
 
-    private User getUserById(int userId)
+    public User getUserById(int userId)
     {
         for(User user : users)
         {
@@ -249,9 +249,10 @@ public class TradingSystem {
         //TODO add to log
         return false;
     }
-    //TODO
     public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity){
         Store store = getStoreById(storeId);
+        if(getUserById(userId) == null)
+            return false;
         if(store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity)){
             KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
             return true;
@@ -275,7 +276,7 @@ public class TradingSystem {
     public int openStore(int userId, String storeName){
         if(getUserById(userId).isRegistered()) {
             int newId = storeCounter.inc();
-            Store store = new Store(storeCounter.inc(), storeName, getUserById(userId));
+            Store store = new Store(newId, storeName, getUserById(userId));
             this.stores.add(store);
             return newId;
         }

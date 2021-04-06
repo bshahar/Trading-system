@@ -3,31 +3,40 @@ import java.util.*;
 public class Store {
 
     private int storeId;
+    private String name;
     private Inventory inventory;
-    //private Map<Registered> bosses; //Owners & managers //TODO type Register/User? Move to Permissions?
     private Permissions permissions;
+
+    private double rate;
+    private int ratesCount;
     //private List<Bag> shoppingBags;
 
-    public Store(int id, User owner, Map<Product,Integer>products) { //create a store with initial inventory
+    public Store(int id, String name, User owner, Map<Product,Integer>products) { //create a store with initial inventory
         this.storeId = id;
-        //this.bosses = new LinkedList<>();
-        //this.bosses.add(owner);
+        this.name = name;
         //this.shoppingBags = new LinkedList<>();
         this.permissions = new Permissions(owner);
         this.inventory = new Inventory(products);
+        this.rate = 0;
+        this.ratesCount = 0;
     }
 
-    public Store(int id, User owner) { //create a store with empty inventory
+    public Store(int id, String name, User owner) { //create a store with empty inventory
         this.storeId = id;
-        //this.bosses = new LinkedList<>();
-        //this.bosses.add(owner);
+        this.name = name;
         //this.shoppingBags = new LinkedList<>();
         this.permissions = new Permissions(owner);
         this.inventory = new Inventory();
+        this.rate = 0;
+        this.ratesCount = 0;
     }
 
     public Inventory getInventory() {
         return inventory;
+    }
+
+    public double getRate() {
+        return rate;
     }
 
     public Set<User> getBosses() {
@@ -48,9 +57,14 @@ public class Store {
         return this.permissions.appointManager(appointer.getId(), appointee.getId());
     }
 
+    public void rateStore(double newRate) {
+        this.ratesCount ++;
+        this.rate = (this.rate + newRate) / this.ratesCount;
+    }
+
     public String getStoreInfo() {
         String str = "";
-        str = str + "Store Id - " + storeId + " The products in this store - " + getInventory().toString();
+        str = str + "Store name - " + name + " The products in this store - " + getInventory().toString();
         return str;
     }
 
@@ -82,5 +96,13 @@ public class Store {
 
     public List<Integer> getProductsByCategory(String category) {
         return this.inventory.getProductsByCategory(category);
+    }
+
+    public List<Integer> getProductsByKeyWords(String[] filter) {
+        return this.inventory.getProductsByKeyWords(filter);
+    }
+
+    public List<Integer> getProductsByPriceRange(String[] filter) {
+        return this.inventory.getProductsByPriceRange(filter);
     }
 }

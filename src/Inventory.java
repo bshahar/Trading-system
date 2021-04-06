@@ -63,14 +63,29 @@ public class Inventory {
     }
 
     public List<Integer> getProductsByCategory(String category) {
-        /*
-        Product.Category category1 = (Product.Category) Enum.valueOf(category);
         List<Integer> output = new LinkedList<>();
         for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            if(p.getKey().getCategories().contains())
+            if(p.getKey().containsCategory(category))
                 output.add(p.getKey().getId());
         }
-        return output;*/
-        return null;
+        return output;
+    }
+
+    public List<Integer> getProductsByKeyWords(String[] keyWords) {
+        List<Integer> output = new LinkedList<>();
+        for (Map.Entry<Product, Integer> p : products.entrySet()) {
+            if(p.getKey().containsKeyWords(keyWords))
+                output.add(p.getKey().getId());
+        }
+        return output;
+    }
+
+    public List<Integer> getProductsByPriceRange(String[] prices) {
+        List<Integer> output = new LinkedList<>();
+        for (Map.Entry<Product, Integer> p : products.entrySet()) {
+            if(p.getKey().inPriceRange(prices))
+                output.add(p.getKey().getId());
+        }
+        return output;
     }
 }

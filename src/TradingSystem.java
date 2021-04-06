@@ -9,11 +9,11 @@ public class TradingSystem {
 
     private PaymentAdapter paymentAdapter;
     private SupplementAdapter supplementAdapter;
-    private  List<Store> stores;
+    private List<Store> stores;
     private User systemManager;
-    private  List<Receipt> receipts;
-    private  List<User> users; //TODO every user is a thread
-    private  HashMap<String,String> userPass;
+    private List<Receipt> receipts;
+    private List<User> users; //TODO every user is a thread
+    private HashMap<String,String> userPass;
     private Encryptor encryptor;
 
 
@@ -136,7 +136,7 @@ public class TradingSystem {
         return false;
     }
 
-    private User getUserById(int userId)
+    public User getUserById(int userId)
     {
         for(User user : users)
         {
@@ -163,38 +163,43 @@ public class TradingSystem {
     }
     //TODO return the store id, product id
     public Map<Integer,Integer> getProducts(Filter filter){
-        Map<Integer,Integer> output = new HashMap<>();
-        switch (filter.searchType){
-            case "NAME":
-                for (Store s: stores) {
-                    List<Integer> ps = s.getProductsByName(filter);
-                    for (int productId: ps) {
-                        output.put(s.getStoreId(),productId);
-                    }
-                }
-                break;
-            case "CATEGORY":
-                for (Store s: stores) {
-                    List<Integer> ps = s.getProductsByCategory(filter);
-                    for (int productId: ps) {
-                        output.put(s.getStoreId(),productId);
-                    }
-                }
-                break;
-            case "KEYWORDS":
-                for (Store s: stores) {
-                    List<Integer> ps = s.getProductsByKeyWords(filter);
-                    for (int productId: ps) {
-                        output.put(s.getStoreId(),productId);
-                    }
-                }
-                break;
+        try{
 
-            default:
-                break;
+            Map<Integer,Integer> output = new HashMap<>();
+            switch (filter.searchType){
+                case "NAME":
+                    for (Store s: stores) {
+                        List<Integer> ps = s.getProductsByName(filter);
+                        for (int productId: ps) {
+                            output.put(s.getStoreId(),productId);
+                        }
+                    }
+                    break;
+                case "CATEGORY":
+                    for (Store s: stores) {
+                        List<Integer> ps = s.getProductsByCategory(filter);
+                        for (int productId: ps) {
+                            output.put(s.getStoreId(),productId);
+                        }
+                    }
+                    break;
+                case "KEYWORDS":
+                    for (Store s: stores) {
+                        List<Integer> ps = s.getProductsByKeyWords(filter);
+                        for (int productId: ps) {
+                            output.put(s.getStoreId(),productId);
+                        }
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+
+            return output;
+        }catch (Exception e){
+            return new HashMap<>();
         }
-
-        return output;
     }
 
     public boolean addProductToBag(int userId, int storeId, int prodId){
@@ -232,37 +237,44 @@ public class TradingSystem {
         return false;
     }
 
-    public boolean buyProducts(int userId, int storeId, List<Integer> productsIds, String creditInfo){
-        //TODO
+    public boolean buyProducts(int userId, int storeId, Map<Integer,Integer> productsIds, String creditInfo){
+        Store store =getStoreById(storeId);
         double totalCost = 0;
-        List<Product> products = new LinkedList<>();
-        for (int id: productsIds) {
-            //Product p =
-            //totalCost += p.getPrice();
+        Map<Product,Integer> products = new HashMap<>();
+        for (int id: productsIds.keySet()) {
+            Product p=store.getProductById(id);
+            products.put(p,productsIds.get(id));
+            totalCost += p.getPrice()*productsIds.get(id);
         }
-        for (Store s: stores) {
-            if(true) { //change to s.getId() == storeId
-                if(true) { //s.buy ...
-                    boolean paid = paymentAdapter.pay(totalCost, creditInfo);
-                    if(paid) {
-                        // TODO add to log
-                        return true;
-                    }
-                    return false;
+        synchronized (store) {
+            boolean canBuy = true;
+            for (Integer prodId : productsIds.keySet()) {
+                if (!store.canBuyProduct(prodId, productsIds.get(prodId))) {
+                    canBuy = false;
                 }
             }
+            if (canBuy && paymentAdapter.pay(totalCost, creditInfo)) {
+                for (Integer prodId : productsIds.keySet()) {
+                    store.buyProduct(prodId, productsIds.get(prodId));//remove amount from product
+                }
+                this.receipts.add(new Receipt(storeId,getUserById(userId).getUserName(),products));
+            }
         }
-        //TODO add to log
         return false;
     }
-    //TODO
-    public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity){
+
+    public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity) {
         Store store = getStoreById(storeId);
-        if(store != null && store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity)){
-            KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
-            return true;
+        if (getUserById(userId) == null)
+            return false;
+        if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
+            if (store != null && store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
+                KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
+                return true;
+            }
+            KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
+            return false;
         }
-        KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
         return false;
     }
 

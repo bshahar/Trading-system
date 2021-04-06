@@ -78,6 +78,7 @@ public class Store {
     }
 
     public boolean addProductToStore(User user, int productId,  String name, List<Product.Category> categories, double price, String description, int quantity) {
+
         if( this.permissions.validatePermission(user, Permissions.Operations.AddProduct)){
             if(validateProductId(productId)){
                 Product p = new Product(productId, name, categories, price, description);
@@ -140,5 +141,17 @@ public class Store {
 
     public boolean getStorePurchaseHistory(int ownerId) {
         return this.permissions.getStorePurchaseHistory(ownerId);
+    }
+
+    public Product getProductById(int id) {
+        return inventory.getProductById(id);
+    }
+
+    public boolean canBuyProduct(int id,int amount) {
+        return inventory.canBuyProduct(getProductById(id),amount);
+    }
+
+    public void buyProduct(Integer prodId, Integer amount) {
+        inventory.buyProduct(getProductById(prodId),amount);
     }
 }

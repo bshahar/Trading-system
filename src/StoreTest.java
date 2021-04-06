@@ -45,9 +45,11 @@ public class StoreTest {
         catList.add(Product.Category.FOOD);
         tradingSystem.addProductToStore(1,1, storeId1,"milk",catList ,10,"FOOD", 5 );
 
+
     }
 
     @Test
+    //AT-3
     public void getInformationTest() throws Exception{
         //TODO make better test
         assertNotNull(tradingSystem.getAllStoresInfo());
@@ -55,22 +57,27 @@ public class StoreTest {
 
     @Test
     public void getProductByNameTest() throws Exception{
-        Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
+        Filter filter=new Filter("NAME","milk",9,15,-1,"",-1);
         //assume the first product gets id of 1
-
         assertEquals(1,tradingSystem.getProducts(filter).get(storeId1));
     }
 
     @Test
+    public void getProductByNameFailTest() throws Exception{
+        Filter filter=new Filter("NAME","milk",1,5,-1,"",-1);
+        //assume the first product gets id of 1
+        assertEquals(0,tradingSystem.getProducts(filter).size());
+    }
+
+    @Test
     public void failGetProductTest() throws Exception{
-        Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
-        int res = tradingSystem.getProducts(filter).size();
-        assertNotEquals(0, res);
+        Filter filter=new Filter("NAME","dani",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
+        assertEquals(0,tradingSystem.getProducts(filter).size());
     }
 
     @Test
     public void getProductByCategoryTest() throws Exception{
-        Filter filter=new Filter("CATEGORY","FOOD",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
+        Filter filter=new Filter("CATEGORY","FOOD",9, 15,-1,"",-1);
         //assume the first product gets id of 1
         int id = (int)tradingSystem.getProducts(filter).values().toArray()[0];
         assertEquals(1,id);
@@ -80,6 +87,18 @@ public class StoreTest {
     public void failGetProductByCategoryTest() throws Exception{
         Filter filter=new Filter("CATEGORY","DRINK",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
         assertEquals(0,tradingSystem.getProducts(filter).size());
+    }
+
+    @Test
+    public void failGetProductByNameAndCategoryTest() throws Exception{
+        Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"Drinks",-1);
+        assertEquals(0,tradingSystem.getProducts(filter).size());
+    }
+
+    @Test
+    public void GetProductByNameAndCategoryTest() throws Exception{
+        Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"FOOD",-1);
+        assertEquals(1,tradingSystem.getProducts(filter).size());
     }
 
     @Test

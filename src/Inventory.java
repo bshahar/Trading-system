@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Inventory {
 
-    Map<Product , Integer> products;
+    private Map<Product , Integer> products;
 
     public Inventory() {
         this.products = new HashMap<>();
@@ -125,5 +125,10 @@ public class Inventory {
             return true;
         }
         return false;
+    }
+
+    public List<Integer> getProductsIds(){
+        List <Integer> l = new ArrayList<>(this.products.values());
+        return l;
     }
 }

@@ -50,7 +50,7 @@ public class Store {
 
     public boolean addBoss(User appointer, User appointee, int role) { //role = 1 -> owner, role  = 2 -> manager
         if(role == 1)
-            return this.permissions.appointOwner(appointer.getId(), appointee.getId());
+            return this.permissions.appointOwner(appointer.getId(), appointee);
         return this.permissions.appointManager(appointer.getId(), appointee.getId());
     }
 
@@ -113,8 +113,8 @@ public class Store {
         return this.inventory.getProductsByPriceRange(filter);
     }
 
-    public boolean appointOwner(int ownerId, int userId) {
-        return this.permissions.appointOwner(ownerId,userId);
+    public boolean appointOwner(int ownerId, User user) {
+        return this.permissions.appointOwner(ownerId, user);
     }
 
     public boolean appointManager(int ownerId, int userId) {

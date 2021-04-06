@@ -49,6 +49,7 @@ public class StoreTest {
     }
 
     @Test
+    //AT-3
     public void getInformationTest() throws Exception{
         //TODO make better test
         assertNotNull(tradingSystem.getAllStoresInfo());

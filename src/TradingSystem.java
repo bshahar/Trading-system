@@ -251,16 +251,19 @@ public class TradingSystem {
         //TODO add to log
         return false;
     }
-    public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity){
+
+    public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity) {
         Store store = getStoreById(storeId);
-        if(getUserById(userId) == null)
+        if (getUserById(userId) == null)
             return false;
-        if(store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity)){
-        if(store != null && store.addProductToStore(getUserById(userId),productId, name, categories, price, description,quantity)){
-            KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
-            return true;
+        if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
+            if (store != null && store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
+                KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
+                return true;
+            }
+            KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
+            return false;
         }
-        KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
         return false;
     }
 

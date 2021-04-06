@@ -170,4 +170,18 @@
     <MESSAGE value="connect trading system to stores #27" />
     <option name="LAST_COMMIT_MESSAGE" value="connect trading system to stores #27" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="669" y="-1026" key="CommitChangelistDialog2" timestamp="1617736656133">
+      <screen x="84" y="-1200" width="1920" height="1160" />
+    </state>
+    <state x="669" y="-1026" key="CommitChangelistDialog2/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617736656133" />
+    <state x="636" y="-887" key="Vcs.Push.Dialog.v2" timestamp="1617736623070">
+      <screen x="84" y="-1200" width="1920" height="1160" />
+    </state>
+    <state x="636" y="-887" key="Vcs.Push.Dialog.v2/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617736623070" />
+    <state x="829" y="-829" key="git4idea.merge.GitMergeDialog" timestamp="1617736637648">
+      <screen x="84" y="-1200" width="1920" height="1160" />
+    </state>
+    <state x="829" y="-829" key="git4idea.merge.GitMergeDialog/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617736637648" />
+  </component>
 </project>

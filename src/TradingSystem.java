@@ -22,10 +22,11 @@ public class TradingSystem {
 
     public TradingSystem (User systemManager) {
         this.paymentAdapter= new PaymentAdapter();
-        this.stores = new LinkedList<>();
-        this.receipts = new LinkedList<>();
+        this.stores = Collections.synchronizedList(new LinkedList<Store>());
+
+        this.receipts =Collections.synchronizedList( new LinkedList<>());
         this.systemManager =systemManager;
-        this.users = new LinkedList<>();
+        this.users = Collections.synchronizedList(new LinkedList<>());
         this.userPass = new ConcurrentHashMap<>();
         this.encryptor = new Encryptor();
         userCounter = new counter();
@@ -35,13 +36,15 @@ public class TradingSystem {
 
 
     public boolean register(String userName, String pass) {
-        if(userPass.containsKey(userName))
-            return false;
-        else {
-            userPass.put(userName, this.encryptor.encrypt(pass));
-            KingLogger.logEvent(Level.INFO, "User " + userName + " registered to the system.");
-            users.add(new User(userName, userCounter.inc(), 1));
-            return true;
+        synchronized (userPass) {
+            if (userPass.containsKey(userName)) {
+                return false;
+            } else {
+                userPass.put(userName, this.encryptor.encrypt(pass));
+                KingLogger.logEvent(Level.INFO, "User " + userName + " register to the system");
+                users.add(new User(userName, userCounter.inc(), 1));
+                return true;
+            }
         }
     }
 
@@ -304,12 +307,15 @@ public class TradingSystem {
 
     public boolean removeProductFromStore(int userId,int storeId, int productId){
         Store store = getStoreById(storeId);
-        if(store != null && store.removeProductFromStore(getUserById(userId),productId)){
-            KingLogger.logEvent(Level.INFO, "Product number " + productId + " was remove to store " + storeId + " by user " + userId);
-            return true;
+        synchronized (store) {
+            if (store != null && store.removeProductFromStore(getUserById(userId), productId)) {
+                KingLogger.logEvent(Level.INFO, "Product number " + productId + " was remove to store " + storeId + " by user " + userId);
+                return true;
+            }
+            KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! remove to store " + storeId + " by user " + userId);
+            return false;
         }
-        KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! remove to store " + storeId + " by user " + userId);
-        return false;
+
     }
 
     //returns the new store id
@@ -393,4 +399,7 @@ public class TradingSystem {
         return getStoreById(storeId).getInventory().getProductsIds();
     }
 
+    public int getNumOfStores() {
+        return stores.size();
+    }
 }

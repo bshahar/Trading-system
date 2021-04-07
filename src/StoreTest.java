@@ -27,7 +27,7 @@ public class StoreTest {
     int storeId2;
 
     @BeforeEach
-    public void setUp() throws NoSuchAlgorithmException, NoSuchPaddingException {
+    public void setUp(){
         User systemManager = new User("Elad",1,1);
         tradingSystem= new TradingSystem(systemManager);
         String userName1="kandabior";
@@ -353,39 +353,77 @@ public class StoreTest {
         assertEquals(0, tradingSystem.getCart(registerId1).size());
     }
 
+    @Test
+    public void registerTwoUsersTest(){
+        for(int i=0; i<100; i++){
+            setUp();
+            registerTwoUsers();
+            assertEquals(4,tradingSystem.getNumOfUsers());
+        }
+
+    }
+
+    private void registerTwoUsers() {
+        try{
+            Thread thread1= new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    tradingSystem.register("same name","1234");
+                }
+            });
+            Thread thread2= new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    tradingSystem.register("same name","1234");
+                }
+            });
+
+            thread1.start();
+            thread2.start();
+            thread1.join();
+            thread2.join();
+        }catch (Exception e){
+            fail();
+
+        }
 
 
+    }
 
 
+    @Test
+    public void addNewStoresTest(){
+        for(int i=0; i<100; i++){
+            setUp();
+            addNewStores();
+            assertEquals(101,tradingSystem.getNumOfStores());
+        }
+    }
+
+    private void addNewStores() {
+        try{
+            List<Thread> threads=new LinkedList<>();
+            for(int i=0; i<100;i++){
+                threads.add(new Thread(new Runnable() {
+                    @Override
+                    public void run() {
+                        tradingSystem.openStore(registerId1,"newStore");
+                    }
+                }));
+            }
+            for(Thread thread : threads){
+                thread.start();
+            }
+            for(Thread thread : threads){
+                thread.join();
+            }
+        }catch (Exception e){
+            fail();
+
+        }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+    }
 
 
 }

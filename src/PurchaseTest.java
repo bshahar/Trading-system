@@ -19,7 +19,8 @@ public class PurchaseTest {
     private int productId2;
 
     @BeforeEach
-    public void setUp() throws NoSuchAlgorithmException, NoSuchPaddingException {
+    public void setUp() {
+
         User systemManager = new User("Elad",1,1);
         tradingSystem= new TradingSystem(systemManager);
         String userName1="kandabior";
@@ -38,7 +39,6 @@ public class PurchaseTest {
         LinkedList<Product.Category> catList= new LinkedList<>();
         catList.add(Product.Category.FOOD);
         productId1= tradingSystem.addProductToStore(1, storeId1,"milk",catList ,10,"FOOD", 1 );
-        productId2=tradingSystem.addProductToStore(1,storeId1,"milk",catList ,10,"FOOD", 1 );
 
 
     }
@@ -60,9 +60,9 @@ public class PurchaseTest {
     @Test
     public void purchaseTest3(){
         tradingSystem.addProductToBag(registerId1,storeId1,productId1,1);
-        tradingSystem.addProductToBag(registerId2,storeId1,productId2,1);
+        tradingSystem.addProductToBag(registerId2,storeId1,productId1,1);
         assertTrue(tradingSystem.buyProducts(registerId1,storeId1,"123456789"));
-        assertTrue(tradingSystem.buyProducts(registerId2,storeId1,"123456789"));
+        assertFalse(tradingSystem.buyProducts(registerId2,storeId1,"123456789"));
     }
 
     public void TestSync(){
@@ -89,17 +89,63 @@ public class PurchaseTest {
         }catch(Exception e){
             fail();
         }
-
-        }
+    }
 
     @Test
-    public void purchaseSyncTest4(){
+    public void twoPurchaseSyncTest(){
+        int orCount=0;
+        int eladCount=0;
         for(int i=0; i<100; i++){
+            setUp();
             TestSync();
-            assertTrue(tradingSystem.getStorePurchaseHistory(registerId1,storeId1).size()==1);
-            String usename=tradingSystem.getStorePurchaseHistory(registerId1,storeId1).get(0).getUserName();
-            assertTrue((usename=="kandabior")|| (usename=="elad"));
+            assertEquals(1,tradingSystem.getStorePurchaseHistory(registerId1,storeId1).size());
+            String username=tradingSystem.getStorePurchaseHistory(registerId1,storeId1).get(0).getUserName();
+            if(username=="kandabior")
+                orCount++;
+            else
+                eladCount++;
+            assertTrue((username=="kandabior")|| (username=="elad"));
         }
-
+        System.out.println("or: "+ orCount);
+        System.out.println("elad: "+ eladCount);
     }
+
+
+    @Test
+    public void purchaseRemoveSyncTest(){
+        try {
+            for (int i = 0; i < 100; i++) {
+                setUp();
+                removePurchaseTest();
+
+            }
+        }catch(Exception e){
+            fail();
+        }
+    }
+
+    private boolean removePurchaseTest() {
+        try{
+            final boolean[] success = {false};
+            tradingSystem.addProductToBag(registerId2,storeId1,productId1,1);
+            Thread thread1= new Thread(() -> tradingSystem.buyProducts(registerId2,storeId1,"123456789"));
+            Thread thread2= new Thread(new Runnable() {
+                @Override
+                public void run() {
+                    if(tradingSystem.removeProductFromStore(registerId1,storeId1,productId1)){
+                        success[0] =true;
+                    }
+                }
+            });
+            thread1.start();
+            thread2.start();
+            thread1.join();
+            thread2.join();
+            return success[0];
+        }catch(Exception e){
+            fail();
+            return false;
+        }
+    }
+
 }

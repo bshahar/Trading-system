@@ -14,8 +14,6 @@ public class Inventory {
 
     public boolean addProduct(Product prod, int numOfProd) {
         synchronized (this) {
-            if (this.products.containsKey(prod)) //TODO add to logger, print an error message?
-                products.put(prod, products.get(prod) + numOfProd);
             this.products.put(prod, numOfProd);
         }
         return true;

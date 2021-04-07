@@ -2233,3 +2233,162 @@ INFO: User elad enter the system
 Apr 06, 2021 11:03:22 PM KingLogger logEvent
 INFO: User erez enter the system
 
+Apr 07, 2021 10:23:39 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:23:39 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:23:39 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:23:39 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:23:40 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:23:40 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:23:40 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:23:40 AM KingLogger logEvent
+INFO: User try to login with name kandabior that doesn't exist
+Apr 07, 2021 10:23:40 AM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 10:23:40 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:24:21 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:24:21 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:24:21 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:24:21 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:24:21 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:24:21 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:24:21 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:24:21 AM KingLogger logEvent
+INFO: User try to login with name kandabior that doesn't exist
+Apr 07, 2021 10:24:21 AM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 10:24:21 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:27:18 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:27:18 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:27:18 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:27:18 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:27:18 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:27:18 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:27:19 AM KingLogger logEvent
+INFO: User try to login with name kandabior and pass or321654 and Failed
+Apr 07, 2021 10:27:22 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:27:22 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:27:22 AM KingLogger logEvent
+INFO: User try to login with name kandabior that doesn't exist
+Apr 07, 2021 10:27:22 AM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 10:27:22 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:27:44 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:27:44 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:27:44 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:27:44 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:27:44 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:27:44 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:27:44 AM KingLogger logEvent
+INFO: User try to login with name kandabior and pass or321654 and Failed
+Apr 07, 2021 10:27:44 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:27:44 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:27:44 AM KingLogger logEvent
+INFO: User try to login with name kandabior that doesn't exist
+Apr 07, 2021 10:27:44 AM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 10:27:44 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:32:42 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:32:42 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:32:42 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:32:42 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:32:42 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:32:42 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:32:42 AM KingLogger logEvent
+INFO: User try to login with name kandabior and pass or321654 and Failed
+Apr 07, 2021 10:32:42 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:32:42 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:32:42 AM KingLogger logEvent
+INFO: User try to login with name kandabior that doesn't exist
+Apr 07, 2021 10:32:42 AM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 10:32:42 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User try to login with name kandabior and pass or321654 and Failed
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User try to login with name kandabior that doesn't exist
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:35:23 AM KingLogger logEvent
+INFO: User kandabior register to the system

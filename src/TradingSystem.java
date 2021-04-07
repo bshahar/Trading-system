@@ -1,5 +1,6 @@
 import java.util.*;
 
+import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 
 public class TradingSystem {
@@ -14,19 +15,18 @@ public class TradingSystem {
     private User systemManager;
     private List<Receipt> receipts;
     private List<User> users; //TODO every user is a thread
-    private HashMap<String,String> userPass;
+    private ConcurrentHashMap<String,String> userPass;
     private Encryptor encryptor;
 
 
 
     public TradingSystem (User systemManager) {
         this.paymentAdapter= new PaymentAdapter();
-
         this.stores = new LinkedList<>();
         this.receipts = new LinkedList<>();
         this.systemManager =systemManager;
         this.users = new LinkedList<>();
-        this.userPass = new LinkedHashMap<>();
+        this.userPass = new ConcurrentHashMap<>();
         this.encryptor = new Encryptor();
         userCounter = new counter();
         storeCounter = new counter();
@@ -93,12 +93,6 @@ public class TradingSystem {
         if(user != null)
             return user.isLogged();
         return false;
-    }
-
-
-
-    private String getPurchasesHistory(int userId) {
-        return null;
     }
 
 

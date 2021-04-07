@@ -85,7 +85,7 @@ public class Store {
                 return this.inventory.addProduct(p, quantity);
             }
         }
-        return false; // TODO add logger
+        return false;
     }
 
     public boolean removeProductFromStore(User user, int productId) {
@@ -94,7 +94,7 @@ public class Store {
                 return this.inventory.removeProduct(productId);
             }
         }
-        return false; // TODO add logger
+        return false;
     }
 
     public List<Integer> getProductsByName(Filter filter){

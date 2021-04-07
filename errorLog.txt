@@ -664,7 +664,53 @@ WARNING: Product number 3 was !!not!! added to store 1 by user 2
 WARNING: Product number 1 was !!not!! remove to store 1 by user 2
 אפר 07, 2021 10:48:22 AM KingLogger logError
 WARNING: Product number 3 was !!not!! added to store 1 by user 2
-Apr 07, 2021 10:51:26 AM KingLogger logError
+אפר 07, 2021 10:49:29 AM KingLogger logError
 WARNING: Product number 1 was !!not!! remove to store 1 by user 2
-Apr 07, 2021 10:51:26 AM KingLogger logError
+אפר 07, 2021 10:49:29 AM KingLogger logError
 WARNING: Product number 3 was !!not!! added to store 1 by user 2
+אפר 07, 2021 11:37:01 AM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 07, 2021 11:37:01 AM KingLogger logError
+WARNING: Product number 3 was !!not!! added to store 1 by user 2
+אפר 07, 2021 12:43:29 PM KingLogger logError
+WARNING: Product number 2 was !!not!! remove to store 1 by user 1
+אפר 07, 2021 12:52:10 PM KingLogger logError
+WARNING: Product number 2 was !!not!! remove to store 1 by user 1
+אפר 07, 2021 12:52:10 PM KingLogger logError
+WARNING: user number 1is logged out and can not get all the stores information
+אפר 07, 2021 12:52:10 PM KingLogger logError
+WARNING: Product number 2 was !!not!! added to store 1 by user 2
+אפר 07, 2021 12:52:10 PM KingLogger logError
+WARNING: user number 1can not get the products by filter
+אפר 07, 2021 12:52:10 PM KingLogger logError
+WARNING: user number 1can not get the products by filter
+אפר 07, 2021 12:57:32 PM KingLogger logError
+WARNING: Product number 2 was !!not!! remove to store 1 by user 1
+אפר 07, 2021 12:57:32 PM KingLogger logError
+WARNING: user number 1is logged out and can not get all the stores information
+אפר 07, 2021 12:57:32 PM KingLogger logError
+WARNING: Product number 2 was !!not!! added to store 1 by user 2
+אפר 07, 2021 12:57:33 PM KingLogger logError
+WARNING: user number 1can not get the products by filter
+אפר 07, 2021 12:57:33 PM KingLogger logError
+WARNING: user number 1can not get the products by filter
+אפר 07, 2021 1:02:51 PM KingLogger logError
+WARNING: Product number 2 was !!not!! remove to store 1 by user 1
+אפר 07, 2021 1:02:52 PM KingLogger logError
+WARNING: user number 1is logged out and can not get all the stores information
+אפר 07, 2021 1:02:52 PM KingLogger logError
+WARNING: Product number 2 was !!not!! added to store 1 by user 2
+אפר 07, 2021 1:02:52 PM KingLogger logError
+WARNING: user number 1can not get the products by filter
+אפר 07, 2021 1:02:52 PM KingLogger logError
+WARNING: user number 1can not get the products by filter
+אפר 07, 2021 1:08:14 PM KingLogger logError
+WARNING: Product number 2 was !!not!! remove to store 1 by user 1
+אפר 07, 2021 1:08:14 PM KingLogger logError
+WARNING: user number 1is logged out and can not get all the stores information
+אפר 07, 2021 1:08:14 PM KingLogger logError
+WARNING: Product number 2 was !!not!! added to store 1 by user 2
+אפר 07, 2021 1:08:15 PM KingLogger logError
+WARNING: user number 1can not get the products by filter
+אפר 07, 2021 1:08:15 PM KingLogger logError
+WARNING: user number 1can not get the products by filter

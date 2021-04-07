@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import javax.crypto.NoSuchPaddingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +44,7 @@ public class StoreTest {
         storeId1=tradingSystem.openStore(registerId1,"kandabior store");
         LinkedList <Product.Category> catList= new LinkedList<>();
         catList.add(Product.Category.FOOD);
-        tradingSystem.addProductToStore(1,1, storeId1,"milk",catList ,10,"FOOD", 5 );
+        int productId=tradingSystem.addProductToStore(1, storeId1,"milk",catList ,10,"FOOD", 5 );
 
 
     }
@@ -51,155 +52,151 @@ public class StoreTest {
     @Test
     //AT-3
     public void getInformationTest() throws Exception{
-        //TODO make better test
-        assertNotNull(tradingSystem.getAllStoresInfo());
+        assertEquals(storeId1, tradingSystem.getAllStoresInfo(registerId1).get(0).getStoreId());
+    }
+
+    @Test
+    //AT-5 fail
+    public void getInformationFailTest() throws Exception{
+        tradingSystem.logout(registerId1);
+        assertNull(tradingSystem.getAllStoresInfo(registerId1));
     }
 
     @Test
     public void getProductByNameTest() throws Exception{
         Filter filter=new Filter("NAME","milk",9,15,-1,"",-1);
         //assume the first product gets id of 1
-        assertEquals(1,tradingSystem.getProducts(filter).get(storeId1));
+        assertEquals(1,tradingSystem.getProducts(filter, registerId1).get(storeId1));
     }
 
     @Test
     public void getProductByNameFailTest() throws Exception{
         Filter filter=new Filter("NAME","milk",1,5,-1,"",-1);
         //assume the first product gets id of 1
-        assertEquals(0,tradingSystem.getProducts(filter).size());
+        assertEquals(0, tradingSystem.getProducts(filter, registerId1).size());
     }
 
     @Test
     public void failGetProductTest() throws Exception{
         Filter filter=new Filter("NAME","dani",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
-        assertEquals(0,tradingSystem.getProducts(filter).size());
+        assertEquals(0,tradingSystem.getProducts(filter, registerId1).size());
     }
 
     @Test
     public void getProductByCategoryTest() throws Exception{
         Filter filter=new Filter("CATEGORY","FOOD",9, 15,-1,"",-1);
         //assume the first product gets id of 1
-        int id = (int)tradingSystem.getProducts(filter).values().toArray()[0];
+        int id = (int)tradingSystem.getProducts(filter, registerId1).values().toArray()[0];
         assertEquals(1,id);
     }
 
     @Test
     public void failGetProductByCategoryTest() throws Exception{
         Filter filter=new Filter("CATEGORY","DRINK",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
-        assertEquals(0,tradingSystem.getProducts(filter).size());
+        assertEquals(0,tradingSystem.getProducts(filter, registerId1).size());
     }
 
     @Test
     public void failGetProductByNameAndCategoryTest() throws Exception{
         Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"Drinks",-1);
-        assertEquals(0,tradingSystem.getProducts(filter).size());
+        assertEquals(0,tradingSystem.getProducts(filter, registerId1).size());
     }
 
     @Test
     public void GetProductByNameAndCategoryTest() throws Exception{
         Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"FOOD",-1);
-        assertEquals(1,tradingSystem.getProducts(filter).size());
+        assertEquals(1,tradingSystem.getProducts(filter, registerId1).size());
     }
 
     @Test
     public void addToCartTest() throws Exception{
-        assertTrue(tradingSystem.addProductToBag(registerId2,storeId1,1));
+        assertTrue(tradingSystem.addProductToBag(registerId2,storeId1,1,3));
     }
 
     @Test
+    //At-7 success
     public void addToBagGuestTest() throws Exception{
         guestId1=tradingSystem.guestLogin();
-        assertTrue(tradingSystem.addProductToBag(guestId1,storeId1,1));
+        assertTrue(tradingSystem.addProductToBag(guestId1,storeId1,1,3));
     }
 
     @Test
-    public void addToBagWrongProdTest() throws Exception{
-        assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,2));
+    //At-7 fail
+    public void addToChartWrongProdTest() throws Exception{
+        assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,2,2));
     }
 
     @Test
     public void addToBagLogoutTest() throws Exception{
         tradingSystem.logout(registerId2);
-        assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,1));
+        assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,1,1));
     }
 
     @Test
-    public void addToCartTest2() throws Exception{
-        tradingSystem.addProductToBag(registerId2,storeId1,1);
+    public void addToChartTest2() throws Exception{
+        tradingSystem.addProductToBag(registerId2,storeId1,1,2);
         tradingSystem.logout(registerId2);
         tradingSystem.login("elad","elad321654");
 
-        Map<Integer, List<Integer>> products=tradingSystem.getCart(registerId2);
-        assertEquals(1, products.get(storeId1).get(0));
+        List<Bag> products=tradingSystem.getCart(registerId2);
+        assertEquals(2, products.get(0).getProductIds().get(1));
     }
 
     @Test
     public void addToCartTest3() throws Exception{
         guestId1=tradingSystem.guestLogin();
-        tradingSystem.addProductToBag(guestId1,storeId1,1);
+        tradingSystem.addProductToBag(guestId1,storeId1,1,2);
         tradingSystem.guestRegister(guestId1,"dorin","dorin321654");
         tradingSystem.logout(guestId1);
         tradingSystem.login("dorin","dorin321654");
-        Map<Integer, List<Integer>> products=tradingSystem.getCart(guestId1);
-        assertEquals( 1,products.get(storeId1).get(0));
+
+        List<Bag> products=tradingSystem.getCart(guestId1);
+        assertEquals(2, products.get(0).getProductIds().get(1));
     }
 
     @Test
-    public void purchaseTest() throws Exception{
-        tradingSystem.addProductToBag(registerId2,storeId1,1);
-        //assertTrue(tradingSystem.buyProducts(registerId2,1,"123456789"));
-    }
-
-    @Test
-    public void failPurchaseTest() throws Exception{
-        tradingSystem.addProductToBag(registerId2,storeId1,1);
-        tradingSystem.logout(registerId2);
-        //assertFalse(tradingSystem.buyProducts(registerId2,1,"123456789"));
-    }
-
-    @Test
-    public void guestPurchaseTest() throws Exception{
-        guestId1=tradingSystem.guestLogin();
-        tradingSystem.addProductToBag(guestId1,storeId1,1);
-        //assertTrue(tradingSystem.buyProducts(guestId1,1,"123456789"));
-    }
-
-    @Test
+    //AT-11 success
     public void openStoreTest() throws Exception{
         assertEquals(2,tradingSystem.openStore(registerId2,"elad store"));
     }
 
     @Test
+    //AT-11 fail
     public void guestOpenStoreFailTest() throws Exception{
         guestId1=tradingSystem.guestLogin();
         assertEquals(-1,tradingSystem.openStore(guestId1,"guest store"));
     }
 
     @Test
+    //AT-12 success
     public void addProductTest() throws Exception{
         List<Product.Category> categories= new LinkedList<>();
         categories.add(Product.Category.FOOD);
-        assertTrue(tradingSystem.addProductToStore(registerId1, 2, storeId1, "water",categories,5,"drink", 5));
+        assertTrue(tradingSystem.addProductToStore(registerId1,  storeId1, "water",categories,5,"drink", 5)==2);
 
     }
 
     @Test
+    //AT-12 fail
     public void addProductFailTest() throws Exception{
         List<Product.Category> categories= new LinkedList<>();
         categories.add(Product.Category.FOOD);
         //TODO check if false or true
-        assertFalse(tradingSystem.addProductToStore(registerId2,3, storeId1, "water",categories,5,"drink", 5));
+        assertFalse(tradingSystem.addProductToStore(registerId2, storeId1, "water",categories,5,"drink", 5)==2);
+      //  assertFalse(tradingSystem.addProductToStore(registerId2,3, storeId1, "water",categories,5,"drink", 5));
     }
 
     @Test
+    //AT-12 success
     public void removeProductTest() throws Exception{
         tradingSystem.removeProductFromStore(registerId1,storeId1,1);
         assertEquals(0,tradingSystem.getProductsFromStore(storeId1).size());
     }
 
     @Test
+    //AT-12 alternate
     public void removeProductFailTest() throws Exception{
-        tradingSystem.removeProductFromStore(registerId2,storeId1,1);
+        tradingSystem.removeProductFromStore(registerId1,storeId1,2);
         assertEquals(1,tradingSystem.getProductsFromStore(storeId1).size());
     }
 
@@ -247,7 +244,8 @@ public class StoreTest {
 
     @Test
     public void getStoreInfoTest() throws Exception{
-        assertNotNull(tradingSystem.getWorkersInformation(registerId1,storeId1));
+        List<User> workers = tradingSystem.getWorkersInformation(registerId1,storeId1);
+        assertEquals(workers.get(0).getId(), registerId1);
     }
 
     @Test
@@ -257,9 +255,33 @@ public class StoreTest {
 
     @Test
     public void getPurchaseHistoryTest() throws Exception{
-        assertNotNull(tradingSystem.getStorePurchaseHistory(registerId1,storeId1));
+        tradingSystem.addProductToBag(registerId2,storeId1,1,1);
+        Map<Integer, Integer> bag = new HashMap<>();
+        bag.put(1, 3);
+        tradingSystem.buyProducts(registerId2, storeId1, "Credit123");
+        LinkedList <Product.Category> catList = new LinkedList<>();
+        catList.add(Product.Category.FOOD);
+        Product p = new Product(1,"milk",catList ,10,"FOOD");
+        Map<Product, Integer> recLines = new HashMap<>();
+        recLines.put(p, 3);
+        Receipt receipt = new Receipt(storeId1,tradingSystem.getUserById(registerId2).getUserName(),recLines);
+        assertEquals(receipt.getStoreId(), tradingSystem.getStorePurchaseHistory(registerId1,storeId1).get(0).getStoreId());
     }
 
+    @Test
+    //AT-8 success
+    public void getCartInfo() throws  Exception{
+        tradingSystem.addProductToBag(registerId1, storeId1, 1, 1);
+        assertTrue( tradingSystem.getCart(registerId1).get(0).getProductIds().keySet().contains(1));
+    }
+
+    @Test
+    //AT-8 fail
+    public void getCartInfoFail() throws  Exception{
+        tradingSystem.addProductToBag(registerId1, storeId1, 1, 1);
+        tradingSystem.logout(registerId1);
+        assertEquals(0, tradingSystem.getCart(registerId1).size());
+    }
 
 
 

@@ -6,6 +6,7 @@ public class TradingSystem {
 
     private static counter userCounter;
     private static counter storeCounter;
+    private static counter productCounter;
 
     private PaymentAdapter paymentAdapter;
     private SupplementAdapter supplementAdapter;
@@ -19,14 +20,17 @@ public class TradingSystem {
 
 
     public TradingSystem (User systemManager) {
+        this.paymentAdapter= new PaymentAdapter();
+
         this.stores = new LinkedList<>();
         this.receipts = new LinkedList<>();
         this.systemManager =systemManager;
         this.users = new LinkedList<>();
         this.userPass = new LinkedHashMap<>();
         this.encryptor = new Encryptor();
-        this.userCounter = new counter();
-        this.storeCounter = new counter();
+        userCounter = new counter();
+        storeCounter = new counter();
+        productCounter=new counter();
     }
 
 
@@ -55,6 +59,7 @@ public class TradingSystem {
             {
                 if(user.getUserName() == userName)
                 {
+                    user.setLogged(true);
                     return user.getId();
                 }
             }
@@ -123,6 +128,7 @@ public class TradingSystem {
             userPass.put(userName,this.encryptor.encrypt(password));
             KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
             getUserById(userId).setRegistered();
+            getUserById(userId).setName(userName);
             return true;
         }
     }
@@ -149,8 +155,14 @@ public class TradingSystem {
         return users.size();
     }
 
-    public List<Store> getAllStoresInfo() {
-        return this.stores;
+    public List<Store> getAllStoresInfo(int userId) {
+        for(User u : users){
+            if (u.getId() == userId && u.isLogged()){
+                return this.stores;
+            }
+        }
+        KingLogger.logError(Level.WARNING, "user number " + userId + "is logged out and can not get all the stores information");
+        return null;
         //TODO in the GUI we need to use the comments code.
 //        String output = "";
 //        Store[] storesArr = (Store[]) stores.toArray();
@@ -159,69 +171,74 @@ public class TradingSystem {
 //        }
 //        return output;
     }
-    //TODO return the store id, product id
-    public Map<Integer,Integer> getProducts(Filter filter){
+
+    public Map<Integer,Integer> getProducts(Filter filter, int userId){
         try{
+            if(getUserById(userId).isLogged()) {
+                Map<Integer, Integer> output = new HashMap<>();
+                switch (filter.searchType) {
+                    case "NAME":
+                        for (Store s : stores) {
+                            List<Integer> ps = s.getProductsByName(filter);
+                            for (int productId : ps) {
+                                output.put(s.getStoreId(), productId);
+                            }
+                        }
+                        break;
+                    case "CATEGORY":
+                        for (Store s : stores) {
+                            List<Integer> ps = s.getProductsByCategory(filter);
+                            for (int productId : ps) {
+                                output.put(s.getStoreId(), productId);
+                            }
+                        }
+                        break;
+                    case "KEYWORDS":
+                        for (Store s : stores) {
+                            List<Integer> ps = s.getProductsByKeyWords(filter);
+                            for (int productId : ps) {
+                                output.put(s.getStoreId(), productId);
+                            }
+                        }
+                        break;
 
-            Map<Integer,Integer> output = new HashMap<>();
-            switch (filter.searchType){
-                case "NAME":
-                    for (Store s: stores) {
-                        List<Integer> ps = s.getProductsByName(filter);
-                        for (int productId: ps) {
-                            output.put(s.getStoreId(),productId);
-                        }
-                    }
-                    break;
-                case "CATEGORY":
-                    for (Store s: stores) {
-                        List<Integer> ps = s.getProductsByCategory(filter);
-                        for (int productId: ps) {
-                            output.put(s.getStoreId(),productId);
-                        }
-                    }
-                    break;
-                case "KEYWORDS":
-                    for (Store s: stores) {
-                        List<Integer> ps = s.getProductsByKeyWords(filter);
-                        for (int productId: ps) {
-                            output.put(s.getStoreId(),productId);
-                        }
-                    }
-                    break;
-
-                default:
-                    break;
+                    default:
+                        break;
+                }
+                return output;
             }
-
-            return output;
+            KingLogger.logError(Level.WARNING, "user number " + userId + "can not get the products by filter");
+            return new HashMap<>();
         }catch (Exception e){
+            KingLogger.logError(Level.WARNING, "user number " + userId + "can not get the products by filter");
             return new HashMap<>();
         }
     }
 
-    public boolean addProductToBag(int userId, int storeId, int prodId){
+    public boolean addProductToBag(int userId, int storeId, int prodId,int amount){
         Bag b = getUserById(userId).getBagByStoreId(storeId);
         if(getUserById(userId).isLogged() && getStoreById(storeId).getInventory().prodExists(prodId)) {
             if (b != null) {
-                b.addProduct(prodId);
+                b.addProduct(prodId,amount);
                 KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to Bag of store " + storeId + " for user " + userId);
                 return true;
             }
-            getUserById(userId).createNewBag(getStoreById(storeId), prodId);
+            getUserById(userId).createNewBag(getStoreById(storeId), prodId,amount);
             return true;
         }
         return false;
     }
 
-    public Map<Integer, List<Integer>> getCart(int userId){
-        Map<Integer, List<Integer>> m = new HashMap<>();
-        List<Bag> bags = getUserById(userId).getBags();
-        for (Bag b : bags){
-            m.put(b.getStoreId(), b.getProductIds());
-            KingLogger.logEvent(Level.INFO, "added Bag of Store number " + b.getStoreId() + " to the cart");
+    public List<Bag> getCart(int userId){
+        try{
+            if(getUserById(userId).isLogged()) {
+                List<Bag> bags = getUserById(userId).getBags();
+                return bags;
+            }
+            return new LinkedList<>();
+        }catch (Exception e){
+            return new LinkedList<>();
         }
-        return m;
     }
 
     public boolean removeProductFromBag(int userId,int storeId, int prodId){
@@ -235,7 +252,8 @@ public class TradingSystem {
         return false;
     }
 
-    public boolean buyProducts(int userId, int storeId, Map<Integer,Integer> productsIds, String creditInfo){
+    public boolean buyProducts(int userId, int storeId,  String creditInfo){
+        Map<Integer,Integer> productsIds=getBag(userId,storeId);
         Store store =getStoreById(storeId);
         double totalCost = 0;
         Map<Product,Integer> products = new HashMap<>();
@@ -256,25 +274,35 @@ public class TradingSystem {
                     store.buyProduct(prodId, productsIds.get(prodId));//remove amount from product
                 }
                 this.receipts.add(new Receipt(storeId,getUserById(userId).getUserName(),products));
+                return true;
             }
         }
         return false;
     }
 
-    public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity) {
+    private Map<Integer, Integer> getBag(int userId, int storeId) {
+        User user = getUserById(userId);
+        Bag bag= user.getBagByStoreId(storeId);
+        return bag.getProductIds();
+
+    }
+
+    public int addProductToStore(int userId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity) {
+        int productId= productCounter.inc();
         Store store = getStoreById(storeId);
         if (getUserById(userId) == null)
-            return false;
+            return -1;
         if (store != null) {
             if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
                 KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
-                return true;
+                return productId;
             }
             KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
-            return false;
+            return -1;
         }
-        return false;
+        return -1;
     }
+
 
 
     public boolean removeProductFromStore(int userId,int storeId, int productId){
@@ -299,11 +327,15 @@ public class TradingSystem {
     }
 
     public boolean addStoreOwner(int ownerId, int userId,int storeId){
-       return getStoreById(storeId).getPermissions().appointOwner(ownerId,getUserById(userId));
+        if(getUserById(userId).isRegistered())
+            return getStoreById(storeId).getPermissions().appointOwner(ownerId,getUserById(userId));
+        return false;
     }
 
     public boolean addStoreManager(int ownerId, int userId, int storeId){
-        return getStoreById(storeId).getPermissions().appointManager(ownerId,getUserById(userId));
+        if(getUserById(userId).isRegistered())
+            return getStoreById(storeId).getPermissions().appointManager(ownerId,getUserById(userId));
+        return false;
     }
 
     public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
@@ -321,7 +353,7 @@ public class TradingSystem {
         return s.removeAppointment(ownerId, managerId);
     }
 
-    public String getWorkersInformation(int ownerId, int storeId){
+    public List<User> getWorkersInformation(int ownerId, int storeId){
         Store s = getStoreById(storeId);
         return s.getWorkersInformation(ownerId);
     }
@@ -360,4 +392,5 @@ public class TradingSystem {
     public List<Integer> getProductsFromStore(int storeId) {
         return getStoreById(storeId).getInventory().getProductsIds();
     }
+
 }

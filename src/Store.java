@@ -135,7 +135,7 @@ public class Store {
         return this.permissions.removeAppointment(ownerId,managerId);
     }
 
-    public String getWorkersInformation(int ownerId) {
+    public List<User> getWorkersInformation(int ownerId) {
         return this.permissions.getWorkersInformation(ownerId);
     }
 

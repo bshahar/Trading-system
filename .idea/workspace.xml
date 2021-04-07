@@ -127,11 +127,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PurchaseTest" />
-        <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="JUnit.StoreTest" />
-        <item itemvalue="JUnit.PermissionTest" />
         <item itemvalue="JUnit.StoreTest.editPermissionsSuccess" />
+        <item itemvalue="JUnit.StoreTest" />
+        <item itemvalue="JUnit.PurchaseTest" />
+        <item itemvalue="JUnit.PermissionTest" />
+        <item itemvalue="JUnit.LoginTest" />
       </list>
     </recent_temporary>
   </component>

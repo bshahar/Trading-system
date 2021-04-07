@@ -113,16 +113,6 @@ public class Store {
     public List<Integer> getProductsByPriceRange(String[] filter) {
         return this.inventory.getProductsByPriceRange(filter);
     }
-/*
-    public boolean appointOwner(int ownerId, User user) {
-        return this.permissions.appointOwner(ownerId, user);
-    }
-*/
-/*
-    public boolean appointManager(int ownerId, int userId) {
-        return this.permissions.appointManager(ownerId,userId);
-    }
-*/
     public boolean addPermissions(int ownerId, int managerId, List<Integer> opIndexes) {
         return this.permissions.addPermissions(ownerId,managerId,opIndexes);
     }

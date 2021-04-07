@@ -3,6 +3,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.crypto.NoSuchPaddingException;
+import java.nio.file.OpenOption;
 import java.security.NoSuchAlgorithmException;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -168,7 +169,7 @@ public class StoreTest {
     }
 
     @Test
-    //AT-12 success
+    //AT-13 success
     public void addProductTest() throws Exception{
         List<Product.Category> categories= new LinkedList<>();
         categories.add(Product.Category.FOOD);
@@ -177,24 +178,22 @@ public class StoreTest {
     }
 
     @Test
-    //AT-12 fail
+    //AT-13 fail
     public void addProductFailTest() throws Exception{
         List<Product.Category> categories= new LinkedList<>();
         categories.add(Product.Category.FOOD);
-        //TODO check if false or true
         assertFalse(tradingSystem.addProductToStore(registerId2, storeId1, "water",categories,5,"drink", 5)==2);
-      //  assertFalse(tradingSystem.addProductToStore(registerId2,3, storeId1, "water",categories,5,"drink", 5));
     }
 
     @Test
-    //AT-12 success
+    //AT-13 success
     public void removeProductTest() throws Exception{
         tradingSystem.removeProductFromStore(registerId1,storeId1,1);
         assertEquals(0,tradingSystem.getProductsFromStore(storeId1).size());
     }
 
     @Test
-    //AT-12 alternate
+    //AT-13 alternate
     public void removeProductFailTest() throws Exception{
         tradingSystem.removeProductFromStore(registerId1,storeId1,2);
         assertEquals(1,tradingSystem.getProductsFromStore(storeId1).size());
@@ -282,6 +281,7 @@ public class StoreTest {
         tradingSystem.logout(registerId1);
         assertEquals(0, tradingSystem.getCart(registerId1).size());
     }
+
 
 
 

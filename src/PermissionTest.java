@@ -2,6 +2,9 @@
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
 //AT-19
 public class PermissionTest {
@@ -9,21 +12,22 @@ public class PermissionTest {
     private static TradingSystem tradingSystem;
     private static User u1;
     private static User u2;
+    private static int storeId;
 
 
     @BeforeAll
     static void setUpBeforeAll() {
         User systemManager = new User("Elad", 0, 1);
         tradingSystem = new TradingSystem(systemManager);
-        String userName="elad";
-        String password= "123";
-        tradingSystem.register(userName,password);
-        int id = tradingSystem.login(userName,password);
-        String userName2="or";
-       String password2= "123";
-        tradingSystem.register(userName2,password2);
-       tradingSystem.login(userName2,password2);
-        tradingSystem.openStore(id,"Dorin's guys");
+        String userName = "elad";
+        String password = "123";
+        tradingSystem.register(userName, password);
+        int id = tradingSystem.login(userName, password);
+        String userName2 = "or";
+        String password2 = "123";
+        tradingSystem.register(userName2, password2);
+        tradingSystem.login(userName2, password2);
+        storeId = tradingSystem.openStore(id, "Dorin's flowers");
         u1 = tradingSystem.getUserById(1);
         u2 = tradingSystem.getUserById(2);
     }
@@ -101,6 +105,8 @@ public class PermissionTest {
         assertTrue(tradingSystem.getStoreById(1).getPermissions().validatePermission(u1, Permissions.Operations.EditDiscountFormat));
         assertFalse(tradingSystem.getStoreById(1).getPermissions().validatePermission(u2, Permissions.Operations.EditDiscountFormat));
     }
+
+
 
 
 }

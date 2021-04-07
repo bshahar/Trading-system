@@ -6,6 +6,7 @@ import javax.crypto.NoSuchPaddingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,7 +26,8 @@ public class StoreTest {
 
     @BeforeEach
     public void setUp() throws NoSuchAlgorithmException, NoSuchPaddingException {
-        tradingSystem= new TradingSystem();
+        User systemManager = new User("Elad",1,1);
+        tradingSystem= new TradingSystem(systemManager);
         String userName1="kandabior";
         String password1= "or321654";
         String userName2="elad";
@@ -40,12 +42,14 @@ public class StoreTest {
         registerId3= tradingSystem.login(userName3,password3);
         storeId1=tradingSystem.openStore(registerId1,"kandabior store");
         LinkedList <Product.Category> catList= new LinkedList<>();
-        catList.add(Product.Category.Food);
-        tradingSystem.addProductToStore(1,1, storeId1,"milk",catList ,10,"food", 5 );
+        catList.add(Product.Category.FOOD);
+        tradingSystem.addProductToStore(1,1, storeId1,"milk",catList ,10,"FOOD", 5 );
+
 
     }
 
     @Test
+    //AT-3
     public void getInformationTest() throws Exception{
         //TODO make better test
         assertNotNull(tradingSystem.getAllStoresInfo());
@@ -53,80 +57,102 @@ public class StoreTest {
 
     @Test
     public void getProductByNameTest() throws Exception{
-        String[]arr = new String[0];
+        Filter filter=new Filter("NAME","milk",9,15,-1,"",-1);
         //assume the first product gets id of 1
-        assertEquals(1,tradingSystem.getProducts("NAME","milk",arr).get(storeId1));
+        assertEquals(1,tradingSystem.getProducts(filter).get(storeId1));
+    }
+
+    @Test
+    public void getProductByNameFailTest() throws Exception{
+        Filter filter=new Filter("NAME","milk",1,5,-1,"",-1);
+        //assume the first product gets id of 1
+        assertEquals(0,tradingSystem.getProducts(filter).size());
     }
 
     @Test
     public void failGetProductTest() throws Exception{
-        String[]arr = new String[0];
-        assertEquals(0,tradingSystem.getProducts("NAME","cheese",arr).size());
+        Filter filter=new Filter("NAME","dani",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
+        assertEquals(0,tradingSystem.getProducts(filter).size());
     }
 
     @Test
     public void getProductByCategoryTest() throws Exception{
-        String[]arr = new String[0];
+        Filter filter=new Filter("CATEGORY","FOOD",9, 15,-1,"",-1);
         //assume the first product gets id of 1
-        assertEquals(1,tradingSystem.getProducts("CATEGORY","Food",arr).get(0));
+        int id = (int)tradingSystem.getProducts(filter).values().toArray()[0];
+        assertEquals(1,id);
     }
 
     @Test
     public void failGetProductByCategoryTest() throws Exception{
-        String[]arr = new String[0];
-        assertEquals(0,tradingSystem.getProducts("CATEGORY","Drinks",arr).size());
+        Filter filter=new Filter("CATEGORY","DRINK",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
+        assertEquals(0,tradingSystem.getProducts(filter).size());
     }
 
     @Test
-    public void addToChartTest() throws Exception{
-        assertTrue(tradingSystem.addProductToChart(registerId2,storeId1,1));
+    public void failGetProductByNameAndCategoryTest() throws Exception{
+        Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"Drinks",-1);
+        assertEquals(0,tradingSystem.getProducts(filter).size());
     }
 
     @Test
-    public void addToChartGuestTest() throws Exception{
+    public void GetProductByNameAndCategoryTest() throws Exception{
+        Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"FOOD",-1);
+        assertEquals(1,tradingSystem.getProducts(filter).size());
+    }
+
+    @Test
+    public void addToCartTest() throws Exception{
+        assertTrue(tradingSystem.addProductToBag(registerId2,storeId1,1));
+    }
+
+    @Test
+    public void addToBagGuestTest() throws Exception{
         guestId1=tradingSystem.guestLogin();
-        assertTrue(tradingSystem.addProductToChart(guestId1,storeId1,1));
+        assertTrue(tradingSystem.addProductToBag(guestId1,storeId1,1));
     }
 
     @Test
     public void addToChartWrongProdTest() throws Exception{
-        assertFalse(tradingSystem.addProductToChart(registerId2,storeId1,2));
+        assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,2));
     }
 
     @Test
-    public void addToChartLogoutTest() throws Exception{
+    public void addToBagLogoutTest() throws Exception{
         tradingSystem.logout(registerId2);
-        assertFalse(tradingSystem.addProductToChart(registerId2,storeId1,1));
+        assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,1));
     }
 
     @Test
     public void addToChartTest2() throws Exception{
-        tradingSystem.addProductToChart(registerId2,storeId1,1);
+        tradingSystem.addProductToBag(registerId2,storeId1,1);
         tradingSystem.logout(registerId2);
         tradingSystem.login("elad","elad321654");
-        List<Integer> products=tradingSystem.getChart(registerId2);
-        assertEquals(1, products.get(0));
+
+        Map<Integer, List<Integer>> products=tradingSystem.getCart(registerId2);
+        assertEquals(1, products.get(storeId1).get(0));
     }
 
     @Test
     public void addToChartTest3() throws Exception{
         guestId1=tradingSystem.guestLogin();
-        tradingSystem.addProductToChart(guestId1,storeId1,1);
+        tradingSystem.addProductToBag(guestId1,storeId1,1);
         tradingSystem.guestRegister(guestId1,"dorin","dorin321654");
         tradingSystem.logout(guestId1);
         tradingSystem.login("dorin","dorin321654");
-        assertEquals( 1,tradingSystem.getChart(guestId1).get(0));
+        Map<Integer, List<Integer>> products=tradingSystem.getCart(guestId1);
+        assertEquals( 1,products.get(storeId1).get(0));
     }
 
     @Test
     public void purchaseTest() throws Exception{
-        tradingSystem.addProductToChart(registerId2,storeId1,1);
+        tradingSystem.addProductToBag(registerId2,storeId1,1);
         //assertTrue(tradingSystem.buyProducts(registerId2,1,"123456789"));
     }
 
     @Test
     public void failPurchaseTest() throws Exception{
-        tradingSystem.addProductToChart(registerId2,storeId1,1);
+        tradingSystem.addProductToBag(registerId2,storeId1,1);
         tradingSystem.logout(registerId2);
         //assertFalse(tradingSystem.buyProducts(registerId2,1,"123456789"));
     }
@@ -134,7 +160,7 @@ public class StoreTest {
     @Test
     public void guestPurchaseTest() throws Exception{
         guestId1=tradingSystem.guestLogin();
-        tradingSystem.addProductToChart(guestId1,storeId1,1);
+        tradingSystem.addProductToBag(guestId1,storeId1,1);
         //assertTrue(tradingSystem.buyProducts(guestId1,1,"123456789"));
     }
 
@@ -152,7 +178,7 @@ public class StoreTest {
     @Test
     public void addProductTest() throws Exception{
         List<Product.Category> categories= new LinkedList<>();
-        categories.add(Product.Category.Food);
+        categories.add(Product.Category.FOOD);
         assertTrue(tradingSystem.addProductToStore(registerId1, 2, storeId1, "water",categories,5,"drink", 5));
 
     }
@@ -160,7 +186,7 @@ public class StoreTest {
     @Test
     public void addProductFailTest() throws Exception{
         List<Product.Category> categories= new LinkedList<>();
-        categories.add(Product.Category.Food);
+        categories.add(Product.Category.FOOD);
         //TODO check if false or true
         assertFalse(tradingSystem.addProductToStore(registerId2,3, storeId1, "water",categories,5,"drink", 5));
     }
@@ -174,7 +200,7 @@ public class StoreTest {
     @Test
     public void removeProductFailTest() throws Exception{
         tradingSystem.removeProductFromStore(registerId2,storeId1,1);
-        assertEquals(0,tradingSystem.getProductsFromStore(storeId1).size());
+        assertEquals(1,tradingSystem.getProductsFromStore(storeId1).size());
     }
 
     @Test

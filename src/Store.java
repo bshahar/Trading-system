@@ -39,9 +39,6 @@ public class Store {
         return rate;
     }
 
-    public Set<User> getBosses() {
-        return this.permissions.getBosses();
-    }
 
     public boolean addToInventory(User currUser, Product prod, int numOfProd) {
         return this.inventory.addProduct(prod , numOfProd);
@@ -53,8 +50,8 @@ public class Store {
 
     public boolean addBoss(User appointer, User appointee, int role) { //role = 1 -> owner, role  = 2 -> manager
         if(role == 1)
-            return this.permissions.appointOwner(appointer.getId(), appointee.getId());
-        return this.permissions.appointManager(appointer.getId(), appointee.getId());
+            return this.permissions.appointOwner(appointer.getId(), appointee);
+        return this.permissions.appointManager(appointer.getId(), appointee);
     }
 
     public void rateStore(double newRate) {
@@ -81,6 +78,7 @@ public class Store {
     }
 
     public boolean addProductToStore(User user, int productId,  String name, List<Product.Category> categories, double price, String description, int quantity) {
+
         if( this.permissions.validatePermission(user, Permissions.Operations.AddProduct)){
             if(validateProductId(productId)){
                 Product p = new Product(productId, name, categories, price, description);
@@ -90,19 +88,70 @@ public class Store {
         return false; // TODO add logger
     }
 
-    public List<Integer> getProductsByName(String name){
-         return this.inventory.getProductsByName(name);
+    public boolean removeProductFromStore(User user, int productId) {
+        if( this.permissions.validatePermission(user, Permissions.Operations.RemoveProduct)){
+            if(this.inventory.prodExists(productId)){
+                return this.inventory.removeProduct(productId);
+            }
+        }
+        return false; // TODO add logger
     }
 
-    public List<Integer> getProductsByCategory(String category) {
-        return this.inventory.getProductsByCategory(category);
+    public List<Integer> getProductsByName(Filter filter){
+         return this.inventory.getProductsByName(filter,this.rate);
     }
 
-    public List<Integer> getProductsByKeyWords(String[] filter) {
-        return this.inventory.getProductsByKeyWords(filter);
+    public List<Integer> getProductsByCategory(Filter filter) {
+        return this.inventory.getProductsByCategory(filter,this.rate);
+    }
+
+    public List<Integer> getProductsByKeyWords(Filter filter) {
+
+        return this.inventory.getProductsByKeyWords(filter, this.rate);
     }
 
     public List<Integer> getProductsByPriceRange(String[] filter) {
         return this.inventory.getProductsByPriceRange(filter);
+    }
+/*
+    public boolean appointOwner(int ownerId, User user) {
+        return this.permissions.appointOwner(ownerId, user);
+    }
+*/
+/*
+    public boolean appointManager(int ownerId, int userId) {
+        return this.permissions.appointManager(ownerId,userId);
+    }
+*/
+    public boolean addPermissions(int ownerId, int managerId, List<Integer> opIndexes) {
+        return this.permissions.addPermissions(ownerId,managerId,opIndexes);
+    }
+
+    public boolean removePermissions(int ownerId, int managerId, List<Integer> opIndexes) {
+        return this.permissions.removePermissions(ownerId,managerId,opIndexes);
+    }
+
+    public boolean removeAppointment(int ownerId, int managerId) {
+        return this.permissions.removeAppointment(ownerId,managerId);
+    }
+
+    public String getWorkersInformation(int ownerId) {
+        return this.permissions.getWorkersInformation(ownerId);
+    }
+
+    public boolean getStorePurchaseHistory(int ownerId) {
+        return this.permissions.getStorePurchaseHistory(ownerId);
+    }
+
+    public Product getProductById(int id) {
+        return inventory.getProductById(id);
+    }
+
+    public boolean canBuyProduct(int id,int amount) {
+        return inventory.canBuyProduct(getProductById(id),amount);
+    }
+
+    public void buyProduct(Integer prodId, Integer amount) {
+        inventory.buyProduct(getProductById(prodId),amount);
     }
 }

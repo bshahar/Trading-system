@@ -5,11 +5,11 @@ public class Product {
 
 
     enum Category {
-        Food,
-        Drinks,
-        Entertainment,
-        Other
-    } //TODO add more categories
+        FOOD,
+        DRINKS,
+        ENTERTAINMENT,
+        OTHER
+    }
 
     private int id;
     private String name;
@@ -88,7 +88,8 @@ public class Product {
         return false;
     }
 
-    public boolean containsKeyWords(String[] keyWords) {
+    public boolean containsKeyWords(String keyWordsStr) {
+        String []keyWords = keyWordsStr.split(" ");
         boolean contains = false;
         for (int i = 0 ; i < keyWords.length ; i++){
             if(description.contains(keyWords[i]))

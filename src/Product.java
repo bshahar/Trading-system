@@ -28,6 +28,7 @@ public class Product {
         this.ratesCount = 0;
         this.description = description;
         this.rate = 0;
+        this.reviews = new LinkedList<>();
     }
 
     public int getId() {return id; }

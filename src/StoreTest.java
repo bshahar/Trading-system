@@ -113,7 +113,7 @@ public class StoreTest {
     }
 
     @Test
-    public void addToChartWrongProdTest() throws Exception{
+    public void addToBagWrongProdTest() throws Exception{
         assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,2));
     }
 
@@ -124,7 +124,7 @@ public class StoreTest {
     }
 
     @Test
-    public void addToChartTest2() throws Exception{
+    public void addToCartTest2() throws Exception{
         tradingSystem.addProductToBag(registerId2,storeId1,1);
         tradingSystem.logout(registerId2);
         tradingSystem.login("elad","elad321654");
@@ -134,7 +134,7 @@ public class StoreTest {
     }
 
     @Test
-    public void addToChartTest3() throws Exception{
+    public void addToCartTest3() throws Exception{
         guestId1=tradingSystem.guestLogin();
         tradingSystem.addProductToBag(guestId1,storeId1,1);
         tradingSystem.guestRegister(guestId1,"dorin","dorin321654");

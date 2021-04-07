@@ -484,423 +484,183 @@ Apr 06, 2021 11:03:22 PM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
 Apr 06, 2021 11:03:22 PM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:15 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:15 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:15 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:15 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:15 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:15 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:15 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:15 AM KingLogger logError
 WARNING: Product number 2 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! remove to store 1 by user 2
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:37:30 AM KingLogger logError
+אפר 07, 2021 10:22:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:24:15 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:24:27 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:25:16 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:26:00 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:27:34 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:29:12 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:30:20 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:30:53 AM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 1
+אפר 07, 2021 10:31:07 AM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 1
+אפר 07, 2021 10:31:07 AM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 1
+אפר 07, 2021 10:31:07 AM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 1
+אפר 07, 2021 10:31:07 AM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 1
+אפר 07, 2021 10:31:07 AM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 1
+אפר 07, 2021 10:31:07 AM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 1
+אפר 07, 2021 10:31:07 AM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 1
+אפר 07, 2021 10:31:07 AM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 1
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 2 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! remove to store 1 by user 2
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:07 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:38:07 AM KingLogger logError
+אפר 07, 2021 10:31:44 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
+אפר 07, 2021 10:33:13 AM KingLogger logError
 WARNING: Product number 2 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
+אפר 07, 2021 10:37:26 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! remove to store 1 by user 2
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:40:39 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
+אפר 07, 2021 10:37:26 AM KingLogger logError
 WARNING: Product number 2 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
+אפר 07, 2021 10:37:33 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! remove to store 1 by user 2
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:42:29 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:02 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:02 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:02 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:02 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:02 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
+אפר 07, 2021 10:37:33 AM KingLogger logError
 WARNING: Product number 2 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
+אפר 07, 2021 10:39:36 AM KingLogger logError
 WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! remove to store 1 by user 2
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:44:03 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
+אפר 07, 2021 10:39:36 AM KingLogger logError
 WARNING: Product number 2 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
+אפר 07, 2021 10:39:55 AM KingLogger logError
 WARNING: Product number 1 was !!not!! remove to store 1 by user 2
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
-Apr 07, 2021 10:46:08 AM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 1
+אפר 07, 2021 10:39:55 AM KingLogger logError
+WARNING: Product number 3 was !!not!! added to store 1 by user 2
+אפר 07, 2021 10:48:22 AM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 07, 2021 10:48:22 AM KingLogger logError
+WARNING: Product number 3 was !!not!! added to store 1 by user 2

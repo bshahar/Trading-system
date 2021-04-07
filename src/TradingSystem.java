@@ -202,7 +202,7 @@ public class TradingSystem {
 
     public boolean addProductToBag(int userId, int storeId, int prodId){
         Bag b = getUserById(userId).getBagByStoreId(storeId);
-        if(getUserById(userId).isLogged()) {
+        if(getUserById(userId).isLogged() && getStoreById(storeId).getInventory().prodExists(prodId)) {
             if (b != null) {
                 b.addProduct(prodId);
                 KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to Bag of store " + storeId + " for user " + userId);
@@ -265,8 +265,8 @@ public class TradingSystem {
         Store store = getStoreById(storeId);
         if (getUserById(userId) == null)
             return false;
-        if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
-            if (store != null && store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
+        if (store != null) {
+            if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
                 KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
                 return true;
             }

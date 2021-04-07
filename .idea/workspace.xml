@@ -23,6 +23,7 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
     </list>
@@ -81,34 +82,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="JUnit.LoginTest">
-    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="LoginTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PermissionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PermissionTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PurchaseTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.StoreTest.getPurchaseHistoryTest2">
     <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
@@ -118,11 +92,41 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest.addGuestManagerFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest.addOwnerFailTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StoreTest" />
-      <option name="METHOD_NAME" value="addGuestManagerFailTest" />
+      <option name="METHOD_NAME" value="addOwnerFailTest2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StoreTest.getPurchaseHistoryFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StoreTest" />
+      <option name="METHOD_NAME" value="getPurchaseHistoryFailTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StoreTest.getPurchaseHistoryTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StoreTest" />
+      <option name="METHOD_NAME" value="getPurchaseHistoryTest2" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StoreTest.removeManagerFailTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="StoreTest" />
+      <option name="METHOD_NAME" value="removeManagerFailTest2" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -130,11 +134,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="JUnit.PermissionTest" />
-        <item itemvalue="JUnit.PurchaseTest" />
+        <item itemvalue="JUnit.StoreTest.getPurchaseHistoryTest2" />
         <item itemvalue="JUnit.StoreTest" />
-        <item itemvalue="JUnit.StoreTest.addGuestManagerFailTest" />
+        <item itemvalue="JUnit.StoreTest.getPurchaseHistoryFailTest" />
+        <item itemvalue="JUnit.StoreTest.removeManagerFailTest2" />
+        <item itemvalue="JUnit.StoreTest.addOwnerFailTest2" />
       </list>
     </recent_temporary>
   </component>
@@ -210,90 +214,18 @@
     <MESSAGE value="merges #26" />
     <option name="LAST_COMMIT_MESSAGE" value="merges #26" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="669" y="-1026" key="CommitChangelistDialog2" timestamp="1617739285240">
-      <screen x="84" y="-1200" width="1920" height="1160" />
-    </state>
-    <state x="669" y="-1026" key="CommitChangelistDialog2/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739285240" />
-    <state width="449" height="466" key="DebuggerActiveHint" timestamp="1617789628651">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="449" height="466" key="DebuggerActiveHint/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617789628651" />
-    <state width="1877" height="437" key="GridCell.Tab.0.bottom" timestamp="1617789767325">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="938" height="396" key="GridCell.Tab.0.bottom/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400857" />
-    <state width="1877" height="437" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617789767325" />
-    <state width="1877" height="437" key="GridCell.Tab.0.center" timestamp="1617789767325">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="938" height="396" key="GridCell.Tab.0.center/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400857" />
-    <state width="1877" height="437" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617789767325" />
-    <state width="1877" height="437" key="GridCell.Tab.0.left" timestamp="1617789767324">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="938" height="396" key="GridCell.Tab.0.left/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400857" />
-    <state width="1877" height="437" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617789767324" />
-    <state width="1877" height="437" key="GridCell.Tab.0.right" timestamp="1617789767325">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="938" height="396" key="GridCell.Tab.0.right/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400857" />
-    <state width="1877" height="437" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617789767325" />
-    <state width="1877" height="396" key="GridCell.Tab.1.bottom" timestamp="1617789755151">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="396" key="GridCell.Tab.1.bottom/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400690" />
-    <state width="1877" height="396" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617789755151" />
-    <state width="1877" height="396" key="GridCell.Tab.1.center" timestamp="1617789755150">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="396" key="GridCell.Tab.1.center/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400690" />
-    <state width="1877" height="396" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617789755150" />
-    <state width="1877" height="396" key="GridCell.Tab.1.left" timestamp="1617789755150">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="396" key="GridCell.Tab.1.left/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400690" />
-    <state width="1877" height="396" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617789755150" />
-    <state width="1877" height="396" key="GridCell.Tab.1.right" timestamp="1617789755150">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="396" key="GridCell.Tab.1.right/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400690" />
-    <state width="1877" height="396" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617789755150" />
-    <state x="2472" y="313" key="Vcs.Push.Dialog.v2" timestamp="1617781735377">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state x="636" y="-887" key="Vcs.Push.Dialog.v2/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739304638" />
-    <state x="2472" y="313" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617781735377" />
-    <state x="2621" y="368" key="git4idea.merge.GitMergeDialog" timestamp="1617781756556">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state x="2621" y="368" key="git4idea.merge.GitMergeDialog/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617781756556" />
-    <state x="746" y="-829" key="git4idea.merge.GitPullDialog" timestamp="1617739317959">
-      <screen x="84" y="-1200" width="1920" height="1160" />
-    </state>
-    <state x="746" y="-829" key="git4idea.merge.GitPullDialog/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739317959" />
-    <state x="2536" y="270" key="run.anything.popup" timestamp="1617789256415">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state x="2536" y="270" key="run.anything.popup/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617789256415" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/StoreTest.java</url>
-          <line>152</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/TradingSystem.java</url>
-          <line>233</line>
+          <line>246</line>
           <option name="timeStamp" value="34" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/StoreTest.java</url>
-          <line>150</line>
-          <option name="timeStamp" value="36" />
+          <line>320</line>
+          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

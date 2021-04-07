@@ -235,6 +235,9 @@ public class Permissions {
     }
 
     public boolean validatePermission(User user, Operations op) {
+        if(user==null) {
+            return false;
+        }
         for (User u: this.usersPermissions.keySet()) {
             if(user.getId() == u.getId()) {
                 return this.usersPermissions.get(u).contains(op);
@@ -242,6 +245,8 @@ public class Permissions {
         }
         return false; //user is not an owner/ manager of this store
     }
+
+
     private User getUserById(int id) {
         for(User user : usersPermissions.keySet())
         {

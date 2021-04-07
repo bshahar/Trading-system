@@ -368,6 +368,9 @@ public class TradingSystem {
                     purchaseHistory.add(receipt);
             }
         }
+        else{
+            return null;
+        }
         return purchaseHistory;
     }
 

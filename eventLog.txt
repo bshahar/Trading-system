@@ -9152,3 +9152,20 @@ INFO: Product number 1 was added to Bag of store 1 for user 2
 INFO: Product number 1 was added to Bag of store 1 for user 1
 אפר 07, 2021 12:44:46 PM KingLogger logEvent
 INFO: Product number 1 was added to Bag of store 1 for user 2
+אפר 07, 2021 1:06:23 PM KingLogger logEvent
+INFO: User kandabior register to the system
+אפר 07, 2021 1:06:23 PM KingLogger logEvent
+INFO: User elad register to the system
+אפר 07, 2021 1:06:23 PM KingLogger logEvent
+INFO: User erez register to the system
+אפר 07, 2021 1:06:23 PM KingLogger logEvent
+INFO: User kandabior enter the system
+
+אפר 07, 2021 1:06:23 PM KingLogger logEvent
+INFO: User elad enter the system
+
+אפר 07, 2021 1:06:23 PM KingLogger logEvent
+INFO: User erez enter the system
+
+אפר 07, 2021 1:06:23 PM KingLogger logEvent
+INFO: Product number 1 was added to store 1 by user 1

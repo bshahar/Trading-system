@@ -4937,3 +4937,512 @@ INFO: User elad enter the system
 Apr 07, 2021 10:44:03 AM KingLogger logEvent
 INFO: User erez enter the system
 
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: Product number 1 was remove to store 1 by user 1
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User dorin register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User dorin enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: added Bag of Store number 1 to the cart
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez register to the system
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User kandabior enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 10:46:08 AM KingLogger logEvent
+INFO: User erez enter the system
+

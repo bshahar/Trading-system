@@ -27,6 +27,8 @@ public class TradingSystem {
         this.encryptor = new Encryptor();
         this.userCounter = new counter();
         this.storeCounter = new counter();
+        this.paymentAdapter = new PaymentAdapter();
+        this.supplementAdapter = new SupplementAdapter();
     }
 
 
@@ -321,7 +323,7 @@ public class TradingSystem {
         return s.removeAppointment(ownerId, managerId);
     }
 
-    public String getWorkersInformation(int ownerId, int storeId){
+    public List<User> getWorkersInformation(int ownerId, int storeId){
         Store s = getStoreById(storeId);
         return s.getWorkersInformation(ownerId);
     }
@@ -360,4 +362,5 @@ public class TradingSystem {
     public List<Integer> getProductsFromStore(int storeId) {
         return getStoreById(storeId).getInventory().getProductsIds();
     }
+
 }

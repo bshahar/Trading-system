@@ -41,7 +41,7 @@ public class Permissions {
     }
 
 
-    private User founder; //TODO change to Registered after implementation of inheritance
+    private User founder;
     private Map<User, Integer> roles;
     private Map<Integer, Integer> appointments; //Appointed, appointee (ids)
     private Map<User, List<Operations>> usersPermissions;
@@ -255,7 +255,15 @@ public class Permissions {
         return this.usersPermissions;
     }
 
-    public String getWorkersInformation(int userId) {
+    public List<User> getWorkersInformation(int userId) {
+        User u = getUserById(userId);
+        if(u != null) {
+            if (validatePermission(u, Operations.GetWorkersInfo)) {
+                return new ArrayList<>(this.usersPermissions.keySet());
+            }
+        }
+        return null;
+        /*
         StringBuilder usersInfo = new StringBuilder();
         if(validatePermission(getUserById(userId),Operations.GetWorkersInfo))
         {
@@ -265,6 +273,7 @@ public class Permissions {
             }
         }
         return usersInfo.toString();
+         */
     }
 
     public boolean getStorePurchaseHistory(int userId) {

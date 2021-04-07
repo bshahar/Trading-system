@@ -85,7 +85,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="JUnit.StoreTest.addGuestManagerFailTest">
+  <component name="RunManager" selected="JUnit.StoreTest">
     <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
@@ -137,8 +137,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StoreTest.addGuestManagerFailTest" />
         <item itemvalue="JUnit.StoreTest" />
+        <item itemvalue="JUnit.StoreTest.addGuestManagerFailTest" />
         <item itemvalue="JUnit.StoreTest.addProductTest" />
         <item itemvalue="JUnit.StoreTest.addToCartTest2" />
         <item itemvalue="JUnit.StoreTest.addToChartTest2" />

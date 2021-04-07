@@ -59,6 +59,7 @@ public class TradingSystem {
             {
                 if(user.getUserName() == userName)
                 {
+                    user.setLogged(true);
                     return user.getId();
                 }
             }
@@ -154,8 +155,14 @@ public class TradingSystem {
         return users.size();
     }
 
-    public List<Store> getAllStoresInfo() {
-        return this.stores;
+    public List<Store> getAllStoresInfo(int userId) {
+        for(User u : users){
+            if (u.getId() == userId && u.isLogged()){
+                return this.stores;
+            }
+        }
+        KingLogger.logError(Level.WARNING, "user number " + userId + "is logged out and can not get all the stores information");
+        return null;
         //TODO in the GUI we need to use the comments code.
 //        String output = "";
 //        Store[] storesArr = (Store[]) stores.toArray();
@@ -164,43 +171,46 @@ public class TradingSystem {
 //        }
 //        return output;
     }
-    //TODO return the store id, product id
-    public Map<Integer,Integer> getProducts(Filter filter){
+
+    public Map<Integer,Integer> getProducts(Filter filter, int userId){
         try{
+            if(getUserById(userId).isLogged()) {
+                Map<Integer, Integer> output = new HashMap<>();
+                switch (filter.searchType) {
+                    case "NAME":
+                        for (Store s : stores) {
+                            List<Integer> ps = s.getProductsByName(filter);
+                            for (int productId : ps) {
+                                output.put(s.getStoreId(), productId);
+                            }
+                        }
+                        break;
+                    case "CATEGORY":
+                        for (Store s : stores) {
+                            List<Integer> ps = s.getProductsByCategory(filter);
+                            for (int productId : ps) {
+                                output.put(s.getStoreId(), productId);
+                            }
+                        }
+                        break;
+                    case "KEYWORDS":
+                        for (Store s : stores) {
+                            List<Integer> ps = s.getProductsByKeyWords(filter);
+                            for (int productId : ps) {
+                                output.put(s.getStoreId(), productId);
+                            }
+                        }
+                        break;
 
-            Map<Integer,Integer> output = new HashMap<>();
-            switch (filter.searchType){
-                case "NAME":
-                    for (Store s: stores) {
-                        List<Integer> ps = s.getProductsByName(filter);
-                        for (int productId: ps) {
-                            output.put(s.getStoreId(),productId);
-                        }
-                    }
-                    break;
-                case "CATEGORY":
-                    for (Store s: stores) {
-                        List<Integer> ps = s.getProductsByCategory(filter);
-                        for (int productId: ps) {
-                            output.put(s.getStoreId(),productId);
-                        }
-                    }
-                    break;
-                case "KEYWORDS":
-                    for (Store s: stores) {
-                        List<Integer> ps = s.getProductsByKeyWords(filter);
-                        for (int productId: ps) {
-                            output.put(s.getStoreId(),productId);
-                        }
-                    }
-                    break;
-
-                default:
-                    break;
+                    default:
+                        break;
+                }
+                return output;
             }
-
-            return output;
+            KingLogger.logError(Level.WARNING, "user number " + userId + "can not get the products by filter");
+            return new HashMap<>();
         }catch (Exception e){
+            KingLogger.logError(Level.WARNING, "user number " + userId + "can not get the products by filter");
             return new HashMap<>();
         }
     }
@@ -221,8 +231,11 @@ public class TradingSystem {
 
     public List<Bag> getCart(int userId){
         try{
-            List<Bag> bags = getUserById(userId).getBags();
-            return bags;
+            if(getUserById(userId).isLogged()) {
+                List<Bag> bags = getUserById(userId).getBags();
+                return bags;
+            }
+            return new LinkedList<>();
         }catch (Exception e){
             return new LinkedList<>();
         }
@@ -314,11 +327,15 @@ public class TradingSystem {
     }
 
     public boolean addStoreOwner(int ownerId, int userId,int storeId){
-       return getStoreById(storeId).getPermissions().appointOwner(ownerId,getUserById(userId));
+        if(getUserById(userId).isRegistered())
+            return getStoreById(storeId).getPermissions().appointOwner(ownerId,getUserById(userId));
+        return false;
     }
 
     public boolean addStoreManager(int ownerId, int userId, int storeId){
-        return getStoreById(storeId).getPermissions().appointManager(ownerId,getUserById(userId));
+        if(getUserById(userId).isRegistered())
+            return getStoreById(storeId).getPermissions().appointManager(ownerId,getUserById(userId));
+        return false;
     }
 
     public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){

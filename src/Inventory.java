@@ -2,7 +2,7 @@ import java.util.*;
 
 public class Inventory {
 
-    Map<Product , Integer> products;
+    private Map<Product , Integer> products;
 
     public Inventory() {
         this.products = new HashMap<>();
@@ -22,19 +22,34 @@ public class Inventory {
     }
 
     public boolean validateProductId(int id){
+        for (Product p: products.keySet()) {
+            if(p.getId() == id)
+                return false;
+        }
+        /*
         for (Map.Entry<Product, Integer> p : products.entrySet()) {
             if (p.getKey().getId() == id)
                 return false;
         }
+        */
         return true;
     }
 
-    public boolean CanBuyProduct(Product prod, int numOfProd) {
+    public boolean prodExists(int id){
+        boolean found = false;
+        for (Product p: products.keySet()) {
+            if(p.getId() == id)
+                found = true;
+        }
+        return found;
+    }
+
+    public boolean canBuyProduct(Product prod, int numOfProd) {
         if(this.products.containsKey(prod) && products.get(prod) >= numOfProd) //TODO add to logger, print an error message?
            return true;
         return false;
     }
-    public boolean BuyProduct(Product prod, int numOfProd){
+    public boolean buyProduct(Product prod, int numOfProd){
         synchronized (this) {
             if (this.products.containsKey(prod) && products.get(prod) >= numOfProd){
                 products.put(prod, products.get(prod) - numOfProd);
@@ -125,5 +140,10 @@ public class Inventory {
             return true;
         }
         return false;
+    }
+
+    public List<Integer> getProductsIds(){
+        List <Integer> l = new ArrayList<>(this.products.values());
+        return l;
     }
 }

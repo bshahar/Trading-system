@@ -48,17 +48,12 @@ public class TradingSystem {
         }
     }
 
-    //if the user login successfully return his id. else return -1
+    //if the user performed login successfully return his id. else return -1
     public int login(String userName,String pass) {
-        if(loginAuthentication(userName,pass))
-        {
-            System.out.println("Login successfully!\n");
-            KingLogger.logEvent(Level.INFO,"User "+userName+" enter the system\n");
-            int id = -1;
-            for(User user : users)
-            {
-                if(user.getUserName() == userName)
-                {
+        if(loginAuthentication(userName,pass)) {
+            KingLogger.logEvent(Level.INFO, "User " + userName + " logged into the system.");
+            for (User user : users) {
+                if (user.getUserName() == userName) {
                     user.setLogged(true);
                     return user.getId();
                 }
@@ -68,108 +63,87 @@ public class TradingSystem {
     }
 
     private boolean loginAuthentication(String userName, String pass) {
-        if(userPass.containsKey(userName))//write like this for the error log
-        {
-            if(userPass.get(userName).equals(encryptor.encrypt(pass)))
-                return true;
-            else
-                KingLogger.logEvent(Level.INFO,"User try to login with name "+userName+" and pass "+pass+" and Failed");
+        try {
+            if (userPass.containsKey(userName))//write like this for the error log
+            {
+                if (userPass.get(userName).equals(encryptor.encrypt(pass)))
+                    return true;
+                else
+                    KingLogger.logEvent(Level.INFO, "User failed logging in with name: " + userName);
+            } else {
+                KingLogger.logEvent(Level.INFO, "User tried to login with name: " + userName + " that doesn't exist");
+            }
+            return false;
         }
-        else
-        {
-            KingLogger.logEvent(Level.INFO,"User try to login with name "+userName+" that doesn't exist");
+        catch (Exception e) {
+            KingLogger.logEvent(Level.WARNING, "User failed logging in with name: " + userName);
+            return false;
         }
-        return false;
     }
 
     public int guestLogin() {
-        User guest=new User("Guest",userCounter.inc(),0);
+        User guest = new User("Guest", userCounter.inc(), 0);
         users.add(guest);
-        return guest.getId();
+        int id = guest.getId();
+        KingLogger.logEvent(Level.INFO, "Guest logged into the system with id: " + id);
+        return id;
     }
-    public boolean isLogged(int userId)
-    {
-        User user =getUserById(userId);
-        if(user != null)
+
+    public boolean isLogged(int userId) {
+        User user = getUserById(userId);
+        if (user != null)
             return user.isLogged();
         return false;
     }
 
 
-
-    private String getPurchasesHistory(int userId) {
-        return null;
-    }
-
-
-
-    private String storesInfo(int storeIndex) {
-        //TODO print the stores names and let the user choose one
-        if(storeIndex != -1) {
-            Store s = getStoreByIndex(storeIndex);
-            return (s.getStoreInfo());
-        }
-        else
-            return null;
-    }
-
-    private Store getStoreByIndex(int index) {
-        Store[] storesArr = (Store[]) stores.toArray();
-        return storesArr[index-1];
-    }
-
     public boolean guestRegister (int userId,String userName,String password){
-        if(userPass.containsKey(userName))
-        {
-            return false;
+        try {
+            if (userPass.containsKey(userName)) {
+                return false;
+            } else {
+                userPass.put(userName, this.encryptor.encrypt(password));
+                getUserById(userId).setRegistered();
+                getUserById(userId).setName(userName);
+                KingLogger.logEvent(Level.INFO, "User " + userName + " registered to the system.");
+                return true;
+            }
         }
-        else
-        {
-            userPass.put(userName,this.encryptor.encrypt(password));
-            KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
-            getUserById(userId).setRegistered();
-            getUserById(userId).setName(userName);
-            return true;
+        catch (Exception e) {
+            KingLogger.logEvent(Level.WARNING, "Guest user failed registering to the system.");
+            return false;
         }
     }
 
     public boolean logout(int userId) {
-        if(getUserById(userId) == null || !getUserById(userId).isLogged() || !getUserById(userId).isRegistered() )
+        User user = getUserById(userId);
+        if (user == null || !user.isLogged() || !user.isRegistered()) {
             return false;
-            getUserById(userId).setLogged(false);
-            return true;
+        }
+        user.setLogged(false);
+        KingLogger.logEvent(Level.INFO, "User " + user.getUserName() + " logged out of the system.");
+        return true;
     }
 
-    public User getUserById(int userId)
-    {
-        for(User user : users)
-        {
-            if(user.getId() == userId)
+    public User getUserById(int userId) {
+        for (User user : users) {
+            if (user.getId() == userId)
                 return user;
         }
         return null;
     }
-
 
     public int getNumOfUsers(){
         return users.size();
     }
 
     public List<Store> getAllStoresInfo(int userId) {
-        for(User u : users){
-            if (u.getId() == userId && u.isLogged()){
-                return this.stores;
-            }
+        User u = getUserById(userId);
+        if (u != null && u.isLogged()) {
+            return this.stores;
         }
-        KingLogger.logError(Level.WARNING, "user number " + userId + "is logged out and can not get all the stores information");
+        KingLogger.logError(Level.INFO, "User with id " + userId + " tried to get stores info while logged out and failed.");
         return null;
-        //TODO in the GUI we need to use the comments code.
-//        String output = "";
-//        Store[] storesArr = (Store[]) stores.toArray();
-//        for (int i = 0; i < storesArr.length ; i ++){
-//            output += storesInfo(i);
-//        }
-//        return output;
     }
 
     public Map<Integer,Integer> getProducts(Filter filter, int userId){
@@ -207,88 +181,115 @@ public class TradingSystem {
                 }
                 return output;
             }
-            KingLogger.logError(Level.WARNING, "user number " + userId + "can not get the products by filter");
             return new HashMap<>();
         }catch (Exception e){
-            KingLogger.logError(Level.WARNING, "user number " + userId + "can not get the products by filter");
+            KingLogger.logError(Level.WARNING, "User with id " + userId + " didn't succeed getting products by filter.");
             return new HashMap<>();
         }
     }
 
     public boolean addProductToBag(int userId, int storeId, int prodId,int amount){
-        Bag b = getUserById(userId).getBagByStoreId(storeId);
-        if(getUserById(userId).isLogged() && getStoreById(storeId).getInventory().prodExists(prodId)) {
-            if (b != null) {
-                b.addProduct(prodId,amount);
-                KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to Bag of store " + storeId + " for user " + userId);
+        try {
+            Bag b = getUserById(userId).getBagByStoreId(storeId);
+            if (getUserById(userId).isLogged() && getStoreById(storeId).getInventory().prodExists(prodId)) {
+                if (b != null) {
+                    b.addProduct(prodId, amount);
+                    KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
+                    return true;
+                }
+                getUserById(userId).createNewBag(getStoreById(storeId), prodId, amount);
+                KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
                 return true;
             }
-            getUserById(userId).createNewBag(getStoreById(storeId), prodId,amount);
-            return true;
+            KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was not added to bag for user " + userId);
+            return false;
         }
-        return false;
+        catch (Exception e) {
+            KingLogger.logEvent(Level.WARNING, "Product number " + prodId + " was not added to bag for user " + userId);
+            return false;
+        }
     }
 
-    public List<Bag> getCart(int userId){
-        try{
-            if(getUserById(userId).isLogged()) {
+    public List<Bag> getCart(int userId) {
+        try {
+            if (getUserById(userId) != null && getUserById(userId).isLogged()) {
                 List<Bag> bags = getUserById(userId).getBags();
                 return bags;
             }
             return new LinkedList<>();
-        }catch (Exception e){
+        } catch (Exception e) {
+            KingLogger.logEvent(Level.WARNING, "User with id " + userId + " couldn't view his cart.");
             return new LinkedList<>();
         }
     }
 
     public boolean removeProductFromBag(int userId,int storeId, int prodId){
-        Bag b = getUserById(userId).getBagByStoreId(storeId);
-        if(b != null) {
-            b.removeProduct(prodId);
-            KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was remove from Bag of store " + storeId + " for user " + userId);
-            return true;
+        try {
+            Bag b = getUserById(userId).getBagByStoreId(storeId);
+            if (b != null) {
+                b.removeProduct(prodId);
+                KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was removed from bag of store " + storeId + " for user " + userId);
+                return true;
+            }
+            KingLogger.logError(Level.INFO, "User with id " + userId + " doesn't exist in the system.");
+            return false;
         }
-        KingLogger.logError(Level.WARNING,  "user Id " + userId + " didnt found");
-        return false;
+        catch (Exception e) {
+            KingLogger.logError(Level.WARNING, "User with id " + userId + " doesn't exist in the system.");
+            return false;
+        }
     }
 
     public boolean buyProducts(int userId, int storeId,  String creditInfo){
-        Map<Integer,Integer> productsIds=getBag(userId,storeId);
-        Store store =getStoreById(storeId);
-        double totalCost = 0;
-        Map<Product,Integer> products = new HashMap<>();
-        for (int id: productsIds.keySet()) {
-            Product p=store.getProductById(id);
-            products.put(p,productsIds.get(id));
-            totalCost += p.getPrice()*productsIds.get(id);
-        }
-        synchronized (store) {
-            boolean canBuy = true;
-            for (Integer prodId : productsIds.keySet()) {
-                if (!store.canBuyProduct(prodId, productsIds.get(prodId))) {
-                    canBuy = false;
-                }
+        try {
+            Map<Integer, Integer> productsIds = getBag(userId, storeId);
+            Store store = getStoreById(storeId);
+            double totalCost = 0;
+            Map<Product, Integer> products = new HashMap<>();
+            for (int id : productsIds.keySet()) {
+                Product p = store.getProductById(id);
+                products.put(p, productsIds.get(id));
+                totalCost += p.getPrice() * productsIds.get(id);
             }
-            if (canBuy && paymentAdapter.pay(totalCost, creditInfo)) {
+            synchronized (store) {
+                boolean canBuy = true;
                 for (Integer prodId : productsIds.keySet()) {
-                    store.buyProduct(prodId, productsIds.get(prodId));//remove amount from product
+                    if (!store.canBuyProduct(prodId, productsIds.get(prodId))) {
+                        canBuy = false;
+                    }
                 }
-                this.receipts.add(new Receipt(storeId,getUserById(userId).getUserName(),products));
-                return true;
+                if (canBuy && paymentAdapter.pay(totalCost, creditInfo)) {
+                    for (Integer prodId : productsIds.keySet()) {
+                        store.buyProduct(prodId, productsIds.get(prodId));//remove amount from product
+                    }
+                    this.receipts.add(new Receipt(storeId, getUserById(userId).getUserName(), products));
+                    KingLogger.logError(Level.INFO, "User with id " + userId + " made purchase in store " + storeId);
+                    return true;
+                }
             }
+            KingLogger.logError(Level.INFO, "User with id " + userId + " couldn't make a purchase in store " + storeId);
+            return false;
         }
-        return false;
+        catch (Exception e) {
+            KingLogger.logError(Level.WARNING, "User with id " + userId + " couldn't make a purchase in store " + storeId);
+            return false;
+        }
     }
 
     private Map<Integer, Integer> getBag(int userId, int storeId) {
-        User user = getUserById(userId);
-        Bag bag= user.getBagByStoreId(storeId);
-        return bag.getProductIds();
-
+        try {
+            User user = getUserById(userId);
+            Bag bag = user.getBagByStoreId(storeId);
+            return bag.getProductIds();
+        }
+        catch (Exception e) {
+            KingLogger.logError(Level.WARNING, "User with id " + userId + " couldn't view his bag from store " + storeId);
+            return null;
+        }
     }
 
     public int addProductToStore(int userId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity) {
-        int productId= productCounter.inc();
+        int productId = productCounter.inc();
         Store store = getStoreById(storeId);
         if (getUserById(userId) == null)
             return -1;
@@ -302,7 +303,6 @@ public class TradingSystem {
         }
         return -1;
     }
-
 
 
     public boolean removeProductFromStore(int userId,int storeId, int productId){

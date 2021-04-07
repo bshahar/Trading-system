@@ -1,29 +1,33 @@
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
-//AT-19
+
 public class PermissionTest {
 
     private static TradingSystem tradingSystem;
     private static User u1;
     private static User u2;
+    private static int storeId;
 
 
-    @BeforeAll
-    static void setUpBeforeAll() {
+    @BeforeEach
+    void setUp() {
         User systemManager = new User("Elad", 0, 1);
         tradingSystem = new TradingSystem(systemManager);
-        String userName="elad";
-        String password= "123";
-        tradingSystem.register(userName,password);
-        int id = tradingSystem.login(userName,password);
-        String userName2="or";
-       String password2= "123";
-        tradingSystem.register(userName2,password2);
-       tradingSystem.login(userName2,password2);
-        tradingSystem.openStore(id,"Dorin's guys");
+        String userName = "elad";
+        String password = "123";
+        tradingSystem.register(userName, password);
+        int id = tradingSystem.login(userName, password);
+        String userName2 = "or";
+        String password2 = "123";
+        tradingSystem.register(userName2, password2);
+        tradingSystem.login(userName2, password2);
+        storeId = tradingSystem.openStore(id, "Dorin's flowers");
         u1 = tradingSystem.getUserById(1);
         u2 = tradingSystem.getUserById(2);
     }
@@ -101,6 +105,71 @@ public class PermissionTest {
         assertTrue(tradingSystem.getStoreById(1).getPermissions().validatePermission(u1, Permissions.Operations.EditDiscountFormat));
         assertFalse(tradingSystem.getStoreById(1).getPermissions().validatePermission(u2, Permissions.Operations.EditDiscountFormat));
     }
+
+    @Test
+    //AT-17.1
+    public void changeManagerPermission() {
+       tradingSystem.addStoreManager(u1.getId(),u2.getId(),1);
+       List<Integer> permissions = new LinkedList<>();
+       permissions.add(1);
+       tradingSystem.addPermissions(u1.getId(),u2.getId(),1,permissions);
+       assertTrue(tradingSystem.getStoreById(1).getPermissions().validatePermission(u2,Permissions.Operations.AddProduct));
+    }
+
+    @Test
+    //AT-17.2
+    public void changeManagerPermissionFail() {
+        tradingSystem.addStoreManager(u1.getId(),u2.getId(),1);
+        List<Integer> permissions = new LinkedList<>();
+        permissions.add(1);
+        assertFalse(tradingSystem.addPermissions(u2.getId(),u1.getId(),1,permissions));
+    }
+
+    @Test
+    //AT-17.3
+    public void changeManagerPermissionFail2() {
+        List<Integer> permissions = new LinkedList<>();
+        permissions.add(1);
+        tradingSystem.addPermissions(u1.getId(),u2.getId(),1,permissions);
+        assertFalse(tradingSystem.getStoreById(1).getPermissions().validatePermission(u2,Permissions.Operations.AddProduct));
+    }
+
+    @Test
+    //AT-21.1
+    public void addPermissionToNonPermission() {
+        tradingSystem.addStoreManager(u1.getId(),u2.getId(),1);
+        List<Integer> permissions = new LinkedList<>();
+        permissions.add(1);
+        tradingSystem.addPermissions(u1.getId(),u2.getId(),1,permissions);
+        LinkedList <Product.Category> catList= new LinkedList<>();
+        catList.add(Product.Category.FOOD);
+        assertNotEquals(-1, tradingSystem.addProductToStore(u2.getId(),1,"milk",catList ,10,"FOOD", 5 ));
+    }
+
+    @Test
+    //AT-21.2
+    public void removePermissionToHavePermission() {
+        tradingSystem.addStoreManager(u1.getId(),u2.getId(),1);
+        List<Integer> permissions = new LinkedList<>();
+        permissions.add(1);
+        tradingSystem.addPermissions(u1.getId(),u2.getId(),1,permissions);
+        tradingSystem.removePermission(u1.getId(), u2.getId(),1, permissions);
+        LinkedList <Product.Category> catList= new LinkedList<>();
+        catList.add(Product.Category.FOOD);
+        assertEquals(-1, tradingSystem.addProductToStore(u2.getId(),1,"milk",catList ,10,"FOOD", 5 ));
+    }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

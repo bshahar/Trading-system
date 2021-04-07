@@ -12,21 +12,22 @@ public class PermissionTest {
     private static TradingSystem tradingSystem;
     private static User u1;
     private static User u2;
+    private static int storeId;
 
 
     @BeforeEach
     void setUp() {
         User systemManager = new User("Elad", 0, 1);
         tradingSystem = new TradingSystem(systemManager);
-        String userName="elad";
-        String password= "123";
-        tradingSystem.register(userName,password);
-        int id = tradingSystem.login(userName,password);
-        String userName2="or";
-       String password2= "123";
-        tradingSystem.register(userName2,password2);
-       tradingSystem.login(userName2,password2);
-        tradingSystem.openStore(id,"Dorin's guys");
+        String userName = "elad";
+        String password = "123";
+        tradingSystem.register(userName, password);
+        int id = tradingSystem.login(userName, password);
+        String userName2 = "or";
+        String password2 = "123";
+        tradingSystem.register(userName2, password2);
+        tradingSystem.login(userName2, password2);
+        storeId = tradingSystem.openStore(id, "Dorin's flowers");
         u1 = tradingSystem.getUserById(1);
         u2 = tradingSystem.getUserById(2);
     }
@@ -157,6 +158,8 @@ public class PermissionTest {
         catList.add(Product.Category.FOOD);
         assertEquals(-1, tradingSystem.addProductToStore(u2.getId(),1,"milk",catList ,10,"FOOD", 5 ));
     }
+
+
 
 
 

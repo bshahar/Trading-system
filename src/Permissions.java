@@ -55,17 +55,19 @@ public class Permissions {
      * @return true in case of success, false otherwise.
      */
     public boolean addPermissions(int currUserId, int editUserId, List<Integer> opIndexes) {
-        for (User u1: this.roles.keySet()) {
-            if(u1.getId() == currUserId && roles.get(u1) == OWNER) { //if current user is an owner of the store
-                for (User u2: this.usersPermissions.keySet()) {
-                    if(u2.getId() == editUserId) { //find the user we want to edit his permissions
-                        //TODO need to check if u1 appointed u2?
-                        Operations[] ops = Operations.values();
-                        for (int i: opIndexes) {
-                            if(!this.usersPermissions.get(u2).contains(ops[i-1]))
-                                this.usersPermissions.get(u2).add(ops[i-1]);
+        if(this.appointments != null && this.appointments.containsKey(currUserId) && this.appointments.get(currUserId) == editUserId) { //if currUser appointed editUser
+            for (User u1 : this.roles.keySet()) {
+                if (u1.getId() == currUserId && roles.get(u1) == OWNER) { //if current user is an owner of the store
+                    for (User u2 : this.usersPermissions.keySet()) {
+                        if (u2.getId() == editUserId) { //find the user we want to edit his permissions
+                            int tmpId = this.appointments.get(currUserId);
+                            Operations[] ops = Operations.values();
+                            for (int i : opIndexes) {
+                                if (!this.usersPermissions.get(u2).contains(ops[i - 1]))
+                                    this.usersPermissions.get(u2).add(ops[i - 1]);
+                            }
+                            return true;
                         }
-                        return true;
                     }
                 }
             }
@@ -86,7 +88,7 @@ public class Permissions {
             if(u1.getId() == currUserId && roles.get(u1) == OWNER) { //if current user is an owner of the store
                 for (User u2: this.usersPermissions.keySet()) {
                     if(u2.getId() == editUserId
-                            && this.appointments.get(u1.getId()) == u2.getId()
+                            && this.appointments.get(currUserId) == editUserId
                             && this.roles.get(u2) == MANAGER) {
                         //find the user we want to edit his permissions
                         //check if user1 appointed user2 and that user2 is manager NOT owner

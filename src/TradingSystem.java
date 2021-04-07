@@ -35,16 +35,19 @@ public class TradingSystem {
 
 
     public boolean register(String userName, String pass) {
-        if(userPass.containsKey(userName))
+        try {
+            if (userPass.containsKey(userName)) {
+                return false;
+            } else {
+                userPass.put(userName, this.encryptor.encrypt(pass));
+                KingLogger.logEvent(Level.INFO, "User " + userName + " register to the system");
+                users.add(new User(userName, userCounter.inc(), 1));
+                return true;
+            }
+        }catch (Exception e)
         {
+            KingLogger.logEvent(Level.SEVERE, "User " + userName + "try to register to the system");
             return false;
-        }
-        else
-        {
-            userPass.put(userName,this.encryptor.encrypt(pass));
-            KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
-            users.add(new User(userName,userCounter.inc(),1));
-            return true;
         }
     }
 
@@ -150,13 +153,12 @@ public class TradingSystem {
     }
 
     public List<Store> getAllStoresInfo(int userId) {
-        for(User u : users){
-            if (u.getId() == userId && u.isLogged()){
-                return this.stores;
-            }
-        }
+        User u = getUserById(userId);
+        if(u!=null && u.isLogged())
+            return this.stores;
         KingLogger.logError(Level.WARNING, "user number " + userId + "is logged out and can not get all the stores information");
-        return null;
+            return null;
+
         //TODO in the GUI we need to use the comments code.
 //        String output = "";
 //        Store[] storesArr = (Store[]) stores.toArray();

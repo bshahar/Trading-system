@@ -184,6 +184,7 @@ public class Permissions {
                 }
                 if (!this.roles.containsKey(newUser)) {
                     this.roles.put(newUser, MANAGER);
+                    this.appointments.put(currUserId,newUser.getId());
                     addManagerPermissions(newUser);
                     return true;
                 }
@@ -214,6 +215,7 @@ public class Permissions {
                 if(this.roles.get(getUserById(currUserId)) == OWNER) {
                     removeSubAppointments(toRemoveId);
                 }
+                return true;
             }
         }
         return false;

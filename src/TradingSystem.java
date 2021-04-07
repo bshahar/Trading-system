@@ -128,12 +128,10 @@ public class TradingSystem {
     }
 
     public boolean logout(int userId) {
-        if(getUserById(userId) != null)
-        {
+        if(getUserById(userId) == null || !getUserById(userId).isLogged() || !getUserById(userId).isRegistered() )
+            return false;
             getUserById(userId).setLogged(false);
             return true;
-        }
-        return false;
     }
 
     public User getUserById(int userId)

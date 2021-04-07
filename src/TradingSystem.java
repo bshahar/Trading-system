@@ -6,6 +6,7 @@ public class TradingSystem {
 
     private static counter userCounter;
     private static counter storeCounter;
+    private static counter productCounter;
 
     private PaymentAdapter paymentAdapter;
     private SupplementAdapter supplementAdapter;
@@ -19,14 +20,17 @@ public class TradingSystem {
 
 
     public TradingSystem (User systemManager) {
+        this.paymentAdapter= new PaymentAdapter();
+
         this.stores = new LinkedList<>();
         this.receipts = new LinkedList<>();
         this.systemManager =systemManager;
         this.users = new LinkedList<>();
         this.userPass = new LinkedHashMap<>();
         this.encryptor = new Encryptor();
-        this.userCounter = new counter();
-        this.storeCounter = new counter();
+        userCounter = new counter();
+        storeCounter = new counter();
+        productCounter=new counter();
     }
 
 
@@ -202,11 +206,11 @@ public class TradingSystem {
         }
     }
 
-    public boolean addProductToBag(int userId, int storeId, int prodId){
+    public boolean addProductToBag(int userId, int storeId, int prodId,int amount){
         Bag b = getUserById(userId).getBagByStoreId(storeId);
         if(getUserById(userId).isLogged()) {
             if (b != null) {
-                b.addProduct(prodId);
+                b.addProduct(prodId,amount);
                 KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to Bag of store " + storeId + " for user " + userId);
                 return true;
             }
@@ -216,14 +220,13 @@ public class TradingSystem {
         return false;
     }
 
-    public Map<Integer, List<Integer>> getCart(int userId){
-        Map<Integer, List<Integer>> m = new HashMap<>();
-        List<Bag> bags = getUserById(userId).getBags();
-        for (Bag b : bags){
-            m.put(b.getStoreId(), b.getProductIds());
-            KingLogger.logEvent(Level.INFO, "added Bag of Store number " + b.getStoreId() + " to the cart");
+    public List<Bag> getCart(int userId){
+        try{
+            List<Bag> bags = getUserById(userId).getBags();
+            return bags;
+        }catch (Exception e){
+            return new LinkedList<>();
         }
-        return m;
     }
 
     public boolean removeProductFromBag(int userId,int storeId, int prodId){
@@ -237,7 +240,8 @@ public class TradingSystem {
         return false;
     }
 
-    public boolean buyProducts(int userId, int storeId, Map<Integer,Integer> productsIds, String creditInfo){
+    public boolean buyProducts(int userId, int storeId,  String creditInfo){
+        Map<Integer,Integer> productsIds=getBag(userId,storeId);
         Store store =getStoreById(storeId);
         double totalCost = 0;
         Map<Product,Integer> products = new HashMap<>();
@@ -263,19 +267,27 @@ public class TradingSystem {
         return false;
     }
 
-    public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity) {
+    private Map<Integer, Integer> getBag(int userId, int storeId) {
+        User user = getUserById(userId);
+        Bag bag= user.getBagByStoreId(storeId);
+        return bag.getProductIds();
+
+    }
+
+    public int addProductToStore(int userId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity) {
+        int productId= productCounter.inc();
         Store store = getStoreById(storeId);
         if (getUserById(userId) == null)
-            return false;
+            return -1;
         if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
             if (store != null && store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
                 KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
-                return true;
+                return productId;
             }
             KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
-            return false;
+            return -1;
         }
-        return false;
+        return -1;
     }
 
 

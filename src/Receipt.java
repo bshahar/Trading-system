@@ -31,6 +31,7 @@ public class Receipt {
     public int getStoreId() {
         return storeId;
     }
+    public String getUserName(){return userName;}
 
 
 

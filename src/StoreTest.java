@@ -43,7 +43,7 @@ public class StoreTest {
         storeId1=tradingSystem.openStore(registerId1,"kandabior store");
         LinkedList <Product.Category> catList= new LinkedList<>();
         catList.add(Product.Category.FOOD);
-        tradingSystem.addProductToStore(1,1, storeId1,"milk",catList ,10,"FOOD", 5 );
+        int productId=tradingSystem.addProductToStore(1, storeId1,"milk",catList ,10,"FOOD", 5 );
 
 
     }
@@ -103,65 +103,46 @@ public class StoreTest {
 
     @Test
     public void addToCartTest() throws Exception{
-        assertTrue(tradingSystem.addProductToBag(registerId2,storeId1,1));
+        assertTrue(tradingSystem.addProductToBag(registerId2,storeId1,1,3));
     }
 
     @Test
     public void addToBagGuestTest() throws Exception{
         guestId1=tradingSystem.guestLogin();
-        assertTrue(tradingSystem.addProductToBag(guestId1,storeId1,1));
+        assertTrue(tradingSystem.addProductToBag(guestId1,storeId1,1,3));
     }
 
     @Test
     public void addToChartWrongProdTest() throws Exception{
-        assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,2));
+        assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,2,2));
     }
 
     @Test
     public void addToBagLogoutTest() throws Exception{
         tradingSystem.logout(registerId2);
-        assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,1));
+        assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,1,1));
     }
 
     @Test
     public void addToChartTest2() throws Exception{
-        tradingSystem.addProductToBag(registerId2,storeId1,1);
+        tradingSystem.addProductToBag(registerId2,storeId1,1,2);
         tradingSystem.logout(registerId2);
         tradingSystem.login("elad","elad321654");
 
-        Map<Integer, List<Integer>> products=tradingSystem.getCart(registerId2);
-        assertEquals(1, products.get(storeId1).get(0));
+        List<Bag> products=tradingSystem.getCart(registerId2);
+        assertEquals(2, products.get(0).getProductIds().get(1));
     }
 
     @Test
     public void addToChartTest3() throws Exception{
         guestId1=tradingSystem.guestLogin();
-        tradingSystem.addProductToBag(guestId1,storeId1,1);
+        tradingSystem.addProductToBag(guestId1,storeId1,1,1);
         tradingSystem.guestRegister(guestId1,"dorin","dorin321654");
         tradingSystem.logout(guestId1);
         tradingSystem.login("dorin","dorin321654");
-        Map<Integer, List<Integer>> products=tradingSystem.getCart(guestId1);
-        assertEquals( 1,products.get(storeId1).get(0));
-    }
 
-    @Test
-    public void purchaseTest() throws Exception{
-        tradingSystem.addProductToBag(registerId2,storeId1,1);
-        //assertTrue(tradingSystem.buyProducts(registerId2,1,"123456789"));
-    }
-
-    @Test
-    public void failPurchaseTest() throws Exception{
-        tradingSystem.addProductToBag(registerId2,storeId1,1);
-        tradingSystem.logout(registerId2);
-        //assertFalse(tradingSystem.buyProducts(registerId2,1,"123456789"));
-    }
-
-    @Test
-    public void guestPurchaseTest() throws Exception{
-        guestId1=tradingSystem.guestLogin();
-        tradingSystem.addProductToBag(guestId1,storeId1,1);
-        //assertTrue(tradingSystem.buyProducts(guestId1,1,"123456789"));
+        List<Bag> products=tradingSystem.getCart(registerId2);
+        assertEquals(2, products.get(0).getProductIds().get(1));
     }
 
     @Test
@@ -179,7 +160,7 @@ public class StoreTest {
     public void addProductTest() throws Exception{
         List<Product.Category> categories= new LinkedList<>();
         categories.add(Product.Category.FOOD);
-        assertTrue(tradingSystem.addProductToStore(registerId1, 2, storeId1, "water",categories,5,"drink", 5));
+        assertTrue(tradingSystem.addProductToStore(registerId1,  storeId1, "water",categories,5,"drink", 5)==2);
 
     }
 
@@ -188,7 +169,7 @@ public class StoreTest {
         List<Product.Category> categories= new LinkedList<>();
         categories.add(Product.Category.FOOD);
         //TODO check if false or true
-        assertFalse(tradingSystem.addProductToStore(registerId2,3, storeId1, "water",categories,5,"drink", 5));
+        assertFalse(tradingSystem.addProductToStore(registerId2, storeId1, "water",categories,5,"drink", 5)==2);
     }
 
     @Test

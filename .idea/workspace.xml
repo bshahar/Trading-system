@@ -120,10 +120,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.StoreTest" />
-        <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="JUnit.PermissionTest" />
-        <item itemvalue="JUnit.PermissionTest.AppointManager" />
         <item itemvalue="JUnit.PermissionTest.systemMangerPermissions" />
+        <item itemvalue="JUnit.PermissionTest.AppointManager" />
+        <item itemvalue="JUnit.PermissionTest" />
+        <item itemvalue="JUnit.LoginTest" />
       </list>
     </recent_temporary>
   </component>

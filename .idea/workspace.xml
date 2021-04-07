@@ -20,12 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="merges #26">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/Acceptance Test.doc" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Acceptance Test.doc" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,6 +137,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -221,11 +217,6 @@
           <url>file://$PROJECT_DIR$/src/TradingSystem.java</url>
           <line>246</line>
           <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/StoreTest.java</url>
-          <line>320</line>
-          <option name="timeStamp" value="37" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -10672,3 +10672,583 @@ INFO: User erez enter the system
 
 אפר 07, 2021 4:15:46 PM KingLogger logEvent
 INFO: Product number 1 was added to store 1 by user 1
+Apr 07, 2021 4:36:11 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:36:11 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:36:11 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:36:11 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:37:43 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:37:43 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:37:43 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:37:43 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:40:33 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:47 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User elad enter the system
+
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or register to the system
+Apr 07, 2021 4:42:58 PM KingLogger logEvent
+INFO: User or enter the system
+

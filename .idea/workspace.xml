@@ -19,8 +19,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="merges #26">
-      <change beforePath="$PROJECT_DIR$/docs/Acceptance Test.doc" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Acceptance Test.doc" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="adding login test #27 #26">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/PermissionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PermissionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,22 +79,31 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="JUnit.StoreTest.getPurchaseHistoryTest2">
-    <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.PermissionTest">
+    <configuration name="PermissionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="StoreTest" />
+      <option name="MAIN_CLASS_NAME" value="PermissionTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest.addOwnerFailTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PermissionTest.changeManagerPermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="PermissionTest" />
+      <option name="METHOD_NAME" value="changeManagerPermission" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StoreTest" />
-      <option name="METHOD_NAME" value="addOwnerFailTest2" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -117,23 +128,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest.removeManagerFailTest2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="StoreTest" />
-      <option name="METHOD_NAME" value="removeManagerFailTest2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PermissionTest" />
+        <item itemvalue="JUnit.PermissionTest.changeManagerPermission" />
         <item itemvalue="JUnit.StoreTest.getPurchaseHistoryTest2" />
         <item itemvalue="JUnit.StoreTest" />
         <item itemvalue="JUnit.StoreTest.getPurchaseHistoryFailTest" />
-        <item itemvalue="JUnit.StoreTest.removeManagerFailTest2" />
-        <item itemvalue="JUnit.StoreTest.addOwnerFailTest2" />
       </list>
     </recent_temporary>
   </component>
@@ -184,7 +185,14 @@
       <option name="presentableId" value="LOCAL‎00005" />
       <updated>1617781721231</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="adding login test #27 #26">
+      <created>1617801594687</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1617801594687</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -208,7 +216,8 @@
     <MESSAGE value="connect trading system to stores #27" />
     <MESSAGE value="adding permissions test #27 #26" />
     <MESSAGE value="merges #26" />
-    <option name="LAST_COMMIT_MESSAGE" value="merges #26" />
+    <MESSAGE value="adding login test #27 #26" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding login test #27 #26" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -1,9 +1,12 @@
 
-import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.LinkedList;
+import java.util.List;
+
 import static org.junit.jupiter.api.Assertions.*;
-//AT-19
+
 public class PermissionTest {
 
     private static TradingSystem tradingSystem;
@@ -11,8 +14,8 @@ public class PermissionTest {
     private static User u2;
 
 
-    @BeforeAll
-    static void setUpBeforeAll() {
+    @BeforeEach
+    void setUp() {
         User systemManager = new User("Elad", 0, 1);
         tradingSystem = new TradingSystem(systemManager);
         String userName="elad";
@@ -101,6 +104,42 @@ public class PermissionTest {
         assertTrue(tradingSystem.getStoreById(1).getPermissions().validatePermission(u1, Permissions.Operations.EditDiscountFormat));
         assertFalse(tradingSystem.getStoreById(1).getPermissions().validatePermission(u2, Permissions.Operations.EditDiscountFormat));
     }
+
+    @Test
+    //AT-17.1
+    public void changeManagerPermission() {
+       tradingSystem.addStoreManager(u1.getId(),u2.getId(),1);
+       List<Integer> permissions = new LinkedList<>();
+       permissions.add(1);
+       tradingSystem.addPermissions(u1.getId(),u2.getId(),1,permissions);
+       assertTrue(tradingSystem.getStoreById(1).getPermissions().validatePermission(u2,Permissions.Operations.AddProduct));
+    }
+
+    @Test
+    //AT-17.2
+    public void changeManagerPermissionFail() {
+        tradingSystem.addStoreManager(u1.getId(),u2.getId(),1);
+        List<Integer> permissions = new LinkedList<>();
+        permissions.add(1);
+        assertFalse(tradingSystem.addPermissions(u2.getId(),u1.getId(),1,permissions));
+    }
+
+    @Test
+    //AT-17.3
+    public void changeManagerPermissionFail2() {
+        List<Integer> permissions = new LinkedList<>();
+        permissions.add(1);
+        tradingSystem.addPermissions(u1.getId(),u2.getId(),1,permissions);
+        assertFalse(tradingSystem.getStoreById(1).getPermissions().validatePermission(u2,Permissions.Operations.AddProduct));
+    }
+
+
+
+
+
+
+
+
 
 
 }

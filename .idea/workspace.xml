@@ -19,12 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="adding login test #27 #26">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PermissionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PermissionTest.java" afterDir="false" />
-    </list>
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="adding Permission test - Erez" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -201,7 +196,14 @@
       <option name="project" value="LOCAL" />
       <updated>1617803274943</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="adding Permission test - Erez">
+      <created>1617807941768</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1617807941768</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -226,7 +228,8 @@
     <MESSAGE value="adding permissions test #27 #26" />
     <MESSAGE value="merges #26" />
     <MESSAGE value="adding login test #27 #26" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding login test #27 #26" />
+    <MESSAGE value="adding Permission test - Erez" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding Permission test - Erez" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

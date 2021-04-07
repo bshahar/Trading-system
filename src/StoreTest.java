@@ -272,7 +272,7 @@ public class StoreTest {
     //AT-8 success
     public void getCartInfo() throws  Exception{
         tradingSystem.addProductToBag(registerId1, storeId1, 1, 1);
-        assertEquals(1, tradingSystem.getCart(registerId1).get(0).getProductIds().get(0));
+        assertTrue( tradingSystem.getCart(registerId1).get(0).getProductIds().keySet().contains(1));
     }
 
     @Test
@@ -280,7 +280,7 @@ public class StoreTest {
     public void getCartInfoFail() throws  Exception{
         tradingSystem.addProductToBag(registerId1, storeId1, 1, 1);
         tradingSystem.logout(registerId1);
-        assertNull(tradingSystem.getCart(registerId1));
+        assertEquals(0, tradingSystem.getCart(registerId1).size());
     }
 
 

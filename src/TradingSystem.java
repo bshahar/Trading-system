@@ -59,6 +59,7 @@ public class TradingSystem {
             {
                 if(user.getUserName() == userName)
                 {
+                    user.setLogged(true);
                     return user.getId();
                 }
             }
@@ -230,8 +231,11 @@ public class TradingSystem {
 
     public List<Bag> getCart(int userId){
         try{
-            List<Bag> bags = getUserById(userId).getBags();
-            return bags;
+            if(getUserById(userId).isLogged()) {
+                List<Bag> bags = getUserById(userId).getBags();
+                return bags;
+            }
+            return new LinkedList<>();
         }catch (Exception e){
             return new LinkedList<>();
         }
@@ -323,11 +327,15 @@ public class TradingSystem {
     }
 
     public boolean addStoreOwner(int ownerId, int userId,int storeId){
-       return getStoreById(storeId).getPermissions().appointOwner(ownerId,getUserById(userId));
+        if(getUserById(userId).isRegistered())
+            return getStoreById(storeId).getPermissions().appointOwner(ownerId,getUserById(userId));
+        return false;
     }
 
     public boolean addStoreManager(int ownerId, int userId, int storeId){
-        return getStoreById(storeId).getPermissions().appointManager(ownerId,getUserById(userId));
+        if(getUserById(userId).isRegistered())
+            return getStoreById(storeId).getPermissions().appointManager(ownerId,getUserById(userId));
+        return false;
     }
 
     public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){

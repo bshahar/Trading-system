@@ -680,3 +680,7 @@ WARNING: Product number 2 was !!not!! added to store 1 by user 2
 WARNING: Product number 1 was !!not!! remove to store 1 by user 2
 אפר 07, 2021 12:34:47 PM KingLogger logError
 WARNING: Product number 2 was !!not!! added to store 1 by user 2
+אפר 07, 2021 12:44:33 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 07, 2021 12:44:33 PM KingLogger logError
+WARNING: Product number 2 was !!not!! added to store 1 by user 2

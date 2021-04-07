@@ -133,6 +133,33 @@ public class PermissionTest {
         assertFalse(tradingSystem.getStoreById(1).getPermissions().validatePermission(u2,Permissions.Operations.AddProduct));
     }
 
+    @Test
+    //AT-21.1
+    public void addPermissionToNonPermission() {
+        tradingSystem.addStoreManager(u1.getId(),u2.getId(),1);
+        List<Integer> permissions = new LinkedList<>();
+        permissions.add(1);
+        tradingSystem.addPermissions(u1.getId(),u2.getId(),1,permissions);
+        LinkedList <Product.Category> catList= new LinkedList<>();
+        catList.add(Product.Category.FOOD);
+        assertNotEquals(-1, tradingSystem.addProductToStore(u2.getId(),1,"milk",catList ,10,"FOOD", 5 ));
+    }
+
+    @Test
+    //AT-21.2
+    public void removePermissionToHavePermission() {
+        tradingSystem.addStoreManager(u1.getId(),u2.getId(),1);
+        List<Integer> permissions = new LinkedList<>();
+        permissions.add(1);
+        tradingSystem.addPermissions(u1.getId(),u2.getId(),1,permissions);
+        tradingSystem.removePermission(u1.getId(), u2.getId(),1, permissions);
+        LinkedList <Product.Category> catList= new LinkedList<>();
+        catList.add(Product.Category.FOOD);
+        assertEquals(-1, tradingSystem.addProductToStore(u2.getId(),1,"milk",catList ,10,"FOOD", 5 ));
+    }
+
+
+
 
 
 

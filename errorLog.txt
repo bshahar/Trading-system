@@ -734,3 +734,17 @@ WARNING: Product number 2 was !!not!! added to store 1 by user 2
 WARNING: user number 1can not get the products by filter
 אפר 07, 2021 4:14:15 PM KingLogger logError
 WARNING: user number 1can not get the products by filter
+Apr 07, 2021 5:37:01 PM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 2
+Apr 07, 2021 5:38:16 PM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 2
+Apr 07, 2021 5:43:31 PM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 2
+Apr 07, 2021 5:45:46 PM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 2
+Apr 07, 2021 5:50:33 PM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 2
+Apr 07, 2021 5:52:07 PM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 2
+Apr 07, 2021 5:53:49 PM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 2

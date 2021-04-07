@@ -17,16 +17,26 @@ public class LoginTest {
         tradingSystem= new TradingSystem(systemManager);
     }
 
+    //AT-4.1
     @Test
-    public void registerTest() throws Exception{
-
+    public void registerTest(){
         String userName="kandabior";
         String password= "or321654";
         assertTrue(tradingSystem.register(userName,password));
     }
-
+    //AT-4.2
     @Test
-    public void failRegisterTest() throws Exception{
+    public void loginBadPass(){
+        String userName="kandabior";
+        String password= "or321654";
+        assertTrue(tradingSystem.register(userName,"12"));
+        int index = tradingSystem.login(userName,password);
+        assertEquals(index,-1);
+    }
+
+    //AT-4.3
+    @Test
+    public void failRegisterTest(){
         String userName="kandabior";
         String password= "or321654";
         tradingSystem.register(userName,password);
@@ -34,7 +44,7 @@ public class LoginTest {
     }
 
     @Test
-    public void loginTest() throws  Exception{
+    public void loginTest(){
         String userName="kandabior";
         String password= "or321654";
         tradingSystem.register(userName,password);
@@ -43,15 +53,9 @@ public class LoginTest {
         assertTrue(tradingSystem.isLogged(index));
     }
 
+    //AT-10.1
     @Test
-    public void failLoginTest() throws  Exception{
-        String userName="kandabior";
-        String password= "or321654";
-        assertEquals(-1,tradingSystem.login(userName,password));
-    }
-
-    @Test
-    public void logoutTest() throws  Exception{
+    public void logoutTest(){
         String userName="kandabior";
         String password= "or321654";
         tradingSystem.register(userName,password);
@@ -60,9 +64,31 @@ public class LoginTest {
         assertFalse(tradingSystem.isLogged(1));
     }
 
+    //AT-10.2
+    @Test
+    public void logoutTwiceTest(){
+        String userName="kandabior";
+        String password= "or321654";
+        tradingSystem.register(userName,password);
+        tradingSystem.login(userName,password);
+        assertTrue(tradingSystem.logout(1));
+        assertFalse(tradingSystem.logout(1));
+    }
+
+
+
+    @Test
+    public void failLoginTest(){
+        String userName="kandabior";
+        String password= "or321654";
+        assertEquals(-1,tradingSystem.login(userName,password));
+    }
+
+
+
     @Test
     //AT-1
-    public void guestLoginTest() throws  Exception{
+    public void guestLoginTest(){
         int index = tradingSystem.guestLogin();
         assertEquals(index, 1);
         assertTrue(tradingSystem.isLogged(index));
@@ -70,14 +96,13 @@ public class LoginTest {
     }
     @Test
     //AT-2
-    public void guestLogoutTest() throws  Exception{
+    public void guestLogoutTest(){
         int index = tradingSystem.guestLogin();
-        assertTrue(tradingSystem.logout(index));
-        assertFalse(tradingSystem.isLogged(index));
+        assertFalse(tradingSystem.logout(index));
     }
 
     @Test
-    public void scalabilityUserTest() throws  Exception{
+    public void scalabilityUserTest(){
 
         for (int i=1; i<1000; i++){
             if(i!=tradingSystem.guestLogin()){
@@ -87,12 +112,25 @@ public class LoginTest {
         assertEquals(999,tradingSystem.getNumOfUsers());
     }
 
+    //AT-3.1
     @Test
-    public void guestRegisterTest() throws  Exception{
+    public void guestRegisterTest(){
         int guestId= tradingSystem.guestLogin();
         assertTrue(tradingSystem.guestRegister(guestId,"or","or321654"));
         assertTrue(tradingSystem.isLogged(guestId));
     }
+    //AT-3.2
+    @Test
+    public void guestRegisterTestFail(){
+        int guestId= tradingSystem.guestLogin();
+        String userName="kandabior";
+        String password= "or321654";
+        tradingSystem.register(userName,password);
+        assertFalse(tradingSystem.guestRegister(guestId,"kandabior","or321654"));
+    }
+
+
+
 
 
 

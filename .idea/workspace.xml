@@ -19,16 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="adding login test #27 #26">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/~$ceptance Test.doc" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/~WRL0002.tmp" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,60 +205,6 @@
     <MESSAGE value="connect trading system to stores #27" />
     <MESSAGE value="adding permissions test #27 #26" />
     <option name="LAST_COMMIT_MESSAGE" value="adding permissions test #27 #26" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="669" y="-1026" key="CommitChangelistDialog2" timestamp="1617739285240">
-      <screen x="84" y="-1200" width="1920" height="1160" />
-    </state>
-    <state x="669" y="-1026" key="CommitChangelistDialog2/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739285240" />
-    <state width="1877" height="396" key="GridCell.Tab.0.bottom" timestamp="1617781413685">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="938" height="396" key="GridCell.Tab.0.bottom/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400857" />
-    <state width="1877" height="396" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617781413685" />
-    <state width="1877" height="396" key="GridCell.Tab.0.center" timestamp="1617781413684">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="938" height="396" key="GridCell.Tab.0.center/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400857" />
-    <state width="1877" height="396" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617781413684" />
-    <state width="1877" height="396" key="GridCell.Tab.0.left" timestamp="1617781413684">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="938" height="396" key="GridCell.Tab.0.left/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400857" />
-    <state width="1877" height="396" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617781413684" />
-    <state width="1877" height="396" key="GridCell.Tab.0.right" timestamp="1617781413685">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="938" height="396" key="GridCell.Tab.0.right/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400857" />
-    <state width="1877" height="396" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617781413685" />
-    <state width="1877" height="396" key="GridCell.Tab.1.bottom" timestamp="1617781416711">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="396" key="GridCell.Tab.1.bottom/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400690" />
-    <state width="1877" height="396" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617781416711" />
-    <state width="1877" height="396" key="GridCell.Tab.1.center" timestamp="1617781416711">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="396" key="GridCell.Tab.1.center/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400690" />
-    <state width="1877" height="396" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617781416711" />
-    <state width="1877" height="396" key="GridCell.Tab.1.left" timestamp="1617781416711">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="396" key="GridCell.Tab.1.left/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400690" />
-    <state width="1877" height="396" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617781416711" />
-    <state width="1877" height="396" key="GridCell.Tab.1.right" timestamp="1617781416711">
-      <screen x="1920" y="0" width="1920" height="1160" />
-    </state>
-    <state width="1877" height="396" key="GridCell.Tab.1.right/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400690" />
-    <state width="1877" height="396" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617781416711" />
-    <state x="636" y="-887" key="Vcs.Push.Dialog.v2" timestamp="1617739304638">
-      <screen x="84" y="-1200" width="1920" height="1160" />
-    </state>
-    <state x="636" y="-887" key="Vcs.Push.Dialog.v2/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739304638" />
-    <state x="746" y="-829" key="git4idea.merge.GitPullDialog" timestamp="1617739317959">
-      <screen x="84" y="-1200" width="1920" height="1160" />
-    </state>
-    <state x="746" y="-829" key="git4idea.merge.GitPullDialog/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739317959" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

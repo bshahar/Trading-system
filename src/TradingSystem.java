@@ -132,12 +132,10 @@ public class TradingSystem {
     }
 
     public boolean logout(int userId) {
-        if(getUserById(userId) != null)
-        {
+        if(getUserById(userId) == null || !getUserById(userId).isLogged() || !getUserById(userId).isRegistered() )
+            return false;
             getUserById(userId).setLogged(false);
             return true;
-        }
-        return false;
     }
 
     public User getUserById(int userId)
@@ -208,7 +206,7 @@ public class TradingSystem {
 
     public boolean addProductToBag(int userId, int storeId, int prodId,int amount){
         Bag b = getUserById(userId).getBagByStoreId(storeId);
-        if(getUserById(userId).isLogged()) {
+        if(getUserById(userId).isLogged() && getStoreById(storeId).getInventory().prodExists(prodId)) {
             if (b != null) {
                 b.addProduct(prodId,amount);
                 KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to Bag of store " + storeId + " for user " + userId);
@@ -274,21 +272,21 @@ public class TradingSystem {
 
     }
 
-    public int addProductToStore(int userId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity) {
-        int productId= productCounter.inc();
+    public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity) {
         Store store = getStoreById(storeId);
         if (getUserById(userId) == null)
-            return -1;
-        if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
-            if (store != null && store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
+            return false;
+        if (store != null) {
+            if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
                 KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
-                return productId;
+                return true;
             }
             KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
-            return -1;
+            return false;
         }
-        return -1;
+        return false;
     }
+
 
 
     public boolean removeProductFromStore(int userId,int storeId, int productId){
@@ -335,7 +333,7 @@ public class TradingSystem {
         return s.removeAppointment(ownerId, managerId);
     }
 
-    public String getWorkersInformation(int ownerId, int storeId){
+    public List<User> getWorkersInformation(int ownerId, int storeId){
         Store s = getStoreById(storeId);
         return s.getWorkersInformation(ownerId);
     }
@@ -374,4 +372,5 @@ public class TradingSystem {
     public List<Integer> getProductsFromStore(int storeId) {
         return getStoreById(storeId).getInventory().getProductsIds();
     }
+
 }

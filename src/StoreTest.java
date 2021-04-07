@@ -4,6 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import javax.crypto.NoSuchPaddingException;
 import java.security.NoSuchAlgorithmException;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -134,7 +135,7 @@ public class StoreTest {
     }
 
     @Test
-    public void addToChartTest3() throws Exception{
+    public void addToCartTest3() throws Exception{
         guestId1=tradingSystem.guestLogin();
         tradingSystem.addProductToBag(guestId1,storeId1,1,1);
         tradingSystem.guestRegister(guestId1,"dorin","dorin321654");
@@ -238,7 +239,17 @@ public class StoreTest {
 
     @Test
     public void getPurchaseHistoryTest() throws Exception{
-        assertNotNull(tradingSystem.getStorePurchaseHistory(registerId1,storeId1));
+        tradingSystem.addProductToBag(registerId2,storeId1,1);
+        Map<Integer, Integer> bag = new HashMap<>();
+        bag.put(1, 3);
+        tradingSystem.buyProducts(registerId2, storeId1, bag, "Credit123");
+        LinkedList <Product.Category> catList = new LinkedList<>();
+        catList.add(Product.Category.FOOD);
+        Product p = new Product(1,"milk",catList ,10,"FOOD");
+        Map<Product, Integer> recLines = new HashMap<>();
+        recLines.put(p, 3);
+        Receipt receipt = new Receipt(storeId1,tradingSystem.getUserById(registerId2).getUserName(),recLines);
+        assertEquals(receipt.getStoreId(), tradingSystem.getStorePurchaseHistory(registerId1,storeId1).get(0).getStoreId());
     }
 
 

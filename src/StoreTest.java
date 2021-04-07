@@ -137,12 +137,12 @@ public class StoreTest {
     @Test
     public void addToCartTest3() throws Exception{
         guestId1=tradingSystem.guestLogin();
-        tradingSystem.addProductToBag(guestId1,storeId1,1,1);
+        tradingSystem.addProductToBag(guestId1,storeId1,1,2);
         tradingSystem.guestRegister(guestId1,"dorin","dorin321654");
         tradingSystem.logout(guestId1);
         tradingSystem.login("dorin","dorin321654");
 
-        List<Bag> products=tradingSystem.getCart(registerId2);
+        List<Bag> products=tradingSystem.getCart(guestId1);
         assertEquals(2, products.get(0).getProductIds().get(1));
     }
 
@@ -239,10 +239,10 @@ public class StoreTest {
 
     @Test
     public void getPurchaseHistoryTest() throws Exception{
-        tradingSystem.addProductToBag(registerId2,storeId1,1);
+        tradingSystem.addProductToBag(registerId2,storeId1,1,1);
         Map<Integer, Integer> bag = new HashMap<>();
         bag.put(1, 3);
-        tradingSystem.buyProducts(registerId2, storeId1, bag, "Credit123");
+        tradingSystem.buyProducts(registerId2, storeId1, "Credit123");
         LinkedList <Product.Category> catList = new LinkedList<>();
         catList.add(Product.Category.FOOD);
         Product p = new Product(1,"milk",catList ,10,"FOOD");

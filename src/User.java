@@ -67,9 +67,13 @@ public class User {
             return info.toString();
     }
 
-    public void createNewBag(Store store, int prodId) {
+    public void createNewBag(Store store, int prodId, int amount) {
         Bag b = new Bag(store);
-        b.addProduct(prodId);
+        b.addProduct(prodId,amount);
         this.bags.add(b);
+    }
+
+    public void setName(String userName) {
+        this.userName=userName;
     }
 }

@@ -127,6 +127,7 @@ public class TradingSystem {
             userPass.put(userName,this.encryptor.encrypt(password));
             KingLogger.logEvent(Level.INFO,"User "+userName+" register to the system");
             getUserById(userId).setRegistered();
+            getUserById(userId).setName(userName);
             return true;
         }
     }
@@ -212,7 +213,7 @@ public class TradingSystem {
                 KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to Bag of store " + storeId + " for user " + userId);
                 return true;
             }
-            getUserById(userId).createNewBag(getStoreById(storeId), prodId);
+            getUserById(userId).createNewBag(getStoreById(storeId), prodId,amount);
             return true;
         }
         return false;
@@ -260,6 +261,7 @@ public class TradingSystem {
                     store.buyProduct(prodId, productsIds.get(prodId));//remove amount from product
                 }
                 this.receipts.add(new Receipt(storeId,getUserById(userId).getUserName(),products));
+                return true;
             }
         }
         return false;
@@ -272,19 +274,20 @@ public class TradingSystem {
 
     }
 
-    public boolean addProductToStore(int userId, int productId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity) {
+    public int addProductToStore(int userId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity) {
+        int productId= productCounter.inc();
         Store store = getStoreById(storeId);
         if (getUserById(userId) == null)
-            return false;
+            return -1;
         if (store != null) {
             if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
                 KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
-                return true;
+                return productId;
             }
             KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
-            return false;
+            return -1;
         }
-        return false;
+        return -1;
     }
 
 

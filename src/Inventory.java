@@ -26,12 +26,6 @@ public class Inventory {
             if(p.getId() == id)
                 return false;
         }
-        /*
-        for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            if (p.getKey().getId() == id)
-                return false;
-        }
-        */
         return true;
     }
 

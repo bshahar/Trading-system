@@ -19,7 +19,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="adding Permission test - Erez" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment=".">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +47,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ErezSh" />
+        <entry key="$PROJECT_DIR$" value="dorin" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -75,7 +81,16 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="JUnit.PermissionTest.removePermissionToHavePermission">
+  <component name="RunManager" selected="JUnit.PurchaseTest">
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="LoginTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PermissionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
@@ -85,41 +100,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PermissionTest.addPermissionToNonPermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PermissionTest" />
-      <option name="METHOD_NAME" value="addPermissionToNonPermission" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="PurchaseTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PermissionTest.changeManagerPermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PermissionTest" />
-      <option name="METHOD_NAME" value="changeManagerPermission" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="StoreTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PermissionTest.changeManagerPermissionFail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest.editPermissionsSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PermissionTest" />
-      <option name="METHOD_NAME" value="changeManagerPermissionFail" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PermissionTest.removePermissionToHavePermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="PermissionTest" />
-      <option name="METHOD_NAME" value="removePermissionToHavePermission" />
+      <option name="MAIN_CLASS_NAME" value="StoreTest" />
+      <option name="METHOD_NAME" value="editPermissionsSuccess" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -127,15 +130,14 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PermissionTest.removePermissionToHavePermission" />
-        <item itemvalue="JUnit.PermissionTest.addPermissionToNonPermission" />
-        <item itemvalue="JUnit.PermissionTest.changeManagerPermissionFail" />
+        <item itemvalue="JUnit.PurchaseTest" />
+        <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.StoreTest" />
         <item itemvalue="JUnit.PermissionTest" />
-        <item itemvalue="JUnit.PermissionTest.changeManagerPermission" />
+        <item itemvalue="JUnit.StoreTest.editPermissionsSuccess" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -182,28 +184,19 @@
       <option name="presentableId" value="LOCAL‎00005" />
       <updated>1617781721231</updated>
     </task>
-    <task id="LOCAL-00006" summary="adding login test #27 #26">
-      <created>1617801594687</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1617801594687</updated>
+    <task id="LOCAL‎00006" summary="fixed store tests #26">
+      <created>1617790205166</created>
+      <option name="number" value="LOCAL‎00006" />
+      <option name="presentableId" value="LOCAL‎00006" />
+      <updated>1617790205166</updated>
     </task>
-    <task id="LOCAL-00007" summary="adding login test #27 #26">
-      <created>1617803274943</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1617803274943</updated>
+    <task id="LOCAL‎00007" summary=".">
+      <created>1617808517811</created>
+      <option name="number" value="LOCAL‎00007" />
+      <option name="presentableId" value="LOCAL‎00007" />
+      <updated>1617808517811</updated>
     </task>
-    <task id="LOCAL-00008" summary="adding Permission test - Erez">
-      <created>1617807941768</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1617807941768</updated>
-    </task>
-    <option name="localTasksCounter" value="9" />
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -227,25 +220,84 @@
     <MESSAGE value="connect trading system to stores #27" />
     <MESSAGE value="adding permissions test #27 #26" />
     <MESSAGE value="merges #26" />
-    <MESSAGE value="adding login test #27 #26" />
-    <MESSAGE value="adding Permission test - Erez" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding Permission test - Erez" />
+    <MESSAGE value="fixed store tests #26" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/TradingSystem.java</url>
-          <line>246</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/TradingSystem.java</url>
-          <line>295</line>
-          <option name="timeStamp" value="40" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+  <component name="WindowStateProjectService">
+    <state x="669" y="-1026" key="CommitChangelistDialog2" timestamp="1617739285240">
+      <screen x="84" y="-1200" width="1920" height="1160" />
+    </state>
+    <state x="669" y="-1026" key="CommitChangelistDialog2/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739285240" />
+    <state width="469" height="466" key="DebuggerActiveHint" timestamp="1617807498476">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state width="469" height="466" key="DebuggerActiveHint/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617807498476" />
+    <state width="1877" height="441" key="GridCell.Tab.0.bottom" timestamp="1617808704575">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state width="938" height="396" key="GridCell.Tab.0.bottom/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400857" />
+    <state width="1493" height="437" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1160@0.0.1536.824" timestamp="1617805305447" />
+    <state width="1877" height="441" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617808704575" />
+    <state width="1877" height="441" key="GridCell.Tab.0.center" timestamp="1617808704574">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state width="938" height="396" key="GridCell.Tab.0.center/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400857" />
+    <state width="1493" height="437" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1160@0.0.1536.824" timestamp="1617805305447" />
+    <state width="1877" height="441" key="GridCell.Tab.0.center/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617808704574" />
+    <state width="1877" height="441" key="GridCell.Tab.0.left" timestamp="1617808704574">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state width="938" height="396" key="GridCell.Tab.0.left/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400857" />
+    <state width="1493" height="437" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1160@0.0.1536.824" timestamp="1617805305446" />
+    <state width="1877" height="441" key="GridCell.Tab.0.left/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617808704574" />
+    <state width="1877" height="441" key="GridCell.Tab.0.right" timestamp="1617808704574">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state width="938" height="396" key="GridCell.Tab.0.right/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400857" />
+    <state width="1493" height="437" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1160@0.0.1536.824" timestamp="1617805305447" />
+    <state width="1877" height="441" key="GridCell.Tab.0.right/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617808704574" />
+    <state width="1877" height="396" key="GridCell.Tab.1.bottom" timestamp="1617807799817">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state width="1877" height="396" key="GridCell.Tab.1.bottom/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400690" />
+    <state width="1877" height="396" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617807799817" />
+    <state width="1877" height="396" key="GridCell.Tab.1.center" timestamp="1617807799816">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state width="1877" height="396" key="GridCell.Tab.1.center/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400690" />
+    <state width="1877" height="396" key="GridCell.Tab.1.center/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617807799816" />
+    <state width="1877" height="396" key="GridCell.Tab.1.left" timestamp="1617807799816">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state width="1877" height="396" key="GridCell.Tab.1.left/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400690" />
+    <state width="1877" height="396" key="GridCell.Tab.1.left/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617807799816" />
+    <state width="1877" height="396" key="GridCell.Tab.1.right" timestamp="1617807799816">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state width="1877" height="396" key="GridCell.Tab.1.right/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739400690" />
+    <state width="1877" height="396" key="GridCell.Tab.1.right/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617807799816" />
+    <state x="2472" y="313" key="Vcs.Push.Dialog.v2" timestamp="1617808603224">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state x="636" y="-887" key="Vcs.Push.Dialog.v2/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739304638" />
+    <state x="2472" y="313" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617808603224" />
+    <state x="2619" y="293" key="git4idea.branch.GitSmartOperationDialog" timestamp="1617808612253">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state x="2619" y="293" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617808612253" />
+    <state x="2621" y="368" key="git4idea.merge.GitMergeDialog" timestamp="1617808639928">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state x="2621" y="368" key="git4idea.merge.GitMergeDialog/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617808639928" />
+    <state x="746" y="-829" key="git4idea.merge.GitPullDialog" timestamp="1617739317959">
+      <screen x="84" y="-1200" width="1920" height="1160" />
+    </state>
+    <state x="746" y="-829" key="git4idea.merge.GitPullDialog/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739317959" />
+    <state x="2536" y="270" key="run.anything.popup" timestamp="1617789256415">
+      <screen x="1920" y="0" width="1920" height="1160" />
+    </state>
+    <state x="2536" y="270" key="run.anything.popup/0.0.1536.824/1920.0.1920.1160@1920.0.1920.1160" timestamp="1617789256415" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

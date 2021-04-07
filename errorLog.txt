@@ -714,37 +714,25 @@ WARNING: Product number 2 was !!not!! added to store 1 by user 2
 WARNING: user number 1can not get the products by filter
 אפר 07, 2021 1:08:15 PM KingLogger logError
 WARNING: user number 1can not get the products by filter
-אפר 07, 2021 1:40:02 PM KingLogger logError
+אפר 07, 2021 1:11:43 PM KingLogger logError
 WARNING: Product number 2 was !!not!! remove to store 1 by user 1
-אפר 07, 2021 1:40:02 PM KingLogger logError
+אפר 07, 2021 1:11:43 PM KingLogger logError
 WARNING: user number 1is logged out and can not get all the stores information
-אפר 07, 2021 1:40:02 PM KingLogger logError
+אפר 07, 2021 1:11:43 PM KingLogger logError
 WARNING: Product number 2 was !!not!! added to store 1 by user 2
-אפר 07, 2021 1:40:02 PM KingLogger logError
+אפר 07, 2021 1:11:43 PM KingLogger logError
 WARNING: user number 1can not get the products by filter
-אפר 07, 2021 1:40:03 PM KingLogger logError
+אפר 07, 2021 1:11:43 PM KingLogger logError
 WARNING: user number 1can not get the products by filter
-אפר 07, 2021 4:14:15 PM KingLogger logError
+אפר 07, 2021 6:17:45 PM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 2
+אפר 07, 2021 6:18:01 PM KingLogger logError
 WARNING: Product number 2 was !!not!! remove to store 1 by user 1
-אפר 07, 2021 4:14:15 PM KingLogger logError
+אפר 07, 2021 6:18:01 PM KingLogger logError
 WARNING: user number 1is logged out and can not get all the stores information
-אפר 07, 2021 4:14:15 PM KingLogger logError
+אפר 07, 2021 6:18:01 PM KingLogger logError
 WARNING: Product number 2 was !!not!! added to store 1 by user 2
-אפר 07, 2021 4:14:15 PM KingLogger logError
+אפר 07, 2021 6:18:02 PM KingLogger logError
 WARNING: user number 1can not get the products by filter
-אפר 07, 2021 4:14:15 PM KingLogger logError
+אפר 07, 2021 6:18:02 PM KingLogger logError
 WARNING: user number 1can not get the products by filter
-Apr 07, 2021 5:37:01 PM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 2
-Apr 07, 2021 5:38:16 PM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 2
-Apr 07, 2021 5:43:31 PM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 2
-Apr 07, 2021 5:45:46 PM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 2
-Apr 07, 2021 5:50:33 PM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 2
-Apr 07, 2021 5:52:07 PM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 2
-Apr 07, 2021 5:53:49 PM KingLogger logError
-WARNING: Product number 1 was !!not!! added to store 1 by user 2

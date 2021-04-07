@@ -69,6 +69,7 @@ public class User {
 
     public void createNewBag(Store store, int prodId) {
         Bag b = new Bag(store);
+        b.addProduct(prodId);
         this.bags.add(b);
     }
 }

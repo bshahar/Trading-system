@@ -126,7 +126,7 @@ public class Permissions {
                         }
                     }
                 }
-                if (!this.roles.containsKey(newUser)) {
+                if (newUser.isRegistered() && !this.roles.containsKey(newUser)) {
                     this.roles.put(newUser, OWNER);
                     this.appointments.put(currUserId, newUser.getId());
                     addOwnerPermissions(newUser);
@@ -182,7 +182,7 @@ public class Permissions {
                     if (u2.getId() == newUser.getId())
                         return false;
                 }
-                if (!this.roles.containsKey(newUser)) {
+                if (newUser.isRegistered() && !this.roles.containsKey(newUser)) {
                     this.roles.put(newUser, MANAGER);
                     addManagerPermissions(newUser);
                     return true;

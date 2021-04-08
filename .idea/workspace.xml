@@ -20,10 +20,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="workspace">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,7 +77,7 @@
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
   </component>
-  <component name="RunManager" selected="JUnit.StoreTest">
+  <component name="RunManager" selected="JUnit.LoginTest">
     <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
@@ -117,11 +114,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest.editPermissionsSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest.deleteSimultaneouslyTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="StoreTest" />
-      <option name="METHOD_NAME" value="editPermissionsSuccess" />
+      <option name="METHOD_NAME" value="deleteSimultaneouslyTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -129,11 +126,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StoreTest" />
-        <item itemvalue="JUnit.PurchaseTest" />
-        <item itemvalue="JUnit.PermissionTest" />
-        <item itemvalue="JUnit.StoreTest.editPermissionsSuccess" />
         <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.PermissionTest" />
+        <item itemvalue="JUnit.PurchaseTest" />
+        <item itemvalue="JUnit.StoreTest" />
+        <item itemvalue="JUnit.StoreTest.deleteSimultaneouslyTest" />
       </list>
     </recent_temporary>
   </component>

@@ -426,4 +426,32 @@ public class StoreTest {
     }
 
 
+
+    @Test
+    public void deleteSimultaneouslyTest(){
+        for(int i=0; i<100; i++){
+            setUp();
+            deleteSimultaneously();
+            assertEquals(0,tradingSystem.getProductsFromStore(storeId1).size());
+        }
+    }
+
+    private void deleteSimultaneously() {
+        try{
+            tradingSystem.addStoreOwner(registerId1,registerId2,storeId1);
+            Thread thread1=new Thread(()->tradingSystem.removeProductFromStore(registerId1,storeId1,1));
+            Thread thread2=new Thread(()->tradingSystem.removeProductFromStore(registerId2,storeId1,1));
+            thread1.start();
+            thread2.start();
+            thread1.join();
+            thread2.join();
+        }catch (Exception e){
+            fail();
+
+        }
+
+
+    }
+
+
 }

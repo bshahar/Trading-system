@@ -2216,3 +2216,1029 @@ Apr 07, 2021 7:27:03 PM KingLogger logError
 INFO: User with id 2 made purchase in store 1
 Apr 07, 2021 7:27:04 PM KingLogger logError
 WARNING: User with id 1 didn't succeed getting products by filter.
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:21 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:22 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:37 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:14:37 PM KingLogger logError
+WARNING: Product number 2 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:37 PM KingLogger logError
+INFO: User with id 1 tried to get stores info while logged out and failed.
+אפר 08, 2021 5:14:38 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 2 was !!not!! added to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: User with id 1 didn't succeed getting products by filter.
+אפר 08, 2021 5:14:38 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:38 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 2
+אפר 08, 2021 5:14:39 PM KingLogger logError
+WARNING: Product number 1 was !!not!! remove to store 1 by user 1
+אפר 08, 2021 5:14:44 PM KingLogger logError
+WARNING: User with id 1 didn't succeed getting products by filter.
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:00 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:01 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 1 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:02 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+WARNING: User with id 2 couldn't make a purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:03 PM KingLogger logError
+INFO: User with id 2 made purchase in store 1
+אפר 08, 2021 5:15:13 PM KingLogger logError
+WARNING: Product number 1 was !!not!! added to store 1 by user 2

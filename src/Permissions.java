@@ -31,6 +31,13 @@ public class Permissions {
     private final int OWNER = 1;
     private final int MANAGER = 2;
 
+
+
+    private User founder;
+    private Map<User, Integer> roles;
+    private Map<Integer, Integer> appointments; //Appointed, appointee (ids)
+    private Map<User, List<Operations>> usersPermissions;
+
     public Permissions(User founder) {
         this.founder = founder;
         this.roles = new HashMap<>();
@@ -40,11 +47,6 @@ public class Permissions {
         addOwnerPermissions(founder);
     }
 
-
-    private User founder;
-    private Map<User, Integer> roles;
-    private Map<Integer, Integer> appointments; //Appointed, appointee (ids)
-    private Map<User, List<Operations>> usersPermissions;
 
     /**
      * Add permissions to a store manager.

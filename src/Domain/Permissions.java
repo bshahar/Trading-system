@@ -1,10 +1,12 @@
+package Domain;
+
 import java.util.*;
 
 public class Permissions {
 
 
 
-    enum Operations {
+    public enum Operations {
         AddProduct,
         RemoveProduct,
         EditProduct,
@@ -276,7 +278,7 @@ public class Permissions {
         StringBuilder usersInfo = new StringBuilder();
         if(validatePermission(getUserById(userId),Operations.GetWorkersInfo))
         {
-            for(User user: usersPermissions.keySet())
+            for(Domain.User user: usersPermissions.keySet())
             {
                 usersInfo.append(user.toString());
             }

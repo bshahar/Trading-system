@@ -1,3 +1,5 @@
+package Domain;
+
 import java.util.*;
 
 public class Store {
@@ -9,7 +11,7 @@ public class Store {
 
     private double rate;
     private int ratesCount;
-    //private List<Bag> shoppingBags;
+    //private List<Domain.Bag> shoppingBags;
 
     public Store(int id, String name, User owner, Map<Product,Integer>products) { //create a store with initial inventory
         this.storeId = id;
@@ -61,7 +63,7 @@ public class Store {
 
     public String getStoreInfo() {
         String str = "";
-        str = str + "Store name - " + name + " The products in this store - " + getInventory().toString();
+        str = str + "Domain.Store name - " + name + " The products in this store - " + getInventory().toString();
         return str;
     }
 

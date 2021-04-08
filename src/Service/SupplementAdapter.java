@@ -1,3 +1,7 @@
+package Service;
+
+import Domain.Bag;
+
 public class SupplementAdapter {
     //TODO create field of external system?
 

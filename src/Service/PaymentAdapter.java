@@ -1,3 +1,5 @@
+package Service;
+
 public class PaymentAdapter {
     //TODO create field of external system?
 

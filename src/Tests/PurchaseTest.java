@@ -1,9 +1,17 @@
+package Tests;
+
+import Domain.Product;
+import Domain.Receipt;
+import Domain.User;
+import Interface.TradingSystem;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import javax.crypto.NoSuchPaddingException;
 import java.security.NoSuchAlgorithmException;
 import java.util.LinkedList;
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -44,25 +52,28 @@ public class PurchaseTest {
     }
 
     @Test
+    //AT-9
     public void purchaseTest(){
         tradingSystem.addProductToBag(registerId1,storeId1,productId1,1);
-        assertTrue(tradingSystem.buyProducts(registerId1,storeId1,"123456789"));
+        Assertions.assertTrue(tradingSystem.buyProducts(registerId1,storeId1,"123456789"));
     }
 
 
     @Test
+    //AT-9
     public void purchaseTest2(){
         tradingSystem.addProductToBag(registerId1,storeId1,productId1,1);
         tradingSystem.addProductToBag(registerId1,storeId1,productId2,1);
-        assertTrue(tradingSystem.buyProducts(registerId1,storeId1,"123456789"));
+        Assertions.assertTrue(tradingSystem.buyProducts(registerId1,storeId1,"123456789"));
     }
 
     @Test
+    //AT-9
     public void purchaseTest3(){
         tradingSystem.addProductToBag(registerId1,storeId1,productId1,1);
         tradingSystem.addProductToBag(registerId2,storeId1,productId1,1);
-        assertTrue(tradingSystem.buyProducts(registerId1,storeId1,"123456789"));
-        assertFalse(tradingSystem.buyProducts(registerId2,storeId1,"123456789"));
+        Assertions.assertTrue(tradingSystem.buyProducts(registerId1,storeId1,"123456789"));
+        Assertions.assertFalse(tradingSystem.buyProducts(registerId2,storeId1,"123456789"));
     }
 
     public void TestSync(){
@@ -92,19 +103,21 @@ public class PurchaseTest {
     }
 
     @Test
+    //AT-22.1
     public void twoPurchaseSyncTest(){
         int orCount=0;
         int eladCount=0;
         for(int i=0; i<100; i++){
             setUp();
             TestSync();
-            assertEquals(1,tradingSystem.getStorePurchaseHistory(registerId1,storeId1).size());
+            Assertions.assertEquals(1,tradingSystem.getStorePurchaseHistory(registerId1,storeId1).size());
             String username=tradingSystem.getStorePurchaseHistory(registerId1,storeId1).get(0).getUserName();
             if(username=="kandabior")
                 orCount++;
             else
                 eladCount++;
-            assertTrue((username=="kandabior")|| (username=="elad"));
+            assertTrue(((username=="kandabior")|| (username=="elad")));
+            assertTrue(tradingSystem.getStorePurchaseHistory(registerId1,storeId1).size()==1);
         }
         System.out.println("or: "+ orCount);
         System.out.println("elad: "+ eladCount);
@@ -112,6 +125,7 @@ public class PurchaseTest {
 
 
     @Test
+    //AT-22.2
     public void purchaseRemoveSyncTest(){
         try {
             for (int i = 0; i < 100; i++) {
@@ -147,5 +161,26 @@ public class PurchaseTest {
             return false;
         }
     }
+
+    @Test
+    //AT-12.1
+    public void getPersonalPurchaseHistoryTest(){
+        tradingSystem.addProductToBag(registerId1,storeId1,productId1,1);
+        tradingSystem.buyProducts(registerId1,storeId1,"123456789");
+        List<Receipt> receiptList= tradingSystem.getUserPurchaseHistory(registerId1);
+        Assertions.assertTrue(receiptList.get(0).getUserId()==registerId1);
+    }
+
+    @Test
+    //AT-12.2
+    public void getPersonalPurchaseHistoryFailTest(){
+        int guestId= tradingSystem.guestLogin();
+        tradingSystem.addProductToBag(guestId,storeId1,productId1,1);
+        tradingSystem.buyProducts(guestId,storeId1,"123456789");
+        Assertions.assertNull( tradingSystem.getUserPurchaseHistory(guestId));
+
+    }
+
+
 
 }

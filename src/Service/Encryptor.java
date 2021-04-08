@@ -1,4 +1,5 @@
-import java.security.NoSuchAlgorithmException;
+package Service;
+
 import java.util.Base64;
 import java.util.logging.Level;
 import javax.crypto.*;

@@ -1,4 +1,8 @@
+package Tests;
 
+import Domain.User;
+import Interface.TradingSystem;
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -22,14 +26,14 @@ public class LoginTest {
     public void registerTest(){
         String userName="kandabior";
         String password= "or321654";
-        assertTrue(tradingSystem.register(userName,password));
+        Assertions.assertTrue(tradingSystem.register(userName,password));
     }
     //AT-4.2
     @Test
     public void loginBadPass(){
         String userName="kandabior";
         String password= "or321654";
-        assertTrue(tradingSystem.register(userName,"12"));
+        Assertions.assertTrue(tradingSystem.register(userName,"12"));
         int index = tradingSystem.login(userName,password);
         assertEquals(index,-1);
     }
@@ -40,7 +44,7 @@ public class LoginTest {
         String userName="kandabior";
         String password= "or321654";
         tradingSystem.register(userName,password);
-        assertFalse(tradingSystem.register(userName,password));
+        Assertions.assertFalse(tradingSystem.register(userName,password));
     }
 
     @Test
@@ -49,8 +53,8 @@ public class LoginTest {
         String password= "or321654";
         tradingSystem.register(userName,password);
         int index = tradingSystem.login(userName,password);
-        assertEquals(index,tradingSystem.login(userName,password));
-        assertTrue(tradingSystem.isLogged(index));
+        Assertions.assertEquals(index,tradingSystem.login(userName,password));
+        Assertions.assertTrue(tradingSystem.isLogged(index));
     }
 
     //AT-10.1
@@ -60,8 +64,8 @@ public class LoginTest {
         String password= "or321654";
         tradingSystem.register(userName,password);
         tradingSystem.login(userName,password);
-        assertTrue(tradingSystem.logout(1));
-        assertFalse(tradingSystem.isLogged(1));
+        Assertions.assertTrue(tradingSystem.logout(1));
+        Assertions.assertFalse(tradingSystem.isLogged(1));
     }
 
     //AT-10.2
@@ -71,8 +75,8 @@ public class LoginTest {
         String password= "or321654";
         tradingSystem.register(userName,password);
         tradingSystem.login(userName,password);
-        assertTrue(tradingSystem.logout(1));
-        assertFalse(tradingSystem.logout(1));
+        Assertions.assertTrue(tradingSystem.logout(1));
+        Assertions.assertFalse(tradingSystem.logout(1));
     }
 
 
@@ -81,7 +85,7 @@ public class LoginTest {
     public void failLoginTest(){
         String userName="kandabior";
         String password= "or321654";
-        assertEquals(-1,tradingSystem.login(userName,password));
+        Assertions.assertEquals(-1,tradingSystem.login(userName,password));
     }
 
 
@@ -91,14 +95,14 @@ public class LoginTest {
     public void guestLoginTest(){
         int index = tradingSystem.guestLogin();
         assertEquals(index, 1);
-        assertTrue(tradingSystem.isLogged(index));
+        Assertions.assertTrue(tradingSystem.isLogged(index));
 
     }
     @Test
     //AT-2
     public void guestLogoutTest(){
         int index = tradingSystem.guestLogin();
-        assertFalse(tradingSystem.logout(index));
+        Assertions.assertFalse(tradingSystem.logout(index));
     }
 
     @Test
@@ -109,15 +113,15 @@ public class LoginTest {
                 fail();
             }
         }
-        assertEquals(999,tradingSystem.getNumOfUsers());
+        Assertions.assertEquals(999,tradingSystem.getNumOfUsers());
     }
 
     //AT-3.1
     @Test
     public void guestRegisterTest(){
         int guestId= tradingSystem.guestLogin();
-        assertTrue(tradingSystem.guestRegister(guestId,"or","or321654"));
-        assertTrue(tradingSystem.isLogged(guestId));
+        Assertions.assertTrue(tradingSystem.guestRegister(guestId,"or","or321654"));
+        Assertions.assertTrue(tradingSystem.isLogged(guestId));
     }
     //AT-3.2
     @Test
@@ -126,7 +130,7 @@ public class LoginTest {
         String userName="kandabior";
         String password= "or321654";
         tradingSystem.register(userName,password);
-        assertFalse(tradingSystem.guestRegister(guestId,"kandabior","or321654"));
+        Assertions.assertFalse(tradingSystem.guestRegister(guestId,"kandabior","or321654"));
     }
 
 

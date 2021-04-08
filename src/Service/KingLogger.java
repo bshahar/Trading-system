@@ -1,15 +1,16 @@
+package Service;
+
 import java.io.IOException;
-import java.util.Formatter;
 import java.util.logging.*;
 
 // How To use our cute Logger:
 // In the place where you want to put some logging in the code, just write -
 //
-// KingLogger.logEvent/logError(Level.WARNING,"this is a warning logger");
+// Service.KingLogger.logEvent/logError(Level.WARNING,"this is a warning logger");
 //
 // the logging levels are (from the highest to lowest): SEVERE, WARNING, INFO, CONFIG, FINE, FINER, FINEST.
 
-class KingLogger {
+public class KingLogger {
     private static Logger Eventlogger;
     private static Handler EventHandler;
     private static SimpleFormatter fm1;

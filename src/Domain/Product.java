@@ -1,10 +1,12 @@
+package Domain;
+
 import java.util.LinkedList;
 import java.util.List;
 
 public class Product {
 
 
-    enum Category {
+    public enum Category {
         FOOD,
         DRINKS,
         ENTERTAINMENT,

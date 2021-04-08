@@ -1,6 +1,8 @@
+package Domain;
+
 public class Filter {
 
-    String searchType;
+    public String searchType;
     String param;
     int minPrice;
     int maxPrice;

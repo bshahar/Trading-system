@@ -1,3 +1,8 @@
+package Interface;
+
+import Domain.*;
+import Service.*;
+
 import java.util.*;
 
 import java.util.concurrent.ConcurrentHashMap;
@@ -41,7 +46,7 @@ public class TradingSystem {
                 return false;
             } else {
                 userPass.put(userName, this.encryptor.encrypt(pass));
-                KingLogger.logEvent(Level.INFO, "User " + userName + " register to the system");
+                KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " register to the system");
                 users.add(new User(userName, userCounter.inc(), 1));
                 return true;
             }
@@ -51,7 +56,7 @@ public class TradingSystem {
     //if the user performed login successfully return his id. else return -1
     public int login(String userName,String pass) {
         if(loginAuthentication(userName,pass)) {
-            KingLogger.logEvent(Level.INFO, "User " + userName + " logged into the system.");
+            KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " logged into the system.");
             for (User user : users) {
                 if (user.getUserName() == userName) {
                     user.setLogged(true);
@@ -69,14 +74,14 @@ public class TradingSystem {
                 if (userPass.get(userName).equals(encryptor.encrypt(pass)))
                     return true;
                 else
-                    KingLogger.logEvent(Level.INFO, "User failed logging in with name: " + userName);
+                    KingLogger.logEvent(Level.INFO, "Domain.User failed logging in with name: " + userName);
             } else {
-                KingLogger.logEvent(Level.INFO, "User tried to login with name: " + userName + " that doesn't exist");
+                KingLogger.logEvent(Level.INFO, "Domain.User tried to login with name: " + userName + " that doesn't exist");
             }
             return false;
         }
         catch (Exception e) {
-            KingLogger.logEvent(Level.WARNING, "User failed logging in with name: " + userName);
+            KingLogger.logEvent(Level.WARNING, "Domain.User failed logging in with name: " + userName);
             return false;
         }
     }
@@ -105,7 +110,7 @@ public class TradingSystem {
                 userPass.put(userName, this.encryptor.encrypt(password));
                 getUserById(userId).setRegistered();
                 getUserById(userId).setName(userName);
-                KingLogger.logEvent(Level.INFO, "User " + userName + " registered to the system.");
+                KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " registered to the system.");
                 return true;
             }
         }
@@ -121,7 +126,7 @@ public class TradingSystem {
             return false;
         }
         user.setLogged(false);
-        KingLogger.logEvent(Level.INFO, "User " + user.getUserName() + " logged out of the system.");
+        KingLogger.logEvent(Level.INFO, "Domain.User " + user.getUserName() + " logged out of the system.");
         return true;
     }
 
@@ -142,7 +147,7 @@ public class TradingSystem {
         if (u != null && u.isLogged()) {
             return this.stores;
         }
-        KingLogger.logError(Level.INFO, "User with id " + userId + " tried to get stores info while logged out and failed.");
+        KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " tried to get stores info while logged out and failed.");
         return null;
     }
 
@@ -183,7 +188,7 @@ public class TradingSystem {
             }
             return new HashMap<>();
         }catch (Exception e){
-            KingLogger.logError(Level.WARNING, "User with id " + userId + " didn't succeed getting products by filter.");
+            KingLogger.logError(Level.WARNING, "Domain.User with id " + userId + " didn't succeed getting products by filter.");
             return new HashMap<>();
         }
     }
@@ -194,18 +199,18 @@ public class TradingSystem {
             if (getUserById(userId).isLogged() && getStoreById(storeId).getInventory().prodExists(prodId)) {
                 if (b != null) {
                     b.addProduct(prodId, amount);
-                    KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
+                    KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
                     return true;
                 }
                 getUserById(userId).createNewBag(getStoreById(storeId), prodId, amount);
-                KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
+                KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
                 return true;
             }
-            KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was not added to bag for user " + userId);
+            KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was not added to bag for user " + userId);
             return false;
         }
         catch (Exception e) {
-            KingLogger.logEvent(Level.WARNING, "Product number " + prodId + " was not added to bag for user " + userId);
+            KingLogger.logEvent(Level.WARNING, "Domain.Product number " + prodId + " was not added to bag for user " + userId);
             return false;
         }
     }
@@ -218,7 +223,7 @@ public class TradingSystem {
             }
             return new LinkedList<>();
         } catch (Exception e) {
-            KingLogger.logEvent(Level.WARNING, "User with id " + userId + " couldn't view his cart.");
+            KingLogger.logEvent(Level.WARNING, "Domain.User with id " + userId + " couldn't view his cart.");
             return new LinkedList<>();
         }
     }
@@ -228,14 +233,14 @@ public class TradingSystem {
             Bag b = getUserById(userId).getBagByStoreId(storeId);
             if (b != null) {
                 b.removeProduct(prodId);
-                KingLogger.logEvent(Level.INFO, "Product number " + prodId + " was removed from bag of store " + storeId + " for user " + userId);
+                KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was removed from bag of store " + storeId + " for user " + userId);
                 return true;
             }
-            KingLogger.logError(Level.INFO, "User with id " + userId + " doesn't exist in the system.");
+            KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " doesn't exist in the system.");
             return false;
         }
         catch (Exception e) {
-            KingLogger.logError(Level.WARNING, "User with id " + userId + " doesn't exist in the system.");
+            KingLogger.logError(Level.WARNING, "Domain.User with id " + userId + " doesn't exist in the system.");
             return false;
         }
     }
@@ -262,16 +267,16 @@ public class TradingSystem {
                     for (Integer prodId : productsIds.keySet()) {
                         store.buyProduct(prodId, productsIds.get(prodId));//remove amount from product
                     }
-                    this.receipts.add(new Receipt(storeId, getUserById(userId).getUserName(), products));
-                    KingLogger.logError(Level.INFO, "User with id " + userId + " made purchase in store " + storeId);
+                    this.receipts.add(new Receipt(storeId, userId,getUserById(userId).getUserName(), products));
+                    KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " made purchase in store " + storeId);
                     return true;
                 }
             }
-            KingLogger.logError(Level.INFO, "User with id " + userId + " couldn't make a purchase in store " + storeId);
+            KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " couldn't make a purchase in store " + storeId);
             return false;
         }
         catch (Exception e) {
-            KingLogger.logError(Level.WARNING, "User with id " + userId + " couldn't make a purchase in store " + storeId);
+            KingLogger.logError(Level.WARNING, "Domain.User with id " + userId + " couldn't make a purchase in store " + storeId);
             return false;
         }
     }
@@ -283,22 +288,22 @@ public class TradingSystem {
             return bag.getProductIds();
         }
         catch (Exception e) {
-            KingLogger.logError(Level.WARNING, "User with id " + userId + " couldn't view his bag from store " + storeId);
+            KingLogger.logError(Level.WARNING, "Domain.User with id " + userId + " couldn't view his bag from store " + storeId);
             return null;
         }
     }
 
-    public int addProductToStore(int userId, int storeId ,String name, List<Product.Category> categories,double price, String description, int quantity) {
+    public int addProductToStore(int userId, int storeId , String name, List<Product.Category> categories, double price, String description, int quantity) {
         int productId = productCounter.inc();
         Store store = getStoreById(storeId);
         if (getUserById(userId) == null)
             return -1;
         if (store != null) {
             if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
-                KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
+                KingLogger.logEvent(Level.INFO, "Domain.Product number " + productId + " was added to store " + storeId + " by user " + userId);
                 return productId;
             }
-            KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
+            KingLogger.logError(Level.WARNING, "Domain.Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
             return -1;
         }
         return -1;
@@ -309,10 +314,10 @@ public class TradingSystem {
         Store store = getStoreById(storeId);
         synchronized (store) {
             if (store != null && store.removeProductFromStore(getUserById(userId), productId)) {
-                KingLogger.logEvent(Level.INFO, "Product number " + productId + " was remove to store " + storeId + " by user " + userId);
+                KingLogger.logEvent(Level.INFO, "Domain.Product number " + productId + " was remove to store " + storeId + " by user " + userId);
                 return true;
             }
-            KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! remove to store " + storeId + " by user " + userId);
+            KingLogger.logError(Level.WARNING, "Domain.Product number " + productId + " was !!not!! remove to store " + storeId + " by user " + userId);
             return false;
         }
 
@@ -401,5 +406,19 @@ public class TradingSystem {
 
     public int getNumOfStores() {
         return stores.size();
+    }
+
+    public List<Receipt> getUserPurchaseHistory(int userId) {
+        List<Receipt> output= new LinkedList<>();
+        if(!getUserById(userId).isRegistered()){
+            return null;
+        }
+        for(Receipt receipt : receipts){
+            if(receipt.getUserId()==userId){
+                output.add(receipt);
+            }
+        }
+        return output;
+
     }
 }

@@ -1,3 +1,5 @@
+package Domain;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -60,7 +62,7 @@ public class User {
     public String toString()
         {
             StringBuilder info = new StringBuilder();
-            info.append("User Name: ");
+            info.append("Domain.User Name: ");
             info.append(this.userName);
             info.append(" ID: ");
             info.append(this.id);

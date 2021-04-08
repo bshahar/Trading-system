@@ -19,34 +19,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="adding store test #26">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix all tests #26">
+      <change afterPath="$PROJECT_DIR$/src/Domain/Format.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/Policy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Acceptance Test (2).doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/Acceptance Test.doc" beforeDir="false" afterPath="$PROJECT_DIR$/docs/Acceptance Test.doc" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/~$ceptance Test.doc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/~$e case.docx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/~WRL0001.tmp" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/docs/מודל מחלקות לבן.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Encryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Encryptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Filter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Filter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/KingLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/KingLogger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PaymentAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PaymentAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PermissionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PermissionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Receipt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/StoreTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/SupplementAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/SupplementAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/counter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/counter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docs/constraints.doc" beforeDir="false" afterPath="$PROJECT_DIR$/docs/constraints.doc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +38,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -264,7 +243,13 @@
       <option name="presentableId" value="LOCAL‎00009" />
       <updated>1617891384197</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL‎00010" summary="fix all tests #26">
+      <created>1617894697741</created>
+      <option name="number" value="LOCAL‎00010" />
+      <option name="presentableId" value="LOCAL‎00010" />
+      <updated>1617894697741</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -292,7 +277,8 @@
     <MESSAGE value="." />
     <MESSAGE value="workspace" />
     <MESSAGE value="adding store test #26" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding store test #26" />
+    <MESSAGE value="fix all tests #26" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix all tests #26" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

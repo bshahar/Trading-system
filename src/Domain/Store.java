@@ -8,6 +8,8 @@ public class Store {
     private String name;
     private Inventory inventory;
     private Permissions permissions;
+    private List<Policy> policies;
+    private List<Format> formats;
 
     private double rate;
     private int ratesCount;

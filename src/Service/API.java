@@ -12,7 +12,7 @@ public class API {
     private static TradingSystem tradingSystem;
 
     public static void initTradingSystem(String userName){
-        User sysManager= new User(userName,-1,1);
+        User sysManager= new User(userName,0,1);
         tradingSystem=new TradingSystem(sysManager);
     }
 

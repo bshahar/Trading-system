@@ -1,8 +1,11 @@
 package Permissions;
 
 import Domain.Member;
+import Domain.Product;
 import Domain.Store;
 import Domain.User;
+
+import java.util.List;
 
 public class Permission {
     final private Member member;
@@ -46,10 +49,14 @@ public class Permission {
         if(this.addProduct == null) return;
         this.addProduct = null;
     }
-    public void addProduct()
+    public boolean addProduct(int productId,String name, List<Product.Category> categories, double price, String description, int quantity)
     {
-        if(this.addProduct!= null)
-            this.addProduct.action();
+        if(this.addProduct!= null) {
+            return this.addProduct.action(productId, name, categories, price, description, quantity);
+        }
+        else{
+            return false;
+        }
     }
 
     public void allowRemoveProduct()
@@ -61,10 +68,11 @@ public class Permission {
         if(this.removeProduct == null) return;
         this.removeProduct = null;
     }
-    public void removeProduct()
+    public boolean removeProduct(int productId)
     {
         if(this.removeProduct!= null)
-            this.removeProduct.action();
+            return this.removeProduct.action(productId);
+        return false;
     }
 
     public void allowEditProduct()
@@ -102,15 +110,18 @@ public class Permission {
     {
         this.removeManagerAppointment = new RemoveManagerAppointment(this.member,this.store);
     }
+
     public void disableRemoveManagerAppointment()
     {
         if(this.removeManagerAppointment == null) return;
         this.removeManagerAppointment = null;
     }
-    public void removeManagerAppointment()
+
+    public boolean removeManagerAppointment(User ownerId,User managerId)
     {
         if(this.removeManagerAppointment!= null)
-            this.removeManagerAppointment.action();
+            return this.removeManagerAppointment.action(ownerId, managerId);
+        return false;
     }
 
 

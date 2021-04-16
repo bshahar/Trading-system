@@ -1,7 +1,10 @@
 package Permissions;
 
 import Domain.Member;
+import Domain.Product;
 import Domain.Store;
+
+import java.util.List;
 
 public class AddProduct {
     final private Member member;
@@ -12,6 +15,7 @@ public class AddProduct {
         this.store = store;
     }
 
-    public void action() {
+    public boolean action(int productId,String name, List<Product.Category> categories, double price, String description, int quantity) {
+        return store.addProductToStore(productId,name,categories,price,description,quantity);
     }
 }

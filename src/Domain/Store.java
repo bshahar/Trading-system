@@ -7,22 +7,23 @@ public class Store {
     private int storeId;
     private String name;
     private Inventory inventory;
-    private Permissions permissions;
+    private Permissionss permissions;
     private List<Policy> policies;
     private List<Format> formats;
-
+    private Map<User,List<User>> appointments;
+    private List<User> workers;
     private double rate;
     private int ratesCount;
-    //private List<Domain.Bag> shoppingBags;
+
 
     public Store(int id, String name, User owner, Map<Product,Integer>products) { //create a store with initial inventory
         this.storeId = id;
         this.name = name;
-        //this.shoppingBags = new LinkedList<>();
         this.permissions = new Permissions(owner);
         this.inventory = new Inventory(products);
         this.rate = 0;
         this.ratesCount = 0;
+        this.appointments=new HashMap<>();
     }
 
     public Store(int id, String name, User owner) { //create a store with empty inventory
@@ -81,24 +82,21 @@ public class Store {
         return permissions;
     }
 
-    public boolean addProductToStore(User user, int productId,  String name, List<Product.Category> categories, double price, String description, int quantity) {
-
-        if( this.permissions.validatePermission(user, Permissions.Operations.AddProduct)){
-            if(validateProductId(productId)){
-                Product p = new Product(productId, name, categories, price, description);
-                return this.inventory.addProduct(p, quantity);
-            }
-        }
-        return false;
+    public boolean addProductToStore(int productId,  String name, List<Product.Category> categories, double price, String description, int quantity) {
+        Product p = new Product(productId, name, categories, price, description);
+        return this.inventory.addProduct(p, quantity);
     }
 
-    public boolean removeProductFromStore(User user, int productId) {
-        if( this.permissions.validatePermission(user, Permissions.Operations.RemoveProduct)){
+    public boolean removeProductFromStore( int productId) {
+        synchronized (inventory){
             if(this.inventory.prodExists(productId)){
                 return this.inventory.removeProduct(productId);
             }
+            else{
+                return false;
+            }
+
         }
-        return false;
     }
 
     public List<Integer> getProductsByName(Filter filter){
@@ -125,8 +123,19 @@ public class Store {
         return this.permissions.removePermissions(ownerId,managerId,opIndexes);
     }
 
-    public boolean removeAppointment(int ownerId, int managerId) {
-        return this.permissions.removeAppointment(ownerId,managerId);
+    public boolean removeManager(User owner, User manager) {
+        if(appointments.get(owner).remove(manager)){
+            workers.remove(manager);
+            if(appointments.containsKey(manager)){
+                List<User> managers=appointments.get(manager);
+                for(User user : managers){
+                    removeManager(manager,user);
+                }
+
+            }
+            return true;
+        }
+        return false;
     }
 
     public List<User> getWorkersInformation(int ownerId) {

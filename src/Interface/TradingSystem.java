@@ -294,32 +294,22 @@ public class TradingSystem {
     }
 
     public int addProductToStore(int userId, int storeId , String name, List<Product.Category> categories, double price, String description, int quantity) {
+        User user =getUserById(userId);
+        Store store= getStoreById(storeId);
         int productId = productCounter.inc();
-        Store store = getStoreById(storeId);
-        if (getUserById(userId) == null)
-            return -1;
-        if (store != null) {
-            if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
-                KingLogger.logEvent(Level.INFO, "Domain.Product number " + productId + " was added to store " + storeId + " by user " + userId);
-                return productId;
-            }
-            KingLogger.logError(Level.WARNING, "Domain.Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
+        if (user.addProductToStore(productId,store,name, categories, price, description, quantity)){
+            return productId;
+        }
+        else{
             return -1;
         }
-        return -1;
     }
 
 
     public boolean removeProductFromStore(int userId,int storeId, int productId){
+        User user = getUserById(userId);
         Store store = getStoreById(storeId);
-        synchronized (store) {
-            if (store != null && store.removeProductFromStore(getUserById(userId), productId)) {
-                KingLogger.logEvent(Level.INFO, "Domain.Product number " + productId + " was remove to store " + storeId + " by user " + userId);
-                return true;
-            }
-            KingLogger.logError(Level.WARNING, "Domain.Product number " + productId + " was !!not!! remove to store " + storeId + " by user " + userId);
-            return false;
-        }
+        return user.removeProductFromStore(store,productId);
 
     }
 
@@ -364,9 +354,11 @@ public class TradingSystem {
     }
 
     public boolean removeManager(int ownerId, int managerId, int storeId){
-        Store s = getStoreById(storeId);
-        return s.removeAppointment(ownerId, managerId);
+        User user= getUserById(ownerId);
+        Store store = getStoreById(storeId);
+        return user.removeManagerFromStore(getUserById(managerId),store);
     }
+
 
     public List<User> getWorkersInformation(int ownerId, int storeId){
         Store s = getStoreById(storeId);

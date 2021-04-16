@@ -1,5 +1,7 @@
 package Domain;
 
+import Permissions.Permission;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class User {
     private String userName;
     private boolean logged;
     private int id;
+    private Member member;
 
 
     public User(String userName, int id,int registered) {
@@ -17,6 +20,7 @@ public class User {
         this.userName = userName;
         this.id = id;
         this.logged = true;
+        this.member = new Member();
     }
 
     public boolean isRegistered()
@@ -77,5 +81,61 @@ public class User {
 
     public void setName(String userName) {
         this.userName=userName;
+    }
+
+    public void openStore(Store store) {
+        this.member.openStore(store);
+    }
+
+    public boolean addStoreOwner(User user, Store store) {
+        return this.member.addStoreOwner(user,store);
+    }
+    public void updateOwnerPermission(Store store)
+    {
+        this.member.updateOwnerPermission(store);
+    }
+
+    public boolean addStoreManager(User user, Store store) {
+        return this.member.addStoreManager(user,store);
+    }
+
+    public void updateManagerPermission(Store store) {
+         this.member.updateManagerPermission(store);
+    }
+
+    public boolean addPermissions(User user, Store store, List<Integer> opIndexes) {
+        return this.member.addPermissions(user,store,opIndexes);
+    }
+
+    public void updateMyPermissions(Store store, List<Integer> opIndexes) {
+        this.member.updateMyPermissions(store,opIndexes);
+    }
+
+    public boolean removePermissions(User user, Store store, List<Integer> opIndexes) {
+        return this.member.removePermissions(user,store,opIndexes);
+    }
+    public void disableMyPermissions(Store store ,List<Integer> opIndexes )
+    {
+        this.member.disableMyPermissions(store,opIndexes);
+    }
+
+    public List<User> getWorkersInformation(Store store) {
+        return this.member.getWorkersInformation(store);
+    }
+
+    public List<Receipt> getStorePurchaseHistory(Store store) {
+        return this.member.getStorePurchaseHistory(store);
+    }
+
+    public boolean addProductToStore(int productId,Store store, String name, List<Product.Category> categories, double price, String description, int quantity) {
+        return member.addProductToStore(productId,store,name, categories, price, description, quantity);
+    }
+
+    public boolean removeProductFromStore(Store store, int productId) {
+        return member.removeProductFromStore(store,productId);
+    }
+
+    public boolean removeManagerFromStore(User manager, Store store) {
+        return member.removeMangerFromStore(this,manager,store);
     }
 }

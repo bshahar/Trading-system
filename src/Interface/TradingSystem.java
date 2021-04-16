@@ -294,92 +294,80 @@ public class TradingSystem {
     }
 
     public int addProductToStore(int userId, int storeId , String name, List<Product.Category> categories, double price, String description, int quantity) {
+        User user =getUserById(userId);
+        Store store= getStoreById(storeId);
         int productId = productCounter.inc();
-        Store store = getStoreById(storeId);
-        if (getUserById(userId) == null)
-            return -1;
-        if (store != null) {
-            if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
-                KingLogger.logEvent(Level.INFO, "Domain.Product number " + productId + " was added to store " + storeId + " by user " + userId);
-                return productId;
-            }
-            KingLogger.logError(Level.WARNING, "Domain.Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
+        if (user.addProductToStore(productId,store,name, categories, price, description, quantity)){
+            return productId;
+        }
+        else{
             return -1;
         }
-        return -1;
     }
 
 
     public boolean removeProductFromStore(int userId,int storeId, int productId){
+        User user = getUserById(userId);
         Store store = getStoreById(storeId);
-        synchronized (store) {
-            if (store != null && store.removeProductFromStore(getUserById(userId), productId)) {
-                KingLogger.logEvent(Level.INFO, "Domain.Product number " + productId + " was remove to store " + storeId + " by user " + userId);
-                return true;
-            }
-            KingLogger.logError(Level.WARNING, "Domain.Product number " + productId + " was !!not!! remove to store " + storeId + " by user " + userId);
-            return false;
-        }
+        return user.removeProductFromStore(store,productId);
 
     }
 
     //returns the new store id
     public int openStore(int userId, String storeName){
-        if(getUserById(userId).isRegistered()) {
+        User user = getUserById(userId);
+        if(user!=null && user.isRegistered()) {
             int newId = storeCounter.inc();
-            Store store = new Store(newId, storeName, getUserById(userId));
+            Store store = new Store(newId, storeName, user);
+            user.openStore(store);
             this.stores.add(store);
             return newId;
         }
         return -1;
     }
 
-    public boolean addStoreOwner(int ownerId, int userId,int storeId){
-        if(getUserById(userId).isRegistered())
-            return getStoreById(storeId).getPermissions().appointOwner(ownerId,getUserById(userId));
-        return false;
+    public boolean addStoreOwner(int ownerId, int userId,int storeId) {
+        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return false;
+               return getUserById(ownerId).addStoreOwner(getUserById(userId),getStoreById(storeId));
     }
+        public boolean checkValidUser(int userId)
+        {
+            User user = getUserById(userId);
+            if(user!=null && user.isRegistered())
+                return true;
+            return false;
+        }
 
     public boolean addStoreManager(int ownerId, int userId, int storeId){
-        if(getUserById(userId).isRegistered())
-            return getStoreById(storeId).getPermissions().appointManager(ownerId,getUserById(userId));
-        return false;
+        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return false;
+        return getUserById(ownerId).addStoreManager(getUserById(userId),getStoreById(storeId));
     }
 
     public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
-        Store s = getStoreById(storeId);
-        return s.addPermissions(ownerId, managerId, opIndexes);
+        if(!checkValidUser(ownerId)) return false;
+        return getUserById(ownerId).addPermissions(getUserById(managerId),getStoreById(storeId),opIndexes);
     }
 
     public boolean removePermission(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
-        Store s = getStoreById(storeId);
-        return s.removePermissions(ownerId, managerId, opIndexes);
+        if(!checkValidUser(ownerId)) return false;
+        return getUserById(ownerId).removePermissions(getUserById(managerId),getStoreById(storeId),opIndexes);
     }
 
     public boolean removeManager(int ownerId, int managerId, int storeId){
-        Store s = getStoreById(storeId);
-        return s.removeAppointment(ownerId, managerId);
+        User user= getUserById(ownerId);
+        Store store = getStoreById(storeId);
+        return user.removeManagerFromStore(getUserById(managerId),store);
     }
 
+
     public List<User> getWorkersInformation(int ownerId, int storeId){
-        Store s = getStoreById(storeId);
-        return s.getWorkersInformation(ownerId);
+        if(!checkValidUser(ownerId)) return null;
+        return getUserById(ownerId).getWorkersInformation(getStoreById(storeId));
     }
 
     public List<Receipt> getStorePurchaseHistory(int ownerId, int storeId){
-        List<Receipt> purchaseHistory = new LinkedList<>();
-        if(getStoreById(storeId).getStorePurchaseHistory(ownerId))
-        {
-            for(Receipt receipt : receipts)
-            {
-                if(receipt.getStoreId() == storeId)
-                    purchaseHistory.add(receipt);
-            }
-        }
-        else{
-            return null;
-        }
-        return purchaseHistory;
+        if(!checkValidUser(ownerId)) return null;
+        return getUserById(ownerId).getStorePurchaseHistory(getStoreById(storeId));
     }
 
     public List<Receipt> getAllPurchases(int systemManager){

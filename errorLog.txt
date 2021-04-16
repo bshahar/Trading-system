@@ -4362,3 +4362,231 @@ WARNING: Domain.User with id 1 didn't succeed getting products by filter.
 INFO: Domain.User with id 2 made purchase in store 1
 אפר 16, 2021 6:16:19 PM Service.KingLogger logError
 WARNING: Domain.User with id 1 didn't succeed getting products by filter.
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 1 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 4 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 1 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 1 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 2 couldn't make a purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 1 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 1 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 2 couldn't make a purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:25 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:26 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:27 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:27 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:27 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:27 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:27 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:27 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:27 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:27 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:27 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:27 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:27 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:27 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:28 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:29 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:30 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:30 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:30 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:30 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:30 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:30 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:30 PM Service.KingLogger logError
+INFO: Domain.User with id 1 tried to get stores info while logged out and failed.
+Apr 16, 2021 7:22:34 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:22:34 PM Service.KingLogger logError
+WARNING: Domain.User with id 1 didn't succeed getting products by filter.
+Apr 16, 2021 7:22:34 PM Service.KingLogger logError
+INFO: Domain.User with id 2 made purchase in store 1
+Apr 16, 2021 7:23:15 PM Service.KingLogger logError
+WARNING: Domain.User with id 1 didn't succeed getting products by filter.

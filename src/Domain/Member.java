@@ -47,7 +47,9 @@ public class Member {
 
 
     public boolean addStoreOwner(User owner, User user, Store store) {
-        return permissions.get(store).appointOwner(owner,user);
+        if(permissions.get(store)!=null)
+            return permissions.get(store).appointOwner(owner,user);
+        return false;
 
     }
 

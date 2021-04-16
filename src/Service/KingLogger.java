@@ -51,10 +51,10 @@ public class KingLogger {
     }
 
     public static void logEvent(Level level, String msg){
-        getLogger("Event").log(level, msg);
+        //getLogger("Event").log(level, msg);
     }
 
     public static void logError(Level level, String msg){
-        getLogger("Error").log(level, msg);
+        //getLogger("Error").log(level, msg);
     }
 }

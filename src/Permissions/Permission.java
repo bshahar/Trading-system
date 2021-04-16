@@ -1,8 +1,12 @@
 package Permissions;
 
 import Domain.Member;
+import Domain.Receipt;
 import Domain.Store;
 import Domain.User;
+
+import java.util.LinkedList;
+import java.util.List;
 
 public class Permission {
     final private Member member;
@@ -29,7 +33,7 @@ public class Permission {
     private GetWorkersInfo getWorkersInfo;
     private ViewMessages viewMessages;
     private ReplayMessages replayMessages;
-    private ViewPurchaseHistor viewPurchaseHistor;
+    private ViewPurchaseHistory viewPurchaseHistory;
     private OpenStore openStore;
     private AddPermissions addPermissions;
     private RemovePermission removePermission;
@@ -307,10 +311,11 @@ public class Permission {
         if(this.getWorkersInfo == null) return;
         this.getWorkersInfo = null;
     }
-    public void getWorkersInfo()
+    public List<User> getWorkersInfo()
     {
         if(this.getWorkersInfo!= null)
-            this.getWorkersInfo.action();
+            return this.getWorkersInfo.action();
+        return null;
     }
 
     public void allowViewMessages()
@@ -343,19 +348,20 @@ public class Permission {
             this.replayMessages.action();
     }
 
-    public void allowViewPurchaseHistor()
+    public void allowViewPurchaseHistory()
     {
-        this.viewPurchaseHistor = new ViewPurchaseHistor(this.member,this.store);
+        this.viewPurchaseHistory = new ViewPurchaseHistory(this.member,this.store);
     }
-    public void disableViewPurchaseHistor()
+    public void disableViewPurchaseHistory()
     {
-        if(this.viewPurchaseHistor == null) return;
-        this.viewPurchaseHistor = null;
+        if(this.viewPurchaseHistory == null) return;
+        this.viewPurchaseHistory = null;
     }
-    public void viewPurchaseHistor()
+    public List<Receipt> viewPurchaseHistory()
     {
-        if(this.viewPurchaseHistor!= null)
-            this.viewPurchaseHistor.action();
+        if(this.viewPurchaseHistory!= null)
+            return this.viewPurchaseHistory.action();
+        return new LinkedList<>();
     }
 
     public void allowOpenStore()

@@ -368,24 +368,13 @@ public class TradingSystem {
     }
 
     public List<User> getWorkersInformation(int ownerId, int storeId){
-        Store s = getStoreById(storeId);
-        return s.getWorkersInformation(ownerId);
+        if(!checkValidUser(ownerId)) return null;
+        return getUserById(ownerId).getWorkersInformation(getStoreById(storeId));
     }
 
     public List<Receipt> getStorePurchaseHistory(int ownerId, int storeId){
-        List<Receipt> purchaseHistory = new LinkedList<>();
-        if(getStoreById(storeId).getStorePurchaseHistory(ownerId))
-        {
-            for(Receipt receipt : receipts)
-            {
-                if(receipt.getStoreId() == storeId)
-                    purchaseHistory.add(receipt);
-            }
-        }
-        else{
-            return null;
-        }
-        return purchaseHistory;
+        if(!checkValidUser(ownerId)) return null;
+        return getUserById(ownerId).getStorePurchaseHistory(getStoreById(storeId));
     }
 
     public List<Receipt> getAllPurchases(int systemManager){

@@ -119,4 +119,11 @@ public class User {
         this.member.disableMyPermissions(store,opIndexes);
     }
 
+    public List<User> getWorkersInformation(Store store) {
+        return this.member.getWorkersInformation(store);
+    }
+
+    public List<Receipt> getStorePurchaseHistory(Store store) {
+        return this.member.getStorePurchaseHistory(store);
+    }
 }

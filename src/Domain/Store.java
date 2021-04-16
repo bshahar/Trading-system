@@ -10,6 +10,7 @@ public class Store {
     private List<Policy> policies;
     private List<Format> formats;
     private List<User> employees;
+    private List<Receipt> receipts;
 
     private double rate;
     private int ratesCount;
@@ -24,6 +25,7 @@ public class Store {
         this.inventory = new Inventory(products);
         this.rate = 0;
         this.ratesCount = 0;
+        this.receipts = new LinkedList<>();
     }
 
     public Store(int id, String name, User owner) { //create a store with empty inventory
@@ -35,6 +37,7 @@ public class Store {
         this.ratesCount = 0;
         this.employees = new LinkedList<>();
         this.employees.add(owner);
+        this.receipts = new LinkedList<>();
     }
 
     public Inventory getInventory() {
@@ -111,6 +114,13 @@ public class Store {
 
     public void addEmployee(User user) {
         this.employees.add(user);
+    }
+    public List<User> getEmployees()
+    {
+        return this.employees;
+    }
 
+    public List<Receipt> getPurchaseHistory() {
+        return this.receipts;
     }
 }

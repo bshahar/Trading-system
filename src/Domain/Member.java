@@ -39,7 +39,7 @@ public class Member {
         p.allowGetWorkersInfo();
         p.allowViewMessages();
         p.allowReplayMessages();
-        p.allowViewPurchaseHistor();
+        p.allowViewPurchaseHistory();
         p.allowAddPermissions();
         p.allowRemovePermission();
         permissions.put(store,p);
@@ -75,7 +75,7 @@ public class Member {
             p.allowGetWorkersInfo();
             p.allowViewMessages();
             p.allowReplayMessages();
-            p.allowViewPurchaseHistor();
+            p.allowViewPurchaseHistory();
             p.allowAddPermissions();
             p.allowRemovePermission();
             permissions.put(store,p);
@@ -101,7 +101,7 @@ public class Member {
             permissions.get(store).allowGetWorkersInfo();
             permissions.get(store).allowViewMessages();
             permissions.get(store).allowReplayMessages();
-            permissions.get(store).allowViewPurchaseHistor();
+            permissions.get(store).allowViewPurchaseHistory();
             permissions.get(store).allowAddPermissions();
             permissions.get(store).allowRemovePermission();
         }
@@ -238,7 +238,7 @@ public class Member {
                         break;
                     }
                     case 23: {
-                        p.disableViewPurchaseHistor();
+                        p.disableViewPurchaseHistory();
                         break;
                     }
                 }
@@ -339,11 +339,21 @@ public class Member {
                         break;
                     }
                     case 23: {
-                        p.allowViewPurchaseHistor();
+                        p.allowViewPurchaseHistory();
                         break;
                     }
                 }
             }
         }
+    }
+
+    public List<User> getWorkersInformation(Store store) {
+        if(!permissions.containsKey(store)) return null;
+        return permissions.get(store).getWorkersInfo();
+    }
+
+    public List<Receipt> getStorePurchaseHistory(Store store) {
+        if(!permissions.containsKey(store)) return null;
+        return permissions.get(store).viewPurchaseHistory();
     }
 }

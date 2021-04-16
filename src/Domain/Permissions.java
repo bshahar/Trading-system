@@ -2,7 +2,7 @@ package Domain;
 
 import java.util.*;
 
-public class Permissions {
+public class Permissionss {
 
 
 
@@ -40,7 +40,7 @@ public class Permissions {
     private Map<Integer, Integer> appointments; //Appointed, appointee (ids)
     private Map<User, List<Operations>> usersPermissions;
 
-    public Permissions(User founder) {
+    public Permissionss(User founder) {
         this.founder = founder;
         this.roles = new HashMap<>();
         this.appointments = new HashMap<>();

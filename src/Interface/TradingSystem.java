@@ -325,25 +325,32 @@ public class TradingSystem {
 
     //returns the new store id
     public int openStore(int userId, String storeName){
-        if(getUserById(userId).isRegistered()) {
+        User user = getUserById(userId);
+        if(user!=null && user.isRegistered()) {
             int newId = storeCounter.inc();
-            Store store = new Store(newId, storeName, getUserById(userId));
+            Store store = new Store(newId, storeName, user);
+            user.openStore(store);
             this.stores.add(store);
             return newId;
         }
         return -1;
     }
 
-    public boolean addStoreOwner(int ownerId, int userId,int storeId){
-        if(getUserById(userId).isRegistered())
-            return getStoreById(storeId).getPermissions().appointOwner(ownerId,getUserById(userId));
-        return false;
+    public boolean addStoreOwner(int ownerId, int userId,int storeId) {
+        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return false;
+               return getUserById(ownerId).addStoreOwner(getUserById(userId),getStoreById(storeId));
     }
+        public boolean checkValidUser(int userId)
+        {
+            User user = getUserById(userId);
+            if(user!=null && user.isRegistered())
+                return true;
+            return false;
+        }
 
     public boolean addStoreManager(int ownerId, int userId, int storeId){
-        if(getUserById(userId).isRegistered())
-            return getStoreById(storeId).getPermissions().appointManager(ownerId,getUserById(userId));
-        return false;
+        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return false;
+        return getUserById(ownerId).addStoreManager(getUserById(userId),getStoreById(storeId));
     }
 
     public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){

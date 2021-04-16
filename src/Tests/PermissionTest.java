@@ -1,6 +1,5 @@
 package Tests;
 
-import Domain.Permissions;
 import Domain.Product;
 import Domain.User;
 import Interface.TradingSystem;

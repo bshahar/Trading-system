@@ -1,5 +1,7 @@
 package Domain;
 
+import Permissions.Permission;
+
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,6 +11,7 @@ public class User {
     private String userName;
     private boolean logged;
     private int id;
+    private Member member;
 
 
     public User(String userName, int id,int registered) {
@@ -17,6 +20,7 @@ public class User {
         this.userName = userName;
         this.id = id;
         this.logged = true;
+        this.member = new Member();
     }
 
     public boolean isRegistered()
@@ -77,5 +81,25 @@ public class User {
 
     public void setName(String userName) {
         this.userName=userName;
+    }
+
+    public void openStore(Store store) {
+        this.member.openStore(store);
+    }
+
+    public boolean addStoreOwner(User user, Store store) {
+        return this.member.addStoreOwner(user,store);
+    }
+    public void updateOwnerPermission(Store store)
+    {
+        this.member.updateOwnerPermission(store);
+    }
+
+    public boolean addStoreManager(User user, Store store) {
+        return this.member.addStoreManager(user,store);
+    }
+
+    public void updateManagerPermission(Store store) {
+         this.member.updateManagerPermission(store);
     }
 }

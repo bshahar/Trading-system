@@ -328,7 +328,9 @@ public class TradingSystem {
 
     public boolean addStoreOwner(int ownerId, int userId,int storeId) {
         if(!checkValidUser(ownerId) || !checkValidUser(userId)) return false;
-               return getUserById(ownerId).addStoreOwner(getUserById(userId),getStoreById(storeId));
+        User owner=getUserById(ownerId);
+        User user=getUserById(userId);
+        return owner.addStoreOwner(owner,user,getStoreById(storeId));
     }
         public boolean checkValidUser(int userId)
         {

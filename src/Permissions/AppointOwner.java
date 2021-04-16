@@ -14,8 +14,9 @@ public class AppointOwner {
         this.store = store;
     }
 
-    public boolean action(User user ,Store store) {
+    public boolean action(User owner, User user, Store store) {
         store.addEmployee(user);
+        store.addOwnerToAppointments(owner,user);
         user.updateOwnerPermission(store);
         return true;
     }

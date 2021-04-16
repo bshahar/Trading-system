@@ -140,10 +140,10 @@ public class Permission {
         if(this.appointOwner == null) return;
         this.appointOwner = null;
     }
-    public boolean appointOwner(User user)
+    public boolean appointOwner(User owner, User user)
     {
         if(this.appointOwner!= null)
-            return this.appointOwner.action(user,this.store);
+            return this.appointOwner.action(owner,user,this.store);
         return false;
     }
 

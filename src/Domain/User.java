@@ -84,11 +84,12 @@ public class User {
     }
 
     public void openStore(Store store) {
-        this.member.openStore(store);
+        this.member.openStore(this,store);
+
     }
 
-    public boolean addStoreOwner(User user, Store store) {
-        return this.member.addStoreOwner(user,store);
+    public boolean addStoreOwner(User owner, User user, Store store) {
+        return this.member.addStoreOwner(owner,user,store);
     }
     public void updateOwnerPermission(Store store)
     {

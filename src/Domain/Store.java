@@ -17,19 +17,6 @@ public class Store {
     private int ratesCount;
 
 
-    public Store(int id, String name, User owner, Map<Product, Integer> products) { //create a store with initial inventory
-        this.storeId = id;
-        this.name = name;
-        this.employees = new LinkedList<>();
-        this.employees.add(owner);
-        //this.shoppingBags = new LinkedList<>();
-        this.inventory = new Inventory(products);
-        this.rate = 0;
-        this.ratesCount = 0;
-        this.appointments=new HashMap<>();
-        this.receipts = new LinkedList<>();
-    }
-
     public Store(int id, String name, User owner) { //create a store with empty inventory
         this.storeId = id;
         this.name = name;
@@ -40,6 +27,8 @@ public class Store {
         this.employees = new LinkedList<>();
         this.employees.add(owner);
         this.receipts = new LinkedList<>();
+        this.appointments= new HashMap<>();
+        appointments.put(owner,new LinkedList<>());
     }
 
     public Inventory getInventory() {
@@ -147,5 +136,10 @@ public class Store {
 
     public List<Receipt> getPurchaseHistory() {
         return this.receipts;
+    }
+
+    public void addOwnerToAppointments(User owner, User user) {
+        appointments.get(owner).add(user);
+        appointments.put(user,new LinkedList<>());
     }
 }

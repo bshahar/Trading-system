@@ -14,7 +14,7 @@ public class Member {
     {
         this.permissions = new ConcurrentHashMap<>();
     }
-    public void openStore(Store store)
+    public void openStore(User user, Store store)
     {
         Permission p = new Permission(this, store);
         p.allowOpenStore();
@@ -46,8 +46,8 @@ public class Member {
     }
 
 
-    public boolean addStoreOwner(User user, Store store) {
-        return permissions.get(store).appointOwner(user);
+    public boolean addStoreOwner(User owner, User user, Store store) {
+        return permissions.get(store).appointOwner(owner,user);
 
     }
 

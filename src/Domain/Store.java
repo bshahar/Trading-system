@@ -12,9 +12,10 @@ public class Store {
     private List<User> employees;
     private List<Receipt> receipts;
 
+    private Map<User,List<User>> appointments;
     private double rate;
     private int ratesCount;
-    //private List<Domain.Bag> shoppingBags;
+
 
     public Store(int id, String name, User owner, Map<Product, Integer> products) { //create a store with initial inventory
         this.storeId = id;
@@ -25,6 +26,7 @@ public class Store {
         this.inventory = new Inventory(products);
         this.rate = 0;
         this.ratesCount = 0;
+        this.appointments=new HashMap<>();
         this.receipts = new LinkedList<>();
     }
 
@@ -64,14 +66,22 @@ public class Store {
     }
 
 
-    public boolean addProductToStore(User user, int productId,  String name, List<Product.Category> categories, double price, String description, int quantity) {
 
-        return false;
+    public boolean addProductToStore(int productId,  String name, List<Product.Category> categories, double price, String description, int quantity) {
+        Product p = new Product(productId, name, categories, price, description);
+        return this.inventory.addProduct(p, quantity);
     }
 
-    public boolean removeProductFromStore(User user, int productId) {
+    public boolean removeProductFromStore( int productId) {
+        synchronized (inventory){
+            if(this.inventory.prodExists(productId)){
+                return this.inventory.removeProduct(productId);
+            }
+            else{
+                return false;
+            }
 
-        return false;
+        }
     }
 
     public List<Integer> getProductsByName(Filter filter){
@@ -91,6 +101,21 @@ public class Store {
         return this.inventory.getProductsByPriceRange(filter);
     }
 
+
+    public boolean removeManager(User owner, User manager) {
+        if(appointments.get(owner).remove(manager)){
+            employees.remove(manager);
+            if(appointments.containsKey(manager)){
+                List<User> managers=appointments.get(manager);
+                for(User user : managers){
+                    removeManager(manager,user);
+                }
+
+            }
+            return true;
+        }
+        return false;
+    }
 
     public List<User> getWorkersInformation(int ownerId) {
         return this.employees;

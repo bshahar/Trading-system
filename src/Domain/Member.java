@@ -356,4 +356,32 @@ public class Member {
         if(!permissions.containsKey(store)) return null;
         return permissions.get(store).viewPurchaseHistory();
     }
+
+    public boolean addProductToStore(int productId,Store store, String name, List<Product.Category> categories, double price, String description, int quantity) {
+        if(permissions.containsKey(store)){
+            Permission permission= permissions.get(store);
+            return permission.addProduct(productId,name, categories, price, description, quantity);
+
+        }else{
+            return false;
+        }
+    }
+
+    public boolean removeProductFromStore(Store store, int productId) {
+        if(!permissions.containsKey(store)){
+            Permission permission= permissions.get(store);
+            return permission.removeProduct(productId);
+        }else{
+            return false;
+        }
+    }
+
+    public boolean removeMangerFromStore(User owner,User manager, Store store) {
+        if(!permissions.containsKey(store)){
+            Permission permission= permissions.get(store);
+            return permission.removeManagerAppointment(owner, manager);
+        }else{
+            return false;
+        }
+    }
 }

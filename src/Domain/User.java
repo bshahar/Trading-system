@@ -126,4 +126,16 @@ public class User {
     public List<Receipt> getStorePurchaseHistory(Store store) {
         return this.member.getStorePurchaseHistory(store);
     }
+
+    public boolean addProductToStore(int productId,Store store, String name, List<Product.Category> categories, double price, String description, int quantity) {
+        return member.addProductToStore(productId,store,name, categories, price, description, quantity);
+    }
+
+    public boolean removeProductFromStore(Store store, int productId) {
+        return member.removeProductFromStore(store,productId);
+    }
+
+    public boolean removeManagerFromStore(User manager, Store store) {
+        return member.removeMangerFromStore(this,manager,store);
+    }
 }

@@ -15,6 +15,7 @@ public class AppointOwner {
     }
 
     public boolean action(User user ,Store store) {
+        store.addEmployee(user);
         user.updateOwnerPermission(store);
         return true;
     }

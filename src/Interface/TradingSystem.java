@@ -300,10 +300,10 @@ public class TradingSystem {
             return -1;
         if (store != null) {
             if (store.addProductToStore(getUserById(userId), productId, name, categories, price, description, quantity)) {
-                KingLogger.logEvent(Level.INFO, "Domain.Product number " + productId + " was added to store " + storeId + " by user " + userId);
+                KingLogger.logEvent(Level.INFO, "Product number " + productId + " was added to store " + storeId + " by user " + userId);
                 return productId;
             }
-            KingLogger.logError(Level.WARNING, "Domain.Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
+            KingLogger.logError(Level.WARNING, "Product number " + productId + " was !!not!! added to store " + storeId + " by user " + userId);
             return -1;
         }
         return -1;
@@ -354,18 +354,17 @@ public class TradingSystem {
     }
 
     public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
-        Store s = getStoreById(storeId);
-        return s.addPermissions(ownerId, managerId, opIndexes);
+        if(!checkValidUser(ownerId)) return false;
+        return getUserById(ownerId).addPermissions(getUserById(managerId),getStoreById(storeId),opIndexes);
     }
 
     public boolean removePermission(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
-        Store s = getStoreById(storeId);
-        return s.removePermissions(ownerId, managerId, opIndexes);
+        if(!checkValidUser(ownerId)) return false;
+        return getUserById(ownerId).removePermissions(getUserById(managerId),getStoreById(storeId),opIndexes);
     }
 
     public boolean removeManager(int ownerId, int managerId, int storeId){
-        Store s = getStoreById(storeId);
-        return s.removeAppointment(ownerId, managerId);
+        return true;
     }
 
     public List<User> getWorkersInformation(int ownerId, int storeId){

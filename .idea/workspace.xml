@@ -19,36 +19,19 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix all tests #26">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/AddProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/AppointManager.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/CloseStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/DefineDiscountFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/DefineDiscountPolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/DefinePurchaseFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/DefinePurchasePolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/EditDiscountFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/EditDiscountPolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/EditProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/EditPurchaseFormat.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/EditPurchasePolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/EmptyPermission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/GetWorkersInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/OpenStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/Permission.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/RemoveManagerAppointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/RemoveOwnerAppointment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/RemoveProduct.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/ReopenStore.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/ReplayMessages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/ViewMessages.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/ViewPurchaseHistor.java" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="change permissions">
+      <change afterPath="$PROJECT_DIR$/src/Permissions/AddPermissions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Permissions/RemovePermission.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permissions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/AppointManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/AppointManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/Permission.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tests/PermissionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PermissionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -113,8 +96,8 @@
       <recent name="Permissions" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Tests in Trading-system">
-    <configuration name="PurchaseTest.getPersonalPurchaseHistoryFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.LoginTest">
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -123,9 +106,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.PurchaseTest" />
-      <option name="METHOD_NAME" value="getPersonalPurchaseHistoryFailTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -194,11 +176,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginTest" />
         <item itemvalue="JUnit.Tests in Trading-system" />
         <item itemvalue="JUnit.StoreTest.appointTwoManagersTest" />
         <item itemvalue="JUnit.PurchaseTest.twoPurchaseSyncTest" />
         <item itemvalue="JUnit.PurchaseTest.getPersonalPurchaseHistoryTest" />
-        <item itemvalue="JUnit.PurchaseTest.getPersonalPurchaseHistoryFailTest" />
       </list>
     </recent_temporary>
   </component>
@@ -280,7 +262,14 @@
       <option name="presentableId" value="LOCAL‎00010" />
       <updated>1617894697741</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="change permissions">
+      <created>1618575061950</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1618575061950</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -309,7 +298,8 @@
     <MESSAGE value="workspace" />
     <MESSAGE value="adding store test #26" />
     <MESSAGE value="fix all tests #26" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix all tests #26" />
+    <MESSAGE value="change permissions" />
+    <option name="LAST_COMMIT_MESSAGE" value="change permissions" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

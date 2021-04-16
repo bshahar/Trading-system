@@ -102,4 +102,21 @@ public class User {
     public void updateManagerPermission(Store store) {
          this.member.updateManagerPermission(store);
     }
+
+    public boolean addPermissions(User user, Store store, List<Integer> opIndexes) {
+        return this.member.addPermissions(user,store,opIndexes);
+    }
+
+    public void updateMyPermissions(Store store, List<Integer> opIndexes) {
+        this.member.updateMyPermissions(store,opIndexes);
+    }
+
+    public boolean removePermissions(User user, Store store, List<Integer> opIndexes) {
+        return this.member.removePermissions(user,store,opIndexes);
+    }
+    public void disableMyPermissions(Store store ,List<Integer> opIndexes )
+    {
+        this.member.disableMyPermissions(store,opIndexes);
+    }
+
 }

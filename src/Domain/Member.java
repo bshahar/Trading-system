@@ -3,6 +3,7 @@ package Domain;
 import Permissions.Permission;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -39,6 +40,8 @@ public class Member {
         p.allowViewMessages();
         p.allowReplayMessages();
         p.allowViewPurchaseHistor();
+        p.allowAddPermissions();
+        p.allowRemovePermission();
         permissions.put(store,p);
     }
 
@@ -73,6 +76,8 @@ public class Member {
             p.allowViewMessages();
             p.allowReplayMessages();
             p.allowViewPurchaseHistor();
+            p.allowAddPermissions();
+            p.allowRemovePermission();
             permissions.put(store,p);
         }
         else {
@@ -97,6 +102,8 @@ public class Member {
             permissions.get(store).allowViewMessages();
             permissions.get(store).allowReplayMessages();
             permissions.get(store).allowViewPurchaseHistor();
+            permissions.get(store).allowAddPermissions();
+            permissions.get(store).allowRemovePermission();
         }
 
 
@@ -121,5 +128,222 @@ public class Member {
             permissions.get(store).allowReplayMessages();
         }
 
+    }
+
+    public boolean addPermissions(User user, Store store, List<Integer> opIndexes) {
+        if(permissions.get(store)!=null && permissions.get(store).addPermissions()) {
+            user.updateMyPermissions(store, opIndexes);
+            return true;
+        }
+        return false;
+    }
+    public boolean removePermissions(User user, Store store, List<Integer> opIndexes) {
+        if(permissions.get(store)!=null && permissions.get(store).removePermission()) {
+            user.disableMyPermissions(store, opIndexes);
+            return true;
+        }
+        return false;
+    }
+
+
+
+    public void disableMyPermissions(Store store, List<Integer> opIndexes) {
+        Permission p = permissions.get(store);
+        if(p!= null) {
+            for (int permission : opIndexes) {
+                switch (permission) {
+                    case 1: {
+                        p.disableAddProduct();
+                        break;
+                    }
+                    case 2: {
+                        p.disableAppointManager();
+                        break;
+                    }
+                    case 3: {
+                        p.disableAppointOwner();
+                        break;
+                    }
+                    case 4: {
+                        p.disableCloseStore();
+                        break;
+                    }
+                    case 5: {
+                        p.disableDefineDiscountFormat();
+                        break;
+                    }
+                    case 6: {
+                        p.disableDefineDiscountPolicy();
+                        break;
+                    }
+                    case 7: {
+                        p.disableDefinePurchaseFormat();
+                        break;
+                    }
+                    case 8: {
+                        p.disableDefinePurchasePolicy();
+                        break;
+
+                    }
+                    case 9: {
+                        p.disableEditDiscountFormat();
+                        break;
+                    }
+                    case 10: {
+                        p.disableEditDiscountPolicy();
+                        break;
+                    }
+                    case 11: {
+                        p.disableEditProduct();
+                        break;
+                    }
+                    case 12: {
+                        p.disableEditPurchaseFormat();
+                        break;
+                    }
+                    case 13: {
+                        p.disableEditPurchasePolicy();
+                        break;
+                    }
+                    case 14: {
+                        p.disableGetWorkersInfo();
+                        break;
+                    }
+                    case 15: {
+                        p.disableOpenStore();
+                        break;
+                    }
+                    case 16: {
+                        p.disableRemoveManagerAppointment();
+                        break;
+                    }
+                    case 17: {
+                        p.disableRemoveOwnerAppointment();
+                        break;
+                    }
+                    case 19: {
+                        p.disableRemoveProduct();
+                        break;
+                    }
+                    case 20: {
+                        p.disableReopenStore();
+                        break;
+                    }
+                    case 21: {
+                        p.disableReplayMessages();
+                        break;
+                    }
+                    case 22: {
+                        p.disableViewMessages();
+                        break;
+                    }
+                    case 23: {
+                        p.disableViewPurchaseHistor();
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    public void updateMyPermissions(Store store, List<Integer> opIndexes) {
+        Permission p = permissions.get(store);
+        if(p!= null) {
+            for (int permission : opIndexes) {
+                switch (permission) {
+                    case 1: {
+                        p.allowAddProduct();
+                        break;
+                    }
+                    case 2: {
+                        p.allowAppointManager();
+                        break;
+                    }
+                    case 3: {
+                        p.allowAppointOwner();
+                        break;
+                    }
+                    case 4: {
+                        p.allowCloseStore();
+                        break;
+                    }
+                    case 5: {
+                        p.allowDefineDiscountFormat();
+                        break;
+                    }
+                    case 6: {
+                        p.allowDefineDiscountPolicy();
+                        break;
+                    }
+                    case 7: {
+                        p.allowDefinePurchaseFormat();
+                        break;
+                    }
+                    case 8: {
+                        p.allowDefinePurchasePolicy();
+                        break;
+
+                    }
+                    case 9: {
+                        p.allowEditDiscountFormat();
+                        break;
+                    }
+                    case 10: {
+                        p.allowEditDiscountPolicy();
+                        break;
+                    }
+                    case 11: {
+                        p.allowEditProduct();
+                        break;
+                    }
+                    case 12: {
+                        p.allowEditPurchaseFormat();
+                        break;
+                    }
+                    case 13: {
+                        p.allowEditPurchasePolicy();
+                        break;
+                    }
+                    case 14: {
+                        p.allowGetWorkersInfo();
+                        break;
+                    }
+                    case 15: {
+                        p.allowOpenStore();
+                        break;
+                    }
+                    case 16: {
+                        p.allowRemoveManagerAppointment();
+                        break;
+                    }
+                    case 17: {
+                        p.allowRemoveOwnerAppointment();
+                        break;
+                    }
+                    case 19: {
+                        p.allowRemoveProduct();
+                        break;
+                    }
+                    case 20: {
+                        p.allowReopenStore();
+                        break;
+                    }
+                    case 21: {
+                        p.allowReplayMessages();
+                        break;
+                    }
+                    case 22: {
+                        p.allowViewMessages();
+                        break;
+                    }
+                    case 23: {
+                        p.allowViewPurchaseHistor();
+                        break;
+                    }
+                }
+            }
+        }
     }
 }

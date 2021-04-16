@@ -31,6 +31,8 @@ public class Permission {
     private ReplayMessages replayMessages;
     private ViewPurchaseHistor viewPurchaseHistor;
     private OpenStore openStore;
+    private AddPermissions addPermissions;
+    private RemovePermission removePermission;
 
     public Permission(Member member, Store store) {
         this.member = member;
@@ -369,6 +371,38 @@ public class Permission {
     {
         if(this.openStore!= null)
             this.openStore.action();
+    }
+
+    public void allowAddPermissions()
+    {
+        this.addPermissions = new AddPermissions(this.member,this.store);
+    }
+    public void disableAddPermissions()
+    {
+        if(this.addPermissions == null) return;
+        this.addPermissions = null;
+    }
+    public boolean addPermissions()
+    {
+        if(this.addPermissions!= null)
+            return this.addPermissions.action();
+        return false;
+    }
+
+    public void allowRemovePermission()
+    {
+        this.removePermission = new RemovePermission(this.member,this.store);
+    }
+    public void disableRemovePermission()
+    {
+        if(this.removePermission == null) return;
+        this.removePermission = null;
+    }
+    public boolean removePermission()
+    {
+        if(this.removePermission!= null)
+            return this.removePermission.action();
+        return false;
     }
 
 

@@ -19,17 +19,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix all tests #26">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions/AddProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/AddProduct.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/Permission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions/RemoveManagerAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/RemoveManagerAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions/RemoveProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/RemoveProduct.java" afterDir="false" />
-    </list>
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix all tests #26" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -47,7 +37,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="main" />
+    <option name="BRANCH" value="AddRemoveProductPermissions" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">

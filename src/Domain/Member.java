@@ -16,6 +16,7 @@ public class Member {
     }
     public void openStore(User user, Store store)
     {
+        store.addOwner(user);
         Permission p = new Permission(this, store);
         p.allowOpenStore();
         p.openStore();
@@ -370,7 +371,7 @@ public class Member {
     }
 
     public boolean removeProductFromStore(Store store, int productId) {
-        if(!permissions.containsKey(store)){
+        if(permissions.containsKey(store)){
             Permission permission= permissions.get(store);
             return permission.removeProduct(productId);
         }else{
@@ -379,9 +380,9 @@ public class Member {
     }
 
     public boolean removeMangerFromStore(User owner,User manager, Store store) {
-        if(!permissions.containsKey(store)){
+        if(permissions.containsKey(store)){
             Permission permission= permissions.get(store);
-            return permission.removeManagerAppointment(owner, manager);
+            return (permission.removeManagerAppointment(owner, manager));
         }else{
             return false;
         }

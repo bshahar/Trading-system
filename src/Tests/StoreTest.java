@@ -192,7 +192,7 @@ public class StoreTest {
 
     @Test
     //AT-13 success
-    public void removeProductTest() throws Exception{
+    public void removeProductTest(){
         tradingSystem.removeProductFromStore(registerId1,storeId1,1);
         Assertions.assertEquals(0,tradingSystem.getProductsFromStore(storeId1).size());
     }
@@ -246,7 +246,7 @@ public class StoreTest {
 
     @Test
     //AT-16.2
-    public void addManagerFailTest() throws Exception{
+    public void addManagerFailTest() {
         tradingSystem.addStoreManager(registerId1,registerId2,storeId1);
         Assertions.assertFalse(tradingSystem.addStoreManager(registerId2,registerId3,storeId1));
     }

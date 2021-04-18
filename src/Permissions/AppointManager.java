@@ -9,9 +9,11 @@ public class AppointManager {
     }
 
     public boolean action(User user, Store store) {
-        store.addEmployee(user);
-        user.updateOwnerPermission(store);
-        user.updateManagerPermission(store);
-        return true;
+        if(store.addManager(user)) {
+            store.addEmployee(user);
+            user.updateManagerPermission(store);
+            return true;
+        }
+        return false;
     }
 }

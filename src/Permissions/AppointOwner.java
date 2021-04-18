@@ -15,9 +15,12 @@ public class AppointOwner {
     }
 
     public boolean action(User owner, User user, Store store) {
-        store.addEmployee(user);
-        store.addOwnerToAppointments(owner,user);
-        user.updateOwnerPermission(store);
-        return true;
+        if(store.addOwner(user)) {
+            store.addEmployee(user);
+            store.addOwnerToAppointments(owner, user);
+            user.updateOwnerPermission(store);
+            return true;
+        }
+        return false;
     }
 }

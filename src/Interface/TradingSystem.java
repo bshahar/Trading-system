@@ -267,7 +267,9 @@ public class TradingSystem {
                     for (Integer prodId : productsIds.keySet()) {
                         store.buyProduct(prodId, productsIds.get(prodId));//remove amount from product
                     }
-                    this.receipts.add(new Receipt(storeId, userId,getUserById(userId).getUserName(), products));
+                    Receipt rec = new Receipt(storeId, userId,getUserById(userId).getUserName(), products);
+                    this.receipts.add(rec);
+                    store.addReceipt(rec);
                     KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " made purchase in store " + storeId);
                     return true;
                 }

@@ -10,6 +10,8 @@ public class Store {
     private List<Policy> policies;
     private List<Format> formats;
     private List<User> employees;
+    private List<User> owners;
+    private List<User> managers;
     private List<Receipt> receipts;
 
     private Map<User,List<User>> appointments;
@@ -24,11 +26,13 @@ public class Store {
         this.inventory = new Inventory();
         this.rate = 0;
         this.ratesCount = 0;
-        this.employees = new LinkedList<>();
+        this.employees = Collections.synchronizedList(new LinkedList<>());;
         this.employees.add(owner);
         this.receipts = new LinkedList<>();
         this.appointments= new HashMap<>();
         appointments.put(owner,new LinkedList<>());
+        this.owners = Collections.synchronizedList(new LinkedList<>());;
+        this.managers = Collections.synchronizedList(new LinkedList<>());;
     }
 
     public Inventory getInventory() {
@@ -97,6 +101,7 @@ public class Store {
             if(appointments.containsKey(manager)){
                 List<User> managers=appointments.get(manager);
                 for(User user : managers){
+                    this.managers.remove(user);
                     removeManager(manager,user);
                 }
 
@@ -142,4 +147,25 @@ public class Store {
         appointments.get(owner).add(user);
         appointments.put(user,new LinkedList<>());
     }
+    public void addReceipt(Receipt receipt)
+    {
+        this.receipts.add(receipt);
+    }
+
+    public boolean addOwner(User user)
+    {
+        if(this.owners.contains(user))
+            return false;
+        owners.add(user);
+        return true;
+    }
+    public boolean addManager(User user)
+    {
+        if(this.managers.contains(user))
+            return false;
+        managers.add(user);
+        return true;
+    }
+
+
 }

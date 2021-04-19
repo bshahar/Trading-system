@@ -131,8 +131,9 @@ public class Store {
         inventory.buyProduct(getProductById(prodId),amount);
     }
 
-    public void addEmployee(User user) {
+    public void addEmployee(User owner,User user) {
         this.employees.add(user);
+        this.appointments.get(owner).add(user);
     }
     public List<User> getEmployees()
     {
@@ -143,8 +144,7 @@ public class Store {
         return this.receipts;
     }
 
-    public void addOwnerToAppointments(User owner, User user) {
-        appointments.get(owner).add(user);
+    public void addOwnerToAppointments( User user) {
         appointments.put(user,new LinkedList<>());
     }
     public void addReceipt(Receipt receipt)

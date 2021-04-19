@@ -2,6 +2,7 @@ package Tests;
 
 import Domain.*;
 import Interface.TradingSystem;
+import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
@@ -18,7 +19,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class StoreTest {
 
-    TradingSystem tradingSystem;
+
     //registered
     int registerId1;
     int registerId2;
@@ -32,24 +33,25 @@ public class StoreTest {
 
     @BeforeEach
     public void setUp(){
-        User systemManager = new User("Elad",1,1);
-        tradingSystem= new TradingSystem(systemManager);
+//        User systemManager = new User("Elad",1,1);
+//        tradingSystem= new TradingSystem(systemManager);
+        API.initTradingSystem("Elad");
         String userName1="kandabior";
         String password1= "or321654";
         String userName2="elad";
         String password2= "elad321654";
         String userName3="erez";
         String password3= "erez321654";
-        tradingSystem.register(userName1,password1);
-        tradingSystem.register(userName2,password2);
-        tradingSystem.register(userName3,password3);
-        registerId1= tradingSystem.login(userName1,password1);
-        registerId2= tradingSystem.login(userName2,password2);
-        registerId3= tradingSystem.login(userName3,password3);
-        storeId1=tradingSystem.openStore(registerId1,"kandabior store");
+        API.register(userName1,password1);
+        API.register(userName2,password2);
+        API.register(userName3,password3);
+        registerId1= API.registeredLogin(userName1,password1);
+        registerId2= API.registeredLogin(userName2,password2);
+        registerId3= API.registeredLogin(userName3,password3);
+        storeId1=API.openStore(registerId1,"kandabior store");
         LinkedList <Product.Category> catList= new LinkedList<>();
         catList.add(Product.Category.FOOD);
-        int productId=tradingSystem.addProductToStore(1, storeId1,"milk",catList ,10,"FOOD", 5 );
+        int productId=API.addProduct(1, storeId1,"milk",catList ,10,"FOOD", 5 );
 
 
     }
@@ -57,14 +59,14 @@ public class StoreTest {
     @Test
     //AT-5.1
     public void getInformationTest() throws Exception{
-        Assertions.assertEquals(storeId1, tradingSystem.getAllStoresInfo(registerId1).get(0).getStoreId());
+        Assertions.assertEquals(storeId1, API.getAllStoreInfo(registerId1).get(0).getStoreId());
     }
 
     @Test
     //AT-5.2
     public void getInformationFailTest() throws Exception{
-        tradingSystem.logout(registerId1);
-        assertNull(tradingSystem.getAllStoresInfo(registerId1));
+        API.registeredLogout(registerId1);
+        assertNull(API.getAllStoreInfo(registerId1));
     }
 
     @Test
@@ -72,105 +74,105 @@ public class StoreTest {
     public void getProductByNameTest() throws Exception{
         Filter filter=new Filter("NAME","milk",9,15,-1,"",-1);
         //assume the first product gets id of 1
-        Assertions.assertEquals(1,tradingSystem.getProducts(filter, registerId1).get(storeId1));
+        Assertions.assertEquals(1,API.searchProduct(filter, registerId1).get(storeId1));
     }
     //AT-6
     @Test
     public void getProductByNameFailTest() throws Exception{
         Filter filter=new Filter("NAME","milk",1,5,-1,"",-1);
         //assume the first product gets id of 1
-        Assertions.assertEquals(0, tradingSystem.getProducts(filter, registerId1).size());
+        Assertions.assertEquals(0, API.searchProduct(filter, registerId1).size());
     }
     //AT-6
     @Test
     public void failGetProductTest() throws Exception{
         Filter filter=new Filter("NAME","dani",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
-        Assertions.assertEquals(0,tradingSystem.getProducts(filter, registerId1).size());
+        Assertions.assertEquals(0,API.searchProduct(filter, registerId1).size());
     }
     //AT-6
     @Test
     public void getProductByCategoryTest() throws Exception{
         Filter filter=new Filter("CATEGORY","FOOD",9, 15,-1,"",-1);
         //assume the first product gets id of 1
-        int id = (int)tradingSystem.getProducts(filter, registerId1).values().toArray()[0];
+        int id = (int)API.searchProduct(filter, registerId1).values().toArray()[0];
         assertEquals(1,id);
     }
     //AT-6
     @Test
     public void failGetProductByCategoryTest() throws Exception{
         Filter filter=new Filter("CATEGORY","DRINK",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
-        Assertions.assertEquals(0,tradingSystem.getProducts(filter, registerId1).size());
+        Assertions.assertEquals(0,API.searchProduct(filter, registerId1).size());
     }
     //AT-6
     @Test
     public void failGetProductByNameAndCategoryTest() throws Exception{
         Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"Drinks",-1);
-        Assertions.assertEquals(0,tradingSystem.getProducts(filter, registerId1).size());
+        Assertions.assertEquals(0,API.searchProduct(filter, registerId1).size());
     }
     //AT-6
     @Test
     public void GetProductByNameAndCategoryTest() throws Exception{
         Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"FOOD",-1);
-        Assertions.assertEquals(1,tradingSystem.getProducts(filter, registerId1).size());
+        Assertions.assertEquals(1,API.searchProduct(filter, registerId1).size());
     }
 
     @Test
     public void addToCartTest() throws Exception{
-        Assertions.assertTrue(tradingSystem.addProductToBag(registerId2,storeId1,1,3));
+        Assertions.assertTrue(API.addProductToCart(registerId2,storeId1,1,3));
     }
 
     @Test
     //At-7
     public void addToBagGuestTest() throws Exception{
-        guestId1=tradingSystem.guestLogin();
-        Assertions.assertTrue(tradingSystem.addProductToBag(guestId1,storeId1,1,3));
+        guestId1=API.guestLogin();
+        Assertions.assertTrue(API.addProductToCart(guestId1,storeId1,1,3));
     }
 
     @Test
     //At-7
     public void addToChartWrongProdTest() throws Exception{
-        Assertions.assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,2,2));
+        Assertions.assertFalse(API.addProductToCart(registerId2,storeId1,2,2));
     }
 
     @Test
     public void addToBagLogoutTest() throws Exception{
-        tradingSystem.logout(registerId2);
-        Assertions.assertFalse(tradingSystem.addProductToBag(registerId2,storeId1,1,1));
+        API.registeredLogout(registerId2);
+        Assertions.assertFalse(API.addProductToCart(registerId2,storeId1,1,1));
     }
 
     @Test
     public void addToChartTest2() throws Exception{
-        tradingSystem.addProductToBag(registerId2,storeId1,1,2);
-        tradingSystem.logout(registerId2);
-        tradingSystem.login("elad","elad321654");
+        API.addProductToCart(registerId2,storeId1,1,2);
+        API.registeredLogout(registerId2);
+        API.registeredLogin("elad","elad321654");
 
-        List<Bag> products=tradingSystem.getCart(registerId2);
+        List<Bag> products=API.getCart(registerId2);
         Assertions.assertEquals(2, products.get(0).getProductIds().get(1));
     }
 
     @Test
     public void addToCartTest3() throws Exception{
-        guestId1=tradingSystem.guestLogin();
-        tradingSystem.addProductToBag(guestId1,storeId1,1,2);
-        tradingSystem.guestRegister(guestId1,"dorin","dorin321654");
-        tradingSystem.logout(guestId1);
-        tradingSystem.login("dorin","dorin321654");
+        guestId1=API.guestLogin();
+        API.addProductToCart(guestId1,storeId1,1,2);
+        API.guestRegister(guestId1,"dorin","dorin321654");
+        API.registeredLogout(guestId1);
+        API.registeredLogin("dorin","dorin321654");
 
-        List<Bag> products=tradingSystem.getCart(guestId1);
+        List<Bag> products=API.getCart(guestId1);
         Assertions.assertEquals(2, products.get(0).getProductIds().get(1));
     }
 
     @Test
     //AT-11.1 success
     public void openStoreTest() throws Exception{
-        Assertions.assertEquals(2,tradingSystem.openStore(registerId2,"elad store"));
+        Assertions.assertEquals(2,API.openStore(registerId2,"elad store"));
     }
 
     @Test
     //AT-11.2 fail
     public void guestOpenStoreFailTest() throws Exception{
-        guestId1=tradingSystem.guestLogin();
-        Assertions.assertEquals(-1,tradingSystem.openStore(guestId1,"guest store"));
+        guestId1=API.guestLogin();
+        Assertions.assertEquals(-1,API.openStore(guestId1,"guest store"));
     }
 
     @Test
@@ -178,7 +180,7 @@ public class StoreTest {
     public void addProductTest() throws Exception{
         List<Product.Category> categories= new LinkedList<>();
         categories.add(Product.Category.FOOD);
-        assertTrue(tradingSystem.addProductToStore(registerId1,  storeId1, "water",categories,5,"drink", 5)==2);
+        assertTrue(API.addProduct(registerId1,  storeId1, "water",categories,5,"drink", 5)==2);
 
     }
 
@@ -187,157 +189,157 @@ public class StoreTest {
     public void addProductFailTest() throws Exception{
         List<Product.Category> categories= new LinkedList<>();
         categories.add(Product.Category.FOOD);
-        assertFalse(tradingSystem.addProductToStore(registerId2, storeId1, "water",categories,5,"drink", 5)==2);
+        assertFalse(API.addProduct(registerId2, storeId1, "water",categories,5,"drink", 5)==2);
     }
 
     @Test
     //AT-13 success
     public void removeProductTest(){
-        tradingSystem.removeProductFromStore(registerId1,storeId1,1);
-        Assertions.assertEquals(0,tradingSystem.getProductsFromStore(storeId1).size());
+        API.removeProductFromStore(registerId1,storeId1,1);
+        Assertions.assertEquals(0,API.getAllStoreProducts(storeId1).size());
     }
 
     @Test
     //AT-13 alternate
     public void removeProductFailTest() throws Exception{
-        tradingSystem.removeProductFromStore(registerId1,storeId1,2);
-        Assertions.assertEquals(1,tradingSystem.getProductsFromStore(storeId1).size());
+        API.removeProductFromStore(registerId1,storeId1,2);
+        Assertions.assertEquals(1,API.getAllStoreProducts(storeId1).size());
     }
 
     @Test
     //AT-15.1
     public void addOwnerTest() throws Exception{
-        Assertions.assertTrue(tradingSystem.addStoreOwner(registerId1,registerId2,storeId1));
+        Assertions.assertTrue(API.addStoreOwner(registerId1,registerId2,storeId1));
     }
 
     @Test
     //AT-15.2
     public void addGuestOwnerFailTest() throws Exception{
-        guestId1=tradingSystem.guestLogin();
-        Assertions.assertFalse(tradingSystem.addStoreOwner(registerId1,guestId1,storeId1));
+        guestId1=API.guestLogin();
+        Assertions.assertFalse(API.addStoreOwner(registerId1,guestId1,storeId1));
     }
 
     @Test
     //AT-15
     public void addOwnerFailTest() throws Exception{
-        tradingSystem.addStoreOwner(registerId1,registerId2,storeId1);
-        Assertions.assertFalse(tradingSystem.addStoreOwner(registerId2,registerId1,storeId1));
+        API.addStoreOwner(registerId1,registerId2,storeId1);
+        Assertions.assertFalse(API.addStoreOwner(registerId2,registerId1,storeId1));
     }
 
     @Test
     //AT-15.2
     public void addOwnerFailTest2() throws Exception{
-        Assertions.assertFalse(tradingSystem.addStoreOwner(registerId2,registerId3,storeId1));
+        Assertions.assertFalse(API.addStoreOwner(registerId2,registerId3,storeId1));
     }
 
     @Test
     //AT-15.2
     public void addOwnerTest2() throws Exception{
-        tradingSystem.addStoreOwner(registerId1,registerId2,storeId1);
-        Assertions.assertTrue(tradingSystem.addStoreOwner(registerId2,registerId3,storeId1));
+        API.addStoreOwner(registerId1,registerId2,storeId1);
+        Assertions.assertTrue(API.addStoreOwner(registerId2,registerId3,storeId1));
     }
 
     @Test
     //AT-16.1
     public void addManagerTest() throws Exception{
-        Assertions.assertTrue(tradingSystem.addStoreManager(registerId1,registerId2,storeId1));
+        Assertions.assertTrue(API.addStoreManager(registerId1,registerId2,storeId1));
     }
 
 
     @Test
     //AT-16.2
     public void addManagerFailTest() {
-        tradingSystem.addStoreManager(registerId1,registerId2,storeId1);
-        Assertions.assertFalse(tradingSystem.addStoreManager(registerId2,registerId3,storeId1));
+        API.addStoreManager(registerId1,registerId2,storeId1);
+        Assertions.assertFalse(API.addStoreManager(registerId2,registerId3,storeId1));
     }
     @Test
     //AT-16.2
     public void addGuestManagerFailTest() throws Exception{
-        guestId1=tradingSystem.guestLogin();
-        Assertions.assertFalse(tradingSystem.addStoreManager(registerId1,guestId1,storeId1));
+        guestId1=API.guestLogin();
+        Assertions.assertFalse(API.addStoreManager(registerId1,guestId1,storeId1));
     }
 
     @Test
     //AT-18.1
     public void removeManagerTest() throws Exception{
-        tradingSystem.addStoreManager(registerId1,registerId2,storeId1);
-        Assertions.assertTrue(tradingSystem.removeManager(registerId1,registerId2,storeId1));
+        API.addStoreManager(registerId1,registerId2,storeId1);
+        Assertions.assertTrue(API.removeManager(registerId1,registerId2,storeId1));
     }
 
     @Test
     //AT-18.2
     public void removeManagerFailTest() throws Exception{
-        tradingSystem.addStoreOwner(registerId1,registerId2,storeId1);
-        tradingSystem.addStoreManager(registerId2,registerId3,storeId1);
-        Assertions.assertFalse(tradingSystem.removeManager(registerId1,registerId3,storeId1));
+        API.addStoreOwner(registerId1,registerId2,storeId1);
+        API.addStoreManager(registerId2,registerId3,storeId1);
+        Assertions.assertFalse(API.removeManager(registerId1,registerId3,storeId1));
     }
 
     @Test
     //AT-18.3
     public void removeManagerFailTest2() throws Exception{
-        Assertions.assertFalse(tradingSystem.removeManager(registerId1,registerId3,storeId1));
+        Assertions.assertFalse(API.removeManager(registerId1,registerId3,storeId1));
     }
 
 
     @Test
     //AT-19.1
     public void getStoreInfoTest() throws Exception{
-        List<User> workers = tradingSystem.getWorkersInformation(registerId1,storeId1);
+        List<User> workers = API.getStoreWorkers(registerId1,storeId1);
         Assertions.assertEquals(workers.get(0).getId(), registerId1);
     }
 
     @Test
     //AT-19.2
     public void getStoreInfoFailTest() throws Exception{
-        assertNull(tradingSystem.getWorkersInformation(registerId2,storeId1));
+        assertNull(API.getStoreWorkers(registerId2,storeId1));
     }
 
     @Test
     //AT-20.1
     public void getPurchaseHistoryTest() throws Exception{
-        tradingSystem.addProductToBag(registerId2,storeId1,1,1);
+        API.addProductToCart(registerId2,storeId1,1,1);
         Map<Integer, Integer> bag = new HashMap<>();
         bag.put(1, 3);
-        tradingSystem.buyProducts(registerId2, storeId1, "Credit123");
-        Assertions.assertEquals(storeId1, tradingSystem.getStorePurchaseHistory(registerId1,storeId1).get(0).getStoreId());
+        API.buyProduct(registerId2, storeId1, "Credit123");
+        Assertions.assertEquals(storeId1, API.getStorePurchaseHistory(registerId1,storeId1).get(0).getStoreId());
     }
 
     @Test
     //AT-20.2
     public void getPurchaseHistoryFailTest() throws Exception{
-        tradingSystem.addProductToBag(registerId2,storeId1,1,1);
+        API.addProductToCart(registerId2,storeId1,1,1);
         Map<Integer, Integer> bag = new HashMap<>();
         bag.put(1, 3);
-        tradingSystem.buyProducts(registerId2, storeId1, "Credit123");
-        assertNull( tradingSystem.getStorePurchaseHistory(registerId2,storeId1));
+        API.buyProduct(registerId2, storeId1, "Credit123");
+        assertNull( API.getStorePurchaseHistory(registerId2,storeId1));
     }
 
 
     @Test
     //AT-20.3
     public void getPurchaseHistoryTest2(){
-        tradingSystem.addStoreOwner(registerId1,registerId2,storeId1);
-        tradingSystem.addProductToBag(registerId2,storeId1,1,1);
+        API.addStoreOwner(registerId1,registerId2,storeId1);
+        API.addProductToCart(registerId2,storeId1,1,1);
         Map<Integer, Integer> bag = new HashMap<>();
         bag.put(1, 3);
-        tradingSystem.buyProducts(registerId2, storeId1, "Credit123");
+        API.buyProduct(registerId2, storeId1, "Credit123");
 
-        Assertions.assertEquals(storeId1, tradingSystem.getStorePurchaseHistory(registerId2,storeId1).get(0).getStoreId());
+        Assertions.assertEquals(storeId1,API.getStorePurchaseHistory(registerId2,storeId1).get(0).getStoreId());
     }
 
     @Test
     //AT-8.1
     public void getCartInfo() throws  Exception{
-        tradingSystem.addProductToBag(registerId1, storeId1, 1, 1);
-        Assertions.assertTrue( tradingSystem.getCart(registerId1).get(0).getProductIds().keySet().contains(1));
+        API.addProductToCart(registerId1, storeId1, 1, 1);
+        Assertions.assertTrue( API.getCart(registerId1).get(0).getProductIds().keySet().contains(1));
     }
 
     @Test
     //AT-8.2
     public void getCartInfoFail() throws  Exception{
-        tradingSystem.addProductToBag(registerId1, storeId1, 1, 1);
-        tradingSystem.logout(registerId1);
-        Assertions.assertEquals(0, tradingSystem.getCart(registerId1).size());
+        API.addProductToCart(registerId1, storeId1, 1, 1);
+        API.registeredLogout(registerId1);
+        Assertions.assertEquals(0, API.getCart(registerId1).size());
     }
 
     @Test
@@ -346,7 +348,7 @@ public class StoreTest {
         for(int i=0; i<100; i++){
             setUp();
             registerTwoUsers();
-            Assertions.assertEquals(4,tradingSystem.getNumOfUsers());
+            Assertions.assertEquals(4,API.getNumOfUsers());
         }
 
     }
@@ -356,13 +358,13 @@ public class StoreTest {
             Thread thread1= new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    tradingSystem.register("same name","1234");
+                    API.register("same name","1234");
                 }
             });
             Thread thread2= new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    tradingSystem.register("same name","1234");
+                    API.register("same name","1234");
                 }
             });
 
@@ -384,9 +386,9 @@ public class StoreTest {
     public void appointTwoManagersTest(){
         for(int i=0; i<100; i++){
             setUp();
-            tradingSystem.addStoreOwner(registerId1,registerId2,storeId1);
+            API.addStoreOwner(registerId1,registerId2,storeId1);
             appointTwoManagers();
-            Assertions.assertEquals(3,tradingSystem.getWorkersInformation(registerId1,storeId1).size());
+            Assertions.assertEquals(3,API.getStoreWorkers(registerId1,storeId1).size());
         }
 
     }
@@ -396,13 +398,13 @@ public class StoreTest {
             Thread thread1= new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    tradingSystem.addStoreManager(registerId1,registerId3,storeId1);
+                    API.addStoreManager(registerId1,registerId3,storeId1);
                 }
             });
             Thread thread2= new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    tradingSystem.addStoreManager(registerId2,registerId3,storeId1);
+                    API.addStoreManager(registerId2,registerId3,storeId1);
                 }
             });
 
@@ -426,7 +428,7 @@ public class StoreTest {
         for(int i=0; i<100; i++){
             setUp();
             addNewStores();
-            Assertions.assertEquals(101,tradingSystem.getNumOfStores());
+            Assertions.assertEquals(101,API.getNumOfStores());
         }
     }
 
@@ -437,7 +439,7 @@ public class StoreTest {
                 threads.add(new Thread(new Runnable() {
                     @Override
                     public void run() {
-                        tradingSystem.openStore(registerId1,"newStore");
+                        API.openStore(registerId1,"newStore");
                     }
                 }));
             }
@@ -463,15 +465,15 @@ public class StoreTest {
         for(int i=0; i<100; i++){
             setUp();
             deleteSimultaneously();
-            Assertions.assertEquals(0,tradingSystem.getProductsFromStore(storeId1).size());
+            Assertions.assertEquals(0,API.getAllStoreProducts(storeId1).size());
         }
     }
 
     private void deleteSimultaneously() {
         try{
-            tradingSystem.addStoreOwner(registerId1,registerId2,storeId1);
-            Thread thread1=new Thread(()->tradingSystem.removeProductFromStore(registerId1,storeId1,1));
-            Thread thread2=new Thread(()->tradingSystem.removeProductFromStore(registerId2,storeId1,1));
+            API.addStoreOwner(registerId1, registerId2, storeId1);
+            Thread thread1=new Thread(()->API.removeProductFromStore(registerId1,storeId1,1));
+            Thread thread2=new Thread(()->API.removeProductFromStore(registerId2,storeId1,1));
             thread1.start();
             thread2.start();
             thread1.join();

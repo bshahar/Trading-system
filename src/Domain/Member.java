@@ -112,8 +112,8 @@ public class Member {
 
     }
 
-    public boolean addStoreManager(User user, Store store) {
-        return permissions.get(store).appointManager(user);
+    public boolean addStoreManager(User owner,User user, Store store) {
+        return permissions.get(store).appointManager(owner,user);
     }
 
     public void updateManagerPermission(Store store) {

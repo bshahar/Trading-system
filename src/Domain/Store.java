@@ -117,7 +117,7 @@ public class Store {
 
     public boolean getStorePurchaseHistory(int ownerId) {
         return true;
-    }
+    }//TODO
 
     public Product getProductById(int id) {
         return inventory.getProductById(id);

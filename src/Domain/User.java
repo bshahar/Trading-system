@@ -1,7 +1,5 @@
 package Domain;
 
-import Permissions.Permission;
-
 import java.util.LinkedList;
 import java.util.List;
 

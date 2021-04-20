@@ -19,7 +19,7 @@ public class TradingSystem {
     private List<Store> stores;
     private User systemManager;
     private List<Receipt> receipts;
-    private List<User> users; //TODO every user is a thread
+    private List<User> users;
     private ConcurrentHashMap<String,String> userPass;
     private Encryptor encryptor;
 
@@ -40,15 +40,16 @@ public class TradingSystem {
     }
 
 
-    public boolean register(String userName, String pass) {
+    public int register(String userName, String pass) {
         synchronized (userPass) {
             if (userPass.containsKey(userName)) {
-                return false;
+                return -1;
             } else {
                 userPass.put(userName, this.encryptor.encrypt(pass));
                 KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " register to the system");
-                users.add(new User(userName, userCounter.inc(), 1));
-                return true;
+                int userId=userCounter.inc();
+                users.add(new User(userName, userId, 1));
+                return userId;
             }
         }
     }
@@ -102,21 +103,21 @@ public class TradingSystem {
     }
 
 
-    public boolean guestRegister (int userId,String userName,String password){
+    public int guestRegister (int userId, String userName, String password){
         try {
             if (userPass.containsKey(userName)) {
-                return false;
+                return -1;
             } else {
                 userPass.put(userName, this.encryptor.encrypt(password));
                 getUserById(userId).setRegistered();
                 getUserById(userId).setName(userName);
                 KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " registered to the system.");
-                return true;
+                return userId;
             }
         }
         catch (Exception e) {
             KingLogger.logEvent(Level.WARNING, "Guest user failed registering to the system.");
-            return false;
+            return -1;
         }
     }
 
@@ -270,6 +271,7 @@ public class TradingSystem {
                     Receipt rec = new Receipt(storeId, userId,getUserById(userId).getUserName(), products);
                     this.receipts.add(rec);
                     store.addReceipt(rec);
+                    getUserById(userId).addReceipt(rec);
                     KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " made purchase in store " + storeId);
                     return true;
                 }
@@ -392,8 +394,8 @@ public class TradingSystem {
         return null;
     }
 
-    public List<Integer> getProductsFromStore(int storeId) {
-        return getStoreById(storeId).getInventory().getProductsIds();
+    public List<Product> getProductsFromStore(int storeId) {
+        return getStoreById(storeId).getInventory().getProducts();
     }
 
     public int getNumOfStores() {
@@ -401,16 +403,11 @@ public class TradingSystem {
     }
 
     public List<Receipt> getUserPurchaseHistory(int userId) {
-        List<Receipt> output= new LinkedList<>();
         if(!getUserById(userId).isRegistered()){
             return null;
         }
-        for(Receipt receipt : receipts){
-            if(receipt.getUserId()==userId){
-                output.add(receipt);
-            }
-        }
-        return output;
+
+        return getUserById(userId).getPurchaseHistory();
 
     }
 }

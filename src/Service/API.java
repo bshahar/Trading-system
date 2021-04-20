@@ -40,11 +40,11 @@ public class API {
         return tradingSystem.buyProducts(userId,storeId,creditInfo);
     }
 
-    public static int registerLogin(String username, String password){
+    public static int registeredLogin(String username, String password){
         return tradingSystem.login(username, password) ;
     }
 
-    public static boolean registerLogout(int userId){
+    public static boolean registeredLogout(int userId){
         return tradingSystem.logout(userId) ;
     }
 
@@ -98,9 +98,34 @@ public class API {
     }
 
 
+    public static int register(String userName, String password) {
+        return tradingSystem.register(userName, password);
+    }
 
+    public static boolean isLogged(int userId) {
+        return tradingSystem.isLogged(userId);
 
+    }
 
+    public static int getNumOfUsers() {
 
+        return tradingSystem.getNumOfUsers();
+    }
 
+    public static int guestRegister(int guestId, String userName, String password) {
+        return tradingSystem.guestRegister(guestId, userName, password);
+    }
+
+    public static List<Product> getAllStoreProducts(int storeId) {
+        return tradingSystem.getProductsFromStore(storeId);
+    }
+
+    public static int getNumOfStores() {
+        return tradingSystem.getNumOfStores();
+
+    }
+
+    public static List<Receipt> getUserPurchaseHistory(int registerId1) {
+        return tradingSystem.getUserPurchaseHistory(registerId1);
+    }
 }

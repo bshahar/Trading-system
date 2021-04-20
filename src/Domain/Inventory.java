@@ -39,7 +39,7 @@ public class Inventory {
     }
 
     public boolean canBuyProduct(Product prod, int numOfProd) {
-        if(this.products.containsKey(prod) && products.get(prod) >= numOfProd) //TODO add to logger, print an error message?
+        if(this.products.containsKey(prod) && products.get(prod) >= numOfProd)
            return true;
         return false;
     }
@@ -139,5 +139,9 @@ public class Inventory {
     public List<Integer> getProductsIds(){
         List <Integer> l = new ArrayList<>(this.products.values());
         return l;
+    }
+
+    public List<Product> getProducts() {
+        return  (new LinkedList<>(products.keySet()));
     }
 }

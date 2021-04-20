@@ -12,6 +12,7 @@ public class User {
     private boolean logged;
     private int id;
     private Member member;
+    private List<Receipt> receipts;
 
 
     public User(String userName, int id,int registered) {
@@ -21,6 +22,7 @@ public class User {
         this.id = id;
         this.logged = true;
         this.member = new Member();
+        this.receipts=new LinkedList<>();
     }
 
     public boolean isRegistered()
@@ -97,7 +99,7 @@ public class User {
     }
 
     public boolean addStoreManager(User user, Store store) {
-        return this.member.addStoreManager(user,store);
+        return this.member.addStoreManager(this,user,store);
     }
 
     public void updateManagerPermission(Store store) {
@@ -138,5 +140,13 @@ public class User {
 
     public boolean removeManagerFromStore(User manager, Store store) {
         return member.removeMangerFromStore(this,manager,store);
+    }
+
+    public boolean addReceipt(Receipt receipt){
+        return receipts.add(receipt);
+    }
+
+    public List<Receipt> getPurchaseHistory() {
+        return receipts;
     }
 }

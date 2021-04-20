@@ -10,11 +10,8 @@ public class Inventory {
         this.products = new HashMap<>();
     }
 
-    public Inventory(Map<Product , Integer> products) {
-        this.products = products;
-    }
-
     public boolean addProduct(Product prod, int numOfProd) {
+        if(numOfProd <= 0) return false;
         synchronized (this) {
             this.products.put(prod, numOfProd);
         }
@@ -39,7 +36,7 @@ public class Inventory {
     }
 
     public boolean canBuyProduct(Product prod, int numOfProd) {
-        if(this.products.containsKey(prod) && products.get(prod) >= numOfProd)
+        if(numOfProd >0 && this.products.containsKey(prod) && products.get(prod) >= numOfProd)
            return true;
         return false;
     }

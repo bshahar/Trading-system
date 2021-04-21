@@ -1,10 +1,11 @@
-package Permissions;
+package Domain;
 
 import Domain.Member;
 import Domain.Receipt;
 import Domain.Product;
 import Domain.Store;
 import Domain.User;
+import Permissions.*;
 
 import java.util.LinkedList;
 import java.util.List;

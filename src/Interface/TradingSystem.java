@@ -26,7 +26,7 @@ public class TradingSystem {
 
 
     public TradingSystem (User systemManager) {
-        this.paymentAdapter= new PaymentAdapter();
+        this.paymentAdapter= new PaymentAdapter(new DemoPayment());
         this.stores = Collections.synchronizedList(new LinkedList<Store>());
 
         this.receipts =Collections.synchronizedList( new LinkedList<>());

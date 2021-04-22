@@ -40,16 +40,15 @@ public class Inventory {
            return true;
         return false;
     }
-    public boolean buyProduct(Product prod, int numOfProd){
-        synchronized (this) {
-            if (this.products.containsKey(prod) && products.get(prod) >= numOfProd){
-                products.put(prod, products.get(prod) - numOfProd);
-                return true;
-            }
-            else
-                return false;
-
+    public boolean removeProductAmount(Product prod, int numOfProd){
+        if (this.products.containsKey(prod) && products.get(prod) >= numOfProd){
+            products.put(prod, products.get(prod) - numOfProd);
+            return true;
         }
+        else
+            return false;
+
+
     }
     public String toString(){
         String output = "";
@@ -140,5 +139,11 @@ public class Inventory {
 
     public List<Product> getProducts() {
         return  (new LinkedList<>(products.keySet()));
+    }
+
+    public void addProductAmount(Product product, Integer amount) {
+        if(this.products.containsKey(product)){
+            this.products.put(product, this.products.get(product)+amount);
+        }
     }
 }

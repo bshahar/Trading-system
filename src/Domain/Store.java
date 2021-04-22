@@ -123,12 +123,12 @@ public class Store {
         return inventory.getProductById(id);
     }
 
-    public boolean canBuyProduct(int id,int amount) {
-        return inventory.canBuyProduct(getProductById(id),amount);
+    public boolean canBuyProduct(Product product, int amount) {
+        return inventory.canBuyProduct(product,amount);
     }
 
-    public void buyProduct(Integer prodId, Integer amount) {
-        inventory.buyProduct(getProductById(prodId),amount);
+    public void removeProductAmount(Product product, Integer amount) {
+        inventory.removeProductAmount(product,amount);
     }
 
     public void addEmployee(User owner,User user) {
@@ -168,4 +168,12 @@ public class Store {
     }
 
 
+    public void abortPurchase(Map<Product, Integer> productsAmount) {
+        for(Product product : productsAmount.keySet()){
+            synchronized (product){
+                this.inventory.addProductAmount(product,productsAmount.get(product));
+            }
+        }
+
+    }
 }

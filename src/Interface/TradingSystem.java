@@ -16,24 +16,22 @@ public class TradingSystem {
 
     private PaymentAdapter paymentAdapter;
     private SupplementAdapter supplementAdapter;
+    private UserAuth userAuth;
     private List<Store> stores;
     private User systemManager;
     private List<Receipt> receipts;
     private List<User> users;
-    private ConcurrentHashMap<String,String> userPass;
-    private Encryptor encryptor;
 
 
 
     public TradingSystem (User systemManager) {
         this.paymentAdapter= new PaymentAdapter(new DemoPayment());
-        this.stores = Collections.synchronizedList(new LinkedList<Store>());
+        this.stores = Collections.synchronizedList(new LinkedList<>());
 
         this.receipts =Collections.synchronizedList( new LinkedList<>());
         this.systemManager =systemManager;
         this.users = Collections.synchronizedList(new LinkedList<>());
-        this.userPass = new ConcurrentHashMap<>();
-        this.encryptor = new Encryptor();
+        this.userAuth=new UserAuth();
         userCounter = new counter();
         storeCounter = new counter();
         productCounter=new counter();
@@ -41,22 +39,21 @@ public class TradingSystem {
 
 
     public int register(String userName, String pass) {
-        synchronized (userPass) {
-            if (userPass.containsKey(userName)) {
-                return -1;
-            } else {
-                userPass.put(userName, this.encryptor.encrypt(pass));
-                KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " register to the system");
-                int userId=userCounter.inc();
-                users.add(new User(userName, userId, 1));
-                return userId;
-            }
+        if(userAuth.register(userName,pass)){
+            KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " register to the system");
+            int userId=userCounter.inc();
+            users.add(new User(userName, userId, 1));
+            return userId;
         }
+        else{
+            return -1;
+        }
+
     }
 
     //if the user performed login successfully return his id. else return -1
     public int login(String userName,String pass) {
-        if(loginAuthentication(userName,pass)) {
+        if(userAuth.loginAuthentication(userName,pass)) {
             KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " logged into the system.");
             for (User user : users) {
                 if (user.getUserName() == userName) {
@@ -68,24 +65,6 @@ public class TradingSystem {
         return -1;
     }
 
-    private boolean loginAuthentication(String userName, String pass) {
-        try {
-            if (userPass.containsKey(userName))//write like this for the error log
-            {
-                if (userPass.get(userName).equals(encryptor.encrypt(pass)))
-                    return true;
-                else
-                    KingLogger.logEvent(Level.INFO, "Domain.User failed logging in with name: " + userName);
-            } else {
-                KingLogger.logEvent(Level.INFO, "Domain.User tried to login with name: " + userName + " that doesn't exist");
-            }
-            return false;
-        }
-        catch (Exception e) {
-            KingLogger.logEvent(Level.WARNING, "Domain.User failed logging in with name: " + userName);
-            return false;
-        }
-    }
 
     public int guestLogin() {
         User guest = new User("Guest", userCounter.inc(), 0);
@@ -105,14 +84,15 @@ public class TradingSystem {
 
     public int guestRegister (int userId, String userName, String password){
         try {
-            if (userPass.containsKey(userName)) {
-                return -1;
-            } else {
-                userPass.put(userName, this.encryptor.encrypt(password));
+            if(userAuth.guestRegister(userName,password)){
                 getUserById(userId).setRegistered();
                 getUserById(userId).setName(userName);
                 KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " registered to the system.");
                 return userId;
+
+            }
+            else{
+                return -1;
             }
         }
         catch (Exception e) {
@@ -250,34 +230,35 @@ public class TradingSystem {
         try {
             Map<Integer, Integer> productsIds = getBag(userId, storeId);
             Store store = getStoreById(storeId);
-            double totalCost = 0;
-            Map<Product, Integer> products = new HashMap<>();
+            Map<Product, Integer> productsAmountBag = new HashMap<>();
             for (int id : productsIds.keySet()) {
                 Product p = store.getProductById(id);
-                products.put(p, productsIds.get(id));
-                totalCost += p.getPrice() * productsIds.get(id);
+                productsAmountBag.put(p, productsIds.get(id));
             }
-            synchronized (store) {
-                boolean canBuy = true;
-                for (Integer prodId : productsIds.keySet()) {
-                    if (!store.canBuyProduct(prodId, productsIds.get(prodId))) {
-                        canBuy = false;
+            Map<Product,Integer> productsAmountBuy=new HashMap<>();
+            double totalCost=0;
+            for(Product product : productsAmountBag.keySet()){
+                synchronized (product){
+                    if(store.canBuyProduct(product,productsAmountBag.get(product))){
+                        store.removeProductAmount(product,productsAmountBag.get(product));
+                        productsAmountBuy.put(product,productsAmountBag.get(product));
+                        totalCost+=(product.getPrice()*productsAmountBag.get(product));
                     }
                 }
-                if (canBuy && paymentAdapter.pay(totalCost, creditInfo)) {
-                    for (Integer prodId : productsIds.keySet()) {
-                        store.buyProduct(prodId, productsIds.get(prodId));//remove amount from product
-                    }
-                    Receipt rec = new Receipt(storeId, userId,getUserById(userId).getUserName(), products);
-                    this.receipts.add(rec);
-                    store.addReceipt(rec);
-                    getUserById(userId).addReceipt(rec);
-                    KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " made purchase in store " + storeId);
-                    return true;
-                }
             }
-            KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " couldn't make a purchase in store " + storeId);
-            return false;
+            if(paymentAdapter.pay(totalCost,creditInfo)){
+                Receipt rec = new Receipt(storeId, userId,getUserById(userId).getUserName(), productsAmountBuy);
+                this.receipts.add(rec);
+                store.addReceipt(rec);
+                getUserById(userId).addReceipt(rec);
+                KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " made purchase in store " + storeId);
+                return true;
+            }
+            else{
+                store.abortPurchase(productsAmountBuy);
+                KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " couldn't make a purchase in store " + storeId);
+                return false;
+            }
         }
         catch (Exception e) {
             KingLogger.logError(Level.WARNING, "Domain.User with id " + userId + " couldn't make a purchase in store " + storeId);

@@ -19,9 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix tests">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="change permissions">
+      <change afterPath="$PROJECT_DIR$/src/Service/UserAuth.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/LoginTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,8 +36,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -80,7 +82,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/TradingSystem/Trading-system" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -93,7 +95,7 @@
       <recent name="Permissions" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Tests in Trading-system">
+  <component name="RunManager" selected="JUnit.LoginTest">
     <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -109,7 +111,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.registerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.testme" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -119,7 +121,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="METHOD_NAME" value="registerTest" />
+      <option name="METHOD_NAME" value="testme" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -171,11 +173,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.LoginTest.testme" />
         <item itemvalue="JUnit.Tests in Trading-system" />
         <item itemvalue="JUnit.StoreTest" />
         <item itemvalue="JUnit.PurchaseTest" />
-        <item itemvalue="JUnit.LoginTest.registerTest" />
-        <item itemvalue="JUnit.LoginTest" />
       </list>
     </recent_temporary>
   </component>
@@ -324,6 +326,11 @@
           <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
           <line>265</line>
           <option name="timeStamp" value="6" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
+          <line>138</line>
+          <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

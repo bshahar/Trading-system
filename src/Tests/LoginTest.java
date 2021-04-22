@@ -5,6 +5,9 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.HashMap;
+import java.util.Map;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginTest {
@@ -125,6 +128,40 @@ public class LoginTest {
         String password= "or321654";
         API.register(userName,password);
         Assertions.assertEquals(-1,API.guestRegister(guestId,"kandabior","or321654"));
+    }
+
+    @Test
+    public void testme(){
+        System.out.println(getMaxTools(1,11));
+    }
+
+    public static int getMaxTools(int start,int end){
+        if(start>end){
+            return -1;
+        }
+        Map<Integer,Integer> map= new HashMap<>();
+        for( int i=start; i<=end ;i++){
+            String temp= String.valueOf(i);
+            int sum=0;
+            for(int j=0; j<temp.length(); j++){
+                sum+= temp.charAt(j)- '0';
+            }
+            if(map.containsKey(sum)){
+                map.put(sum,map.get(sum)+1);
+            }else{
+                map.put(sum,1);
+            }
+        }
+        //get max
+        int max=0;
+        for (int key: map.keySet()){
+            if(map.get(key)>max){
+                max=map.get(key);
+            }
+        }
+        return max;
+
+
     }
 
 

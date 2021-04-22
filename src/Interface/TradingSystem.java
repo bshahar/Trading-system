@@ -16,12 +16,11 @@ public class TradingSystem {
 
     private PaymentAdapter paymentAdapter;
     private SupplementAdapter supplementAdapter;
+    private UserAuth userAuth;
     private List<Store> stores;
     private User systemManager;
     private List<Receipt> receipts;
     private List<User> users;
-    private ConcurrentHashMap<String,String> userPass;
-    private Encryptor encryptor;
 
 
 
@@ -32,8 +31,7 @@ public class TradingSystem {
         this.receipts =Collections.synchronizedList( new LinkedList<>());
         this.systemManager =systemManager;
         this.users = Collections.synchronizedList(new LinkedList<>());
-        this.userPass = new ConcurrentHashMap<>();
-        this.encryptor = new Encryptor();
+        this.userAuth=new UserAuth();
         userCounter = new counter();
         storeCounter = new counter();
         productCounter=new counter();
@@ -41,22 +39,21 @@ public class TradingSystem {
 
 
     public int register(String userName, String pass) {
-        synchronized (userPass) {
-            if (userPass.containsKey(userName)) {
-                return -1;
-            } else {
-                userPass.put(userName, this.encryptor.encrypt(pass));
-                KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " register to the system");
-                int userId=userCounter.inc();
-                users.add(new User(userName, userId, 1));
-                return userId;
-            }
+        if(userAuth.register(userName,pass)){
+            KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " register to the system");
+            int userId=userCounter.inc();
+            users.add(new User(userName, userId, 1));
+            return userId;
         }
+        else{
+            return -1;
+        }
+
     }
 
     //if the user performed login successfully return his id. else return -1
     public int login(String userName,String pass) {
-        if(loginAuthentication(userName,pass)) {
+        if(userAuth.loginAuthentication(userName,pass)) {
             KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " logged into the system.");
             for (User user : users) {
                 if (user.getUserName() == userName) {
@@ -68,24 +65,6 @@ public class TradingSystem {
         return -1;
     }
 
-    private boolean loginAuthentication(String userName, String pass) {
-        try {
-            if (userPass.containsKey(userName))//write like this for the error log
-            {
-                if (userPass.get(userName).equals(encryptor.encrypt(pass)))
-                    return true;
-                else
-                    KingLogger.logEvent(Level.INFO, "Domain.User failed logging in with name: " + userName);
-            } else {
-                KingLogger.logEvent(Level.INFO, "Domain.User tried to login with name: " + userName + " that doesn't exist");
-            }
-            return false;
-        }
-        catch (Exception e) {
-            KingLogger.logEvent(Level.WARNING, "Domain.User failed logging in with name: " + userName);
-            return false;
-        }
-    }
 
     public int guestLogin() {
         User guest = new User("Guest", userCounter.inc(), 0);
@@ -105,14 +84,15 @@ public class TradingSystem {
 
     public int guestRegister (int userId, String userName, String password){
         try {
-            if (userPass.containsKey(userName)) {
-                return -1;
-            } else {
-                userPass.put(userName, this.encryptor.encrypt(password));
+            if(userAuth.guestRegister(userName,password)){
                 getUserById(userId).setRegistered();
                 getUserById(userId).setName(userName);
                 KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " registered to the system.");
                 return userId;
+
+            }
+            else{
+                return -1;
             }
         }
         catch (Exception e) {

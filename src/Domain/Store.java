@@ -1,5 +1,8 @@
 package Domain;
 
+import Domain.DiscountPolicies.DiscountByProduct;
+import Domain.DiscountPolicies.DiscountPolicy;
+
 import java.util.*;
 
 public class Store {
@@ -7,12 +10,13 @@ public class Store {
     private int storeId;
     private String name;
     private Inventory inventory;
-    private List<Policy> policies;
+    //private List<Policy> policies;
     private List<Format> formats;
     private List<User> employees;
     private List<User> owners;
     private List<User> managers;
     private List<Receipt> receipts;
+    private List<DiscountPolicy> discountPolicies;
 
     private Map<User,List<User>> appointments;
     private double rate;
@@ -43,12 +47,9 @@ public class Store {
         return rate;
     }
 
-
     public boolean addToInventory(User currUser, Product prod, int numOfProd) {
         return this.inventory.addProduct(prod , numOfProd);
     }
-
-
 
     private boolean validateProductId(int id){
         return this.inventory.validateProductId(id);
@@ -57,8 +58,6 @@ public class Store {
     public int getStoreId() {
         return storeId;
     }
-
-
 
     public boolean addProductToStore(int productId,  String name, List<Product.Category> categories, double price, String description, int quantity) {
         Product p = new Product(productId, name, categories, price, description);
@@ -93,7 +92,6 @@ public class Store {
     public List<Integer> getProductsByPriceRange(String[] filter) {
         return this.inventory.getProductsByPriceRange(filter);
     }
-
 
     public boolean removeManager(User owner, User manager) {
         if(appointments.get(owner).remove(manager)){
@@ -135,6 +133,7 @@ public class Store {
         this.employees.add(user);
         this.appointments.get(owner).add(user);
     }
+
     public List<User> getEmployees()
     {
         return this.employees;
@@ -147,6 +146,7 @@ public class Store {
     public void addOwnerToAppointments( User user) {
         appointments.put(user,new LinkedList<>());
     }
+
     public void addReceipt(Receipt receipt)
     {
         this.receipts.add(receipt);
@@ -166,7 +166,6 @@ public class Store {
         managers.add(user);
         return true;
     }
-
 
     public void abortPurchase(Map<Product, Integer> productsAmount) {
         for(Product product : productsAmount.keySet()){

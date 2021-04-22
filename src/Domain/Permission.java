@@ -75,11 +75,11 @@ public class Permission {
         if(this.removeProduct == null) return;
         this.removeProduct = null;
     }
-    public boolean removeProduct(int productId)
+    public Result removeProduct(int productId)
     {
         if(this.removeProduct!= null)
             return this.removeProduct.action(productId);
-        return false;
+        return new Result(false,"User has not permissions");
     }
 
     public void allowEditProduct()
@@ -141,11 +141,11 @@ public class Permission {
         if(this.appointOwner == null) return;
         this.appointOwner = null;
     }
-    public boolean appointOwner(User owner, User user)
+    public Result appointOwner(User owner, User user)
     {
         if(this.appointOwner!= null)
             return this.appointOwner.action(owner,user,this.store);
-        return false;
+        return new Result(false,"User has not permissions");
     }
 
     public void allowRemoveOwnerAppointment()

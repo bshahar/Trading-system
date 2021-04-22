@@ -44,10 +44,10 @@ public class Member {
     }
 
 
-    public boolean addStoreOwner(User owner, User user, Store store) {
+    public Result addStoreOwner(User owner, User user, Store store) {
         if(permissions.get(store)!=null)
             return permissions.get(store).appointOwner(owner,user);
-        return false;
+        return new Result(false, "User has not permissions");
 
     }
 
@@ -367,12 +367,12 @@ public class Member {
         }
     }
 
-    public boolean removeProductFromStore(Store store, int productId) {
+    public Result removeProductFromStore(Store store, int productId) {
         if(permissions.containsKey(store)){
             Permission permission= permissions.get(store);
             return permission.removeProduct(productId);
         }else{
-            return false;
+            return new Result(false,"User have no permissions");
         }
     }
 

@@ -65,13 +65,13 @@ public class Store {
         return this.inventory.addProduct(p, quantity);
     }
 
-    public boolean removeProductFromStore( int productId) {
+    public Result removeProductFromStore( int productId) {
         synchronized (inventory){
             if(this.inventory.prodExists(productId)){
                 return this.inventory.removeProduct(productId);
             }
             else{
-                return false;
+                return new Result(false,"Product not exist");
             }
 
         }

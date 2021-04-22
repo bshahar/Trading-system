@@ -123,13 +123,13 @@ public class Inventory {
         return null;
     }
 
-    public boolean removeProduct(int productId) {
+    public Result removeProduct(int productId) {
         Product p = getProductById(productId);
         if (p != null){
             products.remove(p);
-            return true;
+            return new Result(true,true);
         }
-        return false;
+        return new Result(false, "product not exist");
     }
 
     public List<Integer> getProductsIds(){

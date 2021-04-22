@@ -1,8 +1,6 @@
 package Permissions;
 
-import Domain.Member;
-import Domain.Store;
-import Domain.User;
+import Domain.*;
 
 
 public class AppointOwner {
@@ -14,13 +12,13 @@ public class AppointOwner {
         this.store = store;
     }
 
-    public boolean action(User owner, User user, Store store) {
+    public Result action(User owner, User user, Store store) {
         if(store.addOwner(user)) {
             store.addEmployee(owner,user);
             store.addOwnerToAppointments(user);
             user.updateOwnerPermission(store);
-            return true;
+            return new Result(true,true);
         }
-        return false;
+        return new Result(false,"Cant appoint the User" );
     }
 }

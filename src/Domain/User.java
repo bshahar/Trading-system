@@ -88,7 +88,7 @@ public class User {
 
     }
 
-    public boolean addStoreOwner(User owner, User user, Store store) {
+    public Result addStoreOwner(User owner, User user, Store store) {
         return this.member.addStoreOwner(owner,user,store);
     }
     public void updateOwnerPermission(Store store)
@@ -96,7 +96,7 @@ public class User {
         this.member.updateOwnerPermission(store);
     }
 
-    public boolean addStoreManager(User user, Store store) {
+    public Result addStoreManager(User user, Store store) {
         return this.member.addStoreManager(this,user,store);
     }
 
@@ -132,7 +132,7 @@ public class User {
         return member.addProductToStore(productId,store,name, categories, price, description, quantity);
     }
 
-    public boolean removeProductFromStore(Store store, int productId) {
+    public Result removeProductFromStore(Store store, int productId) {
         return member.removeProductFromStore(store,productId);
     }
 

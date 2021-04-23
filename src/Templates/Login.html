@@ -336,31 +336,32 @@ ws.onmessage = function(event)
 		console.log(parsedMessage);
 		if(parsedMessage.result=="true"){
 			alert(parsedMessage.message);
-			if(parsedMessage.type == "LOGIN")
+			if(parsedMessage.type == "LOGIN"){
+                localStorage.setItem('id',parsedMessage.id);
 			    window.location.href = "Main";
+			}
 		}else{
 			alert(parsedMessage.message);
     	}
 
-    
 }
 
 const login= () =>
 {
-var email = document.getElementById("loginEmail").value;
-var pass = document.getElementById("loginPassword").value;
-console.log(email);
-console.log(pass);
-ws.send(JSON.stringify({"type":"LOGIN","email":email , "password" : pass}));
+	var email = document.getElementById("loginEmail").value;
+	var pass = document.getElementById("loginPassword").value;
+	console.log(email);
+	console.log(pass);
+	ws.send(JSON.stringify({"type":"LOGIN","email":email , "password" : pass}));
 }
 
 const register= () =>
 {
-var email = document.getElementById("registerEmail").value;
-var pass = document.getElementById("registerPassword").value;
-console.log(email);
-console.log(pass);
-ws.send(JSON.stringify({"type":"REGISTER","email":email , "password" : pass}));
+	var email = document.getElementById("registerEmail").value;
+	var pass = document.getElementById("registerPassword").value;
+	console.log(email);
+	console.log(pass);
+	ws.send(JSON.stringify({"type":"REGISTER","email":email , "password" : pass}));
 }
 
 const guestLogin= () =>

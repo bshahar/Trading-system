@@ -3,11 +3,26 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <style>
+        button {
+        border-radius: 20px;
+        border: 1px solid #FF4B2B;
+        background-color: #FF4B2B;
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+        margin: 5px 0 5px;
+}
+    </style>
 </head>
 <body>
 <div>
-    hellooo
-    <button onclick="add()"> click me</button>
+    <ul id="list">
+    </ul>
 </div>
 
 </body>
@@ -16,24 +31,25 @@
 var ws = new WebSocket("wss://localhost:4567/Main/");
 ws.onopen = function(event)
     {
-        ws.send(JSON.stringify({"dest":"SERVER", "type":"GET_STORES"}));
+        console.log(localStorage.getItem("id"));
+        ws.send(JSON.stringify({"type":"GET_STORES","id":localStorage.getItem("id")}));
     }
 
 ws.onmessage = function(event)
 {
+ const parsedMessage= JSON.parse(event.data);
+		console.log(parsedMessage);
+		if(parsedMessage.type=="STORES_NAMES"){
+            
+		const names = parsedMessage.names.split(",");
+         for (let i = 0; i < names.length; i++) {
+        document.getElementById("list").innerHTML  += '<button>' + names[i] + '</button><br/>';
+  }
 
+}
 
 }
 
-var arr = ["list", "items", "here"];
-var i=0;
-const add = ()=>{
-    $("div").append("<ul></ul>");
-    var li = "<li>";
-    $("ul").append(li.concat(arr[i]))
-    i++;
-
-}
 
 </script>
 </html>

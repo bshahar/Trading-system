@@ -33,8 +33,10 @@ public class LoginWebSocket {
             if(type.equals("REGISTER_GUEST")){
                 int result = API.guestLogin();
                 JSONObject json= new JSONObject();
+                json.put("type", "LOGIN");
                 json.put("result","true");
                 json.put("message","guest login success");
+                json.put("id", result);
                 session.getRemote().sendString(json.toString());
             }else {
                 String email = jo.get("email").toString();
@@ -70,6 +72,7 @@ public class LoginWebSocket {
                         json.put("type", "LOGIN");
                         json.put("result", "true");
                         json.put("message", "login success");
+                        json.put("id", result);
                         session.getRemote().sendString(json.toString());
                         System.out.println("success login");
                     }

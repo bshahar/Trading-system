@@ -27,7 +27,6 @@ public class TradingSystem {
     public TradingSystem (User systemManager) {
         this.paymentAdapter= new PaymentAdapter(new DemoPayment());
         this.stores = Collections.synchronizedList(new LinkedList<>());
-
         this.receipts =Collections.synchronizedList( new LinkedList<>());
         this.systemManager =systemManager;
         this.users = Collections.synchronizedList(new LinkedList<>());
@@ -68,6 +67,7 @@ public class TradingSystem {
 
     public int guestLogin() {
         User guest = new User("Guest", userCounter.inc(), 0);
+        guest.setLogged(true);
         users.add(guest);
         int id = guest.getId();
         KingLogger.logEvent(Level.INFO, "Guest logged into the system with id: " + id);
@@ -131,6 +131,20 @@ public class TradingSystem {
         KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " tried to get stores info while logged out and failed.");
         return null;
     }
+    public String getAllStoresNames(int userId) {
+        User u = getUserById(userId);
+        StringBuilder storesNames = new StringBuilder();
+        if (u != null && u.isLogged()) {
+            for(Store store : this.stores)
+                storesNames.append(store.getName()+",");
+            storesNames.deleteCharAt(storesNames.length()-1);
+        }
+        KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " tried to get stores info while logged out and failed.");
+        return storesNames.toString();
+    }
+
+
+
 
     public Map<Integer,Integer> getProducts(Filter filter, int userId){
         try{

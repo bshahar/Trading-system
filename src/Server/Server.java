@@ -15,10 +15,10 @@ public class Server {
         Spark.webSocket("/Login", LoginWebSocket.class);
         Spark.webSocket("/Main",MainWebSocket.class);
         API.initTradingSystem("ELAD");
+        API.forTest();
 
         Spark.get("/Login",((request, response) -> {
             HashMap<String ,Object> model = new HashMap<>();
-
             return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Login"));
         }));
 

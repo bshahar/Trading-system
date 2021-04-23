@@ -1,6 +1,7 @@
 package Permissions;
 
 import Domain.Member;
+import Domain.Result;
 import Domain.Store;
 import Domain.User;
 
@@ -14,7 +15,7 @@ public class GetWorkersInfo {
         this.member = member;
         this.store = store;
     }
-    public List<User> action() {
+    public Result action() {
         return this.store.getEmployees();
     }
 }

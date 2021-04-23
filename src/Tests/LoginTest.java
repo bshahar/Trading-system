@@ -1,5 +1,6 @@
 package Tests;
 
+import Domain.Result;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -23,16 +24,16 @@ public class LoginTest {
     public void registerTest(){
         String userName="kandabior";
         String password= "or321654";
-        Assertions.assertEquals(1,API.register(userName,password));
+        Assertions.assertEquals(1,API.register(userName,password).getdata());
     }
     //AT-4.2
     @Test
     public void loginBadPass(){
         String userName="kandabior";
         String password= "or321654";
-        Assertions.assertEquals(1,API.register(userName,"12"));
-        int index = API.registeredLogin(userName,password);
-        assertEquals(index,-1);
+        Assertions.assertEquals(1,API.register(userName,"12").getdata());
+        Result result= API.registeredLogin(userName,password);
+        assertEquals(result.getdata(),-1);
     }
 
     //AT-4.3
@@ -41,7 +42,7 @@ public class LoginTest {
         String userName="kandabior";
         String password= "or321654";
         API.register(userName,password);
-        Assertions.assertEquals(-1,API.register(userName,password));
+        Assertions.assertEquals(false,API.register(userName,password).isResult());
     }
 
     @Test
@@ -49,9 +50,9 @@ public class LoginTest {
         String userName="kandabior";
         String password= "or321654";
         API.register(userName,password);
-        int index = API.registeredLogin(userName,password);
-        Assertions.assertEquals(index,1);
-        Assertions.assertTrue(API.isLogged(index));
+        Result index = API.registeredLogin(userName,password);
+        Assertions.assertEquals(index.getdata(),1);
+        Assertions.assertTrue((Boolean)API.isLogged((int)index.getdata()).getdata());
     }
 
     //AT-10.1
@@ -61,8 +62,8 @@ public class LoginTest {
         String password= "or321654";
         API.register(userName,password);
         API.registeredLogin(userName,password);
-        Assertions.assertTrue(API.registeredLogout(1));
-        Assertions.assertFalse(API.isLogged(1));
+        Assertions.assertTrue((boolean)API.registeredLogout(1).getdata());
+        Assertions.assertFalse((boolean)API.isLogged(1).getdata());
     }
 
     //AT-10.2
@@ -72,8 +73,8 @@ public class LoginTest {
         String password= "or321654";
         API.register(userName,password);
         API.registeredLogin(userName,password);
-        Assertions.assertTrue(API.registeredLogout(1));
-        Assertions.assertFalse(API.registeredLogout(1));
+        Assertions.assertTrue((boolean)API.registeredLogout(1).isResult());
+        Assertions.assertFalse((boolean) API.registeredLogout(1).isResult());
     }
 
 
@@ -82,7 +83,7 @@ public class LoginTest {
     public void failLoginTest(){
         String userName="kandabior";
         String password= "or321654";
-        Assertions.assertEquals(-1,API.registeredLogin(userName,password));
+        Assertions.assertEquals(-1,API.registeredLogin(userName,password).getdata());
     }
 
 
@@ -90,44 +91,44 @@ public class LoginTest {
     @Test
     //AT-1
     public void guestLoginTest(){
-        int index = API.guestLogin();
-        assertEquals(index, 1);
-        Assertions.assertTrue(API.isLogged(index));
+        Result index = API.guestLogin();
+        assertEquals(index.getdata(), 1);
+        Assertions.assertTrue((boolean) API.isLogged((int)index.getdata()).getdata());
 
     }
     @Test
     //AT-2
     public void guestLogoutTest(){
-        int index = API.guestLogin();
-        Assertions.assertFalse(API.registeredLogout(index));
+        int index = (int)API.guestLogin().getdata();
+        Assertions.assertFalse((boolean) API.registeredLogout(index).isResult());
     }
 
     @Test
     public void scalabilityUserTest(){
 
         for (int i=1; i<1000; i++){
-            if(i!=API.guestLogin()){
+            if(i!=(int)API.guestLogin().getdata()){
                 fail();
             }
         }
-        Assertions.assertEquals(999,API.getNumOfUsers());
+        Assertions.assertEquals(999,API.getNumOfUsers().getdata());
     }
 
     //AT-3.1
     @Test
     public void guestRegisterTest(){
-        int guestId= API.guestLogin();
-        Assertions.assertEquals(1,API.guestRegister(guestId,"or","or321654"));
-        Assertions.assertTrue(API.isLogged(guestId));
+        int guestId= (int)API.guestLogin().getdata();
+        Assertions.assertEquals(1,API.guestRegister(guestId,"or","or321654").getdata());
+        Assertions.assertTrue((boolean) API.isLogged(guestId).isResult());
     }
     //AT-3.2
     @Test
     public void guestRegisterTestFail(){
-        int guestId= API.guestLogin();
+        int guestId= (int)API.guestLogin().getdata();
         String userName="kandabior";
         String password= "or321654";
         API.register(userName,password);
-        Assertions.assertEquals(-1,API.guestRegister(guestId,"kandabior","or321654"));
+        Assertions.assertEquals(false,API.guestRegister(guestId,"kandabior","or321654").isResult());
     }
 
     @Test
@@ -163,26 +164,4 @@ public class LoginTest {
 
 
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 }

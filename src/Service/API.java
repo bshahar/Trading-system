@@ -71,11 +71,11 @@ public class API {
 
     public static Result addManagerPermissions(){
         //TODO
-        return false;
+        return new Result(true,true);
     }
     public static Result removeManagerPermissions(){
         //TODO
-        return false;
+        return new Result(true,true);
     }
 
     public static Result removeManager(int ownerId,int managerId,int storeId){
@@ -114,6 +114,7 @@ public class API {
     }
 
     public static Result getAllStoreProducts(int storeId) {
+
         return tradingSystem.getProductsFromStore(storeId);
     }
 

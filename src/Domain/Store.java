@@ -95,7 +95,7 @@ public class Store {
     }
 
 
-    public boolean removeManager(User owner, User manager) {
+    public Result removeManager(User owner, User manager) {
         if(appointments.get(owner).remove(manager)){
             employees.remove(manager);
             if(appointments.containsKey(manager)){
@@ -106,9 +106,9 @@ public class Store {
                 }
 
             }
-            return true;
+            return new Result(true,true);
         }
-        return false;
+        return new Result(false,"Remove of the manager has failed");
     }
 
     public List<User> getWorkersInformation(int ownerId) {
@@ -135,13 +135,13 @@ public class Store {
         this.employees.add(user);
         this.appointments.get(owner).add(user);
     }
-    public List<User> getEmployees()
+    public Result getEmployees()
     {
-        return this.employees;
+        return new Result(true,this.employees);
     }
 
-    public List<Receipt> getPurchaseHistory() {
-        return this.receipts;
+    public Result getPurchaseHistory() {
+        return new Result(true,this.receipts);
     }
 
     public void addOwnerToAppointments( User user) {

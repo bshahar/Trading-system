@@ -120,11 +120,11 @@ public class User {
         this.member.disableMyPermissions(store,opIndexes);
     }
 
-    public List<User> getWorkersInformation(Store store) {
+    public Result getWorkersInformation(Store store) {
         return this.member.getWorkersInformation(store);
     }
 
-    public List<Receipt> getStorePurchaseHistory(Store store) {
+    public Result getStorePurchaseHistory(Store store) {
         return this.member.getStorePurchaseHistory(store);
     }
 
@@ -136,7 +136,7 @@ public class User {
         return member.removeProductFromStore(store,productId);
     }
 
-    public boolean removeManagerFromStore(User manager, Store store) {
+    public Result removeManagerFromStore(User manager, Store store) {
         return member.removeMangerFromStore(this,manager,store);
     }
 

@@ -109,7 +109,7 @@ public class Member {
 
     }
 
-    public boolean addStoreManager(User owner,User user, Store store) {
+    public Result addStoreManager(User owner,User user, Store store) {
         return permissions.get(store).appointManager(owner,user);
     }
 
@@ -347,12 +347,12 @@ public class Member {
         }
     }
 
-    public List<User> getWorkersInformation(Store store) {
-        if(!permissions.containsKey(store)) return null;
+    public Result getWorkersInformation(Store store) {
+        if(!permissions.containsKey(store)) return new Result(false,"User has no permissions");
         return permissions.get(store).getWorkersInfo();
     }
 
-    public List<Receipt> getStorePurchaseHistory(Store store) {
+    public Result getStorePurchaseHistory(Store store) {
         if(!permissions.containsKey(store)) return null;
         return permissions.get(store).viewPurchaseHistory();
     }
@@ -376,12 +376,12 @@ public class Member {
         }
     }
 
-    public boolean removeMangerFromStore(User owner,User manager, Store store) {
+    public Result removeMangerFromStore(User owner,User manager, Store store) {
         if(permissions.containsKey(store)){
             Permission permission= permissions.get(store);
             return (permission.removeManagerAppointment(owner, manager));
         }else{
-            return false;
+            return new Result(false,"User has no permissions");
         }
     }
 }

@@ -41,13 +41,13 @@ public class PurchaseTest {
         API.register(userName1,password1);
         API.register(userName2,password2);
         API.register(userName3,password3);
-        registerId1= API.registeredLogin(userName1,password1);
-        registerId2= API.registeredLogin(userName2,password2);
-        registerId3= API.registeredLogin(userName3,password3);
-        storeId1=API.openStore(registerId1,"kandabior store");
+        registerId1=(int) API.registeredLogin(userName1,password1).getdata();
+        registerId2=(int) API.registeredLogin(userName2,password2).getdata();
+        registerId3= (int)API.registeredLogin(userName3,password3).getdata();
+        storeId1=(int)API.openStore(registerId1,"kandabior store").getdata();
         LinkedList<Product.Category> catList= new LinkedList<>();
         catList.add(Product.Category.FOOD);
-        productId1= API.addProduct(1, storeId1,"milk",catList ,10,"FOOD", 1 );
+        productId1= (int)API.addProduct(1, storeId1,"milk",catList ,10,"FOOD", 1 ).getdata();
 
 
     }
@@ -56,7 +56,7 @@ public class PurchaseTest {
     //AT-9
     public void purchaseTest(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
-        Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789"));
+        Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789").isResult());
     }
 
 
@@ -65,7 +65,7 @@ public class PurchaseTest {
     public void purchaseTest2(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
         API.addProductToCart(registerId1,storeId1,productId2,1);
-        Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789"));
+        Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789").isResult());
     }
 
     @Test
@@ -73,8 +73,8 @@ public class PurchaseTest {
     public void purchaseTest3(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
         API.addProductToCart(registerId2,storeId1,productId1,1);
-        Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789"));
-        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, "123456789"));
+        Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789").isResult());
+        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, "123456789").isResult());
     }
 
     public void TestSync(){
@@ -111,14 +111,14 @@ public class PurchaseTest {
         for(int i=0; i<100; i++){
             setUp();
             TestSync();
-            Assertions.assertEquals(1,API.getStorePurchaseHistory(registerId1,storeId1).size());
-            String username=API.getStorePurchaseHistory(registerId1,storeId1).get(0).getUserName();
+            Assertions.assertEquals(1,((List<Object>)(API.getStorePurchaseHistory(registerId1,storeId1).getdata())).size());
+            String username=((List<Receipt>)(API.getStorePurchaseHistory(registerId1,storeId1).getdata())).get(0).getUserName();
             if(username=="kandabior")
                 orCount++;
             else
                 eladCount++;
             assertTrue(((username=="kandabior")|| (username=="elad")));
-            assertTrue(API.getStorePurchaseHistory(registerId1,storeId1).size()==1);
+            assertTrue(((List<Receipt>)(API.getStorePurchaseHistory(registerId1,storeId1).getdata())).size()==1);
         }
         System.out.println("or: "+ orCount);
         System.out.println("elad: "+ eladCount);
@@ -147,7 +147,7 @@ public class PurchaseTest {
             Thread thread2= new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    if(API.removeProductFromStore(registerId1,storeId1,productId1)){
+                    if(API.removeProductFromStore(registerId1,storeId1,productId1).isResult()){
                         success[0] =true;
                     }
                 }
@@ -168,17 +168,17 @@ public class PurchaseTest {
     public void getPersonalPurchaseHistoryTest(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
         API.buyProduct(registerId1,storeId1,"123456789");
-        List<Receipt> receiptList= API.getUserPurchaseHistory(registerId1);
+        List<Receipt> receiptList=(List<Receipt>) API.getUserPurchaseHistory(registerId1).getdata();
         Assertions.assertTrue(receiptList.get(0).getUserId()==registerId1);
     }
 
     @Test
     //AT-12.2
     public void getPersonalPurchaseHistoryFailTest(){
-        int guestId= API.guestLogin();
+        int guestId= (int)API.guestLogin().getdata();
         API.addProductToCart(guestId,storeId1,productId1,1);
         API.buyProduct(guestId,storeId1,"123456789");
-        Assertions.assertNull(API.getUserPurchaseHistory(guestId));
+        Assertions.assertFalse(API.getUserPurchaseHistory(guestId).isResult());
 
     }
 

@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -19,18 +22,24 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="change permissions">
-      <change afterPath="$PROJECT_DIR$/src/Domain/Result.java" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="Fix synchronization in buy product #41">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_201401071.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Templates/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permission.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions/RemoveProduct.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/RemoveProduct.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/AppointManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/AppointManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/GetWorkersInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/GetWorkersInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/RemoveManagerAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/RemoveManagerAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/ViewPurchaseHistory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/ViewPurchaseHistory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/StoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,6 +54,7 @@
       <list>
         <option value="Interface" />
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -54,7 +64,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="RealServer" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -79,6 +89,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="Repository.Attach.Annotations" value="false" />
@@ -89,20 +100,32 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/docs/json-20140107.jar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.41997263" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="Server" />
       <recent name="Permissions" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\docs" />
+      <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Templates" />
+      <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server" />
+      <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server\Login" />
+      <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\LoginPage" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.Tests in Trading-system">
+  <component name="RunManager" selected="JUnit.PurchaseTest">
     <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -118,7 +141,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.testme" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.loginBadPass" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -128,7 +151,23 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="METHOD_NAME" value="testme" />
+      <option name="METHOD_NAME" value="loginBadPass" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest.registerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="METHOD_NAME" value="registerTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -144,21 +183,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.PurchaseTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -180,11 +204,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Tests in Trading-system" />
         <item itemvalue="JUnit.PurchaseTest" />
         <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="JUnit.LoginTest.testme" />
-        <item itemvalue="JUnit.StoreTest" />
+        <item itemvalue="JUnit.LoginTest.registerTest" />
+        <item itemvalue="JUnit.LoginTest.loginBadPass" />
+        <item itemvalue="JUnit.Tests in Trading-system" />
       </list>
     </recent_temporary>
   </component>
@@ -292,11 +316,29 @@
       <option name="project" value="LOCAL" />
       <updated>1618908950635</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Adapter Injection #38">
+      <created>1619101791571</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1619101791571</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Adapter Injection #38">
+      <created>1619167388809</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1619167388809</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
+  </component>
+  <component name="UnknownFeatures">
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
+    <option featureType="com.intellij.fileTypeFactory" implementationName="*.js" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -336,11 +378,15 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
-          <line>138</line>
+          <line>166</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />

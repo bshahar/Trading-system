@@ -38,15 +38,15 @@ public class TradingSystem {
     }
 
 
-    public int register(String userName, String pass) {
+    public Result register(String userName, String pass) {
         if(userAuth.register(userName,pass)){
             KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " register to the system");
             int userId=userCounter.inc();
             users.add(new User(userName, userId, 1));
-            return userId;
+            return new Result(true,userId);
         }
         else{
-            return -1;
+            return new Result(false,"Username or Password not correct");
         }
 
     }
@@ -74,30 +74,30 @@ public class TradingSystem {
         return new Result(true,id);
     }
 
-    public boolean isLogged(int userId) {
+    public Result isLogged(int userId) {
         User user = getUserById(userId);
         if (user != null)
-            return user.isLogged();
-        return false;
+            return new Result(true,user.isLogged());
+        return new Result(false,"User not exist");
     }
 
 
-    public int guestRegister (int userId, String userName, String password){
+    public Result guestRegister (int userId, String userName, String password){
         try {
             if(userAuth.guestRegister(userName,password)){
                 getUserById(userId).setRegistered();
                 getUserById(userId).setName(userName);
                 KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " registered to the system.");
-                return userId;
+                return new Result(true,userId);
 
             }
             else{
-                return -1;
+                return new Result(false,"Can't Register with given Username and PassWord");
             }
         }
         catch (Exception e) {
             KingLogger.logEvent(Level.WARNING, "Guest user failed registering to the system.");
-            return -1;
+            return new Result(false,"Can't Register with given Username and PassWord");
         }
     }
 
@@ -119,8 +119,8 @@ public class TradingSystem {
         return null;
     }
 
-    public int getNumOfUsers(){
-        return users.size();
+    public Result getNumOfUsers(){
+        return new Result(true,users.size());
     }
 
     public Result getAllStoresInfo(int userId) {
@@ -323,7 +323,7 @@ public class TradingSystem {
     }
 
     public Result addStoreOwner(int ownerId, int userId,int storeId) {
-        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return false;
+        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return new Result(false,"User is not valid");
         User owner=getUserById(ownerId);
         User user=getUserById(userId);
         return owner.addStoreOwner(owner,user,getStoreById(storeId));
@@ -337,7 +337,7 @@ public class TradingSystem {
         }
 
     public Result addStoreManager(int ownerId, int userId, int storeId){
-        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return false;
+        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return new Result(false,"User is not valid");
         return getUserById(ownerId).addStoreManager(getUserById(userId),getStoreById(storeId));
     }
 
@@ -351,29 +351,29 @@ public class TradingSystem {
         return getUserById(ownerId).removePermissions(getUserById(managerId),getStoreById(storeId),opIndexes);
     }
 
-    public boolean removeManager(int ownerId, int managerId, int storeId){
+    public Result removeManager(int ownerId, int managerId, int storeId){
         User user= getUserById(ownerId);
         Store store = getStoreById(storeId);
         return user.removeManagerFromStore(getUserById(managerId),store);
     }
 
 
-    public List<User> getWorkersInformation(int ownerId, int storeId){
+    public Result getWorkersInformation(int ownerId, int storeId){
         if(!checkValidUser(ownerId)) return null;
-        return getUserById(ownerId).getWorkersInformation(getStoreById(storeId));
+        return getUserById(ownerId).getWorkersInformation(getStoreById(storeId)); //List<User>
     }
 
-    public List<Receipt> getStorePurchaseHistory(int ownerId, int storeId){
-        if(!checkValidUser(ownerId)) return null;
-        return getUserById(ownerId).getStorePurchaseHistory(getStoreById(storeId));
+    public Result getStorePurchaseHistory(int ownerId, int storeId){
+        if(!checkValidUser(ownerId)) return new Result(false,"User not exist");
+        return getUserById(ownerId).getStorePurchaseHistory(getStoreById(storeId));//List<Reciept>
     }
 
-    public List<Receipt> getAllPurchases(int systemManager){
+    public Result getAllPurchases(int systemManager){
         if(this.systemManager.getId() == systemManager)
         {
-            return this.receipts;
+            return new Result(true,this.receipts);//List<Reciept>
         }
-        return null;
+        return new Result(false,"User has no permissions");
     }
 
     public Store getStoreById(int storeId)
@@ -386,20 +386,20 @@ public class TradingSystem {
         return null;
     }
 
-    public List<Product> getProductsFromStore(int storeId) {
-        return getStoreById(storeId).getInventory().getProducts();
+    public Result getProductsFromStore(int storeId) {
+        return new Result(true,getStoreById(storeId).getInventory().getProducts());
     }
 
-    public int getNumOfStores() {
-        return stores.size();
+    public Result getNumOfStores() {
+        return new Result(true,stores.size());
     }
 
-    public List<Receipt> getUserPurchaseHistory(int userId) {
+    public Result getUserPurchaseHistory(int userId) {
         if(!getUserById(userId).isRegistered()){
-            return null;
+            return new Result(false,"User not registered");
         }
 
-        return getUserById(userId).getPurchaseHistory();
+        return new Result(true,getUserById(userId).getPurchaseHistory());
 
     }
 }

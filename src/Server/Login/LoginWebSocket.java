@@ -28,35 +28,29 @@ public class LoginWebSocket {
     @OnWebSocketMessage
     public void message(Session session, String message) throws IOException {
 
-       JSONObject jo = new JSONObject(message);
-        session.getRemote().sendString(message); // and send it back
-        if(jo.get("dest").equals("SERVER")){
+            JSONObject jo = new JSONObject(message);
             String type = jo.get("type").toString();
             if(type.equals("REGISTER_GUEST")){
                 int result = API.guestLogin();
                 JSONObject json= new JSONObject();
-                json.put("dest","CLIENT");
                 json.put("result","true");
                 json.put("message","guest login success");
                 session.getRemote().sendString(json.toString());
             }else {
-
-
                 String email = jo.get("email").toString();
                 String pass = jo.get("password").toString();
                 if (type.equals("REGISTER")) {
                     int result = API.register(email, pass);
                     if (result == -1) {
                         JSONObject json = new JSONObject();
-                        json.put("dest", "CLIENT");
-                        json.put("result", false);
+                        json.put("result", "false");
                         json.put("message", "error with registration");
                         session.getRemote().sendString(json.toString());
                         System.out.println("error register");
                     } else {
                         JSONObject json = new JSONObject();
-                        json.put("dest", "CLIENT");
-                        json.put("result", false);
+                        json.put("type", "REGISTER");
+                        json.put("result", "true");
                         json.put("message", "registered successfully");
                         session.getRemote().sendString(json.toString());
 
@@ -67,14 +61,13 @@ public class LoginWebSocket {
                     int result = API.registeredLogin(email, pass);
                     if (result == -1) {
                         JSONObject json = new JSONObject();
-                        json.put("dest", "CLIENT");
                         json.put("result", "false");
                         json.put("message", "error with login");
                         session.getRemote().sendString(json.toString());
                         System.out.println("error login");
                     } else {
                         JSONObject json = new JSONObject();
-                        json.put("dest", "CLIENT");
+                        json.put("type", "LOGIN");
                         json.put("result", "true");
                         json.put("message", "login success");
                         session.getRemote().sendString(json.toString());
@@ -82,10 +75,6 @@ public class LoginWebSocket {
                     }
                 }
             }
-
-
-        }
-
 
 
     }

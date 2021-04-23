@@ -333,16 +333,15 @@ ws.onopen = function(event)
 ws.onmessage = function(event)
 {
     const parsedMessage= JSON.parse(event.data);
-	if(parsedMessage.dest=="CLIENT"){
 		console.log(parsedMessage);
 		if(parsedMessage.result=="true"){
 			alert(parsedMessage.message);
-			window.location.href = "Main";
-
+			if(parsedMessage.type == "LOGIN")
+			    window.location.href = "Main";
 		}else{
 			alert(parsedMessage.message);
     	}
-	}
+
     
 }
 
@@ -352,7 +351,7 @@ var email = document.getElementById("loginEmail").value;
 var pass = document.getElementById("loginPassword").value;
 console.log(email);
 console.log(pass);
-ws.send(JSON.stringify({"dest":"SERVER", "type":"LOGIN","email":email , "password" : pass}));
+ws.send(JSON.stringify({"type":"LOGIN","email":email , "password" : pass}));
 }
 
 const register= () =>
@@ -361,12 +360,12 @@ var email = document.getElementById("registerEmail").value;
 var pass = document.getElementById("registerPassword").value;
 console.log(email);
 console.log(pass);
-ws.send(JSON.stringify({"dest":"SERVER","type":"REGISTER","email":email , "password" : pass}));
+ws.send(JSON.stringify({"type":"REGISTER","email":email , "password" : pass}));
 }
 
 const guestLogin= () =>
 {
-    ws.send(JSON.stringify({"dest":"SERVER","type":"REGISTER_GUEST"}));
+    ws.send(JSON.stringify({"type":"REGISTER_GUEST"}));
 }
 
 

@@ -56,7 +56,7 @@ public class TradingSystem {
         if(userAuth.loginAuthentication(userName,pass)) {
             KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " logged into the system.");
             for (User user : users) {
-                if (user.getUserName() == userName) {
+                if (user.getUserName().equals(userName)) {
                     user.setLogged(true);
                     return user.getId();
                 }

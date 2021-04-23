@@ -260,7 +260,6 @@ footer a {
 </head>
 <body>
 
-<h2>Weekly Coding Challenge hhhhh#1: Sign in/up Form</h2>
 <div class="container" id="container">
     <div class="form-container sign-up-container">
         <form action="#">
@@ -271,10 +270,9 @@ footer a {
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>or use your email for registration</span>
-            <input type="text" placeholder="Name" />
-            <input type="email" placeholder="Email" />
-            <input type="password" placeholder="Password" />
-            <button>Sign Up</button>
+            <input id="registerEmail" type="email" placeholder="Email" />
+            <input id="registerPassword" type="password" placeholder="Password" />
+            <button onclick="register()" >Sign Up</button>
         </form>
     </div>
     <div class="form-container sign-in-container">
@@ -286,8 +284,8 @@ footer a {
                 <a href="#" class="social"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <span>or use your account</span>
-            <input id="email" type="email" placeholder="Email" />
-            <input id="password" type="password" placeholder="Password" />
+            <input id="loginEmail" type="email" placeholder="Email" />
+            <input id="loginPassword" type="password" placeholder="Password" />
             <a href="#">Forgot your password?</a>
             <button onclick="login()">Sign In</button>
         </form>
@@ -333,21 +331,30 @@ signInButton.addEventListener('click', () => {
 var ws = new WebSocket("ws://localhost:4567/Login/");
 ws.onopen = function(event)
     {
-        ws.send("Open login webSocket");
     }
 
 ws.onmessage = function(event)
     {
-
+    console.log("error");
+        //console.log(event);
     }
 
 const login= () =>
 {
-var email = document.getElementById("email").value;
-var pass = document.getElementById("password").value;
+var email = document.getElementById("loginEmail").value;
+var pass = document.getElementById("loginPassword").value;
 console.log(email);
 console.log(pass);
-ws.send(JSON.stringify({"email":email , "password" : pass}));
+ws.send(JSON.stringify({"type":"LOGIN","email":email , "password" : pass}));
+}
+
+const register= () =>
+{
+var email = document.getElementById("registerEmail").value;
+var pass = document.getElementById("registerPassword").value;
+console.log(email);
+console.log(pass);
+ws.send(JSON.stringify({"type":"REGISTER","email":email , "password" : pass}));
 }
 
 

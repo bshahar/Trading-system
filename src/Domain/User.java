@@ -18,7 +18,7 @@ public class User {
         this.bags = new LinkedList<>();
         this.userName = userName;
         this.id = id;
-        this.logged = true;
+        this.logged = false;
         this.member = new Member();
         this.receipts=new LinkedList<>();
     }

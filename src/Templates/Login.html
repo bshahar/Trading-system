@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
@@ -258,8 +259,9 @@ footer a {
 }
     </style>
 </head>
-<body>
 
+
+<body>
 <div class="container" id="container">
     <div class="form-container sign-up-container">
         <form action="#">
@@ -314,9 +316,11 @@ footer a {
         <a target="_blank" href="https://www.florin-pop.com/blog/2019/03/double-slider-sign-in-up-form/">here</a>.
     </p>
 </footer>
+
 </body>
 <script>
-    const signUpButton = document.getElementById('signUp');
+
+ const signUpButton = document.getElementById('signUp');
 const signInButton = document.getElementById('signIn');
 const container = document.getElementById('container');
 
@@ -328,16 +332,24 @@ signInButton.addEventListener('click', () => {
 	container.classList.remove("right-panel-active");
 });
 
-var ws = new WebSocket("https://localhost:4567/Login/");
+var ws = new WebSocket("wss://localhost:4567/Login/");
 ws.onopen = function(event)
     {
     }
 
 ws.onmessage = function(event)
-    {
-    console.log("error");
-        //console.log(event);
-    }
+{
+    const parsedMessage= JSON.parse(event.data);
+	if(parsedMessage.dest=="CLIENT"){
+		console.log(parsedMessage);
+		if(parsedMessage.result=="true"){
+			alert(parsedMessage.message);
+		}else{
+			alert(parsedMessage.message);
+    	}
+	}
+    
+}
 
 const login= () =>
 {
@@ -345,7 +357,7 @@ var email = document.getElementById("loginEmail").value;
 var pass = document.getElementById("loginPassword").value;
 console.log(email);
 console.log(pass);
-ws.send(JSON.stringify({"type":"LOGIN","email":email , "password" : pass}));
+ws.send(JSON.stringify({"dest":"SERVER", "type":"LOGIN","email":email , "password" : pass}));
 }
 
 const register= () =>
@@ -354,8 +366,9 @@ var email = document.getElementById("registerEmail").value;
 var pass = document.getElementById("registerPassword").value;
 console.log(email);
 console.log(pass);
-ws.send(JSON.stringify({"type":"REGISTER","email":email , "password" : pass}));
+ws.send(JSON.stringify({"dest":"SERVER","type":"REGISTER","email":email , "password" : pass}));
 }
+
 
 
 </script>

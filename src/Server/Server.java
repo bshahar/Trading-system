@@ -11,7 +11,7 @@ import java.util.HashMap;
 public class Server {
 
     public static void main(String []args){
-//        Spark.secure("security/.keystore", "123456", null,null);
+        Spark.secure("security/version2/KeyStore.jks", "123456", "security/version2/truststore.jks","123456");
         Spark.webSocket("/Login", LoginWebSocket.class);
         API.initTradingSystem("ELAD");
 

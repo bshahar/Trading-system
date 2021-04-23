@@ -24,6 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="Adapter Injection #38">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Templates/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/Login.html" afterDir="false" />
     </list>
@@ -86,7 +89,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/json-20140107.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../שולחן העבודה/dd/spark-ssl" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -104,8 +107,8 @@
       <recent name="Permissions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\docs" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Templates" />
+      <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\docs" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server\Login" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\LoginPage" />
@@ -313,7 +316,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619167388809</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Adapter Injection #38">
+      <created>1619170775766</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1619170775766</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +376,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
-          <line>50</line>
+          <line>63</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -376,7 +386,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
-          <line>28</line>
+          <line>30</line>
           <option name="timeStamp" value="11" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

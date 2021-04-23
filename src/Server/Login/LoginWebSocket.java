@@ -1,6 +1,7 @@
 package Server.Login;
 
 import Service.API;
+import netscape.javascript.JSObject;
 import org.eclipse.jetty.websocket.api.*;
 import org.eclipse.jetty.websocket.api.annotations.*;
 import java.io.*;
@@ -26,38 +27,59 @@ public class LoginWebSocket {
 
     @OnWebSocketMessage
     public void message(Session session, String message) throws IOException {
+
        JSONObject jo = new JSONObject(message);
         session.getRemote().sendString(message); // and send it back
-        String type = jo.get("type").toString();
-        String email = jo.get("email").toString();
-        String pass = jo.get("password").toString();
-        if(type.equals("REGISTER"))
-        {
-            int result = API.register(email,pass);
-            if(result == -1)
-            {
-                session.getRemote().sendString("error with register");
-                System.out.println("error register");
-            }
-            else
-            {
-                session.getRemote().sendString("all good register");
-                System.out.println("success register");
+        if(jo.get("dest").equals("SERVER")){
 
-            }
-        }
-        else if (type.equals("LOGIN"))
-        {
-            int result = API.registeredLogin(email,pass);
-            if(result == -1)
+            String type = jo.get("type").toString();
+            String email = jo.get("email").toString();
+            String pass = jo.get("password").toString();
+            if(type.equals("REGISTER"))
             {
-                session.getRemote().sendString("error with login");
-                System.out.println("error login");
+                int result = API.register(email,pass);
+                if(result == -1)
+                {
+                    JSONObject json= new JSONObject();
+                    json.put("dest","CLIENT");
+                    json.put("result",false);
+                    json.put("message","error with registration");
+                    session.getRemote().sendString(json.toString());
+                    System.out.println("error register");
+                }
+                else
+                {
+                    JSONObject json= new JSONObject();
+                    json.put("dest","CLIENT");
+                    json.put("result",false);
+                    json.put("message","registered successfully");
+                    session.getRemote().sendString(json.toString());
+
+                    System.out.println("success register");
+
+                }
             }
-            else
+            else if (type.equals("LOGIN"))
             {
-                session.getRemote().sendString("all good login");
-                System.out.println("success login");
+                int result = API.registeredLogin(email,pass);
+                if(result == -1)
+                {
+                    JSONObject json= new JSONObject();
+                    json.put("dest","CLIENT");
+                    json.put("result","false");
+                    json.put("message","error with login");
+                    session.getRemote().sendString(json.toString());
+                    System.out.println("error login");
+                }
+                else
+                {
+                    JSONObject json= new JSONObject();
+                    json.put("dest","CLIENT");
+                    json.put("result","true");
+                    json.put("message","login success");
+                    session.getRemote().sendString(json.toString());
+                    System.out.println("success login");
+                }
             }
         }
 

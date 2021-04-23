@@ -20,14 +20,14 @@ public class LoginTest {
 
     //AT-4.1
     @Test
-    public void registerTest(){
+    public void loginSuccessTest(){
         String userName="kandabior";
         String password= "or321654";
         Assertions.assertEquals(1,API.register(userName,password));
     }
     //AT-4.2
     @Test
-    public void loginBadPass(){
+    public void loginBadPasswordFailTest(){
         String userName="kandabior";
         String password= "or321654";
         Assertions.assertEquals(1,API.register(userName,"12"));
@@ -37,7 +37,7 @@ public class LoginTest {
 
     //AT-4.3
     @Test
-    public void failRegisterTest(){
+    public void registerExistingUserFailTest(){
         String userName="kandabior";
         String password= "or321654";
         API.register(userName,password);
@@ -45,7 +45,7 @@ public class LoginTest {
     }
 
     @Test
-    public void loginTest(){
+    public void registerThenLoginSuccessTest(){
         String userName="kandabior";
         String password= "or321654";
         API.register(userName,password);
@@ -56,7 +56,7 @@ public class LoginTest {
 
     //AT-10.1
     @Test
-    public void logoutTest(){
+    public void logoutSuccessTest(){
         String userName="kandabior";
         String password= "or321654";
         API.register(userName,password);
@@ -67,7 +67,7 @@ public class LoginTest {
 
     //AT-10.2
     @Test
-    public void logoutTwiceTest(){
+    public void logoutTwiceFailTest(){
         String userName="kandabior";
         String password= "or321654";
         API.register(userName,password);
@@ -79,7 +79,7 @@ public class LoginTest {
 
 
     @Test
-    public void failLoginTest(){
+    public void isLoggedFailTest(){
         String userName="kandabior";
         String password= "or321654";
         Assertions.assertEquals(-1,API.registeredLogin(userName,password));
@@ -89,7 +89,7 @@ public class LoginTest {
 
     @Test
     //AT-1
-    public void guestLoginTest(){
+    public void guestLoginSuccessTest(){
         int index = API.guestLogin();
         assertEquals(index, 1);
         Assertions.assertTrue(API.isLogged(index));
@@ -97,7 +97,7 @@ public class LoginTest {
     }
     @Test
     //AT-2
-    public void guestLogoutTest(){
+    public void guestLogoutSuccessTest(){
         int index = API.guestLogin();
         Assertions.assertFalse(API.registeredLogout(index));
     }
@@ -115,14 +115,14 @@ public class LoginTest {
 
     //AT-3.1
     @Test
-    public void guestRegisterTest(){
+    public void guestRegisterSuccessTest(){
         int guestId= API.guestLogin();
         Assertions.assertEquals(1,API.guestRegister(guestId,"or","or321654"));
         Assertions.assertTrue(API.isLogged(guestId));
     }
     //AT-3.2
     @Test
-    public void guestRegisterTestFail(){
+    public void guestRegisterFailTest(){
         int guestId= API.guestLogin();
         String userName="kandabior";
         String password= "or321654";
@@ -131,7 +131,7 @@ public class LoginTest {
     }
 
     @Test
-    public void testme(){
+    public void TestMe(){
         System.out.println(getMaxTools(1,11));
     }
 

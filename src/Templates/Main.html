@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div>
+    hellooo
+    <button onclick="add()"> click me</button>
+</div>
+
+</body>
+<script>
+
+var ws = new WebSocket("wss://localhost:4567/Main/");
+ws.onopen = function(event)
+    {
+        ws.send(JSON.stringify({"dest":"SERVER", "type":"GET_STORES"}));
+    }
+
+ws.onmessage = function(event)
+{
+
+
+}
+
+var arr = ["list", "items", "here"];
+var i=0;
+const add = ()=>{
+    $("div").append("<ul></ul>");
+    var li = "<li>";
+    $("ul").append(li.concat(arr[i]))
+    i++;
+
+}
+
+</script>
+</html>

@@ -1,8 +1,5 @@
 package Domain;
 
-import Domain.DiscountPolicies.DiscountByProduct;
-import Domain.DiscountPolicies.DiscountPolicy;
-
 import java.util.*;
 
 public class Store {
@@ -16,7 +13,7 @@ public class Store {
     private List<User> owners;
     private List<User> managers;
     private List<Receipt> receipts;
-    private List<DiscountPolicy> discountPolicies;
+    //private List<DiscountPolicy> discountPolicies;
 
     private Map<User,List<User>> appointments;
     private double rate;

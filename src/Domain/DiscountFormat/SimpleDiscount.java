@@ -1,4 +1,4 @@
 package Domain.DiscountFormat;
 
-public class SimpleDiscount {
+public class SimpleDiscount extends Discount{
 }

@@ -24,13 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="update server and gui #44">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/Templates/Main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/StorePermissions.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/Templates/StorePermissions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/myStores.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/Templates/myStores.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/Main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/Store.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/Store.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/StorePermissions.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/StorePermissions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/myStores.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/myStores.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -361,7 +354,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619193530538</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="update server and gui #44">
+      <created>1619276415055</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1619276415055</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

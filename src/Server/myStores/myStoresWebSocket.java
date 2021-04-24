@@ -43,7 +43,7 @@ import org.json.JSONObject;
 
             JSONObject jo = new JSONObject(message);
             String type = jo.get("type").toString();
-            int id = Integer.valueOf(jo.get("id").toString());
+            int id = Integer.parseInt(jo.get("id").toString());
             if(type.equals("GET_STORES")){
                 List<Store> stores = API.getMyStores(id);
                 JSONObject json= new JSONObject();

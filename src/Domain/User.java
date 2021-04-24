@@ -155,4 +155,8 @@ public class User {
     {
         this.member.addToMyStores(store);
     }
+
+    public List<Permission> getPermissionsOfStore(int storeId) {
+        return this.member.getPermissionsOfStore(storeId);
+    }
 }

@@ -397,4 +397,7 @@ public class Member {
         myStores.add(store);
     }
 
+    public List<Permission> getPermissionsOfStore(int storeId) {
+        return null;
+    }
 }

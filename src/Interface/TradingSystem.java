@@ -418,4 +418,12 @@ public class TradingSystem {
         }
         return new LinkedList<>();
     }
+
+    public List<Permission> getPermissionsOfStore(int userId, int storeId) {
+        if(checkValidUser(userId))
+        {
+            return getUserById(userId).getPermissionsOfStore(storeId);
+        }
+        return new LinkedList<>();
+    }
 }

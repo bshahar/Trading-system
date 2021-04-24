@@ -1,17 +1,43 @@
-package Server;
+package Server.StorePermissions;
 
 import Domain.Store;
 import Service.API;
-import netscape.javascript.JSObject;
-import org.eclipse.jetty.websocket.api.*;
-import org.eclipse.jetty.websocket.api.annotations.*;
-import java.io.*;
-import java.util.*;
-import java.util.concurrent.*;
+import org.eclipse.jetty.websocket.api.Session;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
+import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import org.json.JSONObject;
 
+import java.io.IOException;
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
+
+        import Domain.Store;
+        import Service.API;
+        import org.eclipse.jetty.websocket.api.Session;
+        import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
+        import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
+        import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
+        import org.eclipse.jetty.websocket.api.annotations.WebSocket;
+        import org.json.JSONObject;
+
+        import java.io.IOException;
+        import java.util.Queue;
+        import java.util.concurrent.ConcurrentLinkedQueue;
+
+        import Service.API;
+        import netscape.javascript.JSObject;
+        import org.eclipse.jetty.websocket.api.*;
+        import org.eclipse.jetty.websocket.api.annotations.*;
+        import java.io.*;
+        import java.util.*;
+        import java.util.concurrent.*;
+        import org.json.JSONObject;
+
 @WebSocket
-public class MainWebSocket {
+public class storePermissionsWebSocket {
 
     // Store sessions if you want to, for example, broadcast a message to all users
     private static final Queue<Session> sessions = new ConcurrentLinkedQueue<>();
@@ -28,11 +54,12 @@ public class MainWebSocket {
 
     @OnWebSocketMessage
     public void message(Session session, String message) throws IOException {
+
         JSONObject jo = new JSONObject(message);
         String type = jo.get("type").toString();
         int id = Integer.parseInt(jo.get("id").toString());
         if(type.equals("GET_STORES")){
-            List<Store> stores = API.getAllStoreInfo(id);
+            List<Store> stores = API.getMyStores(id);
             JSONObject json= new JSONObject();
             json.put("type", "GET_STORES");
             JSONObject[] jsonStores=new JSONObject[stores.size()];
@@ -57,24 +84,7 @@ public class MainWebSocket {
             json.put("result",result);
             session.getRemote().sendString(json.toString());
         }
-        else if(type.equals("OPEN"))
-        {
-            boolean result = API.isRegister(id);
-            JSONObject json= new JSONObject();
-            json.put("type", "OPEN");
-            json.put("result",result);
-            session.getRemote().sendString(json.toString());
-        }
-        else if(type.equals("GUEST_REGISTER"))
-        {
-            int result = API.guestRegister(id,jo.get("email").toString(),jo.get("password").toString());
-            JSONObject json= new JSONObject();
-            json.put("type", "GUEST_REGISTER");
-            json.put("result",result);
-            session.getRemote().sendString(json.toString());
-        }
-
-
     }
 
 }
+

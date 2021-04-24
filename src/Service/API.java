@@ -169,4 +169,9 @@ public class API {
     public static List<Store>  getMyStores(int id) {
        return tradingSystem.getMyStores(id);
     }
+
+    public static List<Permission> getPermissionsOfStore(int userId , int storeId)
+    {
+        return tradingSystem.getPermissionsOfStore(userId,storeId);
+    }
 }

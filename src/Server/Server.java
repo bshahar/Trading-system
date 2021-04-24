@@ -16,6 +16,7 @@ public class Server {
         Spark.webSocket("/Login", LoginWebSocket.class);
         Spark.webSocket("/Main",MainWebSocket.class);
         Spark.webSocket("/myStores", myStoresWebSocket.class);
+        Spark.webSocket("/myStores/StorePermissions", myStoresWebSocket.class);
         API.initTradingSystem("ELAD");
         API.forTest();
 
@@ -35,6 +36,13 @@ public class Server {
 
             return new ThymeleafTemplateEngine().render(new ModelAndView(model,"myStores"));
         }));
+
+        Spark.get("/StorePermissions",((request, response) -> {
+            HashMap<String ,Object> model = new HashMap<>();
+
+            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"StorePermissions"));
+        }));
+
 
 
 

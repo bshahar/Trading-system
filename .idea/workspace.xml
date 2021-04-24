@@ -23,19 +23,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="update server and gui #44">
-      <change afterPath="$PROJECT_DIR$/src/Server/myStores/myStoresWebSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Templates/myStores.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server/StorePermissions/storePermissionsWebSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Templates/StorePermissions.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/Templates/Main.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions/AppointManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/AppointManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/MainWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MainWebSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/myStores/myStoresWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/myStores/myStoresWebSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/Login.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/Login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Templates/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/myStores.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/myStores.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -372,7 +372,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619255188525</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="update server and gui #44">
+      <created>1619270875135</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1619270875135</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

@@ -118,7 +118,7 @@ function closeForm() {
     <meta charset="UTF-8">
     <title>Title</title>
     <style>
-        #store {
+        .btn-group button  {
         border-radius: 20px;
         border: 1px solid #FF4B2B;
         background-color: #FF4B2B;
@@ -130,7 +130,7 @@ function closeForm() {
         text-transform: uppercase;
         transition: transform 80ms ease-in;
         margin: 5px 0 5px;}
-#store:hover{
+.btn-group button:hover{
 background-color: #5F9EA0}
 
 #logOut{
@@ -184,8 +184,10 @@ position:absolute;
 </head>
 <body>
 <div>
-    <ul id="list">
-    </ul>
+    <div class="btn-group">
+        <ul id="list">
+        </ul>
+    </div>
 </div>
 
 
@@ -206,11 +208,11 @@ ws.onmessage = function(event)
 console.log(event);
  const parsedMessage= JSON.parse(event.data);
 		console.log(parsedMessage);
-		if(parsedMessage.type=="STORES_NAMES"){
-		const names = parsedMessage.names.split(",");
-         for (let i = 0; i < names.length; i++) {
-        document.getElementById("list").innerHTML  += '<button id="store">' + names[i] + '</button><br/>';
-         }
+		if(parsedMessage.type=="GET_STORES"){
+		 stores = parsedMessage.stores;
+		for (let i = 0; i < stores.length; i++) {
+        document.getElementById("list").innerHTML  += '<button id='+stores[i].storeId+'>' + stores[i].storeName + '</button><br/>';
+        }
     }
   else if(parsedMessage.type=="LOGOUT")
   {

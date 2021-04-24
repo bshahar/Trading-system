@@ -11,8 +11,8 @@ public class AppointManager {
     public boolean action(User owner,User user, Store store) {
         if(store.addManager(user)) {
             store.addEmployee(owner,user);
-
             user.updateManagerPermission(store);
+            user.addToMyStores(store);
             return true;
         }
         return false;

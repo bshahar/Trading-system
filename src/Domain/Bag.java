@@ -5,8 +5,7 @@ import java.util.*;
 
 public class Bag {
     private Store store;
-    Map<Integer,Integer>  productIdsAmount;
-
+    Map<Integer,Integer> productIdsAmount;
 
     public Bag(Store store)
     {

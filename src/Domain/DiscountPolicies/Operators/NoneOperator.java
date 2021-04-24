@@ -3,8 +3,7 @@ package Domain.DiscountPolicies.Operators;
 import Domain.Bag;
 import Domain.DiscountPolicies.DiscountPolicy;
 
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 public class NoneOperator implements LogicOperator {
     @Override

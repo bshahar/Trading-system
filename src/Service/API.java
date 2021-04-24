@@ -129,6 +129,11 @@ public class API {
 
     }
 
+    public static boolean isRegister(int userId)
+    {
+        return tradingSystem.isRegister(userId);
+    }
+
     public static List<Receipt> getUserPurchaseHistory(int registerId1) {
         return tradingSystem.getUserPurchaseHistory(registerId1);
     }
@@ -144,8 +149,8 @@ public class API {
         //stores
         int storeId1;
         int storeId2;
-        String userName1="kandabior";
-        String password1= "or321654";
+        String userName1="elad@gmail.com";
+        String password1= "123";
         String userName2="elad";
         String password2= "elad321654";
         String userName3="erez";
@@ -157,7 +162,11 @@ public class API {
         registerId2= registeredLogin(userName2,password2);
         registerId3= registeredLogin(userName3,password3);
         storeId1=openStore(registerId1,"kandabior store");
-        storeId1=openStore(registerId1,"elad store");
+        storeId2=openStore(registerId1,"elad store");
+        registeredLogout(registerId1);
     }
 
+    public static List<Store>  getMyStores(int id) {
+       return tradingSystem.getMyStores(id);
+    }
 }

@@ -30,8 +30,9 @@ public class MainWebSocket {
     public void message(Session session, String message) throws IOException {
         JSONObject jo = new JSONObject(message);
         String type = jo.get("type").toString();
+        int id = Integer.valueOf(jo.get("id").toString());
         if(type.equals("GET_STORES")){
-            int id = Integer.valueOf(jo.get("id").toString());
+
             String stores = API.getAllStoreNames(id);
             JSONObject json= new JSONObject();
             json.put("type", "STORES_NAMES");
@@ -40,13 +41,29 @@ public class MainWebSocket {
         }
         else if(type.equals("LOGOUT"))
         {
-            int id = Integer.valueOf(jo.get("id").toString());
             boolean result = API.registeredLogout(id);
             JSONObject json= new JSONObject();
             json.put("type", "LOGOUT");
             json.put("result",result);
             session.getRemote().sendString(json.toString());
         }
+        else if(type.equals("OPEN"))
+        {
+            boolean result = API.isRegister(id);
+            JSONObject json= new JSONObject();
+            json.put("type", "OPEN");
+            json.put("result",result);
+            session.getRemote().sendString(json.toString());
+        }
+        else if(type.equals("GUEST_REGISTER"))
+        {
+            int result = API.guestRegister(id,jo.get("email").toString(),jo.get("password").toString());
+            JSONObject json= new JSONObject();
+            json.put("type", "GUEST_REGISTER");
+            json.put("result",result);
+            session.getRemote().sendString(json.toString());
+        }
+
 
     }
 

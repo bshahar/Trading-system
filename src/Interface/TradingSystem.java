@@ -88,6 +88,7 @@ public class TradingSystem {
                 getUserById(userId).setRegistered();
                 getUserById(userId).setName(userName);
                 KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " registered to the system.");
+                getUserById(userId).setLogged(false);
                 return userId;
 
             }
@@ -404,5 +405,17 @@ public class TradingSystem {
 
         return getUserById(userId).getPurchaseHistory();
 
+    }
+
+    public boolean isRegister(int userId) {
+        return checkValidUser(userId);
+    }
+
+    public List<Store> getMyStores(int id) {
+        if(checkValidUser(id))
+        {
+            return getUserById(id).getMyStores();
+        }
+        return new LinkedList<>();
     }
 }

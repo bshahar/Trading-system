@@ -100,19 +100,9 @@ function closeForm() {
 <head>
     <div class="topnav">
         <ul id="topanv">
-        <button >Home</button>
-        <button onclick="myStores()" >myStores</button>
-            <div class="form-popup" id="myForm">
-                <form class="form-container">
-                    <h1>Register</h1>
-                    <input id="email" type="text" placeholder="Enter Email" name="email" required>
-                    <input id="password" type="password" placeholder="Enter Password" name="psw" required>
-                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
-                    <button type="button" onclick="registerGuest()" class="btn">Register</button>
-                </form>
-
-            </div>
-
+            <button >Home</button>
+            <button onclick="myStores()" >myStores</button>
+            <button onclick="logOut()" id="logOut">LogOut</button>
         </ul>
     </div>
     <meta charset="UTF-8">
@@ -191,68 +181,36 @@ position:absolute;
 
 </body>
 <script>
-
-var ws = new WebSocket("wss://localhost:4567/Main/");
+var ws = new WebSocket("wss://localhost:4567/myStores/");
 ws.onopen = function(event)
     {
-        console.log(localStorage.getItem("id"));
-        ws.send(JSON.stringify({"type":"GET_STORES","id":localStorage.getItem("id")}));
-        ws.send(JSON.stringify({"type":"OPEN","id":localStorage.getItem("id")}));
+    ws.send(JSON.stringify({"type":"GET_STORES","id":localStorage.getItem("id")}));
     }
 
 ws.onmessage = function(event)
 {
 
-console.log(event);
- const parsedMessage= JSON.parse(event.data);
-		console.log(parsedMessage);
-		if(parsedMessage.type=="STORES_NAMES"){
-		const names = parsedMessage.names.split(",");
-         for (let i = 0; i < names.length; i++) {
-        document.getElementById("list").innerHTML  += '<button id="store">' + names[i] + '</button><br/>';
-         }
+    const parsedMessage= JSON.parse(event.data);
+
+    if(parsedMessage.type=="GET_STORES"){
+    console.log(parsedMessage.stores);
+    stores = parsedMessage.stores;
+		for (let i = 0; i < stores.length; i++) {
+        document.getElementById("list").innerHTML  += '<button id='+stores[i].storeId+'>' + stores[i].storeName + '</button><br/>';
+        }
     }
-  else if(parsedMessage.type=="LOGOUT")
-  {
+    else if(parsedMessage.type=="LOGOUT")
+    {
     result = parsedMessage.result;
     if(result)
       window.location.href = "Login";
     else
       alert("Error Log Out");
-  }
-  else if(parsedMessage.type=="OPEN")
-  {
-    result = parsedMessage.result;
-    if(result){
-     console.log("register");
-        document.getElementById("topanv").innerHTML  += '<button onclick="logOut()" id="logOut">LogOut</button>'
-
     }
-    else
-    {
-      console.log("guest");
-      document.getElementById("topanv").innerHTML  += '<button onclick="exit()" id="exit">Exit</button>'
-      document.getElementById("topanv").innerHTML  += '<button class="open-button" onclick="openForm()">Register</button>'
-    }
-
-  }
-   else if(parsedMessage.type=="GUEST_REGISTER")
-  {
-    result = parsedMessage.result;
-    if(result!=-1){
-      console.log("register succefully");
-        window.location.href = "Login";
-    }
-    else
-    {
-      alert("Error , try again!")
-    }
-  }
-
-
-
 
 }
+
+
 const logOut= () =>
 {
 	 ws.send(JSON.stringify({"type":"LOGOUT","id":localStorage.getItem("id")}));
@@ -262,31 +220,12 @@ const exit= () =>
 	window.location.href = "Login";
 }
 
-const registerGuest= () =>
-{
-	var email = document.getElementById("email").value;
-	var password = document.getElementById("password").value;
-	console.log(email);
-	console.log(password);
-	ws.send(JSON.stringify({"type":"GUEST_REGISTER","id":localStorage.getItem("id"),"email":email,"password":password}));
-
-
-}
 const myStores= () =>
 {
 	window.location.href = "myStores";
 }
 
 
-
-
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-
 </script>
 </html>
+

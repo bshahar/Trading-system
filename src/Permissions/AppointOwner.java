@@ -19,6 +19,7 @@ public class AppointOwner {
             store.addEmployee(owner,user);
             store.addOwnerToAppointments(user);
             user.updateOwnerPermission(store);
+            user.addToMyStores(store);
             return true;
         }
         return false;

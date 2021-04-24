@@ -22,7 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add Result class" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add Result class #41">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -41,7 +43,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="Adapter_injection" />
+    <option name="BRANCH" value="Adding_result_class" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -107,7 +109,7 @@
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\LoginPage" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StoreTest.appointTwoManagersTest">
+  <component name="RunManager" selected="JUnit.Tests in Trading-system">
     <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -119,22 +121,6 @@
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.registerTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="METHOD_NAME" value="registerTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -185,13 +171,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tests in Trading-system" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.Tests in Trading-system" />
         <item itemvalue="JUnit.StoreTest.appointTwoManagersTest" />
         <item itemvalue="JUnit.StoreTest" />
         <item itemvalue="JUnit.PurchaseTest" />
         <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="JUnit.LoginTest.registerTest" />
       </list>
     </recent_temporary>
   </component>
@@ -319,7 +319,13 @@
       <option name="presentableId" value="LOCAL‎00017" />
       <updated>1619190790658</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL‎00018" summary="add Result class #41">
+      <created>1619252002034</created>
+      <option name="number" value="LOCAL‎00018" />
+      <option name="presentableId" value="LOCAL‎00018" />
+      <updated>1619252002034</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -356,7 +362,8 @@
     <MESSAGE value="change permissions" />
     <MESSAGE value="Adapter Injection #38" />
     <MESSAGE value="add Result class" />
-    <option name="LAST_COMMIT_MESSAGE" value="add Result class" />
+    <MESSAGE value="add Result class #41" />
+    <option name="LAST_COMMIT_MESSAGE" value="add Result class #41" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

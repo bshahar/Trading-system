@@ -4,6 +4,7 @@ import Domain.*;
 import Interface.TradingSystem;
 
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -157,7 +158,15 @@ public class API {
         registerId2= registeredLogin(userName2,password2);
         registerId3= registeredLogin(userName3,password3);
         storeId1=openStore(registerId1,"kandabior store");
-        storeId1=openStore(registerId1,"elad store");
+        storeId2=openStore(registerId1,"elad store");
+        LinkedList<Product.Category> catList= new LinkedList<>();
+        catList.add(Product.Category.FOOD);
+        int productId1= addProduct(registerId1, storeId1,"Milk",catList ,10,"FOOD", 10 );
+
+        int productId2= addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD", 2 );
+
+        int productId3= addProduct(registerId1, storeId1,"Banana",catList ,4,"FOOD", 20 );
+
     }
 
 }

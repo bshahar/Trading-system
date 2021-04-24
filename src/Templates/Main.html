@@ -85,7 +85,7 @@ ws.onmessage = function(event)
 		if(parsedMessage.type=="STORES_NAMES"){
 		const names = parsedMessage.names.split(",");
          for (let i = 0; i < names.length; i++) {
-        document.getElementById("list").innerHTML  += '<button id="store">' + names[i] + '</button><br/>';
+        document.getElementById("list").innerHTML  += '<button id="store" onclick="navigateToStore(1)">' + names[i] + '</button><br/>';
   }
   }
   else if(parsedMessage.type=="LOGOUT")
@@ -101,6 +101,13 @@ ws.onmessage = function(event)
 const logOut= () =>
 {
 	 ws.send(JSON.stringify({"type":"LOGOUT","id":localStorage.getItem("id")}));
+}
+
+const navigateToStore=(storeId)=>{
+    console.log(storeId);
+    localStorage.setItem('storeId',storeId);
+    window.location.href = "Store";
+
 }
 
 

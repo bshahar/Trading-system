@@ -27,7 +27,6 @@ public class TradingSystem {
     public TradingSystem (User systemManager) {
         this.paymentAdapter= new PaymentAdapter(new DemoPayment());
         this.stores = Collections.synchronizedList(new LinkedList<>());
-
         this.receipts =Collections.synchronizedList( new LinkedList<>());
         this.systemManager =systemManager;
         this.users = Collections.synchronizedList(new LinkedList<>());
@@ -56,7 +55,7 @@ public class TradingSystem {
         if(userAuth.loginAuthentication(userName,pass)) {
             KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " logged into the system.");
             for (User user : users) {
-                if (user.getUserName() == userName) {
+                if (user.getUserName().equals(userName) && !user.isLogged()) {
                     user.setLogged(true);
                     return new Result( true,user.getId());
                 }
@@ -68,6 +67,7 @@ public class TradingSystem {
 
     public Result guestLogin() {
         User guest = new User("Guest", userCounter.inc(), 0);
+        guest.setLogged(true);
         users.add(guest);
         int id = guest.getId();
         KingLogger.logEvent(Level.INFO, "Guest logged into the system with id: " + id);
@@ -132,6 +132,20 @@ public class TradingSystem {
 
         return new Result(false,"User has not logged in");
     }
+    public String getAllStoresNames(int userId) {
+        User u = getUserById(userId);
+        StringBuilder storesNames = new StringBuilder();
+        if (u != null && u.isLogged()) {
+            for(Store store : this.stores)
+                storesNames.append(store.getName()+",");
+            storesNames.deleteCharAt(storesNames.length()-1);
+        }
+        KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " tried to get stores info while logged out and failed.");
+        return storesNames.toString();
+    }
+
+
+
 
     public Result getProducts(Filter filter, int userId){
         try{

@@ -10,10 +10,11 @@ import java.util.Map;
 public class API {
 
     private static TradingSystem tradingSystem;
-
     public static void initTradingSystem(String userName){
+
         User sysManager= new User(userName,0,1);
         tradingSystem=new TradingSystem(sysManager);
+
     }
 
     public static Result guestLogin(){
@@ -22,6 +23,9 @@ public class API {
 
     public static Result getAllStoreInfo(int userId){
         return tradingSystem.getAllStoresInfo(userId);
+    }
+    public static String getAllStoreNames(int userId){
+        return tradingSystem.getAllStoresNames(userId);
     }
 
     public static Result searchProduct(Filter filter, int userId){
@@ -126,4 +130,32 @@ public class API {
     public static Result getUserPurchaseHistory(int registerId1) {
         return tradingSystem.getUserPurchaseHistory(registerId1);
     }
+
+    public static void forTest()
+    {
+        int registerId1;
+        int registerId2;
+        int registerId3;
+        //guests
+        int guestId1;
+        int guestId2;
+        //stores
+        int storeId1;
+        int storeId2;
+        String userName1="kandabior";
+        String password1= "or321654";
+        String userName2="elad";
+        String password2= "elad321654";
+        String userName3="erez";
+        String password3= "erez321654";
+        register(userName1,password1);
+        register(userName2,password2);
+        register(userName3,password3);
+        registerId1= registeredLogin(userName1,password1);
+        registerId2= registeredLogin(userName2,password2);
+        registerId3= registeredLogin(userName3,password3);
+        storeId1=openStore(registerId1,"kandabior store");
+        storeId1=openStore(registerId1,"elad store");
+    }
+
 }

@@ -51,6 +51,10 @@ public class Store {
         return this.inventory.addProduct(prod , numOfProd);
     }
 
+    public String getName() {
+        return name;
+    }
+
     private boolean validateProductId(int id){
         return this.inventory.validateProductId(id);
     }

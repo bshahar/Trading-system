@@ -88,6 +88,8 @@ public class TradingSystem {
                 getUserById(userId).setRegistered();
                 getUserById(userId).setName(userName);
                 KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " registered to the system.");
+                getUserById(userId).setLogged(false);
+
                 return new Result(true,userId);
 
             }
@@ -192,24 +194,29 @@ public class TradingSystem {
     public Result addProductToBag(int userId, int storeId, int prodId,int amount){
         try {
             Bag b = getUserById(userId).getBagByStoreId(storeId);
-            if (getUserById(userId).isLogged()){
-                if( getStoreById(storeId).getInventory().prodExists(prodId)){
-                    if (b != null) {
-                        b.addProduct(prodId, amount);
+            if(amount>0){
+                if (getUserById(userId).isLogged()){
+                    if( getStoreById(storeId).getInventory().prodExists(prodId)){
+                        if (b != null) {
+                            b.addProduct(prodId, amount);
+                            KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
+                            return new Result(true,true);
+                        }
+                        getUserById(userId).createNewBag(getStoreById(storeId), prodId, amount);
                         KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
                         return new Result(true,true);
                     }
-                    getUserById(userId).createNewBag(getStoreById(storeId), prodId, amount);
-                    KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
-                    return new Result(true,true);
-                }
-                else{
-                    return new Result(false,"Given Product not exist");
+                    else{
+                        return new Result(false,"Given Product not exist");
+                    }
+                }else{
+                    KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was not added to bag for user " + userId);
+                    return new Result(false, "User has not logged in");
                 }
             }else{
-                KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was not added to bag for user " + userId);
-                return new Result(false, "User has not logged in");
+                return new Result(false,"Amount can't be negative ")
             }
+
         }
         catch (Exception e) {
             KingLogger.logEvent(Level.WARNING, "Domain.Product number " + prodId + " was not added to bag for user " + userId);
@@ -400,8 +407,15 @@ public class TradingSystem {
         return null;
     }
 
-    public Result getProductsFromStore(int storeId) {
-        return new Result(true,getStoreById(storeId).getInventory().getProducts());
+    public List<Product> getProductsFromStore(int storeId) {
+        List<Product> products=new LinkedList<>();
+        Map<Product , Integer> amounts= getStoreById(storeId).getInventory().getProductsAmounts();
+        for(Product product :amounts.keySet()){
+            products.add(product);
+            product.setAmount(amounts.get(product));
+
+        }
+        return new Result(true,products);
     }
 
     public Result getNumOfStores() {
@@ -415,5 +429,25 @@ public class TradingSystem {
 
         return new Result(true,getUserById(userId).getPurchaseHistory());
 
+    }
+
+    public boolean isRegister(int userId) {
+        return checkValidUser(userId);
+    }
+
+    public List<Store> getMyStores(int id) {
+        if(checkValidUser(id))
+        {
+            return getUserById(id).getMyStores();
+        }
+        return new LinkedList<>();
+    }
+
+    public List<Permission> getPermissionsOfStore(int userId, int storeId) {
+        if(checkValidUser(userId))
+        {
+            return getUserById(userId).getPermissionsOfStore(storeId);
+        }
+        return new LinkedList<>();
     }
 }

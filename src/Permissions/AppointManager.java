@@ -12,8 +12,9 @@ public class AppointManager {
     public Result action(User owner, User user, Store store) {
         if(store.addManager(user)) {
             store.addEmployee(owner,user);
-
             user.updateManagerPermission(store);
+            user.addToMyStores(store);
+
             return new Result(true,true);
         }
         return new Result(false,"User has no permissions");

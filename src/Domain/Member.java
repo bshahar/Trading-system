@@ -1,19 +1,23 @@
 package Domain;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Member {
     Map<Store, Permission> permissions;
+    List<Store> myStores;
 
     public Member ()
     {
         this.permissions = new ConcurrentHashMap<>();
+        this.myStores = new LinkedList<>();
     }
     public void openStore(User user, Store store)
     {
         store.addOwner(user);
+        myStores.add(store);
         Permission p = new Permission(this, store);
         p.allowOpenStore();
         p.openStore();
@@ -383,5 +387,17 @@ public class Member {
         }else{
             return new Result(false,"User has no permissions");
         }
+    }
+
+    public List<Store> getMyStores() {
+        return this.myStores;
+    }
+    public void addToMyStores(Store store)
+    {
+        myStores.add(store);
+    }
+
+    public List<Permission> getPermissionsOfStore(int storeId) {
+        return null;
     }
 }

@@ -147,4 +147,16 @@ public class User {
     public List<Receipt> getPurchaseHistory() {
         return receipts;
     }
+
+    public List<Store> getMyStores() {
+        return this.member.getMyStores();
+    }
+    public void addToMyStores(Store store)
+    {
+        this.member.addToMyStores(store);
+    }
+
+    public List<Permission> getPermissionsOfStore(int storeId) {
+        return this.member.getPermissionsOfStore(storeId);
+    }
 }

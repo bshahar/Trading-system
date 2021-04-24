@@ -4,6 +4,7 @@ import Domain.*;
 import Interface.TradingSystem;
 
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -127,6 +128,11 @@ public class API {
 
     }
 
+    public static boolean isRegister(int userId)
+    {
+        return tradingSystem.isRegister(userId);
+    }
+
     public static Result getUserPurchaseHistory(int registerId1) {
         return tradingSystem.getUserPurchaseHistory(registerId1);
     }
@@ -142,8 +148,8 @@ public class API {
         //stores
         int storeId1;
         int storeId2;
-        String userName1="kandabior";
-        String password1= "or321654";
+        String userName1="elad@gmail.com";
+        String password1= "123";
         String userName2="elad";
         String password2= "elad321654";
         String userName3="erez";
@@ -155,7 +161,23 @@ public class API {
         registerId2= registeredLogin(userName2,password2);
         registerId3= registeredLogin(userName3,password3);
         storeId1=openStore(registerId1,"kandabior store");
-        storeId1=openStore(registerId1,"elad store");
+        storeId2=openStore(registerId1,"elad store");
+        LinkedList<Product.Category> catList= new LinkedList<>();
+        catList.add(Product.Category.FOOD);
+        int productId1= addProduct(registerId1, storeId1,"Milk",catList ,10,"FOOD", 10 );
+
+        int productId2= addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD", 2 );
+
+        int productId3= addProduct(registerId1, storeId1,"Banana",catList ,4,"FOOD", 20 );
+        registeredLogout(registerId1);
     }
 
+    public static List<Store>  getMyStores(int id) {
+       return tradingSystem.getMyStores(id);
+    }
+
+    public static List<Permission> getPermissionsOfStore(int userId , int storeId)
+    {
+        return tradingSystem.getPermissionsOfStore(userId,storeId);
+    }
 }

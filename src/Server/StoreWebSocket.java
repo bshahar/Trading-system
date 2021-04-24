@@ -1,5 +1,6 @@
 package Server;
 
+import Domain.Product;
 import Domain.Store;
 import Service.API;
 import org.eclipse.jetty.websocket.api.*;
@@ -10,7 +11,7 @@ import java.util.concurrent.*;
 import org.json.JSONObject;
 
 @WebSocket
-public class MainWebSocket {
+public class StoreWebSocket {
 
     // Store sessions if you want to, for example, broadcast a message to all users
     private static final Queue<Session> sessions = new ConcurrentLinkedQueue<>();
@@ -29,50 +30,45 @@ public class MainWebSocket {
     public void message(Session session, String message) throws IOException {
         JSONObject jo = new JSONObject(message);
         String type = jo.get("type").toString();
-        int id = Integer.parseInt(jo.get("id").toString());
-        if(type.equals("GET_STORES")){
-            List<Store> stores = API.getAllStoreInfo(id);
+        if(type.equals("GET_PRODUCTS")){
+            int storeId = Integer.valueOf(jo.get("storeId").toString());
+            List<Product> products = API.getAllStoreProducts(storeId);
             JSONObject json= new JSONObject();
-            json.put("type", "GET_STORES");
-            JSONObject[] jsonStores=new JSONObject[stores.size()];
+            json.put("type", "PRODUCTS");
+            JSONObject[] jsonProducts=new JSONObject[products.size()];
             int i=0;
-            for(Store store: stores){
-                System.out.println("GOT stores "+store.getName());
+            for(Product product: products){
                 JSONObject jsonProduct= new JSONObject();
-                jsonProduct.put("storeName",store.getName());
-                jsonProduct.put("storeId",store.getStoreId());
-                jsonStores[i]=jsonProduct;
+                jsonProduct.put("productName",product.getName());
+                jsonProduct.put("productId",product.getId());
+                jsonProduct.put("price",product.getPrice());
+                jsonProduct.put("amount",product.getAmount());
+                jsonProducts[i]=jsonProduct;
                 i++;
             }
-            json.put("stores",jsonStores);
+            json.put("items",jsonProducts);
             System.out.println(json);
             session.getRemote().sendString(json.toString());
         }
         else if(type.equals("LOGOUT"))
         {
+            int id = Integer.valueOf(jo.get("id").toString());
             boolean result = API.registeredLogout(id);
             JSONObject json= new JSONObject();
             json.put("type", "LOGOUT");
             json.put("result",result);
             session.getRemote().sendString(json.toString());
-        }
-        else if(type.equals("OPEN"))
-        {
-            boolean result = API.isRegister(id);
+        }else if(type.equals("ADD_PRODUCT")){
+            int userId=Integer.valueOf(jo.get("userId").toString());
+            int storeId= Integer.valueOf(jo.get("storeId").toString());
+            int productId= Integer.valueOf(jo.get("productId").toString());
+            int amount= Integer.valueOf(jo.get("amount").toString());
+            boolean result=API.addProductToCart(userId,storeId,productId,amount);
             JSONObject json= new JSONObject();
-            json.put("type", "OPEN");
+            json.put("type", "ADD_PRODUCT");
             json.put("result",result);
             session.getRemote().sendString(json.toString());
         }
-        else if(type.equals("GUEST_REGISTER"))
-        {
-            int result = API.guestRegister(id,jo.get("email").toString(),jo.get("password").toString());
-            JSONObject json= new JSONObject();
-            json.put("type", "GUEST_REGISTER");
-            json.put("result",result);
-            session.getRemote().sendString(json.toString());
-        }
-
 
     }
 

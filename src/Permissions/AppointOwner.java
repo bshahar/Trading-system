@@ -17,6 +17,8 @@ public class AppointOwner {
             store.addEmployee(owner,user);
             store.addOwnerToAppointments(user);
             user.updateOwnerPermission(store);
+            user.addToMyStores(store);
+
             return new Result(true,true);
         }
         return new Result(false,"Cant appoint the User" );

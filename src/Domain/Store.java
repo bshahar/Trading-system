@@ -161,10 +161,12 @@ public class Store {
     }
     public boolean addManager(User user)
     {
-        if(this.managers.contains(user))
-            return false;
-        managers.add(user);
-        return true;
+        synchronized (managers) {
+            if (this.managers.contains(user))
+                return false;
+            managers.add(user);
+            return true;
+        }
     }
 
 

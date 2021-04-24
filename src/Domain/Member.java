@@ -353,7 +353,7 @@ public class Member {
     }
 
     public Result getStorePurchaseHistory(Store store) {
-        if(!permissions.containsKey(store)) return null;
+        if(!permissions.containsKey(store)) return new Result(false,"User has not permissions");
         return permissions.get(store).viewPurchaseHistory();
     }
 

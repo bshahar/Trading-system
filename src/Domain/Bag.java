@@ -5,7 +5,7 @@ import java.util.*;
 
 public class Bag {
     private Store store;
-    Map<Integer,Integer>  productIdsAmount;
+    Map<Product,Integer>  productIdsAmount;
 
 
     public Bag(Store store)
@@ -18,11 +18,11 @@ public class Bag {
         return this.store.getStoreId();
     }
 
-    public void addProduct(int prodId,int amount) {
-        this.productIdsAmount.put(prodId,amount);
+    public void addProduct(Product product,int amount) {
+        this.productIdsAmount.put(product,amount);
     }
 
-    public Map<Integer,Integer> getProductIds() {
+    public Map<Product,Integer> getProductIds() {
         return productIdsAmount;
     }
 

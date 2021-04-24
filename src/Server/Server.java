@@ -16,7 +16,7 @@ public class Server {
         Spark.webSocket("/Login", LoginWebSocket.class);
         Spark.webSocket("/Main",MainWebSocket.class);
         Spark.webSocket("/Store/currentStore",StoreWebSocket.class);
-
+        Spark.webSocket("/Cart",MyCartWebSocket.class);
 
         Spark.webSocket("/myStores", myStoresWebSocket.class);
         Spark.webSocket("/myStores/StorePermissions", myStoresWebSocket.class);
@@ -44,6 +44,12 @@ public class Server {
             HashMap<String ,Object> model = new HashMap<>();
 
             return new ThymeleafTemplateEngine().render(new ModelAndView(model,"StorePermissions"));
+        }));
+
+        Spark.get("/Cart",((request, response) -> {
+            HashMap<String ,Object> model = new HashMap<>();
+
+            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Cart"));
         }));
 
 

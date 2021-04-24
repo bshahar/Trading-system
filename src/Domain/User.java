@@ -75,7 +75,7 @@ public class User {
 
     public void createNewBag(Store store, int prodId, int amount) {
         Bag b = new Bag(store);
-        b.addProduct(prodId,amount);
+        b.addProduct(store.getProductById(prodId),amount);
         this.bags.add(b);
     }
 

@@ -14,27 +14,7 @@ import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-        import Domain.Store;
-        import Service.API;
-        import org.eclipse.jetty.websocket.api.Session;
-        import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
-        import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
-        import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
-        import org.eclipse.jetty.websocket.api.annotations.WebSocket;
-        import org.json.JSONObject;
 
-        import java.io.IOException;
-        import java.util.Queue;
-        import java.util.concurrent.ConcurrentLinkedQueue;
-
-        import Service.API;
-        import netscape.javascript.JSObject;
-        import org.eclipse.jetty.websocket.api.*;
-        import org.eclipse.jetty.websocket.api.annotations.*;
-        import java.io.*;
-        import java.util.*;
-        import java.util.concurrent.*;
-        import org.json.JSONObject;
 
 @WebSocket
 public class storePermissionsWebSocket {
@@ -78,7 +58,7 @@ public class storePermissionsWebSocket {
         }
         else if(type.equals("LOGOUT"))
         {
-            boolean result = API.registeredLogout(id);
+            boolean result = API.registeredLogout(id).isResult();
             JSONObject json= new JSONObject();
             json.put("type", "LOGOUT");
             json.put("result",result);

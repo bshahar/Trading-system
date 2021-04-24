@@ -241,13 +241,13 @@ console.log(event);
    else if(parsedMessage.type=="GUEST_REGISTER")
   {
     result = parsedMessage.result;
-    if(result!=-1){
+    if(result){
       console.log("register succefully");
         window.location.href = "Login";
     }
     else
     {
-      alert("Error , try again!")
+      alert(parsedMessage.data);
     }
   }
 

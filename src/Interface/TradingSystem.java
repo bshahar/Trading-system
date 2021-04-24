@@ -214,7 +214,7 @@ public class TradingSystem {
                     return new Result(false, "User has not logged in");
                 }
             }else{
-                return new Result(false,"Amount can't be negative ")
+                return new Result(false,"Amount can't be negative ");
             }
 
         }
@@ -407,7 +407,7 @@ public class TradingSystem {
         return null;
     }
 
-    public List<Product> getProductsFromStore(int storeId) {
+    public Result getProductsFromStore(int storeId) {
         List<Product> products=new LinkedList<>();
         Map<Product , Integer> amounts= getStoreById(storeId).getInventory().getProductsAmounts();
         for(Product product :amounts.keySet()){

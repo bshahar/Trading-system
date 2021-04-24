@@ -1,5 +1,6 @@
 package Server;
 
+import Domain.Result;
 import Domain.Store;
 import Service.API;
 import org.eclipse.jetty.websocket.api.*;
@@ -31,7 +32,7 @@ public class MainWebSocket {
         String type = jo.get("type").toString();
         int id = Integer.parseInt(jo.get("id").toString());
         if(type.equals("GET_STORES")){
-            List<Store> stores = API.getAllStoreInfo(id);
+            List<Store> stores =(List<Store> ) API.getAllStoreInfo(id).getdata();
             JSONObject json= new JSONObject();
             json.put("type", "GET_STORES");
             JSONObject[] jsonStores=new JSONObject[stores.size()];
@@ -50,7 +51,7 @@ public class MainWebSocket {
         }
         else if(type.equals("LOGOUT"))
         {
-            boolean result = API.registeredLogout(id);
+            boolean result = API.registeredLogout(id).isResult();
             JSONObject json= new JSONObject();
             json.put("type", "LOGOUT");
             json.put("result",result);
@@ -66,11 +67,13 @@ public class MainWebSocket {
         }
         else if(type.equals("GUEST_REGISTER"))
         {
-            int result = API.guestRegister(id,jo.get("email").toString(),jo.get("password").toString());
+            Result result = API.guestRegister(id,jo.get("email").toString(),jo.get("password").toString());
             JSONObject json= new JSONObject();
             json.put("type", "GUEST_REGISTER");
-            json.put("result",result);
+            json.put("result",result.isResult());
+            json.put("data",result.getdata());
             session.getRemote().sendString(json.toString());
+
         }
 
 

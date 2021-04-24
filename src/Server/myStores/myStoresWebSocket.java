@@ -14,7 +14,6 @@ import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
 import Service.API;
-import netscape.javascript.JSObject;
 import org.eclipse.jetty.websocket.api.*;
 import org.eclipse.jetty.websocket.api.annotations.*;
 import java.io.*;
@@ -64,7 +63,7 @@ import org.json.JSONObject;
             }
             else if(type.equals("LOGOUT"))
             {
-                boolean result = API.registeredLogout(id);
+                boolean result = API.registeredLogout(id).isResult();
                 JSONObject json= new JSONObject();
                 json.put("type", "LOGOUT");
                 json.put("result",result);

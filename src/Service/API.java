@@ -157,18 +157,18 @@ public class API {
         register(userName1,password1);
         register(userName2,password2);
         register(userName3,password3);
-        registerId1= registeredLogin(userName1,password1);
-        registerId2= registeredLogin(userName2,password2);
-        registerId3= registeredLogin(userName3,password3);
-        storeId1=openStore(registerId1,"kandabior store");
-        storeId2=openStore(registerId1,"elad store");
+        registerId1= (int)registeredLogin(userName1,password1).getdata();
+        registerId2=(int) registeredLogin(userName2,password2).getdata();
+        registerId3= (int)registeredLogin(userName3,password3).getdata();
+        storeId1=(int )openStore(registerId1,"kandabior store").getdata();
+        storeId2=(int)openStore(registerId1,"elad store").getdata();
         LinkedList<Product.Category> catList= new LinkedList<>();
         catList.add(Product.Category.FOOD);
-        int productId1= addProduct(registerId1, storeId1,"Milk",catList ,10,"FOOD", 10 );
+        int productId1=(int ) addProduct(registerId1, storeId1,"Milk",catList ,10,"FOOD", 10 ).getdata();
 
-        int productId2= addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD", 2 );
+        int productId2=(int) addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD", 2 ).getdata();
 
-        int productId3= addProduct(registerId1, storeId1,"Banana",catList ,4,"FOOD", 20 );
+        int productId3= (int)addProduct(registerId1, storeId1,"Banana",catList ,4,"FOOD", 20 ).getdata();
         registeredLogout(registerId1);
     }
 

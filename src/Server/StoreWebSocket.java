@@ -32,7 +32,7 @@ public class StoreWebSocket {
         String type = jo.get("type").toString();
         if(type.equals("GET_PRODUCTS")){
             int storeId = Integer.valueOf(jo.get("storeId").toString());
-            List<Product> products = API.getAllStoreProducts(storeId);
+            List<Product> products =(List<Product>) API.getAllStoreProducts(storeId).getdata();
             JSONObject json= new JSONObject();
             json.put("type", "PRODUCTS");
             JSONObject[] jsonProducts=new JSONObject[products.size()];
@@ -53,7 +53,7 @@ public class StoreWebSocket {
         else if(type.equals("LOGOUT"))
         {
             int id = Integer.valueOf(jo.get("id").toString());
-            boolean result = API.registeredLogout(id);
+            boolean result = API.registeredLogout(id).isResult();
             JSONObject json= new JSONObject();
             json.put("type", "LOGOUT");
             json.put("result",result);
@@ -63,7 +63,7 @@ public class StoreWebSocket {
             int storeId= Integer.valueOf(jo.get("storeId").toString());
             int productId= Integer.valueOf(jo.get("productId").toString());
             int amount= Integer.valueOf(jo.get("amount").toString());
-            boolean result=API.addProductToCart(userId,storeId,productId,amount);
+            boolean result=API.addProductToCart(userId,storeId,productId,amount).isResult();
             JSONObject json= new JSONObject();
             json.put("type", "ADD_PRODUCT");
             json.put("result",result);

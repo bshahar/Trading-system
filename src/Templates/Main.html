@@ -100,7 +100,7 @@ function closeForm() {
 <head>
     <div class="topnav">
         <ul id="topanv">
-        <button >Home</button>
+        <button onclick="Home()">Home</button>
         <button onclick="myStores()" >myStores</button>
             <div class="form-popup" id="myForm">
                 <form class="form-container">
@@ -211,7 +211,7 @@ console.log(event);
 		if(parsedMessage.type=="GET_STORES"){
 		 stores = parsedMessage.stores;
 		for (let i = 0; i < stores.length; i++) {
-        document.getElementById("list").innerHTML  += '<button id='+stores[i].storeId+'>' + stores[i].storeName + '</button><br/>';
+        document.getElementById("list").innerHTML  += `<button id=${stores[i].storeId} onclick="navigateToStore(${stores[i].storeId})"> ${stores[i].storeName}</button><br/>`;
         }
     }
   else if(parsedMessage.type=="LOGOUT")
@@ -251,8 +251,10 @@ console.log(event);
     }
   }
 
-
-
+const Home= () =>
+{
+	 window.location.href = "Main";
+}
 
 }
 const logOut= () =>

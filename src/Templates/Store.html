@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <div class="topnav">
-        <button >Home</button>
+        <button onclick="Home()" >Home</button>
         <button >myStores</button>
         <button onclick="logOut()" id="logOut">LogOut</button>
     </div>
@@ -102,7 +102,7 @@ ws.onmessage = function(event)
         document.getElementById("list").innerHTML  += '<h1>' + products[i].productName + '</h1>'
         document.getElementById("list").innerHTML  += '<h3>price: '+products[i].price +'</h2>'
           document.getElementById("list").innerHTML  += '<h3>amount: '+products[i].amount +'</h2>'
-        document.getElementById("list").innerHTML  += '<input id="input'+products[i].productId+'" type="number" />'
+        document.getElementById("list").innerHTML  += '<input id="input'+products[i].productId+'"/>'
         document.getElementById("list").innerHTML  += '<button onclick="addProduct('+products[i].productId+')">Add to Cart</button>'
         document.getElementById("list").innerHTML  += '</div>';
 
@@ -140,6 +140,11 @@ const addProduct=(productId)=>{
   console.log(amount);
   ws.send(JSON.stringify({"type":"ADD_PRODUCT","productId":productId,"amount":amount,"userId":localStorage.getItem("id"),"storeId":localStorage.getItem("storeId")}));
 
+}
+
+const Home= () =>
+{
+	 window.location.href = "Main";
 }
 
 

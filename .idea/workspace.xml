@@ -23,17 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="update server and gui #44">
-      <change afterPath="$PROJECT_DIR$/src/Server/StoreWebSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Templates/Store.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Product.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/MainWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MainWebSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/Templates/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/StorePermissions.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/Templates/StorePermissions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/myStores.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/Templates/myStores.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Templates/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/Main.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/Store.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/Store.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/StorePermissions.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/StorePermissions.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/myStores.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/myStores.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +50,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="Adapter_injection" />
+    <option name="BRANCH" value="origin/StorePage" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -418,7 +415,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
-          <line>61</line>
+          <line>60</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

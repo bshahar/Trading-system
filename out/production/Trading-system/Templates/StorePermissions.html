@@ -100,7 +100,7 @@ function closeForm() {
 <head>
     <div class="topnav">
         <ul id="topanv">
-            <button >Home</button>
+            <button onclick="Home()">Home</button>
             <button onclick="myStores()" >myStores</button>
             <button onclick="logOut()" id="logOut">LogOut</button>
         </ul>
@@ -182,20 +182,20 @@ position:absolute;
 <div>
     <div class="btn-group">
         <ul id="list">
-            <button onclick="AddPermissions(AddPermissions)" >Add Permissions</button>
-            <button onclick="AddProduct(AddProduct)" >Add Product</button>
-            <button onclick="AppointManager(AppointManager)" >Appoint Manager</button>
-            <button onclick="AppointOwner(AppointOwner)" >Appoint Owner</button>
-            <button onclick="CloseStore(CloseStore)" >Close Store</button>
-            <button onclick="EditProduct(EditProduct)" >Edit Product</button>
-            <button onclick="GetWorkersInfo(GetWorkersInfo)" >Get Workers Info</button>
-            <button onclick="OpenStore(OpenStore)" >myStores</button>
-            <button onclick="RemoveManagerAppointment(RemoveManagerAppointment)" >Remove Manager Appointment</button>
-            <button onclick="RemoveOwnerAppointment(RemoveOwnerAppointment)" >Remove Owner Appointment</button>
-            <button onclick="RemovePermission(RemovePermission)" >Remove Permission</button>
-            <button onclick="RemoveProduct(RemoveProduct)" >Remove Product</button>
-            <button onclick="ReopenStore(ReopenStore)" >Reopen Store</button>
-            <button onclick="ViewPurchaseHistory(ViewPurchaseHistory)" >ViewPurchaseHistory</button>
+            <button onclick="AddPermissions(AddPermissions)" >Add Permissions</button><br/>
+            <button onclick="AddProduct(AddProduct)" >Add Product</button><br/>
+            <button onclick="AppointManager(AppointManager)" >Appoint Manager</button><br/>
+            <button onclick="AppointOwner(AppointOwner)" >Appoint Owner</button><br/>
+            <button onclick="CloseStore(CloseStore)" >Close Store</button><br/>
+            <button onclick="EditProduct(EditProduct)" >Edit Product</button><br/>
+            <button onclick="GetWorkersInfo(GetWorkersInfo)" >Get Workers Info</button><br/>
+            <button onclick="OpenStore(OpenStore)" >Open Store</button><br/>
+            <button onclick="RemoveManagerAppointment(RemoveManagerAppointment)" >Remove Manager Appointment</button><br/>
+            <button onclick="RemoveOwnerAppointment(RemoveOwnerAppointment)" >Remove Owner Appointment</button><br/>
+            <button onclick="RemovePermission(RemovePermission)" >Remove Permission</button><br/>
+            <button onclick="RemoveProduct(RemoveProduct)" >Remove Product</button><br/>
+            <button onclick="ReopenStore(ReopenStore)" >Reopen Store</button><br/>
+            <button onclick="ViewPurchaseHistory(ViewPurchaseHistory)" >ViewPurchaseHistory</button><br/>
         </ul>
     </div>
 </div>
@@ -235,6 +235,11 @@ const enterStore= (id) =>
 {
     localStorage.setItem('storeId',id);
 	window.location.href = "StorePermissions";
+}
+
+const Home= () =>
+{
+	 window.location.href = "Main";
 }
 
 

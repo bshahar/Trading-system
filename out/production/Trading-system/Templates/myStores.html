@@ -100,7 +100,7 @@ function closeForm() {
 <head>
     <div class="topnav">
         <ul id="topanv">
-            <button >Home</button>
+            <button onclick="Home()" >Home</button>
             <button onclick="myStores()" >myStores</button>
             <button onclick="logOut()" id="logOut">LogOut</button>
         </ul>
@@ -208,7 +208,7 @@ ws.onmessage = function(event)
     document.getElementById("title").innerHTML += 'You dont have any stores';
    }
    else{
-document.getElementById("title").innerHTML += 'Choose the store you want to enter';
+    document.getElementById("title").innerHTML += 'Choose the store you want to enter';
    }
 		for (let i = 0; i < stores.length; i++) {
         document.getElementById("list").innerHTML  += `<button id=${stores[i].storeId} onclick="enterStore(${stores[i].storeId})">${stores[i].storeName}</button><br/>`;
@@ -224,7 +224,10 @@ document.getElementById("title").innerHTML += 'Choose the store you want to ente
     }
 
 }
-
+const Home= () =>
+{
+	 window.location.href = "Main";
+}
 
 const logOut= () =>
 {

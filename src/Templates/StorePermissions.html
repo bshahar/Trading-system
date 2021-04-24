@@ -100,7 +100,7 @@ function closeForm() {
 <head>
     <div class="topnav">
         <ul id="topanv">
-            <button >Home</button>
+            <button onclick="Home()">Home</button>
             <button onclick="myStores()" >myStores</button>
             <button onclick="logOut()" id="logOut">LogOut</button>
         </ul>
@@ -235,6 +235,11 @@ const enterStore= (id) =>
 {
     localStorage.setItem('storeId',id);
 	window.location.href = "StorePermissions";
+}
+
+const Home= () =>
+{
+	 window.location.href = "Main";
 }
 
 

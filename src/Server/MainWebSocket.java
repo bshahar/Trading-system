@@ -38,6 +38,15 @@ public class MainWebSocket {
             json.put("names",stores);
             session.getRemote().sendString(json.toString());
         }
+        else if(type.equals("LOGOUT"))
+        {
+            int id = Integer.valueOf(jo.get("id").toString());
+            boolean result = API.registeredLogout(id);
+            JSONObject json= new JSONObject();
+            json.put("type", "LOGOUT");
+            json.put("result",result);
+            session.getRemote().sendString(json.toString());
+        }
 
     }
 

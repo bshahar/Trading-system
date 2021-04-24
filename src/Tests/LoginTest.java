@@ -21,14 +21,14 @@ public class LoginTest {
 
     //AT-4.1
     @Test
-    public void registerTest(){
+    public void loginSuccessTest(){
         String userName="kandabior";
         String password= "or321654";
         Assertions.assertEquals(1,API.register(userName,password).getdata());
     }
     //AT-4.2
     @Test
-    public void loginBadPass(){
+    public void loginBadPasswordFailTest(){
         String userName="kandabior";
         String password= "or321654";
         Assertions.assertEquals(1,API.register(userName,"12").getdata());
@@ -38,7 +38,7 @@ public class LoginTest {
 
     //AT-4.3
     @Test
-    public void failRegisterTest(){
+    public void registerExistingUserFailTest(){
         String userName="kandabior";
         String password= "or321654";
         API.register(userName,password);
@@ -46,7 +46,7 @@ public class LoginTest {
     }
 
     @Test
-    public void loginTest(){
+    public void registerThenLoginSuccessTest(){
         String userName="kandabior";
         String password= "or321654";
         API.register(userName,password);
@@ -57,7 +57,7 @@ public class LoginTest {
 
     //AT-10.1
     @Test
-    public void logoutTest(){
+    public void logoutSuccessTest(){
         String userName="kandabior";
         String password= "or321654";
         API.register(userName,password);
@@ -68,7 +68,7 @@ public class LoginTest {
 
     //AT-10.2
     @Test
-    public void logoutTwiceTest(){
+    public void logoutTwiceFailTest(){
         String userName="kandabior";
         String password= "or321654";
         API.register(userName,password);
@@ -80,7 +80,7 @@ public class LoginTest {
 
 
     @Test
-    public void failLoginTest(){
+    public void isLoggedFailTest(){
         String userName="kandabior";
         String password= "or321654";
         Assertions.assertEquals(-1,API.registeredLogin(userName,password).getdata());
@@ -90,7 +90,7 @@ public class LoginTest {
 
     @Test
     //AT-1
-    public void guestLoginTest(){
+    public void guestLoginSuccessTest(){
         Result index = API.guestLogin();
         assertEquals(index.getdata(), 1);
         Assertions.assertTrue((boolean) API.isLogged((int)index.getdata()).getdata());
@@ -98,7 +98,7 @@ public class LoginTest {
     }
     @Test
     //AT-2
-    public void guestLogoutTest(){
+    public void guestLogoutFailTest(){
         int index = (int)API.guestLogin().getdata();
         Assertions.assertFalse((boolean) API.registeredLogout(index).isResult());
     }
@@ -116,14 +116,14 @@ public class LoginTest {
 
     //AT-3.1
     @Test
-    public void guestRegisterTest(){
+    public void guestRegisterSuccessTest(){
         int guestId= (int)API.guestLogin().getdata();
         Assertions.assertEquals(1,API.guestRegister(guestId,"or","or321654").getdata());
         Assertions.assertTrue((boolean) API.isLogged(guestId).isResult());
     }
     //AT-3.2
     @Test
-    public void guestRegisterTestFail(){
+    public void guestRegisterFailTest(){
         int guestId= (int)API.guestLogin().getdata();
         String userName="kandabior";
         String password= "or321654";
@@ -131,37 +131,4 @@ public class LoginTest {
         Assertions.assertEquals(false,API.guestRegister(guestId,"kandabior","or321654").isResult());
     }
 
-    @Test
-    public void testme(){
-        System.out.println(getMaxTools(1,11));
-    }
-
-    public static int getMaxTools(int start,int end){
-        if(start>end){
-            return -1;
-        }
-        Map<Integer,Integer> map= new HashMap<>();
-        for( int i=start; i<=end ;i++){
-            String temp= String.valueOf(i);
-            int sum=0;
-            for(int j=0; j<temp.length(); j++){
-                sum+= temp.charAt(j)- '0';
-            }
-            if(map.containsKey(sum)){
-                map.put(sum,map.get(sum)+1);
-            }else{
-                map.put(sum,1);
-            }
-        }
-        //get max
-        int max=0;
-        for (int key: map.keySet()){
-            if(map.get(key)>max){
-                max=map.get(key);
-            }
-        }
-        return max;
-
-
-    }
 }

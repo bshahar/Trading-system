@@ -54,7 +54,7 @@ public class PurchaseTest {
 
     @Test
     //AT-9
-    public void purchaseTest(){
+    public void purchaseOneItemSuccessTest(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
         Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789").isResult());
     }
@@ -62,7 +62,7 @@ public class PurchaseTest {
 
     @Test
     //AT-9
-    public void purchaseTest2(){
+    public void purchaseTwoItemsSuccessTest(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
         API.addProductToCart(registerId1,storeId1,productId2,1);
         Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789").isResult());
@@ -70,7 +70,7 @@ public class PurchaseTest {
 
     @Test
     //AT-9
-    public void purchaseTest3(){
+    public void twoUsersPurchaseSameItemFailTest(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
         API.addProductToCart(registerId2,storeId1,productId1,1);
         Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789").isResult());
@@ -105,7 +105,7 @@ public class PurchaseTest {
 
     @Test
     //AT-22.1
-    public void twoPurchaseSyncTest(){
+    public void twoPurchasesSyncTest(){
         int orCount=0;
         int eladCount=0;
         for(int i=0; i<100; i++){
@@ -165,7 +165,7 @@ public class PurchaseTest {
 
     @Test
     //AT-12.1
-    public void getPersonalPurchaseHistoryTest(){
+    public void getPersonalPurchaseHistorySuccessTest(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
         API.buyProduct(registerId1,storeId1,"123456789");
         List<Receipt> receiptList=(List<Receipt>) API.getUserPurchaseHistory(registerId1).getdata();

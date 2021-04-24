@@ -21,6 +21,7 @@ public class Product {
     private int ratesCount;
     private String description;
     private List<String> reviews;
+    private int amount;
 
     public Product(int id, String name, List<Category> categories, double price , String description) {
         this.id = id;
@@ -33,6 +34,13 @@ public class Product {
         this.reviews = new LinkedList<>();
     }
 
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount){
+        this.amount=amount;
+    }
     public int getId() {return id; }
 
     public String getName() {

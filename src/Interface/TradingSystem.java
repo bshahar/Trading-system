@@ -192,7 +192,7 @@ public class TradingSystem {
     public boolean addProductToBag(int userId, int storeId, int prodId,int amount){
         try {
             Bag b = getUserById(userId).getBagByStoreId(storeId);
-            if (getUserById(userId).isLogged() && getStoreById(storeId).getInventory().prodExists(prodId)) {
+            if (getUserById(userId).isLogged() && getStoreById(storeId).getInventory().prodExists(prodId) && amount>0) {
                 if (b != null) {
                     b.addProduct(prodId, amount);
                     KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
@@ -391,7 +391,14 @@ public class TradingSystem {
     }
 
     public List<Product> getProductsFromStore(int storeId) {
-        return getStoreById(storeId).getInventory().getProducts();
+        List<Product> products=new LinkedList<>();
+        Map<Product , Integer> amounts= getStoreById(storeId).getInventory().getProductsAmounts();
+        for(Product product :amounts.keySet()){
+            products.add(product);
+            product.setAmount(amounts.get(product));
+
+        }
+        return products;
     }
 
     public int getNumOfStores() {

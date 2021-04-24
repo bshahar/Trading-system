@@ -15,6 +15,9 @@ public class Server {
         Spark.secure("security/version2/KeyStore.jks", "123456", "security/version2/truststore.jks","123456");
         Spark.webSocket("/Login", LoginWebSocket.class);
         Spark.webSocket("/Main",MainWebSocket.class);
+        Spark.webSocket("/Store/currentStore",StoreWebSocket.class);
+
+
         Spark.webSocket("/myStores", myStoresWebSocket.class);
         Spark.webSocket("/myStores/StorePermissions", myStoresWebSocket.class);
         API.initTradingSystem("ELAD");
@@ -45,6 +48,12 @@ public class Server {
 
 
 
+
+        Spark.get("/Store",((request, response) -> {
+            HashMap<String ,Object> model = new HashMap<>();
+
+            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Store"));
+        }));
 
 
         Spark.init();

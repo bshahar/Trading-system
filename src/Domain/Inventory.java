@@ -146,4 +146,8 @@ public class Inventory {
             this.products.put(product, this.products.get(product)+amount);
         }
     }
+
+    public Map<Product,Integer> getProductsAmounts() {
+        return products;
+    }
 }

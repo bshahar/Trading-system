@@ -1,7 +1,6 @@
 package Server.Login;
 
 import Service.API;
-import netscape.javascript.JSObject;
 import org.eclipse.jetty.websocket.api.*;
 import org.eclipse.jetty.websocket.api.annotations.*;
 import java.io.*;

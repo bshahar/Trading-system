@@ -280,6 +280,13 @@ const myStores= () =>
 }
 
 
+const navigateToStore=(storeId)=>{
+    console.log(storeId);
+    localStorage.setItem('storeId',storeId);
+    window.location.href = "Store";
+
+}
+
 
 
 function openForm() {

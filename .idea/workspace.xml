@@ -19,14 +19,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="connect trading system to stores #27">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StoreTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TradingSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -150,6 +144,8 @@
       <workItem from="1617440371798" duration="9756000" />
       <workItem from="1617723869195" duration="331000" />
       <workItem from="1617736721312" duration="2265000" />
+      <workItem from="1617784680381" duration="200000" />
+      <workItem from="1618997416493" duration="776000" />
     </task>
     <task id="LOCAL‎00001" summary="Dorin's changes #24">
       <created>1617455826555</created>
@@ -198,46 +194,63 @@
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
     <state width="420" height="466" key="DebuggerActiveHint/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617737541311" />
-    <state width="1877" height="321" key="GridCell.Tab.0.bottom" timestamp="1617739027545">
-      <screen x="84" y="-1200" width="1920" height="1160" />
+    <state width="1877" height="321" key="GridCell.Tab.0.bottom" timestamp="1617739453783">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1877" height="321" key="GridCell.Tab.0.bottom/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739027545" />
-    <state width="1877" height="321" key="GridCell.Tab.0.center" timestamp="1617739027545">
-      <screen x="84" y="-1200" width="1920" height="1160" />
+    <state width="1877" height="321" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1617739453783" />
+    <state width="1877" height="321" key="GridCell.Tab.0.center" timestamp="1617739453783">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1877" height="321" key="GridCell.Tab.0.center/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739027545" />
-    <state width="1877" height="321" key="GridCell.Tab.0.left" timestamp="1617739027545">
-      <screen x="84" y="-1200" width="1920" height="1160" />
+    <state width="1877" height="321" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1617739453783" />
+    <state width="1877" height="321" key="GridCell.Tab.0.left" timestamp="1617739453783">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1877" height="321" key="GridCell.Tab.0.left/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739027545" />
-    <state width="1877" height="321" key="GridCell.Tab.0.right" timestamp="1617739027545">
-      <screen x="84" y="-1200" width="1920" height="1160" />
+    <state width="1877" height="321" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1617739453783" />
+    <state width="1877" height="321" key="GridCell.Tab.0.right" timestamp="1617739453783">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1877" height="321" key="GridCell.Tab.0.right/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739027545" />
-    <state width="1877" height="396" key="GridCell.Tab.1.bottom" timestamp="1617739020248">
-      <screen x="84" y="-1200" width="1920" height="1160" />
+    <state width="1877" height="321" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1617739453783" />
+    <state width="618" height="396" key="GridCell.Tab.1.bottom" timestamp="1617739453768">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1877" height="396" key="GridCell.Tab.1.bottom/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739020248" />
-    <state width="1877" height="396" key="GridCell.Tab.1.center" timestamp="1617739020248">
-      <screen x="84" y="-1200" width="1920" height="1160" />
+    <state width="618" height="396" key="GridCell.Tab.1.bottom/0.0.1280.680@0.0.1280.680" timestamp="1617739453768" />
+    <state width="618" height="396" key="GridCell.Tab.1.center" timestamp="1617739453768">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1877" height="396" key="GridCell.Tab.1.center/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739020248" />
-    <state width="1877" height="396" key="GridCell.Tab.1.left" timestamp="1617739020248">
-      <screen x="84" y="-1200" width="1920" height="1160" />
+    <state width="618" height="396" key="GridCell.Tab.1.center/0.0.1280.680@0.0.1280.680" timestamp="1617739453768" />
+    <state width="618" height="396" key="GridCell.Tab.1.left" timestamp="1617739453768">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1877" height="396" key="GridCell.Tab.1.left/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739020248" />
-    <state width="1877" height="396" key="GridCell.Tab.1.right" timestamp="1617739020248">
-      <screen x="84" y="-1200" width="1920" height="1160" />
+    <state width="618" height="396" key="GridCell.Tab.1.left/0.0.1280.680@0.0.1280.680" timestamp="1617739453768" />
+    <state width="618" height="396" key="GridCell.Tab.1.right" timestamp="1617739453768">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state width="1877" height="396" key="GridCell.Tab.1.right/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739020248" />
+    <state width="618" height="396" key="GridCell.Tab.1.right/0.0.1280.680@0.0.1280.680" timestamp="1617739453768" />
     <state x="636" y="-887" key="Vcs.Push.Dialog.v2" timestamp="1617739124365">
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
     <state x="636" y="-887" key="Vcs.Push.Dialog.v2/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617739124365" />
+    <state x="506" y="252" key="com.intellij.ide.util.TipDialog" timestamp="1619331301937">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="337" y="165" key="com.intellij.ide.util.TipDialog/0.0.1280.680@0.0.1280.680" timestamp="1617784845766" />
+    <state x="506" y="252" key="com.intellij.ide.util.TipDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619331301937" />
     <state x="739" y="-1022" width="740" height="804" key="find.popup" timestamp="1617735601562">
       <screen x="84" y="-1200" width="1920" height="1160" />
     </state>
     <state x="739" y="-1022" width="740" height="804" key="find.popup/0.0.1280.680/84.-1200.1920.1160@84.-1200.1920.1160" timestamp="1617735601562" />
+    <state x="660" y="311" key="git4idea.merge.GitPullDialog" timestamp="1619331366021">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="660" y="311" key="git4idea.merge.GitPullDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619331366021" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

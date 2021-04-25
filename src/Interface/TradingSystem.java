@@ -198,7 +198,7 @@ public class TradingSystem {
                 if (getUserById(userId).isLogged()){
                     if( getStoreById(storeId).getInventory().prodExists(prodId)){
                         if (b != null) {
-                            b.addProduct(prodId, amount);
+                            b.addProduct(getProductById(prodId), amount);
                             KingLogger.logEvent("Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
                             return new Result(true,true);
                         }

@@ -3,7 +3,9 @@
 <head>
     <div class="topnav">
         <button onclick="Home()" >Home</button>
-        <button >myStores</button>
+        <button onclick="myStores()" >My Stores</button>
+        <button onclick="MyCart()" >My Cart</button>
+
         <button onclick="logOut()" id="logOut">LogOut</button>
     </div>
     <meta charset="UTF-8">
@@ -147,6 +149,14 @@ const Home= () =>
 	 window.location.href = "Main";
 }
 
+const MyCart = ()=>{
+   window.location.href = "Cart";
+}
+
+const myStores= () =>
+{
+	window.location.href = "myStores";
+}
 
 
 </script>

@@ -101,7 +101,9 @@ function closeForm() {
     <div class="topnav">
         <ul id="topanv">
         <button onclick="Home()">Home</button>
-        <button onclick="myStores()" >myStores</button>
+        <button onclick="myStores()" >My Stores</button>
+        <button onclick="MyCart()" >My Cart</button>
+
             <div class="form-popup" id="myForm">
                 <form class="form-container">
                     <h1>Register</h1>
@@ -250,13 +252,17 @@ console.log(event);
       alert(parsedMessage.data);
     }
   }
+}
 
 const Home= () =>
 {
 	 window.location.href = "Main";
 }
 
+const MyCart = ()=>{
+   window.location.href = "Cart";
 }
+
 const logOut= () =>
 {
 	 ws.send(JSON.stringify({"type":"LOGOUT","id":localStorage.getItem("id")}));

@@ -16,44 +16,50 @@ public class Server {
         Spark.webSocket("/Login", LoginWebSocket.class);
         Spark.webSocket("/Main",MainWebSocket.class);
         Spark.webSocket("/Store/currentStore",StoreWebSocket.class);
-
+        Spark.webSocket("/Cart",MyCartWebSocket.class);
 
         Spark.webSocket("/myStores", myStoresWebSocket.class);
         Spark.webSocket("/myStores/StorePermissions", myStoresWebSocket.class);
         API.initTradingSystem("ELAD");
         API.forTest();
 
-        Spark.get("/Login",((request, response) -> {
-            HashMap<String ,Object> model = new HashMap<>();
-            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Login"));
-        }));
+//        Spark.get("/Login",((request, response) -> {
+//            HashMap<String ,Object> model = new HashMap<>();
+//            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Login"));
+//        }));
+//
+//        Spark.get("/Main",((request, response) -> {
+//            HashMap<String ,Object> model = new HashMap<>();
+//
+//            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Main"));
+//        }));
+//
+//        Spark.get("/myStores",((request, response) -> {
+//            HashMap<String ,Object> model = new HashMap<>();
+//
+//            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"myStores"));
+//        }));
+//
+//        Spark.get("/StorePermissions",((request, response) -> {
+//            HashMap<String ,Object> model = new HashMap<>();
+//
+//            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"StorePermissions"));
+//        }));
+//
+//        Spark.get("/Cart",((request, response) -> {
+//            HashMap<String ,Object> model = new HashMap<>();
+//
+//            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Cart"));
+//        }));
 
-        Spark.get("/Main",((request, response) -> {
-            HashMap<String ,Object> model = new HashMap<>();
 
-            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Main"));
-        }));
-
-        Spark.get("/myStores",((request, response) -> {
-            HashMap<String ,Object> model = new HashMap<>();
-
-            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"myStores"));
-        }));
-
-        Spark.get("/StorePermissions",((request, response) -> {
-            HashMap<String ,Object> model = new HashMap<>();
-
-            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"StorePermissions"));
-        }));
-
-
-
-
-        Spark.get("/Store",((request, response) -> {
-            HashMap<String ,Object> model = new HashMap<>();
-
-            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Store"));
-        }));
+//
+//
+//        Spark.get("/Store",((request, response) -> {
+//            HashMap<String ,Object> model = new HashMap<>();
+//
+//            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Store"));
+//        }));
 
 
         Spark.init();

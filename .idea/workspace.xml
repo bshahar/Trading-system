@@ -22,8 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add React to fucking proj">
+      <change afterPath="$PROJECT_DIR$/front/AwesomeProject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/AwesomeProject/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -37,21 +38,22 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/StorePage" />
+    <option name="BRANCH" value="cartPage" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="update_Logger" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -65,7 +67,7 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1qeW7mOlzIR1s5RT7Ziw4MZK2F8" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -84,7 +86,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/json-20140107.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../שולחן העבודה/dd/spark-ssl" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -110,20 +112,7 @@
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\LoginPage" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.KingLogger">
-    <configuration name="KingLogger" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Service.KingLogger" />
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Service.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Server" />
       <module name="Trading-system" />
@@ -133,6 +122,21 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -184,14 +188,15 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.KingLogger" />
         <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.Tests in Trading-system" />
         <item itemvalue="JUnit.PurchaseTest" />
         <item itemvalue="JUnit.LoginTest.testme" />
+        <item itemvalue="JUnit.LoginTest" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -358,14 +363,25 @@
       <option name="project" value="LOCAL" />
       <updated>1619276415055</updated>
     </task>
-    <task id="LOCAL-00024" summary="Abstract the logger and ordered it with nice view.">
-      <created>1619335884959</created>
-      <option name="number" value="00024" />
-      <option name="presentableId" value="LOCAL-00024" />
-      <option name="project" value="LOCAL" />
-      <updated>1619335884959</updated>
+    <task id="LOCAL‎00024" summary="merged gui with result">
+      <created>1619280357318</created>
+      <option name="number" value="LOCAL‎00024" />
+      <option name="presentableId" value="LOCAL‎00024" />
+      <updated>1619280357318</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL‎00025" summary="add React to fucking proj">
+      <created>1619343342456</created>
+      <option name="number" value="LOCAL‎00025" />
+      <option name="presentableId" value="LOCAL‎00025" />
+      <updated>1619343342456</updated>
+    </task>
+    <task id="LOCAL‎00026" summary="add React to fucking proj">
+      <created>1619343570506</created>
+      <option name="number" value="LOCAL‎00026" />
+      <option name="presentableId" value="LOCAL‎00026" />
+      <updated>1619343570506</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -380,13 +396,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="store and products update #24" />
@@ -404,50 +419,9 @@
     <MESSAGE value="Adapter Injection #38" />
     <MESSAGE value="update server and gui #44" />
     <MESSAGE value="add store page" />
-    <MESSAGE value="Abstract the logger and ordered it with nice view." />
-    <option name="LAST_COMMIT_MESSAGE" value="Abstract the logger and ordered it with nice view." />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1619335884227">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="585" y="114" key="CommitChangelistDialog2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619335884227" />
-    <state x="666" y="261" key="FileChooserDialogImpl" timestamp="1619333172987">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="666" y="261" key="FileChooserDialogImpl/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619333172987" />
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom" timestamp="1619335110201">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.bottom/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619335110201" />
-    <state width="1877" height="281" key="GridCell.Tab.0.center" timestamp="1619335110201">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.center/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619335110201" />
-    <state width="1877" height="281" key="GridCell.Tab.0.left" timestamp="1619335110201">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.left/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619335110201" />
-    <state width="1877" height="281" key="GridCell.Tab.0.right" timestamp="1619335110201">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="281" key="GridCell.Tab.0.right/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619335110201" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1619333182488">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619333182488" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1619335917538">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619335917538" />
-    <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1619333265168">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="656" y="118" width="607" height="804" key="find.popup/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619333265168" />
-    <state x="312" y="181" key="git4idea.merge.GitPullDialog" timestamp="1619356220686">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="312" y="181" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1619356220686" />
+    <MESSAGE value="merged gui with result" />
+    <MESSAGE value="add React to fucking proj" />
+    <option name="LAST_COMMIT_MESSAGE" value="add React to fucking proj" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

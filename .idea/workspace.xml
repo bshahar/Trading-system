@@ -22,8 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add cart Page">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add React to fucking proj">
+      <change afterPath="$PROJECT_DIR$/front/AwesomeProject" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/AwesomeProject/.gitignore" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,6 +53,7 @@
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -186,11 +188,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.Tests in Trading-system" />
         <item itemvalue="JUnit.PurchaseTest" />
         <item itemvalue="JUnit.LoginTest.testme" />
         <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
   </component>
@@ -367,7 +369,19 @@
       <option name="presentableId" value="LOCAL‎00024" />
       <updated>1619280357318</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL‎00025" summary="add React to fucking proj">
+      <created>1619343342456</created>
+      <option name="number" value="LOCAL‎00025" />
+      <option name="presentableId" value="LOCAL‎00025" />
+      <updated>1619343342456</updated>
+    </task>
+    <task id="LOCAL‎00026" summary="add React to fucking proj">
+      <created>1619343570506</created>
+      <option name="number" value="LOCAL‎00026" />
+      <option name="presentableId" value="LOCAL‎00026" />
+      <updated>1619343570506</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -406,7 +420,8 @@
     <MESSAGE value="update server and gui #44" />
     <MESSAGE value="add store page" />
     <MESSAGE value="merged gui with result" />
-    <option name="LAST_COMMIT_MESSAGE" value="merged gui with result" />
+    <MESSAGE value="add React to fucking proj" />
+    <option name="LAST_COMMIT_MESSAGE" value="add React to fucking proj" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -445,8 +460,5 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Server.LoginPage.*</FILTER>
-    </SUITE>
   </component>
 </project>

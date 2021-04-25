@@ -22,15 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add React to fucking proj">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="Update permissions test #48">
+      <change afterPath="$PROJECT_DIR$/src/Domain/ObservableType.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PermissionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PermissionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +53,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="UpdatePermissionTests" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -118,7 +116,48 @@
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\LoginPage" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PermissionTest">
+  <component name="RunManager" selected="Application.NotficationsTest">
+    <configuration name="NotficationsTest" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server.Server" />
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotficationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="PermissionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -130,38 +169,6 @@
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.PermissionTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PermissionTest.addPermissionToNonPermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.PermissionTest" />
-      <option name="METHOD_NAME" value="addPermissionToNonPermission" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PermissionTest.changeManagerPermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.PermissionTest" />
-      <option name="METHOD_NAME" value="changeManagerPermission" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -182,29 +189,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PermissionTest.removeProductPermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.PermissionTest" />
-      <option name="METHOD_NAME" value="removeProductPermission" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.NotficationsTest" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.NotficationsTest" />
         <item itemvalue="JUnit.PermissionTest" />
         <item itemvalue="JUnit.PermissionTest.removePermissionToHavePermission" />
-        <item itemvalue="JUnit.PermissionTest.addPermissionToNonPermission" />
-        <item itemvalue="JUnit.PermissionTest.changeManagerPermission" />
-        <item itemvalue="JUnit.PermissionTest.removeProductPermission" />
       </list>
     </recent_temporary>
   </component>
@@ -393,7 +384,14 @@
       <option name="presentableId" value="LOCAL‎00026" />
       <updated>1619343570506</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Update permissions test #48">
+      <created>1619352413104</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1619352413104</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,7 +431,8 @@
     <MESSAGE value="add store page" />
     <MESSAGE value="merged gui with result" />
     <MESSAGE value="add React to fucking proj" />
-    <option name="LAST_COMMIT_MESSAGE" value="add React to fucking proj" />
+    <MESSAGE value="Update permissions test #48" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update permissions test #48" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -462,6 +461,11 @@
           <url>file://$PROJECT_DIR$/src/Service/API.java</url>
           <line>144</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Domain/User.java</url>
+          <line>176</line>
+          <option name="timeStamp" value="28" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

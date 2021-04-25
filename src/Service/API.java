@@ -184,10 +184,7 @@ public class API {
        return tradingSystem.getMyStores(id);
     }
 
-    public static List<Permission> getPermissionsOfStore(int userId , int storeId)
-    {
-        return tradingSystem.getPermissionsOfStore(userId,storeId);
-    }
+
 
     public static String getStoreName(int storeId) {
         return tradingSystem.getStoreName(storeId);
@@ -209,4 +206,35 @@ public class API {
     public static Result RemovePermissions(int ownerId ,int userId ,int storeId , List<Integer> opIndexes) {
         return tradingSystem.removePermission(ownerId,userId,storeId,opIndexes);
     }
+    public static Result notifyToSubscribers(int observableTypeId,String msg)
+    {
+        return tradingSystem.notifyToSubscribers(observableTypeId,msg);
+    }
+    public static Result addObservable(String name)
+    {
+        return tradingSystem.addObservable(name);
+    }
+
+    public static Result removeObservable(int observableTypeId)
+    {
+        return tradingSystem.removeObservable(observableTypeId);
+    }
+
+    public static Result subscribeToObservable(int observableId,int userId)
+    {
+        return tradingSystem.subscribeToObservable(observableId,userId);
+    }
+
+    public static Result unsubscribeToObservable(int observableId,int userId)
+    {
+        return tradingSystem.unsubscribeToObservable(observableId,userId);
+    }
+
+
+
+
+
+
+
+
 }

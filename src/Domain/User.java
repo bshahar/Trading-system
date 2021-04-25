@@ -1,9 +1,9 @@
 package Domain;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
-public class User {
+public class User implements Observer {
     private int registered ;
     private List<Bag> bags;
     private String userName;
@@ -11,6 +11,8 @@ public class User {
     private int id;
     private Member member;
     private List<Receipt> receipts;
+    private Queue<String> messages;
+    private ObservableType observableType ;
 
 
     public User(String userName, int id,int registered) {
@@ -21,6 +23,7 @@ public class User {
         this.logged = false;
         this.member = new Member();
         this.receipts=new LinkedList<>();
+        this.messages = new ConcurrentLinkedDeque<>();
     }
 
     public boolean isRegistered()
@@ -164,5 +167,17 @@ public class User {
         if(member != null)
             return member.checkPermissions(store,permissionId);
         return false;
+    }
+
+
+
+    @Override
+    public void update(Observable observable, Object arg)
+    {
+        observableType = (ObservableType) observable;
+        if(logged)
+            System.out.println(this.userName+ " got msg: "+observableType.getMessage());
+        else
+            messages.add(observableType.getMessage());
     }
 }

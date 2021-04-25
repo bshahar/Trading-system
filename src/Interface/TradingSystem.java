@@ -13,6 +13,7 @@ public class TradingSystem {
     private static counter userCounter;
     private static counter storeCounter;
     private static counter productCounter;
+    private static counter observableCounter;
 
     private PaymentAdapter paymentAdapter;
     private SupplementAdapter supplementAdapter;
@@ -21,6 +22,7 @@ public class TradingSystem {
     private User systemManager;
     private List<Receipt> receipts;
     private List<User> users;
+    private List<ObservableType> observers;
 
 
 
@@ -34,6 +36,8 @@ public class TradingSystem {
         userCounter = new counter();
         storeCounter = new counter();
         productCounter=new counter();
+        observableCounter = new counter();
+        this.observers = Collections.synchronizedList(new LinkedList<>());
     }
 
 
@@ -62,6 +66,74 @@ public class TradingSystem {
             }
         }
         return new Result(false, -1);
+    }
+
+
+    public Result notifyToSubscribers(int observableTypeId,String msg)
+    {
+        Result result =getObservableTypeById(observableTypeId);
+        if(result.isResult())
+        {
+            ObservableType o = (ObservableType) result.getdata();
+            o.sendAll(msg);
+            return new Result(true,"msg send susccefully");
+        }
+        return new Result(false,result.getdata());
+    }
+
+    public Result addObservable(String name)
+    {
+        int id = observableCounter.inc();
+        this.observers.add(new ObservableType(name,id));
+        return new Result(true,id);
+    }
+
+    public Result removeObservable(int observableTypeId)
+    {
+        Result result =getObservableTypeById(observableTypeId);
+        if(result.isResult())
+        {
+            ObservableType Observable = (ObservableType) result.getdata();
+            this.observers.remove(Observable);
+            return new Result(true,"Observable remove successfully");
+        }
+
+        return new Result(false,result.getdata());
+    }
+
+    public Result subscribeToObservable(int observableId,int userId)
+    {
+        Result result =getObservableTypeById(observableId);
+        if(result.isResult() && checkValidUser(userId))
+        {
+            ObservableType Observable = (ObservableType) result.getdata();
+            Observable.addObserver(getUserById(userId));
+            return new Result(true,"user subscribe successfully");
+        }
+        return new Result(false,result.getdata());
+    }
+
+    public Result unsubscribeToObservable(int observableId,int userId)
+    {
+        Result result =getObservableTypeById(observableId);
+        if(result.isResult() && checkValidUser(userId))
+        {
+            ObservableType Observable = (ObservableType) result.getdata();
+            Observable.deleteObserver(getUserById(userId));
+            return new Result(true,"user unsubscribe successfully");
+        }
+        return new Result(false,result.getdata());
+    }
+
+
+    public Result getObservableTypeById(int observableTypeId)
+    {
+        for(ObservableType observableType : observers)
+        {
+            if(observableType.getId() == observableTypeId)
+                return new Result(true,observableType);
+        }
+        return new Result(false,"observableTypeId isn't exist");
     }
 
 
@@ -443,13 +515,7 @@ public class TradingSystem {
         return new LinkedList<>();
     }
 
-    public List<Permission> getPermissionsOfStore(int userId, int storeId) {
-        if(checkValidUser(userId))
-        {
-            return getUserById(userId).getPermissionsOfStore(storeId);
-        }
-        return new LinkedList<>();
-    }
+
 
     public String getStoreName(int storeId) {
         for(Store store:stores){

@@ -22,23 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add React to fucking proj">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_20140107__2_.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/AgeLimitPolicy.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/PurchaseCondition.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/TimeLimitPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#42 starting purchase system">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Bag.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/DiscountFormat/ConditionalDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountFormat/ConditionalDiscount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountPolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Operators/LogicOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Operators/LogicOperator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Policy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Policy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/PurchaseFormat/ImmediatePurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/ImmediatePurchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/PurchaseFormat/Purchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/Purchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/PurchaseFormat/PurchasePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/PurchasePolicy.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,16 +47,15 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="cartPage" />
+    <option name="BRANCH" value="origin/StorePage" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="DiscountAndPurchase" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -81,7 +69,7 @@
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1qeW7mOlzIR1s5RT7Ziw4MZK2F8" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+  <component name="ProjectLevelVcsManager">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -100,7 +88,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/json-20140107 (2).jar!/" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/json-20140107.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -111,7 +99,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -122,11 +110,12 @@
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\LoginPage" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="Domain.PurchaseFormat" />
       <recent name="Server" />
       <recent name="Permissions" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="JUnit.PurchaseTest">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Server" />
       <module name="Trading-system" />
@@ -202,9 +191,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.PurchaseTest" />
         <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.Tests in Trading-system" />
-        <item itemvalue="JUnit.PurchaseTest" />
         <item itemvalue="JUnit.LoginTest.testme" />
         <item itemvalue="JUnit.LoginTest" />
       </list>
@@ -222,7 +211,6 @@
       <updated>1617440370224</updated>
       <workItem from="1617440371798" duration="9756000" />
       <workItem from="1617723869195" duration="331000" />
-      <workItem from="1619351515215" duration="6605000" />
     </task>
     <task id="LOCAL‎00001" summary="Dorin's changes #24">
       <created>1617455826555</created>
@@ -383,17 +371,17 @@
       <option name="presentableId" value="LOCAL‎00024" />
       <updated>1619280357318</updated>
     </task>
-    <task id="LOCAL‎00025" summary="add React to fucking proj">
-      <created>1619343342456</created>
+    <task id="LOCAL‎00025" summary="#42 working on discount system">
+      <created>1619344423013</created>
       <option name="number" value="LOCAL‎00025" />
       <option name="presentableId" value="LOCAL‎00025" />
-      <updated>1619343342456</updated>
+      <updated>1619344423013</updated>
     </task>
-    <task id="LOCAL‎00026" summary="add React to fucking proj">
-      <created>1619343570506</created>
+    <task id="LOCAL‎00026" summary="#42 starting purchase system">
+      <created>1619347046959</created>
       <option name="number" value="LOCAL‎00026" />
       <option name="presentableId" value="LOCAL‎00026" />
-      <updated>1619343570506</updated>
+      <updated>1619347046959</updated>
     </task>
     <option name="localTasksCounter" value="27" />
     <servers />
@@ -418,9 +406,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <ignored-roots>
-      <path value="$PROJECT_DIR$/front/AwesomeProject" />
-    </ignored-roots>
     <MESSAGE value="store and products update #24" />
     <MESSAGE value="stores and products updates2 #24" />
     <MESSAGE value="connect trading system to stores #27" />
@@ -437,38 +422,48 @@
     <MESSAGE value="update server and gui #44" />
     <MESSAGE value="add store page" />
     <MESSAGE value="merged gui with result" />
-    <MESSAGE value="add React to fucking proj" />
-    <option name="LAST_COMMIT_MESSAGE" value="add React to fucking proj" />
+    <MESSAGE value="#42 working on discount system" />
+    <MESSAGE value="#42 starting purchase system" />
+    <option name="LAST_COMMIT_MESSAGE" value="#42 starting purchase system" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1619358328363">
+    <state x="-1474" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1619346808358">
+      <screen x="-1920" y="0" width="1280" height="680" />
+    </state>
+    <state x="-1474" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619346808358" />
+    <state x="-1572" y="82" key="FileChooserDialogImpl" timestamp="1619337214797">
+      <screen x="-1920" y="0" width="1280" height="680" />
+    </state>
+    <state x="-1572" y="82" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619337214797" />
+    <state width="1537" height="302" key="GridCell.Tab.0.bottom" timestamp="1619351677392">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1619358328363" />
-    <state x="551" y="307" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1619353200945">
+    <state width="1537" height="302" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619351677392" />
+    <state width="1537" height="302" key="GridCell.Tab.0.center" timestamp="1619351677391">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="551" y="307" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1619353200945" />
-    <state x="501" y="154" key="FileChooserDialogImpl" timestamp="1619352444633">
+    <state width="1537" height="302" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619351677391" />
+    <state width="1537" height="302" key="GridCell.Tab.0.left" timestamp="1619351677390">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="501" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1619352444633" />
-    <state x="147" y="65" key="MergeDialog" timestamp="1619351962509">
+    <state width="1537" height="302" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619351677390" />
+    <state width="1537" height="302" key="GridCell.Tab.0.right" timestamp="1619351677392">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1619351962509" />
-    <state x="277" y="0" key="SettingsEditor" timestamp="1619352454891">
+    <state width="1537" height="302" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619351677392" />
+    <state x="145" y="0" key="SettingsEditor" timestamp="1619352351396">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="277" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1619352454891" />
-    <state x="478" y="147" width="579" height="530" key="find.popup" timestamp="1619353559027">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="-1799" y="0" key="SettingsEditor/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619337220586" />
+    <state x="145" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1619352351396" />
+    <state x="-1687" y="74" key="Vcs.Push.Dialog.v2" timestamp="1619347057383">
+      <screen x="-1920" y="0" width="1280" height="680" />
     </state>
-    <state x="478" y="147" width="579" height="530" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1619353559027" />
-    <state x="523" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1619351938082">
-      <screen x="0" y="0" width="1536" height="824" />
+    <state x="-1687" y="74" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619347057383" />
+    <state x="-1726" y="151" width="1089" height="544" key="dock-window-1" timestamp="1619346905220">
+      <screen x="-1920" y="0" width="1280" height="680" />
     </state>
-    <state x="523" y="125" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1619351938082" />
+    <state x="-1726" y="151" width="1089" height="544" key="dock-window-1/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619346905220" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -480,7 +475,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
-          <line>175</line>
+          <line>132</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -492,11 +487,6 @@
           <url>file://$PROJECT_DIR$/src/Server/StoreWebSocket.java</url>
           <line>34</line>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Service/API.java</url>
-          <line>138</line>
-          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

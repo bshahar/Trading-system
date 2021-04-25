@@ -255,47 +255,41 @@ public class TradingSystem {
         }
     }
 
-    public Result buyProducts(int userId, int storeId,  String creditInfo){
+    public Result buyProducts(int userId, int storeId, String creditInfo) {
         try {
-            Map<Product, Integer> productsIds = getBag(userId, storeId);
+            Map<Product, Integer> products = getBag(userId, storeId);
             Store store = getStoreById(storeId);
-            Map<Product, Integer> productsAmountBag = new HashMap<>();
-            for (Product p : productsIds.keySet()) {
-
-                productsAmountBag.put(p, productsIds.get(p));
-            }
-            Map<Product,Integer> productsAmountBuy=new HashMap<>();
-            double totalCost=0;
-            for(Product product : productsAmountBag.keySet()){
-                synchronized (product){
-                    if(store.canBuyProduct(product,productsAmountBag.get(product))){
-                        store.removeProductAmount(product,productsAmountBag.get(product));
-                        productsAmountBuy.put(product,productsAmountBag.get(product));
-                        totalCost+=(product.getPrice()*productsAmountBag.get(product));
+            Map<Product, Integer> productsAmountBuy = new HashMap<>();
+            double totalCost = 0;
+            for (Product product : products.keySet()) {
+                synchronized (product) {
+                    if (store.canBuyProduct(product, products.get(product))) {
+                        store.removeProductAmount(product, products.get(product));
+                        productsAmountBuy.put(product, products.get(product));
+                        totalCost += (product.getPrice() * products.get(product));
                     }
                 }
             }
-            if(paymentAdapter.pay(totalCost,creditInfo)){
-                Receipt rec = new Receipt(storeId, userId,getUserById(userId).getUserName(), productsAmountBuy);
+            totalCost = store.calculateDiscounts(totalCost, userId);
+            if (paymentAdapter.pay(totalCost, creditInfo)) {
+                Receipt rec = new Receipt(storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
                 this.receipts.add(rec);
                 store.addReceipt(rec);
                 getUserById(userId).addReceipt(rec);
                 KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " made purchase in store " + storeId);
-                if(productsAmountBag.size()==productsAmountBuy.size()){
-                    return new Result(true, "purchase confirmed successfully" );
-                }else{
+                if (products.size() == productsAmountBuy.size()) {
+                    return new Result(true, "purchase confirmed successfully");
+                } else {
                     return new Result(true, "some product missing");
                 }
-            }
-            else{
+            } else {
                 store.abortPurchase(productsAmountBuy);
                 KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " couldn't make a purchase in store " + storeId);
-                return new Result(false,"payment failed");
+                return new Result(false, "payment failed");
             }
-        }
-        catch (Exception e) {
+        } catch (Exception e) {
             KingLogger.logError(Level.WARNING, "Domain.User with id " + userId + " couldn't make a purchase in store " + storeId);
-            return new Result(false,"purchase failed");
+            return new Result(false, "purchase failed");
         }
     }
 
@@ -303,7 +297,7 @@ public class TradingSystem {
         try {
             User user = getUserById(userId);
             Bag bag = user.getBagByStoreId(storeId);
-            return bag.getProductIds();
+            return bag.getProductsAmounts();
         }
         catch (Exception e) {
             KingLogger.logError(Level.WARNING, "Domain.User with id " + userId + " couldn't view his bag from store " + storeId);

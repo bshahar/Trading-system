@@ -11,7 +11,6 @@ public class Store {
     private int storeId;
     private String name;
     private Inventory inventory;
-    //private List<Policy> policies;
     private List<Format> formats;
     private List<User> employees;
     private List<User> owners;
@@ -21,8 +20,8 @@ public class Store {
     private Map<Product, ConditionalDiscount> discountsOnProducts;
     private Map<Product.Category, ConditionalDiscount> discountsOnCategories;
     private List<ConditionalDiscount> discountsOnStore;
-
     private Map<User,List<User>> appointments; //appointer & list of appointees
+    private Map<Integer, Bag> usersBags;
     private double rate;
     private int ratesCount;
 
@@ -45,6 +44,7 @@ public class Store {
         this.discountsOnCategories = new HashMap<>();
         this.discountsOnStore = new LinkedList<>();
         this.counter = new counter();
+        this.usersBags = new HashMap<>();
     }
 
     public Inventory getInventory() {
@@ -199,4 +199,54 @@ public class Store {
     public void addDiscountOnStore(Date begin, Date end, DiscountCondition conditions, int percentage) {
         this.discountsOnStore.add(new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage));
     }
+
+    public double calculateDiscounts(double totalCost, int userId) {
+        Bag bag = this.usersBags.get(userId);
+        if (this.discountsOnStore.size() > 0)
+            totalCost = calcStoreDiscount(totalCost, userId, bag);
+        if (this.discountsOnCategories.size() > 0)
+            totalCost = calcCategoriesDiscount(totalCost, userId, bag);
+        if (this.discountsOnProducts.size() > 0)
+            totalCost = calcProductsDiscount(totalCost, userId, bag);
+        return totalCost;
+    }
+
+    private double calcStoreDiscount(double totalCost, int userId, Bag bag) {
+        double discount = 0;
+        for (ConditionalDiscount disCon: this.discountsOnStore) {
+            discount += disCon.calculateDiscount(totalCost, userId, new Date(), bag);
+        }
+        return totalCost - discount;
+    }
+
+    private double calcCategoriesDiscount(double totalCost, int userId, Bag bag) {
+        double discount = 0;
+        Bag discountProds = new Bag(this);
+        for (Product prod: bag.getProducts()) {
+            for (Product.Category category: prod.getCategories()) {
+                if (this.discountsOnCategories.containsKey(category))
+                    discountProds.addProduct(prod, bag.getProductsAmounts().get(prod));
+            }
+        }
+        for (ConditionalDiscount disCon : this.discountsOnStore) {
+            discount += disCon.calculateDiscount(totalCost, userId, new Date(), discountProds);
+        }
+        return totalCost - discount;
+    }
+
+    private double calcProductsDiscount(double totalCost, int userId, Bag bag) {
+        double discount = 0;
+        Bag discountProds = new Bag(this);
+        for (Product prod : bag.getProducts()) {
+            if (this.discountsOnProducts.containsKey(prod)) {
+                discountProds.addProduct(prod, bag.getProductsAmounts().get(prod));
+            }
+        }
+        for (ConditionalDiscount disCon : this.discountsOnStore) {
+            discount += disCon.calculateDiscount(totalCost, userId, new Date(), bag);
+        }
+        return totalCost - discount;
+    }
+
+
 }

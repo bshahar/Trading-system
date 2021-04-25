@@ -1,19 +1,23 @@
 package Domain;
 
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Member {
     Map<Store, Permission> permissions;
+    List<Store> myStores;
 
     public Member ()
     {
         this.permissions = new ConcurrentHashMap<>();
+        this.myStores = new LinkedList<>();
     }
     public void openStore(User user, Store store)
     {
         store.addOwner(user);
+        myStores.add(store);
         Permission p = new Permission(this, store);
         p.allowOpenStore();
         p.openStore();
@@ -44,10 +48,10 @@ public class Member {
     }
 
 
-    public boolean addStoreOwner(User owner, User user, Store store) {
+    public Result addStoreOwner(User owner, User user, Store store) {
         if(permissions.get(store)!=null)
             return permissions.get(store).appointOwner(owner,user);
-        return false;
+        return new Result(false, "User has not permissions");
 
     }
 
@@ -109,7 +113,7 @@ public class Member {
 
     }
 
-    public boolean addStoreManager(User owner,User user, Store store) {
+    public Result addStoreManager(User owner,User user, Store store) {
         return permissions.get(store).appointManager(owner,user);
     }
 
@@ -347,13 +351,13 @@ public class Member {
         }
     }
 
-    public List<User> getWorkersInformation(Store store) {
-        if(!permissions.containsKey(store)) return null;
+    public Result getWorkersInformation(Store store) {
+        if(!permissions.containsKey(store)) return new Result(false,"User has no permissions");
         return permissions.get(store).getWorkersInfo();
     }
 
-    public List<Receipt> getStorePurchaseHistory(Store store) {
-        if(!permissions.containsKey(store)) return null;
+    public Result getStorePurchaseHistory(Store store) {
+        if(!permissions.containsKey(store)) return new Result(false,"User has not permissions");
         return permissions.get(store).viewPurchaseHistory();
     }
 
@@ -367,21 +371,33 @@ public class Member {
         }
     }
 
-    public boolean removeProductFromStore(Store store, int productId) {
+    public Result removeProductFromStore(Store store, int productId) {
         if(permissions.containsKey(store)){
             Permission permission= permissions.get(store);
             return permission.removeProduct(productId);
         }else{
-            return false;
+            return new Result(false,"User have no permissions");
         }
     }
 
-    public boolean removeMangerFromStore(User owner,User manager, Store store) {
+    public Result removeMangerFromStore(User owner,User manager, Store store) {
         if(permissions.containsKey(store)){
             Permission permission= permissions.get(store);
             return (permission.removeManagerAppointment(owner, manager));
         }else{
-            return false;
+            return new Result(false,"User has no permissions");
         }
+    }
+
+    public List<Store> getMyStores() {
+        return this.myStores;
+    }
+    public void addToMyStores(Store store)
+    {
+        myStores.add(store);
+    }
+
+    public List<Permission> getPermissionsOfStore(int storeId) {
+        return null;
     }
 }

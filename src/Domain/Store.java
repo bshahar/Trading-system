@@ -50,6 +50,10 @@ public class Store {
         return this.inventory.addProduct(prod , numOfProd);
     }
 
+    public String getName() {
+        return name;
+    }
+
     private boolean validateProductId(int id){
         return this.inventory.validateProductId(id);
     }
@@ -63,13 +67,13 @@ public class Store {
         return this.inventory.addProduct(p, quantity);
     }
 
-    public boolean removeProductFromStore( int productId) {
+    public Result removeProductFromStore( int productId) {
         synchronized (inventory){
             if(this.inventory.prodExists(productId)){
                 return this.inventory.removeProduct(productId);
             }
             else{
-                return false;
+                return new Result(false,"Product not exist");
             }
 
         }
@@ -92,7 +96,8 @@ public class Store {
         return this.inventory.getProductsByPriceRange(filter);
     }
 
-    public boolean removeManager(User owner, User manager) {
+
+    public Result removeManager(User owner, User manager) {
         if(appointments.get(owner).remove(manager)){
             employees.remove(manager);
             if(appointments.containsKey(manager)){
@@ -103,9 +108,9 @@ public class Store {
                 }
 
             }
-            return true;
+            return new Result(true,true);
         }
-        return false;
+        return new Result(false,"Remove of the manager has failed");
     }
 
     public List<User> getWorkersInformation(int ownerId) {
@@ -132,14 +137,13 @@ public class Store {
         this.employees.add(user);
         this.appointments.get(owner).add(user);
     }
-
-    public List<User> getEmployees()
+    public Result getEmployees()
     {
-        return this.employees;
+        return new Result(true,this.employees);
     }
 
-    public List<Receipt> getPurchaseHistory() {
-        return this.receipts;
+    public Result getPurchaseHistory() {
+        return new Result(true,this.receipts);
     }
 
     public void addOwnerToAppointments( User user) {
@@ -157,12 +161,14 @@ public class Store {
         owners.add(user);
         return true;
     }
-
-    public boolean addManager(User user) {
-        if(this.managers.contains(user))
-            return false;
-        managers.add(user);
-        return true;
+    public boolean addManager(User user)
+    {
+        synchronized (managers) {
+            if (this.managers.contains(user))
+                return false;
+            managers.add(user);
+            return true;
+        }
     }
 
     public void abortPurchase(Map<Product, Integer> productsAmount) {
@@ -173,6 +179,4 @@ public class Store {
         }
 
     }
-
-
 }

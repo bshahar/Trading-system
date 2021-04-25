@@ -1,6 +1,7 @@
 package Permissions;
 
 import Domain.Member;
+import Domain.Result;
 import Domain.Store;
 
 public class RemoveProduct {
@@ -13,7 +14,7 @@ public class RemoveProduct {
         this.store=store;
     }
 
-    public boolean action(int productId) {
+    public Result action(int productId) {
 
         return store.removeProductFromStore(productId);
     }

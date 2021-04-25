@@ -1,6 +1,7 @@
 package Permissions;
 
 import Domain.Member;
+import Domain.Result;
 import Domain.Store;
 import Domain.User;
 
@@ -14,7 +15,7 @@ public class RemoveManagerAppointment {
         this.store = store;
     }
 
-    public boolean action(User owner, User manager) {
+    public Result action(User owner, User manager) {
         return store.removeManager(owner, manager);
     }
 }

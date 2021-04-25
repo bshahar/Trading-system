@@ -2,6 +2,7 @@ package Permissions;
 
 import Domain.Member;
 import Domain.Receipt;
+import Domain.Result;
 import Domain.Store;
 
 import java.util.List;
@@ -15,7 +16,7 @@ ViewPurchaseHistory {
         this.member = member;
         this.store = store;
     }
-    public List<Receipt> action() {
+    public Result action() {
         return this.store.getPurchaseHistory();
     }
 }

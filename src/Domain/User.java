@@ -18,7 +18,7 @@ public class User {
         this.bags = new LinkedList<>();
         this.userName = userName;
         this.id = id;
-        this.logged = true;
+        this.logged = false;
         this.member = new Member();
         this.receipts=new LinkedList<>();
     }
@@ -75,7 +75,7 @@ public class User {
 
     public void createNewBag(Store store, int prodId, int amount) {
         Bag b = new Bag(store);
-        b.addProduct(prodId,amount);
+        b.addProduct(store.getProductById(prodId),amount);
         this.bags.add(b);
     }
 
@@ -88,7 +88,7 @@ public class User {
 
     }
 
-    public boolean addStoreOwner(User owner, User user, Store store) {
+    public Result addStoreOwner(User owner, User user, Store store) {
         return this.member.addStoreOwner(owner,user,store);
     }
     public void updateOwnerPermission(Store store)
@@ -96,7 +96,7 @@ public class User {
         this.member.updateOwnerPermission(store);
     }
 
-    public boolean addStoreManager(User user, Store store) {
+    public Result addStoreManager(User user, Store store) {
         return this.member.addStoreManager(this,user,store);
     }
 
@@ -120,11 +120,11 @@ public class User {
         this.member.disableMyPermissions(store,opIndexes);
     }
 
-    public List<User> getWorkersInformation(Store store) {
+    public Result getWorkersInformation(Store store) {
         return this.member.getWorkersInformation(store);
     }
 
-    public List<Receipt> getStorePurchaseHistory(Store store) {
+    public Result getStorePurchaseHistory(Store store) {
         return this.member.getStorePurchaseHistory(store);
     }
 
@@ -132,11 +132,11 @@ public class User {
         return member.addProductToStore(productId,store,name, categories, price, description, quantity);
     }
 
-    public boolean removeProductFromStore(Store store, int productId) {
+    public Result removeProductFromStore(Store store, int productId) {
         return member.removeProductFromStore(store,productId);
     }
 
-    public boolean removeManagerFromStore(User manager, Store store) {
+    public Result removeManagerFromStore(User manager, Store store) {
         return member.removeMangerFromStore(this,manager,store);
     }
 
@@ -146,5 +146,17 @@ public class User {
 
     public List<Receipt> getPurchaseHistory() {
         return receipts;
+    }
+
+    public List<Store> getMyStores() {
+        return this.member.getMyStores();
+    }
+    public void addToMyStores(Store store)
+    {
+        this.member.addToMyStores(store);
+    }
+
+    public List<Permission> getPermissionsOfStore(int storeId) {
+        return this.member.getPermissionsOfStore(storeId);
     }
 }

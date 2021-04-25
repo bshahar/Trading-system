@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+body {font-family: Arial, Helvetica, sans-serif;}
+* {box-sizing: border-box;}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+/* The popup form - hidden by default */
+.form-popup {
+  display: none;
+  position: fixed;
+  bottom: 0;
+  right: 15px;
+  border: 3px solid #f1f1f1;
+  z-index: 9;
+}
+
+/* Add styles to the form container */
+.form-container {
+  max-width: 300px;
+  padding: 10px;
+  background-color: white;
+}
+
+/* Full-width input fields */
+.form-container input[type=text], .form-container input[type=password] {
+  width: 100%;
+  padding: 15px;
+  margin: 5px 0 22px 0;
+  border: none;
+  background: #f1f1f1;
+}
+
+/* When the inputs get focus, do something */
+.form-container input[type=text]:focus, .form-container input[type=password]:focus {
+  background-color: #ddd;
+  outline: none;
+}
+
+/* Set a style for the submit/login button */
+.form-container .btn {
+  background-color: #4CAF50;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  margin-bottom:10px;
+  opacity: 0.8;
+}
+
+/* Add a red background color to the cancel button */
+.form-container .cancel {
+  background-color: red;
+}
+
+/* Add some hover effects to buttons */
+.form-container .btn:hover, .open-button:hover {
+  opacity: 1;
+}
+
+</style>
+</head>
+<body>
+
+
+<script>
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+</script>
+
+</body>
+</html>
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <div class="topnav">
+        <ul id="topanv">
+        <button onclick="Home()">Home</button>
+        <button onclick="myStores()" >My Stores</button>
+        <button onclick="MyCart()" >My Cart</button>
+
+            <div class="form-popup" id="myForm">
+                <form class="form-container">
+                    <h1>Register</h1>
+                    <input id="email" type="text" placeholder="Enter Email" name="email" required>
+                    <input id="password" type="password" placeholder="Enter Password" name="psw" required>
+                    <button type="button" class="btn cancel" onclick="closeForm()">Close</button>
+                    <button type="button" onclick="registerGuest()" class="btn">Register</button>
+                </form>
+
+            </div>
+
+        </ul>
+    </div>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .btn-group button  {
+        border-radius: 20px;
+        border: 1px solid #FF4B2B;
+        background-color: #FF4B2B;
+        color: #FFFFFF;
+        font-size: 12px;
+        font-weight: bold;
+        padding: 12px 45px;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        transition: transform 80ms ease-in;
+        margin: 5px 0 5px;}
+.btn-group button:hover{
+background-color: #5F9EA0}
+
+#logOut{
+position:absolute;
+     top:3;
+     right:0;
+}
+#exit{
+position:absolute;
+     top:3;
+     right:0;
+}
+#registerGuest{
+font-size = 12px
+position:absolute;
+     top:10;
+     right:3;
+}
+
+
+.topnav button
+{
+  float: left;
+  color: #green;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+
+/* Change the color of links on hover */
+.topnav button:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav button.active {
+  background-color: #4CAF50;
+  color: green;
+}
+
+    </style>
+</head>
+<body>
+<div>
+    <div class="btn-group">
+        <ul id="list">
+        </ul>
+    </div>
+</div>
+
+
+</body>
+<script>
+
+var ws = new WebSocket("wss://localhost:4567/Main/");
+ws.onopen = function(event)
+    {
+        console.log(localStorage.getItem("id"));
+        ws.send(JSON.stringify({"type":"GET_STORES","id":localStorage.getItem("id")}));
+        ws.send(JSON.stringify({"type":"OPEN","id":localStorage.getItem("id")}));
+    }
+
+ws.onmessage = function(event)
+{
+
+console.log(event);
+ const parsedMessage= JSON.parse(event.data);
+		console.log(parsedMessage);
+		if(parsedMessage.type=="GET_STORES"){
+		 stores = parsedMessage.stores;
+		for (let i = 0; i < stores.length; i++) {
+        document.getElementById("list").innerHTML  += `<button id=${stores[i].storeId} onclick="navigateToStore(${stores[i].storeId})"> ${stores[i].storeName}</button><br/>`;
+        }
+    }
+  else if(parsedMessage.type=="LOGOUT")
+  {
+    result = parsedMessage.result;
+    if(result)
+      window.location.href = "Login";
+    else
+      alert("Error Log Out");
+  }
+  else if(parsedMessage.type=="OPEN")
+  {
+    result = parsedMessage.result;
+    if(result){
+     console.log("register");
+        document.getElementById("topanv").innerHTML  += '<button onclick="logOut()" id="logOut">LogOut</button>'
+
+    }
+    else
+    {
+      console.log("guest");
+      document.getElementById("topanv").innerHTML  += '<button onclick="exit()" id="exit">Exit</button>'
+      document.getElementById("topanv").innerHTML  += '<button class="open-button" onclick="openForm()">Register</button>'
+    }
+
+  }
+   else if(parsedMessage.type=="GUEST_REGISTER")
+  {
+    result = parsedMessage.result;
+    if(result){
+      console.log("register succefully");
+        window.location.href = "Login";
+    }
+    else
+    {
+      alert(parsedMessage.data);
+    }
+  }
+}
+
+const Home= () =>
+{
+	 window.location.href = "Main";
+}
+
+const MyCart = ()=>{
+   window.location.href = "Cart";
+}
+
+const logOut= () =>
+{
+	 ws.send(JSON.stringify({"type":"LOGOUT","id":localStorage.getItem("id")}));
+}
+const exit= () =>
+{
+	window.location.href = "Login";
+}
+
+const registerGuest= () =>
+{
+	var email = document.getElementById("email").value;
+	var password = document.getElementById("password").value;
+	console.log(email);
+	console.log(password);
+	ws.send(JSON.stringify({"type":"GUEST_REGISTER","id":localStorage.getItem("id"),"email":email,"password":password}));
+
+
+}
+const myStores= () =>
+{
+	window.location.href = "myStores";
+}
+
+
+const navigateToStore=(storeId)=>{
+    console.log(storeId);
+    localStorage.setItem('storeId',storeId);
+    window.location.href = "Store";
+
+}
+
+
+
+function openForm() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+</script>
+</html>

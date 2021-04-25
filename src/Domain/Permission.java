@@ -75,11 +75,11 @@ public class Permission {
         if(this.removeProduct == null) return;
         this.removeProduct = null;
     }
-    public boolean removeProduct(int productId)
+    public Result removeProduct(int productId)
     {
         if(this.removeProduct!= null)
             return this.removeProduct.action(productId);
-        return false;
+        return new Result(false,"User has not permissions");
     }
 
     public void allowEditProduct()
@@ -106,11 +106,10 @@ public class Permission {
         if(this.appointManager == null) return;
         this.appointManager = null;
     }
-    public boolean appointManager(User owner,User user)
-    {
-        if(this.appointManager!= null)
-            return this.appointManager.action(owner,user,this.store);
-        return false;
+    public Result appointManager(User owner,User user) {
+        if (this.appointManager != null)
+            return this.appointManager.action(owner, user, this.store);
+        return new Result(false, "User has no permissions");
     }
 
     public void allowRemoveManagerAppointment()
@@ -124,11 +123,11 @@ public class Permission {
         this.removeManagerAppointment = null;
     }
 
-    public boolean removeManagerAppointment(User ownerId,User managerId)
+    public Result removeManagerAppointment(User ownerId,User managerId)
     {
         if(this.removeManagerAppointment!= null)
             return this.removeManagerAppointment.action(ownerId, managerId);
-        return false;
+        return new Result(false,"User has no permissions");
     }
 
 
@@ -141,11 +140,11 @@ public class Permission {
         if(this.appointOwner == null) return;
         this.appointOwner = null;
     }
-    public boolean appointOwner(User owner, User user)
+    public Result appointOwner(User owner, User user)
     {
         if(this.appointOwner!= null)
             return this.appointOwner.action(owner,user,this.store);
-        return false;
+        return new Result(false,"User has not permissions");
     }
 
     public void allowRemoveOwnerAppointment()
@@ -323,11 +322,11 @@ public class Permission {
         if(this.getWorkersInfo == null) return;
         this.getWorkersInfo = null;
     }
-    public List<User> getWorkersInfo()
+    public Result getWorkersInfo()
     {
         if(this.getWorkersInfo!= null)
             return this.getWorkersInfo.action();
-        return null;
+        return new Result(false,"User has no permissions");
     }
 
     public void allowViewMessages()
@@ -369,11 +368,11 @@ public class Permission {
         if(this.viewPurchaseHistory == null) return;
         this.viewPurchaseHistory = null;
     }
-    public List<Receipt> viewPurchaseHistory()
+    public Result viewPurchaseHistory()
     {
         if(this.viewPurchaseHistory!= null)
             return this.viewPurchaseHistory.action();
-        return new LinkedList<>();
+        return new Result(false,"User has no permissions");
     }
 
     public void allowOpenStore()

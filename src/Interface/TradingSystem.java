@@ -27,7 +27,6 @@ public class TradingSystem {
     public TradingSystem (User systemManager) {
         this.paymentAdapter= new PaymentAdapter(new DemoPayment());
         this.stores = Collections.synchronizedList(new LinkedList<>());
-
         this.receipts =Collections.synchronizedList( new LinkedList<>());
         this.systemManager =systemManager;
         this.users = Collections.synchronizedList(new LinkedList<>());
@@ -38,77 +37,80 @@ public class TradingSystem {
     }
 
 
-    public int register(String userName, String pass) {
+    public Result register(String userName, String pass) {
         if(userAuth.register(userName,pass)){
             KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " register to the system");
             int userId=userCounter.inc();
             users.add(new User(userName, userId, 1));
-            return userId;
+            return new Result(true,userId);
         }
         else{
-            return -1;
+            return new Result(false,"Username or Password not correct");
         }
 
     }
 
     //if the user performed login successfully return his id. else return -1
-    public int login(String userName,String pass) {
+    public Result login(String userName,String pass) {
         if(userAuth.loginAuthentication(userName,pass)) {
             KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " logged into the system.");
             for (User user : users) {
-                if (user.getUserName() == userName) {
+                if (user.getUserName().equals(userName) && !user.isLogged()) {
                     user.setLogged(true);
-                    return user.getId();
+                    return new Result( true,user.getId());
                 }
             }
         }
-        return -1;
+        return new Result(false, -1);
     }
 
 
-    public int guestLogin() {
+    public Result guestLogin() {
         User guest = new User("Guest", userCounter.inc(), 0);
+        guest.setLogged(true);
         users.add(guest);
         int id = guest.getId();
         KingLogger.logEvent(Level.INFO, "Guest logged into the system with id: " + id);
-        return id;
+        return new Result(true,id);
     }
 
-    public boolean isLogged(int userId) {
+    public Result isLogged(int userId) {
         User user = getUserById(userId);
         if (user != null)
-            return user.isLogged();
-        return false;
+            return new Result(true,user.isLogged());
+        return new Result(false,"User not exist");
     }
 
 
-    public int guestRegister (int userId, String userName, String password){
+    public Result guestRegister (int userId, String userName, String password){
         try {
             if(userAuth.guestRegister(userName,password)){
                 getUserById(userId).setRegistered();
                 getUserById(userId).setName(userName);
                 KingLogger.logEvent(Level.INFO, "Domain.User " + userName + " registered to the system.");
-                return userId;
+                getUserById(userId).setLogged(false);
+
+                return new Result(true,userId);
 
             }
             else{
-                return -1;
+                return new Result(false,"Can't Register with given Username and PassWord");
             }
         }
         catch (Exception e) {
             KingLogger.logEvent(Level.WARNING, "Guest user failed registering to the system.");
-            return -1;
+            return new Result(false,"Can't Register with given Username and PassWord");
         }
     }
 
-    public boolean logout(int userId) {
+    public Result logout(int userId) {
         User user = getUserById(userId);
         if (user == null || !user.isLogged() || !user.isRegistered()) {
-            return false;
+            return new Result(false,"User has not logged in");
         }
         user.setLogged(false);
         KingLogger.logEvent(Level.INFO, "Domain.User " + user.getUserName() + " logged out of the system.");
-        return true;
+        return new Result(true,true);
     }
 
     public User getUserById(int userId) {
@@ -119,20 +121,35 @@ public class TradingSystem {
         return null;
     }
 
-    public int getNumOfUsers(){
-        return users.size();
+    public Result getNumOfUsers(){
+        return new Result(true,users.size());
     }
 
-    public List<Store> getAllStoresInfo(int userId) {
+    public Result getAllStoresInfo(int userId) {
         User u = getUserById(userId);
         if (u != null && u.isLogged()) {
-            return this.stores;
+            return new Result(true,this.stores) ;
         }
         KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " tried to get stores info while logged out and failed.");
-        return null;
+
+        return new Result(false,"User has not logged in");
+    }
+    public String getAllStoresNames(int userId) {
+        User u = getUserById(userId);
+        StringBuilder storesNames = new StringBuilder();
+        if (u != null && u.isLogged()) {
+            for(Store store : this.stores)
+                storesNames.append(store.getName()+",");
+            storesNames.deleteCharAt(storesNames.length()-1);
+        }
+        KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " tried to get stores info while logged out and failed.");
+        return storesNames.toString();
     }
 
-    public Map<Integer,Integer> getProducts(Filter filter, int userId){
+
+
+
+    public Result getProducts(Filter filter, int userId){
         try{
             if(getUserById(userId).isLogged()) {
                 Map<Integer, Integer> output = new HashMap<>();
@@ -165,47 +182,58 @@ public class TradingSystem {
                     default:
                         break;
                 }
-                return output;
+                return new Result(true,output); // data= Map<Integer, Integer>
             }
-            return new HashMap<>();
+            return new Result(false,"User has not logged int");
         }catch (Exception e){
             KingLogger.logError(Level.WARNING, "Domain.User with id " + userId + " didn't succeed getting products by filter.");
-            return new HashMap<>();
+            return new Result(false,"Can't get products by the given parameters");
         }
     }
 
-    public boolean addProductToBag(int userId, int storeId, int prodId,int amount){
+    public Result addProductToBag(int userId, int storeId, int prodId,int amount){
         try {
             Bag b = getUserById(userId).getBagByStoreId(storeId);
-            if (getUserById(userId).isLogged() && getStoreById(storeId).getInventory().prodExists(prodId)) {
-                if (b != null) {
-                    b.addProduct(prodId, amount);
-                    KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
-                    return true;
+            if(amount>0){
+                if (getUserById(userId).isLogged()){
+                    if( getStoreById(storeId).getInventory().prodExists(prodId)){
+                        if (b != null) {
+                            b.addProduct(getStoreById(storeId).getProductById(prodId), amount);
+                            KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
+                            return new Result(true,true);
+                        }
+                        getUserById(userId).createNewBag(getStoreById(storeId), prodId, amount);
+                        KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
+                        return new Result(true,true);
+                    }
+                    else{
+                        return new Result(false,"Given Product not exist");
+                    }
+                }else{
+                    KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was not added to bag for user " + userId);
+                    return new Result(false, "User has not logged in");
                 }
-                getUserById(userId).createNewBag(getStoreById(storeId), prodId, amount);
-                KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
-                return true;
+            }else{
+                return new Result(false,"Amount can't be negative ");
             }
-            KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was not added to bag for user " + userId);
-            return false;
+
         }
         catch (Exception e) {
             KingLogger.logEvent(Level.WARNING, "Domain.Product number " + prodId + " was not added to bag for user " + userId);
-            return false;
+            return new Result(false, "Can't add product to bag");
         }
     }
 
-    public List<Bag> getCart(int userId) {
+    public Result getCart(int userId) {
         try {
             if (getUserById(userId) != null && getUserById(userId).isLogged()) {
                 List<Bag> bags = getUserById(userId).getBags();
-                return bags;
+                return new Result(true,bags); //List<Bag>
             }
-            return new LinkedList<>();
+            return new Result(false,"User has not logged in");
         } catch (Exception e) {
             KingLogger.logEvent(Level.WARNING, "Domain.User with id " + userId + " couldn't view his cart.");
-            return new LinkedList<>();
+            return new Result(false,"Can't get cart");
         }
     }
 
@@ -226,14 +254,14 @@ public class TradingSystem {
         }
     }
 
-    public boolean buyProducts(int userId, int storeId,  String creditInfo){
+    public Result buyProducts(int userId, int storeId,  String creditInfo){
         try {
-            Map<Integer, Integer> productsIds = getBag(userId, storeId);
+            Map<Product, Integer> productsIds = getBag(userId, storeId);
             Store store = getStoreById(storeId);
             Map<Product, Integer> productsAmountBag = new HashMap<>();
-            for (int id : productsIds.keySet()) {
-                Product p = store.getProductById(id);
-                productsAmountBag.put(p, productsIds.get(id));
+            for (Product p : productsIds.keySet()) {
+
+                productsAmountBag.put(p, productsIds.get(p));
             }
             Map<Product,Integer> productsAmountBuy=new HashMap<>();
             double totalCost=0;
@@ -252,21 +280,25 @@ public class TradingSystem {
                 store.addReceipt(rec);
                 getUserById(userId).addReceipt(rec);
                 KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " made purchase in store " + storeId);
-                return true;
+                if(productsAmountBag.size()==productsAmountBuy.size()){
+                    return new Result(true, "purchase confirmed successfully" );
+                }else{
+                    return new Result(true, "some product missing");
+                }
             }
             else{
                 store.abortPurchase(productsAmountBuy);
                 KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " couldn't make a purchase in store " + storeId);
-                return false;
+                return new Result(false,"payment failed");
             }
         }
         catch (Exception e) {
             KingLogger.logError(Level.WARNING, "Domain.User with id " + userId + " couldn't make a purchase in store " + storeId);
-            return false;
+            return new Result(false,"purchase failed");
         }
     }
 
-    private Map<Integer, Integer> getBag(int userId, int storeId) {
+    private Map<Product, Integer> getBag(int userId, int storeId) {
         try {
             User user = getUserById(userId);
             Bag bag = user.getBagByStoreId(storeId);
@@ -278,20 +310,20 @@ public class TradingSystem {
         }
     }
 
-    public int addProductToStore(int userId, int storeId , String name, List<Product.Category> categories, double price, String description, int quantity) {
+    public Result addProductToStore(int userId, int storeId , String name, List<Product.Category> categories, double price, String description, int quantity) {
         User user =getUserById(userId);
         Store store= getStoreById(storeId);
         int productId = productCounter.inc();
         if (user.addProductToStore(productId,store,name, categories, price, description, quantity)){
-            return productId;
+            return new Result(true,productId);
         }
         else{
-            return -1;
+            return new Result(false,"Can't add product to Store");
         }
     }
 
 
-    public boolean removeProductFromStore(int userId,int storeId, int productId){
+    public Result removeProductFromStore(int userId,int storeId, int productId){
         User user = getUserById(userId);
         Store store = getStoreById(storeId);
         return user.removeProductFromStore(store,productId);
@@ -299,20 +331,20 @@ public class TradingSystem {
     }
 
     //returns the new store id
-    public int openStore(int userId, String storeName){
+    public Result openStore(int userId, String storeName){
         User user = getUserById(userId);
         if(user!=null && user.isRegistered()) {
             int newId = storeCounter.inc();
             Store store = new Store(newId, storeName, user);
             user.openStore(store);
             this.stores.add(store);
-            return newId;
+            return new Result(true,newId);
         }
-        return -1;
+        return new Result(false,"User has not registered");
     }
 
-    public boolean addStoreOwner(int ownerId, int userId,int storeId) {
-        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return false;
+    public Result addStoreOwner(int ownerId, int userId,int storeId) {
+        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return new Result(false,"User is not valid");
         User owner=getUserById(ownerId);
         User user=getUserById(userId);
         return owner.addStoreOwner(owner,user,getStoreById(storeId));
@@ -325,8 +357,8 @@ public class TradingSystem {
             return false;
         }
 
-    public boolean addStoreManager(int ownerId, int userId, int storeId){
-        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return false;
+    public Result addStoreManager(int ownerId, int userId, int storeId){
+        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return new Result(false,"User is not valid");
         return getUserById(ownerId).addStoreManager(getUserById(userId),getStoreById(storeId));
     }
 
@@ -340,29 +372,29 @@ public class TradingSystem {
         return getUserById(ownerId).removePermissions(getUserById(managerId),getStoreById(storeId),opIndexes);
     }
 
-    public boolean removeManager(int ownerId, int managerId, int storeId){
+    public Result removeManager(int ownerId, int managerId, int storeId){
         User user= getUserById(ownerId);
         Store store = getStoreById(storeId);
         return user.removeManagerFromStore(getUserById(managerId),store);
     }
 
 
-    public List<User> getWorkersInformation(int ownerId, int storeId){
+    public Result getWorkersInformation(int ownerId, int storeId){
         if(!checkValidUser(ownerId)) return null;
-        return getUserById(ownerId).getWorkersInformation(getStoreById(storeId));
+        return getUserById(ownerId).getWorkersInformation(getStoreById(storeId)); //List<User>
     }
 
-    public List<Receipt> getStorePurchaseHistory(int ownerId, int storeId){
-        if(!checkValidUser(ownerId)) return null;
-        return getUserById(ownerId).getStorePurchaseHistory(getStoreById(storeId));
+    public Result getStorePurchaseHistory(int ownerId, int storeId){
+        if(!checkValidUser(ownerId)) return new Result(false,"User not exist");
+        return getUserById(ownerId).getStorePurchaseHistory(getStoreById(storeId));//List<Reciept>
     }
 
-    public List<Receipt> getAllPurchases(int systemManager){
+    public Result getAllPurchases(int systemManager){
         if(this.systemManager.getId() == systemManager)
         {
-            return this.receipts;
+            return new Result(true,this.receipts);//List<Reciept>
         }
-        return null;
+        return new Result(false,"User has no permissions");
     }
 
     public Store getStoreById(int storeId)
@@ -375,20 +407,66 @@ public class TradingSystem {
         return null;
     }
 
-    public List<Product> getProductsFromStore(int storeId) {
-        return getStoreById(storeId).getInventory().getProducts();
+    public Result getProductsFromStore(int storeId) {
+        List<Product> products=new LinkedList<>();
+        Map<Product , Integer> amounts= getStoreById(storeId).getInventory().getProductsAmounts();
+        for(Product product :amounts.keySet()){
+            products.add(product);
+            product.setAmount(amounts.get(product));
+
+        }
+        return new Result(true,products);
     }
 
-    public int getNumOfStores() {
-        return stores.size();
+    public Result getNumOfStores() {
+        return new Result(true,stores.size());
     }
 
-    public List<Receipt> getUserPurchaseHistory(int userId) {
+    public Result getUserPurchaseHistory(int userId) {
         if(!getUserById(userId).isRegistered()){
-            return null;
+            return new Result(false,"User not registered");
         }
 
-        return getUserById(userId).getPurchaseHistory();
+        return new Result(true,getUserById(userId).getPurchaseHistory());
+
+    }
+
+    public boolean isRegister(int userId) {
+        return checkValidUser(userId);
+    }
+
+    public List<Store> getMyStores(int id) {
+        if(checkValidUser(id))
+        {
+            return getUserById(id).getMyStores();
+        }
+        return new LinkedList<>();
+    }
+
+    public List<Permission> getPermissionsOfStore(int userId, int storeId) {
+        if(checkValidUser(userId))
+        {
+            return getUserById(userId).getPermissionsOfStore(storeId);
+        }
+        return new LinkedList<>();
+    }
+
+    public String getStoreName(int storeId) {
+        for(Store store:stores){
+            if(store.getStoreId()==storeId){
+                return store.getName();
+            }
+        }
+        return "";
+    }
+
+    public Product getProductById(Integer productId) {
+        for(Store store:stores){
+            if(store.getProductById(productId)!=null){
+                return store.getProductById(productId);
+            }
+        }
+        return null;
 
     }
 }

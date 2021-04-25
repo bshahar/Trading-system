@@ -2,6 +2,8 @@ package Domain.DiscountFormat;
 
 import Domain.Bag;
 import Domain.DiscountPolicies.*;
+import Domain.User;
+
 import java.util.*;
 
 public class ConditionalDiscount extends Discount {
@@ -16,10 +18,10 @@ public class ConditionalDiscount extends Discount {
         this.percentage = percentage;
     }
 
-    public double calculateDiscount(double totalCost, int userId, Date time, Bag bag)
+    public double calculateDiscount(double totalCost, User user, Date time, Bag bag)
     {
         if(time.after(this.begin) && time.before(this.end)) {
-            if (conditions.validateCondition(userId, time, bag)) {
+            if (conditions.validateCondition(user, time, bag)) {
                 //totalCost =
             }
         }

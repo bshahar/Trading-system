@@ -1,0 +1,4 @@
+[2021-04-25] [10:17:01] [INFO   ] this is log event
+ 
+[2021-04-25] [10:17:54] [INFO] this is log event
+ 

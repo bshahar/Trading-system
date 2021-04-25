@@ -1,14 +1,12 @@
 package Interface;
 
 import Domain.*;
-import Domain.DiscountFormat.ConditionalDiscount;
 import Domain.DiscountPolicies.DiscountCondition;
-import Domain.DiscountPolicies.DiscountPolicy;
+import Domain.Operators.*;
 import Service.*;
 
 import java.util.*;
 
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 
 public class TradingSystem {
@@ -472,21 +470,52 @@ public class TradingSystem {
         return null;
     }
 
-    public void addDiscountOnProduct(int storeId, int prodId, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage) {
+    public void addDiscountOnProduct(int storeId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
         Store st = getStoreById(storeId);
         DiscountCondition conditions = new DiscountCondition();
         for (String str: policiesParams.keySet()) {
             conditions.addDiscount(str, policiesParams.get(str));
         }
+        setDiscountOperator(operator, conditions);
         st.addDiscountOnProduct(prodId, begin, end, conditions, percentage);
     }
 
-    public void addDiscountOnCategory() {
-
+    public void addDiscountOnCategory(int storeId, String category, String operator, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage) {
+        Store st = getStoreById(storeId);
+        Product.Category cat = Product.Category.valueOf(category);
+        DiscountCondition conditions = new DiscountCondition();
+        for (String str: policiesParams.keySet()) {
+            conditions.addDiscount(str, policiesParams.get(str));
+        }
+        setDiscountOperator(operator, conditions);
+        st.addDiscountOnCategory(cat, begin, end, conditions, percentage);
     }
 
-    public void addDiscountOnStore() {
+    public void addDiscountOnStore(int storeId, String operator, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage) {
+        Store st = getStoreById(storeId);
+        DiscountCondition conditions = new DiscountCondition();
+        for (String str: policiesParams.keySet()) {
+            conditions.addDiscount(str, policiesParams.get(str));
+        }
+        setDiscountOperator(operator, conditions);
+        st.addDiscountOnStore(begin, end, conditions, percentage);
+    }
 
+    private void setDiscountOperator(String operator, DiscountCondition conditions) {
+        switch (operator) {
+            case "And":
+                conditions.setOperator(new AndOperator());
+                break;
+            case "Or":
+                conditions.setOperator(new OrOperator());
+                break;
+            case "Xor":
+                conditions.setOperator(new XorOperator());
+                break;
+            default:
+                conditions.setOperator(new NoneOperator());
+                break;
+        }
     }
 
 }

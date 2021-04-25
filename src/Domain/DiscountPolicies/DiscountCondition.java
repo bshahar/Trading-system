@@ -1,7 +1,7 @@
 package Domain.DiscountPolicies;
 
 import Domain.Bag;
-import Domain.DiscountPolicies.Operators.*;
+import Domain.Operators.*;
 import java.util.*;
 
 public class DiscountCondition { //Compound object

@@ -1,4 +1,4 @@
-package Domain.DiscountPolicies.Operators;
+package Domain.Operators;
 
 import Domain.Bag;
 import Domain.DiscountPolicies.DiscountPolicy;

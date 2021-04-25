@@ -192,11 +192,11 @@ public class Store {
         this.discountsOnProducts.put(getProductById(prodId), new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage));
     }
 
-    public void addDiscountOnCategory() {
-
+    public void addDiscountOnCategory(Product.Category category, Date begin, Date end, DiscountCondition conditions, int percentage) {
+        this.discountsOnCategories.put(category, new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage));
     }
 
-    public void addDiscountOnStore() {
-
+    public void addDiscountOnStore(Date begin, Date end, DiscountCondition conditions, int percentage) {
+        this.discountsOnStore.add(new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage));
     }
 }

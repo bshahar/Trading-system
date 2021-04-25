@@ -22,15 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="merged gui with result">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_201401072.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#42 working on discount system">
+      <change afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/ImmediatePurchase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/Purchase.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/PurchasePolicy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalAmount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalAmount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalCost.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByStore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByUser.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/Operators/AndOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Operators/AndOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/Operators/LogicOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Operators/LogicOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/Operators/NoneOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Operators/NoneOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/Operators/OrOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Operators/OrOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/Operators/XorOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Operators/XorOperator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
     </list>
@@ -115,6 +117,7 @@
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\LoginPage" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="Domain.PurchaseFormat" />
       <recent name="Server" />
       <recent name="Permissions" />
     </key>
@@ -375,7 +378,13 @@
       <option name="presentableId" value="LOCAL‎00024" />
       <updated>1619280357318</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL‎00025" summary="#42 working on discount system">
+      <created>1619344423013</created>
+      <option name="number" value="LOCAL‎00025" />
+      <option name="presentableId" value="LOCAL‎00025" />
+      <updated>1619344423013</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -414,13 +423,14 @@
     <MESSAGE value="update server and gui #44" />
     <MESSAGE value="add store page" />
     <MESSAGE value="merged gui with result" />
-    <option name="LAST_COMMIT_MESSAGE" value="merged gui with result" />
+    <MESSAGE value="#42 working on discount system" />
+    <option name="LAST_COMMIT_MESSAGE" value="#42 working on discount system" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1474" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1619342461082">
+    <state x="-1474" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1619346808358">
       <screen x="-1920" y="0" width="1280" height="680" />
     </state>
-    <state x="-1474" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619342461082" />
+    <state x="-1474" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619346808358" />
     <state x="-1572" y="82" key="FileChooserDialogImpl" timestamp="1619337214797">
       <screen x="-1920" y="0" width="1280" height="680" />
     </state>
@@ -429,6 +439,10 @@
       <screen x="-1920" y="0" width="1280" height="680" />
     </state>
     <state x="-1799" y="0" key="SettingsEditor/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619337220586" />
+    <state x="-1726" y="151" width="1089" height="544" key="dock-window-1" timestamp="1619346905220">
+      <screen x="-1920" y="0" width="1280" height="680" />
+    </state>
+    <state x="-1726" y="151" width="1089" height="544" key="dock-window-1/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619346905220" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

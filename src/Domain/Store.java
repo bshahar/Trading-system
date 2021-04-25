@@ -19,9 +19,9 @@ public class Store {
     private List<User> managers;
     private List<Receipt> receipts;
     private Service.counter counter;
-    private Map<Product, ConditionalDiscount> discountsOnProducts;
-    private Map<Product.Category, ConditionalDiscount> discountsOnCategories;
-    private List<ConditionalDiscount> discountsOnStore;
+    private Map<Product, Discount> discountsOnProducts;
+    private Map<Product.Category, Discount> discountsOnCategories;
+    private List<Discount> discountsOnStore;
     private List<ImmediatePurchase> purchasesOnStore;
     private Map<User,List<User>> appointments; //appointer & list of appointees
     private Map<Integer, Bag> usersBags;
@@ -207,8 +207,8 @@ public class Store {
         this.purchasesOnStore.add(new ImmediatePurchase(counter.inc(),conditions));
     }
 
-    public double calculateDiscounts(double totalCost, int userId) {
-        Bag bag = this.usersBags.get(userId);
+    public double calculateDiscounts(double totalCost, User user) {
+        Bag bag = this.usersBags.get(user.getId());
         if (this.discountsOnStore.size() > 0)
             totalCost = calcStoreDiscount(totalCost, user, bag);
         if (this.discountsOnCategories.size() > 0)

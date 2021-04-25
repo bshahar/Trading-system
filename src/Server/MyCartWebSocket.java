@@ -45,13 +45,13 @@ public class MyCartWebSocket {
                 for(Bag bag:bags){
                     int storeId=bag.getStoreId();
                     String storeName=API.getStoreName(storeId);
-                    JSONObject[] jsonProducts=new JSONObject[bag.getProductIds().size()];
+                    JSONObject[] jsonProducts=new JSONObject[bag.getProducts().size()];
                     int i=0;
-                    for(Product product: bag.getProductIds().keySet()){
+                    for(Product product: bag.getProducts()){
                         JSONObject jsonProduct=new JSONObject();
                         jsonProduct.put("productName",product.getName());
                         jsonProduct.put("productId",product.getId());
-                        jsonProduct.put("productAmount",bag.getProductIds().get(product));
+                        jsonProduct.put("productAmount",bag.getProductsAmounts().get(product));
                         jsonProducts[i]=jsonProduct;
                         i++;
                     }

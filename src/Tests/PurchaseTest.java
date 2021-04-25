@@ -38,9 +38,9 @@ public class PurchaseTest {
         String password2= "elad321654";
         String userName3="erez";
         String password3= "erez321654";
-        API.register(userName1,password1);
-        API.register(userName2,password2);
-        API.register(userName3,password3);
+        API.register(userName1,password1, 20);
+        API.register(userName2,password2, 16);
+        API.register(userName3,password3, 20);
         registerId1=(int) API.registeredLogin(userName1,password1).getdata();
         registerId2=(int) API.registeredLogin(userName2,password2).getdata();
         registerId3= (int)API.registeredLogin(userName3,password3).getdata();

@@ -42,9 +42,9 @@ public class StoreTest {
         String password2= "elad321654";
         String userName3="erez";
         String password3= "erez321654";
-        API.register(userName1,password1);
-        API.register(userName2,password2);
-        API.register(userName3,password3);
+        API.register(userName1,password1, 20);
+        API.register(userName2,password2, 16);
+        API.register(userName3,password3, 20);
         registerId1= (int)API.registeredLogin(userName1,password1).getdata();
         registerId2=(int) API.registeredLogin(userName2,password2).getdata();
         registerId3= (int)API.registeredLogin(userName3,password3).getdata();
@@ -146,20 +146,20 @@ public class StoreTest {
         API.registeredLogout(registerId2);
         API.registeredLogin("elad", "elad321654");
 
-        List<Bag> products=(List<Bag>)API.getCart(registerId2).getdata();
-        Assertions.assertEquals(2, products.get(0).getProductIds().get(1));
+        List<Bag> products = (List<Bag>) API.getCart(registerId2).getdata();
+        Assertions.assertTrue(products.get(0).getProductsAmounts().values().contains(2));
     }
 
     @Test
-    public void addToCartGuestThenRegisteredSuccessTest() throws Exception{
-        guestId1=(int)API.guestLogin().getdata();
-        API.addProductToCart(guestId1,storeId1,1,2);
-        API.guestRegister(guestId1,"dorin","dorin321654");
+    public void addToCartGuestThenRegisteredSuccessTest() throws Exception {
+        guestId1 = (int) API.guestLogin().getdata();
+        API.addProductToCart(guestId1, storeId1, 1, 2);
+        API.guestRegister(guestId1, "dorin", "dorin321654");
         API.registeredLogout(guestId1);
         API.registeredLogin("dorin", "dorin321654");
 
-        List<Bag> products=(List<Bag>) API.getCart(guestId1).getdata();
-        Assertions.assertEquals(2, products.get(0).getProductIds().get(1));
+        List<Bag> products = (List<Bag>) API.getCart(guestId1).getdata();
+        Assertions.assertTrue(products.get(0).getProductsAmounts().values().contains(2));
     }
 
     @Test
@@ -327,7 +327,7 @@ public class StoreTest {
     //AT-8.1
     public void getCartInfoSuccessTest() throws  Exception{
         API.addProductToCart(registerId1, storeId1, 1, 1);
-        Assertions.assertTrue( ((List<Bag>)API.getCart(registerId1).getdata()).get(0).getProductIds().keySet().contains(1));
+        Assertions.assertTrue( ((List<Bag>)API.getCart(registerId1).getdata()).get(0).getProducts().get(0).getId() == 1);
     }
 
     @Test
@@ -353,13 +353,13 @@ public class StoreTest {
             Thread thread1 = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    API.register("same name", "1234");
+                    API.register("same name", "1234", 20);
                 }
             });
             Thread thread2 = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    API.register("same name", "1234");
+                    API.register("same name", "1234", 20);
                 }
             });
 

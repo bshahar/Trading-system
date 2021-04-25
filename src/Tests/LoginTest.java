@@ -24,14 +24,14 @@ public class LoginTest {
     public void loginSuccessTest(){
         String userName="kandabior";
         String password= "or321654";
-        Assertions.assertEquals(1,API.register(userName,password).getdata());
+        Assertions.assertEquals(1,API.register(userName,password, 20).getdata());
     }
     //AT-4.2
     @Test
     public void loginBadPasswordFailTest(){
         String userName="kandabior";
         String password= "or321654";
-        Assertions.assertEquals(1,API.register(userName,"12").getdata());
+        Assertions.assertEquals(1,API.register(userName,"12", 20).getdata());
         Result result= API.registeredLogin(userName,password);
         assertEquals(result.getdata(),-1);
     }
@@ -41,15 +41,15 @@ public class LoginTest {
     public void registerExistingUserFailTest(){
         String userName="kandabior";
         String password= "or321654";
-        API.register(userName,password);
-        Assertions.assertEquals(false,API.register(userName,password).isResult());
+        API.register(userName,password, 20);
+        Assertions.assertEquals(false,API.register(userName,password, 20).isResult());
     }
 
     @Test
     public void registerThenLoginSuccessTest(){
         String userName="kandabior";
         String password= "or321654";
-        API.register(userName,password);
+        API.register(userName,password, 20);
         Result index = API.registeredLogin(userName,password);
         Assertions.assertEquals(index.getdata(),1);
         Assertions.assertTrue((Boolean)API.isLogged((int)index.getdata()).getdata());
@@ -60,7 +60,7 @@ public class LoginTest {
     public void logoutSuccessTest(){
         String userName="kandabior";
         String password= "or321654";
-        API.register(userName,password);
+        API.register(userName,password, 20);
         API.registeredLogin(userName,password);
         Assertions.assertTrue((boolean)API.registeredLogout(1).getdata());
         Assertions.assertFalse((boolean)API.isLogged(1).getdata());
@@ -71,7 +71,7 @@ public class LoginTest {
     public void logoutTwiceFailTest(){
         String userName="kandabior";
         String password= "or321654";
-        API.register(userName,password);
+        API.register(userName,password, 20);
         API.registeredLogin(userName,password);
         Assertions.assertTrue((boolean)API.registeredLogout(1).isResult());
         Assertions.assertFalse((boolean) API.registeredLogout(1).isResult());
@@ -127,7 +127,7 @@ public class LoginTest {
         int guestId= (int)API.guestLogin().getdata();
         String userName="kandabior";
         String password= "or321654";
-        API.register(userName,password);
+        API.register(userName,password, 20);
         Assertions.assertEquals(false,API.guestRegister(guestId,"kandabior","or321654").isResult());
     }
 

@@ -481,10 +481,10 @@ public class TradingSystem {
 
     public void addDiscountOnCategory(int storeId, String category, String operator, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage) {
         Store st = getStoreById(storeId);
+        Product.Category cat = Product.Category.valueOf(category);
         if(operator == null)
-            st.addSimpleDiscountOnCategory(category, begin, end, percentage);
+            st.addSimpleDiscountOnCategory(cat, begin, end, percentage);
         else {
-            Product.Category cat = Product.Category.valueOf(category);
             DiscountCondition conditions = new DiscountCondition();
             for (String str : policiesParams.keySet()) {
                 conditions.addDiscount(str, policiesParams.get(str));

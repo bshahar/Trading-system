@@ -100,8 +100,8 @@ public class API {
     }
 
 
-    public static Result register(String userName, String password) {
-        return tradingSystem.register(userName, password);
+    public static Result register(String userName, String password, int age) {
+        return tradingSystem.register(userName, age, password);
     }
 
     public static Result isLogged(int userId) {
@@ -154,9 +154,9 @@ public class API {
         String password2= "elad321654";
         String userName3="erez";
         String password3= "erez321654";
-        register(userName1,password1);
-        register(userName2,password2);
-        register(userName3,password3);
+        register(userName1, password1, 20);
+        register(userName2,password2, 16);
+        register(userName3,password3, 24);
         registerId1= (int)registeredLogin(userName1,password1).getdata();
         registerId2=(int) registeredLogin(userName2,password2).getdata();
         registerId3= (int)registeredLogin(userName3,password3).getdata();

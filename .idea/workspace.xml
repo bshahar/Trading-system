@@ -24,10 +24,14 @@
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="xml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/PurchaseFormat/ImmediatePurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/ImmediatePurchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/PurchasePolicies/PurchaseCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/PurchaseCondition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/MyCartWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MyCartWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/StoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +56,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="purchaseSystem" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -102,11 +106,6 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Domain.PurchaseFormat" />
-      <recent name="Server" />
-      <recent name="Permissions" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Templates" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\docs" />
@@ -114,52 +113,13 @@
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server\Login" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\LoginPage" />
     </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Domain.PurchaseFormat" />
+      <recent name="Server" />
+      <recent name="Permissions" />
+    </key>
   </component>
-  <component name="RunManager" selected="JUnit.PurchaseTest">
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server.Server" />
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Server.LoginPage.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.testme" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="METHOD_NAME" value="testme" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.Tests in Trading-system">
     <configuration name="PurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -171,6 +131,53 @@
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.PurchaseTest" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StoreTest.addToCartGuestThenRegisteredSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
+      <option name="METHOD_NAME" value="addToCartGuestThenRegisteredSuccessTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StoreTest.addToCartRegisteredSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
+      <option name="METHOD_NAME" value="addToCartRegisteredSuccessTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -191,11 +198,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PurchaseTest" />
-        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.Tests in Trading-system" />
-        <item itemvalue="JUnit.LoginTest.testme" />
-        <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.StoreTest.addToCartGuestThenRegisteredSuccessTest" />
+        <item itemvalue="JUnit.StoreTest" />
+        <item itemvalue="JUnit.StoreTest.addToCartRegisteredSuccessTest" />
+        <item itemvalue="JUnit.PurchaseTest" />
       </list>
     </recent_temporary>
   </component>
@@ -442,22 +449,22 @@
       <screen x="-1920" y="0" width="1280" height="680" />
     </state>
     <state x="-1572" y="82" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619337214797" />
-    <state width="1537" height="302" key="GridCell.Tab.0.bottom" timestamp="1619351677392">
+    <state width="1537" height="302" key="GridCell.Tab.0.bottom" timestamp="1619367032042">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="302" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619351677392" />
-    <state width="1537" height="302" key="GridCell.Tab.0.center" timestamp="1619351677391">
+    <state width="1537" height="302" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619367032042" />
+    <state width="1537" height="302" key="GridCell.Tab.0.center" timestamp="1619367032041">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="302" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619351677391" />
-    <state width="1537" height="302" key="GridCell.Tab.0.left" timestamp="1619351677390">
+    <state width="1537" height="302" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619367032041" />
+    <state width="1537" height="302" key="GridCell.Tab.0.left" timestamp="1619367032041">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="302" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619351677390" />
-    <state width="1537" height="302" key="GridCell.Tab.0.right" timestamp="1619351677392">
+    <state width="1537" height="302" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619367032041" />
+    <state width="1537" height="302" key="GridCell.Tab.0.right" timestamp="1619367032042">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="302" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619351677392" />
+    <state width="1537" height="302" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619367032042" />
     <state x="145" y="0" key="SettingsEditor" timestamp="1619352351396">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

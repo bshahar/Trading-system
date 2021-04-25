@@ -22,16 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add store page">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_201401072.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/Encryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Encryptor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/KingLogger.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/KingLogger.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/UserAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserAuth.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,7 +48,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ErezSh" />
+        <entry key="$PROJECT_DIR$" value="update_Logger" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -366,7 +358,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619276415055</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="Abstract the logger and ordered it with nice view.">
+      <created>1619335884959</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1619335884959</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -405,9 +404,14 @@
     <MESSAGE value="Adapter Injection #38" />
     <MESSAGE value="update server and gui #44" />
     <MESSAGE value="add store page" />
-    <option name="LAST_COMMIT_MESSAGE" value="add store page" />
+    <MESSAGE value="Abstract the logger and ordered it with nice view." />
+    <option name="LAST_COMMIT_MESSAGE" value="Abstract the logger and ordered it with nice view." />
   </component>
   <component name="WindowStateProjectService">
+    <state x="585" y="114" key="CommitChangelistDialog2" timestamp="1619335884227">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="114" key="CommitChangelistDialog2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619335884227" />
     <state x="666" y="261" key="FileChooserDialogImpl" timestamp="1619333172987">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -432,10 +436,18 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619333182488" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1619335917538">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619335917538" />
     <state x="656" y="118" width="607" height="804" key="find.popup" timestamp="1619333265168">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="118" width="607" height="804" key="find.popup/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619333265168" />
+    <state x="312" y="181" key="git4idea.merge.GitPullDialog" timestamp="1619356220686">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="312" y="181" key="git4idea.merge.GitPullDialog/0.0.1280.680@0.0.1280.680" timestamp="1619356220686" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

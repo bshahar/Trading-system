@@ -85,5 +85,6 @@
     <orderEntry type="library" name="ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" name="json-20140107" level="project" />
     <orderEntry type="library" name="json-201401072" level="project" />
+    <orderEntry type="library" name="json-20140107 (2)" level="project" />
   </component>
 </module>

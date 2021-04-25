@@ -7,16 +7,18 @@ public class User {
     private int registered ;
     private List<Bag> bags;
     private String userName;
+    private int age;
     private boolean logged;
     private int id;
     private Member member;
     private List<Receipt> receipts;
 
 
-    public User(String userName, int id,int registered) {
+    public User(String userName, int age, int id,int registered) {
         this.registered = registered;
         this.bags = new LinkedList<>();
         this.userName = userName;
+        this.age = age;
         this.id = id;
         this.logged = false;
         this.member = new Member();
@@ -54,6 +56,10 @@ public class User {
         return id;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     public List<Bag> getBags() {
         return bags;
     }
@@ -68,6 +74,8 @@ public class User {
             StringBuilder info = new StringBuilder();
             info.append("Domain.User Name: ");
             info.append(this.userName);
+            info.append(" Age: ");
+            info.append(this.age);
             info.append(" ID: ");
             info.append(this.id);
             return info.toString();

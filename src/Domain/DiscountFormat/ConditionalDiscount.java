@@ -2,6 +2,8 @@ package Domain.DiscountFormat;
 
 import Domain.Bag;
 import Domain.DiscountPolicies.*;
+import Domain.User;
+
 import java.util.*;
 
 public class ConditionalDiscount extends Discount {

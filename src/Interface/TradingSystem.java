@@ -362,13 +362,13 @@ public class TradingSystem {
         return getUserById(ownerId).addStoreManager(getUserById(userId),getStoreById(storeId));
     }
 
-    public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
-        if(!checkValidUser(ownerId)) return false;
+    public Result addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
+        if(!checkValidUser(ownerId)) return new Result(false,"User isn't register");
         return getUserById(ownerId).addPermissions(getUserById(managerId),getStoreById(storeId),opIndexes);
     }
 
-    public boolean removePermission(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
-        if(!checkValidUser(ownerId)) return false;
+    public Result removePermission(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
+        if(!checkValidUser(ownerId)) return new Result(false,"User isn't register");
         return getUserById(ownerId).removePermissions(getUserById(managerId),getStoreById(storeId),opIndexes);
     }
 
@@ -468,5 +468,12 @@ public class TradingSystem {
         }
         return null;
 
+    }
+
+    public boolean checkPermissions(int userId,int storeId ,int permissionId) {
+
+        if(getUserById(userId)!=null && getStoreById(storeId)!=null)
+            return getUserById(userId).checkPermissions(getStoreById(storeId),permissionId);
+        return false;
     }
 }

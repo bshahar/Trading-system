@@ -104,7 +104,7 @@ public class User {
          this.member.updateManagerPermission(store);
     }
 
-    public boolean addPermissions(User user, Store store, List<Integer> opIndexes) {
+    public Result addPermissions(User user, Store store, List<Integer> opIndexes) {
         return this.member.addPermissions(user,store,opIndexes);
     }
 
@@ -112,7 +112,7 @@ public class User {
         this.member.updateMyPermissions(store,opIndexes);
     }
 
-    public boolean removePermissions(User user, Store store, List<Integer> opIndexes) {
+    public Result removePermissions(User user, Store store, List<Integer> opIndexes) {
         return this.member.removePermissions(user,store,opIndexes);
     }
     public void disableMyPermissions(Store store ,List<Integer> opIndexes )
@@ -158,5 +158,11 @@ public class User {
 
     public List<Permission> getPermissionsOfStore(int storeId) {
         return this.member.getPermissionsOfStore(storeId);
+    }
+
+    public boolean checkPermissions(Store store ,int permissionId) {
+        if(member != null)
+            return member.checkPermissions(store,permissionId);
+        return false;
     }
 }

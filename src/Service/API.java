@@ -136,6 +136,12 @@ public class API {
     public static Result getUserPurchaseHistory(int registerId1) {
         return tradingSystem.getUserPurchaseHistory(registerId1);
     }
+    public static Result getAllPurchases(int systemManager){
+        return tradingSystem.getAllPurchases(systemManager);
+    }
+
+
+
 
     public static void forTest()
     {
@@ -190,5 +196,17 @@ public class API {
 
     public static Product getProductById(Integer productId) {
         return tradingSystem.getProductById(productId);
+    }
+
+    public static boolean checkPermissions(int userId ,int storeId ,int permissionId) {
+        return tradingSystem.checkPermissions(userId,storeId,permissionId);
+    }
+
+    public static Result addPermissions(int ownerId ,int userId ,int storeId , List<Integer> opIndexes) {
+        return tradingSystem.addPermissions(ownerId,userId,storeId,opIndexes);
+    }
+
+    public static Result RemovePermissions(int ownerId ,int userId ,int storeId , List<Integer> opIndexes) {
+        return tradingSystem.removePermission(ownerId,userId,storeId,opIndexes);
     }
 }

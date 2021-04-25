@@ -181,4 +181,8 @@ public class Store {
         }
 
     }
+
+    public boolean isManager(User user) {
+        return this.managers.contains(user);
+    }
 }

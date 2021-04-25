@@ -4098,3 +4098,5 @@
  
 [2021-04-25] [16:15:43] [INFO] Guest logged into the system with id: 8
  
+[2021-04-25] [16:29:10] [INFO] LOGIN:  this is log event
+ 

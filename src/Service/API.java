@@ -41,8 +41,8 @@ public class API {
         return tradingSystem.getCart(userId);
     }
 
-    public static Result buyProduct(int userId, int storeId, String creditInfo){
-        return tradingSystem.buyProducts(userId,storeId,creditInfo);
+    public static Result buyProduct(int userId, int storeId, String creditInfo, String mathOperator) {
+        return tradingSystem.buyProducts(userId, storeId, creditInfo, mathOperator);
     }
 
     public static Result registeredLogin(String username, String password){

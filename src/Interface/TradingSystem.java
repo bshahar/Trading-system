@@ -256,7 +256,7 @@ public class TradingSystem {
         }
     }
 
-    public Result buyProducts(int userId, int storeId, String creditInfo) {
+    public Result buyProducts(int userId, int storeId, String creditInfo, String mathOperator) {
         try {
             Map<Product, Integer> products = getBag(userId, storeId);
             Store store = getStoreById(storeId);
@@ -271,7 +271,7 @@ public class TradingSystem {
                     }
                 }
             }
-            totalCost = store.calculateDiscounts(totalCost, getUserById(userId));
+            totalCost = store.calculateDiscounts(totalCost, getUserById(userId), mathOperator);
             if (paymentAdapter.pay(totalCost, creditInfo)) {
                 Receipt rec = new Receipt(storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
                 this.receipts.add(rec);

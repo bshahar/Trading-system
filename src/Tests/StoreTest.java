@@ -298,7 +298,7 @@ public class StoreTest {
     //AT-20.1
     public void getPurchaseHistorySuccessTest() throws Exception{
         API.addProductToCart(registerId2,storeId1,1,1);
-        API.buyProduct(registerId2, storeId1, "Credit123");
+        API.buyProduct(registerId2, storeId1, "Credit123", "");
         Assertions.assertEquals(storeId1,((List<Receipt>) API.getStorePurchaseHistory(registerId1,storeId1).getdata()).get(0).getStoreId());
     }
 
@@ -307,7 +307,7 @@ public class StoreTest {
     public void getPurchaseHistoryNotPermitFailTest() throws Exception{
         API.addProductToCart(registerId2,storeId1,1,1);
 
-        API.buyProduct(registerId2, storeId1, "Credit123");
+        API.buyProduct(registerId2, storeId1, "Credit123", "");
         assertFalse( API.getStorePurchaseHistory(registerId2,storeId1).isResult());
     }
 
@@ -318,7 +318,7 @@ public class StoreTest {
         API.addStoreOwner(registerId1,registerId2,storeId1);
         API.addProductToCart(registerId2,storeId1,1,1);
 
-        API.buyProduct(registerId2, storeId1, "Credit123");
+        API.buyProduct(registerId2, storeId1, "Credit123", "");
 
         Assertions.assertEquals(storeId1,((List<Receipt>)API.getStorePurchaseHistory(registerId2,storeId1).getdata()).get(0).getStoreId());
     }

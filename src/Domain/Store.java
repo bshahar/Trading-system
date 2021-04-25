@@ -207,14 +207,35 @@ public class Store {
         this.purchasesOnStore.add(new ImmediatePurchase(counter.inc(),conditions));
     }
 
-    public double calculateDiscounts(double totalCost, User user) {
+    public double calculateDiscounts(double totalCost, User user, String mathOperator) {
         Bag bag = this.usersBags.get(user.getId());
-        if (this.discountsOnStore.size() > 0)
-            totalCost = calcStoreDiscount(totalCost, user, bag);
-        if (this.discountsOnCategories.size() > 0)
-            totalCost = calcCategoriesDiscount(totalCost, user, bag);
-        if (this.discountsOnProducts.size() > 0)
-            totalCost = calcProductsDiscount(totalCost, user, bag);
+        switch (mathOperator) {
+            case "Max":
+                double discount = 0;
+                double temp;
+                if (this.discountsOnStore.size() > 0)
+                    discount = calcStoreDiscount(totalCost, user, bag);
+                if (this.discountsOnCategories.size() > 0) {
+                    temp = calcCategoriesDiscount(totalCost, user, bag);
+                    if (discount < temp)
+                        discount = temp;
+                }
+                if (this.discountsOnProducts.size() > 0) {
+                    temp = calcProductsDiscount(totalCost, user, bag);
+                    if (discount < temp)
+                        discount = temp;
+                }
+                totalCost -= discount;
+                break;
+            default:
+                if (this.discountsOnStore.size() > 0)
+                    totalCost -= calcStoreDiscount(totalCost, user, bag);
+                if (this.discountsOnCategories.size() > 0)
+                    totalCost -= calcCategoriesDiscount(totalCost, user, bag);
+                if (this.discountsOnProducts.size() > 0)
+                    totalCost -= calcProductsDiscount(totalCost, user, bag);
+                break;
+        }
         return totalCost;
     }
 
@@ -223,7 +244,7 @@ public class Store {
         for (Discount disCon: this.discountsOnStore) {
             discount += disCon.calculateDiscount(totalCost, user, new Date(), bag);
         }
-        return totalCost - discount;
+        return discount;
     }
 
     private double calcCategoriesDiscount(double totalCost, User user, Bag bag) {
@@ -238,7 +259,7 @@ public class Store {
         for (Discount disCon : this.discountsOnStore) {
             discount += disCon.calculateDiscount(totalCost, user, new Date(), discountProds);
         }
-        return totalCost - discount;
+        return discount;
     }
 
     private double calcProductsDiscount(double totalCost, User user, Bag bag) {
@@ -252,19 +273,8 @@ public class Store {
         for (Discount disCon : this.discountsOnStore) {
             discount += disCon.calculateDiscount(totalCost, user, new Date(), bag);
         }
-        return totalCost - discount;
+        return discount;
     }
-
-    private boolean validPurchase(User user, Date time, Bag bag){
-        boolean isValid = true;
-        for (ImmediatePurchase impurch : this.purchasesOnStore) {
-            if (!impurch.validatePurchase(user, new Date(), bag))
-                isValid = false;
-        }
-        return isValid;
-
-    }
-
 
     public void addSimpleDiscountOnProduct(int prodId, Date begin, Date end, int percentage) {
         this.discountsOnProducts.put(getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage));
@@ -276,5 +286,15 @@ public class Store {
 
     public void addSimpleDiscountOnStore(Date begin, Date end, int percentage) {
         this.discountsOnStore.add(new SimpleDiscount(counter.inc(), begin, end, percentage));
+    }
+
+    private boolean validPurchase(User user, Date time, Bag bag){
+        boolean isValid = true;
+        for (ImmediatePurchase impurch : this.purchasesOnStore) {
+            if (!impurch.validatePurchase(user, new Date(), bag))
+                isValid = false;
+        }
+        return isValid;
+
     }
 }

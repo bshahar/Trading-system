@@ -2,6 +2,8 @@ package Domain;
 
 import Domain.DiscountFormat.*;
 import Domain.DiscountPolicies.DiscountCondition;
+import Domain.PurchaseFormat.ImmediatePurchase;
+import Domain.PurchasePolicies.PurchaseCondition;
 import Service.counter;
 
 import java.util.*;
@@ -20,6 +22,7 @@ public class Store {
     private Map<Product, ConditionalDiscount> discountsOnProducts;
     private Map<Product.Category, ConditionalDiscount> discountsOnCategories;
     private List<ConditionalDiscount> discountsOnStore;
+    private List<ImmediatePurchase> purchasesOnStore;
     private Map<User,List<User>> appointments; //appointer & list of appointees
     private Map<Integer, Bag> usersBags;
     private double rate;
@@ -200,6 +203,10 @@ public class Store {
         this.discountsOnStore.add(new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage));
     }
 
+    public void addPurchasePolicy(PurchaseCondition conditions){
+        this.purchasesOnStore.add(new ImmediatePurchase(counter.inc(),conditions));
+    }
+
     public double calculateDiscounts(double totalCost, int userId) {
         Bag bag = this.usersBags.get(userId);
         if (this.discountsOnStore.size() > 0)
@@ -246,6 +253,16 @@ public class Store {
             discount += disCon.calculateDiscount(totalCost, userId, new Date(), bag);
         }
         return totalCost - discount;
+    }
+
+    private boolean validPurchase(User user, Date time, Bag bag){
+        boolean isValid = true;
+        for (ImmediatePurchase impurch : this.purchasesOnStore) {
+            if (!impurch.validatePurchase(user, new Date(), bag))
+                isValid = false;
+        }
+        return isValid;
+
     }
 
 

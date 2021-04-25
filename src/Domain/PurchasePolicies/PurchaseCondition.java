@@ -30,7 +30,7 @@ public class PurchaseCondition {
 
     public void setOperator(LogicOperator operator) { this.operator = operator; }
 
-    public void addDiscount(String policy, List<String> params) {
+    public void addPurchase(String policy, List<String> params) {
         PurchasePolicy pp;
         if (this.purchases == null)
             this.purchases = new LinkedList<>();

@@ -1,6 +1,9 @@
 package Interface;
 
 import Domain.*;
+import Domain.DiscountFormat.ConditionalDiscount;
+import Domain.DiscountPolicies.DiscountCondition;
+import Domain.DiscountPolicies.DiscountPolicy;
 import Service.*;
 
 import java.util.*;
@@ -467,6 +470,23 @@ public class TradingSystem {
             }
         }
         return null;
+    }
+
+    public void addDiscountOnProduct(int storeId, int prodId, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage) {
+        Store st = getStoreById(storeId);
+        DiscountCondition conditions = new DiscountCondition();
+        for (String str: policiesParams.keySet()) {
+            conditions.addDiscount(str, policiesParams.get(str));
+        }
+        st.addDiscountOnProduct(prodId, begin, end, conditions, percentage);
+    }
+
+    public void addDiscountOnCategory() {
 
     }
+
+    public void addDiscountOnStore() {
+
+    }
+
 }

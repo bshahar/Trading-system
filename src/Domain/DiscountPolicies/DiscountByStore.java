@@ -1,19 +1,19 @@
 package Domain.DiscountPolicies;
 
-public class DiscountByStore {
-    private int prodId;
+import Domain.Bag;
 
-    public DiscountByStore(int prodId) {
-        this.prodId = prodId;
-    }
+import java.util.Date;
 
-    public int getProdId() {
-        return prodId;
-    }
+public class DiscountByStore extends DiscountPolicy {
 
-    public void setProdId(int prodId) {
-        this.prodId = prodId;
+    public DiscountByStore() {
+
     }
 
 
+    @Override
+    public boolean validateCondition(int userId, Date time, Bag bag) {
+        return false;
+        //todo
+    }
 }

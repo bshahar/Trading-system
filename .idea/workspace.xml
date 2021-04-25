@@ -23,22 +23,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="merged gui with result">
-      <change afterPath="$PROJECT_DIR$/src/Server/MyCartWebSocket.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Templates/Cart.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_201401072.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/Templates/Main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Store.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/Templates/Store.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/myStores.html" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/Templates/myStores.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalAmount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalAmount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalCost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByStore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByStore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByUser.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByUser.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/Login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/Main.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/Main.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/Store.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/Store.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/myStores.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/myStores.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +93,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../שולחן העבודה/dd/spark-ssl" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/json-20140107.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -113,16 +107,16 @@
     <property name="settings.editor.selected.configurable" value="configurable.group.language" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Server" />
-      <recent name="Permissions" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Templates" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\docs" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server\Login" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\LoginPage" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Server" />
+      <recent name="Permissions" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Server">
@@ -209,7 +203,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -423,6 +416,20 @@
     <MESSAGE value="merged gui with result" />
     <option name="LAST_COMMIT_MESSAGE" value="merged gui with result" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="-1474" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1619342461082">
+      <screen x="-1920" y="0" width="1280" height="680" />
+    </state>
+    <state x="-1474" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619342461082" />
+    <state x="-1572" y="82" key="FileChooserDialogImpl" timestamp="1619337214797">
+      <screen x="-1920" y="0" width="1280" height="680" />
+    </state>
+    <state x="-1572" y="82" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619337214797" />
+    <state x="-1799" y="0" key="SettingsEditor" timestamp="1619337220586">
+      <screen x="-1920" y="0" width="1280" height="680" />
+    </state>
+    <state x="-1799" y="0" key="SettingsEditor/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619337220586" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -433,7 +440,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
-          <line>175</line>
+          <line>132</line>
           <option name="timeStamp" value="7" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -445,11 +452,6 @@
           <url>file://$PROJECT_DIR$/src/Server/StoreWebSocket.java</url>
           <line>34</line>
           <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Service/API.java</url>
-          <line>138</line>
-          <option name="timeStamp" value="15" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -1,6 +1,9 @@
 package Domain;
 
 import Domain.DiscountFormat.*;
+import Domain.DiscountPolicies.DiscountCondition;
+import Service.counter;
+
 import java.util.*;
 
 public class Store {
@@ -14,7 +17,10 @@ public class Store {
     private List<User> owners;
     private List<User> managers;
     private List<Receipt> receipts;
-    private Map<Integer, ConditionalDiscount> discounts;
+    private Service.counter counter;
+    private Map<Product, ConditionalDiscount> discountsOnProducts;
+    private Map<Product.Category, ConditionalDiscount> discountsOnCategories;
+    private List<ConditionalDiscount> discountsOnStore;
 
     private Map<User,List<User>> appointments; //appointer & list of appointees
     private double rate;
@@ -35,7 +41,10 @@ public class Store {
         appointments.put(owner,new LinkedList<>());
         this.owners = Collections.synchronizedList(new LinkedList<>());
         this.managers = Collections.synchronizedList(new LinkedList<>());
-        this.discounts = new HashMap<>();
+        this.discountsOnProducts = new HashMap<>();
+        this.discountsOnCategories = new HashMap<>();
+        this.discountsOnStore = new LinkedList<>();
+        this.counter = new counter();
     }
 
     public Inventory getInventory() {
@@ -177,6 +186,17 @@ public class Store {
                 this.inventory.addProductAmount(product,productsAmount.get(product));
             }
         }
+    }
+
+    public void addDiscountOnProduct(int prodId, Date begin, Date end, DiscountCondition conditions, int percentage) {
+        this.discountsOnProducts.put(getProductById(prodId), new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage));
+    }
+
+    public void addDiscountOnCategory() {
+
+    }
+
+    public void addDiscountOnStore() {
 
     }
 }

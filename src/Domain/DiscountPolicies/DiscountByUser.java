@@ -2,30 +2,19 @@ package Domain.DiscountPolicies;
 
 import Domain.*;
 
-public class DiscountByUser {
+import java.util.Date;
 
-    private int prodId;
+public class DiscountByUser extends DiscountPolicy{
+
     private User user;
 
-    public DiscountByUser(int prodId, User user) {
-        this.prodId = prodId;
+    public DiscountByUser(User user) {
         this.user = user;
     }
 
-    public int getProdId() {
-        return prodId;
+    @Override
+    public boolean validateCondition(int userId, Date time, Bag bag) {
+        return false;
+        //todo
     }
-
-    public void setProdId(int prodId) {
-        this.prodId = prodId;
-    }
-
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
-
 }

@@ -1,9 +1,7 @@
 package Domain.Operators;
 
 import Domain.Bag;
-import Domain.DiscountPolicies.DiscountPolicy;
 import Domain.Policy;
-import Domain.PurchasePolicies.PurchasePolicy;
 import Domain.User;
 
 import java.util.Date;

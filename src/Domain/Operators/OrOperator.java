@@ -1,17 +1,18 @@
 package Domain.Operators;
 
 import Domain.Bag;
-import Domain.DiscountPolicies.DiscountPolicy;
+import Domain.Policy;
+import Domain.User;
 
 import java.util.*;
 
 public class OrOperator implements LogicOperator {
 
     @Override
-    public boolean validateCondition(List<DiscountPolicy> discounts, int userId, Date time, Bag bag) {
+    public boolean validateCondition(List<Policy> policies, User user, Date time, Bag bag) {
         boolean result = false;
-        for (DiscountPolicy e : discounts) {
-            result = result | e.validateCondition(userId, time, bag);
+        for (Policy p: policies) {
+            result = result | p.validateCondition(user, time, bag);
         }
         return result;
     }

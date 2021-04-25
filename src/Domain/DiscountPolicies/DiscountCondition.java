@@ -1,9 +1,7 @@
 package Domain.DiscountPolicies;
 
-import Domain.Bag;
 import Domain.Operators.*;
-import Domain.Policy;
-import Domain.User;
+import Domain.*;
 
 import java.util.*;
 

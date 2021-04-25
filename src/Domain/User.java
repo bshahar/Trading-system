@@ -4,7 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class User {
-    private int registered ;
+    private int registered; //1 if registered, 0 if guest
     private List<Bag> bags;
     private String userName;
     private int age;

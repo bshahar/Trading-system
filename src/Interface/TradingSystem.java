@@ -270,7 +270,7 @@ public class TradingSystem {
                     }
                 }
             }
-            totalCost = store.calculateDiscounts(totalCost, userId);
+            totalCost = store.calculateDiscounts(totalCost, getUserById(userId));
             if (paymentAdapter.pay(totalCost, creditInfo)) {
                 Receipt rec = new Receipt(storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
                 this.receipts.add(rec);
@@ -466,33 +466,45 @@ public class TradingSystem {
 
     public void addDiscountOnProduct(int storeId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
         Store st = getStoreById(storeId);
-        DiscountCondition conditions = new DiscountCondition();
-        for (String str: policiesParams.keySet()) {
-            conditions.addDiscount(str, policiesParams.get(str));
+        if(operator == null)
+            st.addSimpleDiscountOnProduct(prodId, begin, end, percentage);
+        else {
+            DiscountCondition conditions = new DiscountCondition();
+            for (String str : policiesParams.keySet()) {
+                conditions.addDiscount(str, policiesParams.get(str));
+            }
+            setDiscountOperator(operator, conditions);
+            st.addDiscountOnProduct(prodId, begin, end, conditions, percentage);
         }
-        setDiscountOperator(operator, conditions);
-        st.addDiscountOnProduct(prodId, begin, end, conditions, percentage);
     }
 
     public void addDiscountOnCategory(int storeId, String category, String operator, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage) {
         Store st = getStoreById(storeId);
-        Product.Category cat = Product.Category.valueOf(category);
-        DiscountCondition conditions = new DiscountCondition();
-        for (String str: policiesParams.keySet()) {
-            conditions.addDiscount(str, policiesParams.get(str));
+        if(operator == null)
+            st.addSimpleDiscountOnCategory(category, begin, end, percentage);
+        else {
+            Product.Category cat = Product.Category.valueOf(category);
+            DiscountCondition conditions = new DiscountCondition();
+            for (String str : policiesParams.keySet()) {
+                conditions.addDiscount(str, policiesParams.get(str));
+            }
+            setDiscountOperator(operator, conditions);
+            st.addDiscountOnCategory(cat, begin, end, conditions, percentage);
         }
-        setDiscountOperator(operator, conditions);
-        st.addDiscountOnCategory(cat, begin, end, conditions, percentage);
     }
 
     public void addDiscountOnStore(int storeId, String operator, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage) {
         Store st = getStoreById(storeId);
-        DiscountCondition conditions = new DiscountCondition();
-        for (String str: policiesParams.keySet()) {
-            conditions.addDiscount(str, policiesParams.get(str));
+        if(operator == null)
+            st.addSimpleDiscountOnStore(begin, end, percentage);
+        else {
+            DiscountCondition conditions = new DiscountCondition();
+            for (String str : policiesParams.keySet()) {
+                conditions.addDiscount(str, policiesParams.get(str));
+            }
+            setDiscountOperator(operator, conditions);
+            st.addDiscountOnStore(begin, end, conditions, percentage);
         }
-        setDiscountOperator(operator, conditions);
-        st.addDiscountOnStore(begin, end, conditions, percentage);
     }
 
     private void setDiscountOperator(String operator, DiscountCondition conditions) {

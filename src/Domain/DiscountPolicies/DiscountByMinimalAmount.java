@@ -1,6 +1,8 @@
 package Domain.DiscountPolicies;
 
 import Domain.Bag;
+import Domain.Product;
+import Domain.User;
 
 import java.util.Date;
 
@@ -15,8 +17,13 @@ public class DiscountByMinimalAmount extends DiscountPolicy {
     }
 
     @Override
-    public boolean validateCondition(int userId, Date time, Bag bag) {
-        return false;
-        //todo
+    public boolean validateCondition(User user, Date time, Bag bag) {
+        int amount = 0;
+        for (Product p: bag.getProducts()) {
+            if(p.getId() == this.prodId)
+                amount = bag.getProductsAmounts().get(p);
+        }
+        return amount >= this.minAmount;
     }
+
 }

@@ -17,9 +17,9 @@ public class Store {
     private List<User> managers;
     private List<Receipt> receipts;
     private Service.counter counter;
-    private Map<Product, ConditionalDiscount> discountsOnProducts;
-    private Map<Product.Category, ConditionalDiscount> discountsOnCategories;
-    private List<ConditionalDiscount> discountsOnStore;
+    private Map<Product, Discount> discountsOnProducts;
+    private Map<Product.Category, Discount> discountsOnCategories;
+    private List<Discount> discountsOnStore;
     private Map<User,List<User>> appointments; //appointer & list of appointees
     private Map<Integer, Bag> usersBags;
     private double rate;
@@ -200,26 +200,26 @@ public class Store {
         this.discountsOnStore.add(new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage));
     }
 
-    public double calculateDiscounts(double totalCost, int userId) {
-        Bag bag = this.usersBags.get(userId);
+    public double calculateDiscounts(double totalCost, User user) {
+        Bag bag = this.usersBags.get(user.getId());
         if (this.discountsOnStore.size() > 0)
-            totalCost = calcStoreDiscount(totalCost, userId, bag);
+            totalCost = calcStoreDiscount(totalCost, user, bag);
         if (this.discountsOnCategories.size() > 0)
-            totalCost = calcCategoriesDiscount(totalCost, userId, bag);
+            totalCost = calcCategoriesDiscount(totalCost, user, bag);
         if (this.discountsOnProducts.size() > 0)
-            totalCost = calcProductsDiscount(totalCost, userId, bag);
+            totalCost = calcProductsDiscount(totalCost, user, bag);
         return totalCost;
     }
 
-    private double calcStoreDiscount(double totalCost, int userId, Bag bag) {
+    private double calcStoreDiscount(double totalCost, User user, Bag bag) {
         double discount = 0;
-        for (ConditionalDiscount disCon: this.discountsOnStore) {
-            discount += disCon.calculateDiscount(totalCost, userId, new Date(), bag);
+        for (Discount disCon: this.discountsOnStore) {
+            discount += disCon.calculateDiscount(totalCost, user, new Date(), bag);
         }
         return totalCost - discount;
     }
 
-    private double calcCategoriesDiscount(double totalCost, int userId, Bag bag) {
+    private double calcCategoriesDiscount(double totalCost, User user, Bag bag) {
         double discount = 0;
         Bag discountProds = new Bag(this);
         for (Product prod: bag.getProducts()) {
@@ -228,13 +228,13 @@ public class Store {
                     discountProds.addProduct(prod, bag.getProductsAmounts().get(prod));
             }
         }
-        for (ConditionalDiscount disCon : this.discountsOnStore) {
-            discount += disCon.calculateDiscount(totalCost, userId, new Date(), discountProds);
+        for (Discount disCon : this.discountsOnStore) {
+            discount += disCon.calculateDiscount(totalCost, user, new Date(), discountProds);
         }
         return totalCost - discount;
     }
 
-    private double calcProductsDiscount(double totalCost, int userId, Bag bag) {
+    private double calcProductsDiscount(double totalCost, User user, Bag bag) {
         double discount = 0;
         Bag discountProds = new Bag(this);
         for (Product prod : bag.getProducts()) {
@@ -242,11 +242,22 @@ public class Store {
                 discountProds.addProduct(prod, bag.getProductsAmounts().get(prod));
             }
         }
-        for (ConditionalDiscount disCon : this.discountsOnStore) {
-            discount += disCon.calculateDiscount(totalCost, userId, new Date(), bag);
+        for (Discount disCon : this.discountsOnStore) {
+            discount += disCon.calculateDiscount(totalCost, user, new Date(), bag);
         }
         return totalCost - discount;
     }
 
 
+    public void addSimpleDiscountOnProduct(int prodId, Date begin, Date end, int percentage) {
+        this.discountsOnProducts.put(getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage));
+    }
+
+    public void addSimpleDiscountOnCategory(Product.Category category, Date begin, Date end, int percentage) {
+        this.discountsOnCategories.put(category, new SimpleDiscount(counter.inc(), begin, end, percentage));
+    }
+
+    public void addSimpleDiscountOnStore(Date begin, Date end, int percentage) {
+        this.discountsOnStore.add(new SimpleDiscount(counter.inc(), begin, end, percentage));
+    }
 }

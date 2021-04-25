@@ -1,6 +1,6 @@
 package Domain.DiscountPolicies;
 
-import Domain.Bag;
+import Domain.*;
 
 import java.util.Date;
 
@@ -12,8 +12,12 @@ public class DiscountByMinimalCost extends DiscountPolicy {
     }
 
     @Override
-    public boolean validateCondition(int userId, Date time, Bag bag) {
-        return false;
-        //todo
+    public boolean validateCondition(User user, Date time, Bag bag) {
+        double cost = 0;
+        for (Product p: bag.getProducts()) {
+            cost += p.getPrice() * bag.getProductsAmounts().get(p);
+        }
+        return cost >= this.minCost;
     }
+
 }

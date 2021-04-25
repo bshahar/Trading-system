@@ -1,6 +1,6 @@
 package Domain.DiscountPolicies;
 
-import Domain.Bag;
+import Domain.*;
 
 import java.util.*;
 
@@ -39,16 +39,13 @@ public class DiscountByPurchaseTime extends DiscountPolicy {
 
 
     @Override
-    public boolean validateCondition(int userId, Date time, Bag bag) {
+    public boolean validateCondition(User user, Date time, Bag bag) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(time);
-
         if(byDayInWeek)
             return this.dayInWeek == calendar.get(Calendar.DAY_OF_WEEK);
-
         else if(byDayInMonth)
             return this.dayInMonth == calendar.get(Calendar.DAY_OF_MONTH);
-
         else
             return this.beginHour >= calendar.get(Calendar.HOUR) && this.endHour > calendar.get(Calendar.HOUR);
     }

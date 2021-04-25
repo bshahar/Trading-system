@@ -6,7 +6,6 @@ import Interface.TradingSystem;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 public class API {
 
@@ -229,6 +228,19 @@ public class API {
     {
         return tradingSystem.unsubscribeToObservable(observableId,userId);
     }
+
+    public static Result getMessagesQueue(int userId)
+    {
+        return tradingSystem.getMessagesQueue(userId);
+    }
+
+    public static Result getNotificationIdByStoreId(int storeId)
+    {
+        return tradingSystem.getNotificationIdByStoreId(storeId);
+    }
+
+
+
 
 
 

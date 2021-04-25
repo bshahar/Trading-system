@@ -176,8 +176,18 @@ public class User implements Observer {
     {
         observableType = (ObservableType) observable;
         if(logged)
-            System.out.println(this.userName+ " got msg: "+observableType.getMessage());
+        {
+            //TODO add what happend when get here
+            //System.out.println(this.userName+ " got msg: "+observableType.getMessage());
+        }
         else
             messages.add(observableType.getMessage());
     }
+
+    public Queue<String> getMessages()
+    {
+        return this.messages;
+    }
+
+
 }

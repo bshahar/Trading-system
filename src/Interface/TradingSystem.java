@@ -104,7 +104,7 @@ public class TradingSystem {
     public Result subscribeToObservable(int observableId,int userId)
     {
         Result result =getObservableTypeById(observableId);
-        if(result.isResult() && checkValidUser(userId))
+        if(result.isResult())
         {
             ObservableType Observable = (ObservableType) result.getdata();
             Observable.addObserver(getUserById(userId));
@@ -353,6 +353,7 @@ public class TradingSystem {
                 getUserById(userId).addReceipt(rec);
                 KingLogger.logError(Level.INFO, "Domain.User with id " + userId + " made purchase in store " + storeId);
                 if(productsAmountBag.size()==productsAmountBuy.size()){
+                    notifyToSubscribers(getStoreById(storeId).getNotificationId(),"Some one buy from your store! you can go to your purchase to see more details");
                     return new Result(true, "purchase confirmed successfully" );
                 }else{
                     return new Result(true, "some product missing");
@@ -410,6 +411,10 @@ public class TradingSystem {
             Store store = new Store(newId, storeName, user);
             user.openStore(store);
             this.stores.add(store);
+            Result result = addObservable(storeName);
+            int subscribeId = (int)result.getdata();
+            store.setNotificationId(subscribeId);
+            subscribeToObservable(subscribeId,userId);
             return new Result(true,newId);
         }
         return new Result(false,"User has not registered");
@@ -419,7 +424,14 @@ public class TradingSystem {
         if(!checkValidUser(ownerId) || !checkValidUser(userId)) return new Result(false,"User is not valid");
         User owner=getUserById(ownerId);
         User user=getUserById(userId);
-        return owner.addStoreOwner(owner,user,getStoreById(storeId));
+
+        Result result = owner.addStoreOwner(owner,user,getStoreById(storeId));
+        if(result.isResult())
+        {
+            subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
+        }
+        return result;
+
     }
         public boolean checkValidUser(int userId)
         {
@@ -431,7 +443,13 @@ public class TradingSystem {
 
     public Result addStoreManager(int ownerId, int userId, int storeId){
         if(!checkValidUser(ownerId) || !checkValidUser(userId)) return new Result(false,"User is not valid");
-        return getUserById(ownerId).addStoreManager(getUserById(userId),getStoreById(storeId));
+
+        Result result = getUserById(ownerId).addStoreManager(getUserById(userId),getStoreById(storeId));
+        if(result.isResult())
+        {
+            subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
+        }
+        return result;
     }
 
     public Result addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
@@ -447,7 +465,13 @@ public class TradingSystem {
     public Result removeManager(int ownerId, int managerId, int storeId){
         User user= getUserById(ownerId);
         Store store = getStoreById(storeId);
-        return user.removeManagerFromStore(getUserById(managerId),store);
+        Result result = user.removeManagerFromStore(getUserById(managerId),store);
+        if(result.isResult())
+        {
+            unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
+        }
+        return result;
+
     }
 
 
@@ -541,5 +565,21 @@ public class TradingSystem {
         if(getUserById(userId)!=null && getStoreById(storeId)!=null)
             return getUserById(userId).checkPermissions(getStoreById(storeId),permissionId);
         return false;
+    }
+
+    public Result getMessagesQueue (int userId) {
+        if(getUserById(userId)!=null)
+        {
+            return new Result(true,getUserById(userId).getMessages());
+        }
+        return new Result(false,"user isnt exist");
+    }
+
+    public Result getNotificationIdByStoreId(int storeId) {
+        if(getStoreById(storeId)!=null)
+        {
+            return new Result(true ,getStoreById(storeId).getNotificationId());
+        }
+        return new Result(false,"cant find the store");
     }
 }

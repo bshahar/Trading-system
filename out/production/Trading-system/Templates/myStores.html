@@ -102,6 +102,7 @@ function closeForm() {
         <ul id="topanv">
             <button onclick="Home()" >Home</button>
             <button onclick="myStores()" >myStores</button>
+            <button onclick="MyCart()" >My Cart</button>
             <button onclick="logOut()" id="logOut">LogOut</button>
         </ul>
     </div>
@@ -227,6 +228,10 @@ ws.onmessage = function(event)
 const Home= () =>
 {
 	 window.location.href = "Main";
+}
+
+const MyCart = ()=>{
+   window.location.href = "Cart";
 }
 
 const logOut= () =>

@@ -164,11 +164,13 @@ public class API {
         storeId2=(int)openStore(registerId1,"elad store").getdata();
         LinkedList<Product.Category> catList= new LinkedList<>();
         catList.add(Product.Category.FOOD);
-        int productId1=(int ) addProduct(registerId1, storeId1,"Milk",catList ,10,"FOOD", 10 ).getdata();
+        addProduct(registerId1, storeId1,"Milk",catList ,10,"FOOD", 10 ).getdata();
 
-        int productId2=(int) addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD", 2 ).getdata();
+        addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD", 2 ).getdata();
 
-        int productId3= (int)addProduct(registerId1, storeId1,"Banana",catList ,4,"FOOD", 20 ).getdata();
+        addProduct(registerId1, storeId1,"Banana",catList ,4,"FOOD", 20 ).getdata();
+        addProduct(registerId1, storeId2,"Water",catList ,5,"DRINK", 13 ).getdata();
+
         registeredLogout(registerId1);
     }
 
@@ -179,5 +181,14 @@ public class API {
     public static List<Permission> getPermissionsOfStore(int userId , int storeId)
     {
         return tradingSystem.getPermissionsOfStore(userId,storeId);
+    }
+
+    public static String getStoreName(int storeId) {
+        return tradingSystem.getStoreName(storeId);
+
+    }
+
+    public static Product getProductById(Integer productId) {
+        return tradingSystem.getProductById(productId);
     }
 }

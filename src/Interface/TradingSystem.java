@@ -198,7 +198,7 @@ public class TradingSystem {
                 if (getUserById(userId).isLogged()){
                     if( getStoreById(storeId).getInventory().prodExists(prodId)){
                         if (b != null) {
-                            b.addProduct(prodId, amount);
+                            b.addProduct(getStoreById(storeId).getProductById(prodId), amount);
                             KingLogger.logEvent(Level.INFO, "Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
                             return new Result(true,true);
                         }
@@ -256,12 +256,12 @@ public class TradingSystem {
 
     public Result buyProducts(int userId, int storeId,  String creditInfo){
         try {
-            Map<Integer, Integer> productsIds = getBag(userId, storeId);
+            Map<Product, Integer> productsIds = getBag(userId, storeId);
             Store store = getStoreById(storeId);
             Map<Product, Integer> productsAmountBag = new HashMap<>();
-            for (int id : productsIds.keySet()) {
-                Product p = store.getProductById(id);
-                productsAmountBag.put(p, productsIds.get(id));
+            for (Product p : productsIds.keySet()) {
+
+                productsAmountBag.put(p, productsIds.get(p));
             }
             Map<Product,Integer> productsAmountBuy=new HashMap<>();
             double totalCost=0;
@@ -298,7 +298,7 @@ public class TradingSystem {
         }
     }
 
-    private Map<Integer, Integer> getBag(int userId, int storeId) {
+    private Map<Product, Integer> getBag(int userId, int storeId) {
         try {
             User user = getUserById(userId);
             Bag bag = user.getBagByStoreId(storeId);
@@ -449,5 +449,24 @@ public class TradingSystem {
             return getUserById(userId).getPermissionsOfStore(storeId);
         }
         return new LinkedList<>();
+    }
+
+    public String getStoreName(int storeId) {
+        for(Store store:stores){
+            if(store.getStoreId()==storeId){
+                return store.getName();
+            }
+        }
+        return "";
+    }
+
+    public Product getProductById(Integer productId) {
+        for(Store store:stores){
+            if(store.getProductById(productId)!=null){
+                return store.getProductById(productId);
+            }
+        }
+        return null;
+
     }
 }

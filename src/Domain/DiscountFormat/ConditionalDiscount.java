@@ -19,10 +19,10 @@ public class ConditionalDiscount extends Discount {
     }
 
     //Returns the amount of money to reduce from the original cost of the bag
-    public double calculateDiscount(double totalCost, int userId, Date time, Bag bag) {
+    public double calculateDiscount(double totalCost, User user, Date time, Bag bag) {
         double discount = 0;
         if (time.after(this.begin) && time.before(this.end)) {
-            if (conditions.validateCondition(userId, time, bag)) {
+            if (conditions.validateCondition(user, time, bag)) {
                 discount = (this.percentage * totalCost) / 100;
             }
         }

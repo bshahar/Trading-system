@@ -1,5 +1,6 @@
 package Domain;
 
+import Domain.DiscountFormat.*;
 import java.util.*;
 
 public class Store {
@@ -13,9 +14,9 @@ public class Store {
     private List<User> owners;
     private List<User> managers;
     private List<Receipt> receipts;
-    //private List<DiscountPolicy> discountPolicies;
+    private Map<Integer, ConditionalDiscount> discounts;
 
-    private Map<User,List<User>> appointments;
+    private Map<User,List<User>> appointments; //appointer & list of appointees
     private double rate;
     private int ratesCount;
 
@@ -27,13 +28,14 @@ public class Store {
         this.inventory = new Inventory();
         this.rate = 0;
         this.ratesCount = 0;
-        this.employees = Collections.synchronizedList(new LinkedList<>());;
+        this.employees = Collections.synchronizedList(new LinkedList<>());
         this.employees.add(owner);
         this.receipts = new LinkedList<>();
         this.appointments= new HashMap<>();
         appointments.put(owner,new LinkedList<>());
-        this.owners = Collections.synchronizedList(new LinkedList<>());;
-        this.managers = Collections.synchronizedList(new LinkedList<>());;
+        this.owners = Collections.synchronizedList(new LinkedList<>());
+        this.managers = Collections.synchronizedList(new LinkedList<>());
+        this.discounts = new HashMap<>();
     }
 
     public Inventory getInventory() {
@@ -149,15 +151,14 @@ public class Store {
         this.receipts.add(receipt);
     }
 
-    public boolean addOwner(User user)
-    {
+    public boolean addOwner(User user) {
         if(this.owners.contains(user))
             return false;
         owners.add(user);
         return true;
     }
-    public boolean addManager(User user)
-    {
+
+    public boolean addManager(User user) {
         if(this.managers.contains(user))
             return false;
         managers.add(user);
@@ -172,4 +173,6 @@ public class Store {
         }
 
     }
+
+
 }

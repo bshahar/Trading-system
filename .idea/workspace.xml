@@ -19,11 +19,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#42">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#42 small fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountFormat/ConditionalDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountFormat/ConditionalDiscount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/Operators/NoneOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/Operators/NoneOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -89,6 +87,7 @@
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="settings.editor.selected.configurable" value="preferences.editor" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -290,7 +289,13 @@
       <option name="presentableId" value="LOCAL‎00015" />
       <updated>1619286926359</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL‎00016" summary="#42 small fixes">
+      <created>1619289316813</created>
+      <option name="number" value="LOCAL‎00016" />
+      <option name="presentableId" value="LOCAL‎00016" />
+      <updated>1619289316813</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -323,21 +328,34 @@
     <MESSAGE value="change permissions" />
     <MESSAGE value="Adapter Injection #38" />
     <MESSAGE value="#42" />
-    <option name="LAST_COMMIT_MESSAGE" value="#42" />
+    <MESSAGE value="#42 small fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="#42 small fixes" />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1619285476094">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1619285476094" />
+    <state x="551" y="307" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1619335669553">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="551" y="307" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1619335669553" />
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1619285541444">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1619285541444" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1619286945052">
+    <state x="-1778" y="0" key="SettingsEditor" timestamp="1619336023649">
+      <screen x="-1920" y="0" width="1280" height="680" />
+    </state>
+    <state x="-1778" y="0" key="SettingsEditor/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619336023649" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1619289322166">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1619286945052" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1619289322166" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1619289210213">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1619289210213" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

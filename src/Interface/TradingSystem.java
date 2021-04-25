@@ -61,7 +61,7 @@ public class TradingSystem {
                 }
             }
         }
-        return new Result(false, -1);
+        return new Result(false, "Username or Password not correct");
     }
 
 

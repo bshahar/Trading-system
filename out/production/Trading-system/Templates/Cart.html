@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <div class="topnav">
+    <button onclick="Home()" >Home</button>
+    <button onclick="myStores()" >My Stores</button>
+    <button onclick="MyCart()" >My Cart</button>
+
+    <button onclick="logOut()" id="logOut">LogOut</button>
+  </div>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <style>
+    h1 {
+    
+    font-size: 25px;
+    font-weight: bold;
+    padding-bottom: 0px;
+    }
+    h2 {
+    
+    font-size: 20px;
+    font-weight: bold;
+    padding-left: 20PX ;
+    
+    }
+#store:hover{
+background-color: #5F9EA0}
+
+#product{
+  border: #333;
+  border-radius: 5px;
+  border-width: 1px;
+  padding-bottom: 10px;
+
+}
+
+#logOut{
+position:absolute;
+     top:3;
+     right:0;
+}
+
+.topnav button
+{
+  float: left;
+  color: #green;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+}
+
+/* Add a black background color to the top navigation */
+.topnav {
+  background-color: #333;
+  overflow: hidden;
+}
+
+
+/* Change the color of links on hover */
+.topnav button:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+/* Add a color to the active/current link */
+.topnav button.active {
+  background-color: #4CAF50;
+  color: green;
+}
+
+    </style>
+</head>
+<body>
+<div>
+  <ul id="list">
+  </ul>
+</div>
+
+
+</body>
+</html>
+<script>
+
+var ws = new WebSocket("wss://localhost:4567/Cart/")
+ws.onopen = function(event)
+    {
+        console.log("welcome to My Cart page");
+        console.log(localStorage.getItem("id"));
+        ws.send(JSON.stringify({"type":"GET_CART","id":localStorage.getItem("id")}));
+    }
+
+ws.onmessage = function(event)
+{
+    const parsedMessage= JSON.parse(event.data);
+    console.log(parsedMessage);
+    if(parsedMessage.type=="GET_CART"){
+      bags=parsedMessage.bags;
+      for(let i=0; i<bags.length; i++){
+        storeId=bags[i].storeId;
+        storeName=bags[i].storeName;
+        products=bags[i].products;
+        document.getElementById('list').innerHTML += `<h1>Store Name: ${storeName}</h1><br/>`
+        for(let j=0; j<products.length;j++){
+          document.getElementById('list').innerHTML += `<h2>${j+1}: ${products[j].productName}  ,amount:${products[j].productAmount}</h2>`
+
+        }
+
+      }
+
+
+    }
+
+
+}
+const logOut= () =>
+{
+	 ws.send(JSON.stringify({"type":"LOGOUT","id":localStorage.getItem("id")}));
+}
+
+
+const Home= () =>
+{
+	 window.location.href = "Main";
+}
+
+const MyCart = ()=>{
+   window.location.href = "Cart";
+}
+
+const myStores= () =>
+{
+	window.location.href = "myStores";
+}
+
+</script>

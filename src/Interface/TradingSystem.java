@@ -410,22 +410,29 @@ public class TradingSystem {
 
     public Result getWorkersInformation(int ownerId, int storeId){
         if(!checkValidUser(ownerId)) {
-            KingLogger.logEvent("GET_WORKER_INFORMATION: Domain.User with id " + ownerId + " remove manager");
+            KingLogger.logEvent("GET_WORKERS_INFORMATION: Domain.User with id " + ownerId + " is not a valid user");
             return null;
         }
+        KingLogger.logEvent("GET_WORKERS_INFORMATION: Domain.User with id " + ownerId + " got workers information");
         return getUserById(ownerId).getWorkersInformation(getStoreById(storeId)); //List<User>
     }
 
     public Result getStorePurchaseHistory(int ownerId, int storeId){
-        if(!checkValidUser(ownerId)) return new Result(false,"User not exist");
+        if(!checkValidUser(ownerId)) {
+            KingLogger.logEvent("GET_STORE_PURCHASE_HISTORY: Domain.User with id " + ownerId + " is not a valid user");
+            return new Result(false,"User not exist");
+        }
+        KingLogger.logEvent("GET_STORE_PURCHASE_HISTORY: Domain.User with id " + ownerId + " got store purchase history");
         return getUserById(ownerId).getStorePurchaseHistory(getStoreById(storeId));//List<Reciept>
     }
 
     public Result getAllPurchases(int systemManager){
         if(this.systemManager.getId() == systemManager)
         {
+            KingLogger.logEvent("GET_ALL_PURCHASE: system manager with id " + systemManager + " got all purchases");
             return new Result(true,this.receipts);//List<Reciept>
         }
+        KingLogger.logEvent("GET_ALL_PURCHASE: system manager with id " + systemManager + " dont have permission");
         return new Result(false,"User has no permissions");
     }
 
@@ -445,7 +452,6 @@ public class TradingSystem {
         for(Product product :amounts.keySet()){
             products.add(product);
             product.setAmount(amounts.get(product));
-
         }
         return new Result(true,products);
     }
@@ -456,9 +462,10 @@ public class TradingSystem {
 
     public Result getUserPurchaseHistory(int userId) {
         if(!getUserById(userId).isRegistered()){
+            KingLogger.logEvent("GET_USER_PURCHASE_HISTORY: Domain.User with id " + userId + " is not registered");
             return new Result(false,"User not registered");
         }
-
+        KingLogger.logEvent("GET_USER_PURCHASE_HISTORY: Domain.User with id " + userId + " got the user purchase history");
         return new Result(true,getUserById(userId).getPurchaseHistory());
 
     }

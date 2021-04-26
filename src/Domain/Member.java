@@ -134,19 +134,19 @@ public class Member {
 
     }
 
-    public boolean addPermissions(User user, Store store, List<Integer> opIndexes) {
-        if(permissions.get(store)!=null && permissions.get(store).addPermissions()) {
+    public Result addPermissions(User user, Store store, List<Integer> opIndexes) {
+        if(permissions.get(store)!=null && store.isManager(user) && permissions.get(store).addPermissions()) {
             user.updateMyPermissions(store, opIndexes);
-            return true;
+            return new Result(true,"permissions added successfully");
         }
-        return false;
+        return new Result(false,"permissions didn't added ");
     }
-    public boolean removePermissions(User user, Store store, List<Integer> opIndexes) {
-        if(permissions.get(store)!=null && permissions.get(store).removePermission()) {
+    public Result removePermissions(User user, Store store, List<Integer> opIndexes) {
+        if(permissions.get(store)!=null && store.isManager(user) &&permissions.get(store).removePermission()) {
             user.disableMyPermissions(store, opIndexes);
-            return true;
+            return new Result(true,"permissions remove successfully");
         }
-        return false;
+        return new Result(false,"permissions didn't remove ");
     }
 
 
@@ -400,4 +400,80 @@ public class Member {
     public List<Permission> getPermissionsOfStore(int storeId) {
         return null;
     }
-}
+
+    public boolean checkPermissions(Store store ,int permissionId) {
+        Permission p = permissions.get(store);
+        if(p!= null) {
+                switch (permissionId) {
+                    case 1: {
+                        return p.getAddProduct()!=null;
+                    }
+                    case 2: {
+                        return p.getAppointManager()!=null;
+                    }
+                    case 3: {
+                        return p.getAppointOwner()!=null;
+                    }
+                    case 4: {
+                        return p.getCloseStore()!=null;
+                    }
+                    case 5: {
+                        return p.getDefineDiscountFormat()!=null;
+                    }
+                    case 6: {
+                        return p.getDefineDiscountPolicy()!=null;
+                    }
+                    case 7: {
+                        return p.getDefinePurchaseFormat()!=null;
+                    }
+                    case 8: {
+                        return p.getDefinePurchasePolicy()!=null;
+                    }
+                    case 9: {
+                        return p.getEditDiscountFormat()!=null;
+                    }
+                    case 10: {
+                        return p.getEditDiscountPolicy()!=null;
+                    }
+                    case 11: {
+                        return p.getEditProduct()!=null;
+                    }
+                    case 12: {
+                        return p.getEditPurchaseFormat()!=null;
+                    }
+                    case 13: {
+                        return p.getEditPurchasePolicy()!=null;
+                    }
+                    case 14: {
+                        return p.getGetWorkersInfo()!=null;
+                    }
+                    case 15: {
+                        return p.getOpenStore()!=null;
+                    }
+                    case 16: {
+                        return p.getRemoveManagerAppointment()!=null;
+                    }
+                    case 17: {
+                        return p.getRemoveOwnerAppointment()!=null;
+                    }
+                    case 19: {
+                        return p.getRemoveProduct()!=null;
+                    }
+                    case 20: {
+                        return p.getReopenStore()!=null;
+                    }
+                    case 21: {
+                        return p.getReplayMessages()!=null;
+                    }
+                    case 22: {
+                        return p.getViewMessages()!=null;
+                    }
+                    case 23: {
+                        return p.getViewPurchaseHistory()!=null;
+                    }
+                }
+            }
+        return false;
+        }
+    }
+

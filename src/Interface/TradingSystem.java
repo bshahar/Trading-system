@@ -471,7 +471,7 @@ public class TradingSystem {
             st.addSimpleDiscountOnProduct(prodId, begin, end, percentage);
         else {
             DiscountCondition conditions = new DiscountCondition();
-            for (String str : policiesParams.keySet()) {
+            for (String str: policiesParams.keySet()) {
                 conditions.addDiscount(str, policiesParams.get(str));
             }
             setDiscountOperator(operator, conditions);
@@ -508,7 +508,7 @@ public class TradingSystem {
         }
     }
 
-    public void addPurchaesPolicyOnStore(int storeId, String operator, Map<String,List<String>> policiesParams){
+    public void addPurchasePolicyOnStore(int storeId, String operator, Map<String,List<String>> policiesParams){
         Store st = getStoreById(storeId);
         PurchaseCondition conditions = new PurchaseCondition();
         for (String str: policiesParams.keySet()) {

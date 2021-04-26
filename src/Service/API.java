@@ -4,6 +4,7 @@ import Domain.*;
 import Interface.TradingSystem;
 
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -190,5 +191,21 @@ public class API {
 
     public static Product getProductById(Integer productId) {
         return tradingSystem.getProductById(productId);
+    }
+
+    public static void addDiscountOnProduct(int storeId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
+        tradingSystem.addDiscountOnProduct(storeId, prodId, operator, policiesParams, begin, end, percentage);
+    }
+
+    public static void addDiscountOnCategory(int storeId, String category, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
+        tradingSystem.addDiscountOnCategory(storeId, category, operator, policiesParams, begin, end, percentage);
+    }
+
+    public static void addDiscountOnStore(int storeId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
+        tradingSystem.addDiscountOnStore(storeId, operator, policiesParams, begin, end, percentage);
+    }
+
+    public static void addPurchasePolicyOnStore(int storeId, String operator, Map<String, List<String>> policiesParams) {
+        tradingSystem.addPurchasePolicyOnStore(storeId, operator, policiesParams);
     }
 }

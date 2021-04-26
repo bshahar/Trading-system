@@ -2,17 +2,12 @@ package Tests;
 
 import Domain.Product;
 import Domain.Receipt;
-import Domain.User;
-import Interface.TradingSystem;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.crypto.NoSuchPaddingException;
-import java.security.NoSuchAlgorithmException;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,33 +18,29 @@ public class PurchaseTest {
     private int registerId2;
     private int registerId3;
     private int storeId1;
+    private int storeId2;
     private int productId1;
     private int productId2;
 
     @BeforeEach
     public void setUp() {
-//
-//        User systemManager = new User("Elad",1,1);
-//        tradingSystem= new TradingSystem(systemManager);
         API.initTradingSystem("Elad");
-        String userName1="kandabior";
-        String password1= "or321654";
-        String userName2="elad";
-        String password2= "elad321654";
-        String userName3="erez";
-        String password3= "erez321654";
-        API.register(userName1,password1, 20);
-        API.register(userName2,password2, 16);
-        API.register(userName3,password3, 20);
-        registerId1=(int) API.registeredLogin(userName1,password1).getdata();
-        registerId2=(int) API.registeredLogin(userName2,password2).getdata();
-        registerId3= (int)API.registeredLogin(userName3,password3).getdata();
-        storeId1=(int)API.openStore(registerId1,"kandabior store").getdata();
-        LinkedList<Product.Category> catList= new LinkedList<>();
+        String userName1 = "kandabior";
+        String password1 = "or321654";
+        String userName2 = "elad";
+        String password2 = "elad321654";
+        String userName3 = "erez";
+        String password3 = "erez321654";
+        API.register(userName1, password1, 20);
+        API.register(userName2, password2, 16);
+        API.register(userName3, password3, 20);
+        registerId1 = (int) API.registeredLogin(userName1, password1).getdata();
+        registerId2 = (int) API.registeredLogin(userName2, password2).getdata();
+        registerId3 = (int) API.registeredLogin(userName3, password3).getdata();
+        storeId1 = (int) API.openStore(registerId1, "kandabior store").getdata();
+        LinkedList<Product.Category> catList = new LinkedList<>();
         catList.add(Product.Category.FOOD);
-        productId1= (int)API.addProduct(1, storeId1,"milk",catList ,10,"FOOD", 1 ).getdata();
-
-
+        productId1 = (int) API.addProduct(1, storeId1, "milk", catList, 10, "FOOD", 1).getdata();
     }
 
     @Test
@@ -113,12 +104,12 @@ public class PurchaseTest {
             TestSync();
             Assertions.assertEquals(1,((List<Object>)(API.getStorePurchaseHistory(registerId1,storeId1).getdata())).size());
             String username=((List<Receipt>)(API.getStorePurchaseHistory(registerId1,storeId1).getdata())).get(0).getUserName();
-            if(username=="kandabior")
+            if(username.equals("kandabior"))
                 orCount++;
             else
                 eladCount++;
-            assertTrue(((username=="kandabior")|| (username=="elad")));
-            assertTrue(((List<Receipt>)(API.getStorePurchaseHistory(registerId1,storeId1).getdata())).size()==1);
+            assertTrue(((username.equals("kandabior"))|| (username.equals("elad"))));
+            assertEquals(1, ((List<Receipt>) (API.getStorePurchaseHistory(registerId1, storeId1).getdata())).size());
         }
         System.out.println("or: "+ orCount);
         System.out.println("elad: "+ eladCount);
@@ -169,7 +160,7 @@ public class PurchaseTest {
         API.addProductToCart(registerId1,storeId1,productId1,1);
         API.buyProduct(registerId1,storeId1,"123456789", "");
         List<Receipt> receiptList=(List<Receipt>) API.getUserPurchaseHistory(registerId1).getdata();
-        Assertions.assertTrue(receiptList.get(0).getUserId()==registerId1);
+        assertEquals(receiptList.get(0).getUserId(), registerId1);
     }
 
     @Test
@@ -179,9 +170,7 @@ public class PurchaseTest {
         API.addProductToCart(guestId,storeId1,productId1,1);
         API.buyProduct(guestId,storeId1,"123456789", "");
         Assertions.assertFalse(API.getUserPurchaseHistory(guestId).isResult());
-
     }
-
 
 
 }

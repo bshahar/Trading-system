@@ -475,6 +475,20 @@ public class TradingSystem {
 
     }
 
+    public Result removeOwner(int ownerId, int managerId, int storeId){
+        User user= getUserById(ownerId);
+        Store store = getStoreById(storeId);
+        Result result = user.removeOwnerFromStore(getUserById(managerId),store);
+        if(result.isResult())
+        {
+            unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
+        }
+        return result;
+
+    }
+
+
+
 
     public Result getWorkersInformation(int ownerId, int storeId){
         if(!checkValidUser(ownerId)) return null;
@@ -590,5 +604,13 @@ public class TradingSystem {
             return new Result(true,getUserById(userId).getMessages().toArray());
         }
         return new Result(false,"user isnt exist");
+    }
+
+    public Result getManagersAndOwnersOfStore(int storeId) {
+        if(getStoreById(storeId)!=null)
+        {
+            return new Result(true,getStoreById(storeId).getManagersAndOwners());
+        }
+        return new Result(false,"no such store");
     }
 }

@@ -390,7 +390,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619370159468</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="logger in the code">
+      <created>1619449132600</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1619449132600</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -433,13 +440,14 @@
     <MESSAGE value="add React to fucking proj" />
     <MESSAGE value=".." />
     <MESSAGE value="logger in the trading system" />
-    <option name="LAST_COMMIT_MESSAGE" value="logger in the trading system" />
+    <MESSAGE value="logger in the code" />
+    <option name="LAST_COMMIT_MESSAGE" value="logger in the code" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1619370158580">
+    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1619449131591">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="585" y="115" key="CommitChangelistDialog2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619370158580" />
+    <state x="585" y="115" key="CommitChangelistDialog2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619449131591" />
     <state width="1237" height="162" key="GridCell.Tab.0.bottom" timestamp="1619357378331">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -460,6 +468,14 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="461" y="162" key="SettingsEditor/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619448635563" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1619449140518">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619449140518" />
+    <state x="591" y="217" width="737" height="606" key="find.popup" timestamp="1619449202126">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="591" y="217" width="737" height="606" key="find.popup/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619449202126" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

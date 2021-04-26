@@ -132,3 +132,21 @@
  
 [2021-04-26] [15:05:31] [WARNING] Domain.User with id 3 made purchase in store 2
  
+[2021-04-26] [16:12:48] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [16:12:48] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [16:41:37] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [16:41:37] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [16:47:35] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [16:47:35] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [16:49:45] [WARNING] Domain.User with id 5 made purchase in store 1
+ 
+[2021-04-26] [16:51:05] [WARNING] Domain.User with id 6 made purchase in store 1
+ 
+[2021-04-26] [16:51:30] [WARNING] Domain.User with id 6 made purchase in store 2
+ 

@@ -189,5 +189,14 @@ public class User implements Observer {
         return this.messages;
     }
 
+    public void addNotification(String string){
+       if(isLogged())
+       {
+           System.out.println(string);
+       }
+       else
+           this.messages.add(string);
+    }
+
 
 }

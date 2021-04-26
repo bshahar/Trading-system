@@ -448,6 +448,7 @@ public class TradingSystem {
         if(result.isResult())
         {
             subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
+            getUserById(userId).addNotification("You are now manager in store: "+ getStoreName(storeId));
         }
         return result;
     }
@@ -581,5 +582,13 @@ public class TradingSystem {
             return new Result(true ,getStoreById(storeId).getNotificationId());
         }
         return new Result(false,"cant find the store");
+    }
+
+    public Result getMessagesQueueAsArray(int userId) {
+        if(getUserById(userId)!=null)
+        {
+            return new Result(true,getUserById(userId).getMessages().toArray());
+        }
+        return new Result(false,"user isnt exist");
     }
 }

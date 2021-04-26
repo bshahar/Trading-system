@@ -4764,3 +4764,877 @@
  
 [2021-04-26] [13:25:19] [INFO] Domain.User orson1 logged out of the system.
  
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior logged out of the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [13:30:03] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior logged out of the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User kandabior logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:01:06] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:32] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:01:32] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:01:32] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:01:32] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:01:32] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:01:32] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:01:32] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:01:57] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:04:36] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:04:36] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:04:36] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:04:36] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:04:36] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:04:36] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:04:36] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:04:45] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:06:56] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:06:56] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:06:56] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:06:56] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:06:57] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:06:57] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:06:57] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:07:05] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:07:54] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:07:54] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:07:54] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:07:54] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:07:54] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:07:54] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:07:54] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:08:01] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:08:46] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:08:46] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:08:46] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:08:46] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:08:46] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:08:46] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:08:46] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:09:16] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:09:16] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:09:16] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:09:16] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:09:16] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:09:16] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:09:16] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:09:30] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:10:20] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:10:20] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:10:20] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:10:20] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:10:20] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:10:20] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:10:20] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:10:30] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:11:19] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:11:19] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:11:19] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:11:19] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:11:19] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:11:19] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:11:19] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:11:26] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:12:50] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:12:50] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:12:50] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:12:50] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:13:37] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:13:37] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:13:37] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:13:53] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:13:53] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:13:53] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:13:53] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:13:53] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:13:53] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:13:53] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:17:44] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:17:44] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:17:44] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:17:44] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:17:44] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:17:44] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:17:45] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:17:59] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:21:13] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:21:13] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:21:13] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:21:13] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:21:13] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:21:13] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:21:13] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:21:19] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:22:02] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:22:02] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:22:02] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:22:02] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:22:02] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:22:02] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:22:02] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:22:07] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:22:29] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:22:29] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:22:29] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:22:29] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:22:29] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:22:29] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:22:29] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:22:36] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:24:38] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:24:38] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:24:38] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:24:38] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:24:39] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:24:39] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:24:39] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:24:43] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:25:18] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:25:18] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:25:18] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:25:18] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:25:18] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:25:18] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:25:18] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:25:22] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:25:46] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:25:46] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:25:46] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:25:46] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:25:46] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:25:46] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:25:46] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:25:56] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:26:39] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:26:39] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:26:39] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:26:39] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:26:39] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:26:39] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:26:39] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:26:44] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:26:53] [INFO] Domain.User or logged out of the system.
+ 
+[2021-04-26] [14:27:00] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:29:28] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:29:28] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:29:28] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:29:28] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:29:28] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:29:28] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:29:28] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [14:29:28] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [14:29:28] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:29:47] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:29:47] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:29:47] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:29:47] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:29:47] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:29:47] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:29:47] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [14:29:47] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [14:29:47] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:29:54] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [14:30:07] [INFO] Domain.User or logged out of the system.
+ 
+[2021-04-26] [14:30:13] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:40:29] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:40:30] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:40:30] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:40:30] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:40:30] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:40:30] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:40:30] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [14:40:30] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [14:40:30] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:40:33] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [14:40:54] [INFO] Guest logged into the system with id: 5
+ 
+[2021-04-26] [14:41:04] [INFO] Guest logged into the system with id: 6
+ 
+[2021-04-26] [14:46:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:46:06] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:46:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:46:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:46:18] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:46:18] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:46:18] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [14:46:18] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [14:46:19] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:47:10] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [14:51:59] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:51:59] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:51:59] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:51:59] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:51:59] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:51:59] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:51:59] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [14:51:59] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [14:51:59] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:53:12] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:53:12] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:53:12] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:53:12] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:53:13] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:53:13] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:53:13] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [14:53:13] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [14:53:13] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:54:31] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:54:31] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:54:31] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:54:31] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:54:32] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:54:32] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:54:32] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [14:54:32] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [14:54:32] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:54:58] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:54:58] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:54:58] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:54:58] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:54:58] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:54:58] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:54:58] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [14:54:58] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [14:54:58] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:57:53] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:57:53] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:57:53] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:57:53] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:57:53] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:57:53] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:57:53] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [14:57:53] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [14:57:53] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:58:02] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [14:58:40] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:58:40] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:58:40] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:58:40] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:58:41] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:58:41] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:58:41] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [14:58:41] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [14:58:41] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:58:43] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [14:59:31] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:59:31] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:59:31] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:59:31] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:59:32] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:59:32] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:59:32] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [14:59:32] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [14:59:32] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [14:59:40] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [14:59:56] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [14:59:56] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [14:59:56] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [14:59:56] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [14:59:56] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [14:59:56] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [14:59:56] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [14:59:56] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [14:59:56] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [15:00:24] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [15:00:43] [INFO] Guest logged into the system with id: 5
+ 
+[2021-04-26] [15:03:01] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [15:03:01] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [15:03:01] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [15:03:01] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [15:03:01] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [15:03:01] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [15:03:01] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [15:03:01] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [15:03:01] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [15:03:19] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [15:03:45] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [15:03:45] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [15:03:45] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [15:03:45] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [15:03:45] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [15:03:45] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [15:03:45] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [15:03:45] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [15:03:45] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [15:03:49] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [15:05:31] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [15:05:31] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [15:05:31] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [15:05:31] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [15:05:31] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [15:05:31] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [15:05:31] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [15:05:31] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [15:05:31] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [15:05:36] [INFO] Guest logged into the system with id: 4
+ 

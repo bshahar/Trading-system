@@ -22,6 +22,7 @@ public class MakePurchase {
     @OnWebSocketConnect
     public void connected(Session session) {
         sessions.add(session);
+
     }
 
     @OnWebSocketClose

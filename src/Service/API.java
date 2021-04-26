@@ -6,7 +6,6 @@ import Interface.TradingSystem;
 
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 public class API {
 
@@ -136,6 +135,12 @@ public class API {
     public static Result getUserPurchaseHistory(int registerId1) {
         return tradingSystem.getUserPurchaseHistory(registerId1);
     }
+    public static Result getAllPurchases(int systemManager){
+        return tradingSystem.getAllPurchases(systemManager);
+    }
+
+
+
 
     public static void forTest()
     {
@@ -148,40 +153,45 @@ public class API {
         //stores
         int storeId1;
         int storeId2;
-        String userName1="elad@gmail.com";
+        String userName1="elad";
         String password1= "123";
-        String userName2="elad";
-        String password2= "elad321654";
+        String userName2="or";
+        String password2= "123";
         String userName3="erez";
-        String password3= "erez321654";
-        register(userName1,password1);
-        register(userName2,password2);
-        register(userName3,password3);
+        String password3= "123";
+        registerId1= (int)register(userName1,password1).getdata();
+        registerId2= (int) register(userName2,password2).getdata();
+        registerId3= (int)register(userName3,password3).getdata();
+
         registerId1= (int)registeredLogin(userName1,password1).getdata();
-        registerId2=(int) registeredLogin(userName2,password2).getdata();
-        registerId3= (int)registeredLogin(userName3,password3).getdata();
         storeId1=(int )openStore(registerId1,"kandabior store").getdata();
         storeId2=(int)openStore(registerId1,"elad store").getdata();
+        addStoreManager(registerId1,registerId2,storeId1);
+
         LinkedList<Product.Category> catList= new LinkedList<>();
         catList.add(Product.Category.FOOD);
         addProduct(registerId1, storeId1,"Milk",catList ,10,"FOOD", 10 ).getdata();
-
         addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD", 2 ).getdata();
-
         addProduct(registerId1, storeId1,"Banana",catList ,4,"FOOD", 20 ).getdata();
         addProduct(registerId1, storeId2,"Water",catList ,5,"DRINK", 13 ).getdata();
-
         registeredLogout(registerId1);
+
+        registerId3= (int)registeredLogin(userName3,password3).getdata();
+        addProductToCart(registerId3,1,1,2);
+        addProductToCart(registerId3,2,2,2);
+        addProductToCart(registerId3,2,4,2);
+        buyProduct(registerId3,storeId1,"123456789");
+        buyProduct(registerId3,storeId2,"123456789");
+        registeredLogout(registerId3);
+
+
     }
 
     public static List<Store>  getMyStores(int id) {
        return tradingSystem.getMyStores(id);
     }
 
-    public static List<Permission> getPermissionsOfStore(int userId , int storeId)
-    {
-        return tradingSystem.getPermissionsOfStore(userId,storeId);
-    }
+
 
     public static String getStoreName(int storeId) {
         return tradingSystem.getStoreName(storeId);
@@ -191,4 +201,66 @@ public class API {
     public static Product getProductById(Integer productId) {
         return tradingSystem.getProductById(productId);
     }
+
+    public static boolean checkPermissions(int userId ,int storeId ,int permissionId) {
+        return tradingSystem.checkPermissions(userId,storeId,permissionId);
+    }
+
+    public static Result addPermissions(int ownerId ,int userId ,int storeId , List<Integer> opIndexes) {
+        return tradingSystem.addPermissions(ownerId,userId,storeId,opIndexes);
+    }
+
+    public static Result RemovePermissions(int ownerId ,int userId ,int storeId , List<Integer> opIndexes) {
+        return tradingSystem.removePermission(ownerId,userId,storeId,opIndexes);
+    }
+    public static Result notifyToSubscribers(int observableTypeId,String msg)
+    {
+        return tradingSystem.notifyToSubscribers(observableTypeId,msg);
+    }
+    public static Result addObservable(String name)
+    {
+        return tradingSystem.addObservable(name);
+    }
+
+    public static Result removeObservable(int observableTypeId)
+    {
+        return tradingSystem.removeObservable(observableTypeId);
+    }
+
+    public static Result subscribeToObservable(int observableId,int userId)
+    {
+        return tradingSystem.subscribeToObservable(observableId,userId);
+    }
+
+    public static Result unsubscribeToObservable(int observableId,int userId)
+    {
+        return tradingSystem.unsubscribeToObservable(observableId,userId);
+    }
+
+    public static Result getMessagesQueue(int userId)
+    {
+        return tradingSystem.getMessagesQueue(userId);
+    }
+
+    public static Result getMessagesQueueAsArray(int userId)
+    {
+        return tradingSystem.getMessagesQueueAsArray(userId);
+    }
+
+
+    public static Result getNotificationIdByStoreId(int storeId)
+    {
+        return tradingSystem.getNotificationIdByStoreId(storeId);
+    }
+
+
+
+
+
+
+
+
+
+
+
 }

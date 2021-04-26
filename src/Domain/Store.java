@@ -8,6 +8,7 @@ import java.util.*;
 public class Store {
 
     private int storeId;
+    private int notificationId;
     private String name;
     private Inventory inventory;
     //private List<Policy> policies;
@@ -45,6 +46,15 @@ public class Store {
 
     public double getRate() {
         return rate;
+    }
+
+    public void setNotificationId(int notificationId)
+    {
+        this.notificationId = notificationId;
+    }
+
+    public int getNotificationId() {
+        return notificationId;
     }
 
     public boolean addToInventory(User currUser, Product prod, int numOfProd) {
@@ -180,5 +190,9 @@ public class Store {
             }
         }
 
+    }
+
+    public boolean isManager(User user) {
+        return this.managers.contains(user);
     }
 }

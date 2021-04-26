@@ -22,9 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add React to fucking proj">
-      <change afterPath="$PROJECT_DIR$/front/AwesomeProject" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/AwesomeProject/.gitignore" beforeDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="real time events #43">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/MainWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MainWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/MakePurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MakePurchase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +57,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="realTimeEvents" />
+        <entry key="$PROJECT_DIR$" value="UpdatePermissionTests" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -118,7 +126,7 @@
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Server.LoginPage.*" />
+          <option name="PATTERN" value="Server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -126,7 +134,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NotficationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -135,13 +143,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.testme" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NotficationsTest.notifyToOwnersSubscribersToStore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -150,14 +158,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="METHOD_NAME" value="testme" />
+      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
+      <option name="METHOD_NAME" value="notifyToOwnersSubscribersToStore" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="NotficationsTest.notifyToSubscribersToStore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -166,8 +174,9 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.PurchaseTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
+      <option name="METHOD_NAME" value="notifyToSubscribersToStore" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -188,11 +197,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Tests in Trading-system" />
-        <item itemvalue="JUnit.PurchaseTest" />
-        <item itemvalue="JUnit.LoginTest.testme" />
-        <item itemvalue="JUnit.LoginTest" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.NotficationsTest" />
+        <item itemvalue="JUnit.Tests in Trading-system" />
+        <item itemvalue="JUnit.NotficationsTest.notifyToOwnersSubscribersToStore" />
+        <item itemvalue="JUnit.NotficationsTest.notifyToSubscribersToStore" />
       </list>
     </recent_temporary>
   </component>
@@ -381,7 +390,21 @@
       <option name="presentableId" value="LOCAL‎00026" />
       <updated>1619343570506</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Update permissions test #48">
+      <created>1619352413104</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1619352413104</updated>
+    </task>
+    <task id="LOCAL-00028" summary="real time events #43">
+      <created>1619358188194</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1619358188194</updated>
+    </task>
+    <option name="localTasksCounter" value="29" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -421,7 +444,9 @@
     <MESSAGE value="add store page" />
     <MESSAGE value="merged gui with result" />
     <MESSAGE value="add React to fucking proj" />
-    <option name="LAST_COMMIT_MESSAGE" value="add React to fucking proj" />
+    <MESSAGE value="Update permissions test #48" />
+    <MESSAGE value="real time events #43" />
+    <option name="LAST_COMMIT_MESSAGE" value="real time events #43" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -446,6 +471,16 @@
           <line>34</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/MainWebSocket.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/MainWebSocket.java</url>
+          <line>20</line>
+          <option name="timeStamp" value="23" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -454,9 +489,9 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Server.LoginPage.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

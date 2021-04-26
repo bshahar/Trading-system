@@ -19,6 +19,8 @@ public class MainWebSocket {
     @OnWebSocketConnect
     public void connected(Session session) {
         sessions.add(session);
+        System.out.println(session.getUpgradeRequest().getParameterMap().get("userId"));
+
     }
 
     @OnWebSocketClose
@@ -70,6 +72,14 @@ public class MainWebSocket {
             Result result = API.guestRegister(id,jo.get("email").toString(),jo.get("password").toString());
             JSONObject json= new JSONObject();
             json.put("type", "GUEST_REGISTER");
+            json.put("result",result.isResult());
+            json.put("data",result.getdata());
+            session.getRemote().sendString(json.toString());
+
+        }else if(type.equals("GET_NOTIFICATIONS")){
+            Result result= API.getMessagesQueueAsArray(id);
+            JSONObject json= new JSONObject();
+            json.put("type", "GET_NOTIFICATIONS");
             json.put("result",result.isResult());
             json.put("data",result.getdata());
             session.getRemote().sendString(json.toString());

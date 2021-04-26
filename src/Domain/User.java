@@ -1,9 +1,9 @@
 package Domain;
 
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ConcurrentLinkedDeque;
 
-public class User {
+public class User implements Observer {
     private int registered ;
     private List<Bag> bags;
     private String userName;
@@ -11,6 +11,8 @@ public class User {
     private int id;
     private Member member;
     private List<Receipt> receipts;
+    private Queue<String> messages;
+    private ObservableType observableType ;
 
 
     public User(String userName, int id,int registered) {
@@ -21,6 +23,7 @@ public class User {
         this.logged = false;
         this.member = new Member();
         this.receipts=new LinkedList<>();
+        this.messages = new ConcurrentLinkedDeque<>();
     }
 
     public boolean isRegistered()
@@ -104,7 +107,7 @@ public class User {
          this.member.updateManagerPermission(store);
     }
 
-    public boolean addPermissions(User user, Store store, List<Integer> opIndexes) {
+    public Result addPermissions(User user, Store store, List<Integer> opIndexes) {
         return this.member.addPermissions(user,store,opIndexes);
     }
 
@@ -112,7 +115,7 @@ public class User {
         this.member.updateMyPermissions(store,opIndexes);
     }
 
-    public boolean removePermissions(User user, Store store, List<Integer> opIndexes) {
+    public Result removePermissions(User user, Store store, List<Integer> opIndexes) {
         return this.member.removePermissions(user,store,opIndexes);
     }
     public void disableMyPermissions(Store store ,List<Integer> opIndexes )
@@ -159,4 +162,41 @@ public class User {
     public List<Permission> getPermissionsOfStore(int storeId) {
         return this.member.getPermissionsOfStore(storeId);
     }
+
+    public boolean checkPermissions(Store store ,int permissionId) {
+        if(member != null)
+            return member.checkPermissions(store,permissionId);
+        return false;
+    }
+
+
+
+    @Override
+    public void update(Observable observable, Object arg)
+    {
+        observableType = (ObservableType) observable;
+        if(logged)
+        {
+            //TODO add what happend when get here
+            //System.out.println(this.userName+ " got msg: "+observableType.getMessage());
+        }
+        else
+            messages.add(observableType.getMessage());
+    }
+
+    public Queue<String> getMessages()
+    {
+        return this.messages;
+    }
+
+    public void addNotification(String string){
+       if(isLogged())
+       {
+           System.out.println(string);
+       }
+       else
+           this.messages.add(string);
+    }
+
+
 }

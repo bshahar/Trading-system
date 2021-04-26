@@ -18,7 +18,7 @@ public class Encryptor {
         }
         catch (Exception e)
         {
-            KingLogger.logError(Level.WARNING,"error creatinr encryptor");
+            KingLogger.logError("error creatinr encryptor");
         };
     }
 

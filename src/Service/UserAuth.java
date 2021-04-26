@@ -32,14 +32,14 @@ public class UserAuth {
                 if (userPass.get(userName).equals(encryptor.encrypt(pass)))
                     return true;
                 else
-                    KingLogger.logEvent(Level.INFO, "Domain.User failed logging in with name: " + userName);
+                    KingLogger.logEvent("Domain.User failed logging in with name: " + userName);
             } else {
-                KingLogger.logEvent(Level.INFO, "Domain.User tried to login with name: " + userName + " that doesn't exist");
+                KingLogger.logEvent("Domain.User tried to login with name: " + userName + " that doesn't exist");
             }
             return false;
         }
         catch (Exception e) {
-            KingLogger.logEvent(Level.WARNING, "Domain.User failed logging in with name: " + userName);
+            KingLogger.logError("Domain.User failed logging in with name: " + userName);
             return false;
         }
     }

@@ -148,18 +148,17 @@ public class API {
         //stores
         int storeId1;
         int storeId2;
-        String userName1="elad@gmail.com";
+        String userName1="elad";
         String password1= "123";
-        String userName2="elad";
-        String password2= "elad321654";
+        String userName2="elad@gmail.com";
+        String password2= "123";
         String userName3="erez";
-        String password3= "erez321654";
+        String password3= "123";
         register(userName1,password1);
         register(userName2,password2);
         register(userName3,password3);
         registerId1= (int)registeredLogin(userName1,password1).getdata();
-        registerId2=(int) registeredLogin(userName2,password2).getdata();
-        registerId3= (int)registeredLogin(userName3,password3).getdata();
+
         storeId1=(int )openStore(registerId1,"kandabior store").getdata();
         storeId2=(int)openStore(registerId1,"elad store").getdata();
         LinkedList<Product.Category> catList= new LinkedList<>();

@@ -199,4 +199,7 @@ public class User implements Observer {
     }
 
 
+    public Result removeOwnerFromStore(User owner, Store store) {
+        return member.removeOwnerFromStore(this,owner,store);
+    }
 }

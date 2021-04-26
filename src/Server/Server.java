@@ -18,8 +18,6 @@ public class Server {
         Spark.webSocket("/Store/currentStore",StoreWebSocket.class);
         Spark.webSocket("/Cart",MyCartWebSocket.class);
         Spark.webSocket("/Cart/purchase",MakePurchase.class);
-
-
         Spark.webSocket("/myStores", myStoresWebSocket.class);
         Spark.webSocket("/myStores/StorePermissions", myStoresWebSocket.class);
         API.initTradingSystem("ELAD");

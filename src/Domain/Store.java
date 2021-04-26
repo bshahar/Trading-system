@@ -195,4 +195,35 @@ public class Store {
     public boolean isManager(User user) {
         return this.managers.contains(user);
     }
+
+
+    public Set<Integer> getManagersAndOwners() {
+        Set<Integer> list = new HashSet<>();
+        for(User user: managers)
+        {
+            list.add(user.getId());
+        }
+        for(User user: owners)
+        {
+            list.add(user.getId());
+        }
+        return list;
+    }
+
+    public Result removeOwner(User owner, User ownerToDelete) {
+        if(appointments.get(owner).remove(ownerToDelete)){
+            employees.remove(ownerToDelete);
+            if(appointments.containsKey(ownerToDelete)){
+                List<User> ownersList=appointments.get(ownerToDelete);
+                for(User user : ownersList){
+                    this.owners.remove(user);
+                    removeOwner(ownerToDelete,user);
+                }
+            }
+            return new Result(true,true);
+        }
+        return new Result(false,"Remove of the manager has failed");
+    }
 }
+
+

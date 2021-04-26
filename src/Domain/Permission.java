@@ -156,11 +156,17 @@ public class Permission {
         if(this.removeOwnerAppointment == null) return;
         this.removeOwnerAppointment = null;
     }
-    public void removeOwnerAppointment()
+    public Result removeOwnerAppointment(User ownerId,User ownerToRemoveId)
     {
         if(this.removeOwnerAppointment!= null)
-            this.removeOwnerAppointment.action();
+            return this.removeOwnerAppointment.action(ownerId, ownerToRemoveId);
+        return new Result(false,"User has no permissions");
     }
+
+
+
+
+
 
 
     public void allowDefinePurchasePolicy()

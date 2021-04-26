@@ -477,5 +477,13 @@ public class Member {
         }
 
 
+    public Result removeOwnerFromStore(User owner, User ownerToRemove, Store store) {
+        if(permissions.containsKey(store)){
+            Permission permission= permissions.get(store);
+            return (permission.removeOwnerAppointment(owner, ownerToRemove));
+        }else{
+            return new Result(false,"User has no permissions");
+        }
+    }
 }
 

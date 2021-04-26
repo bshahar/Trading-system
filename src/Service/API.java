@@ -139,6 +139,9 @@ public class API {
         return tradingSystem.getAllPurchases(systemManager);
     }
 
+    public static Result getManagersAndOwnersOfStore(int storeId) {
+        return tradingSystem.getManagersAndOwnersOfStore(storeId);
+    }
 
 
 

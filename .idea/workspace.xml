@@ -22,10 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-    </list>
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -412,13 +409,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="store and products update #24" />
@@ -442,40 +438,6 @@
     <MESSAGE value="logger in the trading system" />
     <MESSAGE value="logger in the code" />
     <option name="LAST_COMMIT_MESSAGE" value="logger in the code" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1619449131591">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="585" y="115" key="CommitChangelistDialog2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619449131591" />
-    <state width="1237" height="162" key="GridCell.Tab.0.bottom" timestamp="1619357378331">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="162" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1619357378331" />
-    <state width="1237" height="162" key="GridCell.Tab.0.center" timestamp="1619357378331">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="162" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1619357378331" />
-    <state width="1237" height="162" key="GridCell.Tab.0.left" timestamp="1619357378323">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="162" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1619357378323" />
-    <state width="1237" height="162" key="GridCell.Tab.0.right" timestamp="1619357378331">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="162" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1619357378331" />
-    <state x="461" y="162" key="SettingsEditor" timestamp="1619448635563">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="461" y="162" key="SettingsEditor/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619448635563" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1619449140518">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619449140518" />
-    <state x="591" y="217" width="737" height="606" key="find.popup" timestamp="1619449202126">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="591" y="217" width="737" height="606" key="find.popup/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1619449202126" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -513,6 +475,9 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Server.LoginPage.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

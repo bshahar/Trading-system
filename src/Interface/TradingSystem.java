@@ -455,7 +455,7 @@ public class TradingSystem {
         Result result = owner.addStoreOwner(owner,user,getStoreById(storeId));
         if(result.isResult())
         {
-            KingLogger.logEvent("ADD_STORE_OWNER: User with id " + owner + " try to add store owner and" + res.getdata());
+            KingLogger.logEvent("ADD_STORE_OWNER: User with id " + owner + " try to add store owner and" + result.getdata());
 
             subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
         }
@@ -511,7 +511,7 @@ public class TradingSystem {
         Result result = user.removeManagerFromStore(getUserById(managerId),store);
         if(result.isResult())
         {
-            KingLogger.logEvent("REMOVE_MANAGER: User with id " + ownerId + " remove manager and " + res.getdata());
+            KingLogger.logEvent("REMOVE_MANAGER: User with id " + ownerId + " remove manager and " + result.getdata());
             unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
         }
         return result;

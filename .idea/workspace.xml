@@ -22,7 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="pemission action web socket">
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -394,7 +396,13 @@
       <option name="project" value="LOCAL" />
       <updated>1619449132600</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL‎00030" summary="pemission action web socket">
+      <created>1619534997179</created>
+      <option name="number" value="LOCAL‎00030" />
+      <option name="presentableId" value="LOCAL‎00030" />
+      <updated>1619534997179</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -437,7 +445,8 @@
     <MESSAGE value=".." />
     <MESSAGE value="logger in the trading system" />
     <MESSAGE value="logger in the code" />
-    <option name="LAST_COMMIT_MESSAGE" value="logger in the code" />
+    <MESSAGE value="pemission action web socket" />
+    <option name="LAST_COMMIT_MESSAGE" value="pemission action web socket" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

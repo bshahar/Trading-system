@@ -57,7 +57,7 @@ public class API {
     }
 
 
-    public static Result addProduct(int userId, int storeId, String name, List<Product.Category> categories, double price, String description, int amount){
+    public static Result addProduct(int userId, int storeId, String name, List<String> categories, double price, String description, int amount){
         return tradingSystem.addProductToStore(userId,storeId,name,categories,price,description,amount);
     }
 
@@ -171,8 +171,8 @@ public class API {
         storeId2=(int)openStore(registerId1,"elad store").getdata();
         addStoreManager(registerId1,registerId2,storeId1);
 
-        LinkedList<Product.Category> catList= new LinkedList<>();
-        catList.add(Product.Category.FOOD);
+        LinkedList<String> catList= new LinkedList<>();
+        catList.add("FOOD");
         addProduct(registerId1, storeId1,"Milk",catList ,10,"FOOD", 10 ).getdata();
         addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD", 2 ).getdata();
         addProduct(registerId1, storeId1,"Banana",catList ,4,"FOOD", 20 ).getdata();
@@ -256,14 +256,73 @@ public class API {
         return tradingSystem.getNotificationIdByStoreId(storeId);
     }
 
+    public static Result getUserIdByName(String userName) {
+        return tradingSystem.getUserIdByName(userName);
+    }
 
 
+    public static enum Permission {
+        DEF,
+        AddProduct,
+        AppointManager,
+        AppointOwner,
+        CloseStore,
+        DefineDiscountFormat,
+        DefineDiscountPolicy,
+        DefinePurchaseFormat,
+        DefinePurchasePolicy,
+        EditDiscountFormat,
+        EditDiscountPolicy,
+        EditProduct,
+        EditPurchaseFormat,
+        EditPurchasePolicy,
+        GetWorkersInfo,
+        OpenStore,
+        RemoveManagerAppointment,
+        RemoveOwnerAppointment,
+        None,
+        RemoveProduct,
+        ReopenStore,
+        ReplayMessages,
+        ViewMessages,
+        ViewPurchaseHistory
+    }
+    public static String[] permissionsName= {
+            "DEF",
+            "AddProduct",
+            "AppointManager",
+            "AppointOwner",
+            "CloseStore",
+            "DefineDiscountFormat",
+            "DefineDiscountPolicy",
+            "DefinePurchaseFormat",
+            "DefinePurchasePolicy",
+            "EditDiscountFormat",
+            "EditDiscountPolicy",
+            "EditProduct",
+            "EditPurchaseFormat",
+            "EditPurchasePolicy",
+            "GetWorkersInfo",
+            "OpenStore",
+            "RemoveManagerAppointmen",
+            "RemoveOwnerAppointment",
+            "None",
+            "RemoveProduct",
+            "ReopenStore",
+            "ReplayMessages",
+            "ViewMessages",
+            "ViewPurchaseHistory"};
 
 
+    public static Result getUserPemissions(int id, int storeId) {
+        List<String> names=new LinkedList<>();
+        for(Permission permission : Permission.values()){
+            if(checkPermissions(id,storeId,permission.ordinal())){
+                names.add(permissionsName[permission.ordinal()]);
+            }
+        }
+        return new Result(true,names);
 
 
-
-
-
-
+    }
 }

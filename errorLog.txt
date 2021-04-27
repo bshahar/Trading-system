@@ -150,3 +150,269 @@
  
 [2021-04-26] [16:51:30] [WARNING] Domain.User with id 6 made purchase in store 2
  
+[2021-04-26] [16:54:13] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [16:54:13] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [16:58:20] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [16:58:20] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [16:59:16] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [16:59:16] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [17:00:59] [WARNING] Domain.User with id 4 made purchase in store 2
+ 
+[2021-04-26] [17:00:59] [WARNING] Domain.User with id 4 made purchase in store 2
+ 
+[2021-04-26] [17:01:21] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [17:01:21] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [17:02:35] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [17:02:35] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [17:04:38] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [17:04:38] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [17:05:16] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [17:05:55] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [17:15:51] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [17:15:51] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [17:17:07] [WARNING] Domain.User with id 2 made purchase in store 1
+ 
+[2021-04-26] [17:18:22] [WARNING] Domain.User with id 2 made purchase in store 1
+ 
+[2021-04-26] [17:18:31] [WARNING] Domain.User with id 2 couldn't make a purchase in store 1
+ 
+[2021-04-26] [17:19:44] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [17:21:58] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [17:21:58] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [17:22:22] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [17:25:05] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [17:25:05] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [17:25:30] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [17:26:57] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [17:26:57] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [17:27:18] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [17:27:35] [WARNING] Domain.User with id 4 made purchase in store 2
+ 
+[2021-04-26] [17:29:06] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [17:29:29] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [17:30:31] [WARNING] Domain.User with id 5 made purchase in store 1
+ 
+[2021-04-26] [17:31:31] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [17:31:31] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [17:31:56] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [17:32:39] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [18:14:18] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [18:14:18] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [18:19:46] [WARNING] Domain.User with id 6 made purchase in store 1
+ 
+[2021-04-26] [18:21:51] [WARNING] Domain.User with id 7 made purchase in store 1
+ 
+[2021-04-26] [18:22:34] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [18:22:34] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [18:22:50] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [18:24:32] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [18:24:32] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [18:24:53] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [18:26:22] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [18:26:22] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [18:26:54] [WARNING] Domain.User with id 1 made purchase in store 1
+ 
+[2021-04-26] [18:27:01] [WARNING] Domain.User with id 1 made purchase in store 2
+ 
+[2021-04-26] [18:42:35] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [18:42:40] [WARNING] Domain.User with id 4 made purchase in store 2
+ 
+[2021-04-26] [18:47:53] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [18:47:53] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [18:49:47] [WARNING] Domain.User with id 4 made purchase in store 2
+ 
+[2021-04-26] [18:50:09] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [18:51:04] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [18:51:04] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [18:52:09] [WARNING] Domain.User with id 4 made purchase in store 1
+ 
+[2021-04-26] [19:04:15] [WARNING] Domain.User with id 2 made purchase in store 1
+ 
+[2021-04-26] [19:05:29] [WARNING] Domain.User with id 5 made purchase in store 1
+ 
+[2021-04-26] [19:10:13] [WARNING] Domain.User with id 6 made purchase in store 1
+ 
+[2021-04-26] [19:10:58] [WARNING] Domain.User with id 7 made purchase in store 1
+ 
+[2021-04-26] [19:13:52] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [19:13:52] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [19:16:25] [WARNING] Domain.User with id 2 made purchase in store 1
+ 
+[2021-04-26] [19:16:31] [WARNING] Domain.User with id 2 made purchase in store 2
+ 
+[2021-04-26] [19:18:29] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [19:18:29] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [19:20:15] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [19:20:15] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [19:20:51] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [19:20:51] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [19:22:12] [WARNING] Domain.User with id 1 made purchase in store 2
+ 
+[2021-04-26] [19:22:29] [WARNING] Domain.User with id 1 made purchase in store 1
+ 
+[2021-04-26] [20:37:44] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [20:37:44] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [20:41:36] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [20:41:36] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [20:47:37] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [20:47:37] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [20:49:44] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [20:49:44] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [20:50:50] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [20:50:50] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [20:55:29] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [20:55:29] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [20:58:43] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [20:58:43] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [21:01:12] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [21:01:12] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-26] [22:10:15] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-26] [22:10:15] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [10:35:37] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [10:35:37] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [10:37:02] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [10:37:02] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [10:39:47] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [10:39:47] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [10:42:07] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [10:42:07] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [10:45:23] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [10:45:23] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [10:48:34] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [10:48:34] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [10:50:29] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [10:50:29] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [10:54:16] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [10:54:16] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [10:55:04] [WARNING] Domain.User with id 1 made purchase in store 1
+ 
+[2021-04-27] [10:56:15] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [10:56:15] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [11:24:43] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [11:24:43] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [11:26:57] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [11:26:57] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [11:27:45] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [11:27:45] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [11:29:00] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [11:29:00] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [11:31:06] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [11:31:06] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [11:32:23] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [11:32:23] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [11:40:31] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [11:40:31] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [11:43:04] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [11:43:04] [WARNING] Domain.User with id 3 made purchase in store 2
+ 
+[2021-04-27] [11:57:47] [WARNING] Domain.User with id 3 made purchase in store 1
+ 
+[2021-04-27] [11:57:47] [WARNING] Domain.User with id 3 made purchase in store 2
+ 

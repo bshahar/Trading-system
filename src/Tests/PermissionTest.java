@@ -70,8 +70,8 @@ public class PermissionTest {
         registerId2 = (int) API.registeredLogin(userName2, password2).getdata();
         registerId3 = (int) API.registeredLogin(userName3, password3).getdata();
         storeId1 = (int) API.openStore(registerId1, "kandabior store").getdata();
-        LinkedList<Product.Category> catList = new LinkedList<>();
-        catList.add(Product.Category.FOOD);
+        LinkedList<String> catList = new LinkedList<>();
+        catList.add("FOOD");
         int productId = (int) API.addProduct(1, storeId1, "milk", catList, 10, "FOOD", 5).getdata();
     }
 

@@ -131,7 +131,7 @@ public class User implements Observer {
         return this.member.getStorePurchaseHistory(store);
     }
 
-    public boolean addProductToStore(int productId,Store store, String name, List<Product.Category> categories, double price, String description, int quantity) {
+    public boolean addProductToStore(int productId,Store store, String name, List<String> categories, double price, String description, int quantity) {
         return member.addProductToStore(productId,store,name, categories, price, description, quantity);
     }
 
@@ -201,5 +201,23 @@ public class User implements Observer {
 
     public Result removeOwnerFromStore(User owner, Store store) {
         return member.removeOwnerFromStore(this,owner,store);
+    }
+
+    public void removeProductFromCart(Map<Product, Integer> productsAmountBuy,int storeId) {
+        for(Bag bag: bags){
+            if(bag.getStoreId()==storeId){
+                for(Product product : productsAmountBuy.keySet()){
+                    bag.removeProduct(product);
+                    if(bag.getProdNum()==0){
+                        removeBag(bag);
+                    }
+                }
+            }
+        }
+
+    }
+
+    public void removeBag(Bag b) {
+        bags.remove(b);
     }
 }

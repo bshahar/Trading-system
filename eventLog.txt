@@ -5744,3 +5744,1139 @@
  
 [2021-04-26] [16:51:23] [INFO] Domain.Product number 4 was added to bag of store 2 for user 6
  
+[2021-04-26] [16:54:13] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [16:54:13] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [16:54:13] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [16:54:13] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [16:54:13] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [16:54:13] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [16:54:13] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [16:54:13] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [16:54:13] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [16:58:20] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [16:58:20] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [16:58:20] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [16:58:20] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [16:58:20] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [16:58:20] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [16:58:20] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [16:58:20] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [16:58:20] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [16:58:47] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [16:58:52] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [16:58:55] [INFO] Domain.Product number 2 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [16:59:08] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [17:00:27] [INFO] Domain.Product number 3 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:00:37] [INFO] Domain.Product number 4 was added to bag of store 2 for user 4
+ 
+[2021-04-26] [17:01:21] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [17:01:21] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [17:01:21] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [17:01:21] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [17:01:21] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [17:01:21] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [17:01:21] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [17:01:21] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [17:01:21] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [17:01:26] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [17:01:33] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [17:02:23] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:04:37] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [17:04:37] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [17:04:37] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [17:04:37] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [17:04:38] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [17:04:38] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [17:04:38] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [17:04:38] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [17:04:38] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [17:04:45] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [17:04:51] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [17:05:09] [INFO] Domain.Product number 2 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:05:10] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:05:46] [INFO] Domain.Product number 3 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:15:51] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [17:15:51] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [17:15:51] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [17:15:51] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [17:15:51] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [17:15:51] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [17:15:51] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [17:15:51] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [17:15:51] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [17:16:36] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [17:16:58] [INFO] Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-04-26] [17:17:01] [INFO] Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-04-26] [17:19:31] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [17:19:37] [INFO] Domain.Product number 3 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:21:58] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [17:21:58] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [17:21:58] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [17:21:58] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [17:21:58] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [17:21:58] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [17:21:58] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [17:21:58] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [17:21:58] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [17:22:07] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [17:22:15] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:22:17] [INFO] Domain.Product number 2 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:25:05] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [17:25:05] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [17:25:05] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [17:25:05] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [17:25:05] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [17:25:05] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [17:25:05] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [17:25:05] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [17:25:05] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [17:25:10] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [17:25:15] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:25:17] [INFO] Domain.Product number 2 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:26:57] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [17:26:57] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [17:26:57] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [17:26:57] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [17:26:57] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [17:26:57] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [17:26:57] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [17:26:57] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [17:26:57] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [17:27:04] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [17:27:08] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:27:10] [INFO] Domain.Product number 2 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:27:28] [INFO] Domain.Product number 4 was added to bag of store 2 for user 4
+ 
+[2021-04-26] [17:29:00] [INFO] Domain.Product number 2 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:29:22] [INFO] Domain.Product number 3 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:30:22] [INFO] Guest logged into the system with id: 5
+ 
+[2021-04-26] [17:30:25] [INFO] Domain.Product number 1 was added to bag of store 1 for user 5
+ 
+[2021-04-26] [17:31:31] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [17:31:31] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [17:31:31] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [17:31:31] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [17:31:31] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [17:31:31] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [17:31:31] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [17:31:31] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [17:31:31] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [17:31:40] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [17:31:44] [INFO] Domain.Product number 2 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:31:47] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:32:22] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:32:24] [INFO] Domain.Product number 2 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [17:33:14] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [18:14:18] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [18:14:18] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [18:14:18] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [18:14:18] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [18:14:18] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [18:14:18] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [18:14:18] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [18:14:18] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [18:14:18] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [18:14:30] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [18:14:33] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [18:14:35] [INFO] Domain.Product number 2 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [18:18:14] [INFO] Guest logged into the system with id: 5
+ 
+[2021-04-26] [18:19:26] [INFO] Guest logged into the system with id: 6
+ 
+[2021-04-26] [18:19:34] [INFO] Domain.Product number 1 was added to bag of store 1 for user 6
+ 
+[2021-04-26] [18:19:40] [INFO] Domain.Product number 3 was added to bag of store 1 for user 6
+ 
+[2021-04-26] [18:21:22] [INFO] Guest logged into the system with id: 7
+ 
+[2021-04-26] [18:21:31] [INFO] Domain.Product number 1 was added to bag of store 1 for user 7
+ 
+[2021-04-26] [18:22:34] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [18:22:34] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [18:22:34] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [18:22:34] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [18:22:34] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [18:22:34] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [18:22:34] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [18:22:34] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [18:22:34] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [18:22:37] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [18:22:40] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [18:22:45] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [18:24:32] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [18:24:32] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [18:24:32] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [18:24:32] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [18:24:32] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [18:24:32] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [18:24:32] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [18:24:32] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [18:24:32] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [18:24:45] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [18:24:49] [INFO] Domain.Product number 2 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [18:26:22] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [18:26:22] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [18:26:22] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [18:26:22] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [18:26:22] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [18:26:22] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [18:26:22] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [18:26:22] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [18:26:22] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [18:26:34] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [18:26:37] [INFO] Domain.Product number 1 was added to bag of store 1 for user 1
+ 
+[2021-04-26] [18:26:41] [INFO] Domain.Product number 3 was added to bag of store 1 for user 1
+ 
+[2021-04-26] [18:26:48] [INFO] Domain.Product number 4 was added to bag of store 2 for user 1
+ 
+[2021-04-26] [18:41:22] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [18:42:11] [INFO] Domain.User orson register to the system
+ 
+[2021-04-26] [18:42:16] [INFO] Domain.User orson logged into the system.
+ 
+[2021-04-26] [18:42:19] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [18:42:21] [INFO] Domain.Product number 2 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [18:42:25] [INFO] Domain.Product number 3 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [18:42:30] [INFO] Domain.Product number 4 was added to bag of store 2 for user 4
+ 
+[2021-04-26] [18:47:53] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [18:47:53] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [18:47:53] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [18:47:53] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [18:47:53] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [18:47:53] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [18:47:53] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [18:47:53] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [18:47:53] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [18:48:20] [INFO] Domain.User dana register to the system
+ 
+[2021-04-26] [18:48:24] [INFO] Domain.User dana logged into the system.
+ 
+[2021-04-26] [18:48:35] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [18:48:38] [INFO] Domain.Product number 2 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [18:48:42] [INFO] Domain.Product number 3 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [18:48:48] [INFO] Domain.Product number 3 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [18:48:57] [INFO] Domain.Product number 4 was added to bag of store 2 for user 4
+ 
+[2021-04-26] [18:51:04] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [18:51:04] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [18:51:04] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [18:51:04] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [18:51:04] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [18:51:04] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [18:51:04] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [18:51:04] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [18:51:04] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [18:51:21] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [18:51:47] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-26] [18:51:59] [INFO] Domain.Product number 1 was added to bag of store 1 for user 4
+ 
+[2021-04-26] [18:52:59] [INFO] Domain.User orson registered to the system.
+ 
+[2021-04-26] [18:52:59] [INFO] Domain.User orson logged into the system.
+ 
+[2021-04-26] [19:03:04] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [19:03:59] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [19:04:04] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [19:04:10] [INFO] Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-04-26] [19:05:06] [INFO] Domain.User oror register to the system
+ 
+[2021-04-26] [19:05:10] [INFO] Domain.User failed logging in with name: oror
+ 
+[2021-04-26] [19:05:18] [INFO] Domain.User oror logged into the system.
+ 
+[2021-04-26] [19:05:23] [INFO] Domain.Product number 1 was added to bag of store 1 for user 5
+ 
+[2021-04-26] [19:10:00] [INFO] Domain.User he register to the system
+ 
+[2021-04-26] [19:10:05] [INFO] Domain.User he logged into the system.
+ 
+[2021-04-26] [19:10:09] [INFO] Domain.Product number 1 was added to bag of store 1 for user 6
+ 
+[2021-04-26] [19:10:47] [INFO] Domain.User wq register to the system
+ 
+[2021-04-26] [19:10:50] [INFO] Domain.User wq logged into the system.
+ 
+[2021-04-26] [19:10:53] [INFO] Domain.Product number 2 was added to bag of store 1 for user 7
+ 
+[2021-04-26] [19:13:52] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [19:13:52] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [19:13:52] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [19:13:52] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [19:13:52] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [19:13:52] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [19:13:52] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [19:13:52] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [19:13:52] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [19:14:03] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [19:16:10] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [19:16:15] [INFO] Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-04-26] [19:16:17] [INFO] Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-04-26] [19:16:20] [INFO] Domain.Product number 4 was added to bag of store 2 for user 2
+ 
+[2021-04-26] [19:18:29] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [19:18:29] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [19:18:29] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [19:18:29] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [19:18:29] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [19:18:29] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [19:18:29] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [19:18:29] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [19:18:29] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [19:18:37] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [19:20:14] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [19:20:14] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [19:20:15] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [19:20:15] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [19:20:15] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [19:20:15] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [19:20:15] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [19:20:15] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [19:20:15] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [19:20:28] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [19:20:51] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [19:20:51] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [19:20:51] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [19:20:51] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [19:20:51] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [19:20:51] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [19:20:51] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [19:20:51] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [19:20:51] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [19:21:02] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [19:21:23] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [19:22:07] [INFO] Domain.Product number 4 was added to bag of store 2 for user 1
+ 
+[2021-04-26] [19:22:25] [INFO] Domain.Product number 2 was added to bag of store 1 for user 1
+ 
+[2021-04-26] [20:37:44] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [20:37:44] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [20:37:44] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [20:37:44] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:37:44] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [20:37:44] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [20:37:44] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [20:37:44] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [20:37:44] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [20:37:54] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:41:36] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [20:41:36] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [20:41:36] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [20:41:36] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:41:36] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [20:41:36] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [20:41:36] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [20:41:36] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [20:41:36] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [20:41:47] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:45:37] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [20:47:36] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [20:47:36] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [20:47:36] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [20:47:36] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:47:37] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [20:47:37] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [20:47:37] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [20:47:37] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [20:47:37] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [20:48:26] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:49:43] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [20:49:43] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [20:49:43] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [20:49:43] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:49:44] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [20:49:44] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [20:49:44] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [20:49:44] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [20:49:44] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [20:50:04] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:50:19] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [20:50:49] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [20:50:49] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [20:50:49] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [20:50:49] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:50:50] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [20:50:50] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [20:50:50] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [20:50:50] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [20:50:50] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [20:50:59] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:53:48] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [20:55:28] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [20:55:28] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [20:55:28] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [20:55:28] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:55:29] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [20:55:29] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [20:55:29] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [20:55:29] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [20:55:29] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [20:56:39] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:58:43] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [20:58:43] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [20:58:43] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [20:58:43] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:58:43] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [20:58:43] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [20:58:43] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [20:58:43] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [20:58:43] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [20:58:49] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:59:32] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [20:59:36] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-26] [21:01:12] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [21:01:12] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [21:01:12] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [21:01:12] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [21:01:12] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [21:01:12] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [21:01:12] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [21:01:12] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [21:01:12] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [21:01:19] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [22:10:14] [INFO] Domain.User elad register to the system
+ 
+[2021-04-26] [22:10:14] [INFO] Domain.User or register to the system
+ 
+[2021-04-26] [22:10:14] [INFO] Domain.User erez register to the system
+ 
+[2021-04-26] [22:10:14] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [22:10:15] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [22:10:15] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-26] [22:10:15] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-26] [22:10:15] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-26] [22:10:15] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-26] [22:10:37] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [22:10:39] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [22:10:42] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [22:10:45] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [22:10:45] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-26] [22:10:57] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-26] [22:10:58] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:35:37] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [10:35:37] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [10:35:37] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [10:35:37] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:35:37] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [10:35:37] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [10:35:37] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [10:35:37] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [10:35:37] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [10:35:48] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:37:02] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [10:37:02] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [10:37:02] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [10:37:02] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:37:02] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [10:37:02] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [10:37:02] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [10:37:02] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [10:37:02] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [10:37:11] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:39:21] [INFO] Domain.User or logged into the system.
+ 
+[2021-04-27] [10:39:46] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [10:39:46] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [10:39:46] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [10:39:46] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:39:47] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [10:39:47] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [10:39:47] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [10:39:47] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [10:39:47] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [10:39:53] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:42:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [10:42:06] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [10:42:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [10:42:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:42:07] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [10:42:07] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [10:42:07] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [10:42:07] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [10:42:07] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [10:42:12] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:42:27] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [10:45:23] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [10:45:23] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [10:45:23] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [10:45:23] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:45:23] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [10:45:23] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [10:45:23] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [10:45:23] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [10:45:23] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [10:45:33] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:48:33] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [10:48:33] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [10:48:33] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [10:48:33] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:48:33] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [10:48:33] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [10:48:33] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [10:48:33] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [10:48:34] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [10:48:43] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:50:29] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [10:50:29] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [10:50:29] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [10:50:29] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:50:29] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [10:50:29] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [10:50:29] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [10:50:29] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [10:50:29] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [10:50:36] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:54:15] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [10:54:15] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [10:54:15] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [10:54:15] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:54:16] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [10:54:16] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [10:54:16] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [10:54:16] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [10:54:16] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [10:54:23] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:54:57] [INFO] Domain.Product number 5 was added to bag of store 1 for user 1
+ 
+[2021-04-27] [10:56:15] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [10:56:15] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [10:56:15] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [10:56:15] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:56:15] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [10:56:15] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [10:56:15] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [10:56:15] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [10:56:15] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [10:56:28] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [10:56:51] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:24:42] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [11:24:42] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [11:24:42] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [11:24:42] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:24:42] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:24:42] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:24:42] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [11:24:42] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [11:24:43] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [11:24:54] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:26:57] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [11:26:57] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [11:26:57] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [11:26:57] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:26:57] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:26:57] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:26:57] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [11:26:57] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [11:26:57] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [11:27:05] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:27:45] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [11:27:45] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [11:27:45] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [11:27:45] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:27:45] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:27:45] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:27:45] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [11:27:45] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [11:27:45] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [11:28:01] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:28:59] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [11:28:59] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [11:28:59] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [11:28:59] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:29:00] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:29:00] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:29:00] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [11:29:00] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [11:29:00] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [11:29:12] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:31:06] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [11:31:06] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [11:31:06] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [11:31:06] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:31:06] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:31:06] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:31:06] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [11:31:06] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [11:31:06] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [11:31:13] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:32:00] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:32:05] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:32:11] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [11:32:12] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:32:15] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [11:32:23] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [11:32:23] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [11:32:23] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [11:32:23] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:32:23] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:32:23] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:32:23] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [11:32:23] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [11:32:23] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [11:32:43] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:33:09] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:33:15] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:40:31] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [11:40:31] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [11:40:31] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [11:40:31] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:40:31] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:40:31] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:40:31] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [11:40:31] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [11:40:31] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [11:40:38] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:43:03] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [11:43:03] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [11:43:03] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [11:43:03] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:43:04] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:43:04] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:43:04] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [11:43:04] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [11:43:04] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [11:43:11] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:43:23] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:43:27] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:43:42] [INFO] Domain.User erez logged out of the system.
+ 
+[2021-04-27] [11:45:51] [INFO] Guest logged into the system with id: 4
+ 
+[2021-04-27] [11:45:57] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:57:47] [INFO] Domain.User elad register to the system
+ 
+[2021-04-27] [11:57:47] [INFO] Domain.User or register to the system
+ 
+[2021-04-27] [11:57:47] [INFO] Domain.User erez register to the system
+ 
+[2021-04-27] [11:57:47] [INFO] Domain.User elad logged into the system.
+ 
+[2021-04-27] [11:57:47] [INFO] Domain.User elad logged out of the system.
+ 
+[2021-04-27] [11:57:47] [INFO] Domain.User erez logged into the system.
+ 
+[2021-04-27] [11:57:47] [INFO] Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-04-27] [11:57:47] [INFO] Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-04-27] [11:57:47] [INFO] Domain.User erez logged out of the system.
+ 

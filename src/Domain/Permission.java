@@ -56,7 +56,7 @@ public class Permission {
         if(this.addProduct == null) return;
         this.addProduct = null;
     }
-    public boolean addProduct(int productId,String name, List<Product.Category> categories, double price, String description, int quantity)
+    public boolean addProduct(int productId,String name, List<String> categories, double price, String description, int quantity)
     {
         if(this.addProduct!= null) {
             return this.addProduct.action(productId, name, categories, price, description, quantity);

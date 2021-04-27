@@ -361,7 +361,7 @@ public class Member {
         return permissions.get(store).viewPurchaseHistory();
     }
 
-    public boolean addProductToStore(int productId,Store store, String name, List<Product.Category> categories, double price, String description, int quantity) {
+    public boolean addProductToStore(int productId,Store store, String name, List<String> categories, double price, String description, int quantity) {
         if(permissions.containsKey(store)){
             Permission permission= permissions.get(store);
             return permission.addProduct(productId,name, categories, price, description, quantity);

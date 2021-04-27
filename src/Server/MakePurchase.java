@@ -46,7 +46,7 @@ public class MakePurchase {
             session.getRemote().sendString(jsonOut.toString());
             if(result.isResult())
             {
-                Result result2=API.buyProduct(userId,storeId,creditInfo);
+                Result result2=API.getManagersAndOwnersOfStore(storeId);
                 JSONObject json= new JSONObject();
                 json.put("type", "ALERTS_USERS");
                 json.put("data", "Someone buy from your store! go check it out");

@@ -73,7 +73,7 @@ public class Store {
         return storeId;
     }
 
-    public boolean addProductToStore(int productId,  String name, List<Product.Category> categories, double price, String description, int quantity) {
+    public boolean addProductToStore(int productId,  String name, List<String> categories, double price, String description, int quantity) {
         Product p = new Product(productId, name, categories, price, description);
         return this.inventory.addProduct(p, quantity);
     }

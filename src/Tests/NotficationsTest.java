@@ -40,8 +40,8 @@ public class NotficationsTest {
         registerId2=(int) API.registeredLogin(userName2,password2).getdata();
         registerId3= (int)API.registeredLogin(userName3,password3).getdata();
         storeId1=(int)API.openStore(registerId1,"kandabior store").getdata();
-        LinkedList<Product.Category> catList= new LinkedList<>();
-        catList.add(Product.Category.FOOD);
+        LinkedList<String> catList= new LinkedList<>();
+        catList.add("FOOD");
         productId1= (int)API.addProduct(1, storeId1,"milk",catList ,10,"FOOD", 1 ).getdata();
         observableId1 = (int) API.addObservable("Store1").getdata();
         observableId2 = (int) API.addObservable("Store2").getdata();

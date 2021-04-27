@@ -40,6 +40,16 @@ public class TradingSystem {
         this.observers = Collections.synchronizedList(new LinkedList<>());
     }
 
+    public Result getUserIdByName(String userName) {
+
+        for(User user : users){
+            if(user.getUserName().equals(userName)){
+                return new Result(true,user.getId());
+            }
+        }
+        return new Result(false, "User Name not exist");
+    }
+
 
     public Result register(String userName, String pass) {
         if(userAuth.register(userName,pass)){
@@ -313,7 +323,10 @@ public class TradingSystem {
         try {
             Bag b = getUserById(userId).getBagByStoreId(storeId);
             if (b != null) {
-                b.removeProduct(prodId);
+                b.removeProduct(getProductById(prodId));
+                if(b.getProdNum()==0){
+                    getUserById(userId).removeBag(b);
+                }
                 KingLogger.logEvent("Domain.Product number " + prodId + " was removed from bag of store " + storeId + " for user " + userId);
                 return true;
             }
@@ -347,6 +360,7 @@ public class TradingSystem {
                 }
             }
             if(paymentAdapter.pay(totalCost,creditInfo)){
+                getUserById(userId).removeProductFromCart(productsAmountBuy,storeId);
                 Receipt rec = new Receipt(storeId, userId,getUserById(userId).getUserName(), productsAmountBuy);
                 this.receipts.add(rec);
                 store.addReceipt(rec);
@@ -383,7 +397,7 @@ public class TradingSystem {
         }
     }
 
-    public Result addProductToStore(int userId, int storeId , String name, List<Product.Category> categories, double price, String description, int quantity) {
+    public Result addProductToStore(int userId, int storeId , String name, List<String> categories, double price, String description, int quantity) {
         User user =getUserById(userId);
         Store store= getStoreById(storeId);
         int productId = productCounter.inc();

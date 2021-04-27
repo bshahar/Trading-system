@@ -397,6 +397,11 @@ public class Member {
         myStores.add(store);
     }
 
+    public void removeFromMyStores(Store store)
+    {
+        myStores.remove(store);
+    }
+
     public List<Permission> getPermissionsOfStore(int storeId) {
         return null;
     }
@@ -484,6 +489,12 @@ public class Member {
         }else{
             return new Result(false,"User has no permissions");
         }
+    }
+
+    public Result editProduct(Store store,Product product, int price,int amount) {
+        if(permissions.get(store)!=null)
+            return permissions.get(store).editProduct(product,price,amount);
+        return new Result(false,"user has no permissions");
     }
 }
 

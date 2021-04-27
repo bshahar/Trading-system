@@ -111,6 +111,8 @@ public class Store {
     public Result removeManager(User owner, User manager) {
         if(appointments.get(owner).remove(manager)){
             employees.remove(manager);
+            manager.removeFromMyStores(this);
+
             if(appointments.containsKey(manager)){
                 List<User> managers=appointments.get(manager);
                 for(User user : managers){
@@ -213,6 +215,7 @@ public class Store {
     public Result removeOwner(User owner, User ownerToDelete) {
         if(appointments.get(owner).remove(ownerToDelete)){
             employees.remove(ownerToDelete);
+            ownerToDelete.removeFromMyStores(this);
             if(appointments.containsKey(ownerToDelete)){
                 List<User> ownersList=appointments.get(ownerToDelete);
                 for(User user : ownersList){
@@ -223,6 +226,10 @@ public class Store {
             return new Result(true,true);
         }
         return new Result(false,"Remove of the manager has failed");
+    }
+
+    public void setProductAmount(Product product, int amount) {
+        inventory.setProductAmount(product,amount);
     }
 }
 

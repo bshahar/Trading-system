@@ -1,6 +1,7 @@
 package Server;
 
 import Permissions.AddProduct;
+import Permissions.OpenStore;
 import Server.Login.LoginWebSocket;
 import Server.myStores.myStoresWebSocket;
 import Service.API;
@@ -20,6 +21,8 @@ public class Server {
         Spark.webSocket("/Cart",MyCartWebSocket.class);
         Spark.webSocket("/Cart/purchase",MakePurchase.class);
         Spark.webSocket("/myStores", myStoresWebSocket.class);
+        Spark.webSocket("/myStores/openStore", OpenStoreWebServer.class);
+
         Spark.webSocket("/myStores/StorePermissions", myStoresWebSocket.class);
         Spark.webSocket("/myPurchases", myPurchases.class);
         Spark.webSocket("/myStores/StorePermissions/action", PermissionActionWebSocket.class);
@@ -28,10 +31,10 @@ public class Server {
         API.initTradingSystem("ELAD");
         API.forTest();
 
-        Spark.get("/Login",((request, response) -> {
-            HashMap<String ,Object> model = new HashMap<>();
-            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Login"));
-        }));
+//        Spark.get("/Login",((request, response) -> {
+//            HashMap<String ,Object> model = new HashMap<>();
+//            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Login"));
+//        }));
 //
 //        Spark.get("/Main",((request, response) -> {
 //            HashMap<String ,Object> model = new HashMap<>();

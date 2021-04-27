@@ -150,4 +150,9 @@ public class Inventory {
     public Map<Product,Integer> getProductsAmounts() {
         return products;
     }
+
+    public void setProductAmount(Product product, int amount) {
+        products.put(product,amount);
+
+    }
 }

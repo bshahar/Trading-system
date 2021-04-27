@@ -627,4 +627,16 @@ public class TradingSystem {
         }
         return new Result(false,"no such store");
     }
+
+    public Result editProduct(int userId, int storeId, int productId, int price, int amount) {
+        User user=getUserById(userId);
+        Product product=getProductById(productId);
+        Store store =getStoreById(storeId);
+        if(user!=null && product!=null){
+            return user.editProduct(store,product,price,amount);
+
+        }else{
+            return new Result(false,"user or product not exist");
+        }
+    }
 }

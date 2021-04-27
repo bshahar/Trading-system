@@ -169,7 +169,7 @@ public class API {
         registerId1= (int)registeredLogin(userName1,password1).getdata();
         storeId1=(int )openStore(registerId1,"kandabior store").getdata();
         storeId2=(int)openStore(registerId1,"elad store").getdata();
-        addStoreManager(registerId1,registerId2,storeId1);
+        addStoreOwner(registerId1,registerId2,storeId1);
 
         LinkedList<String> catList= new LinkedList<>();
         catList.add("FOOD");
@@ -258,6 +258,14 @@ public class API {
 
     public static Result getUserIdByName(String userName) {
         return tradingSystem.getUserIdByName(userName);
+    }
+
+    public static Result removeOwner(int ownerId, int userId, int storeId) {
+        return tradingSystem.removeOwner(ownerId,userId,storeId);
+    }
+
+    public static Result editProduct(int userId, int storeId,int productId ,int price, int amount) {
+        return tradingSystem.editProduct(userId, storeId, productId,price,amount);
     }
 
 

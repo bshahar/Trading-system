@@ -113,4 +113,7 @@ public class Product {
         return false;
     }
 
+    public void setPrice(int price) {
+        this.price=price;
+    }
 }

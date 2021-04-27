@@ -91,10 +91,11 @@ public class Permission {
         if(this.editProduct == null) return;
         this.editProduct = null;
     }
-    public void editProduct()
+    public Result editProduct( Product product, int price, int amount)
     {
         if(this.editProduct!= null)
-            this.editProduct.action();
+            return this.editProduct.action(product,price,amount);
+        return new Result(false,"user has no permissions");
     }
 
     public void allowAppointManager()

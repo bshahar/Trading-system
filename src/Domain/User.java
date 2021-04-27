@@ -159,6 +159,11 @@ public class User implements Observer {
         this.member.addToMyStores(store);
     }
 
+    public void removeFromMyStores(Store store)
+    {
+        this.member.removeFromMyStores(store);
+    }
+
     public List<Permission> getPermissionsOfStore(int storeId) {
         return this.member.getPermissionsOfStore(storeId);
     }
@@ -219,5 +224,9 @@ public class User implements Observer {
 
     public void removeBag(Bag b) {
         bags.remove(b);
+    }
+
+    public Result editProduct(Store store, Product product,int price,int amount) {
+        return member.editProduct(store,product,price,amount);
     }
 }

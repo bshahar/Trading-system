@@ -36,6 +36,7 @@ public class TradingSystem {
         userCounter = new counter();
         storeCounter = new counter();
         productCounter=new counter();
+        KingLogger.logEvent("Trading System initialized");
         observableCounter = new counter();
         this.observers = Collections.synchronizedList(new LinkedList<>());
     }
@@ -53,12 +54,13 @@ public class TradingSystem {
 
     public Result register(String userName, String pass) {
         if(userAuth.register(userName,pass)){
-            KingLogger.logEvent("Domain.User " + userName + " register to the system");
             int userId=userCounter.inc();
             users.add(new User(userName, userId, 1));
+            KingLogger.logEvent("REGISTER:  User " + userName + " register to the system");
             return new Result(true,userId);
         }
         else{
+            KingLogger.logEvent("REGISTER:  User " + userName + ": username or password incorrect");
             return new Result(false,"Username or Password not correct");
         }
 
@@ -67,14 +69,15 @@ public class TradingSystem {
     //if the user performed login successfully return his id. else return -1
     public Result login(String userName,String pass) {
         if(userAuth.loginAuthentication(userName,pass)) {
-            KingLogger.logEvent("Domain.User " + userName + " logged into the system.");
             for (User user : users) {
                 if (user.getUserName().equals(userName) && !user.isLogged()) {
                     user.setLogged(true);
+                    KingLogger.logEvent("LOGIN:  User " + userName + " logged into the system.");
                     return new Result( true,user.getId());
                 }
             }
         }
+        KingLogger.logEvent("LOGIN:  User " + userName + ": Username or Password not correct");
         return new Result(false, "Username or Password not correct");
     }
 
@@ -152,7 +155,7 @@ public class TradingSystem {
         guest.setLogged(true);
         users.add(guest);
         int id = guest.getId();
-        KingLogger.logEvent("Guest logged into the system with id: " + id);
+        KingLogger.logEvent("GUEST_LOGIN: Guest logged into the system with id: " + id);
         return new Result(true,id);
     }
 
@@ -169,18 +172,18 @@ public class TradingSystem {
             if(userAuth.guestRegister(userName,password)){
                 getUserById(userId).setRegistered();
                 getUserById(userId).setName(userName);
-                KingLogger.logEvent("Domain.User " + userName + " registered to the system.");
                 getUserById(userId).setLogged(false);
-
+                KingLogger.logEvent("GUEST_REGISTER: User " + userName + " registered to the system.");
                 return new Result(true,userId);
 
             }
             else{
+                KingLogger.logEvent("GUEST_REGISTER: User " + userName + ": Can't Register with given Username and PassWord");
                 return new Result(false,"Can't Register with given Username and PassWord");
             }
         }
         catch (Exception e) {
-            KingLogger.logEvent("Guest user failed registering to the system.");
+            KingLogger.logError("GUEST_REGISTER: User " + userName + ": failed registering to the system.");
             return new Result(false,"Can't Register with given Username and PassWord");
         }
     }
@@ -188,10 +191,11 @@ public class TradingSystem {
     public Result logout(int userId) {
         User user = getUserById(userId);
         if (user == null || !user.isLogged() || !user.isRegistered()) {
+            KingLogger.logEvent("LOGOUT: User " + userId + ": User has not logged in");
             return new Result(false,"User has not logged in");
         }
         user.setLogged(false);
-        KingLogger.logEvent("Domain.User " + user.getUserName() + " logged out of the system.");
+        KingLogger.logEvent("LOGOUT: User " + user.getUserName() + " logged out of the system.");
         return new Result(true,true);
     }
 
@@ -212,8 +216,7 @@ public class TradingSystem {
         if (u != null && u.isLogged()) {
             return new Result(true,this.stores) ;
         }
-        KingLogger.logError("Domain.User with id " + userId + " tried to get stores info while logged out and failed.");
-
+        KingLogger.logEvent("GET_ALL_STORES_INFO: User with id " + userId + " tried to get stores info while logged out and failed.");
         return new Result(false,"User has not logged in");
     }
     public String getAllStoresNames(int userId) {
@@ -224,7 +227,7 @@ public class TradingSystem {
                 storesNames.append(store.getName()+",");
             storesNames.deleteCharAt(storesNames.length()-1);
         }
-        KingLogger.logError("Domain.User with id " + userId + " tried to get stores info while logged out and failed.");
+        KingLogger.logEvent("GET_ALL_STORES_NAME: User with id " + userId + " get stores info.");
         return storesNames.toString();
     }
 
@@ -264,11 +267,13 @@ public class TradingSystem {
                     default:
                         break;
                 }
+                KingLogger.logEvent("GET_PRODUCTS: User with id " + userId + " getting products by filter " + filter.searchType);
                 return new Result(true,output); // data= Map<Integer, Integer>
             }
+            KingLogger.logEvent("GET_PRODUCTS: User with id " + userId + " didnt succeed getting products because not logged in");
             return new Result(false,"User has not logged int");
         }catch (Exception e){
-            KingLogger.logError("Domain.User with id " + userId + " didn't succeed getting products by filter.");
+            KingLogger.logError("GET_PRODUCTS: User with id " + userId + " didn't succeed getting products by filter.");
             return new Result(false,"Can't get products by the given parameters");
         }
     }
@@ -281,27 +286,28 @@ public class TradingSystem {
                     if( getStoreById(storeId).getInventory().prodExists(prodId)){
                         if (b != null) {
                             b.addProduct(getProductById(prodId), amount);
-                            KingLogger.logEvent("Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
+                            KingLogger.logEvent("ADD_PRODUCT_TO_BAG: Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
                             return new Result(true,true);
                         }
                         getUserById(userId).createNewBag(getStoreById(storeId), prodId, amount);
-                        KingLogger.logEvent("Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
+                        KingLogger.logEvent("ADD_PRODUCT_TO_BAG: Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
                         return new Result(true,true);
                     }
                     else{
                         return new Result(false,"Given Product not exist");
                     }
                 }else{
-                    KingLogger.logEvent("Domain.Product number " + prodId + " was not added to bag for user " + userId);
+                    KingLogger.logEvent("ADD_PRODUCT_TO_BAG: Domain.Product number " + prodId + " was not added to bag for user " + userId);
                     return new Result(false, "User has not logged in");
                 }
             }else{
+                KingLogger.logEvent("ADD_PRODUCT_TO_BAG: Domain.Product - amount cant be negative");
                 return new Result(false,"Amount can't be negative ");
             }
 
         }
         catch (Exception e) {
-            KingLogger.logEvent("Domain.Product number " + prodId + " was not added to bag for user " + userId);
+            KingLogger.logError("ADD_PRODUCT_TO_BAG: Domain.Product number " + prodId + " was not added to bag for user " + userId);
             return new Result(false, "Can't add product to bag");
         }
     }
@@ -310,11 +316,13 @@ public class TradingSystem {
         try {
             if (getUserById(userId) != null && getUserById(userId).isLogged()) {
                 List<Bag> bags = getUserById(userId).getBags();
+                KingLogger.logEvent("GET_CART: User with id " + userId + " got his cart.");
                 return new Result(true,bags); //List<Bag>
             }
+            KingLogger.logEvent("GET_CART: User with id " + userId + " not logged in so cant get his cart.");
             return new Result(false,"User has not logged in");
         } catch (Exception e) {
-            KingLogger.logEvent("Domain.User with id " + userId + " couldn't view his cart.");
+            KingLogger.logError("GET_CART: User with id " + userId + " couldn't view his cart.");
             return new Result(false,"Can't get cart");
         }
     }
@@ -327,14 +335,14 @@ public class TradingSystem {
                 if(b.getProdNum()==0){
                     getUserById(userId).removeBag(b);
                 }
-                KingLogger.logEvent("Domain.Product number " + prodId + " was removed from bag of store " + storeId + " for user " + userId);
+                KingLogger.logEvent("REMOVE_PRODUCT_FROM_BUG: Domain.Product number " + prodId + " was removed from bag of store " + storeId + " for user " + userId);
                 return true;
             }
-            KingLogger.logError("Domain.User with id " + userId + " doesn't exist in the system.");
+            KingLogger.logEvent("REMOVE_PRODUCT_FROM_BUG: User with id " + userId + " doesn't exist in the system.");
             return false;
         }
         catch (Exception e) {
-            KingLogger.logError("Domain.User with id " + userId + " doesn't exist in the system.");
+            KingLogger.logError("REMOVE_PRODUCT_FROM_BUG: User with id " + userId + " doesn't exist in the system.");
             return false;
         }
     }
@@ -345,7 +353,6 @@ public class TradingSystem {
             Store store = getStoreById(storeId);
             Map<Product, Integer> productsAmountBag = new HashMap<>();
             for (Product p : productsIds.keySet()) {
-
                 productsAmountBag.put(p, productsIds.get(p));
             }
             Map<Product,Integer> productsAmountBuy=new HashMap<>();
@@ -365,22 +372,23 @@ public class TradingSystem {
                 this.receipts.add(rec);
                 store.addReceipt(rec);
                 getUserById(userId).addReceipt(rec);
-                KingLogger.logError("Domain.User with id " + userId + " made purchase in store " + storeId);
                 if(productsAmountBag.size()==productsAmountBuy.size()){
+                    KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId);
                     notifyToSubscribers(getStoreById(storeId).getNotificationId(),"Some one buy from your store! you can go to your purchase to see more details");
                     return new Result(true, "purchase confirmed successfully" );
                 }else{
+                    KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " try to purchase in store " + storeId + "but soe product are missing");
                     return new Result(true, "some product missing");
                 }
             }
             else{
                 store.abortPurchase(productsAmountBuy);
-                KingLogger.logError("Domain.User with id " + userId + " couldn't make a purchase in store " + storeId);
+                KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
                 return new Result(false,"payment failed");
             }
         }
         catch (Exception e) {
-            KingLogger.logError("Domain.User with id " + userId + " couldn't make a purchase in store " + storeId);
+            KingLogger.logError("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
             return new Result(false,"purchase failed");
         }
     }
@@ -389,10 +397,11 @@ public class TradingSystem {
         try {
             User user = getUserById(userId);
             Bag bag = user.getBagByStoreId(storeId);
+            KingLogger.logEvent("GET_BAG: User with id " + userId + " view his bag from store " + storeId);
             return bag.getProductIds();
         }
         catch (Exception e) {
-            KingLogger.logError("Domain.User with id " + userId + " couldn't view his bag from store " + storeId);
+            KingLogger.logError("GET_BAG: User with id " + userId + " couldn't view his bag from store " + storeId);
             return null;
         }
     }
@@ -402,9 +411,11 @@ public class TradingSystem {
         Store store= getStoreById(storeId);
         int productId = productCounter.inc();
         if (user.addProductToStore(productId,store,name, categories, price, description, quantity)){
+            KingLogger.logEvent("ADD_PRODUCT_TO_STORE: User with id " + userId + " add product to store " + storeId);
             return new Result(true,productId);
         }
         else{
+            KingLogger.logEvent("ADD_PRODUCT_TO_STORE: User with id " + userId + " cant add product to store " + storeId);
             return new Result(false,"Can't add product to Store");
         }
     }
@@ -413,8 +424,8 @@ public class TradingSystem {
     public Result removeProductFromStore(int userId,int storeId, int productId){
         User user = getUserById(userId);
         Store store = getStoreById(storeId);
+        KingLogger.logEvent("REMOVE_PRODUCT_FROM_STORE: User with id " + userId + " removed product from store " + storeId);
         return user.removeProductFromStore(store,productId);
-
     }
 
     //returns the new store id
@@ -425,12 +436,14 @@ public class TradingSystem {
             Store store = new Store(newId, storeName, user);
             user.openStore(store);
             this.stores.add(store);
+            KingLogger.logEvent("OPEN_STORE: User with id " + userId + " open the store " + storeName);
             Result result = addObservable(storeName);
             int subscribeId = (int)result.getdata();
             store.setNotificationId(subscribeId);
             subscribeToObservable(subscribeId,userId);
             return new Result(true,newId);
         }
+        KingLogger.logEvent("OPEN_STORE: User with id " + userId + " cant open the store " + storeName + "because is not registered");
         return new Result(false,"User has not registered");
     }
 
@@ -442,25 +455,32 @@ public class TradingSystem {
         Result result = owner.addStoreOwner(owner,user,getStoreById(storeId));
         if(result.isResult())
         {
+            KingLogger.logEvent("ADD_STORE_OWNER: User with id " + owner + " try to add store owner and" + res.getdata());
+
             subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
         }
         return result;
 
     }
-        public boolean checkValidUser(int userId)
-        {
-            User user = getUserById(userId);
-            if(user!=null && user.isRegistered())
-                return true;
-            return false;
-        }
+    public boolean checkValidUser(int userId)
+    {
+        User user = getUserById(userId);
+        if(user!=null && user.isRegistered())
+            return true;
+        return false;
+    }
 
     public Result addStoreManager(int ownerId, int userId, int storeId){
-        if(!checkValidUser(ownerId) || !checkValidUser(userId)) return new Result(false,"User is not valid");
+        if(!checkValidUser(ownerId) || !checkValidUser(userId)){
+            KingLogger.logEvent("ADD_STORE_EVENT: User with id " + ownerId + " cant appoint manager because user not valid");
+            return new Result(false,"User is not valid");
+        }
 
         Result result = getUserById(ownerId).addStoreManager(getUserById(userId),getStoreById(storeId));
         if(result.isResult())
         {
+            KingLogger.logEvent("ADD_STORE_EVENT: User with id " + ownerId + " appoint " + userId + "to be manager of store " + storeId);
+
             subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
             getUserById(userId).addNotification("You are now manager in store: "+ getStoreName(storeId));
         }
@@ -468,12 +488,20 @@ public class TradingSystem {
     }
 
     public Result addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
-        if(!checkValidUser(ownerId)) return new Result(false,"User isn't register");
+        if(!checkValidUser(ownerId)) {
+            KingLogger.logEvent("ADD_PERMISSION: User with id " + ownerId + " cant add permission because not valid user");
+            return new Result(false,"User isn't register");
+        }
+        KingLogger.logEvent("ADD_PERMISSION: User with id " + ownerId + " add permission to user " + managerId);
         return getUserById(ownerId).addPermissions(getUserById(managerId),getStoreById(storeId),opIndexes);
     }
 
     public Result removePermission(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
-        if(!checkValidUser(ownerId)) return new Result(false,"User isn't register");
+        if(!checkValidUser(ownerId)) {
+            KingLogger.logEvent("ADD_PERMISSION: User with id " + ownerId + " add permission to user " + managerId);
+            return new Result(false,"User isn't register");
+        }
+        KingLogger.logEvent("ADD_PERMISSION: User with id " + ownerId + " remove permission to user " + managerId);
         return getUserById(ownerId).removePermissions(getUserById(managerId),getStoreById(storeId),opIndexes);
     }
 
@@ -483,6 +511,7 @@ public class TradingSystem {
         Result result = user.removeManagerFromStore(getUserById(managerId),store);
         if(result.isResult())
         {
+            KingLogger.logEvent("REMOVE_MANAGER: User with id " + ownerId + " remove manager and " + res.getdata());
             unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
         }
         return result;
@@ -505,20 +534,30 @@ public class TradingSystem {
 
 
     public Result getWorkersInformation(int ownerId, int storeId){
-        if(!checkValidUser(ownerId)) return null;
+        if(!checkValidUser(ownerId)) {
+            KingLogger.logEvent("GET_WORKERS_INFORMATION: User with id " + ownerId + " is not a valid user");
+            return null;
+        }
+        KingLogger.logEvent("GET_WORKERS_INFORMATION: User with id " + ownerId + " got workers information");
         return getUserById(ownerId).getWorkersInformation(getStoreById(storeId)); //List<User>
     }
 
     public Result getStorePurchaseHistory(int ownerId, int storeId){
-        if(!checkValidUser(ownerId)) return new Result(false,"User not exist");
+        if(!checkValidUser(ownerId)) {
+            KingLogger.logEvent("GET_STORE_PURCHASE_HISTORY: User with id " + ownerId + " is not a valid user");
+            return new Result(false,"User not exist");
+        }
+        KingLogger.logEvent("GET_STORE_PURCHASE_HISTORY: User with id " + ownerId + " got store purchase history");
         return getUserById(ownerId).getStorePurchaseHistory(getStoreById(storeId));//List<Reciept>
     }
 
     public Result getAllPurchases(int systemManager){
         if(this.systemManager.getId() == systemManager)
         {
+            KingLogger.logEvent("GET_ALL_PURCHASE: system manager with id " + systemManager + " got all purchases");
             return new Result(true,this.receipts);//List<Reciept>
         }
+        KingLogger.logEvent("GET_ALL_PURCHASE: system manager with id " + systemManager + " dont have permission");
         return new Result(false,"User has no permissions");
     }
 
@@ -538,7 +577,6 @@ public class TradingSystem {
         for(Product product :amounts.keySet()){
             products.add(product);
             product.setAmount(amounts.get(product));
-
         }
         return new Result(true,products);
     }
@@ -549,9 +587,10 @@ public class TradingSystem {
 
     public Result getUserPurchaseHistory(int userId) {
         if(!getUserById(userId).isRegistered()){
+            KingLogger.logEvent("GET_USER_PURCHASE_HISTORY: User with id " + userId + " is not registered");
             return new Result(false,"User not registered");
         }
-
+        KingLogger.logEvent("GET_USER_PURCHASE_HISTORY: User with id " + userId + " got the user purchase history");
         return new Result(true,getUserById(userId).getPurchaseHistory());
 
     }

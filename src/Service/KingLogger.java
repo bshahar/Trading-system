@@ -90,8 +90,8 @@ public class KingLogger {
     }
 
     public static void main(String [] args){
-        KingLogger.logEvent("this is log event");
-        KingLogger.logError("this is log error");
+        KingLogger.logEvent("LOGIN:  this is log event");
+        KingLogger.logError("LOGIN:  this is log error");
     }
 
 }

@@ -466,7 +466,7 @@ public class TradingSystem {
 
     public Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
         Store st = getStoreById(storeId);
-        if(st != null && percentage > 0 && percentage <= 100 && !end.after(new Date())) {
+        if(st != null && percentage > 0 && percentage <= 100 && end.after(new Date())) {
             if (operator == null) {
                 //st.addSimpleDiscountOnProduct(prodId, begin, end, percentage);
                 return getUserById(userId).addDiscountOnProduct(st, "simple", "PRODUCT", prodId, begin, end, null, percentage);
@@ -573,4 +573,16 @@ public class TradingSystem {
         }
     }
 
+    //TODO implement all methods below
+    public Result editDiscountOnProduct() {
+        return new Result(false, "fail");
+    }
+
+    public Result editDiscountOnCategory() {
+        return new Result(false, "fail");
+    }
+
+    public Result editDiscountOnStore() {
+        return new Result(false, "fail");
+    }
 }

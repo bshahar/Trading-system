@@ -26,4 +26,6 @@ public class DiscountByMinimalAmount extends DiscountPolicy {
         return amount >= this.minAmount;
     }
 
+    public void setMinimalAmount(int newMinAmount) { this.minAmount = newMinAmount; }
+
 }

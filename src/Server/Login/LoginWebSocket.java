@@ -36,8 +36,8 @@ public class LoginWebSocket {
                 JSONObject json= new JSONObject();
                 json.put("type", "LOGIN");
                 json.put("result",result.isResult()? "true": "false");
-                json.put("message",result.getdata());
-                json.put("id", result.getdata());
+                json.put("message",result.getData());
+                json.put("id", result.getData());
                 session.getRemote().sendString(json.toString());
             }else {
                 String email = jo.get("email").toString();
@@ -47,7 +47,7 @@ public class LoginWebSocket {
                     if (!result.isResult()) {
                         JSONObject json = new JSONObject();
                         json.put("result", "false");
-                        json.put("message", result.getdata());
+                        json.put("message", result.getData());
                         session.getRemote().sendString(json.toString());
                         System.out.println("error register");
                     } else {
@@ -65,7 +65,7 @@ public class LoginWebSocket {
                     if (!result.isResult()) {
                         JSONObject json = new JSONObject();
                         json.put("result", "false");
-                        json.put("message", result.getdata());
+                        json.put("message", result.getData());
                         session.getRemote().sendString(json.toString());
                         System.out.println("error login");
                     } else {
@@ -73,7 +73,7 @@ public class LoginWebSocket {
                         json.put("type", "LOGIN");
                         json.put("result", "true");
                         json.put("message", "login success");
-                        json.put("id", result.getdata());
+                        json.put("id", result.getData());
                         session.getRemote().sendString(json.toString());
                         System.out.println("success login");
                     }

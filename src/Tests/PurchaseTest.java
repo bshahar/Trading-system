@@ -34,13 +34,13 @@ public class PurchaseTest {
         API.register(userName1, password1, 20);
         API.register(userName2, password2, 16);
         API.register(userName3, password3, 20);
-        registerId1 = (int) API.registeredLogin(userName1, password1).getdata();
-        registerId2 = (int) API.registeredLogin(userName2, password2).getdata();
-        registerId3 = (int) API.registeredLogin(userName3, password3).getdata();
-        storeId1 = (int) API.openStore(registerId1, "kandabior store").getdata();
+        registerId1 = (int) API.registeredLogin(userName1, password1).getData();
+        registerId2 = (int) API.registeredLogin(userName2, password2).getData();
+        registerId3 = (int) API.registeredLogin(userName3, password3).getData();
+        storeId1 = (int) API.openStore(registerId1, "kandabior store").getData();
         LinkedList<Product.Category> catList = new LinkedList<>();
         catList.add(Product.Category.FOOD);
-        productId1 = (int) API.addProduct(1, storeId1, "milk", catList, 10, "FOOD", 1).getdata();
+        productId1 = (int) API.addProduct(1, storeId1, "milk", catList, 10, "FOOD", 1).getData();
     }
 
     @Test
@@ -102,14 +102,14 @@ public class PurchaseTest {
         for(int i=0; i<100; i++){
             setUp();
             TestSync();
-            Assertions.assertEquals(1,((List<Object>)(API.getStorePurchaseHistory(registerId1,storeId1).getdata())).size());
-            String username=((List<Receipt>)(API.getStorePurchaseHistory(registerId1,storeId1).getdata())).get(0).getUserName();
+            Assertions.assertEquals(1,((List<Object>)(API.getStorePurchaseHistory(registerId1,storeId1).getData())).size());
+            String username=((List<Receipt>)(API.getStorePurchaseHistory(registerId1,storeId1).getData())).get(0).getUserName();
             if(username.equals("kandabior"))
                 orCount++;
             else
                 eladCount++;
             assertTrue(((username.equals("kandabior"))|| (username.equals("elad"))));
-            assertEquals(1, ((List<Receipt>) (API.getStorePurchaseHistory(registerId1, storeId1).getdata())).size());
+            assertEquals(1, ((List<Receipt>) (API.getStorePurchaseHistory(registerId1, storeId1).getData())).size());
         }
         System.out.println("or: "+ orCount);
         System.out.println("elad: "+ eladCount);
@@ -159,14 +159,14 @@ public class PurchaseTest {
     public void getPersonalPurchaseHistorySuccessTest(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
         API.buyProduct(registerId1,storeId1,"123456789", "");
-        List<Receipt> receiptList=(List<Receipt>) API.getUserPurchaseHistory(registerId1).getdata();
+        List<Receipt> receiptList=(List<Receipt>) API.getUserPurchaseHistory(registerId1).getData();
         assertEquals(receiptList.get(0).getUserId(), registerId1);
     }
 
     @Test
     //AT-12.2
     public void getPersonalPurchaseHistoryFailTest(){
-        int guestId= (int)API.guestLogin().getdata();
+        int guestId= (int)API.guestLogin().getData();
         API.addProductToCart(guestId,storeId1,productId1,1);
         API.buyProduct(guestId,storeId1,"123456789", "");
         Assertions.assertFalse(API.getUserPurchaseHistory(guestId).isResult());

@@ -158,19 +158,19 @@ public class API {
         register(userName1, password1, 20);
         register(userName2,password2, 16);
         register(userName3,password3, 24);
-        registerId1= (int)registeredLogin(userName1,password1).getdata();
-        registerId2=(int) registeredLogin(userName2,password2).getdata();
-        registerId3= (int)registeredLogin(userName3,password3).getdata();
-        storeId1=(int )openStore(registerId1,"kandabior store").getdata();
-        storeId2=(int)openStore(registerId1,"elad store").getdata();
+        registerId1= (int)registeredLogin(userName1,password1).getData();
+        registerId2=(int) registeredLogin(userName2,password2).getData();
+        registerId3= (int)registeredLogin(userName3,password3).getData();
+        storeId1=(int )openStore(registerId1,"kandabior store").getData();
+        storeId2=(int)openStore(registerId1,"elad store").getData();
         LinkedList<Product.Category> catList= new LinkedList<>();
         catList.add(Product.Category.FOOD);
-        addProduct(registerId1, storeId1,"Milk",catList ,10,"FOOD", 10 ).getdata();
+        addProduct(registerId1, storeId1,"Milk",catList ,10,"FOOD", 10 ).getData();
 
-        addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD", 2 ).getdata();
+        addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD", 2 ).getData();
 
-        addProduct(registerId1, storeId1,"Banana",catList ,4,"FOOD", 20 ).getdata();
-        addProduct(registerId1, storeId2,"Water",catList ,5,"DRINK", 13 ).getdata();
+        addProduct(registerId1, storeId1,"Banana",catList ,4,"FOOD", 20 ).getData();
+        addProduct(registerId1, storeId2,"Water",catList ,5,"DRINK", 13 ).getData();
 
         registeredLogout(registerId1);
     }
@@ -193,8 +193,8 @@ public class API {
         return tradingSystem.getProductById(productId);
     }
 
-    public static void addDiscountOnProduct(int storeId, int userId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
-        tradingSystem.addDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage);
+    public static Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
+        return tradingSystem.addDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage);
     }
 
     public static void addDiscountOnCategory(int storeId, int userId, String category, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {

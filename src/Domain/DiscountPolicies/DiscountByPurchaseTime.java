@@ -50,4 +50,20 @@ public class DiscountByPurchaseTime extends DiscountPolicy {
             return this.beginHour >= calendar.get(Calendar.HOUR) && this.endHour > calendar.get(Calendar.HOUR);
     }
 
+    public void setDayInWeek(int dayInWeek) {
+        this.dayInWeek = dayInWeek;
+    }
+
+    public void setDayInMonth(int dayInMonth) {
+        this.dayInMonth = dayInMonth;
+    }
+
+    public void setBeginHour(int beginHour) {
+        this.beginHour = beginHour;
+    }
+
+    public void setEndHour(int endHour) {
+        this.endHour = endHour;
+    }
+    
 }

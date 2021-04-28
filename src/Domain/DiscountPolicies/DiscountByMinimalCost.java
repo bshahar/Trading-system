@@ -20,4 +20,6 @@ public class DiscountByMinimalCost extends DiscountPolicy {
         return cost >= this.minCost;
     }
 
+    public void setMinimalCost(int newMinCost) { this.minCost = newMinCost; }
+
 }

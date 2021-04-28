@@ -42,7 +42,15 @@ public class DiscountCondition { //Compound object
                 this.discounts.add(dp);
                 break;
             case "Purchase Time":
-                dp = new DiscountByMinimalCost(Integer.parseInt(params.get(0)));
+                //params = boolean byDayInWeek, boolean byDayInMonth, boolean byHourInDay, int dayInWeek, int dayInMonth, int beginHour, int endHour
+                dp = new DiscountByPurchaseTime(
+                        Boolean.parseBoolean(params.get(0)),
+                        Boolean.parseBoolean(params.get(1)),
+                        Boolean.parseBoolean(params.get(2)),
+                        Integer.parseInt(params.get(3)),
+                        Integer.parseInt(params.get(4)),
+                        Integer.parseInt(params.get(5)),
+                        Integer.parseInt(params.get(6)));
                 this.discounts.add(dp);
                 break;
 

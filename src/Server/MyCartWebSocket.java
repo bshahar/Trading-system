@@ -3,7 +3,6 @@ package Server;
 import Domain.Bag;
 import Domain.Product;
 import Domain.Result;
-import Domain.Store;
 import Service.API;
 import org.eclipse.jetty.websocket.api.*;
 import org.eclipse.jetty.websocket.api.annotations.*;
@@ -11,7 +10,6 @@ import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;
 import org.json.JSONObject;
-import org.thymeleaf.expression.Ids;
 
 @WebSocket
 public class MyCartWebSocket {
@@ -37,7 +35,7 @@ public class MyCartWebSocket {
             int userId=Integer.parseInt(jo.get("id").toString());
             Result result=API.getCart(userId);
             if(result.isResult()){
-                List<Bag> bags=(List<Bag>)result.getdata();
+                List<Bag> bags=(List<Bag>)result.getData();
                 JSONObject jsonOut=new JSONObject();
                 jsonOut.put("type","GET_CART");
                 JSONObject[] jsonBags=new JSONObject[bags.size()];
@@ -68,7 +66,7 @@ public class MyCartWebSocket {
                 JSONObject json= new JSONObject();
                 json.put("type", "GET_CART");
                 json.put("result",result.isResult());
-                json.put("data",result.getdata());
+                json.put("data",result.getData());
                 session.getRemote().sendString(json.toString());
             }
 

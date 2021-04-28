@@ -6,9 +6,6 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginTest {
@@ -24,16 +21,16 @@ public class LoginTest {
     public void loginSuccessTest(){
         String userName="kandabior";
         String password= "or321654";
-        Assertions.assertEquals(1,API.register(userName,password, 20).getdata());
+        Assertions.assertEquals(1,API.register(userName,password, 20).getData());
     }
     //AT-4.2
     @Test
     public void loginBadPasswordFailTest(){
         String userName="kandabior";
         String password= "or321654";
-        Assertions.assertEquals(1,API.register(userName,"12", 20).getdata());
+        Assertions.assertEquals(1,API.register(userName,"12", 20).getData());
         Result result= API.registeredLogin(userName,password);
-        assertEquals(result.getdata(),-1);
+        assertEquals(result.getData(),-1);
     }
 
     //AT-4.3
@@ -51,8 +48,8 @@ public class LoginTest {
         String password= "or321654";
         API.register(userName,password, 20);
         Result index = API.registeredLogin(userName,password);
-        Assertions.assertEquals(index.getdata(),1);
-        Assertions.assertTrue((Boolean)API.isLogged((int)index.getdata()).getdata());
+        Assertions.assertEquals(index.getData(),1);
+        Assertions.assertTrue((Boolean)API.isLogged((int)index.getData()).getData());
     }
 
     //AT-10.1
@@ -62,8 +59,8 @@ public class LoginTest {
         String password= "or321654";
         API.register(userName,password, 20);
         API.registeredLogin(userName,password);
-        Assertions.assertTrue((boolean)API.registeredLogout(1).getdata());
-        Assertions.assertFalse((boolean)API.isLogged(1).getdata());
+        Assertions.assertTrue((boolean)API.registeredLogout(1).getData());
+        Assertions.assertFalse((boolean)API.isLogged(1).getData());
     }
 
     //AT-10.2
@@ -83,7 +80,7 @@ public class LoginTest {
     public void isLoggedFailTest(){
         String userName="kandabior";
         String password= "or321654";
-        Assertions.assertEquals(-1,API.registeredLogin(userName,password).getdata());
+        Assertions.assertEquals(-1,API.registeredLogin(userName,password).getData());
     }
 
 
@@ -92,14 +89,14 @@ public class LoginTest {
     //AT-1
     public void guestLoginSuccessTest(){
         Result index = API.guestLogin();
-        assertEquals(index.getdata(), 1);
-        Assertions.assertTrue((boolean) API.isLogged((int)index.getdata()).getdata());
+        assertEquals(index.getData(), 1);
+        Assertions.assertTrue((boolean) API.isLogged((int)index.getData()).getData());
 
     }
     @Test
     //AT-2
     public void guestLogoutFailTest(){
-        int index = (int)API.guestLogin().getdata();
+        int index = (int)API.guestLogin().getData();
         Assertions.assertFalse((boolean) API.registeredLogout(index).isResult());
     }
 
@@ -107,24 +104,24 @@ public class LoginTest {
     public void scalabilityUserTest(){
 
         for (int i=1; i<1000; i++){
-            if(i!=(int)API.guestLogin().getdata()){
+            if(i!=(int)API.guestLogin().getData()){
                 fail();
             }
         }
-        Assertions.assertEquals(999,API.getNumOfUsers().getdata());
+        Assertions.assertEquals(999,API.getNumOfUsers().getData());
     }
 
     //AT-3.1
     @Test
     public void guestRegisterSuccessTest(){
-        int guestId= (int)API.guestLogin().getdata();
-        Assertions.assertEquals(1,API.guestRegister(guestId,"or","or321654").getdata());
+        int guestId= (int)API.guestLogin().getData();
+        Assertions.assertEquals(1,API.guestRegister(guestId,"or","or321654").getData());
         Assertions.assertTrue((boolean) API.isLogged(guestId).isResult());
     }
     //AT-3.2
     @Test
     public void guestRegisterFailTest(){
-        int guestId= (int)API.guestLogin().getdata();
+        int guestId= (int)API.guestLogin().getData();
         String userName="kandabior";
         String password= "or321654";
         API.register(userName,password, 20);

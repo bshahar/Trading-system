@@ -4100,3 +4100,59 @@
  
 [2021-04-25] [16:29:10] [INFO] LOGIN:  this is log event
  
+[2021-04-28] [15:13:42] [INFO] Trading System initialized
+ 
+[2021-04-28] [15:13:42] [INFO] REGISTER:  User elad@gmail.com register to the system
+ 
+[2021-04-28] [15:13:42] [INFO] REGISTER:  User elad register to the system
+ 
+[2021-04-28] [15:13:42] [INFO] REGISTER:  User erez register to the system
+ 
+[2021-04-28] [15:13:42] [INFO] LOGIN:  User elad@gmail.com logged into the system.
+ 
+[2021-04-28] [15:13:42] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-04-28] [15:13:42] [INFO] LOGIN:  User erez logged into the system.
+ 
+[2021-04-28] [15:13:43] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-04-28] [15:13:43] [INFO] OPEN_STORE: User with id 1 open the store elad store
+ 
+[2021-04-28] [15:13:43] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-04-28] [15:13:43] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-04-28] [15:13:43] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-04-28] [15:13:43] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 2
+ 
+[2021-04-28] [15:13:43] [INFO] LOGOUT: User elad@gmail.com logged out of the system.
+ 
+[2021-04-28] [15:19:52] [INFO] Trading System initialized
+ 
+[2021-04-28] [15:19:52] [INFO] REGISTER:  User elad@gmail.com register to the system
+ 
+[2021-04-28] [15:19:52] [INFO] REGISTER:  User elad register to the system
+ 
+[2021-04-28] [15:19:52] [INFO] REGISTER:  User erez register to the system
+ 
+[2021-04-28] [15:19:52] [INFO] LOGIN:  User elad@gmail.com logged into the system.
+ 
+[2021-04-28] [15:19:52] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-04-28] [15:19:52] [INFO] LOGIN:  User erez logged into the system.
+ 
+[2021-04-28] [15:19:52] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-04-28] [15:19:52] [INFO] OPEN_STORE: User with id 1 open the store elad store
+ 
+[2021-04-28] [15:19:52] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-04-28] [15:19:52] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-04-28] [15:19:52] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-04-28] [15:19:52] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 2
+ 
+[2021-04-28] [15:19:52] [INFO] LOGOUT: User elad@gmail.com logged out of the system.
+ 

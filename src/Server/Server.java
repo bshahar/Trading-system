@@ -23,10 +23,10 @@ public class Server {
         API.initTradingSystem("ELAD");
         API.forTest();
 
-//        Spark.get("/Login",((request, response) -> {
-//            HashMap<String ,Object> model = new HashMap<>();
-//            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Login"));
-//        }));
+        Spark.get("/Login",((request, response) -> {
+            HashMap<String ,Object> model = new HashMap<>();
+            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Login"));
+        }));
 //
 //        Spark.get("/Main",((request, response) -> {
 //            HashMap<String ,Object> model = new HashMap<>();

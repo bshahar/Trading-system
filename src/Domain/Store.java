@@ -8,6 +8,7 @@ import java.util.*;
 public class Store {
 
     private int storeId;
+    private int notificationId;
     private String name;
     private Inventory inventory;
     //private List<Policy> policies;
@@ -47,6 +48,15 @@ public class Store {
         return rate;
     }
 
+    public void setNotificationId(int notificationId)
+    {
+        this.notificationId = notificationId;
+    }
+
+    public int getNotificationId() {
+        return notificationId;
+    }
+
     public boolean addToInventory(User currUser, Product prod, int numOfProd) {
         return this.inventory.addProduct(prod , numOfProd);
     }
@@ -63,7 +73,7 @@ public class Store {
         return storeId;
     }
 
-    public boolean addProductToStore(int productId,  String name, List<Product.Category> categories, double price, String description, int quantity) {
+    public boolean addProductToStore(int productId,  String name, List<String> categories, double price, String description, int quantity) {
         Product p = new Product(productId, name, categories, price, description);
         return this.inventory.addProduct(p, quantity);
     }
@@ -101,6 +111,8 @@ public class Store {
     public Result removeManager(User owner, User manager) {
         if(appointments.get(owner).remove(manager)){
             employees.remove(manager);
+            manager.removeFromMyStores(this);
+
             if(appointments.containsKey(manager)){
                 List<User> managers=appointments.get(manager);
                 for(User user : managers){
@@ -181,4 +193,44 @@ public class Store {
         }
 
     }
+
+    public boolean isManager(User user) {
+        return this.managers.contains(user);
+    }
+
+
+    public Set<Integer> getManagersAndOwners() {
+        Set<Integer> list = new HashSet<>();
+        for(User user: managers)
+        {
+            list.add(user.getId());
+        }
+        for(User user: owners)
+        {
+            list.add(user.getId());
+        }
+        return list;
+    }
+
+    public Result removeOwner(User owner, User ownerToDelete) {
+        if(appointments.get(owner).remove(ownerToDelete)){
+            employees.remove(ownerToDelete);
+            ownerToDelete.removeFromMyStores(this);
+            if(appointments.containsKey(ownerToDelete)){
+                List<User> ownersList=appointments.get(ownerToDelete);
+                for(User user : ownersList){
+                    this.owners.remove(user);
+                    removeOwner(ownerToDelete,user);
+                }
+            }
+            return new Result(true,true);
+        }
+        return new Result(false,"Remove of the manager has failed");
+    }
+
+    public void setProductAmount(Product product, int amount) {
+        inventory.setProductAmount(product,amount);
+    }
 }
+
+

@@ -15,7 +15,7 @@ public class AddProduct {
         this.store = store;
     }
 
-    public boolean action(int productId,String name, List<Product.Category> categories, double price, String description, int quantity) {
+    public boolean action(int productId,String name, List<String> categories, double price, String description, int quantity) {
         return store.addProductToStore(productId,name,categories,price,description,quantity);
     }
 }

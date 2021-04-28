@@ -1,5 +1,7 @@
 package Server;
 
+import Permissions.AddProduct;
+import Permissions.OpenStore;
 import Server.Login.LoginWebSocket;
 import Server.myStores.myStoresWebSocket;
 import Service.API;
@@ -12,14 +14,20 @@ import java.util.HashMap;
 public class Server {
 
     public static void main(String []args){
-        Spark.secure("security/version2/KeyStore.jks", "123456", "security/version2/truststore.jks","123456");
+//        Spark.secure("security/version2/KeyStore.jks", "123456", "security/version2/truststore.jks","123456");
         Spark.webSocket("/Login", LoginWebSocket.class);
-        Spark.webSocket("/Main",MainWebSocket.class);
+        Spark.webSocket("/Main/*",MainWebSocket.class);
         Spark.webSocket("/Store/currentStore",StoreWebSocket.class);
         Spark.webSocket("/Cart",MyCartWebSocket.class);
-
+        Spark.webSocket("/Cart/purchase",MakePurchase.class);
         Spark.webSocket("/myStores", myStoresWebSocket.class);
+        Spark.webSocket("/myStores/openStore", OpenStoreWebServer.class);
+
         Spark.webSocket("/myStores/StorePermissions", myStoresWebSocket.class);
+        Spark.webSocket("/myPurchases", myPurchases.class);
+        Spark.webSocket("/myStores/StorePermissions/action", PermissionActionWebSocket.class);
+
+
         API.initTradingSystem("ELAD");
         API.forTest();
 

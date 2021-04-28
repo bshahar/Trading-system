@@ -13,6 +13,7 @@ public class TradingSystem {
     private static counter userCounter;
     private static counter storeCounter;
     private static counter productCounter;
+    private static counter observableCounter;
 
     private PaymentAdapter paymentAdapter;
     private SupplementAdapter supplementAdapter;
@@ -21,6 +22,7 @@ public class TradingSystem {
     private User systemManager;
     private List<Receipt> receipts;
     private List<User> users;
+    private List<ObservableType> observers;
 
 
 
@@ -35,6 +37,18 @@ public class TradingSystem {
         storeCounter = new counter();
         productCounter=new counter();
         KingLogger.logEvent("Trading System initialized");
+        observableCounter = new counter();
+        this.observers = Collections.synchronizedList(new LinkedList<>());
+    }
+
+    public Result getUserIdByName(String userName) {
+
+        for(User user : users){
+            if(user.getUserName().equals(userName)){
+                return new Result(true,user.getId());
+            }
+        }
+        return new Result(false, "User Name not exist");
     }
 
 
@@ -65,6 +79,74 @@ public class TradingSystem {
         }
         KingLogger.logEvent("LOGIN:  User " + userName + ": Username or Password not correct");
         return new Result(false, "Username or Password not correct");
+    }
+
+
+    public Result notifyToSubscribers(int observableTypeId,String msg)
+    {
+        Result result =getObservableTypeById(observableTypeId);
+        if(result.isResult())
+        {
+            ObservableType o = (ObservableType) result.getdata();
+            o.sendAll(msg);
+            return new Result(true,"msg send susccefully");
+        }
+        return new Result(false,result.getdata());
+    }
+
+    public Result addObservable(String name)
+    {
+        int id = observableCounter.inc();
+        this.observers.add(new ObservableType(name,id));
+        return new Result(true,id);
+    }
+
+    public Result removeObservable(int observableTypeId)
+    {
+        Result result =getObservableTypeById(observableTypeId);
+        if(result.isResult())
+        {
+            ObservableType Observable = (ObservableType) result.getdata();
+            this.observers.remove(Observable);
+            return new Result(true,"Observable remove successfully");
+        }
+
+        return new Result(false,result.getdata());
+    }
+
+    public Result subscribeToObservable(int observableId,int userId)
+    {
+        Result result =getObservableTypeById(observableId);
+        if(result.isResult())
+        {
+            ObservableType Observable = (ObservableType) result.getdata();
+            Observable.addObserver(getUserById(userId));
+            return new Result(true,"user subscribe successfully");
+        }
+        return new Result(false,result.getdata());
+    }
+
+    public Result unsubscribeToObservable(int observableId,int userId)
+    {
+        Result result =getObservableTypeById(observableId);
+        if(result.isResult() && checkValidUser(userId))
+        {
+            ObservableType Observable = (ObservableType) result.getdata();
+            Observable.deleteObserver(getUserById(userId));
+            return new Result(true,"user unsubscribe successfully");
+        }
+        return new Result(false,result.getdata());
+    }
+
+
+    public Result getObservableTypeById(int observableTypeId)
+    {
+        for(ObservableType observableType : observers)
+        {
+            if(observableType.getId() == observableTypeId)
+                return new Result(true,observableType);
+        }
+        return new Result(false,"observableTypeId isn't exist");
     }
 
 
@@ -249,7 +331,10 @@ public class TradingSystem {
         try {
             Bag b = getUserById(userId).getBagByStoreId(storeId);
             if (b != null) {
-                b.removeProduct(prodId);
+                b.removeProduct(getProductById(prodId));
+                if(b.getProdNum()==0){
+                    getUserById(userId).removeBag(b);
+                }
                 KingLogger.logEvent("REMOVE_PRODUCT_FROM_BUG: Domain.Product number " + prodId + " was removed from bag of store " + storeId + " for user " + userId);
                 return true;
             }
@@ -282,12 +367,14 @@ public class TradingSystem {
                 }
             }
             if(paymentAdapter.pay(totalCost,creditInfo)){
+                getUserById(userId).removeProductFromCart(productsAmountBuy,storeId);
                 Receipt rec = new Receipt(storeId, userId,getUserById(userId).getUserName(), productsAmountBuy);
                 this.receipts.add(rec);
                 store.addReceipt(rec);
                 getUserById(userId).addReceipt(rec);
                 if(productsAmountBag.size()==productsAmountBuy.size()){
                     KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId);
+                    notifyToSubscribers(getStoreById(storeId).getNotificationId(),"Some one buy from your store! you can go to your purchase to see more details");
                     return new Result(true, "purchase confirmed successfully" );
                 }else{
                     KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " try to purchase in store " + storeId + "but soe product are missing");
@@ -319,7 +406,7 @@ public class TradingSystem {
         }
     }
 
-    public Result addProductToStore(int userId, int storeId , String name, List<Product.Category> categories, double price, String description, int quantity) {
+    public Result addProductToStore(int userId, int storeId , String name, List<String> categories, double price, String description, int quantity) {
         User user =getUserById(userId);
         Store store= getStoreById(storeId);
         int productId = productCounter.inc();
@@ -350,6 +437,10 @@ public class TradingSystem {
             user.openStore(store);
             this.stores.add(store);
             KingLogger.logEvent("OPEN_STORE: User with id " + userId + " open the store " + storeName);
+            Result result = addObservable(storeName);
+            int subscribeId = (int)result.getdata();
+            store.setNotificationId(subscribeId);
+            subscribeToObservable(subscribeId,userId);
             return new Result(true,newId);
         }
         KingLogger.logEvent("OPEN_STORE: User with id " + userId + " cant open the store " + storeName + "because is not registered");
@@ -360,9 +451,16 @@ public class TradingSystem {
         if(!checkValidUser(ownerId) || !checkValidUser(userId)) return new Result(false,"User is not valid");
         User owner=getUserById(ownerId);
         User user=getUserById(userId);
-        Result res =  owner.addStoreOwner(owner,user,getStoreById(storeId));
-        KingLogger.logEvent("ADD_STORE_OWNER: User with id " + owner + " try to add store owner and" + res.getdata());
-        return res;
+
+        Result result = owner.addStoreOwner(owner,user,getStoreById(storeId));
+        if(result.isResult())
+        {
+            KingLogger.logEvent("ADD_STORE_OWNER: User with id " + owner + " try to add store owner and" + result.getdata());
+
+            subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
+        }
+        return result;
+
     }
     public boolean checkValidUser(int userId)
     {
@@ -373,27 +471,35 @@ public class TradingSystem {
     }
 
     public Result addStoreManager(int ownerId, int userId, int storeId){
-        if(!checkValidUser(ownerId) || !checkValidUser(userId)) {
+        if(!checkValidUser(ownerId) || !checkValidUser(userId)){
             KingLogger.logEvent("ADD_STORE_EVENT: User with id " + ownerId + " cant appoint manager because user not valid");
-            return new Result(false, "User is not valid");
+            return new Result(false,"User is not valid");
         }
-        KingLogger.logEvent("ADD_STORE_EVENT: User with id " + ownerId + " appoint " + userId + "to be manager of store " + storeId);
-        return getUserById(ownerId).addStoreManager(getUserById(userId),getStoreById(storeId));
+
+        Result result = getUserById(ownerId).addStoreManager(getUserById(userId),getStoreById(storeId));
+        if(result.isResult())
+        {
+            KingLogger.logEvent("ADD_STORE_EVENT: User with id " + ownerId + " appoint " + userId + "to be manager of store " + storeId);
+
+            subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
+            getUserById(userId).addNotification("You are now manager in store: "+ getStoreName(storeId));
+        }
+        return result;
     }
 
-    public boolean addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
+    public Result addPermissions(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
         if(!checkValidUser(ownerId)) {
             KingLogger.logEvent("ADD_PERMISSION: User with id " + ownerId + " cant add permission because not valid user");
-            return false;
+            return new Result(false,"User isn't register");
         }
         KingLogger.logEvent("ADD_PERMISSION: User with id " + ownerId + " add permission to user " + managerId);
         return getUserById(ownerId).addPermissions(getUserById(managerId),getStoreById(storeId),opIndexes);
     }
 
-    public boolean removePermission(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
+    public Result removePermission(int ownerId, int managerId, int storeId, List<Integer> opIndexes){
         if(!checkValidUser(ownerId)) {
-            KingLogger.logEvent("ADD_PERMISSION: User with id " + ownerId + " cant remove permission because not valid user");
-            return false;
+            KingLogger.logEvent("ADD_PERMISSION: User with id " + ownerId + " add permission to user " + managerId);
+            return new Result(false,"User isn't register");
         }
         KingLogger.logEvent("ADD_PERMISSION: User with id " + ownerId + " remove permission to user " + managerId);
         return getUserById(ownerId).removePermissions(getUserById(managerId),getStoreById(storeId),opIndexes);
@@ -402,10 +508,29 @@ public class TradingSystem {
     public Result removeManager(int ownerId, int managerId, int storeId){
         User user= getUserById(ownerId);
         Store store = getStoreById(storeId);
-        Result res = user.removeManagerFromStore(getUserById(managerId),store);
-        KingLogger.logEvent("REMOVE_MANAGER: User with id " + ownerId + " remove manager and " + res.getdata());
-        return res;
+        Result result = user.removeManagerFromStore(getUserById(managerId),store);
+        if(result.isResult())
+        {
+            KingLogger.logEvent("REMOVE_MANAGER: User with id " + ownerId + " remove manager and " + result.getdata());
+            unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
+        }
+        return result;
+
     }
+
+    public Result removeOwner(int ownerId, int managerId, int storeId){
+        User user= getUserById(ownerId);
+        Store store = getStoreById(storeId);
+        Result result = user.removeOwnerFromStore(getUserById(managerId),store);
+        if(result.isResult())
+        {
+            unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
+        }
+        return result;
+
+    }
+
+
 
 
     public Result getWorkersInformation(int ownerId, int storeId){
@@ -482,13 +607,7 @@ public class TradingSystem {
         return new LinkedList<>();
     }
 
-    public List<Permission> getPermissionsOfStore(int userId, int storeId) {
-        if(checkValidUser(userId))
-        {
-            return getUserById(userId).getPermissionsOfStore(storeId);
-        }
-        return new LinkedList<>();
-    }
+
 
     public String getStoreName(int storeId) {
         for(Store store:stores){
@@ -507,5 +626,56 @@ public class TradingSystem {
         }
         return null;
 
+    }
+
+    public boolean checkPermissions(int userId,int storeId ,int permissionId) {
+
+        if(getUserById(userId)!=null && getStoreById(storeId)!=null)
+            return getUserById(userId).checkPermissions(getStoreById(storeId),permissionId);
+        return false;
+    }
+
+    public Result getMessagesQueue (int userId) {
+        if(getUserById(userId)!=null)
+        {
+            return new Result(true,getUserById(userId).getMessages());
+        }
+        return new Result(false,"user isnt exist");
+    }
+
+    public Result getNotificationIdByStoreId(int storeId) {
+        if(getStoreById(storeId)!=null)
+        {
+            return new Result(true ,getStoreById(storeId).getNotificationId());
+        }
+        return new Result(false,"cant find the store");
+    }
+
+    public Result getMessagesQueueAsArray(int userId) {
+        if(getUserById(userId)!=null)
+        {
+            return new Result(true,getUserById(userId).getMessages().toArray());
+        }
+        return new Result(false,"user isnt exist");
+    }
+
+    public Result getManagersAndOwnersOfStore(int storeId) {
+        if(getStoreById(storeId)!=null)
+        {
+            return new Result(true,getStoreById(storeId).getManagersAndOwners());
+        }
+        return new Result(false,"no such store");
+    }
+
+    public Result editProduct(int userId, int storeId, int productId, int price, int amount) {
+        User user=getUserById(userId);
+        Product product=getProductById(productId);
+        Store store =getStoreById(storeId);
+        if(user!=null && product!=null){
+            return user.editProduct(store,product,price,amount);
+
+        }else{
+            return new Result(false,"user or product not exist");
+        }
     }
 }

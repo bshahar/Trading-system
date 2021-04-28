@@ -6,16 +6,10 @@ import java.util.List;
 public class Product {
 
 
-    public enum Category {
-        FOOD,
-        DRINKS,
-        ENTERTAINMENT,
-        OTHER
-    }
 
     private int id;
     private String name;
-    private List<Category> categories;
+    private List<String> categories;
     private double price;
     private double rate;
     private int ratesCount;
@@ -23,7 +17,7 @@ public class Product {
     private List<String> reviews;
     private int amount;
 
-    public Product(int id, String name, List<Category> categories, double price , String description) {
+    public Product(int id, String name, List<String> categories, double price , String description) {
         this.id = id;
         this.name = name;
         this.categories = categories;
@@ -47,7 +41,7 @@ public class Product {
         return name;
     }
 
-    public List<Category> getCategories() {
+    public List<String> getCategories() {
         return categories;
     }
 
@@ -78,7 +72,7 @@ public class Product {
 
     public String toString() {
         String output =  "Name - " + this.name + " Categories -  ";
-        for (Category c: categories) {
+        for (String c: categories) {
             output += c + ", ";
         }
         if (output.endsWith(", "))
@@ -91,8 +85,8 @@ public class Product {
     }
 
     public boolean containsCategory(String category){
-        Category c = Category.valueOf(category);
-        for (Category cat:categories) {
+        String c = String.valueOf(category);
+        for (String cat:categories) {
             if(cat.equals(c))
                 return true;
         }
@@ -119,4 +113,7 @@ public class Product {
         return false;
     }
 
+    public void setPrice(int price) {
+        this.price=price;
+    }
 }

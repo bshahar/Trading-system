@@ -49,8 +49,8 @@ public class StoreTest {
         registerId2=(int) API.registeredLogin(userName2,password2).getdata();
         registerId3= (int)API.registeredLogin(userName3,password3).getdata();
         storeId1=(int)API.openStore(registerId1,"kandabior store").getdata();
-        LinkedList <Product.Category> catList= new LinkedList<>();
-        catList.add(Product.Category.FOOD);
+        LinkedList <String> catList= new LinkedList<>();
+        catList.add("FOOD");
         int productId=(int)API.addProduct(1, storeId1,"milk",catList ,10,"FOOD", 5 ).getdata();
 
 
@@ -178,8 +178,8 @@ public class StoreTest {
     @Test
     //AT-13 success
     public void addProductToStoreSuccessTest() throws Exception {
-        List<Product.Category> categories = new LinkedList<>();
-        categories.add(Product.Category.FOOD);
+        List<String> categories = new LinkedList<>();
+        categories.add("FOOD");
         assertTrue((int)(API.addProduct(registerId1,  storeId1, "water",categories,5,"drink", 5).getdata())==2);
 
     }
@@ -187,8 +187,8 @@ public class StoreTest {
     @Test
     //AT-13 fail
     public void addProductToStoreUserNotOwnerFailTest() throws Exception {
-        List<Product.Category> categories = new LinkedList<>();
-        categories.add(Product.Category.FOOD);
+        List<String> categories = new LinkedList<>();
+        categories.add("FOOD");
         assertFalse(API.addProduct(registerId2, storeId1, "water",categories,5,"drink", 5).isResult());
     }
 

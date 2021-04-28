@@ -56,7 +56,7 @@ public class Permission {
         if(this.addProduct == null) return;
         this.addProduct = null;
     }
-    public boolean addProduct(int productId,String name, List<Product.Category> categories, double price, String description, int quantity)
+    public boolean addProduct(int productId,String name, List<String> categories, double price, String description, int quantity)
     {
         if(this.addProduct!= null) {
             return this.addProduct.action(productId, name, categories, price, description, quantity);
@@ -91,10 +91,11 @@ public class Permission {
         if(this.editProduct == null) return;
         this.editProduct = null;
     }
-    public void editProduct()
+    public Result editProduct( Product product, int price, int amount)
     {
         if(this.editProduct!= null)
-            this.editProduct.action();
+            return this.editProduct.action(product,price,amount);
+        return new Result(false,"user has no permissions");
     }
 
     public void allowAppointManager()
@@ -156,11 +157,17 @@ public class Permission {
         if(this.removeOwnerAppointment == null) return;
         this.removeOwnerAppointment = null;
     }
-    public void removeOwnerAppointment()
+    public Result removeOwnerAppointment(User ownerId,User ownerToRemoveId)
     {
         if(this.removeOwnerAppointment!= null)
-            this.removeOwnerAppointment.action();
+            return this.removeOwnerAppointment.action(ownerId, ownerToRemoveId);
+        return new Result(false,"User has no permissions");
     }
+
+
+
+
+
 
 
     public void allowDefinePurchasePolicy()
@@ -423,14 +430,107 @@ public class Permission {
     }
 
 
+    public Member getMember() {
+        return member;
+    }
 
+    public Store getStore() {
+        return store;
+    }
 
+    public AddProduct getAddProduct() {
+        return addProduct;
+    }
 
+    public RemoveProduct getRemoveProduct() {
+        return removeProduct;
+    }
 
+    public EditProduct getEditProduct() {
+        return editProduct;
+    }
 
+    public AppointManager getAppointManager() {
+        return appointManager;
+    }
 
+    public RemoveManagerAppointment getRemoveManagerAppointment() {
+        return removeManagerAppointment;
+    }
 
+    public AppointOwner getAppointOwner() {
+        return appointOwner;
+    }
 
+    public RemoveOwnerAppointment getRemoveOwnerAppointment() {
+        return removeOwnerAppointment;
+    }
 
+    public DefinePurchasePolicy getDefinePurchasePolicy() {
+        return definePurchasePolicy;
+    }
 
+    public EditPurchasePolicy getEditPurchasePolicy() {
+        return editPurchasePolicy;
+    }
+
+    public DefinePurchaseFormat getDefinePurchaseFormat() {
+        return definePurchaseFormat;
+    }
+
+    public EditPurchaseFormat getEditPurchaseFormat() {
+        return editPurchaseFormat;
+    }
+
+    public DefineDiscountPolicy getDefineDiscountPolicy() {
+        return defineDiscountPolicy;
+    }
+
+    public EditDiscountPolicy getEditDiscountPolicy() {
+        return editDiscountPolicy;
+    }
+
+    public DefineDiscountFormat getDefineDiscountFormat() {
+        return defineDiscountFormat;
+    }
+
+    public EditDiscountFormat getEditDiscountFormat() {
+        return editDiscountFormat;
+    }
+
+    public CloseStore getCloseStore() {
+        return closeStore;
+    }
+
+    public ReopenStore getReopenStore() {
+        return reopenStore;
+    }
+
+    public GetWorkersInfo getGetWorkersInfo() {
+        return getWorkersInfo;
+    }
+
+    public ViewMessages getViewMessages() {
+        return viewMessages;
+    }
+
+    public ReplayMessages getReplayMessages() {
+        return replayMessages;
+    }
+
+    public ViewPurchaseHistory getViewPurchaseHistory() {
+        return viewPurchaseHistory;
+    }
+
+    public OpenStore getOpenStore() {
+        return openStore;
+    }
+
+    public AddPermissions getAddPermissions() {
+        return addPermissions;
+    }
+
+    public RemovePermission getRemovePermission() {
+        return removePermission;
+    }
 }

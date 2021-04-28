@@ -58,7 +58,7 @@ public class DiscountAndPurchaseTest {
         params2.add(String.valueOf(productId3));
         policies.put("Minimal Amount", params2);
         //discount of 50% on beers if you buy at least 5 milk & 2 bread from now until february 2022
-        API.addDiscountOnProduct(storeId2, productId1, "And", policies, begin, end, 50);
+        //API.addDiscountOnProduct(storeId2, productId1, "And", policies, begin, end, 50);
     }
 
     @Test

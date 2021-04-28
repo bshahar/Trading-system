@@ -1,5 +1,9 @@
 package Domain;
 
+import Domain.DiscountPolicies.DiscountCondition;
+import Domain.PurchasePolicies.PurchaseCondition;
+
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -141,6 +145,7 @@ public class Member {
         }
         return false;
     }
+
     public boolean removePermissions(User user, Store store, List<Integer> opIndexes) {
         if(permissions.get(store)!=null && permissions.get(store).removePermission()) {
             user.disableMyPermissions(store, opIndexes);
@@ -148,8 +153,6 @@ public class Member {
         }
         return false;
     }
-
-
 
     public void disableMyPermissions(Store store, List<Integer> opIndexes) {
         Permission p = permissions.get(store);
@@ -249,8 +252,6 @@ public class Member {
             }
         }
     }
-
-
 
     public void updateMyPermissions(Store store, List<Integer> opIndexes) {
         Permission p = permissions.get(store);
@@ -380,6 +381,24 @@ public class Member {
         }
     }
 
+    public Result addDiscountPolicy(Store store, String condition, String param, Product.Category category, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage) {
+        if(permissions.containsKey(store)) {
+            Permission permission = permissions.get(store);
+            return permission.defineDiscountPolicy(param, condition, category, prodId, begin, end, conditions, percentage);
+        }
+        else
+            return new Result(false,"User has no permission for this action.");
+    }
+
+    public Result addPurchasePolicy(Store store, PurchaseCondition condition) {
+        if (permissions.containsKey(store)) {
+            Permission permission = permissions.get(store);
+            return permission.definePurchasePolicy(condition);
+        } else
+            return new Result(false, "User has no permission for this action.");
+    }
+
+
     public Result removeMangerFromStore(User owner,User manager, Store store) {
         if(permissions.containsKey(store)){
             Permission permission= permissions.get(store);
@@ -392,6 +411,7 @@ public class Member {
     public List<Store> getMyStores() {
         return this.myStores;
     }
+
     public void addToMyStores(Store store)
     {
         myStores.add(store);

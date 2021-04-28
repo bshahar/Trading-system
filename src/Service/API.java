@@ -193,19 +193,19 @@ public class API {
         return tradingSystem.getProductById(productId);
     }
 
-    public static void addDiscountOnProduct(int storeId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
-        tradingSystem.addDiscountOnProduct(storeId, prodId, operator, policiesParams, begin, end, percentage);
+    public static void addDiscountOnProduct(int storeId, int userId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
+        tradingSystem.addDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage);
     }
 
-    public static void addDiscountOnCategory(int storeId, String category, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
-        tradingSystem.addDiscountOnCategory(storeId, category, operator, policiesParams, begin, end, percentage);
+    public static void addDiscountOnCategory(int storeId, int userId, String category, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
+        tradingSystem.addDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage);
     }
 
-    public static void addDiscountOnStore(int storeId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
-        tradingSystem.addDiscountOnStore(storeId, operator, policiesParams, begin, end, percentage);
+    public static void addDiscountOnStore(int storeId, int userId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
+        tradingSystem.addDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage);
     }
 
-    public static void addPurchasePolicyOnStore(int storeId, String operator, Map<String, List<String>> policiesParams) {
-        tradingSystem.addPurchasePolicyOnStore(storeId, operator, policiesParams);
+    public static void addPurchasePolicyOnStore(int storeId, int userId, String operator, Map<String, List<String>> policiesParams) {
+        tradingSystem.addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
     }
 }

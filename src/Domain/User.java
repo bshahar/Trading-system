@@ -1,5 +1,9 @@
 package Domain;
 
+import Domain.DiscountPolicies.DiscountCondition;
+import Domain.PurchasePolicies.PurchaseCondition;
+
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -166,5 +170,21 @@ public class User {
 
     public List<Permission> getPermissionsOfStore(int storeId) {
         return this.member.getPermissionsOfStore(storeId);
+    }
+
+    public Result addDiscountOnProduct(Store store, String condition, String param, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage) {
+        return member.addDiscountPolicy(store, condition, param, null, prodId, begin, end, conditions, percentage);
+    }
+
+    public Result addDiscountOnCategory(Store store, String condition, String param, Product.Category category, Date begin, Date end, DiscountCondition conditions, int percentage) {
+        return member.addDiscountPolicy(store, condition, param, category, -1, begin, end, conditions, percentage);
+    }
+
+    public Result addDiscountOnStore(Store store, String condition, String param, Date begin, Date end, DiscountCondition conditions, int percentage) {
+        return member.addDiscountPolicy(store, condition, param, null, -1, begin, end, conditions, percentage);
+    }
+
+    public Result addPurchasePolicy(Store store, PurchaseCondition condition) {
+        return member.addPurchasePolicy(store, condition);
     }
 }

@@ -290,8 +290,8 @@ public class Store {
 
     private boolean validPurchase(User user, Date time, Bag bag){
         boolean isValid = true;
-        for (ImmediatePurchase impurch : this.purchasesOnStore) {
-            if (!impurch.validatePurchase(user, new Date(), bag))
+        for (ImmediatePurchase immPurchase : this.purchasesOnStore) {
+            if (!immPurchase.validatePurchase(user, new Date(), bag))
                 isValid = false;
         }
         return isValid;

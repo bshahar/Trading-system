@@ -45,16 +45,6 @@ public class DiscountCondition { //Compound object
                 dp = new DiscountByMinimalCost(Integer.parseInt(params.get(0)));
                 this.discounts.add(dp);
                 break;
-/*
-            case "All Products":
-                dp = new DiscountByStore();
-                this.discounts.add(dp);
-                break;
-            case "Category":
-                dp = new DiscountBy();
-                this.discounts.add(dp);
-                break;
-*/
 
         }
     }

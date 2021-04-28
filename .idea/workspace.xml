@@ -22,13 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#42 fixes after merge">
-      <change afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#42 create tests for discount &amp; purchase policies, no implementation yet">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/DefineDiscountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/DefineDiscountPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/DefinePurchasePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/DefinePurchasePolicy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -399,7 +403,13 @@
       <option name="presentableId" value="LOCAL‎00028" />
       <updated>1619367322850</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL‎00029" summary="#42 create tests for discount &amp; purchase policies, no implementation yet">
+      <created>1619465327147</created>
+      <option name="number" value="LOCAL‎00029" />
+      <option name="presentableId" value="LOCAL‎00029" />
+      <updated>1619465327147</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -442,13 +452,15 @@
     <MESSAGE value="#42 starting purchase system" />
     <MESSAGE value="xml" />
     <MESSAGE value="#42 fixes after merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="#42 fixes after merge" />
+    <MESSAGE value="#42 create tests for discount &amp; purchase policies, no implementation yet" />
+    <option name="LAST_COMMIT_MESSAGE" value="#42 create tests for discount &amp; purchase policies, no implementation yet" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1474" y="47" key="#com.intellij.ide.util.MemberChooser" timestamp="1619346808358">
-      <screen x="-1920" y="0" width="1280" height="680" />
+    <state x="535" y="57" key="#com.intellij.ide.util.MemberChooser" timestamp="1619615677219">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-1474" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619346808358" />
+    <state x="535" y="57" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1619615677219" />
     <state x="-1572" y="82" key="FileChooserDialogImpl" timestamp="1619337214797">
       <screen x="-1920" y="0" width="1280" height="680" />
     </state>
@@ -474,15 +486,20 @@
     </state>
     <state x="-1799" y="0" key="SettingsEditor/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619337220586" />
     <state x="145" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1619352351396" />
-    <state x="280" y="90" key="Vcs.Push.Dialog.v2" timestamp="1619367328728">
+    <state x="280" y="90" key="Vcs.Push.Dialog.v2" timestamp="1619465340097">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-1687" y="74" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619347057383" />
-    <state x="280" y="90" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1619367328728" />
-    <state x="-1726" y="151" width="1089" height="544" key="dock-window-1" timestamp="1619346905220">
-      <screen x="-1920" y="0" width="1280" height="680" />
+    <state x="280" y="90" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1619465340097" />
+    <state x="90" y="0" width="1419" height="790" maximized="true" key="dock-window-1" timestamp="1619623760982">
+      <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="-1726" y="151" width="1089" height="544" key="dock-window-1/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619346905220" />
+    <state x="90" y="0" width="1419" height="790" maximized="true" key="dock-window-1/0.0.1536.824/1920.34.1680.1010@1920.34.1680.1010" timestamp="1619623760982" />
+    <state x="562" y="160" key="refactoring.ChangeSignatureDialog" timestamp="1619615679823">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="562" y="160" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1619615679823" />
     <state x="425" y="187" key="run.anything.popup" timestamp="1619362509598">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

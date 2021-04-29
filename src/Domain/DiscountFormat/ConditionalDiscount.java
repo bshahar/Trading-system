@@ -2,6 +2,7 @@ package Domain.DiscountFormat;
 
 import Domain.Bag;
 import Domain.DiscountPolicies.*;
+import Domain.Product;
 import Domain.User;
 
 import java.util.*;
@@ -20,11 +21,11 @@ public class ConditionalDiscount extends Discount {
 
     //Returns the amount of money to reduce from the original cost of the bag
     @Override
-    public double calculateDiscount(double totalCost, User user, Date time, Bag bag) {
+    public double calculateDiscount(Product prod, User user, Date time, Bag bag) {
         double discount = 0;
         if (time.after(this.begin) && time.before(this.end)) {
             if (conditions.validateCondition(user, time, bag)) {
-                discount = (this.percentage * totalCost) / 100;
+                discount = (this.percentage * prod.getPrice()) / 100;
             }
         }
         return discount;

@@ -270,11 +270,11 @@ public class TradingSystem {
                         if (store.canBuyProduct(product, products.get(product))) {
                             store.removeProductAmount(product, products.get(product));
                             productsAmountBuy.put(product, products.get(product));
-                            totalCost += (product.getPrice() * products.get(product));
+                            totalCost += ((product.getPrice() - store.calcDiscountPerProduct(product,new Date(),getUserById(userId),bag)) * products.get(product));
                         }
                     }
                 }
-                totalCost = store.calculateDiscounts(totalCost, getUserById(userId), mathOperator);
+                //totalCost = store.calculateDiscounts(totalCost, getUserById(userId), mathOperator);
                 if (paymentAdapter.pay(totalCost, creditInfo)) {
                     Receipt rec = new Receipt(storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
                     this.receipts.add(rec);

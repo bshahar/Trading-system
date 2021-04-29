@@ -1,6 +1,7 @@
 package Domain.DiscountFormat;
 
 import Domain.Bag;
+import Domain.Product;
 import Domain.User;
 
 import java.util.Date;
@@ -17,7 +18,7 @@ public class SimpleDiscount extends Discount{
     }
 
     @Override
-    public double calculateDiscount(double totalCost, User user, Date time, Bag bag) {
-        return (this.percentage * totalCost) / 100;
+    public double calculateDiscount(Product prod, User user, Date time, Bag bag) {
+        return (this.percentage * prod.getPrice()) / 100;
     }
 }

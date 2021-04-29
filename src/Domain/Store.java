@@ -208,7 +208,7 @@ public class Store {
         this.purchasesOnStore.add(new ImmediatePurchase(counter.inc(), conditions));
     }
 
-    public double calculateDiscounts(double totalCost, User user, String mathOperator) {
+   /* public double calculateDiscounts(double totalCost, User user, String mathOperator) {
         Bag bag = this.usersBags.get(user.getId());
         switch (mathOperator) {
             case "Max":
@@ -239,7 +239,47 @@ public class Store {
         }
         return totalCost;
     }
+*/
+    public double calcDiscountPerProduct(Product prod, Date date, User user, Bag bag){
+        List<Double> ANDdiscount = new LinkedList<>();
+        List<Double> Maxdiscount = new LinkedList<>();
+        double discountProduct = 0;
+        double discountCategory = 0;
+        double discountStore = 0;
+        if (this.discountsOnProducts.containsKey(prod)) {
+            discountProduct = discountsOnProducts.get(prod).calculateDiscount(prod,user,date,bag);
+            if(discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
+                Maxdiscount.add(discountProduct);
+            else
+                ANDdiscount.add(discountProduct);
+        }
+        for (Product.Category cat:prod.getCategories()) {
+            discountCategory = discountsOnCategories.get(cat).calculateDiscount(prod,user,date,bag);
+            if(discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
+                Maxdiscount.add(discountCategory);
+            else
+                ANDdiscount.add(discountCategory);
+        }
+        for (Discount disc:discountsOnStore) {
+            discountStore = disc.calculateDiscount(prod,user,date,bag);
+            if(disc.getMathOp().equals(Discount.MathOp.MAX))
+                Maxdiscount.add(discountStore);
+            else
+                ANDdiscount.add(discountStore);
+        }
 
+        double finalDiscount = 0;
+        for (double disc: ANDdiscount) {
+            finalDiscount += disc;
+        }
+        for (double disc:Maxdiscount) {
+            if(disc > finalDiscount)
+                finalDiscount = disc;
+        }
+        return finalDiscount;
+
+    }
+/*
     private double calcStoreDiscount(double totalCost, User user, Bag bag) {
         double discount = 0;
         for (Discount disCon: this.discountsOnStore) {
@@ -276,7 +316,7 @@ public class Store {
         }
         return discount;
     }
-
+*/
     public void addSimpleDiscountOnProduct(int prodId, Date begin, Date end, int percentage) {
         this.discountsOnProducts.put(getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage));
     }

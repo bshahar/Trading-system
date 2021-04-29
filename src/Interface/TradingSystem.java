@@ -3,9 +3,11 @@ package Interface;
 import Domain.*;
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
+import Domain.DiscountPolicies.PolicyCondition;
 import Domain.Operators.*;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Service.*;
+import javafx.util.Pair;
 
 import java.util.*;
 
@@ -471,31 +473,29 @@ public class TradingSystem {
     }
 
 
-    public Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         Store st = getStoreById(storeId);
         if(st != null && percentage > 0 && percentage <= 100 && end.after(new Date())) {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
-
             if (operator == null) {
-                //st.addSimpleDiscountOnProduct(prodId, begin, end, percentage);
                 return getUserById(userId).addDiscountOnProduct(st, "simple", "PRODUCT", prodId, begin, end, null, percentage, op);
             }
             else {
                 DiscountCondition conditions = new DiscountCondition();
-                for (String str : policiesParams.keySet()) {
-                    conditions.addDiscount(str, policiesParams.get(str));
+                for (Pair<String, List<String>> pair: policiesParams) {
+                    PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
+                    conditions.addDiscount(pol);
                 }
                 setDiscountOperator(operator, conditions);
-                //st.addDiscountOnProduct(prodId, begin, end, conditions, percentage);
                 return getUserById(userId).addDiscountOnProduct(st, "complex", "PRODUCT", prodId, begin, end, conditions, percentage, op);
             }
         }
         return new Result(false, "Could not add discount policy.");
     }
 
-    public Result addDiscountOnCategory(int storeId, int userId, String category, String operator, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public Result addDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         Store st = getStoreById(storeId);
         if(st != null && percentage > 0 && percentage <= 100 && !end.after(new Date())) {
             Discount.MathOp op = Discount.MathOp.SUM;
@@ -503,54 +503,52 @@ public class TradingSystem {
                 op = Discount.MathOp.MAX;
             Product.Category cat = Product.Category.valueOf(category);
             if (operator == null) {
-                //st.addSimpleDiscountOnCategory(cat, begin, end, percentage);
                 return getUserById(userId).addDiscountOnCategory(st, "simple", "PRODUCT", cat, begin, end, null, percentage, op);
             }
             else {
                 DiscountCondition conditions = new DiscountCondition();
-                for (String str : policiesParams.keySet()) {
-                    conditions.addDiscount(str, policiesParams.get(str));
+                for (Pair<String, List<String>> pair: policiesParams) {
+                    PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
+                    conditions.addDiscount(pol);
                 }
                 setDiscountOperator(operator, conditions);
-                //st.addDiscountOnCategory(cat, begin, end, conditions, percentage);
                 return getUserById(userId).addDiscountOnCategory(st, "complex", "PRODUCT", cat, begin, end, conditions, percentage, op);
             }
         }
         return new Result(false, "Could not add discount policy.");
     }
 
-    public Result addDiscountOnStore(int storeId, int userId, String operator, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public Result addDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         Store st = getStoreById(storeId);
         if(st != null && percentage > 0 && percentage <= 100 && !end.after(new Date())) {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
             if (operator == null) {
-                //st.addSimpleDiscountOnStore(begin, end, percentage);
                 return getUserById(userId).addDiscountOnStore(st, "simple", "PRODUCT", begin, end, null, percentage, op);
             }
             else {
                 DiscountCondition conditions = new DiscountCondition();
-                for (String str : policiesParams.keySet()) {
-                    conditions.addDiscount(str, policiesParams.get(str));
+                for (Pair<String, List<String>> pair: policiesParams) {
+                    PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
+                    conditions.addDiscount(pol);
                 }
                 setDiscountOperator(operator, conditions);
-                //st.addDiscountOnStore(begin, end, conditions, percentage);
                 return getUserById(userId).addDiscountOnStore(st, "simple", "PRODUCT", begin, end, conditions, percentage, op);
             }
         }
         return new Result(false, "Could not add discount policy.");
     }
 
-    public Result addPurchasePolicyOnStore(int storeId, int userId, String operator, Map<String,List<String>> policiesParams){
+    public Result addPurchasePolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams){
         Store st = getStoreById(storeId);
         if(st != null) {
             PurchaseCondition conditions = new PurchaseCondition();
-            for (String str : policiesParams.keySet()) {
-                conditions.addPurchase(str, policiesParams.get(str));
+            for (Pair<String, List<String>> pair: policiesParams) {
+                PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
+                conditions.addPurchase(pol);
             }
             setPurchaseOperator(operator, conditions);
-            //st.addPurchasePolicy(conditions);
             return getUserById(userId).addPurchasePolicy(st, conditions);
         }
         return new Result(false, "Could not add purchase policy.");
@@ -598,7 +596,7 @@ public class TradingSystem {
         return new Result(false, "No receipt with this user id and store.");
     }
 
-    //TODO implement all methods below
+    //TODO implement all methods below & get functions
     public Result editDiscountOnProduct() {
         return new Result(false, "fail");
     }

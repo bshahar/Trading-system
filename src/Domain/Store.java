@@ -247,18 +247,24 @@ public class Store {
         double discountCategory = 0;
         double discountStore = 0;
         if (this.discountsOnProducts.containsKey(prod)) {
-            discountProduct = discountsOnProducts.get(prod).calculateDiscount(prod,user,date,bag);
-            if(discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
-                MaxDiscount.add(discountProduct);
-            else
-                SumDiscount.add(discountProduct);
+            Discount dis = discountsOnProducts.get(prod);
+            if(dis != null) {
+                discountProduct = discountsOnProducts.get(prod).calculateDiscount(prod, user, date, bag);
+                if (discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
+                    MaxDiscount.add(discountProduct);
+                else
+                    SumDiscount.add(discountProduct);
+            }
         }
         for (Product.Category cat:prod.getCategories()) {
-            discountCategory = discountsOnCategories.get(cat).calculateDiscount(prod,user,date,bag);
-            if(discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
-                MaxDiscount.add(discountCategory);
-            else
-                SumDiscount.add(discountCategory);
+            Discount dis = discountsOnCategories.get(cat);
+            if(dis != null) {
+                discountCategory = dis.calculateDiscount(prod, user, date, bag);
+                if (discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
+                    MaxDiscount.add(discountCategory);
+                else
+                    SumDiscount.add(discountCategory);
+            }
         }
         for (Discount disc:discountsOnStore) {
             discountStore = disc.calculateDiscount(prod,user,date,bag);

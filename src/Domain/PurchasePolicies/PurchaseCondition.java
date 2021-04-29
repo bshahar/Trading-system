@@ -2,6 +2,7 @@ package Domain.PurchasePolicies;
 
 
 import Domain.*;
+import Domain.DiscountPolicies.PolicyCondition;
 import Domain.Operators.*;
 
 import java.util.Date;
@@ -30,18 +31,18 @@ public class PurchaseCondition {
 
     public void setOperator(LogicOperator operator) { this.operator = operator; }
 
-    public void addPurchase(String policy, List<String> params) {
+    public void addPurchase(PolicyCondition policy) {
         PurchasePolicy pp;
         if (this.purchases == null)
             this.purchases = new LinkedList<>();
 
-        switch (policy) {
+        switch (policy.getPolicyName()) {
             case "Age Limit":
-                pp = new AgeLimitPolicy(Integer.parseInt(params.get(0)));
+                pp = new AgeLimitPolicy(Integer.parseInt(policy.getPolicyParams().get(0)));
                 this.purchases.add(pp);
                 break;
             case "Time Limit":
-                pp = new TimeLimitPolicy(Integer.parseInt(params.get(0)));
+                pp = new TimeLimitPolicy(Integer.parseInt(policy.getPolicyParams().get(0)));
                 this.purchases.add(pp);
                 break;
             default:

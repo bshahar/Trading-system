@@ -27,30 +27,30 @@ public class DiscountCondition { //Compound object
 
     public void setOperator(LogicOperator operator) { this.operator = operator; }
 
-    public void addDiscount(String policy, List<String> params) {
+    public void addDiscount(PolicyCondition policy) {
         DiscountPolicy dp;
         if (this.discounts == null)
             this.discounts = new LinkedList<>();
 
-        switch (policy) {
+        switch (policy.getPolicyName()) {
             case "Minimal Amount":
-                dp = new DiscountByMinimalAmount(Integer.parseInt(params.get(0)), Integer.parseInt(params.get(1)));
+                dp = new DiscountByMinimalAmount(Integer.parseInt(policy.getPolicyParams().get(0)), Integer.parseInt(policy.getPolicyParams().get(1)));
                 this.discounts.add(dp);
                 break;
             case "Minimal Cost":
-                dp = new DiscountByMinimalCost(Double.parseDouble(params.get(0)));
+                dp = new DiscountByMinimalCost(Double.parseDouble(policy.getPolicyParams().get(0)));
                 this.discounts.add(dp);
                 break;
             case "Purchase Time":
                 //params = boolean byDayInWeek, boolean byDayInMonth, boolean byHourInDay, int dayInWeek, int dayInMonth, int beginHour, int endHour
                 dp = new DiscountByPurchaseTime(
-                        Boolean.parseBoolean(params.get(0)),
-                        Boolean.parseBoolean(params.get(1)),
-                        Boolean.parseBoolean(params.get(2)),
-                        Integer.parseInt(params.get(3)),
-                        Integer.parseInt(params.get(4)),
-                        Integer.parseInt(params.get(5)),
-                        Integer.parseInt(params.get(6)));
+                        Boolean.parseBoolean(policy.getPolicyParams().get(0)),
+                        Boolean.parseBoolean(policy.getPolicyParams().get(1)),
+                        Boolean.parseBoolean(policy.getPolicyParams().get(2)),
+                        Integer.parseInt(policy.getPolicyParams().get(3)),
+                        Integer.parseInt(policy.getPolicyParams().get(4)),
+                        Integer.parseInt(policy.getPolicyParams().get(5)),
+                        Integer.parseInt(policy.getPolicyParams().get(6)));
                 this.discounts.add(dp);
                 break;
 

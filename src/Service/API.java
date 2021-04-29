@@ -42,8 +42,8 @@ public class API {
         return tradingSystem.getCart(userId);
     }
 
-    public static Result buyProduct(int userId, int storeId, String creditInfo, String mathOperator) {
-        return tradingSystem.buyProducts(userId, storeId, creditInfo, mathOperator);
+    public static Result buyProduct(int userId, int storeId, String creditInfo) {
+        return tradingSystem.buyProducts(userId, storeId, creditInfo);
     }
 
     public static Result registeredLogin(String username, String password){
@@ -193,19 +193,23 @@ public class API {
         return tradingSystem.getProductById(productId);
     }
 
-    public static Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
-        return tradingSystem.addDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage);
+    public static Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.addDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public static void addDiscountOnCategory(int storeId, int userId, String category, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
-        tradingSystem.addDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage);
+    public static void addDiscountOnCategory(int storeId, int userId, String category, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        tradingSystem.addDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public static void addDiscountOnStore(int storeId, int userId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
-        tradingSystem.addDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage);
+    public static void addDiscountOnStore(int storeId, int userId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        tradingSystem.addDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
     public static void addPurchasePolicyOnStore(int storeId, int userId, String operator, Map<String, List<String>> policiesParams) {
         tradingSystem.addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
+    }
+
+    public static Result getReceipt(int receiptId) {
+        return tradingSystem.getReceipt(receiptId);
     }
 }

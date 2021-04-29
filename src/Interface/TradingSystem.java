@@ -1,6 +1,7 @@
 package Interface;
 
 import Domain.*;
+import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.Operators.*;
 import Domain.PurchasePolicies.PurchaseCondition;
@@ -15,6 +16,7 @@ public class TradingSystem {
     private static counter userCounter;
     private static counter storeCounter;
     private static counter productCounter;
+    private static counter receiptCounter;
 
     private PaymentAdapter paymentAdapter;
     private SupplementAdapter supplementAdapter;
@@ -27,15 +29,16 @@ public class TradingSystem {
 
 
     public TradingSystem (User systemManager) {
-        this.paymentAdapter= new PaymentAdapter(new DemoPayment());
+        this.paymentAdapter = new PaymentAdapter(new DemoPayment());
         this.stores = Collections.synchronizedList(new LinkedList<>());
-        this.receipts =Collections.synchronizedList( new LinkedList<>());
-        this.systemManager =systemManager;
+        this.receipts = Collections.synchronizedList(new LinkedList<>());
+        this.systemManager = systemManager;
         this.users = Collections.synchronizedList(new LinkedList<>());
-        this.userAuth=new UserAuth();
+        this.userAuth = new UserAuth();
         userCounter = new counter();
         storeCounter = new counter();
-        productCounter=new counter();
+        productCounter = new counter();
+        receiptCounter = new counter();
     }
 
 
@@ -256,7 +259,7 @@ public class TradingSystem {
         }
     }
 
-    public Result buyProducts(int userId, int storeId, String creditInfo, String mathOperator) {
+    public Result buyProducts(int userId, int storeId, String creditInfo) {
         try {
             Map<Product, Integer> products = getBag(userId, storeId);
             Store store = getStoreById(storeId);
@@ -276,16 +279,13 @@ public class TradingSystem {
                 }
                 //totalCost = store.calculateDiscounts(totalCost, getUserById(userId), mathOperator);
                 if (paymentAdapter.pay(totalCost, creditInfo)) {
-                    Receipt rec = new Receipt(storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
+                    Receipt rec = new Receipt(receiptCounter.inc(), storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
+                    rec.setTotalCost(totalCost);
                     this.receipts.add(rec);
                     store.addReceipt(rec);
                     getUserById(userId).addReceipt(rec);
                     KingLogger.logError(Level.INFO, "User with id " + userId + " made purchase in store " + storeId);
-                    if (products.size() == productsAmountBuy.size()) {
-                        return new Result(true, "purchase confirmed successfully");
-                    } else {
-                        return new Result(true, "some product missing");
-                    }
+                    return new Result(true, rec.getReceiptId());
                 } else {
                     store.abortPurchase(productsAmountBuy);
                     KingLogger.logError(Level.INFO, "User with id " + userId + " couldn't make a purchase in store " + storeId);
@@ -471,12 +471,16 @@ public class TradingSystem {
     }
 
 
-    public Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage) {
+    public Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, Map<String, List<String>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         Store st = getStoreById(storeId);
         if(st != null && percentage > 0 && percentage <= 100 && end.after(new Date())) {
+            Discount.MathOp op = Discount.MathOp.SUM;
+            if(mathOp.equals("Max"))
+                op = Discount.MathOp.MAX;
+
             if (operator == null) {
                 //st.addSimpleDiscountOnProduct(prodId, begin, end, percentage);
-                return getUserById(userId).addDiscountOnProduct(st, "simple", "PRODUCT", prodId, begin, end, null, percentage);
+                return getUserById(userId).addDiscountOnProduct(st, "simple", "PRODUCT", prodId, begin, end, null, percentage, op);
             }
             else {
                 DiscountCondition conditions = new DiscountCondition();
@@ -485,19 +489,22 @@ public class TradingSystem {
                 }
                 setDiscountOperator(operator, conditions);
                 //st.addDiscountOnProduct(prodId, begin, end, conditions, percentage);
-                return getUserById(userId).addDiscountOnProduct(st, "complex", "PRODUCT", prodId, begin, end, conditions, percentage);
+                return getUserById(userId).addDiscountOnProduct(st, "complex", "PRODUCT", prodId, begin, end, conditions, percentage, op);
             }
         }
         return new Result(false, "Could not add discount policy.");
     }
 
-    public Result addDiscountOnCategory(int storeId, int userId, String category, String operator, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage) {
+    public Result addDiscountOnCategory(int storeId, int userId, String category, String operator, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         Store st = getStoreById(storeId);
         if(st != null && percentage > 0 && percentage <= 100 && !end.after(new Date())) {
+            Discount.MathOp op = Discount.MathOp.SUM;
+            if(mathOp.equals("Max"))
+                op = Discount.MathOp.MAX;
             Product.Category cat = Product.Category.valueOf(category);
             if (operator == null) {
                 //st.addSimpleDiscountOnCategory(cat, begin, end, percentage);
-                return getUserById(userId).addDiscountOnCategory(st, "simple", "PRODUCT", cat, begin, end, null, percentage);
+                return getUserById(userId).addDiscountOnCategory(st, "simple", "PRODUCT", cat, begin, end, null, percentage, op);
             }
             else {
                 DiscountCondition conditions = new DiscountCondition();
@@ -506,18 +513,21 @@ public class TradingSystem {
                 }
                 setDiscountOperator(operator, conditions);
                 //st.addDiscountOnCategory(cat, begin, end, conditions, percentage);
-                return getUserById(userId).addDiscountOnCategory(st, "complex", "PRODUCT", cat, begin, end, conditions, percentage);
+                return getUserById(userId).addDiscountOnCategory(st, "complex", "PRODUCT", cat, begin, end, conditions, percentage, op);
             }
         }
         return new Result(false, "Could not add discount policy.");
     }
 
-    public Result addDiscountOnStore(int storeId, int userId, String operator, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage) {
+    public Result addDiscountOnStore(int storeId, int userId, String operator, Map<String,List<String>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         Store st = getStoreById(storeId);
         if(st != null && percentage > 0 && percentage <= 100 && !end.after(new Date())) {
+            Discount.MathOp op = Discount.MathOp.SUM;
+            if(mathOp.equals("Max"))
+                op = Discount.MathOp.MAX;
             if (operator == null) {
                 //st.addSimpleDiscountOnStore(begin, end, percentage);
-                return getUserById(userId).addDiscountOnStore(st, "simple", "PRODUCT", begin, end, null, percentage);
+                return getUserById(userId).addDiscountOnStore(st, "simple", "PRODUCT", begin, end, null, percentage, op);
             }
             else {
                 DiscountCondition conditions = new DiscountCondition();
@@ -526,7 +536,7 @@ public class TradingSystem {
                 }
                 setDiscountOperator(operator, conditions);
                 //st.addDiscountOnStore(begin, end, conditions, percentage);
-                return getUserById(userId).addDiscountOnStore(st, "simple", "PRODUCT", begin, end, conditions, percentage);
+                return getUserById(userId).addDiscountOnStore(st, "simple", "PRODUCT", begin, end, conditions, percentage, op);
             }
         }
         return new Result(false, "Could not add discount policy.");
@@ -578,6 +588,14 @@ public class TradingSystem {
                 conditions.setOperator(new NoneOperator());
                 break;
         }
+    }
+
+    public Result getReceipt(int receiptId) {
+        for (Receipt r: this.receipts) {
+            if(r.getReceiptId() == receiptId)
+                return new Result(true, r);
+        }
+        return new Result(false, "No receipt with this user id and store.");
     }
 
     //TODO implement all methods below

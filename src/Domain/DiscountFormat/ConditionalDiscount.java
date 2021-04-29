@@ -8,15 +8,16 @@ import Domain.User;
 import java.util.*;
 
 public class ConditionalDiscount extends Discount {
-    private DiscountCondition conditions;
-    private int percentage;
 
-    public ConditionalDiscount(int id, Date begin, Date end, DiscountCondition conditions, int percentage) {
+    private DiscountCondition conditions;
+
+    public ConditionalDiscount(int id, Date begin, Date end, DiscountCondition conditions, int percentage, MathOp op) {
         this.id = id;
         this.begin = begin;
         this.end = end;
         this.conditions = conditions;
         this.percentage = percentage;
+        this.mathOp = op;
     }
 
     //Returns the amount of money to reduce from the original cost of the bag
@@ -30,5 +31,7 @@ public class ConditionalDiscount extends Discount {
         }
         return discount;
     }
+
+
 
 }

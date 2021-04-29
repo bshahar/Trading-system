@@ -11,13 +11,14 @@ public abstract class Discount {
 
     public enum MathOp {
         MAX,
-        AND
+        SUM
     }
 
     protected int id;
     protected Date begin;
     protected Date end;
     protected MathOp mathOp;
+    protected int percentage;
 
     public abstract double calculateDiscount(Product prod, User user, Date time, Bag bag);
 

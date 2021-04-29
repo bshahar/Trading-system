@@ -47,7 +47,7 @@ public class PurchaseTest {
     //AT-9
     public void purchaseOneItemSuccessTest(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
-        Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789", "").isResult());
+        Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789").isResult());
     }
 
 
@@ -56,7 +56,7 @@ public class PurchaseTest {
     public void purchaseTwoItemsSuccessTest(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
         API.addProductToCart(registerId1,storeId1,productId2,1);
-        Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789", "").isResult());
+        Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789").isResult());
     }
 
     @Test
@@ -64,8 +64,8 @@ public class PurchaseTest {
     public void twoUsersPurchaseSameItemFailTest(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
         API.addProductToCart(registerId2,storeId1,productId1,1);
-        Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789", "").isResult());
-        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, "123456789", "").isResult());
+        Assertions.assertTrue(API.buyProduct(registerId1,storeId1,"123456789").isResult());
+        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, "123456789").isResult());
     }
 
     public void TestSync(){
@@ -76,13 +76,13 @@ public class PurchaseTest {
             Thread thread1= new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    API.buyProduct(registerId1,storeId1,"123456789", "");
+                    API.buyProduct(registerId1,storeId1,"123456789");
                 }
             });
             Thread thread2= new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    API.buyProduct(registerId2,storeId1,"123456789", "");
+                    API.buyProduct(registerId2,storeId1,"123456789");
                 }
             });
             thread1.start();
@@ -134,7 +134,7 @@ public class PurchaseTest {
         try{
             final boolean[] success = {false};
             API.addProductToCart(registerId2,storeId1,productId1,1);
-            Thread thread1= new Thread(() -> API.buyProduct(registerId2,storeId1,"123456789", ""));
+            Thread thread1= new Thread(() -> API.buyProduct(registerId2,storeId1,"123456789"));
             Thread thread2= new Thread(new Runnable() {
                 @Override
                 public void run() {
@@ -158,7 +158,7 @@ public class PurchaseTest {
     //AT-12.1
     public void getPersonalPurchaseHistorySuccessTest(){
         API.addProductToCart(registerId1,storeId1,productId1,1);
-        API.buyProduct(registerId1,storeId1,"123456789", "");
+        API.buyProduct(registerId1,storeId1,"123456789");
         List<Receipt> receiptList=(List<Receipt>) API.getUserPurchaseHistory(registerId1).getData();
         assertEquals(receiptList.get(0).getUserId(), registerId1);
     }
@@ -168,7 +168,7 @@ public class PurchaseTest {
     public void getPersonalPurchaseHistoryFailTest(){
         int guestId= (int)API.guestLogin().getData();
         API.addProductToCart(guestId,storeId1,productId1,1);
-        API.buyProduct(guestId,storeId1,"123456789", "");
+        API.buyProduct(guestId,storeId1,"123456789");
         Assertions.assertFalse(API.getUserPurchaseHistory(guestId).isResult());
     }
 

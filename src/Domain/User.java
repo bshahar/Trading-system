@@ -1,5 +1,6 @@
 package Domain;
 
+import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchasePolicies.PurchaseCondition;
 
@@ -172,16 +173,16 @@ public class User {
         return this.member.getPermissionsOfStore(storeId);
     }
 
-    public Result addDiscountOnProduct(Store store, String condition, String param, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage) {
-        return member.addDiscountPolicy(store, condition, param, null, prodId, begin, end, conditions, percentage);
+    public Result addDiscountOnProduct(Store store, String condition, String param, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+        return member.addDiscountPolicy(store, condition, param, null, prodId, begin, end, conditions, percentage, op);
     }
 
-    public Result addDiscountOnCategory(Store store, String condition, String param, Product.Category category, Date begin, Date end, DiscountCondition conditions, int percentage) {
-        return member.addDiscountPolicy(store, condition, param, category, -1, begin, end, conditions, percentage);
+    public Result addDiscountOnCategory(Store store, String condition, String param, Product.Category category, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+        return member.addDiscountPolicy(store, condition, param, category, -1, begin, end, conditions, percentage, op);
     }
 
-    public Result addDiscountOnStore(Store store, String condition, String param, Date begin, Date end, DiscountCondition conditions, int percentage) {
-        return member.addDiscountPolicy(store, condition, param, null, -1, begin, end, conditions, percentage);
+    public Result addDiscountOnStore(Store store, String condition, String param, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+        return member.addDiscountPolicy(store, condition, param, null, -1, begin, end, conditions, percentage, op);
     }
 
     public Result addPurchasePolicy(Store store, PurchaseCondition condition) {

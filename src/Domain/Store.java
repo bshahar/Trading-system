@@ -192,16 +192,16 @@ public class Store {
         }
     }
 
-    public void addDiscountOnProduct(int prodId, Date begin, Date end, DiscountCondition conditions, int percentage) {
-        this.discountsOnProducts.put(getProductById(prodId), new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage));
+    public void addDiscountOnProduct(int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+        this.discountsOnProducts.put(getProductById(prodId), new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
-    public void addDiscountOnCategory(Product.Category category, Date begin, Date end, DiscountCondition conditions, int percentage) {
-        this.discountsOnCategories.put(category, new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage));
+    public void addDiscountOnCategory(Product.Category category, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+        this.discountsOnCategories.put(category, new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
-    public void addDiscountOnStore(Date begin, Date end, DiscountCondition conditions, int percentage) {
-        this.discountsOnStore.add(new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage));
+    public void addDiscountOnStore(Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+        this.discountsOnStore.add(new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
     public void addPurchasePolicy(PurchaseCondition conditions) {
@@ -241,38 +241,38 @@ public class Store {
     }
 */
     public double calcDiscountPerProduct(Product prod, Date date, User user, Bag bag){
-        List<Double> ANDdiscount = new LinkedList<>();
-        List<Double> Maxdiscount = new LinkedList<>();
+        List<Double> SumDiscount = new LinkedList<>();
+        List<Double> MaxDiscount = new LinkedList<>();
         double discountProduct = 0;
         double discountCategory = 0;
         double discountStore = 0;
         if (this.discountsOnProducts.containsKey(prod)) {
             discountProduct = discountsOnProducts.get(prod).calculateDiscount(prod,user,date,bag);
             if(discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
-                Maxdiscount.add(discountProduct);
+                MaxDiscount.add(discountProduct);
             else
-                ANDdiscount.add(discountProduct);
+                SumDiscount.add(discountProduct);
         }
         for (Product.Category cat:prod.getCategories()) {
             discountCategory = discountsOnCategories.get(cat).calculateDiscount(prod,user,date,bag);
             if(discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
-                Maxdiscount.add(discountCategory);
+                MaxDiscount.add(discountCategory);
             else
-                ANDdiscount.add(discountCategory);
+                SumDiscount.add(discountCategory);
         }
         for (Discount disc:discountsOnStore) {
             discountStore = disc.calculateDiscount(prod,user,date,bag);
             if(disc.getMathOp().equals(Discount.MathOp.MAX))
-                Maxdiscount.add(discountStore);
+                MaxDiscount.add(discountStore);
             else
-                ANDdiscount.add(discountStore);
+                SumDiscount.add(discountStore);
         }
 
         double finalDiscount = 0;
-        for (double disc: ANDdiscount) {
+        for (double disc: SumDiscount) {
             finalDiscount += disc;
         }
-        for (double disc:Maxdiscount) {
+        for (double disc:MaxDiscount) {
             if(disc > finalDiscount)
                 finalDiscount = disc;
         }
@@ -317,16 +317,16 @@ public class Store {
         return discount;
     }
 */
-    public void addSimpleDiscountOnProduct(int prodId, Date begin, Date end, int percentage) {
-        this.discountsOnProducts.put(getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage));
+    public void addSimpleDiscountOnProduct(int prodId, Date begin, Date end, int percentage, Discount.MathOp op) {
+        this.discountsOnProducts.put(getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
-    public void addSimpleDiscountOnCategory(Product.Category category, Date begin, Date end, int percentage) {
-        this.discountsOnCategories.put(category, new SimpleDiscount(counter.inc(), begin, end, percentage));
+    public void addSimpleDiscountOnCategory(Product.Category category, Date begin, Date end, int percentage, Discount.MathOp op) {
+        this.discountsOnCategories.put(category, new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
-    public void addSimpleDiscountOnStore(Date begin, Date end, int percentage) {
-        this.discountsOnStore.add(new SimpleDiscount(counter.inc(), begin, end, percentage));
+    public void addSimpleDiscountOnStore(Date begin, Date end, int percentage, Discount.MathOp op) {
+        this.discountsOnStore.add(new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
     public boolean validatePurchase(User user, Date time, Bag bag){

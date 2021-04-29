@@ -27,8 +27,17 @@
       <change beforePath="$PROJECT_DIR$/src/Domain/DiscountFormat/ConditionalDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountFormat/ConditionalDiscount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/DiscountFormat/Discount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountFormat/Discount.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/DiscountFormat/SimpleDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountFormat/SimpleDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Receipt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/DefineDiscountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/DefineDiscountPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/StoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

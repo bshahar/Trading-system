@@ -1,5 +1,6 @@
 package Domain;
 
+import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchasePolicies.PurchaseCondition;
 
@@ -381,10 +382,10 @@ public class Member {
         }
     }
 
-    public Result addDiscountPolicy(Store store, String condition, String param, Product.Category category, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage) {
+    public Result addDiscountPolicy(Store store, String condition, String param, Product.Category category, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
         if(permissions.containsKey(store)) {
             Permission permission = permissions.get(store);
-            return permission.defineDiscountPolicy(param, condition, category, prodId, begin, end, conditions, percentage);
+            return permission.defineDiscountPolicy(param, condition, category, prodId, begin, end, conditions, percentage, op);
         }
         else
             return new Result(false,"User has no permission for this action.");

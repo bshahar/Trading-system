@@ -16,13 +16,17 @@ public class Receipt {
         }
     }
 
+    private int id;
     private int storeId;
     private int userId;
     private String userName; //Unique
     private List<ReceiptLine> lines;
+    private double totalCost;
 
 
-    public Receipt(int storeId,int userId, String userName, Map<Product, Integer> lines) {
+
+    public Receipt(int id, int storeId,int userId, String userName, Map<Product, Integer> lines) {
+        this.id = id;
         this.storeId = storeId;
         this.userId= userId;
         this.userName = userName;
@@ -32,12 +36,19 @@ public class Receipt {
         }
     }
 
+    public int getReceiptId() { return this.id; }
+
     public int getStoreId() {
         return storeId;
     }
+
     public String getUserName(){return userName;}
 
     public int getUserId(){return userId;}
+
+    public void setTotalCost(double totalCost) { this.totalCost = totalCost; }
+
+    public double getTotalCost() { return this.totalCost; }
 
 
 

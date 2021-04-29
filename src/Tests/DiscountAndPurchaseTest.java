@@ -1,6 +1,8 @@
 package Tests;
 
 import Domain.Product;
+import Domain.Receipt;
+import Domain.Result;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -55,14 +57,20 @@ public class DiscountAndPurchaseTest {
         params2.add(String.valueOf(productId3));
         policies.put("Minimal Amount", params2);
         //discount of 50% on beers if you buy at least 5 milk & 2 bread from now until february 2022
-        Assertions.assertTrue(API.addDiscountOnProduct(storeId1, registerId1, productId1, "And", policies, begin, end, 50).isResult());
+        Assertions.assertTrue(API.addDiscountOnProduct(storeId1, registerId1, productId1, "And", policies, begin, end, 50, "Sum").isResult());
     }
 
 
     @Test
     public void buyProductWithDiscountSuccessTest() {
         addDiscountSuccessTest();
-
+        API.addProductToCart(registerId2, storeId1, productId1, 5);
+        API.addProductToCart(registerId2, storeId1, productId3, 3);
+        API.addProductToCart(registerId2, storeId1, productId2, 10);
+        double expectedTotal = 130;
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
+        Assertions.assertEquals(expectedTotal, actualTotal);
     }
 
 
@@ -73,7 +81,7 @@ public class DiscountAndPurchaseTest {
         params1.add("5"); //min amount
         params1.add(String.valueOf(productId1));
         //discount of 50% on beers if you buy at least 5 milk & 2 bread from now until february 2022
-        Assertions.assertFalse(API.addDiscountOnProduct(storeId1, registerId2, productId1, "Or", policies, begin, end, 50).isResult());
+        Assertions.assertFalse(API.addDiscountOnProduct(storeId1, registerId2, productId1, "Or", policies, begin, end, 50, "Sum").isResult());
     }
 
 

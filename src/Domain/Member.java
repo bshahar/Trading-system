@@ -391,6 +391,17 @@ public class Member {
             return new Result(false,"User has no permission for this action.");
     }
 
+    /*TODO
+    public Result removeDiscountPolicy(Store store) {
+        if(permissions.containsKey(store)) {
+            Permission permission = permissions.get(store);
+            return permission.editPurchasePolicy();
+        }
+        else
+            return new Result(false,"User has no permission for this action.");
+    }
+    */
+
     public Result addPurchasePolicy(Store store, PurchaseCondition condition) {
         if (permissions.containsKey(store)) {
             Permission permission = permissions.get(store);

@@ -177,6 +177,11 @@ public class User {
         return member.addDiscountPolicy(store, condition, param, null, prodId, begin, end, conditions, percentage, op);
     }
 
+    //TODO here
+    public Result removeDiscountOnProduct() {
+        return new Result(false, "");
+    }
+
     public Result addDiscountOnCategory(Store store, String condition, String param, Product.Category category, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
         return member.addDiscountPolicy(store, condition, param, category, -1, begin, end, conditions, percentage, op);
     }

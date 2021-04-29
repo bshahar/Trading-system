@@ -13,7 +13,6 @@ public class Store {
     private int storeId;
     private String name;
     private Inventory inventory;
-    private List<Format> formats;
     private List<User> employees;
     private List<User> owners;
     private List<User> managers;
@@ -202,6 +201,20 @@ public class Store {
 
     public void addDiscountOnStore(Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
         this.discountsOnStore.add(new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
+    }
+
+    public void removeDiscountOnProduct(int prodId){
+        Product prod = this.inventory.getProductById(prodId);
+        this.discountsOnProducts.remove(prod);
+    }
+
+    public void removeDiscountOnCategory(Product.Category category){
+        this.discountsOnCategories.remove(category);
+    }
+
+    public void removeDiscountOnStore(Product.Category category){
+        //this.discountsOnStore.
+        //TODO was here!!!
     }
 
     public void addPurchasePolicy(PurchaseCondition conditions) {

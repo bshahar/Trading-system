@@ -8,5 +8,6 @@ public class EditDiscountPolicy {
     }
 
     public void action() {
+
     }
 }

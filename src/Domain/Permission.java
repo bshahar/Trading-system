@@ -254,10 +254,12 @@ public class Permission {
         if(this.editDiscountPolicy == null) return;
         this.editDiscountPolicy = null;
     }
-    public void defineEditDiscountPolicy()
+    public Result defineEditDiscountPolicy()
     {
-        if(this.editDiscountPolicy!= null)
-            this.editDiscountPolicy.action();
+        //TODO here
+       // if(this.editDiscountPolicy!= null)
+           // return this.editDiscountPolicy.action();
+        return new Result(false,"User has no permission for this action.");
     }
 
     public void allowDefineDiscountFormat()

@@ -40,13 +40,14 @@ public class DiscountAndPurchaseTest {
         catList1.add(Product.Category.FOOD);
         LinkedList<Product.Category> catList2 = new LinkedList<>();
         catList2.add(Product.Category.DRINKS);
-        productId1 = (int) API.addProduct(1, storeId1, "milk", catList1, 10, "FOOD", 5).getData();
+        productId1 = (int) API.addProduct(1, storeId1, "milk", catList1, 10, "FOOD", 100).getData();
         productId3 = (int) API.addProduct(1, storeId1, "bread", catList1, 10, "FOOD", 100).getData();
         productId2 = (int) API.addProduct(1, storeId1, "beer", catList2, 20, "ALCOHOL", 100).getData();
         begin = new Date();
         end = new GregorianCalendar(2022, Calendar.FEBRUARY, 11).getTime();
     }
 
+    
     @Test
     public void addDiscountSuccessTest() {
         List<Pair<String, List<String>>> policies = new LinkedList<>();
@@ -90,13 +91,42 @@ public class DiscountAndPurchaseTest {
 
     @Test
     public void buyProductWithDiscountWrongAmountFailTest() {
+        addDiscountSuccessTest();
+        API.addProductToCart(registerId2, storeId1, productId1, 2);
+        API.addProductToCart(registerId2, storeId1, productId3, 3);
+        API.addProductToCart(registerId2, storeId1, productId2, 10);
+        double expectedTotal = 250;
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
+        Assertions.assertEquals(expectedTotal, actualTotal);
     }
 
     @Test
     public void addPurchasePolicySuccessTest() { //age limit on alcohol
+        List<Pair<String, List<String>>> policies = new LinkedList<>();
+        List<String> params1 = new LinkedList<>();
+        params1.add("18"); //min age
+        params1.add(String.valueOf(productId2));
+        policies.add(new Pair<> ("Minimal Amount", params1));
+        //age limit on alcohol
+        Assertions.assertTrue(API.addPurchasePolicyOnStore(storeId1, registerId1, "Age Limit", policies).isResult());
     }
 
     @Test
-    public void purchaseContradictsPolicyFailTest() { //age 16 buys alcohol
+    public void addPurchaseNotPermittedFailTest() {
+        List<Pair<String, List<String>>> policies = new LinkedList<>();
+        List<String> params1 = new LinkedList<>();
+        params1.add("18"); //min age
+        params1.add(String.valueOf(productId2));
+        policies.add(new Pair<> ("Minimal Amount", params1));
+        Assertions.assertFalse(API.addPurchasePolicyOnStore(storeId1, registerId2, "Age Limit", policies).isResult());
+    }
+
+    @Test
+    public void purchaseContradictsPolicyFailTest() {
+        addPurchasePolicySuccessTest();
+        //user at age 16 tries to buy alcohol when policy is age >= 18
+        API.addProductToCart(registerId2, storeId1, productId2, 5);
+        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, "Credit1").isResult());
     }
 }

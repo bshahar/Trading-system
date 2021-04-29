@@ -206,11 +206,47 @@ public class API {
         tradingSystem.addDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public static void addPurchasePolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
-        tradingSystem.addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
+    public static Result addPurchasePolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
     }
 
     public static Result getReceipt(int receiptId) {
         return tradingSystem.getReceipt(receiptId);
+    }
+
+    /*TODO
+    public Result editDiscountOnProduct() {
+        return tradingSystem.editDiscountOnProduct();
+    }
+
+     */
+
+    public Result editDiscountOnCategory() {
+        return tradingSystem.editDiscountOnCategory();
+    }
+
+    public Result editDiscountOnStore() {
+        return tradingSystem.editDiscountOnStore();
+    }
+
+    public Result editPurchasePolicy() {
+        return tradingSystem.editPurchasePolicy();
+    }
+
+    //TODO add permissions for functions below then implement
+    public Result getDiscountOnProduct() {
+        return tradingSystem.getDiscountOnProduct();
+    }
+
+    public Result getDiscountOnCategory() {
+        return tradingSystem.getDiscountOnCategory();
+    }
+
+    public Result getDiscountOnStore() {
+        return tradingSystem.getDiscountOnStore();
+    }
+
+    public Result getPurchasePolicy() {
+        return tradingSystem.getPurchasePolicy();
     }
 }

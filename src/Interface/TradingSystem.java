@@ -596,9 +596,9 @@ public class TradingSystem {
         return new Result(false, "No receipt with this user id and store.");
     }
 
-    //TODO implement all methods below & get functions
-    public Result editDiscountOnProduct() {
-        return new Result(false, "fail");
+    public Result editDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        //remove discount
+        return addDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
     public Result editDiscountOnCategory() {
@@ -606,6 +606,27 @@ public class TradingSystem {
     }
 
     public Result editDiscountOnStore() {
+        return new Result(false, "fail");
+    }
+
+    public Result editPurchasePolicy() {
+        return new Result(false, "fail");
+    }
+
+    //TODO add permissions for functions below
+    public Result getDiscountOnProduct() {
+        return new Result(false, "fail");
+    }
+
+    public Result getDiscountOnCategory() {
+        return new Result(false, "fail");
+    }
+
+    public Result getDiscountOnStore() {
+        return new Result(false, "fail");
+    }
+
+    public Result getPurchasePolicy() {
         return new Result(false, "fail");
     }
 }

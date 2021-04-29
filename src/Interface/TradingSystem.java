@@ -260,34 +260,41 @@ public class TradingSystem {
         try {
             Map<Product, Integer> products = getBag(userId, storeId);
             Store store = getStoreById(storeId);
-            Map<Product, Integer> productsAmountBuy = new HashMap<>();
-            double totalCost = 0;
-            for (Product product : products.keySet()) {
-                synchronized (product) {
-                    if (store.canBuyProduct(product, products.get(product))) {
-                        store.removeProductAmount(product, products.get(product));
-                        productsAmountBuy.put(product, products.get(product));
-                        totalCost += (product.getPrice() * products.get(product));
+            Bag bag = new Bag(store);
+            bag.setProducts(products);
+            if (store.validatePurchase(getUserById(userId), new Date(), bag)) {
+                Map<Product, Integer> productsAmountBuy = new HashMap<>();
+                double totalCost = 0;
+                for (Product product : products.keySet()) {
+                    synchronized (product) {
+                        if (store.canBuyProduct(product, products.get(product))) {
+                            store.removeProductAmount(product, products.get(product));
+                            productsAmountBuy.put(product, products.get(product));
+                            totalCost += (product.getPrice() * products.get(product));
+                        }
                     }
                 }
-            }
-            totalCost = store.calculateDiscounts(totalCost, getUserById(userId), mathOperator);
-            if (paymentAdapter.pay(totalCost, creditInfo)) {
-                Receipt rec = new Receipt(storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
-                this.receipts.add(rec);
-                store.addReceipt(rec);
-                getUserById(userId).addReceipt(rec);
-                KingLogger.logError(Level.INFO, "User with id " + userId + " made purchase in store " + storeId);
-                if (products.size() == productsAmountBuy.size()) {
-                    return new Result(true, "purchase confirmed successfully");
+                totalCost = store.calculateDiscounts(totalCost, getUserById(userId), mathOperator);
+                if (paymentAdapter.pay(totalCost, creditInfo)) {
+                    Receipt rec = new Receipt(storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
+                    this.receipts.add(rec);
+                    store.addReceipt(rec);
+                    getUserById(userId).addReceipt(rec);
+                    KingLogger.logError(Level.INFO, "User with id " + userId + " made purchase in store " + storeId);
+                    if (products.size() == productsAmountBuy.size()) {
+                        return new Result(true, "purchase confirmed successfully");
+                    } else {
+                        return new Result(true, "some product missing");
+                    }
                 } else {
-                    return new Result(true, "some product missing");
+                    store.abortPurchase(productsAmountBuy);
+                    KingLogger.logError(Level.INFO, "User with id " + userId + " couldn't make a purchase in store " + storeId);
+                    return new Result(false, "payment failed");
                 }
-            } else {
-                store.abortPurchase(productsAmountBuy);
-                KingLogger.logError(Level.INFO, "User with id " + userId + " couldn't make a purchase in store " + storeId);
-                return new Result(false, "payment failed");
             }
+            else
+                return new Result(false, "Purchase is not approved by store's policy.");
+
         } catch (Exception e) {
             KingLogger.logError(Level.WARNING, "User with id " + userId + " couldn't make a purchase in store " + storeId);
             return new Result(false, "purchase failed");

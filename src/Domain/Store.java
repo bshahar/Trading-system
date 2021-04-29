@@ -48,6 +48,7 @@ public class Store {
         this.discountsOnStore = new LinkedList<>();
         this.counter = new counter();
         this.usersBags = new HashMap<>();
+        this.purchasesOnStore = new LinkedList<>();
     }
 
     public Inventory getInventory() {
@@ -203,8 +204,8 @@ public class Store {
         this.discountsOnStore.add(new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage));
     }
 
-    public void addPurchasePolicy(PurchaseCondition conditions){
-        this.purchasesOnStore.add(new ImmediatePurchase(counter.inc(),conditions));
+    public void addPurchasePolicy(PurchaseCondition conditions) {
+        this.purchasesOnStore.add(new ImmediatePurchase(counter.inc(), conditions));
     }
 
     public double calculateDiscounts(double totalCost, User user, String mathOperator) {
@@ -288,7 +289,7 @@ public class Store {
         this.discountsOnStore.add(new SimpleDiscount(counter.inc(), begin, end, percentage));
     }
 
-    private boolean validPurchase(User user, Date time, Bag bag){
+    public boolean validatePurchase(User user, Date time, Bag bag){
         boolean isValid = true;
         for (ImmediatePurchase immPurchase : this.purchasesOnStore) {
             if (!immPurchase.validatePurchase(user, new Date(), bag))

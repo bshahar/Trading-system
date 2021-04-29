@@ -60,7 +60,7 @@ public class DiscountAndPurchaseTest {
 
 
     @Test
-    public void buyProductWithDiscountAndOpSuccessTest() {
+    public void buyProductWithDiscountSuccessTest() {
         addDiscountSuccessTest();
 
     }

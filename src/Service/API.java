@@ -2,8 +2,10 @@ package Service;
 
 import Domain.*;
 import Interface.TradingSystem;
+import javafx.util.Pair;
 
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class API {
     private static TradingSystem tradingSystem;
     public static void initTradingSystem(String userName){
 
-        User sysManager= new User(userName,0,1);
+        User sysManager= new User(userName,19,0,1);
         tradingSystem=new TradingSystem(sysManager);
 
     }
@@ -40,8 +42,8 @@ public class API {
         return tradingSystem.getCart(userId);
     }
 
-    public static Result buyProduct(int userId, int storeId, String creditInfo){
-        return tradingSystem.buyProducts(userId,storeId,creditInfo);
+    public static Result buyProduct(int userId, int storeId, String creditInfo) {
+        return tradingSystem.buyProducts(userId, storeId, creditInfo);
     }
 
     public static Result registeredLogin(String username, String password){
@@ -99,8 +101,8 @@ public class API {
     }
 
 
-    public static Result register(String userName, String password) {
-        return tradingSystem.register(userName, password);
+    public static Result register(String userName, String password, int age) {
+        return tradingSystem.register(userName, age, password);
     }
 
     public static Result isLogged(int userId) {
@@ -286,5 +288,60 @@ public class API {
         return tradingSystem.getUserPermissions(id,storeId);
 
 
+    }
+
+    public static Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.addDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
+    }
+
+    public static void addDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        tradingSystem.addDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
+    }
+
+    public static void addDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        tradingSystem.addDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
+    }
+
+    public static Result addPurchasePolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
+    }
+
+    public static Result getReceipt(int receiptId) {
+        return tradingSystem.getReceipt(receiptId);
+    }
+
+
+    public Result editDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.editDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
+    }
+
+
+    public Result editDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.editDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
+    }
+
+    public Result editDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.editDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
+    }
+
+    public Result editPurchasePolicy(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.editPurchasePolicy(storeId, userId, operator, policiesParams);
+    }
+
+    //TODO add permissions for functions below then implement
+    public Result getDiscountOnProduct(int storeId, int userId, int prodId) {
+        return tradingSystem.getDiscountOnProduct(storeId, userId, prodId);
+    }
+
+    public Result getDiscountOnCategory(int storeId, int userId, String category) {
+        return tradingSystem.getDiscountOnCategory(storeId, userId, category);
+    }
+
+    public Result getDiscountOnStore(int storeId, int userId) {
+        return tradingSystem.getDiscountOnStore(storeId, userId);
+    }
+
+    public Result getPurchasePolicy(int storeId, int userId) {
+        return tradingSystem.getPurchasePolicy(storeId, userId);
     }
 }

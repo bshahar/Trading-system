@@ -5,13 +5,12 @@ import java.util.*;
 
 public class Bag {
     private Store store;
-    Map<Product,Integer>  productIdsAmount;
-
+    Map<Product,Integer> productsAmounts;
 
     public Bag(Store store)
     {
         this.store = store;
-        this.productIdsAmount = new HashMap<>();
+        this.productsAmounts = new HashMap<>();
     }
 
     public int getStoreId() {
@@ -19,18 +18,27 @@ public class Bag {
     }
 
     public void addProduct(Product product,int amount) {
-        this.productIdsAmount.put(product,amount);
+        this.productsAmounts.put(product,amount);
     }
 
-    public Map<Product,Integer> getProductIds() {
-        return productIdsAmount;
+    public Map<Product,Integer> getProductsAmounts() {
+        return productsAmounts;
     }
 
-    public void removeProduct(Product prod) {
-        this.productIdsAmount.remove(prod);
+    public List<Product> getProducts() {
+        List<Product> output = new LinkedList<>();
+        for (Product prod: this.productsAmounts.keySet()) {
+            output.add(prod);
+        }
+        return output;
     }
 
-    public int getProdNum() {
-        return productIdsAmount.size();
+
+    public void setProducts(Map<Product,Integer> prods) {
+        this.productsAmounts = prods;
+    }
+
+    public void removeProduct(int prodId) {
+        this.productsAmounts.remove(prodId);
     }
 }

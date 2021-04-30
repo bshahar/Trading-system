@@ -1,7 +1,6 @@
 package Server;
 
 import Domain.Product;
-import Domain.Store;
 import Service.API;
 import org.eclipse.jetty.websocket.api.*;
 import org.eclipse.jetty.websocket.api.annotations.*;
@@ -32,7 +31,7 @@ public class StoreWebSocket {
         String type = jo.get("type").toString();
         if(type.equals("GET_PRODUCTS")){
             int storeId = Integer.valueOf(jo.get("storeId").toString());
-            List<Product> products =(List<Product>) API.getAllStoreProducts(storeId).getdata();
+            List<Product> products =(List<Product>) API.getAllStoreProducts(storeId).getData();
             JSONObject json= new JSONObject();
             json.put("type", "PRODUCTS");
             JSONObject[] jsonProducts=new JSONObject[products.size()];

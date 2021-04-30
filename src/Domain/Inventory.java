@@ -10,10 +10,10 @@ public class Inventory {
         this.products = new HashMap<>();
     }
 
-    public boolean addProduct(Product prod, int numOfProd) {
-        if(numOfProd <= 0) return false;
+    public boolean addProduct(Product prod, int quantity) {
+        if(quantity <= 0) return false;
         synchronized (this) {
-            this.products.put(prod, numOfProd);
+            this.products.put(prod, quantity);
         }
         return true;
     }
@@ -29,16 +29,16 @@ public class Inventory {
     public boolean prodExists(int id){
         boolean found = false;
         for (Product p: products.keySet()) {
-            if(p.getId() == id)
+            if (p.getId() == id) {
                 found = true;
+                break;
+            }
         }
         return found;
     }
 
     public boolean canBuyProduct(Product prod, int numOfProd) {
-        if(numOfProd >0 && this.products.containsKey(prod) && products.get(prod) >= numOfProd)
-           return true;
-        return false;
+        return numOfProd > 0 && this.products.containsKey(prod) && products.get(prod) >= numOfProd;
     }
     public boolean removeProductAmount(Product prod, int numOfProd){
         if (this.products.containsKey(prod) && products.get(prod) >= numOfProd){
@@ -47,15 +47,14 @@ public class Inventory {
         }
         else
             return false;
-
-
     }
+
     public String toString(){
-        String output = "";
+        StringBuilder output = new StringBuilder();
         for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            output = output + p.getKey().toString() + " Quantity - " + p.getValue();
+            output.append(p.getKey().toString()).append(" Quantity - ").append(p.getValue());
         }
-        return output;
+        return output.toString();
     }
 
     public List<Integer> getProductsByName(Filter filter,double storeRank) {

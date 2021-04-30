@@ -1,16 +1,11 @@
 package Tests;
 
 import Domain.*;
-import Interface.TradingSystem;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import javax.crypto.NoSuchPaddingException;
-import java.nio.file.OpenOption;
-import java.security.NoSuchAlgorithmException;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -42,16 +37,16 @@ public class StoreTest {
         String password2= "elad321654";
         String userName3="erez";
         String password3= "erez321654";
-        API.register(userName1,password1);
-        API.register(userName2,password2);
-        API.register(userName3,password3);
-        registerId1= (int)API.registeredLogin(userName1,password1).getdata();
-        registerId2=(int) API.registeredLogin(userName2,password2).getdata();
-        registerId3= (int)API.registeredLogin(userName3,password3).getdata();
-        storeId1=(int)API.openStore(registerId1,"kandabior store").getdata();
-        LinkedList <String> catList= new LinkedList<>();
-        catList.add("FOOD");
-        int productId=(int)API.addProduct(1, storeId1,"milk",catList ,10,"FOOD", 5 ).getdata();
+        API.register(userName1,password1, 20);
+        API.register(userName2,password2, 16);
+        API.register(userName3,password3, 20);
+        registerId1= (int)API.registeredLogin(userName1,password1).getData();
+        registerId2=(int) API.registeredLogin(userName2,password2).getData();
+        registerId3= (int)API.registeredLogin(userName3,password3).getData();
+        storeId1=(int)API.openStore(registerId1,"kandabior store").getData();
+        LinkedList <Product.Category> catList= new LinkedList<>();
+        catList.add(Product.Category.FOOD);
+        int productId=(int)API.addProduct(1, storeId1,"milk",catList ,10,"FOOD", 5 ).getData();
 
 
     }
@@ -59,7 +54,7 @@ public class StoreTest {
     @Test
     //AT-5.1
     public void getStoreInformationSuccessTest() throws Exception{
-        Assertions.assertEquals(storeId1, ((List<Store>)(API.getAllStoreInfo(registerId1).getdata())).get(0).getStoreId());
+        Assertions.assertEquals(storeId1, ((List<Store>)(API.getAllStoreInfo(registerId1).getData())).get(0).getStoreId());
     }
 
     @Test
@@ -74,27 +69,27 @@ public class StoreTest {
     public void getProductByNameSuccessTest() throws Exception {
         Filter filter = new Filter("NAME", "milk", 9, 15, -1, "", -1);
         //assume the first product gets id of 1
-        Assertions.assertEquals(1,((Map<Integer,Integer>)(API.searchProduct(filter, registerId1).getdata())).get(storeId1));
+        Assertions.assertEquals(1,((Map<Integer,Integer>)(API.searchProduct(filter, registerId1).getData())).get(storeId1));
     }
     //AT-6
     @Test
     public void getProductByNameWrongPriceFailTest() throws Exception {
         Filter filter = new Filter("NAME", "milk", 1, 5, -1, "", -1);
         //assume the first product gets id of 1
-        Assertions.assertEquals(0, ((Map<Integer,Integer>)(API.searchProduct(filter, registerId1).getdata())).size());
+        Assertions.assertEquals(0, ((Map<Integer,Integer>)(API.searchProduct(filter, registerId1).getData())).size());
     }
     //AT-6
     @Test
     public void getProductByNameWrongNameFailTest() throws Exception{
         Filter filter=new Filter("NAME","dani",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"",-1);
-        Assertions.assertEquals(0,((Map<Integer,Integer>)(API.searchProduct(filter, registerId1).getdata())).size());
+        Assertions.assertEquals(0,((Map<Integer,Integer>)(API.searchProduct(filter, registerId1).getData())).size());
     }
     //AT-6
     @Test
     public void getProductByCategorySuccessTest() throws Exception {
         Filter filter = new Filter("CATEGORY", "FOOD", 9, 15, -1, "", -1);
         //assume the first product gets id of 1
-        int id = (int)((Map<Integer,Integer>)API.searchProduct(filter, registerId1).getdata()).values().toArray()[0];
+        int id = (int)((Map<Integer,Integer>)API.searchProduct(filter, registerId1).getData()).values().toArray()[0];
         assertEquals(1,id);
     }
     //AT-6
@@ -113,7 +108,7 @@ public class StoreTest {
     @Test
     public void getProductByNameAndCategorySuccessTest() throws Exception{
         Filter filter=new Filter("NAME","milk",Integer.MIN_VALUE,Integer.MAX_VALUE,-1,"FOOD",-1);
-        Assertions.assertEquals(1,((Map<Integer,Integer>)API.searchProduct(filter, registerId1).getdata()).size());
+        Assertions.assertEquals(1,((Map<Integer,Integer>)API.searchProduct(filter, registerId1).getData()).size());
     }
 
     @Test
@@ -124,7 +119,7 @@ public class StoreTest {
     @Test
     //At-7
     public void addToCartGuestSuccessTest() throws Exception{
-        guestId1=(int)API.guestLogin().getdata();
+        guestId1=(int)API.guestLogin().getData();
         Assertions.assertTrue(API.addProductToCart(guestId1,storeId1,1,3).isResult());
     }
 
@@ -146,41 +141,41 @@ public class StoreTest {
         API.registeredLogout(registerId2);
         API.registeredLogin("elad", "elad321654");
 
-        List<Bag> products=(List<Bag>)API.getCart(registerId2).getdata();
-        Assertions.assertEquals(2, products.get(0).getProductIds().get(1));
+        List<Bag> products = (List<Bag>) API.getCart(registerId2).getData();
+        Assertions.assertTrue(products.get(0).getProductsAmounts().values().contains(2));
     }
 
     @Test
-    public void addToCartGuestThenRegisteredSuccessTest() throws Exception{
-        guestId1=(int)API.guestLogin().getdata();
-        API.addProductToCart(guestId1,storeId1,1,2);
-        API.guestRegister(guestId1,"dorin","dorin321654");
+    public void addToCartGuestThenRegisteredSuccessTest() throws Exception {
+        guestId1 = (int) API.guestLogin().getData();
+        API.addProductToCart(guestId1, storeId1, 1, 2);
+        API.guestRegister(guestId1, "dorin", "dorin321654");
         API.registeredLogout(guestId1);
         API.registeredLogin("dorin", "dorin321654");
 
-        List<Bag> products=(List<Bag>) API.getCart(guestId1).getdata();
-        Assertions.assertEquals(2, products.get(0).getProductIds().get(1));
+        List<Bag> products = (List<Bag>) API.getCart(guestId1).getData();
+        Assertions.assertTrue(products.get(0).getProductsAmounts().values().contains(2));
     }
 
     @Test
     //AT-11.1 success
     public void openStoreSuccessTest() throws Exception{
-        Assertions.assertEquals(2,(int)API.openStore(registerId2,"elad store").getdata());
+        Assertions.assertEquals(2,(int)API.openStore(registerId2,"elad store").getData());
     }
 
     @Test
     //AT-11.2 fail
     public void openStoreGuestFailTest() throws Exception{
-        guestId1=(int)API.guestLogin().getdata();
+        guestId1=(int)API.guestLogin().getData();
         Assertions.assertFalse(API.openStore(guestId1,"guest store").isResult());
     }
 
     @Test
     //AT-13 success
     public void addProductToStoreSuccessTest() throws Exception {
-        List<String> categories = new LinkedList<>();
-        categories.add("FOOD");
-        assertTrue((int)(API.addProduct(registerId1,  storeId1, "water",categories,5,"drink", 5).getdata())==2);
+        List<Product.Category> categories = new LinkedList<>();
+        categories.add(Product.Category.FOOD);
+        assertTrue((int)(API.addProduct(registerId1,  storeId1, "water",categories,5,"drink", 5).getData())==2);
 
     }
 
@@ -196,14 +191,14 @@ public class StoreTest {
     //AT-13 success
     public void removeProductFromStoreSuccessTest(){
         API.removeProductFromStore(registerId1,storeId1,1);
-        Assertions.assertEquals(0,((List<Product>)API.getAllStoreProducts(storeId1).getdata()).size());
+        Assertions.assertEquals(0,((List<Product>)API.getAllStoreProducts(storeId1).getData()).size());
     }
 
     @Test
     //AT-13 alternate
     public void removeProductFromStoreProdDoesntExistFailTest() throws Exception{
         API.removeProductFromStore(registerId1,storeId1,2);
-        Assertions.assertEquals(1,((List<Product>)API.getAllStoreProducts(storeId1).getdata()).size());
+        Assertions.assertEquals(1,((List<Product>)API.getAllStoreProducts(storeId1).getData()).size());
     }
 
     @Test
@@ -215,7 +210,7 @@ public class StoreTest {
     @Test
     //AT-15.2
     public void addStoreOwnerGuestUserFailTest() throws Exception{
-        guestId1=(int)API.guestLogin().getdata();
+        guestId1=(int)API.guestLogin().getData();
         Assertions.assertFalse(API.addStoreOwner(registerId1,guestId1,storeId1).isResult());
     }
 
@@ -255,7 +250,7 @@ public class StoreTest {
     @Test
     //AT-16.2
     public void addStoreManagerGuestUserFailTest() throws Exception{
-        guestId1=(int)API.guestLogin().getdata();
+        guestId1=(int)API.guestLogin().getData();
         Assertions.assertFalse(API.addStoreManager(registerId1,guestId1,storeId1).isResult());
     }
 
@@ -284,7 +279,7 @@ public class StoreTest {
     @Test
     //AT-19.1
     public void getStoreWorkersInfoSuccessTest() throws Exception{
-        List<User> workers = (List<User>)API.getStoreWorkers(registerId1,storeId1).getdata();
+        List<User> workers = (List<User>)API.getStoreWorkers(registerId1,storeId1).getData();
         Assertions.assertEquals(workers.get(0).getId(), registerId1);
     }
 
@@ -299,7 +294,7 @@ public class StoreTest {
     public void getPurchaseHistorySuccessTest() throws Exception{
         API.addProductToCart(registerId2,storeId1,1,1);
         API.buyProduct(registerId2, storeId1, "Credit123");
-        Assertions.assertEquals(storeId1,((List<Receipt>) API.getStorePurchaseHistory(registerId1,storeId1).getdata()).get(0).getStoreId());
+        Assertions.assertEquals(storeId1,((List<Receipt>) API.getStorePurchaseHistory(registerId1,storeId1).getData()).get(0).getStoreId());
     }
 
     @Test
@@ -320,14 +315,14 @@ public class StoreTest {
 
         API.buyProduct(registerId2, storeId1, "Credit123");
 
-        Assertions.assertEquals(storeId1,((List<Receipt>)API.getStorePurchaseHistory(registerId2,storeId1).getdata()).get(0).getStoreId());
+        Assertions.assertEquals(storeId1,((List<Receipt>)API.getStorePurchaseHistory(registerId2,storeId1).getData()).get(0).getStoreId());
     }
 
     @Test
     //AT-8.1
     public void getCartInfoSuccessTest() throws  Exception{
         API.addProductToCart(registerId1, storeId1, 1, 1);
-        Assertions.assertTrue( ((List<Bag>)API.getCart(registerId1).getdata()).get(0).getProductIds().keySet().contains(1));
+        Assertions.assertTrue( ((List<Bag>)API.getCart(registerId1).getData()).get(0).getProducts().get(0).getId() == 1);
     }
 
     @Test
@@ -344,7 +339,7 @@ public class StoreTest {
         for (int i = 0; i < 100; i++) {
             setUp();
             registerTwoUsers();
-            Assertions.assertEquals(4,(int)API.getNumOfUsers().getdata());
+            Assertions.assertEquals(4,(int)API.getNumOfUsers().getData());
         }
     }
 
@@ -353,13 +348,13 @@ public class StoreTest {
             Thread thread1 = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    API.register("same name", "1234");
+                    API.register("same name", "1234", 20);
                 }
             });
             Thread thread2 = new Thread(new Runnable() {
                 @Override
                 public void run() {
-                    API.register("same name", "1234");
+                    API.register("same name", "1234", 20);
                 }
             });
 
@@ -381,7 +376,7 @@ public class StoreTest {
             setUp();
             API.addStoreOwner(registerId1, registerId2, storeId1);
             appointTwoManagers();
-            Assertions.assertEquals(3,((List<User>)API.getStoreWorkers(registerId1,storeId1).getdata()).size());
+            Assertions.assertEquals(3,((List<User>)API.getStoreWorkers(registerId1,storeId1).getData()).size());
         }
 
     }
@@ -419,7 +414,7 @@ public class StoreTest {
         for (int i = 0; i < 100; i++) {
             setUp();
             addNewStores();
-            Assertions.assertEquals(101,(int)API.getNumOfStores().getdata());
+            Assertions.assertEquals(101,(int)API.getNumOfStores().getData());
         }
     }
 
@@ -453,7 +448,7 @@ public class StoreTest {
         for(int i=0; i<100; i++){
             setUp();
             deleteSimultaneously();
-            Assertions.assertEquals(0,((List<Product>)API.getAllStoreProducts(storeId1).getdata()).size());
+            Assertions.assertEquals(0,((List<Product>)API.getAllStoreProducts(storeId1).getData()).size());
         }
     }
 

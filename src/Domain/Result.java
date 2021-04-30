@@ -4,12 +4,12 @@ public class Result {
     private boolean result;
     private Object data;
 
-    public Result(boolean result, Object data){
-        this.result=result;
-        this.data=data;
+    public Result(boolean result, Object data) {
+        this.result = result;
+        this.data = data;
     }
 
-    public Object getdata() {
+    public Object getData() {
         return data;
     }
 

@@ -25,6 +25,57 @@ public class TradingSystem {
     private List<ObservableType> observers;
 
 
+    public static enum Permission {
+        DEF,
+        AddProduct,
+        AppointManager,
+        AppointOwner,
+        CloseStore,
+        DefineDiscountFormat,
+        DefineDiscountPolicy,
+        DefinePurchaseFormat,
+        DefinePurchasePolicy,
+        EditDiscountFormat,
+        EditDiscountPolicy,
+        EditProduct,
+        EditPurchaseFormat,
+        EditPurchasePolicy,
+        GetWorkersInfo,
+        OpenStore,
+        RemoveManagerAppointment,
+        RemoveOwnerAppointment,
+        None,
+        RemoveProduct,
+        ReopenStore,
+        ReplayMessages,
+        ViewMessages,
+        ViewPurchaseHistory
+    }
+    public static String[] permissionsName= {
+            "DEF",
+            "AddProduct",
+            "AppointManager",
+            "AppointOwner",
+            "CloseStore",
+            "DefineDiscountFormat",
+            "DefineDiscountPolicy",
+            "DefinePurchaseFormat",
+            "DefinePurchasePolicy",
+            "EditDiscountFormat",
+            "EditDiscountPolicy",
+            "EditProduct",
+            "EditPurchaseFormat",
+            "EditPurchasePolicy",
+            "GetWorkersInfo",
+            "OpenStore",
+            "RemoveManagerAppointmen",
+            "RemoveOwnerAppointment",
+            "None",
+            "RemoveProduct",
+            "ReopenStore",
+            "ReplayMessages",
+            "ViewMessages",
+            "ViewPurchaseHistory"};
 
     public TradingSystem (User systemManager) {
         this.paymentAdapter= new PaymentAdapter(new DemoPayment());
@@ -239,27 +290,27 @@ public class TradingSystem {
             if(getUserById(userId).isLogged()) {
                 Map<Integer, Integer> output = new HashMap<>();
                 switch (filter.searchType) {
-                    case "NAME":
+                    case "Name":
                         for (Store s : stores) {
                             List<Integer> ps = s.getProductsByName(filter);
                             for (int productId : ps) {
-                                output.put(s.getStoreId(), productId);
+                                output.put(productId,s.getStoreId());
                             }
                         }
                         break;
-                    case "CATEGORY":
+                    case "Category":
                         for (Store s : stores) {
                             List<Integer> ps = s.getProductsByCategory(filter);
                             for (int productId : ps) {
-                                output.put(s.getStoreId(), productId);
+                                output.put(productId,s.getStoreId());
                             }
                         }
                         break;
-                    case "KEYWORDS":
+                    case "Keywords":
                         for (Store s : stores) {
                             List<Integer> ps = s.getProductsByKeyWords(filter);
                             for (int productId : ps) {
-                                output.put(s.getStoreId(), productId);
+                                output.put(productId,s.getStoreId());
                             }
                         }
                         break;
@@ -677,5 +728,50 @@ public class TradingSystem {
         }else{
             return new Result(false,"user or product not exist");
         }
+    }
+
+    public int getProductAmount(Integer prodId) {
+        for(Store store: stores){
+            if(store.getProductById(prodId)!=null){
+                return store.getProductAmount(prodId);
+            }
+        }
+        return -1;
+    }
+
+    public Result getUserPermissionsMap(int ownerId, String managerName, int storeId) {
+        Result result=getUserIdByName(managerName);
+        if(result.isResult()){
+            int userId= (int)result.getdata();
+            result= getUserPermissions(userId,storeId);
+            if(result.isResult()){
+                List<String> permissionsNames=(List<String>) result.getdata();
+                Map<String,Boolean> permissionsBool=new HashMap<>();
+                permissionsBool.put("AddProduct",permissionsNames.contains("AddProduct"));
+                permissionsBool.put("AppointManager",permissionsNames.contains("AppointManager"));
+                permissionsBool.put("RemoveManagerAppointmen",permissionsNames.contains("RemoveManagerAppointmen"));
+                permissionsBool.put("AppointOwner",permissionsNames.contains("AppointOwner"));
+                permissionsBool.put("RemoveOwnerAppointmen",permissionsNames.contains("RemoveOwnerAppointmen"));
+                permissionsBool.put("EditProduct",permissionsNames.contains("EditProduct"));
+                permissionsBool.put("ViewPurchaseHistory",permissionsNames.contains("ViewPurchaseHistory"));
+                permissionsBool.put("GetWorkersInfo",permissionsNames.contains("GetWorkersInfo"));
+                return new Result(true,permissionsBool);
+            }else{
+                return result;
+            }
+        }else{
+            return result;
+        }
+    }
+
+    public Result getUserPermissions(int id, int storeId) {
+        List<String> names=new LinkedList<>();
+        for(TradingSystem.Permission permission : TradingSystem.Permission.values()){
+            if(checkPermissions(id,storeId,permission.ordinal())){
+                names.add(permissionsName[permission.ordinal()]);
+            }
+        }
+        return new Result(true,names);
+
     }
 }

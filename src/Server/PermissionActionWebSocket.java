@@ -157,6 +157,41 @@ public class PermissionActionWebSocket {
             }
             session.getRemote().sendString(jsonOut.toString());
 
+        }else if(type.equals("GET_PURCHASES")){
+            int userId=Integer.parseInt(jo.get("userId").toString());
+            int storeId=Integer.parseInt(jo.get("storeId").toString());
+            Result result= API.getStorePurchaseHistory(userId,storeId);
+            JSONObject jsonOut=new JSONObject();
+            jsonOut.put("type","GET_PURCHASES");
+            if(result.isResult()){
+                List<Receipt> receipts=(List<Receipt>)result.getdata();
+                JSONObject[] receiptsJson=new JSONObject[receipts.size()];
+                int j=0;
+                for(Receipt receipt : receipts){
+                    JSONObject[] linesJson= new JSONObject[receipt.getLines().size()];
+                    int i=0;
+                    for(Receipt.ReceiptLine receiptLine : receipt.getLines()){
+                        JSONObject receiptLineJson= new JSONObject();
+                        receiptLineJson.put("prodName",receiptLine.getProdName());
+                        receiptLineJson.put("price",receiptLine.getPrice());
+                        receiptLineJson.put("amount",receiptLine.getAmount());
+                        linesJson[i]=receiptLineJson;
+                        i++;
+                    }
+                    JSONObject receiptJson= new JSONObject();
+                    receiptJson.put("storeName", API.getStoreName(receipt.getStoreId()));
+                    receiptJson.put("lines",linesJson);
+                    receiptsJson[j]=receiptJson;
+                    j++;
+                }
+                jsonOut.put("result",true);
+                jsonOut.put("data",receiptsJson);
+                session.getRemote().sendString(jsonOut.toString());
+
+            }else{
+                jsonOut.put("result",false);
+                jsonOut.put("message",result.getdata());
+            }
         }
     }
 

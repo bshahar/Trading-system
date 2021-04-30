@@ -23,7 +23,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="pemission action web socket">
+      <change afterPath="$PROJECT_DIR$/src/Server/PermissionsWebSocket.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server/SearchProductsWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -111,7 +122,7 @@
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\LoginPage" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.KingLogger">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="KingLogger" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Service.KingLogger" />
       <module name="Trading-system" />
@@ -184,14 +195,15 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.KingLogger" />
         <item itemvalue="Application.Server" />
+        <item itemvalue="Application.KingLogger" />
         <item itemvalue="JUnit.LoginTest" />
         <item itemvalue="JUnit.Tests in Trading-system" />
         <item itemvalue="JUnit.PurchaseTest" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -402,7 +414,13 @@
       <option name="presentableId" value="LOCAL‎00030" />
       <updated>1619534997179</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL‎00031" summary="pemission action web socket">
+      <created>1619535386117</created>
+      <option name="number" value="LOCAL‎00031" />
+      <option name="presentableId" value="LOCAL‎00031" />
+      <updated>1619535386117</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -475,6 +493,11 @@
           <url>file://$PROJECT_DIR$/src/Service/API.java</url>
           <line>138</line>
           <option name="timeStamp" value="15" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/SearchProductsWebSocket.java</url>
+          <line>76</line>
+          <option name="timeStamp" value="16" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

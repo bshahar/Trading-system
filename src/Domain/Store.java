@@ -231,6 +231,10 @@ public class Store {
     public void setProductAmount(Product product, int amount) {
         inventory.setProductAmount(product,amount);
     }
+
+    public int getProductAmount(Integer prodId) {
+        return inventory.getProductsAmounts().get(getProductById(prodId));
+    }
 }
 
 

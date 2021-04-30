@@ -61,27 +61,31 @@ public class Inventory {
     public List<Integer> getProductsByName(Filter filter,double storeRank) {
         String name=filter.param;
         List<Integer> output = new LinkedList<>();
-        for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            if(p.getKey().getName().equals(name) && checkFilter(p.getKey(),filter,storeRank))
-                output.add(p.getKey().getId());
+        for (Product p : products.keySet()) {
+            String prodName=p.getName();
+            if(prodName.equals(name) && checkFilter(p,filter,storeRank))
+                output.add(p.getId());
         }
         return output;
     }
 
     private boolean checkFilter(Product product, Filter filter,double storeRank) {
-        if(filter.minPrice>product.getPrice()){
+        if (filter.minPrice > product.getPrice()) {
             return false;
         }
-        if(filter.maxPrice<product.getPrice()){
+        if (filter.maxPrice < product.getPrice()) {
             return false;
         }
-        if(filter.prodRank>product.getRate()){
+        if (filter.prodRank > product.getRate()) {
             return false;
         }
-        if(filter.category!="" && !product.containsCategory(filter.category)){
-            return false;
+        if (!filter.category.equals("")) {
+            if (!product.containsCategory(filter.category)) {
+
+                return false;
+            }
         }
-        if(filter.storeRank>storeRank){
+        if (filter.storeRank > storeRank) {
             return false;
         }
         return true;
@@ -90,18 +94,18 @@ public class Inventory {
 
     public List<Integer> getProductsByCategory(Filter filter, double storeRate) {
         List<Integer> output = new LinkedList<>();
-        for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            if(p.getKey().containsCategory(filter.param) && checkFilter(p.getKey(),filter,storeRate))
-                output.add(p.getKey().getId());
+        for (Product p : products.keySet()) {
+            if(p.containsCategory(filter.param) && checkFilter(p,filter,storeRate))
+                output.add(p.getId());
         }
         return output;
     }
 
     public List<Integer> getProductsByKeyWords(Filter filter, double storeRate) {
         List<Integer> output = new LinkedList<>();
-        for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            if(p.getKey().containsKeyWords(filter.param) && checkFilter(p.getKey(),filter,storeRate) )
-                output.add(p.getKey().getId());
+        for (Product p : products.keySet()) {
+            if(p.containsKeyWords(filter.param) && checkFilter(p,filter,storeRate) )
+                output.add(p.getId());
         }
         return output;
     }
@@ -155,4 +159,6 @@ public class Inventory {
         products.put(product,amount);
 
     }
+
+
 }

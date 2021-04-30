@@ -173,10 +173,12 @@ public class API {
 
         LinkedList<String> catList= new LinkedList<>();
         catList.add("FOOD");
-        addProduct(registerId1, storeId1,"Milk",catList ,10,"FOOD", 10 ).getdata();
-        addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD", 2 ).getdata();
-        addProduct(registerId1, storeId1,"Banana",catList ,4,"FOOD", 20 ).getdata();
-        addProduct(registerId1, storeId2,"Water",catList ,5,"DRINK", 13 ).getdata();
+        LinkedList<String> catList2= new LinkedList<>();
+        catList.add("FOOD2");
+        addProduct(registerId1, storeId1,"Milk",catList2 ,10,"FOOD", 10 ).getdata();
+        addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD2", 2 ).getdata();
+        addProduct(registerId1, storeId1,"Banana",catList ,4,"Hello", 20 ).getdata();
+        addProduct(registerId1, storeId2,"Water",catList2 ,5,"FOOD", 13 ).getdata();
         registeredLogout(registerId1);
 
         registerId3= (int)registeredLogin(userName3,password3).getdata();
@@ -268,68 +270,20 @@ public class API {
         return tradingSystem.editProduct(userId, storeId, productId,price,amount);
     }
 
-
-    public static enum Permission {
-        DEF,
-        AddProduct,
-        AppointManager,
-        AppointOwner,
-        CloseStore,
-        DefineDiscountFormat,
-        DefineDiscountPolicy,
-        DefinePurchaseFormat,
-        DefinePurchasePolicy,
-        EditDiscountFormat,
-        EditDiscountPolicy,
-        EditProduct,
-        EditPurchaseFormat,
-        EditPurchasePolicy,
-        GetWorkersInfo,
-        OpenStore,
-        RemoveManagerAppointment,
-        RemoveOwnerAppointment,
-        None,
-        RemoveProduct,
-        ReopenStore,
-        ReplayMessages,
-        ViewMessages,
-        ViewPurchaseHistory
+    public static int getProductAmount(Integer prodId) {
+        return tradingSystem.getProductAmount(prodId);
     }
-    public static String[] permissionsName= {
-            "DEF",
-            "AddProduct",
-            "AppointManager",
-            "AppointOwner",
-            "CloseStore",
-            "DefineDiscountFormat",
-            "DefineDiscountPolicy",
-            "DefinePurchaseFormat",
-            "DefinePurchasePolicy",
-            "EditDiscountFormat",
-            "EditDiscountPolicy",
-            "EditProduct",
-            "EditPurchaseFormat",
-            "EditPurchasePolicy",
-            "GetWorkersInfo",
-            "OpenStore",
-            "RemoveManagerAppointmen",
-            "RemoveOwnerAppointment",
-            "None",
-            "RemoveProduct",
-            "ReopenStore",
-            "ReplayMessages",
-            "ViewMessages",
-            "ViewPurchaseHistory"};
+
+    public static Result getUserPermissionsMap(int ownerId, String managerName, int storeId) {
+        return tradingSystem.getUserPermissionsMap(ownerId,managerName,storeId);
+    }
+
+
+
 
 
     public static Result getUserPemissions(int id, int storeId) {
-        List<String> names=new LinkedList<>();
-        for(Permission permission : Permission.values()){
-            if(checkPermissions(id,storeId,permission.ordinal())){
-                names.add(permissionsName[permission.ordinal()]);
-            }
-        }
-        return new Result(true,names);
+        return tradingSystem.getUserPermissions(id,storeId);
 
 
     }

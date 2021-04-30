@@ -84,7 +84,7 @@ public class LoginWebSocket {
                     JSONObject json= new JSONObject();
                     json.put("type", "GUEST_REGISTER");
                     json.put("result",result.isResult());
-                    json.put("message",result.getdata());
+                    json.put("message",result.getData());
                     session.getRemote().sendString(json.toString());
 
                 }

@@ -38,8 +38,8 @@ public class PurchaseTest {
         registerId2 = (int) API.registeredLogin(userName2, password2).getData();
         registerId3 = (int) API.registeredLogin(userName3, password3).getData();
         storeId1 = (int) API.openStore(registerId1, "kandabior store").getData();
-        LinkedList<Product.Category> catList = new LinkedList<>();
-        catList.add(Product.Category.FOOD);
+        LinkedList<String> catList = new LinkedList<>();
+        catList.add("FOOD");
         productId1 = (int) API.addProduct(1, storeId1, "milk", catList, 10, "FOOD", 1).getData();
     }
 

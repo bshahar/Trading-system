@@ -1,9 +1,6 @@
 package Server;
 
-import Domain.Filter;
-import Domain.Product;
 import Domain.Result;
-import Domain.Store;
 import Service.API;
 import org.eclipse.jetty.websocket.api.*;
 import org.eclipse.jetty.websocket.api.annotations.*;
@@ -38,7 +35,7 @@ public class PermissionsWebSocket {
             int storeId=Integer.parseInt(jo.get("storeId").toString());
             Result result= API.getUserPermissionsMap(ownerId,managerName,storeId);
             if(result.isResult()){
-                Map<String,Boolean> permissionsBool= (Map<String,Boolean>)result.getdata();
+                Map<String,Boolean> permissionsBool= (Map<String,Boolean>)result.getData();
                 JSONObject[] permissions= new JSONObject[permissionsBool.size()];
                 int i=0;
                 for(String per: permissionsBool.keySet()){
@@ -59,7 +56,7 @@ public class PermissionsWebSocket {
                 JSONObject jsonObject= new JSONObject();
                 jsonObject.put("type","GET_PERMISSIONS");
                 jsonObject.put("result",result.isResult());
-                jsonObject.put("message",result.getdata());
+                jsonObject.put("message",result.getData());
                 session.getRemote().sendString(jsonObject.toString());
 
             }

@@ -23,7 +23,7 @@ public class Store {
     private List<Receipt> receipts;
     private Service.counter counter;
     private Map<Product, Discount> discountsOnProducts;
-    private Map<Product.Category, Discount> discountsOnCategories;
+    private Map<String, Discount> discountsOnCategories;
     private Discount discountsOnStore;
     private List<ImmediatePurchase> purchasesOnStore;
     private Map<User,List<User>> appointments; //appointer & list of appointees
@@ -209,7 +209,7 @@ public class Store {
         this.discountsOnProducts.put(getProductById(prodId), new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
-    public void addDiscountOnCategory(Product.Category category, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+    public void addDiscountOnCategory(String category, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
         this.discountsOnCategories.put(category, new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
@@ -223,7 +223,7 @@ public class Store {
     }
 
     public void removeDiscountOnCategory(String category){
-        this.discountsOnCategories.remove(Product.Category.valueOf(category));
+        this.discountsOnCategories.remove(category);
     }
 
     public void removeDiscountOnStore(){
@@ -282,7 +282,7 @@ public class Store {
                     SumDiscount.add(discountProduct);
             }
         }
-        for (Product.Category cat:prod.getCategories()) {
+        for (String cat:prod.getCategories()) {
             Discount dis = discountsOnCategories.get(cat);
             if(dis != null) {
                 discountCategory = dis.calculateDiscount(prod, user, date, bag);
@@ -353,7 +353,7 @@ public class Store {
         this.discountsOnProducts.put(getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
-    public void addSimpleDiscountOnCategory(Product.Category category, Date begin, Date end, int percentage, Discount.MathOp op) {
+    public void addSimpleDiscountOnCategory(String category, Date begin, Date end, int percentage, Discount.MathOp op) {
         this.discountsOnCategories.put(category, new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
@@ -400,10 +400,9 @@ public class Store {
     }
 
     public Result viewDiscountPoliciesOnCategory(int userId, String category) {
-        Product.Category cat = Product.Category.valueOf(category);
-        if(cat != null) {
+        if(category != null) {
             List<Object> discountPolicies = new LinkedList<>();
-            Discount dis = this.discountsOnCategories.get(cat);
+            Discount dis = this.discountsOnCategories.get(category);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
                 LogicOperator op = ((ConditionalDiscount) dis).getConditions().getOperator();

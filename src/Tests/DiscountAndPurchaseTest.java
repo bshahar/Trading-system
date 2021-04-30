@@ -36,10 +36,10 @@ public class DiscountAndPurchaseTest {
         registerId1 = (int) API.registeredLogin(userName1, password1).getData();
         registerId2 = (int) API.registeredLogin(userName2, password2).getData();
         storeId1 = (int) API.openStore(registerId1, "kandabior store").getData();
-        LinkedList<Product.Category> catList1 = new LinkedList<>();
-        catList1.add(Product.Category.FOOD);
-        LinkedList<Product.Category> catList2 = new LinkedList<>();
-        catList2.add(Product.Category.DRINKS);
+        LinkedList<String> catList1 = new LinkedList<>();
+        catList1.add("FOOD");
+        LinkedList<String> catList2 = new LinkedList<>();
+        catList2.add("DRINKS");
         productId1 = (int) API.addProduct(1, storeId1, "milk", catList1, 10, "FOOD", 100).getData();
         productId3 = (int) API.addProduct(1, storeId1, "bread", catList1, 10, "FOOD", 100).getData();
         productId2 = (int) API.addProduct(1, storeId1, "beer", catList2, 20, "ALCOHOL", 100).getData();

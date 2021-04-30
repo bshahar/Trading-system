@@ -8,7 +8,6 @@ import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;
 import org.json.JSONObject;
-import org.thymeleaf.expression.Ids;
 
 @WebSocket
 public class PermissionActionWebSocket {
@@ -44,7 +43,7 @@ public class PermissionActionWebSocket {
             JSONObject jsonOut = new JSONObject();
             jsonOut.put("type", "ADD_PRODUCT");
             jsonOut.put("result", result.isResult());
-            jsonOut.put("message", result.getdata());
+            jsonOut.put("message", result.getData());
             session.getRemote().sendString(jsonOut.toString());
 
         }else if (type.equals("EDIT_PRODUCT")) {
@@ -57,7 +56,7 @@ public class PermissionActionWebSocket {
             JSONObject jsonOut = new JSONObject();
             jsonOut.put("type", "EDIT_PRODUCT");
             jsonOut.put("result", result.isResult());
-            jsonOut.put("message", result.getdata());
+            jsonOut.put("message", result.getData());
             session.getRemote().sendString(jsonOut.toString());
 
         }else if (type.equals("REMOVE_PRODUCT")) {
@@ -68,7 +67,7 @@ public class PermissionActionWebSocket {
             JSONObject jsonOut = new JSONObject();
             jsonOut.put("type", "REMOVE_PRODUCT");
             jsonOut.put("result", result.isResult());
-            jsonOut.put("message", result.getdata());
+            jsonOut.put("message", result.getData());
             session.getRemote().sendString(jsonOut.toString());
 
         } else if (type.equals("ADD_MANAGER")) {
@@ -77,13 +76,13 @@ public class PermissionActionWebSocket {
             int storeId = Integer.parseInt(jo.get("storeId").toString());
             Result result = API.getUserIdByName(userName);
             if (result.isResult()) {
-                int userId = (int) result.getdata();
+                int userId = (int) result.getData();
                 result = API.addStoreManager(ownerId, userId, storeId);
             }
             JSONObject jsonOut = new JSONObject();
             jsonOut.put("type", "ADD_MANAGER");
             jsonOut.put("result", result.isResult());
-            jsonOut.put("message", result.getdata());
+            jsonOut.put("message", result.getData());
             session.getRemote().sendString(jsonOut.toString());
 
         } else if (type.equals("REMOVE_MANAGER")) {
@@ -92,13 +91,13 @@ public class PermissionActionWebSocket {
             int storeId = Integer.parseInt(jo.get("storeId").toString());
             Result result = API.getUserIdByName(userName);
             if (result.isResult()) {
-                int userId = (int) result.getdata();
+                int userId = (int) result.getData();
                 result = API.removeManager(ownerId, userId, storeId);
             }
             JSONObject jsonOut = new JSONObject();
             jsonOut.put("type", "REMOVE_MANAGER");
             jsonOut.put("result", result.isResult());
-            jsonOut.put("message", result.getdata());
+            jsonOut.put("message", result.getData());
             session.getRemote().sendString(jsonOut.toString());
 
         }else if (type.equals("ADD_OWNER")) {
@@ -107,13 +106,13 @@ public class PermissionActionWebSocket {
             int storeId = Integer.parseInt(jo.get("storeId").toString());
             Result result = API.getUserIdByName(userName);
             if (result.isResult()) {
-                int userId = (int) result.getdata();
+                int userId = (int) result.getData();
                 result = API.addStoreOwner(ownerId, userId, storeId);
             }
             JSONObject jsonOut = new JSONObject();
             jsonOut.put("type", "ADD_OWNER");
             jsonOut.put("result", result.isResult());
-            jsonOut.put("message", result.getdata());
+            jsonOut.put("message", result.getData());
             session.getRemote().sendString(jsonOut.toString());
 
         }else if (type.equals("REMOVE_OWNER")) {
@@ -122,13 +121,13 @@ public class PermissionActionWebSocket {
             int storeId = Integer.parseInt(jo.get("storeId").toString());
             Result result = API.getUserIdByName(userName);
             if (result.isResult()) {
-                int userId = (int) result.getdata();
+                int userId = (int) result.getData();
                 result = API.removeOwner(ownerId, userId, storeId);
             }
             JSONObject jsonOut = new JSONObject();
             jsonOut.put("type", "REMOVE_OWNER");
             jsonOut.put("result", result.isResult());
-            jsonOut.put("message", result.getdata());
+            jsonOut.put("message", result.getData());
             session.getRemote().sendString(jsonOut.toString());
 
         }
@@ -140,7 +139,7 @@ public class PermissionActionWebSocket {
             jsonOut.put("type", "GET_WORKERS");
             jsonOut.put("result", result.isResult());
             if(result.isResult()){
-                List<User> users=(List<User> ) result.getdata();
+                List<User> users=(List<User> ) result.getData();
                 JSONObject[] usersjson=new JSONObject[users.size()];
                 int i=0;
                 for(User user: users){
@@ -153,7 +152,7 @@ public class PermissionActionWebSocket {
                 jsonOut.put("data",usersjson);
             }else{
 
-                jsonOut.put("message", result.getdata());
+                jsonOut.put("message", result.getData());
             }
             session.getRemote().sendString(jsonOut.toString());
 
@@ -164,7 +163,7 @@ public class PermissionActionWebSocket {
             JSONObject jsonOut=new JSONObject();
             jsonOut.put("type","GET_PURCHASES");
             if(result.isResult()){
-                List<Receipt> receipts=(List<Receipt>)result.getdata();
+                List<Receipt> receipts=(List<Receipt>)result.getData();
                 JSONObject[] receiptsJson=new JSONObject[receipts.size()];
                 int j=0;
                 for(Receipt receipt : receipts){
@@ -190,7 +189,7 @@ public class PermissionActionWebSocket {
 
             }else{
                 jsonOut.put("result",false);
-                jsonOut.put("message",result.getdata());
+                jsonOut.put("message",result.getData());
             }
         }
     }

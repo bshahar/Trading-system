@@ -85,5 +85,7 @@
     <orderEntry type="library" name="ch.qos.logback:logback-classic:1.2.3" level="project" />
     <orderEntry type="library" name="json-20140107" level="project" />
     <orderEntry type="library" name="json-201401072" level="project" />
+    <orderEntry type="library" name="javafx-sdk-11.0" level="project" />
+    <orderEntry type="library" name="jfxrt" level="project" />
   </component>
 </module>

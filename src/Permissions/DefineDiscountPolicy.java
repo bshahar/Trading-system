@@ -18,7 +18,7 @@ public class DefineDiscountPolicy {
         this.store = store;
     }
 
-    public Result action(String param, String condition, Product.Category category, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+    public Result action(String param, String condition, String category, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
         switch (param) {
             case "PRODUCT":
                 if (condition.equals("simple"))

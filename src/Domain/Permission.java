@@ -245,7 +245,7 @@ public class Permission {
         if(this.defineDiscountPolicy == null) return;
         this.defineDiscountPolicy = null;
     }
-    public Result defineDiscountPolicy(String param, String condition, Product.Category category, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op)
+    public Result defineDiscountPolicy(String param, String condition, String category, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op)
     {
         if(this.defineDiscountPolicy!= null)
             return this.defineDiscountPolicy.action(param, condition, category, prodId, begin, end, conditions, percentage, op);

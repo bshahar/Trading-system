@@ -38,7 +38,11 @@ public class Bag {
         this.productsAmounts = prods;
     }
 
-    public void removeProduct(int prodId) {
+    public void removeProduct(Product prodId) {
         this.productsAmounts.remove(prodId);
+    }
+
+    public int getProdNum() {
+        return productsAmounts.size();
     }
 }

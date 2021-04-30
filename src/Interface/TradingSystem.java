@@ -11,8 +11,6 @@ import javafx.util.Pair;
 
 import java.util.*;
 
-import java.util.logging.Level;
-
 public class TradingSystem {
 
     private static counter userCounter;
@@ -145,11 +143,11 @@ public class TradingSystem {
         Result result =getObservableTypeById(observableTypeId);
         if(result.isResult())
         {
-            ObservableType o = (ObservableType) result.getdata();
+            ObservableType o = (ObservableType) result.getData();
             o.sendAll(msg);
             return new Result(true,"msg send susccefully");
         }
-        return new Result(false,result.getdata());
+        return new Result(false,result.getData());
     }
 
     public Result addObservable(String name)
@@ -164,12 +162,12 @@ public class TradingSystem {
         Result result =getObservableTypeById(observableTypeId);
         if(result.isResult())
         {
-            ObservableType Observable = (ObservableType) result.getdata();
+            ObservableType Observable = (ObservableType) result.getData();
             this.observers.remove(Observable);
             return new Result(true,"Observable remove successfully");
         }
 
-        return new Result(false,result.getdata());
+        return new Result(false,result.getData());
     }
 
     public Result subscribeToObservable(int observableId,int userId)
@@ -177,11 +175,11 @@ public class TradingSystem {
         Result result =getObservableTypeById(observableId);
         if(result.isResult())
         {
-            ObservableType Observable = (ObservableType) result.getdata();
+            ObservableType Observable = (ObservableType) result.getData();
             Observable.addObserver(getUserById(userId));
             return new Result(true,"user subscribe successfully");
         }
-        return new Result(false,result.getdata());
+        return new Result(false,result.getData());
     }
 
     public Result unsubscribeToObservable(int observableId,int userId)
@@ -189,11 +187,11 @@ public class TradingSystem {
         Result result =getObservableTypeById(observableId);
         if(result.isResult() && checkValidUser(userId))
         {
-            ObservableType Observable = (ObservableType) result.getdata();
+            ObservableType Observable = (ObservableType) result.getData();
             Observable.deleteObserver(getUserById(userId));
             return new Result(true,"user unsubscribe successfully");
         }
-        return new Result(false,result.getdata());
+        return new Result(false,result.getData());
     }
 
 
@@ -410,8 +408,8 @@ public class TradingSystem {
             Map<Product, Integer> products = getBag(userId, storeId);
             Store store = getStoreById(storeId);
             Map<Product, Integer> productsAmountBag = new HashMap<>();
-            for (Product p : productsIds.keySet()) {
-                productsAmountBag.put(p, productsIds.get(p));
+            for (Product p : products.keySet()) {
+                productsAmountBag.put(p, products.get(p));
             }
             Bag bag = new Bag(store);
             bag.setProducts(products);
@@ -504,7 +502,7 @@ public class TradingSystem {
             this.stores.add(store);
             KingLogger.logEvent("OPEN_STORE: User with id " + userId + " open the store " + storeName);
             Result result = addObservable(storeName);
-            int subscribeId = (int)result.getdata();
+            int subscribeId = (int)result.getData();
             store.setNotificationId(subscribeId);
             subscribeToObservable(subscribeId,userId);
             return new Result(true,newId);
@@ -521,7 +519,7 @@ public class TradingSystem {
         Result result = owner.addStoreOwner(owner,user,getStoreById(storeId));
         if(result.isResult())
         {
-            KingLogger.logEvent("ADD_STORE_OWNER: User with id " + owner + " try to add store owner and" + result.getdata());
+            KingLogger.logEvent("ADD_STORE_OWNER: User with id " + owner + " try to add store owner and" + result.getData());
 
             subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
         }
@@ -577,7 +575,7 @@ public class TradingSystem {
         Result result = user.removeManagerFromStore(getUserById(managerId),store);
         if(result.isResult())
         {
-            KingLogger.logEvent("REMOVE_MANAGER: User with id " + ownerId + " remove manager and " + result.getdata());
+            KingLogger.logEvent("REMOVE_MANAGER: User with id " + ownerId + " remove manager and " + result.getData());
             unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
         }
         return result;
@@ -721,9 +719,8 @@ public class TradingSystem {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
-            Product.Category cat = Product.Category.valueOf(category);
             if (operator == null) {
-                return getUserById(userId).addDiscountOnCategory(st, "simple", "PRODUCT", cat, begin, end, null, percentage, op);
+                return getUserById(userId).addDiscountOnCategory(st, "simple", "PRODUCT", category, begin, end, null, percentage, op);
             }
             else {
                 DiscountCondition conditions = new DiscountCondition();
@@ -732,7 +729,7 @@ public class TradingSystem {
                     conditions.addDiscount(pol);
                 }
                 setDiscountOperator(operator, conditions);
-                return getUserById(userId).addDiscountOnCategory(st, "complex", "PRODUCT", cat, begin, end, conditions, percentage, op);
+                return getUserById(userId).addDiscountOnCategory(st, "complex", "PRODUCT", category, begin, end, conditions, percentage, op);
             }
         }
         return new Result(false, "Could not add discount policy.");
@@ -808,7 +805,7 @@ public class TradingSystem {
         }
     }
 
-    }
+
 
     public boolean checkPermissions(int userId,int storeId ,int permissionId) {
 
@@ -873,10 +870,10 @@ public class TradingSystem {
     public Result getUserPermissionsMap(int ownerId, String managerName, int storeId) {
         Result result=getUserIdByName(managerName);
         if(result.isResult()){
-            int userId= (int)result.getdata();
+            int userId= (int)result.getData();
             result= getUserPermissions(userId,storeId);
             if(result.isResult()){
-                List<String> permissionsNames=(List<String>) result.getdata();
+                List<String> permissionsNames=(List<String>) result.getData();
                 Map<String,Boolean> permissionsBool=new HashMap<>();
                 permissionsBool.put("AddProduct",permissionsNames.contains("AddProduct"));
                 permissionsBool.put("AppointManager",permissionsNames.contains("AppointManager"));
@@ -896,13 +893,14 @@ public class TradingSystem {
     }
 
     public Result getUserPermissions(int id, int storeId) {
-        List<String> names=new LinkedList<>();
-        for(TradingSystem.Permission permission : TradingSystem.Permission.values()){
-            if(checkPermissions(id,storeId,permission.ordinal())){
+        List<String> names = new LinkedList<>();
+        for (TradingSystem.Permission permission : TradingSystem.Permission.values()) {
+            if (checkPermissions(id, storeId, permission.ordinal())) {
                 names.add(permissionsName[permission.ordinal()]);
             }
         }
-        return new Result(true,names);
+        return new Result(true, names);
+    }
 
     public Result getReceipt(int receiptId) {
         for (Receipt r: this.receipts) {

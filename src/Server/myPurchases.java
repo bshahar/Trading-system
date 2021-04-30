@@ -8,7 +8,6 @@ import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;
 import org.json.JSONObject;
-import org.thymeleaf.expression.Ids;
 
 @WebSocket
 public class myPurchases {
@@ -37,7 +36,7 @@ public class myPurchases {
             JSONObject jsonOut=new JSONObject();
             jsonOut.put("type","GET_PURCHASES");
             if(result.isResult()){
-                List<Receipt> receipts=(List<Receipt>)result.getdata();
+                List<Receipt> receipts=(List<Receipt>)result.getData();
                 JSONObject[] receiptsJson=new JSONObject[receipts.size()];
                 int j=0;
                 for(Receipt receipt : receipts){
@@ -63,7 +62,7 @@ public class myPurchases {
 
             }else{
                 jsonOut.put("result",false);
-                jsonOut.put("message",result.getdata());
+                jsonOut.put("message",result.getData());
             }
         }
     }

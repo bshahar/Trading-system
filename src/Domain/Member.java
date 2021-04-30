@@ -381,7 +381,7 @@ public class Member {
         }
     }
 
-    public Result addDiscountPolicy(Store store, String condition, String param, Product.Category category, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+    public Result addDiscountPolicy(Store store, String condition, String param, String category, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
         if(permissions.containsKey(store)) {
             Permission permission = permissions.get(store);
             return permission.defineDiscountPolicy(param, condition, category, prodId, begin, end, conditions, percentage, op);
@@ -545,7 +545,7 @@ public class Member {
         //remove when permission is implemented
         return new Result(false,"User has no permission for this action.");
     }
-}
+
 
 
     public Result removeOwnerFromStore(User owner, User ownerToRemove, Store store) {

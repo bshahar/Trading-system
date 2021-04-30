@@ -164,26 +164,26 @@ public class API {
         String password2= "123";
         String userName3="erez";
         String password3= "123";
-        registerId1= (int)register(userName1,password1).getdata();
-        registerId2= (int) register(userName2,password2).getdata();
-        registerId3= (int)register(userName3,password3).getdata();
+        registerId1= (int)register(userName1,password1,20).getData();
+        registerId2= (int) register(userName2,password2,20).getData();
+        registerId3= (int)register(userName3,password3,20).getData();
 
-        registerId1= (int)registeredLogin(userName1,password1).getdata();
-        storeId1=(int )openStore(registerId1,"kandabior store").getdata();
-        storeId2=(int)openStore(registerId1,"elad store").getdata();
+        registerId1= (int)registeredLogin(userName1,password1).getData();
+        storeId1=(int )openStore(registerId1,"kandabior store").getData();
+        storeId2=(int)openStore(registerId1,"elad store").getData();
         addStoreOwner(registerId1,registerId2,storeId1);
 
         LinkedList<String> catList= new LinkedList<>();
         catList.add("FOOD");
         LinkedList<String> catList2= new LinkedList<>();
         catList.add("FOOD2");
-        addProduct(registerId1, storeId1,"Milk",catList2 ,10,"FOOD", 10 ).getdata();
-        addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD2", 2 ).getdata();
-        addProduct(registerId1, storeId1,"Banana",catList ,4,"Hello", 20 ).getdata();
-        addProduct(registerId1, storeId2,"Water",catList2 ,5,"FOOD", 13 ).getdata();
+        addProduct(registerId1, storeId1,"Milk",catList2 ,10,"FOOD", 10 ).getData();
+        addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD2", 2 ).getData();
+        addProduct(registerId1, storeId1,"Banana",catList ,4,"Hello", 20 ).getData();
+        addProduct(registerId1, storeId2,"Water",catList2 ,5,"FOOD", 13 ).getData();
         registeredLogout(registerId1);
 
-        registerId3= (int)registeredLogin(userName3,password3).getdata();
+        registerId3= (int)registeredLogin(userName3,password3).getData();
         addProductToCart(registerId3,1,1,2);
         addProductToCart(registerId3,2,2,2);
         addProductToCart(registerId3,2,4,2);

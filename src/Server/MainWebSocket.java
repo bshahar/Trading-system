@@ -38,7 +38,7 @@ public class MainWebSocket {
         String type = jo.get("type").toString();
         int id = Integer.parseInt(jo.get("id").toString());
         if (type.equals("GET_STORES")) {
-            List<Store> stores = (List<Store>) API.getAllStoreInfo(id).getdata();
+            List<Store> stores = (List<Store>) API.getAllStoreInfo(id).getData();
             JSONObject json = new JSONObject();
             json.put("type", "GET_STORES");
             JSONObject[] jsonStores = new JSONObject[stores.size()];
@@ -71,7 +71,7 @@ public class MainWebSocket {
             JSONObject json = new JSONObject();
             json.put("type", "GUEST_REGISTER");
             json.put("result", result.isResult());
-            json.put("data", result.getdata());
+            json.put("data", result.getData());
             session.getRemote().sendString(json.toString());
 
         } else if (type.equals("GET_NOTIFICATIONS")) {
@@ -79,7 +79,7 @@ public class MainWebSocket {
             JSONObject json = new JSONObject();
             json.put("type", "GET_NOTIFICATIONS");
             json.put("result", result.isResult());
-            json.put("data", result.getdata());
+            json.put("data", result.getData());
             session.getRemote().sendString(json.toString());
 
         }

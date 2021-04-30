@@ -3,7 +3,6 @@ package Server;
 import Domain.Filter;
 import Domain.Product;
 import Domain.Result;
-import Domain.Store;
 import Service.API;
 import org.eclipse.jetty.websocket.api.*;
 import org.eclipse.jetty.websocket.api.annotations.*;
@@ -79,10 +78,10 @@ public class SearchProductsWebSocket {
                     JSONObject out = new JSONObject();
                     out.put("type", "SEARCH_PRODUCTS");
                     out.put("result", result.isResult());
-                    out.put("message", result.getdata());
+                    out.put("message", result.getData());
                     session.getRemote().sendString(out.toString());
                 } else {
-                    Map<Integer, Integer> storeProdId = ( Map<Integer, Integer>)result.getdata();
+                    Map<Integer, Integer> storeProdId = ( Map<Integer, Integer>)result.getData();
                     JSONObject[] prodsJson = new JSONObject[storeProdId.size()];
                     int i = 0;
                     for (Integer prodId : storeProdId.keySet()) {

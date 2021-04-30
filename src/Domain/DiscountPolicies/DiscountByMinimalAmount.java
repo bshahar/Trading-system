@@ -5,6 +5,8 @@ import Domain.Product;
 import Domain.User;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 public class DiscountByMinimalAmount extends DiscountPolicy {
     private int prodId;
@@ -27,5 +29,18 @@ public class DiscountByMinimalAmount extends DiscountPolicy {
     }
 
     public void setMinimalAmount(int newMinAmount) { this.minAmount = newMinAmount; }
+
+    @Override
+    public String getPolicyName() {
+        return "Minimal Amount";
+    }
+
+    @Override
+    public List<String> getPolicyParams() {
+        List<String> params = new LinkedList<>();
+        params.add(String.valueOf(minAmount));
+        params.add(String.valueOf(prodId));
+        return params;
+    }
 
 }

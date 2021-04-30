@@ -2,9 +2,12 @@ package Domain;
 
 import Domain.DiscountFormat.*;
 import Domain.DiscountPolicies.DiscountCondition;
+import Domain.Operators.LogicOperator;
+import Domain.Operators.NoneOperator;
 import Domain.PurchaseFormat.ImmediatePurchase;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Service.counter;
+import javafx.util.Pair;
 
 import java.util.*;
 
@@ -359,5 +362,41 @@ public class Store {
 
     public void removePurchasePolicy() {
         this.purchasesOnStore = new LinkedList<>();
+    }
+
+    public Result viewDiscountPoliciesOnProduct(int userId, int prodId) {
+        Product product = getProductById(prodId);
+        if(product != null) {
+            List<Object> discountPolicies = new LinkedList<>();
+            Discount dis = this.discountsOnProducts.get(product);
+            List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
+            if(dis instanceof ConditionalDiscount) {
+                LogicOperator op = ((ConditionalDiscount) dis).getConditions().getOperator();
+                discountPolicies.add(String.valueOf(op));
+                for (Policy policy: ((ConditionalDiscount) dis).getConditions().getDiscounts()) {
+                    policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
+                }
+            }
+            else
+                discountPolicies.add(""); //logic operator- if simple discount then empty
+            discountPolicies.add(policiesParams);
+            discountPolicies.add(dis.getBegin().toString());
+            discountPolicies.add(dis.getEnd().toString());
+            discountPolicies.add(String.valueOf(dis.getPercentage()));
+            return new Result(true, discountPolicies);
+        }
+        return new Result(false, "No discount policies on this product.");
+    }
+
+    public Result viewDiscountPoliciesOnCategory(int userId, String category) {
+        return new Result(false, "No discount policies on this category.");
+    }
+
+    public Result viewDiscountPoliciesOnStore(int userId, int prodId) {
+        return new Result(false, "No discount policies in this store.");
+    }
+
+    public Result viewPurchasePolicies(int userId, int prodId) {
+        return new Result(false, "No discount policies on this product.");
     }
 }

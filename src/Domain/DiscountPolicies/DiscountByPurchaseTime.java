@@ -50,6 +50,11 @@ public class DiscountByPurchaseTime extends DiscountPolicy {
             return this.beginHour >= calendar.get(Calendar.HOUR) && this.endHour > calendar.get(Calendar.HOUR);
     }
 
+    @Override
+    public String getPolicyName() {
+        return "Purchase Time";
+    }
+
     public void setDayInWeek(int dayInWeek) {
         this.dayInWeek = dayInWeek;
     }
@@ -65,5 +70,17 @@ public class DiscountByPurchaseTime extends DiscountPolicy {
     public void setEndHour(int endHour) {
         this.endHour = endHour;
     }
-    
+
+    @Override
+    public List<String> getPolicyParams() {
+        List<String> params = new LinkedList<>();
+        params.add(String.valueOf(byDayInWeek));
+        params.add(String.valueOf(byDayInMonth));
+        params.add(String.valueOf(byHourInDay));
+        params.add(String.valueOf(dayInWeek));
+        params.add(String.valueOf(dayInMonth));
+        params.add(String.valueOf(beginHour));
+        params.add(String.valueOf(endHour));
+        return params;
+    }
 }

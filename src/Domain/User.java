@@ -204,4 +204,20 @@ public class User {
     public Result removePurchasePolicy(Store store) {
         return member.removePurchasePolicy(store);
     }
+
+    public Result getDiscountOnProduct(Store store, int userId, int prodId) {
+        return member.getDiscountPolicies(store, userId, prodId, "");
+    }
+
+    public Result getDiscountOnCategory(Store store, int userId, String category) {
+        return member.getDiscountPolicies(store, userId, -1, category);
+    }
+
+    public Result getDiscountOnStore(Store store, int userId) {
+        return member.getDiscountPolicies(store, userId, -1, "");
+    }
+
+    public Result getPurchasePolicy(Store store, int userId) {
+        return member.getPurchasePolicy(store, userId);
+    }
 }

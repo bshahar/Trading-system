@@ -437,9 +437,33 @@ public class Member {
     public Result removePurchasePolicy(Store store) {
         if(permissions.containsKey(store)) {
             Permission permission = permissions.get(store);
-            return permission.editPurchasePolicy() ;
+            return permission.editPurchasePolicy();
         }
         else
             return new Result(false,"User has no permission for this action.");
+    }
+
+    public Result getDiscountPolicies(Store store, int userId, int prodId, String category) {
+        if(permissions.containsValue(store)){
+            Permission permission = permissions.get(store);
+           // return permission.viewDiscountPolicies(Store store, int userId, int prodId, category);
+        }
+        else
+            return new Result(false,"User has no permission for this action.");
+
+        //remove when permission is implemented
+        return new Result(false,"User has no permission for this action.");
+    }
+
+    public Result getPurchasePolicy(Store store, int userId) {
+        if(permissions.containsValue(store)){
+            Permission permission = permissions.get(store);
+            // return permission.viewPurchasePolicies(Store store, int userId);
+        }
+        else
+            return new Result(false,"User has no permission for this action.");
+
+        //remove when permission is implemented
+        return new Result(false,"User has no permission for this action.");
     }
 }

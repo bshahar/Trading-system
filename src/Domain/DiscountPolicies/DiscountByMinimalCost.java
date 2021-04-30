@@ -3,6 +3,8 @@ package Domain.DiscountPolicies;
 import Domain.*;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 public class DiscountByMinimalCost extends DiscountPolicy {
     private double minCost;
@@ -22,4 +24,16 @@ public class DiscountByMinimalCost extends DiscountPolicy {
 
     public void setMinimalCost(int newMinCost) { this.minCost = newMinCost; }
 
+
+    @Override
+    public String getPolicyName() {
+        return "Minimal Cost";
+    }
+
+    @Override
+    public List<String> getPolicyParams() {
+        List<String> params = new LinkedList<>();
+        params.add(String.valueOf(minCost));
+        return params;
+    }
 }

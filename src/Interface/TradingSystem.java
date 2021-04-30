@@ -621,19 +621,19 @@ public class TradingSystem {
     }
 
     //TODO add permissions for functions below
-    public Result getDiscountOnProduct() {
-        return new Result(false, "fail");
+    public Result getDiscountOnProduct(int storeId, int userId, int prodId) {
+        return getUserById(userId).getDiscountOnProduct(getStoreById(storeId), userId, prodId);
     }
 
-    public Result getDiscountOnCategory() {
-        return new Result(false, "fail");
+    public Result getDiscountOnCategory(int storeId, int userId, String category) {
+        return getUserById(userId).getDiscountOnCategory(getStoreById(storeId), userId, category);
     }
 
-    public Result getDiscountOnStore() {
-        return new Result(false, "fail");
+    public Result getDiscountOnStore(int storeId, int userId) {
+        return getUserById(userId).getDiscountOnStore(getStoreById(storeId), userId);
     }
 
-    public Result getPurchasePolicy() {
-        return new Result(false, "fail");
+    public Result getPurchasePolicy(int storeId, int userId) {
+        return getUserById(userId).getPurchasePolicy(getStoreById(storeId), userId);
     }
 }

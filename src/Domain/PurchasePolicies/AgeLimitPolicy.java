@@ -4,6 +4,8 @@ import Domain.Bag;
 import Domain.User;
 
 import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 public class AgeLimitPolicy extends PurchasePolicy{
     private int ageLimit;
@@ -17,5 +19,17 @@ public class AgeLimitPolicy extends PurchasePolicy{
         if (user.getAge() >= ageLimit)
             return true;
         return false;
+    }
+
+    @Override
+    public String getPolicyName() {
+        return "Age Limit";
+    }
+
+    @Override
+    public List<String> getPolicyParams() {
+        List<String> params = new LinkedList<>();
+        params.add(String.valueOf(ageLimit));
+        return params;
     }
 }

@@ -6,6 +6,7 @@ import Domain.*;
 import java.util.*;
 
 public class DiscountCondition { //Compound object
+
     private List<Policy> discounts;
     private LogicOperator operator;
 
@@ -26,6 +27,14 @@ public class DiscountCondition { //Compound object
     }
 
     public void setOperator(LogicOperator operator) { this.operator = operator; }
+
+    public List<Policy> getDiscounts() {
+        return discounts;
+    }
+
+    public LogicOperator getOperator() {
+        return operator;
+    }
 
     public void addDiscount(PolicyCondition policy) {
         DiscountPolicy dp;

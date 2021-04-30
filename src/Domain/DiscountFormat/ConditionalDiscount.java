@@ -32,6 +32,8 @@ public class ConditionalDiscount extends Discount {
         return discount;
     }
 
+    public DiscountCondition getConditions() { return this.conditions; }
+
 
 
 }

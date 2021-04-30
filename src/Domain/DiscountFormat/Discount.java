@@ -22,7 +22,13 @@ public abstract class Discount {
 
     public abstract double calculateDiscount(Product prod, User user, Date time, Bag bag);
 
+    public Date getBegin() { return this.begin; }
+
+    public Date getEnd() { return this.end; }
+
+    public int getPercentage() { return this.percentage; }
+
     public MathOp getMathOp() {
-        return mathOp;
+        return this.mathOp;
     }
 }

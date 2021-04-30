@@ -3,9 +3,7 @@ package Domain.PurchasePolicies;
 import Domain.Bag;
 import Domain.User;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.GregorianCalendar;
+import java.util.*;
 
 public class TimeLimitPolicy extends PurchasePolicy{
 
@@ -22,5 +20,17 @@ public class TimeLimitPolicy extends PurchasePolicy{
         if (hour >= hourOfDay )
             return false;
         return true;
+    }
+
+    @Override
+    public String getPolicyName() {
+        return "Time Limit";
+    }
+
+    @Override
+    public List<String> getPolicyParams() {
+        List<String> params = new LinkedList<>();
+        params.add(String.valueOf(hourOfDay));
+        return params;
     }
 }

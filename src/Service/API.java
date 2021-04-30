@@ -233,19 +233,19 @@ public class API {
     }
 
     //TODO add permissions for functions below then implement
-    public Result getDiscountOnProduct() {
-        return tradingSystem.getDiscountOnProduct();
+    public Result getDiscountOnProduct(int storeId, int userId, int prodId) {
+        return tradingSystem.getDiscountOnProduct(storeId, userId, prodId);
     }
 
-    public Result getDiscountOnCategory() {
-        return tradingSystem.getDiscountOnCategory();
+    public Result getDiscountOnCategory(int storeId, int userId, String category) {
+        return tradingSystem.getDiscountOnCategory(storeId, userId, category);
     }
 
-    public Result getDiscountOnStore() {
-        return tradingSystem.getDiscountOnStore();
+    public Result getDiscountOnStore(int storeId, int userId) {
+        return tradingSystem.getDiscountOnStore(storeId, userId);
     }
 
-    public Result getPurchasePolicy() {
-        return tradingSystem.getPurchasePolicy();
+    public Result getPurchasePolicy(int storeId, int userId) {
+        return tradingSystem.getPurchasePolicy(storeId, userId);
     }
 }

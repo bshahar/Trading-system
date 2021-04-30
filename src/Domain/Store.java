@@ -5,6 +5,7 @@ import Domain.DiscountPolicies.DiscountCondition;
 import Domain.Operators.LogicOperator;
 import Domain.Operators.NoneOperator;
 import Domain.PurchaseFormat.ImmediatePurchase;
+import Domain.PurchaseFormat.Purchase;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Service.counter;
 import javafx.util.Pair;
@@ -25,7 +26,7 @@ public class Store {
     private Map<Product, Discount> discountsOnProducts;
     private Map<String, Discount> discountsOnCategories;
     private Discount discountsOnStore;
-    private List<ImmediatePurchase> purchasesOnStore;
+    private List<ImmediatePurchase> purchasePoliciesInStore;
     private Map<User,List<User>> appointments; //appointer & list of appointees
     private Map<Integer, Bag> usersBags;
     private double rate;
@@ -50,7 +51,7 @@ public class Store {
         this.discountsOnCategories = new HashMap<>();
         this.counter = new counter();
         this.usersBags = new HashMap<>();
-        this.purchasesOnStore = new LinkedList<>();
+        this.purchasePoliciesInStore = new LinkedList<>();
     }
 
     public Inventory getInventory() {
@@ -231,7 +232,7 @@ public class Store {
     }
 
     public void addPurchasePolicy(PurchaseCondition conditions) {
-        this.purchasesOnStore.add(new ImmediatePurchase(counter.inc(), conditions));
+        this.purchasePoliciesInStore.add(new ImmediatePurchase(counter.inc(), conditions));
     }
 
    /* public double calculateDiscounts(double totalCost, User user, String mathOperator) {
@@ -363,7 +364,7 @@ public class Store {
 
     public boolean validatePurchase(User user, Date time, Bag bag){
         boolean isValid = true;
-        for (ImmediatePurchase immPurchase : this.purchasesOnStore) {
+        for (ImmediatePurchase immPurchase : this.purchasePoliciesInStore) {
             if (!immPurchase.validatePurchase(user, new Date(), bag))
                 isValid = false;
         }
@@ -372,10 +373,10 @@ public class Store {
     }
 
     public void removePurchasePolicy() {
-        this.purchasesOnStore = new LinkedList<>();
+        this.purchasePoliciesInStore = new LinkedList<>();
     }
 
-    public Result viewDiscountPoliciesOnProduct(int userId, int prodId) {
+    public Result viewDiscountPoliciesOnProduct(int prodId) {
         Product product = getProductById(prodId);
         if(product != null) {
             List<Object> discountPolicies = new LinkedList<>();
@@ -399,7 +400,7 @@ public class Store {
         return new Result(false, "No discount policies on this product.");
     }
 
-    public Result viewDiscountPoliciesOnCategory(int userId, String category) {
+    public Result viewDiscountPoliciesOnCategory(String category) {
         if(category != null) {
             List<Object> discountPolicies = new LinkedList<>();
             Discount dis = this.discountsOnCategories.get(category);
@@ -422,7 +423,7 @@ public class Store {
         return new Result(false, "No discount policies on this category.");
     }
 
-    public Result viewDiscountPoliciesOnStore(int userId, int prodId) {
+    public Result viewDiscountPoliciesOnStore() {
         if(this.discountsOnStore != null) {
             List<Object> discountPolicies = new LinkedList<>();
             Discount dis = this.discountsOnStore;
@@ -445,13 +446,27 @@ public class Store {
         return new Result(false, "No discount policies in this store.");
     }
 
-    public Result viewPurchasePolicies(int userId, int prodId) {
+    public Result viewPurchasePolicies() {
+        //TODO shahar check
+        if (this.purchasePoliciesInStore != null) {
+            List<Object> purchasePolicies = new LinkedList<>();
+            List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
+            for (Purchase purchase : this.purchasePoliciesInStore) {
+                for (Policy policy : ((ImmediatePurchase) purchase).getConditions().getPurchases()) {
+                    policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
+                }
+            }
+            purchasePolicies.add(policiesParams);
+            return new Result(true, purchasePolicies);
+        }
         return new Result(false, "No discount policies on this product.");
     }
 
     public boolean isManager(User user) {
         return this.managers.contains(user);
     }
+
+    public boolean prodExists(int prodId){ return this.inventory.prodExists(prodId); }
 
 
     public Set<Integer> getManagersAndOwners() {

@@ -26,4 +26,6 @@ public class ImmediatePurchase extends Purchase {
     public boolean validatePurchase(List<PurchasePolicy> policies) {
         return false;
     }
+
+    public PurchaseCondition getConditions() { return this.conditions; }
 }

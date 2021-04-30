@@ -311,37 +311,36 @@ public class API {
     }
 
 
-    public Result editDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public static Result editDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         return tradingSystem.editDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
 
-    public Result editDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public static Result editDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         return tradingSystem.editDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public Result editDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public static Result editDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         return tradingSystem.editDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public Result editPurchasePolicy(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+    public static Result editPurchasePolicy(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
         return tradingSystem.editPurchasePolicy(storeId, userId, operator, policiesParams);
     }
 
-    //TODO add permissions for functions below then implement
-    public Result getDiscountOnProduct(int storeId, int userId, int prodId) {
+    public static Result getDiscountOnProduct(int storeId, int userId, int prodId) {
         return tradingSystem.getDiscountOnProduct(storeId, userId, prodId);
     }
 
-    public Result getDiscountOnCategory(int storeId, int userId, String category) {
+    public static Result getDiscountOnCategory(int storeId, int userId, String category) {
         return tradingSystem.getDiscountOnCategory(storeId, userId, category);
     }
 
-    public Result getDiscountOnStore(int storeId, int userId) {
+    public static Result getDiscountOnStore(int storeId, int userId) {
         return tradingSystem.getDiscountOnStore(storeId, userId);
     }
 
-    public Result getPurchasePolicy(int storeId, int userId) {
+    public static Result getPurchasePolicy(int storeId, int userId) {
         return tradingSystem.getPurchasePolicy(storeId, userId);
     }
 }

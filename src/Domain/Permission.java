@@ -46,6 +46,8 @@ public class Permission {
     private OpenStore openStore;
     private AddPermissions addPermissions;
     private RemovePermission removePermission;
+    private ViewDiscountPolicies viewDiscountPolicies;
+    private ViewPurchasePolicies viewPurchasePolicies;
 
     public Permission(Member member, Store store) {
         this.member = member;
@@ -265,6 +267,36 @@ public class Permission {
     {
         if(this.editDiscountPolicy!= null)
             return this.editDiscountPolicy.action(prodId, category);
+        return new Result(false,"User has no permission for this action.");
+    }
+
+    public void allowViewDiscountPolicies() {
+        this.viewDiscountPolicies = new ViewDiscountPolicies(this.member,this.store);
+    }
+
+    public void disableViewDiscountPolicies() {
+        if(this.viewDiscountPolicies == null) return;
+        this.viewDiscountPolicies = null;
+    }
+
+    public Result defineViewDiscountPolicies(int prodId, String category) {
+        if(this.viewDiscountPolicies!= null)
+            return this.viewDiscountPolicies.action(prodId, category);
+        return new Result(false,"User has no permission for this action.");
+    }
+
+    public void allowViewPurchasePolicies() {
+        this.viewPurchasePolicies = new ViewPurchasePolicies(this.member, this.store);
+    }
+
+    public void disableViewPurchasePolicies() {
+        if(this.viewPurchasePolicies == null) return;
+        this.viewPurchasePolicies = null;
+    }
+
+    public Result defineViewPurchasePolicies() {
+        if(this.viewPurchasePolicies!= null)
+            return this.viewPurchasePolicies.action();
         return new Result(false,"User has no permission for this action.");
     }
 

@@ -10,3 +10,11 @@
  
 [2021-04-30] [13:21:16] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
  
+[2021-04-30] [14:34:33] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-04-30] [14:39:30] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-04-30] [14:44:47] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-04-30] [16:29:37] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 

@@ -49,6 +49,8 @@ public class Member {
         p.allowViewPurchaseHistory();
         p.allowAddPermissions();
         p.allowRemovePermission();
+        p.allowViewDiscountPolicies();
+        p.allowViewPurchasePolicies();
         permissions.put(store,p);
     }
 

@@ -47,9 +47,8 @@ public class DiscountAndPurchaseTest {
         end = new GregorianCalendar(2022, Calendar.FEBRUARY, 11).getTime();
     }
 
-    
     @Test
-    public void addDiscountSuccessTest() {
+    public void addDiscountAndOpSuccessTest() {
         List<Pair<String, List<String>>> policies = new LinkedList<>();
         List<String> params1 = new LinkedList<>();
         params1.add("5"); //min amount
@@ -63,10 +62,9 @@ public class DiscountAndPurchaseTest {
         Assertions.assertTrue(API.addDiscountOnProduct(storeId1, registerId1, productId2, "And", policies, begin, end, 50, "Sum").isResult());
     }
 
-
     @Test
-    public void buyProductWithDiscountSuccessTest() {
-        addDiscountSuccessTest();
+    public void buyProductWithDiscountAndOpSuccessTest() {
+        addDiscountAndOpSuccessTest();
         API.addProductToCart(registerId2, storeId1, productId1, 5);
         API.addProductToCart(registerId2, storeId1, productId3, 3);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
@@ -76,6 +74,56 @@ public class DiscountAndPurchaseTest {
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
 
+    @Test
+    public void buyProductWithDiscountAndOpWrongAmountFailTest() {
+        addDiscountAndOpSuccessTest();
+        API.addProductToCart(registerId2, storeId1, productId1, 2);
+        API.addProductToCart(registerId2, storeId1, productId3, 3);
+        API.addProductToCart(registerId2, storeId1, productId2, 10);
+        double expectedTotal = 250;
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
+        Assertions.assertEquals(expectedTotal, actualTotal);
+    }
+
+    @Test
+    public void addDiscountOrOpSuccessTest() {
+        List<Pair<String, List<String>>> policies = new LinkedList<>();
+        List<String> params1 = new LinkedList<>();
+        params1.add("5"); //min amount
+        params1.add(String.valueOf(productId1));
+        List<String> params2 = new LinkedList<>();
+        params2.add("2"); //min amount
+        params2.add(String.valueOf(productId3));
+        policies.add(new Pair<> ("Minimal Amount", params1));
+        policies.add(new Pair<> ("Minimal Amount", params2));
+        //discount of 50% on beers if you buy at least 5 milk & 2 bread from now until february 2022
+        Assertions.assertTrue(API.addDiscountOnProduct(storeId1, registerId1, productId2, "Or", policies, begin, end, 50, "Sum").isResult());
+    }
+
+    @Test
+    public void buyProductWithDiscountOrOpSuccessTest() {
+        addDiscountOrOpSuccessTest();
+        API.addProductToCart(registerId2, storeId1, productId1, 5);
+        API.addProductToCart(registerId2, storeId1, productId3, 1);
+        API.addProductToCart(registerId2, storeId1, productId2, 10);
+        double expectedTotal = 160;
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
+        Assertions.assertEquals(expectedTotal, actualTotal);
+    }
+
+    @Test
+    public void buyProductWithDiscountOrOpFailTest() {
+        addDiscountAndOpSuccessTest();
+        API.addProductToCart(registerId2, storeId1, productId1, 1);
+        API.addProductToCart(registerId2, storeId1, productId3, 1);
+        API.addProductToCart(registerId2, storeId1, productId2, 10);
+        double expectedTotal = 220;
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
+        Assertions.assertEquals(expectedTotal, actualTotal);
+    }
 
     @Test
     public void addDiscountNotPermittedFailTest() {
@@ -88,17 +136,36 @@ public class DiscountAndPurchaseTest {
         Assertions.assertFalse(API.addDiscountOnProduct(storeId1, registerId2, productId1, "Or", policies, begin, end, 50, "Sum").isResult());
     }
 
-
     @Test
-    public void buyProductWithDiscountWrongAmountFailTest() {
-        addDiscountSuccessTest();
-        API.addProductToCart(registerId2, storeId1, productId1, 2);
+    public void changeDiscountPolicySuccessTest() {
+        addDiscountAndOpSuccessTest(); //define the discount policy
+        List<Pair<String, List<String>>> policies = new LinkedList<>();
+        List<String> params1 = new LinkedList<>();
+        params1.add("10"); //min amount
+        params1.add(String.valueOf(productId1));
+        policies.add(new Pair<> ("Minimal Amount", params1));
+        //change discount policy
+        API.editDiscountOnProduct(storeId1, registerId1, productId2, "", policies, begin, end, 20, "Sum");
+        //buy products with new discount policy
+        API.addProductToCart(registerId2, storeId1, productId1, 5);
         API.addProductToCart(registerId2, storeId1, productId3, 3);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
-        double expectedTotal = 250;
+        double expectedTotal = 280;
         int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
+    }
+
+    @Test
+    public void changeDiscountPolicyNotPermittedFailTest() {
+        addDiscountAndOpSuccessTest(); //define the discount policy
+        List<Pair<String, List<String>>> policies = new LinkedList<>();
+        List<String> params1 = new LinkedList<>();
+        params1.add("10"); //min amount
+        params1.add(String.valueOf(productId1));
+        policies.add(new Pair<> ("Minimal Amount", params1));
+        //try to change discount policy
+        Assertions.assertFalse((API.editDiscountOnProduct(storeId1, registerId2, productId2, "", policies, begin, end, 20, "Sum")).isResult());
     }
 
     @Test
@@ -129,4 +196,8 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId2, 5);
         Assertions.assertFalse(API.buyProduct(registerId2, storeId1, "Credit1").isResult());
     }
+
+    //TODO test to implement:
+    //check if sum/max work
+    //add test of time limit
 }

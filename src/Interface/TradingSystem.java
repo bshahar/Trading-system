@@ -53,7 +53,9 @@ public class TradingSystem {
         ReopenStore,
         ReplayMessages,
         ViewMessages,
-        ViewPurchaseHistory
+        ViewPurchaseHistory,
+        ViewDiscountPolicies,
+        ViewPurchasePolicies
     }
     public static String[] permissionsName= {
             "DEF",
@@ -79,7 +81,10 @@ public class TradingSystem {
             "ReopenStore",
             "ReplayMessages",
             "ViewMessages",
-            "ViewPurchaseHistory"};
+            "ViewPurchaseHistory",
+            "ViewDiscountPolicies",
+            "ViewPurchasePolicies"
+    };
 
     public TradingSystem (User systemManager) {
         this.paymentAdapter = new PaymentAdapter(new DemoPayment());
@@ -435,10 +440,10 @@ public class TradingSystem {
                     if (productsAmountBag.size() == productsAmountBuy.size()) {
                         KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId);
                         notifyToSubscribers(getStoreById(storeId).getNotificationId(), "Some one buy from your store! you can go to your purchase to see more details");
-                        return new Result(true, "purchase confirmed successfully");
+                        return new Result(true, rec.getReceiptId());
                     } else {
                         KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " try to purchase in store " + storeId + "but soe product are missing");
-                        return new Result(true, "some product missing");
+                        return new Result(true, rec.getReceiptId());
                     }
                 } else {
                     store.abortPurchase(productsAmountBuy);
@@ -693,7 +698,7 @@ public class TradingSystem {
 
     public Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         Store st = getStoreById(storeId);
-        if(st != null && percentage > 0 && percentage <= 100 && end.after(new Date())) {
+        if(st != null && st.prodExists(prodId) && percentage > 0 && percentage <= 100 && end.after(new Date())) {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
@@ -934,7 +939,6 @@ public class TradingSystem {
         return new Result(false, "Could ont edit purchase policy in store.");
     }
 
-    //TODO add permissions for functions below
     public Result getDiscountOnProduct(int storeId, int userId, int prodId) {
         return getUserById(userId).getDiscountOnProduct(getStoreById(storeId), userId, prodId);
     }

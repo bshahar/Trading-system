@@ -10,7 +10,6 @@ EditPurchaseFormat {
     }
 
     public Result action() {
-        //TODO here
         return new Result(false, "");
     }
 }

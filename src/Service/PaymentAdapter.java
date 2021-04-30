@@ -3,7 +3,6 @@ package Service;
 import Domain.PaymentInterface;
 
 public class PaymentAdapter {
-    //TODO create field of external system?
     PaymentInterface paymentInterface;
     public PaymentAdapter(PaymentInterface paymentInterface) {
         this.paymentInterface = paymentInterface;

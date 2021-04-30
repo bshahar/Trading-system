@@ -23,7 +23,7 @@ public class Store {
     private Service.counter counter;
     private Map<Product, Discount> discountsOnProducts;
     private Map<Product.Category, Discount> discountsOnCategories;
-    private List<Discount> discountsOnStore;
+    private Discount discountsOnStore;
     private List<ImmediatePurchase> purchasesOnStore;
     private Map<User,List<User>> appointments; //appointer & list of appointees
     private Map<Integer, Bag> usersBags;
@@ -47,7 +47,6 @@ public class Store {
         this.managers = Collections.synchronizedList(new LinkedList<>());
         this.discountsOnProducts = new HashMap<>();
         this.discountsOnCategories = new HashMap<>();
-        this.discountsOnStore = new LinkedList<>();
         this.counter = new counter();
         this.usersBags = new HashMap<>();
         this.purchasesOnStore = new LinkedList<>();
@@ -203,7 +202,7 @@ public class Store {
     }
 
     public void addDiscountOnStore(Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        this.discountsOnStore.add(new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
+        this.discountsOnStore = new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op);
     }
 
     public void removeDiscountOnProduct(int prodId){
@@ -216,7 +215,7 @@ public class Store {
     }
 
     public void removeDiscountOnStore(){
-        this.discountsOnStore = new LinkedList<>();
+        this.discountsOnStore = null;
     }
 
     public void addPurchasePolicy(PurchaseCondition conditions) {
@@ -281,9 +280,9 @@ public class Store {
                     SumDiscount.add(discountCategory);
             }
         }
-        for (Discount disc:discountsOnStore) {
-            discountStore = disc.calculateDiscount(prod,user,date,bag);
-            if(disc.getMathOp().equals(Discount.MathOp.MAX))
+        if (this.discountsOnStore != null) {
+            discountStore = discountsOnStore.calculateDiscount(prod,user,date,bag);
+            if(discountsOnStore.getMathOp().equals(Discount.MathOp.MAX))
                 MaxDiscount.add(discountStore);
             else
                 SumDiscount.add(discountStore);
@@ -347,7 +346,7 @@ public class Store {
     }
 
     public void addSimpleDiscountOnStore(Date begin, Date end, int percentage, Discount.MathOp op) {
-        this.discountsOnStore.add(new SimpleDiscount(counter.inc(), begin, end, percentage, op));
+        this.discountsOnStore = new SimpleDiscount(counter.inc(), begin, end, percentage, op);
     }
 
     public boolean validatePurchase(User user, Date time, Bag bag){
@@ -389,10 +388,49 @@ public class Store {
     }
 
     public Result viewDiscountPoliciesOnCategory(int userId, String category) {
+        Product.Category cat = Product.Category.valueOf(category);
+        if(cat != null) {
+            List<Object> discountPolicies = new LinkedList<>();
+            Discount dis = this.discountsOnCategories.get(cat);
+            List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
+            if(dis instanceof ConditionalDiscount) {
+                LogicOperator op = ((ConditionalDiscount) dis).getConditions().getOperator();
+                discountPolicies.add(String.valueOf(op));
+                for (Policy policy: ((ConditionalDiscount) dis).getConditions().getDiscounts()) {
+                    policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
+                }
+            }
+            else
+                discountPolicies.add(""); //logic operator- if simple discount then empty
+            discountPolicies.add(policiesParams);
+            discountPolicies.add(dis.getBegin().toString());
+            discountPolicies.add(dis.getEnd().toString());
+            discountPolicies.add(String.valueOf(dis.getPercentage()));
+            return new Result(true, discountPolicies);
+        }
         return new Result(false, "No discount policies on this category.");
     }
 
     public Result viewDiscountPoliciesOnStore(int userId, int prodId) {
+        if(this.discountsOnStore != null) {
+            List<Object> discountPolicies = new LinkedList<>();
+            Discount dis = this.discountsOnStore;
+            List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
+            if(dis instanceof ConditionalDiscount) {
+                LogicOperator op = ((ConditionalDiscount) dis).getConditions().getOperator();
+                discountPolicies.add(String.valueOf(op));
+                for (Policy policy: ((ConditionalDiscount) dis).getConditions().getDiscounts()) {
+                    policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
+                }
+            }
+            else
+                discountPolicies.add(""); //logic operator- if simple discount then empty
+            discountPolicies.add(policiesParams);
+            discountPolicies.add(dis.getBegin().toString());
+            discountPolicies.add(dis.getEnd().toString());
+            discountPolicies.add(String.valueOf(dis.getPercentage()));
+            return new Result(true, discountPolicies);
+        }
         return new Result(false, "No discount policies in this store.");
     }
 

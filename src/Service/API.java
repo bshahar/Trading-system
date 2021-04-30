@@ -214,23 +214,22 @@ public class API {
         return tradingSystem.getReceipt(receiptId);
     }
 
-    /*TODO
-    public Result editDiscountOnProduct() {
-        return tradingSystem.editDiscountOnProduct();
+
+    public Result editDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.editDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-     */
 
-    public Result editDiscountOnCategory() {
-        return tradingSystem.editDiscountOnCategory();
+    public Result editDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.editDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public Result editDiscountOnStore() {
-        return tradingSystem.editDiscountOnStore();
+    public Result editDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.editDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public Result editPurchasePolicy() {
-        return tradingSystem.editPurchasePolicy();
+    public Result editPurchasePolicy(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.editPurchasePolicy(storeId, userId, operator, policiesParams);
     }
 
     //TODO add permissions for functions below then implement

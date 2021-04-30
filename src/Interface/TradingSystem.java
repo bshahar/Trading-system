@@ -597,20 +597,27 @@ public class TradingSystem {
     }
 
     public Result editDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
-        //remove discount
-        return addDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
+        if(getUserById(userId).removeDiscountOnProduct(getStoreById(storeId), prodId, null).isResult())
+            return addDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
+        return new Result(false, "Could ont edit discount on product.");
     }
 
-    public Result editDiscountOnCategory() {
-        return new Result(false, "fail");
+    public Result editDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        if(getUserById(userId).removeDiscountOnCategory(getStoreById(storeId), -1, category).isResult())
+            return addDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
+        return new Result(false, "Could ont edit discount on category.");
     }
 
-    public Result editDiscountOnStore() {
-        return new Result(false, "fail");
+    public Result editDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        if(getUserById(userId).removeDiscountOnStore(getStoreById(storeId), -1, null).isResult())
+            return addDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
+        return new Result(false, "Could ont edit discount on store.");
     }
 
-    public Result editPurchasePolicy() {
-        return new Result(false, "fail");
+    public Result editPurchasePolicy(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        if(getUserById(userId).removePurchasePolicy(getStoreById(storeId)).isResult())
+            return addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
+        return new Result(false, "Could ont edit purchase policy in store.");
     }
 
     //TODO add permissions for functions below

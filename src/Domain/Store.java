@@ -208,13 +208,12 @@ public class Store {
         this.discountsOnProducts.remove(prod);
     }
 
-    public void removeDiscountOnCategory(Product.Category category){
-        this.discountsOnCategories.remove(category);
+    public void removeDiscountOnCategory(String category){
+        this.discountsOnCategories.remove(Product.Category.valueOf(category));
     }
 
-    public void removeDiscountOnStore(Product.Category category){
-        //this.discountsOnStore.
-        //TODO was here!!!
+    public void removeDiscountOnStore(){
+        this.discountsOnStore = new LinkedList<>();
     }
 
     public void addPurchasePolicy(PurchaseCondition conditions) {
@@ -356,5 +355,9 @@ public class Store {
         }
         return isValid;
 
+    }
+
+    public void removePurchasePolicy() {
+        this.purchasesOnStore = new LinkedList<>();
     }
 }

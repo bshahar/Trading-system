@@ -193,10 +193,10 @@ public class Permission {
         if(this.editPurchasePolicy == null) return;
         this.editPurchasePolicy = null;
     }
-    public void editPurchasePolicy()
-    {
+    public Result editPurchasePolicy() {
         if(this.editPurchasePolicy!= null)
-            this.editPurchasePolicy.action();
+            return this.editPurchasePolicy.action();
+        return new Result(false,"User has no permission for this action.");
     }
 
     public void allowDefinePurchaseFormat()
@@ -254,11 +254,10 @@ public class Permission {
         if(this.editDiscountPolicy == null) return;
         this.editDiscountPolicy = null;
     }
-    public Result defineEditDiscountPolicy()
+    public Result defineEditDiscountPolicy(int prodId, String category)
     {
-        //TODO here
-       // if(this.editDiscountPolicy!= null)
-           // return this.editDiscountPolicy.action();
+        if(this.editDiscountPolicy!= null)
+            return this.editDiscountPolicy.action(prodId, category);
         return new Result(false,"User has no permission for this action.");
     }
 

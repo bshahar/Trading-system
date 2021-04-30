@@ -177,9 +177,16 @@ public class User {
         return member.addDiscountPolicy(store, condition, param, null, prodId, begin, end, conditions, percentage, op);
     }
 
-    //TODO here
-    public Result removeDiscountOnProduct() {
-        return new Result(false, "");
+    public Result removeDiscountOnProduct(Store store, int prodId, String category) {
+        return member.removeDiscountPolicy(store, prodId, category);
+    }
+
+    public Result removeDiscountOnCategory(Store store, int prodId, String category) {
+        return member.removeDiscountPolicy(store, prodId, category);
+    }
+
+    public Result removeDiscountOnStore(Store store, int prodId, String category) {
+        return member.removeDiscountPolicy(store, prodId, category);
     }
 
     public Result addDiscountOnCategory(Store store, String condition, String param, Product.Category category, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
@@ -192,5 +199,9 @@ public class User {
 
     public Result addPurchasePolicy(Store store, PurchaseCondition condition) {
         return member.addPurchasePolicy(store, condition);
+    }
+
+    public Result removePurchasePolicy(Store store) {
+        return member.removePurchasePolicy(store);
     }
 }

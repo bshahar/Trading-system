@@ -391,16 +391,17 @@ public class Member {
             return new Result(false,"User has no permission for this action.");
     }
 
-    /*TODO
-    public Result removeDiscountPolicy(Store store) {
+
+    public Result removeDiscountPolicy(Store store, int prodId, String category) {
         if(permissions.containsKey(store)) {
             Permission permission = permissions.get(store);
-            return permission.editPurchasePolicy();
+            return permission.defineEditDiscountPolicy(prodId, category);
         }
         else
             return new Result(false,"User has no permission for this action.");
     }
-    */
+
+
 
     public Result addPurchasePolicy(Store store, PurchaseCondition condition) {
         if (permissions.containsKey(store)) {
@@ -431,5 +432,14 @@ public class Member {
 
     public List<Permission> getPermissionsOfStore(int storeId) {
         return null;
+    }
+
+    public Result removePurchasePolicy(Store store) {
+        if(permissions.containsKey(store)) {
+            Permission permission = permissions.get(store);
+            return permission.editPurchasePolicy() ;
+        }
+        else
+            return new Result(false,"User has no permission for this action.");
     }
 }

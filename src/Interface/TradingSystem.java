@@ -520,8 +520,8 @@ public class TradingSystem {
         if(result.isResult())
         {
             KingLogger.logEvent("ADD_STORE_OWNER: User with id " + owner + " try to add store owner and" + result.getData());
-
             subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
+            user.addNotification("You are now owner in store: "+getStoreName(storeId));
         }
         return result;
 
@@ -577,6 +577,7 @@ public class TradingSystem {
         {
             KingLogger.logEvent("REMOVE_MANAGER: User with id " + ownerId + " remove manager and " + result.getData());
             unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
+            getUserById(managerId).addNotification("You are no longer manager in store: "+ getStoreName(storeId));
         }
         return result;
 
@@ -589,6 +590,7 @@ public class TradingSystem {
         if(result.isResult())
         {
             unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
+            getUserById(managerId).addNotification("You are no longer owner in store: "+ getStoreName(storeId));
         }
         return result;
 
@@ -819,8 +821,18 @@ public class TradingSystem {
         {
             return new Result(true,getUserById(userId).getMessages());
         }
-        return new Result(false,"user isnt exist");
+        return new Result(false,"user isn't exist");
     }
+    public Result getLoginMessagesQueue (int userId) {
+        if(getUserById(userId)!=null)
+        {
+            return new Result(true,getUserById(userId).getLoginMessages());
+        }
+        return new Result(false,"user isn't exist");
+    }
+
+
+
 
     public Result getNotificationIdByStoreId(int storeId) {
         if(getStoreById(storeId)!=null)

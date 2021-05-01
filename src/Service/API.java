@@ -260,6 +260,11 @@ public class API {
         return tradingSystem.getMessagesQueue(userId);
     }
 
+    public static Result getLoginMessagesQueue(int userId)
+    {
+        return tradingSystem.getLoginMessagesQueue(userId);
+    }
+
     public static Result getMessagesQueueAsArray(int userId)
     {
         return tradingSystem.getMessagesQueueAsArray(userId);

@@ -75,14 +75,7 @@ public class API {
         return tradingSystem.addStoreManager(owner, userId, storeId);
     }
 
-    public static Result addManagerPermissions(){
-        //TODO
-        return new Result(true,true);
-    }
-    public static Result removeManagerPermissions(){
-        //TODO
-        return new Result(true,true);
-    }
+
 
     public static Result removeManager(int ownerId,int managerId,int storeId){
         return tradingSystem.removeManager(ownerId, managerId, storeId);

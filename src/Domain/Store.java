@@ -161,6 +161,9 @@ public class Store {
 
     public void addEmployee(User owner,User user) {
         this.employees.add(user);
+        if (!this.appointments.containsKey(owner)) {
+            this.appointments.put(owner, new LinkedList<>());
+        }
         this.appointments.get(owner).add(user);
     }
     public Result getEmployees()

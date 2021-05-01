@@ -186,10 +186,10 @@ public class Permission {
         if(this.definePurchasePolicy == null) return;
         this.definePurchasePolicy = null;
     }
-    public Result definePurchasePolicy(PurchaseCondition condition)
+    public Result definePurchasePolicy(String param, String category, int prodId,PurchaseCondition condition)
     {
         if(this.definePurchasePolicy!= null)
-            return this.definePurchasePolicy.action(condition);
+            return this.definePurchasePolicy.action(param, category, prodId, condition);
         return new Result(false,"User has no permission for this action.");
     }
 
@@ -202,9 +202,9 @@ public class Permission {
         if(this.editPurchasePolicy == null) return;
         this.editPurchasePolicy = null;
     }
-    public Result editPurchasePolicy() {
+    public Result editPurchasePolicy(int prodId, String category) {
         if(this.editPurchasePolicy!= null)
-            return this.editPurchasePolicy.action();
+            return this.editPurchasePolicy.action(prodId,category);
         return new Result(false,"User has no permission for this action.");
     }
 

@@ -30,7 +30,7 @@ public class PurchaseCondition {
     public boolean validateCondition(User user, Date time, Bag bag) {
         if(this.operator instanceof NoneOperator)
             return purchases.get(0).validateCondition(user, time, bag);
-        return operator.validateCondition(purchases, user, time, bag);
+        return operator.validateCondition(purchases,user, time, bag);
     }
 
     public void setOperator(LogicOperator operator) { this.operator = operator; }

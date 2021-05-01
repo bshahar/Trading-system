@@ -302,9 +302,18 @@ public class API {
         tradingSystem.addDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public static Result addPurchasePolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
-        return tradingSystem.addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
+    public static Result addPurchaseOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.addPurchaseOnProduct(storeId, userId, prodId, operator, policiesParams);
     }
+
+    public static void addPurchaseOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams) {
+        tradingSystem.addPurchaseOnCategory(storeId, userId, category, operator, policiesParams);
+    }
+
+    public static void addPurchaseOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        tradingSystem.addPurchaseOnStore(storeId, userId, operator, policiesParams);
+    }
+
 
     public static Result getReceipt(int receiptId) {
         return tradingSystem.getReceipt(receiptId);
@@ -324,8 +333,17 @@ public class API {
         return tradingSystem.editDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public static Result editPurchasePolicy(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
-        return tradingSystem.editPurchasePolicy(storeId, userId, operator, policiesParams);
+    public static Result editPurchaseOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.editPurchaseOnProduct(storeId, userId, prodId, operator, policiesParams);
+    }
+
+
+    public static Result editPurchaseOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.editPurchaseOnCategory(storeId, userId, category, operator, policiesParams);
+    }
+
+    public static Result editPurchaseOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.editPurchaseOnStore(storeId, userId, operator, policiesParams);
     }
 
     public static Result getDiscountOnProduct(int storeId, int userId, int prodId) {
@@ -340,7 +358,17 @@ public class API {
         return tradingSystem.getDiscountOnStore(storeId, userId);
     }
 
-    public static Result getPurchasePolicy(int storeId, int userId) {
-        return tradingSystem.getPurchasePolicy(storeId, userId);
+    public static Result getPurchaseOnProduct(int storeId, int userId, int prodId) {
+        return tradingSystem.getPurchaseOnProduct(storeId, userId, prodId);
     }
+
+    public static Result getPurchaseOnCategory(int storeId, int userId, String category) {
+        return tradingSystem.getPurchaseOnCategory(storeId, userId, category);
+    }
+
+    public static Result getPurchaseOnStore(int storeId, int userId) {
+        return tradingSystem.getPurchaseOnStore(storeId, userId);
+    }
+
+
 }

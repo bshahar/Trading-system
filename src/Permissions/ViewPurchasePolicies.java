@@ -13,7 +13,12 @@ public class ViewPurchasePolicies {
         this.member = member;
     }
 
-    public Result action() {
-        return this.store.viewPurchasePolicies();
+    public Result action(int prodId, String category) {
+        if(prodId != -1)
+            return this.store.viewPurchasePoliciesOnProduct(prodId);
+        else if(!category.equals(""))
+            return this.store.viewPurchasePoliciesOnCategory(category);
+        else
+            return this.store.viewPurchasePoliciesOnStore();
     }
 }

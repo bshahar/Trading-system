@@ -26,7 +26,10 @@ public class Store {
     private Map<Product, Discount> discountsOnProducts;
     private Map<String, Discount> discountsOnCategories;
     private Discount discountsOnStore;
-    private List<ImmediatePurchase> purchasePoliciesInStore;
+    private Map<Product, ImmediatePurchase> purchasesOnProducts;
+    private Map<String, ImmediatePurchase> purchasesOnCategories;
+    private ImmediatePurchase purchasesOnStore;
+    //private List<ImmediatePurchase> purchasePoliciesInStore;
     private Map<User,List<User>> appointments; //appointer & list of appointees
     private Map<Integer, Bag> usersBags;
     private double rate;
@@ -51,7 +54,9 @@ public class Store {
         this.discountsOnCategories = new HashMap<>();
         this.counter = new counter();
         this.usersBags = new HashMap<>();
-        this.purchasePoliciesInStore = new LinkedList<>();
+        this.purchasesOnProducts = new HashMap<>();
+        this.purchasesOnCategories = new HashMap<>();
+
     }
 
     public Inventory getInventory() {
@@ -218,6 +223,18 @@ public class Store {
         this.discountsOnStore = new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op);
     }
 
+    public void addPurchaseOnProduct(int prodId, PurchaseCondition conditions) {
+        this.purchasesOnProducts.put(getProductById(prodId), new ImmediatePurchase(counter.inc(), conditions));
+    }
+
+    public void addPurchaseOnCategory(String category, PurchaseCondition conditions) {
+        this.purchasesOnCategories.put(category, new ImmediatePurchase(counter.inc(), conditions));
+    }
+
+    public void addPurchaseOnStore(PurchaseCondition conditions) {
+        this.purchasesOnStore = new ImmediatePurchase(counter.inc(), conditions);
+    }
+
     public void removeDiscountOnProduct(int prodId){
         Product prod = this.inventory.getProductById(prodId);
         this.discountsOnProducts.remove(prod);
@@ -231,8 +248,17 @@ public class Store {
         this.discountsOnStore = null;
     }
 
-    public void addPurchasePolicy(PurchaseCondition conditions) {
-        this.purchasePoliciesInStore.add(new ImmediatePurchase(counter.inc(), conditions));
+    public void removePurchaseOnProduct(int prodId){
+        Product prod = this.inventory.getProductById(prodId);
+        this.purchasesOnProducts.remove(prod);
+    }
+
+    public void removePurchaseOnCategory(String category){
+        this.purchasesOnCategories.remove(category);
+    }
+
+    public void removePurchaseOnStore(){
+        this.purchasesOnStore = null;
     }
 
    /* public double calculateDiscounts(double totalCost, User user, String mathOperator) {
@@ -362,18 +388,22 @@ public class Store {
         this.discountsOnStore = new SimpleDiscount(counter.inc(), begin, end, percentage, op);
     }
 
-    public boolean validatePurchase(User user, Date time, Bag bag){
+    public boolean validatePurchasePerProduct(Product prod ,User user, Date time, Bag bag){
         boolean isValid = true;
-        for (ImmediatePurchase immPurchase : this.purchasePoliciesInStore) {
-            if (!immPurchase.validatePurchase(user, new Date(), bag))
-                isValid = false;
+        if (this.purchasesOnProducts.containsKey(prod)) {
+            ImmediatePurchase ip = purchasesOnProducts.get(prod);
+            if(ip != null)
+                isValid = isValid && ip.validatePurchase(user, time, bag);
         }
+        for (String cat:prod.getCategories()) {
+            ImmediatePurchase ip = purchasesOnCategories.get(cat);
+            if(ip != null)
+                isValid = isValid && ip.validatePurchase(user, time, bag);
+        }
+        if (this.purchasesOnStore != null)
+            isValid = isValid && purchasesOnStore.validatePurchase(user, time, bag);
         return isValid;
 
-    }
-
-    public void removePurchasePolicy() {
-        this.purchasePoliciesInStore = new LinkedList<>();
     }
 
     public Result viewDiscountPoliciesOnProduct(int prodId) {
@@ -446,20 +476,47 @@ public class Store {
         return new Result(false, "No discount policies in this store.");
     }
 
-    public Result viewPurchasePolicies() {
-        //TODO shahar check
-        if (this.purchasePoliciesInStore != null) {
+    public Result viewPurchasePoliciesOnProduct(int prodId) {
+        Product product = getProductById(prodId);
+        if(product != null && this.purchasesOnProducts.containsKey(product)) {
             List<Object> purchasePolicies = new LinkedList<>();
+            ImmediatePurchase ip = this.purchasesOnProducts.get(product);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
-            for (Purchase purchase : this.purchasePoliciesInStore) {
-                for (Policy policy : ((ImmediatePurchase) purchase).getConditions().getPurchases()) {
-                    policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
-                }
+            for (Policy policy : ((ImmediatePurchase) ip).getConditions().getPurchases()) {
+                policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
             }
             purchasePolicies.add(policiesParams);
             return new Result(true, purchasePolicies);
         }
-        return new Result(false, "No discount policies on this product.");
+        return new Result(false, "No purchase policies on this product.");
+    }
+
+    public Result viewPurchasePoliciesOnCategory(String category) {
+        if(category != null && this.purchasesOnCategories.containsKey(category)) {
+            List<Object> purchasePolicies = new LinkedList<>();
+            ImmediatePurchase ip = this.purchasesOnProducts.get(category);
+            List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
+            for (Policy policy : ((ImmediatePurchase) ip).getConditions().getPurchases()) {
+                policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
+            }
+            purchasePolicies.add(policiesParams);
+            return new Result(true, purchasePolicies);
+        }
+        return new Result(false, "No purchase policies on this product.");
+    }
+
+    public Result viewPurchasePoliciesOnStore() {
+        if(this.purchasesOnStore != null) {
+            List<Object> purchasePolicies = new LinkedList<>();
+            ImmediatePurchase ip = this.purchasesOnStore;
+            List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
+            for (Policy policy : ((ImmediatePurchase) ip).getConditions().getPurchases()) {
+                policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
+            }
+            purchasePolicies.add(policiesParams);
+            return new Result(true, purchasePolicies);
+        }
+        return new Result(false, "No purchase policies on this product.");
     }
 
     public boolean isManager(User user) {

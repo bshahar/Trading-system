@@ -22,22 +22,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="pemission action web socket">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_201401073.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/ViewDiscountPolicies.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Permissions/ViewPurchasePolicies.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#42 change impl of calculateDiscount">
+      <change afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/MinAmountPolicy.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/maxAmountPolicy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permission.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/PurchaseFormat/ImmediatePurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/ImmediatePurchase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/PurchasePolicies/PurchaseCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/PurchaseCondition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/DefinePurchasePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/DefinePurchasePolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/EditPurchasePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/EditPurchasePolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/ViewPurchasePolicies.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/ViewPurchasePolicies.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,23 +49,22 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/purchaseSystem" />
+    <option name="BRANCH" value="origin/StorePage" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="DiscountAndPurchase" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-    <option name="ROOT_SYNC" value="DONT_SYNC" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -110,7 +108,7 @@
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="configurable.group.tools" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -121,12 +119,13 @@
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\LoginPage" />
     </key>
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="Domain.PurchaseFormat" />
       <recent name="Server" />
       <recent name="Permissions" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest">
-    <configuration name="DiscountAndPurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest.addDiscountNotPermittedFailTest">
+    <configuration name="DiscountAndPurchaseTest.addDiscountAndOpSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -136,12 +135,44 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+      <option name="METHOD_NAME" value="addDiscountAndOpSuccessTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiscountAndPurchaseTest.addDiscountNotPermittedFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+      <option name="METHOD_NAME" value="addDiscountNotPermittedFailTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.PurchaseTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscountAndPurchaseTest.buyProductWithDiscountOrOpFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest.addToCartGuestThenRegisteredSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -150,14 +181,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="buyProductWithDiscountOrOpFailTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
+      <option name="METHOD_NAME" value="addToCartGuestThenRegisteredSuccessTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscountAndPurchaseTest.buyProductWithDiscountOrOpSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Tests in Trading-system" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -166,52 +197,18 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="buyProductWithDiscountOrOpSuccessTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DiscountAndPurchaseTest.changeDiscountPolicyNotPermittedFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="changeDiscountPolicyNotPermittedFailTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DiscountAndPurchaseTest.changeDiscountPolicySuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="changeDiscountPolicySuccessTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="package" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.changeDiscountPolicyNotPermittedFailTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.changeDiscountPolicySuccessTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductWithDiscountOrOpFailTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductWithDiscountOrOpSuccessTest" />
+        <item itemvalue="JUnit.Tests in Trading-system" />
+        <item itemvalue="JUnit.StoreTest.addToCartGuestThenRegisteredSuccessTest" />
+        <item itemvalue="JUnit.PurchaseTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.addDiscountNotPermittedFailTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.addDiscountAndOpSuccessTest" />
       </list>
     </recent_temporary>
   </component>
@@ -387,57 +384,49 @@
       <option name="presentableId" value="LOCAL‎00024" />
       <updated>1619280357318</updated>
     </task>
-    <task id="LOCAL‎00025" summary="add React to fucking proj">
-      <created>1619343342456</created>
+    <task id="LOCAL‎00025" summary="#42 working on discount system">
+      <created>1619344423013</created>
       <option name="number" value="LOCAL‎00025" />
       <option name="presentableId" value="LOCAL‎00025" />
-      <updated>1619343342456</updated>
+      <updated>1619344423013</updated>
     </task>
-    <task id="LOCAL‎00026" summary="add React to fucking proj">
-      <created>1619343570506</created>
+    <task id="LOCAL‎00026" summary="#42 starting purchase system">
+      <created>1619347046959</created>
       <option name="number" value="LOCAL‎00026" />
       <option name="presentableId" value="LOCAL‎00026" />
-      <updated>1619343570506</updated>
+      <updated>1619347046959</updated>
     </task>
-    <task id="LOCAL‎00027" summary="add React to fucking proj">
-      <created>1619355371042</created>
+    <task id="LOCAL‎00027" summary="xml">
+      <created>1619358810829</created>
       <option name="number" value="LOCAL‎00027" />
       <option name="presentableId" value="LOCAL‎00027" />
-      <updated>1619355371042</updated>
+      <updated>1619358810829</updated>
     </task>
-    <task id="LOCAL-00028" summary="logger in the trading system">
-      <created>1619370159468</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1619370159468</updated>
+    <task id="LOCAL‎00028" summary="#42 fixes after merge">
+      <created>1619367322850</created>
+      <option name="number" value="LOCAL‎00028" />
+      <option name="presentableId" value="LOCAL‎00028" />
+      <updated>1619367322850</updated>
     </task>
-    <task id="LOCAL-00029" summary="logger in the code">
-      <created>1619449132600</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1619449132600</updated>
+    <task id="LOCAL‎00029" summary="#42 create tests for discount &amp; purchase policies, no implementation yet">
+      <created>1619465327147</created>
+      <option name="number" value="LOCAL‎00029" />
+      <option name="presentableId" value="LOCAL‎00029" />
+      <updated>1619465327147</updated>
     </task>
-    <task id="LOCAL‎00030" summary="pemission action web socket">
-      <created>1619534997179</created>
+    <task id="LOCAL‎00030" summary="#42 fix implementation of discount &amp; purchase policy and add impl of their permissions">
+      <created>1619625363877</created>
       <option name="number" value="LOCAL‎00030" />
       <option name="presentableId" value="LOCAL‎00030" />
-      <updated>1619534997179</updated>
+      <updated>1619625363877</updated>
     </task>
-    <task id="LOCAL‎00031" summary="pemission action web socket">
-      <created>1619535386117</created>
+    <task id="LOCAL‎00031" summary="#42 implement some tests in DiscountAndPurchaseTest">
+      <created>1619628960934</created>
       <option name="number" value="LOCAL‎00031" />
       <option name="presentableId" value="LOCAL‎00031" />
-      <updated>1619535386117</updated>
+      <updated>1619628960934</updated>
     </task>
-    <task id="LOCAL‎00032" summary="pemission action web socket">
-      <created>1619774310985</created>
-      <option name="number" value="LOCAL‎00032" />
-      <option name="presentableId" value="LOCAL‎00032" />
-      <updated>1619774310985</updated>
-    </task>
-    <option name="localTasksCounter" value="33" />
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -476,70 +465,103 @@
     <MESSAGE value="update server and gui #44" />
     <MESSAGE value="add store page" />
     <MESSAGE value="merged gui with result" />
-    <MESSAGE value="add React to fucking proj" />
-    <MESSAGE value=".." />
-    <MESSAGE value="logger in the trading system" />
-    <MESSAGE value="logger in the code" />
-    <MESSAGE value="pemission action web socket" />
-    <option name="LAST_COMMIT_MESSAGE" value="pemission action web socket" />
+    <MESSAGE value="#42 working on discount system" />
+    <MESSAGE value="#42 starting purchase system" />
+    <MESSAGE value="xml" />
+    <MESSAGE value="#42 fixes after merge" />
+    <MESSAGE value="#42 create tests for discount &amp; purchase policies, no implementation yet" />
+    <MESSAGE value="#42 fix implementation of discount &amp; purchase policy and add impl of their permissions" />
+    <MESSAGE value="#42 implement some tests in DiscountAndPurchaseTest" />
+    <option name="LAST_COMMIT_MESSAGE" value="#42 implement some tests in DiscountAndPurchaseTest" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="551" y="307" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1619783208495">
+    <state x="2505" y="104" key="#com.intellij.ide.util.MemberChooser" timestamp="1619625750637">
+      <screen x="1920" y="34" width="1680" height="1010" />
+    </state>
+    <state x="-1474" y="47" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619346808358" />
+    <state x="2505" y="104" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824/1920.34.1680.1010@1920.34.1680.1010" timestamp="1619625750637" />
+    <state x="535" y="57" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1619615677219" />
+    <state x="-1572" y="82" key="FileChooserDialogImpl" timestamp="1619337214797">
+      <screen x="-1920" y="0" width="1280" height="680" />
+    </state>
+    <state x="-1572" y="82" key="FileChooserDialogImpl/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619337214797" />
+    <state width="1681" height="384" key="GridCell.Tab.0.bottom" timestamp="1619627773127">
+      <screen x="1920" y="34" width="1680" height="1010" />
+    </state>
+    <state width="1681" height="384" key="GridCell.Tab.0.bottom/0.0.1536.824/1920.34.1680.1010@1920.34.1680.1010" timestamp="1619627773127" />
+    <state width="1537" height="302" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619462467206" />
+    <state width="1681" height="384" key="GridCell.Tab.0.center" timestamp="1619627773127">
+      <screen x="1920" y="34" width="1680" height="1010" />
+    </state>
+    <state width="1681" height="384" key="GridCell.Tab.0.center/0.0.1536.824/1920.34.1680.1010@1920.34.1680.1010" timestamp="1619627773127" />
+    <state width="1537" height="302" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619462467206" />
+    <state width="1681" height="384" key="GridCell.Tab.0.left" timestamp="1619627773127">
+      <screen x="1920" y="34" width="1680" height="1010" />
+    </state>
+    <state width="1681" height="384" key="GridCell.Tab.0.left/0.0.1536.824/1920.34.1680.1010@1920.34.1680.1010" timestamp="1619627773127" />
+    <state width="1537" height="302" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619462467206" />
+    <state width="1681" height="384" key="GridCell.Tab.0.right" timestamp="1619627773127">
+      <screen x="1920" y="34" width="1680" height="1010" />
+    </state>
+    <state width="1681" height="384" key="GridCell.Tab.0.right/0.0.1536.824/1920.34.1680.1010@1920.34.1680.1010" timestamp="1619627773127" />
+    <state width="1537" height="302" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619462467206" />
+    <state width="1681" height="344" key="GridCell.Tab.1.bottom" timestamp="1619627345229">
+      <screen x="1920" y="34" width="1680" height="1010" />
+    </state>
+    <state width="1681" height="344" key="GridCell.Tab.1.bottom/0.0.1536.824/1920.34.1680.1010@1920.34.1680.1010" timestamp="1619627345229" />
+    <state width="1681" height="344" key="GridCell.Tab.1.center" timestamp="1619627345229">
+      <screen x="1920" y="34" width="1680" height="1010" />
+    </state>
+    <state width="1681" height="344" key="GridCell.Tab.1.center/0.0.1536.824/1920.34.1680.1010@1920.34.1680.1010" timestamp="1619627345229" />
+    <state width="1681" height="344" key="GridCell.Tab.1.left" timestamp="1619627345228">
+      <screen x="1920" y="34" width="1680" height="1010" />
+    </state>
+    <state width="1681" height="344" key="GridCell.Tab.1.left/0.0.1536.824/1920.34.1680.1010@1920.34.1680.1010" timestamp="1619627345228" />
+    <state width="1681" height="344" key="GridCell.Tab.1.right" timestamp="1619627345229">
+      <screen x="1920" y="34" width="1680" height="1010" />
+    </state>
+    <state width="1681" height="344" key="GridCell.Tab.1.right/0.0.1536.824/1920.34.1680.1010@1920.34.1680.1010" timestamp="1619627345229" />
+    <state x="147" y="65" key="MergeDialog" timestamp="1619857257876">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="551" y="307" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1619783208495" />
-    <state x="473" y="154" key="FileChooserDialogImpl" timestamp="1619782441096">
+    <state x="147" y="65" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1619857257876" />
+    <state x="145" y="0" key="SettingsEditor" timestamp="1619352351396">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1619782441096" />
-    <state width="1537" height="230" key="GridCell.Tab.0.bottom" timestamp="1619789372360">
+    <state x="-1799" y="0" key="SettingsEditor/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619337220586" />
+    <state x="145" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1619352351396" />
+    <state x="2226" y="144" key="Vcs.Push.Dialog.v2" timestamp="1619628984968">
+      <screen x="1920" y="34" width="1680" height="1010" />
+    </state>
+    <state x="-1687" y="74" key="Vcs.Push.Dialog.v2/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619347057383" />
+    <state x="2226" y="144" key="Vcs.Push.Dialog.v2/0.0.1536.824/1920.34.1680.1010@1920.34.1680.1010" timestamp="1619628984968" />
+    <state x="280" y="90" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1619465340097" />
+    <state x="90" y="0" width="1419" height="790" key="dock-window-1" timestamp="1619685509143">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="230" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619789372360" />
-    <state width="1537" height="230" key="GridCell.Tab.0.center" timestamp="1619789372360">
+    <state x="-1726" y="151" width="1089" height="544" key="dock-window-1/0.0.1536.824/-1920.0.1280.680@-1920.0.1280.680" timestamp="1619346905220" />
+    <state x="90" y="0" width="1419" height="790" maximized="true" key="dock-window-1/0.0.1536.824/1920.34.1680.1010@1920.34.1680.1010" timestamp="1619623760982" />
+    <state x="90" y="0" width="1419" height="790" key="dock-window-1/0.0.1536.824@0.0.1536.824" timestamp="1619685509143" />
+    <state x="478" y="147" width="579" height="530" key="find.popup" timestamp="1619871136081">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="230" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619789372360" />
-    <state width="1537" height="230" key="GridCell.Tab.0.left" timestamp="1619789372360">
+    <state x="478" y="147" width="579" height="530" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1619871136081" />
+    <state x="525" y="125" key="git4idea.branch.GitSmartOperationDialog" timestamp="1619857253139">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="230" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619789372360" />
-    <state width="1537" height="230" key="GridCell.Tab.0.right" timestamp="1619789372360">
+    <state x="525" y="125" key="git4idea.branch.GitSmartOperationDialog/0.0.1536.824@0.0.1536.824" timestamp="1619857253139" />
+    <state x="472" y="201" key="git4idea.merge.GitPullDialog" timestamp="1619857364475">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="230" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619789372360" />
-    <state width="1537" height="232" key="GridCell.Tab.1.bottom" timestamp="1619782765717">
+    <state x="472" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1619857364475" />
+    <state x="562" y="160" key="refactoring.ChangeSignatureDialog" timestamp="1619615679823">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="232" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619782765717" />
-    <state width="1537" height="232" key="GridCell.Tab.1.center" timestamp="1619782765717">
+    <state x="562" y="160" key="refactoring.ChangeSignatureDialog/0.0.1536.824@0.0.1536.824" timestamp="1619615679823" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1619857383868">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1537" height="232" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1619782765717" />
-    <state width="1537" height="232" key="GridCell.Tab.1.left" timestamp="1619782765716">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1537" height="232" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1619782765716" />
-    <state width="1537" height="232" key="GridCell.Tab.1.right" timestamp="1619782765717">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1537" height="232" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1619782765717" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1619782444942">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1619782444942" />
-    <state x="478" y="147" width="579" height="530" key="find.popup" timestamp="1619786756225">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="478" y="147" width="579" height="530" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1619786756225" />
-    <state x="472" y="201" key="git4idea.merge.GitPullDialog" timestamp="1619778388359">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="472" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1619778388359" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1619783296924">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1619783296924" />
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1619857383868" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -559,11 +581,6 @@
           <line>33</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/SearchProductsWebSocket.java</url>
-          <line>75</line>
-          <option name="timeStamp" value="16" />
-        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -572,9 +589,6 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Server.LoginPage.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

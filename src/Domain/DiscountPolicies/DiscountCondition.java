@@ -36,7 +36,7 @@ public class DiscountCondition { //Compound object
         return operator;
     }
 
-    public void addDiscount(PolicyCondition policy) {
+    public void addDiscountPolicy(PolicyCondition policy) {
         DiscountPolicy dp;
         if (this.discounts == null)
             this.discounts = new LinkedList<>();

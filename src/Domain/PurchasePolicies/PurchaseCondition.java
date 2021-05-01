@@ -35,7 +35,7 @@ public class PurchaseCondition {
 
     public void setOperator(LogicOperator operator) { this.operator = operator; }
 
-    public void addPurchase(PolicyCondition policy) {
+    public void addPurchasePolicy(PolicyCondition policy) {
         PurchasePolicy pp;
         if (this.purchases == null)
             this.purchases = new LinkedList<>();
@@ -47,6 +47,14 @@ public class PurchaseCondition {
                 break;
             case "Time Limit":
                 pp = new TimeLimitPolicy(Integer.parseInt(policy.getPolicyParams().get(0)));
+                this.purchases.add(pp);
+                break;
+            case "Min Amount":
+                pp = new MinAmountPolicy(Integer.parseInt(policy.getPolicyParams().get(0)), Integer.parseInt(policy.getPolicyParams().get(1)));
+                this.purchases.add(pp);
+                break;
+            case "Max Amount":
+                pp = new MaxAmountPolicy(Integer.parseInt(policy.getPolicyParams().get(0)), Integer.parseInt(policy.getPolicyParams().get(1)));
                 this.purchases.add(pp);
                 break;
             default:

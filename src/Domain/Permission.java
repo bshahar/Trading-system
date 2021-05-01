@@ -11,9 +11,7 @@ import Domain.Store;
 import Domain.User;
 import Permissions.*;
 
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 import java.util.List;
 
@@ -294,9 +292,9 @@ public class Permission {
         this.viewPurchasePolicies = null;
     }
 
-    public Result defineViewPurchasePolicies() {
+    public Result defineViewPurchasePolicies(int prodId, String category) {
         if(this.viewPurchasePolicies!= null)
-            return this.viewPurchasePolicies.action();
+            return this.viewPurchasePolicies.action(prodId, category);
         return new Result(false,"User has no permission for this action.");
     }
 

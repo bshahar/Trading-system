@@ -8,12 +8,12 @@ import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
-public class maxAmountPolicy extends PurchasePolicy {
+public class MaxAmountPolicy extends PurchasePolicy {
     private int prodId;
     private int maxAmount;
 
 
-    public maxAmountPolicy(int maxAmount, int prodId) {
+    public MaxAmountPolicy(int maxAmount, int prodId) {
         this.prodId = prodId;
         this.maxAmount = maxAmount;
     }

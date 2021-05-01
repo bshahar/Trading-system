@@ -5,7 +5,6 @@ import Interface.TradingSystem;
 import javafx.util.Pair;
 
 
-import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -290,28 +289,28 @@ public class API {
 
     }
 
-    public static Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
-        return tradingSystem.addDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
+    public static Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, String begin, String end, int percentage, String mathOp) {
+        return tradingSystem.addDiscountPolicyOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public static void addDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
-        tradingSystem.addDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
+    public static Result addDiscountPolicyOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, String begin, String end, int percentage, String mathOp) {
+        return tradingSystem.addDiscountPolicyOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public static void addDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
-        tradingSystem.addDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
+    public static Result addDiscountPolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, String begin, String end, int percentage, String mathOp) {
+        return tradingSystem.addDiscountPolicyOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public static Result addPurchaseOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams) {
-        return tradingSystem.addPurchaseOnProduct(storeId, userId, prodId, operator, policiesParams);
+    public static Result addPurchasePolicyOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.addPurchasePolicyOnProduct(storeId, userId, prodId, operator, policiesParams);
     }
 
-    public static void addPurchaseOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams) {
-        tradingSystem.addPurchaseOnCategory(storeId, userId, category, operator, policiesParams);
+    public static Result addPurchasePolicyOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.addPurchasePolicyOnCategory(storeId, userId, category, operator, policiesParams);
     }
 
-    public static void addPurchaseOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
-        tradingSystem.addPurchaseOnStore(storeId, userId, operator, policiesParams);
+    public static Result addPurchasePolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
     }
 
 
@@ -320,30 +319,38 @@ public class API {
     }
 
 
-    public static Result editDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
-        return tradingSystem.editDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
+    public static Result removeDiscountPolicy(int storeId, int userId, int prodId, String category) {
+        return tradingSystem.removeDiscountPolicy(storeId, userId, prodId, category);
+    }
+
+    public static Result removePurchasePolicy(int storeId, int userId, int prodId, String category) {
+        return tradingSystem.removePurchasePolicy(storeId, userId, prodId, category);
+    }
+
+    public static Result editDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, String begin, String end, int percentage, String mathOp) {
+        return tradingSystem.editDiscountPolicyOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
 
-    public static Result editDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
-        return tradingSystem.editDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
+    public static Result editDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, String begin, String end, int percentage, String mathOp) {
+        return tradingSystem.editDiscountPolicyOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
-    public static Result editDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
-        return tradingSystem.editDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
+    public static Result editDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, String begin, String end, int percentage, String mathOp) {
+        return tradingSystem.editDiscountPolicyOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
     }
 
     public static Result editPurchaseOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams) {
-        return tradingSystem.editPurchaseOnProduct(storeId, userId, prodId, operator, policiesParams);
+        return tradingSystem.editPurchasePolicyOnProduct(storeId, userId, prodId, operator, policiesParams);
     }
 
 
     public static Result editPurchaseOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams) {
-        return tradingSystem.editPurchaseOnCategory(storeId, userId, category, operator, policiesParams);
+        return tradingSystem.editPurchasePolicyOnCategory(storeId, userId, category, operator, policiesParams);
     }
 
     public static Result editPurchaseOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
-        return tradingSystem.editPurchaseOnStore(storeId, userId, operator, policiesParams);
+        return tradingSystem.editPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
     }
 
     public static Result getDiscountOnProduct(int storeId, int userId, int prodId) {

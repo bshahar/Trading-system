@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
+import Domain.PurchaseFormat.Purchase;
 import Domain.PurchasePolicies.PurchaseCondition;
 
 import java.util.Date;
@@ -284,13 +285,6 @@ public class User implements Observer {
         return member.addDiscountPolicy(store, condition, param, null, -1, begin, end, conditions, percentage, op);
     }
 
-    public Result addPurchasePolicy(Store store, PurchaseCondition condition) {
-        return member.addPurchasePolicy(store, condition);
-    }
-
-    public Result removePurchasePolicy(Store store) {
-        return member.removePurchasePolicy(store);
-    }
 
     public Result getDiscountOnProduct(Store store, int userId, int prodId) {
         return member.getDiscountPolicies(store, userId, prodId, "");
@@ -303,8 +297,44 @@ public class User implements Observer {
     public Result getDiscountOnStore(Store store, int userId) {
         return member.getDiscountPolicies(store, userId, -1, "");
     }
+    /************************************************************************/
 
-    public Result getPurchasePolicy(Store store, int userId) {
-        return member.getPurchasePolicy(store, userId);
+    public Result addPurchaseOnProduct(Store store, String param, int prodId, PurchaseCondition conditions) {
+        return member.addPurchasePolicy(store, param,null,prodId,conditions);
     }
+
+    public Result removePurchaseOnProduct(Store store, int prodId, String category) {
+        return member.removePurchasePolicy(store, prodId,category);
+    }
+
+    public Result removePurchaseOnCategory(Store store, int prodId, String category) {
+        return member.removePurchasePolicy(store, prodId, category);
+    }
+
+    public Result removePurchaseOnStore(Store store, int prodId, String category) {
+        return member.removePurchasePolicy(store, prodId, category);
+    }
+
+    public Result addPurchaseOnCategory(Store store, String param, String category, PurchaseCondition conditions) {
+        return member.addPurchasePolicy(store, param, category, -1,conditions);
+    }
+
+    public Result addPurchaseOnStore(Store store, String param, PurchaseCondition conditions) {
+        return member.addPurchasePolicy(store, param, null, -1,conditions);
+    }
+
+
+    public Result getPurchaseOnProduct(Store store, int userId, int prodId) {
+        return member.getPurchasePolicy(store, userId, prodId, "");
+    }
+
+    public Result getPurchaseOnCategory(Store store, int userId, String category) {
+        return member.getPurchasePolicy(store, userId, -1, category);
+    }
+
+    public Result getPurchaseOnStore(Store store, int userId) {
+        return member.getPurchasePolicy(store, userId, -1, "");
+    }
+
+
 }

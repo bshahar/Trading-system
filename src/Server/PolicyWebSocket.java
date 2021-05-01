@@ -60,6 +60,69 @@ public class PolicyWebSocket {
                 }
                 Result result=API.addDiscountOnProduct(storeId,userId,prodId,operator,policies,begin,end,precentage,mathOp);
                 JSONObject out=new JSONObject();
+                out.put("type","ADD_DISCOUNT_POLICY_PRODUCT");
+                out.put("result",result.isResult());
+                out.put("message",result.getData());
+                session.getRemote().sendString(out.toString());
+            }else if (type.equals("ADD_DISCOUNT_POLICY_CATEGORY")) {
+                int userId= jo.getInt("userId");
+                int storeId= jo.getInt("storeId");
+                String category= jo.getString("category");
+                String operator= jo.get("operation").toString();
+                SimpleDateFormat format= new SimpleDateFormat("dd/MM/yyyy");
+                Date begin= format.parse(jo.get("begin").toString());
+                Date end= format.parse(jo.get("end").toString());
+                int precentage= jo.getInt("presentage");
+                String mathOp= jo.get("mathOp").toString();
+                JSONArray arr=jo.getJSONArray("list");
+                List<Pair<String,List<String>>> policies=new LinkedList<>();
+                for(int i=0; i<arr.length();i++){
+                    JSONObject policy=arr.getJSONObject(i);
+                    String name=policy.getString("policyName");
+                    JSONArray jsonParams= policy.getJSONArray("params");
+                    List<String> params =new LinkedList<>();
+                    for(int j=0; j<jsonParams.length();j++){
+                        params.add(jsonParams.getString(j));
+                    }
+                    Pair<String ,List<String>> pair= new Pair<>(name,params);
+                    policies.add(pair);
+                }
+                Result result=API.addDiscountOnCategory(storeId,userId,category,operator,policies,begin,end,precentage,mathOp);
+                JSONObject out=new JSONObject();
+                out.put("type","ADD_DISCOUNT_POLICY_CATEGORY");
+                out.put("result",result.isResult());
+                out.put("message",result.getData());
+                session.getRemote().sendString(out.toString());
+            } else if (type.equals("ADD_DISCOUNT_POLICY_STORE")) {
+                int userId= jo.getInt("userId");
+                int storeId= jo.getInt("storeId");
+                String operator= jo.get("operation").toString();
+                SimpleDateFormat format= new SimpleDateFormat("dd/MM/yyyy");
+                Date begin= format.parse(jo.get("begin").toString());
+                Date end= format.parse(jo.get("end").toString());
+                int precentage= jo.getInt("presentage");
+                String mathOp= jo.get("operation").toString();
+                JSONArray arr=jo.getJSONArray("list");
+                List<Pair<String,List<String>>> policies=new LinkedList<>();
+                for(int i=0; i<arr.length();i++){
+                    JSONObject policy=arr.getJSONObject(i);
+                    String name=policy.getString("policyName");
+                    JSONArray jsonParams= policy.getJSONArray("params");
+                    List<String> params =new LinkedList<>();
+                    params.add(jsonParams.getString(0));
+                    params.add(jsonParams.getString(1));
+                    params.add(jsonParams.getString(2));
+                    params.add(jsonParams.getString(3));
+                    params.add(jsonParams.getString(4));
+                    params.add(jsonParams.getString(5));
+                    params.add(jsonParams.getString(6));
+
+                    Pair<String ,List<String>> pair= new Pair<>(name,params);
+                    policies.add(pair);
+                }
+                Result result=API.addDiscountOnStore(storeId,userId,operator,policies,begin,end,precentage,mathOp);
+                JSONObject out=new JSONObject();
+                out.put("type","ADD_DISCOUNT_POLICY_STORE");
                 out.put("result",result.isResult());
                 out.put("message",result.getData());
                 session.getRemote().sendString(out.toString());

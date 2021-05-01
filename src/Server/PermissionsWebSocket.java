@@ -7,6 +7,8 @@ import org.eclipse.jetty.websocket.api.annotations.*;
 import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;
+
+import org.json.JSONArray;
 import org.json.JSONObject;
 
 @WebSocket
@@ -67,7 +69,14 @@ public class PermissionsWebSocket {
             String userName= jo.get("userName").toString();
             int ownerId= Integer.parseInt(jo.get("ownerId").toString());
             int storeId =Integer.parseInt(jo.get("storeId").toString());
-            JSONObject permissions= jo.getJSONObject("permissions");
+            JSONArray permissions= jo.getJSONArray("permissions");
+            List<String> toAdd= new LinkedList<>();
+            List<String> toRemove= new LinkedList<>();
+            for(int i=0; i<permissions.length(); i++){
+                JSONObject json= permissions.getJSONObject(i);
+//                if(json.getBoolean())
+//                String per= json.get("per");
+            }
         }
 
 

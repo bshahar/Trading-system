@@ -15682,3 +15682,403 @@
  
 [2021-05-01] [08:13:57] [INFO] LOGOUT: User erez logged out of the system.
  
+[2021-05-01] [08:28:12] [INFO] Trading System initialized
+ 
+[2021-05-01] [08:28:12] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [08:28:12] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [08:28:12] [INFO] OPEN_STORE: User with id 1 open the store elad store
+ 
+[2021-05-01] [08:28:12] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:28:12] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:28:12] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:28:12] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:28:12] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:28:12] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:28:12] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [08:28:12] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [08:28:12] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [08:28:12] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 2
+ 
+[2021-05-01] [08:28:12] [INFO] LOGOUT: User elad logged out of the system.
+ 
+[2021-05-01] [08:28:12] [INFO] LOGIN:  User erez logged into the system.
+ 
+[2021-05-01] [08:28:12] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-05-01] [08:28:12] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-05-01] [08:28:12] [INFO] GET_BAG: User with id 3 view his bag from store 1
+ 
+[2021-05-01] [08:28:12] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 1
+ 
+[2021-05-01] [08:28:12] [INFO] GET_BAG: User with id 3 view his bag from store 2
+ 
+[2021-05-01] [08:28:12] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 2
+ 
+[2021-05-01] [08:28:12] [INFO] LOGOUT: User erez logged out of the system.
+ 
+[2021-05-01] [08:28:31] [INFO] LOGIN:  User or1 logged into the system.
+ 
+[2021-05-01] [08:34:48] [INFO] LOGIN:  User or2 logged into the system.
+ 
+[2021-05-01] [08:36:49] [INFO] LOGIN:  User or3 logged into the system.
+ 
+[2021-05-01] [08:38:15] [INFO] LOGIN:  User or3: Username or Password not correct
+ 
+[2021-05-01] [08:38:20] [INFO] LOGIN:  User or4 logged into the system.
+ 
+[2021-05-01] [08:40:52] [INFO] LOGIN:  User or4: Username or Password not correct
+ 
+[2021-05-01] [08:40:56] [INFO] LOGIN:  User or5 logged into the system.
+ 
+[2021-05-01] [08:41:53] [INFO] LOGIN:  User or6 logged into the system.
+ 
+[2021-05-01] [08:44:31] [INFO] Trading System initialized
+ 
+[2021-05-01] [08:44:31] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [08:44:31] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [08:44:31] [INFO] OPEN_STORE: User with id 1 open the store elad store
+ 
+[2021-05-01] [08:44:31] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:44:31] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:44:31] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:44:31] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:44:31] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:44:31] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:44:31] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [08:44:31] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [08:44:31] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [08:44:31] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 2
+ 
+[2021-05-01] [08:44:31] [INFO] LOGOUT: User elad logged out of the system.
+ 
+[2021-05-01] [08:44:31] [INFO] LOGIN:  User erez logged into the system.
+ 
+[2021-05-01] [08:44:31] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-05-01] [08:44:31] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-05-01] [08:44:31] [INFO] GET_BAG: User with id 3 view his bag from store 1
+ 
+[2021-05-01] [08:44:31] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 1
+ 
+[2021-05-01] [08:44:31] [INFO] GET_BAG: User with id 3 view his bag from store 2
+ 
+[2021-05-01] [08:44:31] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 2
+ 
+[2021-05-01] [08:44:31] [INFO] LOGOUT: User erez logged out of the system.
+ 
+[2021-05-01] [08:52:27] [INFO] LOGIN:  User or3 logged into the system.
+ 
+[2021-05-01] [08:59:41] [INFO] Trading System initialized
+ 
+[2021-05-01] [08:59:41] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [08:59:41] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [08:59:41] [INFO] OPEN_STORE: User with id 1 open the store elad store
+ 
+[2021-05-01] [08:59:41] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:59:41] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:59:41] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:59:41] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:59:41] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:59:41] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [08:59:41] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [08:59:41] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [08:59:41] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [08:59:41] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 2
+ 
+[2021-05-01] [08:59:41] [INFO] LOGOUT: User elad logged out of the system.
+ 
+[2021-05-01] [08:59:41] [INFO] LOGIN:  User erez logged into the system.
+ 
+[2021-05-01] [08:59:41] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-05-01] [08:59:41] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-05-01] [08:59:41] [INFO] GET_BAG: User with id 3 view his bag from store 1
+ 
+[2021-05-01] [08:59:41] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 1
+ 
+[2021-05-01] [08:59:41] [INFO] GET_BAG: User with id 3 view his bag from store 2
+ 
+[2021-05-01] [08:59:41] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 2
+ 
+[2021-05-01] [08:59:41] [INFO] LOGOUT: User erez logged out of the system.
+ 
+[2021-05-01] [09:00:54] [INFO] Trading System initialized
+ 
+[2021-05-01] [09:00:54] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [09:00:54] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [09:00:54] [INFO] OPEN_STORE: User with id 1 open the store elad store
+ 
+[2021-05-01] [09:00:54] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:00:54] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:00:54] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:00:54] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:00:54] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:00:54] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:00:54] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:00:54] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:00:54] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:00:54] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 2
+ 
+[2021-05-01] [09:00:54] [INFO] LOGOUT: User elad logged out of the system.
+ 
+[2021-05-01] [09:00:54] [INFO] LOGIN:  User erez logged into the system.
+ 
+[2021-05-01] [09:00:54] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-05-01] [09:00:54] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-05-01] [09:00:54] [INFO] GET_BAG: User with id 3 view his bag from store 1
+ 
+[2021-05-01] [09:00:54] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 1
+ 
+[2021-05-01] [09:00:54] [INFO] GET_BAG: User with id 3 view his bag from store 2
+ 
+[2021-05-01] [09:00:54] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 2
+ 
+[2021-05-01] [09:00:54] [INFO] LOGOUT: User erez logged out of the system.
+ 
+[2021-05-01] [09:01:17] [INFO] LOGIN:  User or1 logged into the system.
+ 
+[2021-05-01] [09:03:55] [INFO] Trading System initialized
+ 
+[2021-05-01] [09:03:55] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [09:03:55] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [09:03:55] [INFO] OPEN_STORE: User with id 1 open the store elad store
+ 
+[2021-05-01] [09:03:55] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:03:55] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:03:55] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:03:55] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:03:55] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:03:55] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:03:55] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:03:55] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:03:55] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:03:55] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 2
+ 
+[2021-05-01] [09:03:55] [INFO] LOGOUT: User elad logged out of the system.
+ 
+[2021-05-01] [09:03:55] [INFO] LOGIN:  User erez logged into the system.
+ 
+[2021-05-01] [09:03:55] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-05-01] [09:03:55] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-05-01] [09:03:55] [INFO] GET_BAG: User with id 3 view his bag from store 1
+ 
+[2021-05-01] [09:03:55] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 1
+ 
+[2021-05-01] [09:03:55] [INFO] GET_BAG: User with id 3 view his bag from store 2
+ 
+[2021-05-01] [09:03:55] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 2
+ 
+[2021-05-01] [09:03:55] [INFO] LOGOUT: User erez logged out of the system.
+ 
+[2021-05-01] [09:04:04] [INFO] LOGIN:  User or2 logged into the system.
+ 
+[2021-05-01] [09:11:27] [INFO] Trading System initialized
+ 
+[2021-05-01] [09:11:27] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [09:11:28] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [09:11:28] [INFO] OPEN_STORE: User with id 1 open the store elad store
+ 
+[2021-05-01] [09:11:28] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:11:28] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:11:28] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:11:28] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:11:28] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:11:28] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:11:28] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:11:28] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:11:28] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:11:28] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 2
+ 
+[2021-05-01] [09:11:28] [INFO] LOGOUT: User elad logged out of the system.
+ 
+[2021-05-01] [09:11:28] [INFO] LOGIN:  User erez logged into the system.
+ 
+[2021-05-01] [09:11:28] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-05-01] [09:11:28] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-05-01] [09:11:28] [INFO] GET_BAG: User with id 3 view his bag from store 1
+ 
+[2021-05-01] [09:11:28] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 1
+ 
+[2021-05-01] [09:11:28] [INFO] GET_BAG: User with id 3 view his bag from store 2
+ 
+[2021-05-01] [09:11:28] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 2
+ 
+[2021-05-01] [09:11:28] [INFO] LOGOUT: User erez logged out of the system.
+ 
+[2021-05-01] [09:11:59] [INFO] LOGIN:  User or6 logged into the system.
+ 
+[2021-05-01] [09:15:17] [INFO] Trading System initialized
+ 
+[2021-05-01] [09:15:17] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [09:15:17] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [09:15:17] [INFO] OPEN_STORE: User with id 1 open the store elad store
+ 
+[2021-05-01] [09:15:17] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:15:17] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:15:17] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:15:17] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:15:17] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:15:17] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:15:17] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:15:17] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:15:17] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:15:17] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 2
+ 
+[2021-05-01] [09:15:17] [INFO] LOGOUT: User elad logged out of the system.
+ 
+[2021-05-01] [09:15:17] [INFO] LOGIN:  User erez logged into the system.
+ 
+[2021-05-01] [09:15:17] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-05-01] [09:15:17] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-05-01] [09:15:17] [INFO] GET_BAG: User with id 3 view his bag from store 1
+ 
+[2021-05-01] [09:15:17] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 1
+ 
+[2021-05-01] [09:15:17] [INFO] GET_BAG: User with id 3 view his bag from store 2
+ 
+[2021-05-01] [09:15:17] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 2
+ 
+[2021-05-01] [09:15:17] [INFO] LOGOUT: User erez logged out of the system.
+ 
+[2021-05-01] [09:41:52] [INFO] Trading System initialized
+ 
+[2021-05-01] [09:41:52] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [09:41:52] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [09:41:52] [INFO] OPEN_STORE: User with id 1 open the store elad store
+ 
+[2021-05-01] [09:41:52] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:41:52] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:41:52] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:41:52] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:41:52] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:41:52] [INFO] ADD_STORE_OWNER: User with id Domain.User Name: elad Age: 20 ID: 1 try to add store owner andtrue
+ 
+[2021-05-01] [09:41:52] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:41:52] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:41:52] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [09:41:52] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 2
+ 
+[2021-05-01] [09:41:52] [INFO] LOGOUT: User elad logged out of the system.
+ 
+[2021-05-01] [09:41:52] [INFO] LOGIN:  User erez logged into the system.
+ 
+[2021-05-01] [09:41:52] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 3
+ 
+[2021-05-01] [09:41:52] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 4 was added to bag of store 2 for user 3
+ 
+[2021-05-01] [09:41:52] [INFO] GET_BAG: User with id 3 view his bag from store 1
+ 
+[2021-05-01] [09:41:52] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 1
+ 
+[2021-05-01] [09:41:52] [INFO] GET_BAG: User with id 3 view his bag from store 2
+ 
+[2021-05-01] [09:41:52] [INFO] BUY_PRODUCTS: User with id 3 made purchase in store 2
+ 
+[2021-05-01] [09:41:52] [INFO] LOGOUT: User erez logged out of the system.
+ 
+[2021-05-01] [09:42:01] [INFO] LOGIN:  User or1 logged into the system.
+ 
+[2021-05-01] [09:42:26] [INFO] LOGIN:  User or2 logged into the system.
+ 
+[2021-05-01] [10:06:19] [INFO] LOGIN:  User or2: Username or Password not correct
+ 
+[2021-05-01] [10:06:23] [INFO] LOGIN:  User or3 logged into the system.
+ 

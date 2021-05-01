@@ -20,8 +20,8 @@ public class DiscountAndPurchaseTest {
     private int productId2;
     private int productId3;
     private int productId4;
-    private Date begin;
-    private Date end;
+    private String begin;
+    private String end;
 
     @BeforeEach
     public void setUp() {
@@ -43,8 +43,8 @@ public class DiscountAndPurchaseTest {
         productId2 = (int) API.addProduct(1, storeId1, "beer", catList2, 20, "ALCOHOL", 100).getData();
         productId3 = (int) API.addProduct(1, storeId1, "bread", catList1, 10, "FOOD", 100).getData();
         productId4 = (int) API.addProduct(1, storeId1, "cheese", catList1, 15, "FOOD", 100).getData();
-        begin = new Date();
-        end = new GregorianCalendar(2022, Calendar.FEBRUARY, 11).getTime();
+        begin = "01/06/2021";
+        end = "01/06/2022";
     }
 
     @Test

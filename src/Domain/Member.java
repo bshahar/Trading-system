@@ -4,10 +4,7 @@ import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchasePolicies.PurchaseCondition;
 
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Member {

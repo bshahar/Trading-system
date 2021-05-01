@@ -9,6 +9,8 @@ import Domain.PurchasePolicies.PurchaseCondition;
 import Service.*;
 import javafx.util.Pair;
 
+import java.time.Instant;
+import java.time.ZonedDateTime;
 import java.util.*;
 
 public class TradingSystem {
@@ -697,8 +699,10 @@ public class TradingSystem {
     }
 
 
-    public Result addDiscountPolicyOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public Result addDiscountPolicyOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, String beginStr, String endStr, int percentage, String mathOp) {
         Store st = getStoreById(storeId);
+        Date begin = this.stringToDate(beginStr);
+        Date end = this.stringToDate(endStr);
         if(st != null && st.prodExists(prodId) && percentage > 0 && percentage <= 100 && end.after(new Date())) {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
@@ -719,7 +723,9 @@ public class TradingSystem {
         return new Result(false, "Could not add discount policy.");
     }
 
-    public Result addDiscountPolicyOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public Result addDiscountPolicyOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, String beginStr, String endStr, int percentage, String mathOp) {
+        Date begin = this.stringToDate(beginStr);
+        Date end = this.stringToDate(endStr);
         Store st = getStoreById(storeId);
         if(st != null && percentage > 0 && percentage <= 100 && end.after(new Date())) {
             Discount.MathOp op = Discount.MathOp.SUM;
@@ -741,7 +747,9 @@ public class TradingSystem {
         return new Result(false, "Could not add discount policy.");
     }
 
-    public Result addDiscountPolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public Result addDiscountPolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, String beginStr, String endStr, int percentage, String mathOp) {
+        Date begin = this.stringToDate(beginStr);
+        Date end = this.stringToDate(endStr);
         Store st = getStoreById(storeId);
         if(st != null && percentage > 0 && percentage <= 100 && end.after(new Date())) {
             Discount.MathOp op = Discount.MathOp.SUM;
@@ -945,21 +953,23 @@ public class TradingSystem {
         return new Result(false, "No receipt with this user id and store.");
     }
 
-    public Result editDiscountPolicyOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public Result editDiscountPolicyOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, String begin, String end, int percentage, String mathOp) {
         if(getUserById(userId).removeDiscountOnProduct(getStoreById(storeId), prodId, null).isResult())
             return addDiscountPolicyOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
         return new Result(false, "Could ont edit discount on product.");
     }
 
-    public Result editDiscountPolicyOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
-        if(getUserById(userId).removeDiscountOnCategory(getStoreById(storeId), -1, category).isResult())
+    public Result editDiscountPolicyOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, String begin, String end, int percentage, String mathOp) {
+        if(getUserById(userId).removeDiscountOnCategory(getStoreById(storeId), -1, category).isResult()) {
             return addDiscountPolicyOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
+        }
         return new Result(false, "Could ont edit discount on category.");
     }
 
-    public Result editDiscountPolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
-        if(getUserById(userId).removeDiscountOnStore(getStoreById(storeId), -1, null).isResult())
+    public Result editDiscountPolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, String begin, String end, int percentage, String mathOp) {
+        if(getUserById(userId).removeDiscountOnStore(getStoreById(storeId), -1, null).isResult()) {
             return addDiscountPolicyOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
+        }
         return new Result(false, "Could ont edit discount on store.");
     }
 
@@ -1012,9 +1022,67 @@ public class TradingSystem {
         return getUserById(userId).removeDiscountPolicy(getStoreById(storeId), prodId, category);
     }
 
-
     public Result removePurchasePolicy(int storeId, int userId, int prodId, String category) {
         return getUserById(userId).removePurchasePolicy(getStoreById(storeId), prodId, category);
+    }
+
+    private Date stringToDate(String date) {
+        String[] splitDate = date.split("/");
+        GregorianCalendar t =  new GregorianCalendar(Integer.parseInt(splitDate[2]) - 1900, Integer.parseInt(splitDate[1])+1, Integer.parseInt(splitDate[0]));
+        return new Date();
+        //ZonedDateTime zdt = temp.toZonedDateTime();
+        //Instant instant = zdt.toInstant();
+        //return Date.from(instant);
+        //return Calendar.set(Integer.parseInt(splitDate[2]) - 1900, Integer.parseInt(splitDate[1]+1), Integer.parseInt(splitDate[0]));
+        /*
+        return Calendar.set(Integer.parseInt(splitDate[2]) - 1900, Integer.parseInt(splitDate[1]+1), Integer.parseInt(splitDate[0]));
+
+        if (splitDate.length == 3) {
+            int month = 1;
+            switch (Integer.parseInt(splitDate[1])) {
+                case 1:
+                    month = Calendar.JANUARY;
+                    break;
+                case 2:
+                    month = Calendar.FEBRUARY;
+                    break;
+                case 3:
+                    month = Calendar.MARCH;
+                    break;
+                case 4:
+                    month = Calendar.APRIL;
+                    break;
+                case 5:
+                    month = Calendar.MAY;
+                    break;
+                case 6:
+                    month = Calendar.JUNE;
+                    break;
+                case 7:
+                    month = Calendar.JULY;
+                    break;
+                case 8:
+                    month = Calendar.AUGUST;
+                    break;
+                case 9:
+                    month = Calendar.SEPTEMBER;
+                    break;
+                case 10:
+                    month = Calendar.OCTOBER;
+                    break;
+                case 11:
+                    month = Calendar.NOVEMBER;
+                    break;
+                case 12:
+                    month = Calendar.DECEMBER;
+                    break;
+            }
+            return new Date(Integer.parseInt(splitDate[0]), month, Integer.parseInt(splitDate[2]));
+        }
+        else
+            return null;
+
+         */
     }
 
 }

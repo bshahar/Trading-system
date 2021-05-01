@@ -22,6 +22,8 @@ public class User implements Observer {
     private Queue<String> messages;
     private ObservableType observableType ;
 
+    private Queue<String> loginMessages;
+
 
     public User(String userName, int age, int id,int registered) {
         this.registered = registered;
@@ -33,6 +35,7 @@ public class User implements Observer {
         this.member = new Member();
         this.receipts=new LinkedList<>();
         this.messages = new ConcurrentLinkedDeque<>();
+        this.loginMessages = new ConcurrentLinkedDeque<>();
     }
 
     public boolean isRegistered()
@@ -197,8 +200,7 @@ public class User implements Observer {
         observableType = (ObservableType) observable;
         if(logged)
         {
-            //TODO add what happend when get here
-            //System.out.println(this.userName+ " got msg: "+observableType.getMessage());
+            loginMessages.add(observableType.getMessage());
         }
         else
             messages.add(observableType.getMessage());
@@ -206,13 +208,26 @@ public class User implements Observer {
 
     public Queue<String> getMessages()
     {
-        return this.messages;
+        Queue<String> new_megs;
+        new_megs = this.messages;
+        this.messages = new ConcurrentLinkedDeque<>();
+        return new_megs;
     }
+
+    public Queue<String> getLoginMessages()
+    {
+        Queue<String> new_megs;
+        new_megs = this.loginMessages;
+        this.loginMessages = new ConcurrentLinkedDeque<>();
+        return new_megs;
+    }
+
+
 
     public void addNotification(String string){
        if(isLogged())
        {
-           System.out.println(string);
+           this.loginMessages.add(string);
        }
        else
            this.messages.add(string);

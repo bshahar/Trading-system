@@ -30,7 +30,7 @@ public class LoginTest {
         String password= "or321654";
         Assertions.assertEquals(1,API.register(userName,"12", 20).getData());
         Result result= API.registeredLogin(userName,password);
-        assertEquals(result.getData(),-1);
+        assertFalse(result.isResult());
     }
 
     //AT-4.3
@@ -80,7 +80,7 @@ public class LoginTest {
     public void isLoggedFailTest(){
         String userName="kandabior";
         String password= "or321654";
-        Assertions.assertEquals(-1,API.registeredLogin(userName,password).getData());
+        Assertions.assertFalse(API.registeredLogin(userName,password).isResult());
     }
 
 

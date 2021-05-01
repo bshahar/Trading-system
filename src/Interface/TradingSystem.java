@@ -693,7 +693,7 @@ public class TradingSystem {
 
     public Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         Store st = getStoreById(storeId);
-        if(st != null && percentage > 0 && percentage <= 100 && end.after(new Date())) {
+        if(st != null && percentage > 0 && percentage <= 100 ) {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
@@ -883,6 +883,10 @@ public class TradingSystem {
                 permissionsBool.put("EditProduct",permissionsNames.contains("EditProduct"));
                 permissionsBool.put("ViewPurchaseHistory",permissionsNames.contains("ViewPurchaseHistory"));
                 permissionsBool.put("GetWorkersInfo",permissionsNames.contains("GetWorkersInfo"));
+                permissionsBool.put("DefineDiscountPolicy",permissionsNames.contains("DefineDiscountPolicy"));
+                permissionsBool.put("DefinePurchasePolicy",permissionsNames.contains("DefinePurchasePolicy"));
+
+
                 return new Result(true,permissionsBool);
             }else{
                 return result;

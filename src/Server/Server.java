@@ -28,6 +28,8 @@ public class Server {
         Spark.webSocket("/myStores/StorePermissions/action", PermissionActionWebSocket.class);
         Spark.webSocket("/search", SearchProductsWebSocket.class);
         Spark.webSocket("/myStores/UpdatePermissions", PermissionsWebSocket.class);
+        Spark.webSocket("/discountAndPurchasesPolicies", PolicyWebSocket.class);
+
 
 
 

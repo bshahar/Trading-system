@@ -167,11 +167,22 @@ public class API {
         registerId1= (int)register(userName1,password1,20).getData();
         registerId2= (int) register(userName2,password2,20).getData();
         registerId3= (int)register(userName3,password3,20).getData();
-
+        register("or1" ,password3,20);
+        register("or2",password3,20);
+        register("or3",password3,20);
+        register("or4",password3,20);
+        register("or5",password3,20);
+        register("or6",password3,20);
         registerId1= (int)registeredLogin(userName1,password1).getData();
         storeId1=(int )openStore(registerId1,"kandabior store").getData();
         storeId2=(int)openStore(registerId1,"elad store").getData();
-        addStoreOwner(registerId1,registerId2,storeId1);
+        addStoreOwner(registerId1,4,storeId1);
+        addStoreOwner(registerId1,5,storeId1);
+        addStoreOwner(registerId1,6,storeId1);
+        addStoreOwner(registerId1,7,storeId1);
+        addStoreOwner(registerId1,8,storeId1);
+        addStoreOwner(registerId1,9,storeId1);
+
 
         LinkedList<String> catList= new LinkedList<>();
         catList.add("FOOD");

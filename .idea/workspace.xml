@@ -22,18 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="real time events #43">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add React to fucking proj">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions/RemoveOwnerAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/RemoveOwnerAppointment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/MainWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MainWebSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/MakePurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MakePurchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -405,7 +395,14 @@
       <option name="project" value="LOCAL" />
       <updated>1619358188194</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="add React to fucking proj">
+      <created>1619443452969</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1619443452969</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -444,10 +441,10 @@
     <MESSAGE value="update server and gui #44" />
     <MESSAGE value="add store page" />
     <MESSAGE value="merged gui with result" />
-    <MESSAGE value="add React to fucking proj" />
     <MESSAGE value="Update permissions test #48" />
     <MESSAGE value="real time events #43" />
-    <option name="LAST_COMMIT_MESSAGE" value="real time events #43" />
+    <MESSAGE value="add React to fucking proj" />
+    <option name="LAST_COMMIT_MESSAGE" value="add React to fucking proj" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

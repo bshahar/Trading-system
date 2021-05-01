@@ -1027,6 +1027,13 @@ public class TradingSystem {
     }
 
     private Date stringToDate(String date) {
+        String[] parts = date.split("/");
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, Integer.parseInt(parts[2]));
+        cal.set(Calendar.MONTH, Integer.parseInt(parts[1]) - 1);//Calendar.DECEMBER);
+        cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(parts[0]));
+        return cal.getTime();
+        /*
         String[] splitDate = date.split("/");
         GregorianCalendar t =  new GregorianCalendar(Integer.parseInt(splitDate[2]) - 1900, Integer.parseInt(splitDate[1])+1, Integer.parseInt(splitDate[0]));
         return new Date();
@@ -1034,7 +1041,7 @@ public class TradingSystem {
         //Instant instant = zdt.toInstant();
         //return Date.from(instant);
         //return Calendar.set(Integer.parseInt(splitDate[2]) - 1900, Integer.parseInt(splitDate[1]+1), Integer.parseInt(splitDate[0]));
-        /*
+
         return Calendar.set(Integer.parseInt(splitDate[2]) - 1900, Integer.parseInt(splitDate[1]+1), Integer.parseInt(splitDate[0]));
 
         if (splitDate.length == 3) {

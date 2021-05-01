@@ -28,6 +28,23 @@ public class TradingSystem {
     private List<User> users;
     private List<ObservableType> observers;
 
+    public List<Integer> getpermissionsIndex(List<String> names) {
+        List<Integer> indexes =new LinkedList<>();
+        for(String name: names){
+            indexes.add(getIndex(TradingSystem.permissionsName, name));
+        }
+        return indexes;
+    }
+
+    private Integer getIndex(String[] permissionsName, String name) {
+        for(int i=0; i<permissionsName.length;i++){
+            if(permissionsName[i].equals(name)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
 
     public static enum Permission {
         DEF,

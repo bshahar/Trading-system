@@ -321,6 +321,11 @@ public class API {
         return tradingSystem.getReceipt(receiptId);
     }
 
+    public static List<Integer> getpermissionsIndex(List<String> indexes) {
+        return tradingSystem.getpermissionsIndex(indexes);
+    }
+
+
 
     public Result editDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         return tradingSystem.editDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);

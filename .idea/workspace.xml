@@ -25,8 +25,8 @@
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="pemission action web socket">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/PolicyWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/PolicyWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/PermissionsWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/PermissionsWebSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -432,7 +432,13 @@
       <option name="presentableId" value="LOCAL‎00034" />
       <updated>1619846170592</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL‎00035" summary="pemission action web socket">
+      <created>1619853413449</created>
+      <option name="number" value="LOCAL‎00035" />
+      <option name="presentableId" value="LOCAL‎00035" />
+      <updated>1619853413449</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,6 +521,11 @@
           <url>file://$PROJECT_DIR$/src/Server/PolicyWebSocket.java</url>
           <line>82</line>
           <option name="timeStamp" value="21" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/PermissionsWebSocket.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="22" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

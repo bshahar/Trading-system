@@ -173,9 +173,23 @@ public class DiscountAndPurchaseTest {
         List<Pair<String, List<String>>> policies = new LinkedList<>();
         List<String> params1 = new LinkedList<>();
         params1.add("18"); //min age
-        policies.add(new Pair<> ("Minimal Age", params1));
-        //age limit on alcohol
+        policies.add(new Pair<> ("Age Limit", params1));
+        //age limit on drinks
         Assertions.assertTrue(API.addPurchasePolicyOnCategory(storeId1, registerId1, "DRINKS","", policies).isResult());
+    }
+
+    @Test
+    public void addPurchasePolicyOnStoreSuccessTest() { //age limit on drinks category
+        List<Pair<String, List<String>>> policies = new LinkedList<>();
+        List<String> params1 = new LinkedList<>();
+        params1.add("10"); //min age
+        policies.add(new Pair<> ("Age Limit", params1));
+        List<String> params2 = new LinkedList<>();
+        params2.add("5"); //min amount
+        params2.add(String.valueOf(productId1)); //prod id
+        policies.add(new Pair<> ("Min Amount", params2));
+        //age limit on drinks
+        Assertions.assertTrue(API.addPurchasePolicyOnStore(storeId1, registerId1,"And", policies).isResult());
     }
 
     @Test
@@ -189,9 +203,16 @@ public class DiscountAndPurchaseTest {
     }
 
     @Test
-    public void purchaseContradictsPolicyFailTest() {
+    public void purchaseContradictsAgePolicyFailTest() {
         addPurchasePolicyOnCategorySuccessTest();
         //user at age 16 tries to buy alcohol when policy is age >= 18
+        API.addProductToCart(registerId2, storeId1, productId2, 5);
+        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, "Credit1").isResult());
+    }
+
+    @Test
+    public void purchaseContradictsAgeAndAmountPolicyFailTest() {
+        addPurchasePolicyOnStoreSuccessTest();
         API.addProductToCart(registerId2, storeId1, productId2, 5);
         Assertions.assertFalse(API.buyProduct(registerId2, storeId1, "Credit1").isResult());
     }

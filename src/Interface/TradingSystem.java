@@ -1008,4 +1008,13 @@ public class TradingSystem {
         return getUserById(userId).getPurchaseOnStore(getStoreById(storeId), userId);
     }
 
+    public Result removeDiscountPolicy(int storeId, int userId, int prodId, String category) {
+        return getUserById(userId).removeDiscountPolicy(getStoreById(storeId), prodId, category);
+    }
+
+
+    public Result removePurchasePolicy(int storeId, int userId, int prodId, String category) {
+        return getUserById(userId).removePurchasePolicy(getStoreById(storeId), prodId, category);
+    }
+
 }

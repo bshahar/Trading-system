@@ -17,9 +17,7 @@ public class TimeLimitPolicy extends PurchasePolicy{
         Calendar calendar = GregorianCalendar.getInstance();
         calendar.setTime(time);   // assigns calendar to given date
         int hour = calendar.get(Calendar.HOUR_OF_DAY);
-        if (hour >= hourOfDay )
-            return false;
-        return true;
+        return hour < hourOfDay;
     }
 
     @Override

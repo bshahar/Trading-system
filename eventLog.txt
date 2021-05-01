@@ -15780,3 +15780,833 @@
  
 [2021-05-01] [18:39:54] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
  
+[2021-05-01] [18:45:44] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:45:44] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:45:44] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:45:44] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:45:44] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:45:44] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:45:44] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:45:44] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:45:44] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:45:44] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [18:46:19] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:19] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:19] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:19] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:19] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:19] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:19] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:19] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:36] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:36] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:36] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:36] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:36] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [18:46:36] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [18:46:36] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:36] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:36] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:36] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:36] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:36] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [18:46:36] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [18:46:37] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:37] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [18:46:37] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [18:46:37] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:37] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [18:46:37] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [18:46:37] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:37] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [18:46:37] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [18:46:37] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:37] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [18:46:37] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:37] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:37] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:38] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:38] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [18:46:38] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [18:46:38] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:38] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:38] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:38] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [18:46:38] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [18:46:38] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [18:46:38] [INFO] Trading System initialized
+ 
+[2021-05-01] [18:46:38] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [18:46:38] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [18:46:38] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [18:46:38] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:07:38] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:07:38] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:07:39] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:07:39] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:07:39] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:07:39] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:07:39] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:07:39] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:07:39] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:07:39] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:07:39] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [19:08:14] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:08:14] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:08:14] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:08:14] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:08:14] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:08:14] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:08:14] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:08:14] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:08:14] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:08:14] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:08:14] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [19:08:35] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:08:36] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:08:36] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:08:36] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:08:36] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:08:36] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:08:36] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:08:36] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:08:36] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:08:55] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:15:13] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [19:15:35] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:15:35] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:15:35] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:15:35] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:15:35] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:15:35] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:15:35] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:15:35] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:15:55] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:15:55] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:15:55] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:15:55] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:15:55] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:15:55] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:15:55] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:15:55] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:15:55] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:15:55] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:16:48] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:16:48] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [19:16:48] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:16:48] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:16:48] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [19:16:48] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:16:48] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [19:16:48] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:16:48] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [19:16:48] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:48] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:48] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:48] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:16:48] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:49] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:16:49] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [19:16:49] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:49] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:16:49] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [19:16:49] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 3 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was added to bag of store 1 for user 2
+ 
+[2021-05-01] [19:16:49] [INFO] GET_BAG: User with id 2 view his bag from store 1
+ 
+[2021-05-01] [19:16:49] [INFO] BUY_PRODUCTS: User with id 2 made purchase in store 1
+ 
+[2021-05-01] [19:16:49] [INFO] Trading System initialized
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User kandabior logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] LOGIN:  User elad logged into the system.
+ 
+[2021-05-01] [19:16:49] [INFO] OPEN_STORE: User with id 1 open the store kandabior store
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 
+[2021-05-01] [19:16:49] [INFO] ADD_PRODUCT_TO_STORE: User with id 1 add product to store 1
+ 

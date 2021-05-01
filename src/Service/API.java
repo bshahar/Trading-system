@@ -320,6 +320,14 @@ public class API {
     }
 
 
+    public static Result removeDiscountPolicy(int storeId, int userId, int prodId, String category) {
+        return tradingSystem.removeDiscountPolicy(storeId, userId, prodId, category);
+    }
+
+    public static Result removePurchasePolicy(int storeId, int userId, int prodId, String category) {
+        return tradingSystem.removePurchasePolicy(storeId, userId, prodId, category);
+    }
+
     public static Result editDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
         return tradingSystem.editDiscountPolicyOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
     }

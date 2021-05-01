@@ -322,4 +322,11 @@ public class User implements Observer {
     }
 
 
+    public Result removeDiscountPolicy(Store store, int prodId, String category) {
+        return member.removeDiscountPolicy(store, prodId, category);
+    }
+
+    public Result removePurchasePolicy(Store store, int prodId, String category) {
+        return this.member.removePurchasePolicy(store, prodId, category);
+    }
 }

@@ -286,16 +286,16 @@ public class User implements Observer {
     }
 
 
-    public Result getDiscountOnProduct(Store store, int userId, int prodId) {
-        return member.getDiscountPolicies(store, userId, prodId, "");
+    public Result getDiscountOnProduct(Store store, int prodId) {
+        return member.getDiscountPolicies(store,prodId, "");
     }
 
-    public Result getDiscountOnCategory(Store store, int userId, String category) {
-        return member.getDiscountPolicies(store, userId, -1, category);
+    public Result getDiscountOnCategory(Store store, String category) {
+        return member.getDiscountPolicies(store, -1, category);
     }
 
     public Result getDiscountOnStore(Store store, int userId) {
-        return member.getDiscountPolicies(store, userId, -1, "");
+        return member.getDiscountPolicies(store,-1, "");
     }
     /************************************************************************/
 
@@ -324,16 +324,16 @@ public class User implements Observer {
     }
 
 
-    public Result getPurchaseOnProduct(Store store, int userId, int prodId) {
-        return member.getPurchasePolicy(store, userId, prodId, "");
+    public Result getPurchaseOnProduct(Store store, int prodId) {
+        return member.getPurchasePolicy(store,prodId, "");
     }
 
     public Result getPurchaseOnCategory(Store store, int userId, String category) {
-        return member.getPurchasePolicy(store, userId, -1, category);
+        return member.getPurchasePolicy(store, -1, category);
     }
 
     public Result getPurchaseOnStore(Store store, int userId) {
-        return member.getPurchasePolicy(store, userId, -1, "");
+        return member.getPurchasePolicy(store,-1, "");
     }
 
 

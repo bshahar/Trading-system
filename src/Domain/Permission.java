@@ -294,9 +294,9 @@ public class Permission {
         this.viewPurchasePolicies = null;
     }
 
-    public Result defineViewPurchasePolicies() {
+    public Result defineViewPurchasePolicies(int prodId, String category) {
         if(this.viewPurchasePolicies!= null)
-            return this.viewPurchasePolicies.action();
+            return this.viewPurchasePolicies.action(prodId, category);
         return new Result(false,"User has no permission for this action.");
     }
 

@@ -338,7 +338,7 @@ public class Store {
             if(disc > finalDiscount)
                 finalDiscount = disc;
         }
-        return finalDiscount;
+        return Math.min(finalDiscount, bag.getBagTotalCost()); //if discount > 100% return bag total cost (100% discount)
 
     }
 /*

@@ -14,15 +14,9 @@ import java.io.IOException;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import Service.API;
-import org.eclipse.jetty.websocket.api.*;
-import org.eclipse.jetty.websocket.api.annotations.*;
-import java.io.*;
 import java.util.*;
-import java.util.concurrent.*;
-import org.json.JSONObject;
 
-    @WebSocket
+@WebSocket
     public class myStoresWebSocket {
 
         // Store sessions if you want to, for example, broadcast a message to all users
@@ -67,7 +61,7 @@ import org.json.JSONObject;
                 JSONObject out= new JSONObject();
                 out.put("result",result.isResult());
                 out.put("type","GET_PERMISSIONS");
-                out.put("data",result.getdata());
+                out.put("data",result.getData());
                 session.getRemote().sendString(out.toString());
 
             }

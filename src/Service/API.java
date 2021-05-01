@@ -2,8 +2,10 @@ package Service;
 
 import Domain.*;
 import Interface.TradingSystem;
+import javafx.util.Pair;
 
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -12,7 +14,7 @@ public class API {
     private static TradingSystem tradingSystem;
     public static void initTradingSystem(String userName){
 
-        User sysManager= new User(userName,0,1);
+        User sysManager= new User(userName,19,0,1);
         tradingSystem=new TradingSystem(sysManager);
 
     }
@@ -40,8 +42,8 @@ public class API {
         return tradingSystem.getCart(userId);
     }
 
-    public static Result buyProduct(int userId, int storeId, String creditInfo){
-        return tradingSystem.buyProducts(userId,storeId,creditInfo);
+    public static Result buyProduct(int userId, int storeId, String creditInfo) {
+        return tradingSystem.buyProducts(userId, storeId, creditInfo);
     }
 
     public static Result registeredLogin(String username, String password){
@@ -99,8 +101,8 @@ public class API {
     }
 
 
-    public static Result register(String userName, String password) {
-        return tradingSystem.register(userName, password);
+    public static Result register(String userName, String password, int age) {
+        return tradingSystem.register(userName, age, password);
     }
 
     public static Result isLogged(int userId) {
@@ -162,24 +164,37 @@ public class API {
         String password2= "123";
         String userName3="erez";
         String password3= "123";
-        registerId1= (int)register(userName1,password1).getdata();
-        registerId2= (int) register(userName2,password2).getdata();
-        registerId3= (int)register(userName3,password3).getdata();
+        registerId1= (int)register(userName1,password1,20).getData();
+        registerId2= (int) register(userName2,password2,20).getData();
+        registerId3= (int)register(userName3,password3,20).getData();
+        register("or1" ,password3,20);
+        register("or2",password3,20);
+        register("or3",password3,20);
+        register("or4",password3,20);
+        register("or5",password3,20);
+        register("or6",password3,20);
+        registerId1= (int)registeredLogin(userName1,password1).getData();
+        storeId1=(int )openStore(registerId1,"kandabior store").getData();
+        storeId2=(int)openStore(registerId1,"elad store").getData();
+        addStoreOwner(registerId1,4,storeId1);
+        addStoreOwner(registerId1,5,storeId1);
+        addStoreOwner(registerId1,6,storeId1);
+        addStoreOwner(registerId1,7,storeId1);
+        addStoreOwner(registerId1,8,storeId1);
+        addStoreOwner(registerId1,9,storeId1);
 
-        registerId1= (int)registeredLogin(userName1,password1).getdata();
-        storeId1=(int )openStore(registerId1,"kandabior store").getdata();
-        storeId2=(int)openStore(registerId1,"elad store").getdata();
-        addStoreOwner(registerId1,registerId2,storeId1);
 
         LinkedList<String> catList= new LinkedList<>();
         catList.add("FOOD");
-        addProduct(registerId1, storeId1,"Milk",catList ,10,"FOOD", 10 ).getdata();
-        addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD", 2 ).getdata();
-        addProduct(registerId1, storeId1,"Banana",catList ,4,"FOOD", 20 ).getdata();
-        addProduct(registerId1, storeId2,"Water",catList ,5,"DRINK", 13 ).getdata();
+        LinkedList<String> catList2= new LinkedList<>();
+        catList.add("FOOD2");
+        addProduct(registerId1, storeId1,"Milk",catList2 ,10,"FOOD", 10 ).getData();
+        addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD2", 2 ).getData();
+        addProduct(registerId1, storeId1,"Banana",catList ,4,"Hello", 20 ).getData();
+        addProduct(registerId1, storeId2,"Water",catList2 ,5,"FOOD", 13 ).getData();
         registeredLogout(registerId1);
 
-        registerId3= (int)registeredLogin(userName3,password3).getdata();
+        registerId3= (int)registeredLogin(userName3,password3).getData();
         addProductToCart(registerId3,1,1,2);
         addProductToCart(registerId3,2,2,2);
         addProductToCart(registerId3,2,4,2);
@@ -268,69 +283,81 @@ public class API {
         return tradingSystem.editProduct(userId, storeId, productId,price,amount);
     }
 
-
-    public static enum Permission {
-        DEF,
-        AddProduct,
-        AppointManager,
-        AppointOwner,
-        CloseStore,
-        DefineDiscountFormat,
-        DefineDiscountPolicy,
-        DefinePurchaseFormat,
-        DefinePurchasePolicy,
-        EditDiscountFormat,
-        EditDiscountPolicy,
-        EditProduct,
-        EditPurchaseFormat,
-        EditPurchasePolicy,
-        GetWorkersInfo,
-        OpenStore,
-        RemoveManagerAppointment,
-        RemoveOwnerAppointment,
-        None,
-        RemoveProduct,
-        ReopenStore,
-        ReplayMessages,
-        ViewMessages,
-        ViewPurchaseHistory
+    public static int getProductAmount(Integer prodId) {
+        return tradingSystem.getProductAmount(prodId);
     }
-    public static String[] permissionsName= {
-            "DEF",
-            "AddProduct",
-            "AppointManager",
-            "AppointOwner",
-            "CloseStore",
-            "DefineDiscountFormat",
-            "DefineDiscountPolicy",
-            "DefinePurchaseFormat",
-            "DefinePurchasePolicy",
-            "EditDiscountFormat",
-            "EditDiscountPolicy",
-            "EditProduct",
-            "EditPurchaseFormat",
-            "EditPurchasePolicy",
-            "GetWorkersInfo",
-            "OpenStore",
-            "RemoveManagerAppointmen",
-            "RemoveOwnerAppointment",
-            "None",
-            "RemoveProduct",
-            "ReopenStore",
-            "ReplayMessages",
-            "ViewMessages",
-            "ViewPurchaseHistory"};
+
+    public static Result getUserPermissionsMap(int ownerId, String managerName, int storeId) {
+        return tradingSystem.getUserPermissionsMap(ownerId,managerName,storeId);
+    }
+
+
+
 
 
     public static Result getUserPemissions(int id, int storeId) {
-        List<String> names=new LinkedList<>();
-        for(Permission permission : Permission.values()){
-            if(checkPermissions(id,storeId,permission.ordinal())){
-                names.add(permissionsName[permission.ordinal()]);
-            }
-        }
-        return new Result(true,names);
+        return tradingSystem.getUserPermissions(id,storeId);
 
 
+    }
+
+    public static Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.addDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
+    }
+
+    public static Result addDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.addDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
+    }
+
+    public static Result addDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.addDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
+    }
+
+    public static Result addPurchasePolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
+    }
+
+    public static Result getReceipt(int receiptId) {
+        return tradingSystem.getReceipt(receiptId);
+    }
+
+    public static List<Integer> getpermissionsIndex(List<String> indexes) {
+        return tradingSystem.getpermissionsIndex(indexes);
+    }
+
+
+
+    public Result editDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.editDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
+    }
+
+
+    public Result editDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.editDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
+    }
+
+    public Result editDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+        return tradingSystem.editDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
+    }
+
+    public Result editPurchasePolicy(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        return tradingSystem.editPurchasePolicy(storeId, userId, operator, policiesParams);
+    }
+
+    //TODO add permissions for functions below then implement
+    public Result getDiscountOnProduct(int storeId, int userId, int prodId) {
+        return tradingSystem.getDiscountOnProduct(storeId, userId, prodId);
+    }
+
+    public Result getDiscountOnCategory(int storeId, int userId, String category) {
+        return tradingSystem.getDiscountOnCategory(storeId, userId, category);
+    }
+
+    public Result getDiscountOnStore(int storeId, int userId) {
+        return tradingSystem.getDiscountOnStore(storeId, userId);
+    }
+
+    public Result getPurchasePolicy(int storeId, int userId) {
+        return tradingSystem.getPurchasePolicy(storeId, userId);
     }
 }

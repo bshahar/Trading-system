@@ -1,12 +1,17 @@
 package Domain;
 
+import Domain.DiscountFormat.Discount;
+import Domain.DiscountPolicies.DiscountCondition;
 import Domain.Member;
+import Domain.PurchasePolicies.PurchaseCondition;
+import Domain.PurchasePolicies.PurchasePolicy;
 import Domain.Receipt;
 import Domain.Product;
 import Domain.Store;
 import Domain.User;
 import Permissions.*;
 
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -179,10 +184,11 @@ public class Permission {
         if(this.definePurchasePolicy == null) return;
         this.definePurchasePolicy = null;
     }
-    public void definePurchasePolicy()
+    public Result definePurchasePolicy(PurchaseCondition condition)
     {
         if(this.definePurchasePolicy!= null)
-            this.definePurchasePolicy.action();
+            return this.definePurchasePolicy.action(condition);
+        return new Result(false,"User has no permission for this action.");
     }
 
     public void allowEditPurchasePolicy()
@@ -194,10 +200,10 @@ public class Permission {
         if(this.editPurchasePolicy == null) return;
         this.editPurchasePolicy = null;
     }
-    public void editPurchasePolicy()
-    {
+    public Result editPurchasePolicy() {
         if(this.editPurchasePolicy!= null)
-            this.editPurchasePolicy.action();
+            return this.editPurchasePolicy.action();
+        return new Result(false,"User has no permission for this action.");
     }
 
     public void allowDefinePurchaseFormat()
@@ -239,10 +245,11 @@ public class Permission {
         if(this.defineDiscountPolicy == null) return;
         this.defineDiscountPolicy = null;
     }
-    public void defineDiscountPolicy()
+    public Result defineDiscountPolicy(String param, String condition, String category, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op)
     {
         if(this.defineDiscountPolicy!= null)
-            this.defineDiscountPolicy.action();
+            return this.defineDiscountPolicy.action(param, condition, category, prodId, begin, end, conditions, percentage, op);
+        return new Result(false,"User has no permission for this action.");
     }
 
     public void allowEditDiscountPolicy()
@@ -254,10 +261,11 @@ public class Permission {
         if(this.editDiscountPolicy == null) return;
         this.editDiscountPolicy = null;
     }
-    public void defineEditDiscountPolicy()
+    public Result defineEditDiscountPolicy(int prodId, String category)
     {
         if(this.editDiscountPolicy!= null)
-            this.editDiscountPolicy.action();
+            return this.editDiscountPolicy.action(prodId, category);
+        return new Result(false,"User has no permission for this action.");
     }
 
     public void allowDefineDiscountFormat()

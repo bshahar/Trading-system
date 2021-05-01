@@ -85,7 +85,7 @@ public class Product {
     }
 
     public boolean containsCategory(String category){
-        String c = String.valueOf(category);
+        String c = category;
         for (String cat:categories) {
             if(cat.equals(c))
                 return true;

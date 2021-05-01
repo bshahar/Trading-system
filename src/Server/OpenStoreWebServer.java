@@ -8,7 +8,6 @@ import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;
 import org.json.JSONObject;
-import org.thymeleaf.expression.Ids;
 
 @WebSocket
 public class OpenStoreWebServer {
@@ -38,7 +37,7 @@ public class OpenStoreWebServer {
             JSONObject jsonOut = new JSONObject();
             jsonOut.put("type", "OPEN_STORE");
             jsonOut.put("result", result.isResult());
-            jsonOut.put("message", result.getdata());
+            jsonOut.put("message", result.getData());
             session.getRemote().sendString(jsonOut.toString());
 
 

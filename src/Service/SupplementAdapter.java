@@ -4,7 +4,6 @@ import Domain.Bag;
 import Domain.SupplementInterface;
 
 public class SupplementAdapter {
-    //TODO create field of external system?
 
     SupplementInterface supplementInterface;
     public SupplementAdapter(SupplementInterface supplementInterface) {
@@ -12,7 +11,7 @@ public class SupplementAdapter {
 
     }
 
-    public boolean supply(Bag bag, String address) { //TODO fix args & implement
+    public boolean supply(Bag bag, String address) {
       return this.supplementInterface.supply(bag,address);
     }
 

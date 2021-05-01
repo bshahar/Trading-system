@@ -1,8 +1,5 @@
 package Tests;
 
-import Domain.Product;
-import Domain.User;
-import Interface.TradingSystem;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -63,16 +60,16 @@ public class PermissionTest {
         String password2 = "elad321654";
         String userName3 = "erez";
         String password3 = "erez321654";
-        API.register(userName1, password1);
-        API.register(userName2, password2);
-        API.register(userName3, password3);
-        registerId1 = (int) API.registeredLogin(userName1, password1).getdata();
-        registerId2 = (int) API.registeredLogin(userName2, password2).getdata();
-        registerId3 = (int) API.registeredLogin(userName3, password3).getdata();
-        storeId1 = (int) API.openStore(registerId1, "kandabior store").getdata();
+        API.register(userName1, password1,20);
+        API.register(userName2, password2,20);
+        API.register(userName3, password3,20);
+        registerId1 = (int) API.registeredLogin(userName1, password1).getData();
+        registerId2 = (int) API.registeredLogin(userName2, password2).getData();
+        registerId3 = (int) API.registeredLogin(userName3, password3).getData();
+        storeId1 = (int) API.openStore(registerId1, "kandabior store").getData();
         LinkedList<String> catList = new LinkedList<>();
         catList.add("FOOD");
-        int productId = (int) API.addProduct(1, storeId1, "milk", catList, 10, "FOOD", 5).getdata();
+        int productId = (int) API.addProduct(1, storeId1, "milk", catList, 10, "FOOD", 5).getData();
     }
 
 

@@ -2,11 +2,19 @@ package Domain;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
+import Domain.DiscountFormat.Discount;
+import Domain.DiscountPolicies.DiscountCondition;
+import Domain.PurchasePolicies.PurchaseCondition;
+
+import java.util.Date;
+import java.util.LinkedList;
+import java.util.List;
 
 public class User implements Observer {
     private int registered ;
     private List<Bag> bags;
     private String userName;
+    private int age;
     private boolean logged;
     private int id;
     private Member member;
@@ -15,10 +23,11 @@ public class User implements Observer {
     private ObservableType observableType ;
 
 
-    public User(String userName, int id,int registered) {
+    public User(String userName, int age, int id,int registered) {
         this.registered = registered;
         this.bags = new LinkedList<>();
         this.userName = userName;
+        this.age = age;
         this.id = id;
         this.logged = false;
         this.member = new Member();
@@ -57,6 +66,10 @@ public class User implements Observer {
         return id;
     }
 
+    public int getAge() {
+        return age;
+    }
+
     public List<Bag> getBags() {
         return bags;
     }
@@ -71,6 +84,8 @@ public class User implements Observer {
             StringBuilder info = new StringBuilder();
             info.append("Domain.User Name: ");
             info.append(this.userName);
+            info.append(" Age: ");
+            info.append(this.age);
             info.append(" ID: ");
             info.append(this.id);
             return info.toString();
@@ -228,5 +243,53 @@ public class User implements Observer {
 
     public Result editProduct(Store store, Product product,int price,int amount) {
         return member.editProduct(store,product,price,amount);
+    }
+
+    public Result addDiscountOnProduct(Store store, String condition, String param, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+        return member.addDiscountPolicy(store, condition, param, null, prodId, begin, end, conditions, percentage, op);
+    }
+
+    public Result removeDiscountOnProduct(Store store, int prodId, String category) {
+        return member.removeDiscountPolicy(store, prodId, category);
+    }
+
+    public Result removeDiscountOnCategory(Store store, int prodId, String category) {
+        return member.removeDiscountPolicy(store, prodId, category);
+    }
+
+    public Result removeDiscountOnStore(Store store, int prodId, String category) {
+        return member.removeDiscountPolicy(store, prodId, category);
+    }
+
+    public Result addDiscountOnCategory(Store store, String condition, String param, String category, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+        return member.addDiscountPolicy(store, condition, param, category, -1, begin, end, conditions, percentage, op);
+    }
+
+    public Result addDiscountOnStore(Store store, String condition, String param, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+        return member.addDiscountPolicy(store, condition, param, null, -1, begin, end, conditions, percentage, op);
+    }
+
+    public Result addPurchasePolicy(Store store, PurchaseCondition condition) {
+        return member.addPurchasePolicy(store, condition);
+    }
+
+    public Result removePurchasePolicy(Store store) {
+        return member.removePurchasePolicy(store);
+    }
+
+    public Result getDiscountOnProduct(Store store, int userId, int prodId) {
+        return member.getDiscountPolicies(store, userId, prodId, "");
+    }
+
+    public Result getDiscountOnCategory(Store store, int userId, String category) {
+        return member.getDiscountPolicies(store, userId, -1, category);
+    }
+
+    public Result getDiscountOnStore(Store store, int userId) {
+        return member.getDiscountPolicies(store, userId, -1, "");
+    }
+
+    public Result getPurchasePolicy(Store store, int userId) {
+        return member.getPurchasePolicy(store, userId);
     }
 }

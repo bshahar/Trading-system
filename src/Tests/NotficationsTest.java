@@ -1,9 +1,6 @@
 package Tests;
 
-import Domain.ObservableType;
-import Domain.Product;
 import Domain.Result;
-import Domain.User;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -33,18 +30,18 @@ public class NotficationsTest {
         String password2= "elad321654";
         String userName3="erez";
         String password3= "erez321654";
-        API.register(userName1,password1);
-        API.register(userName2,password2);
-        API.register(userName3,password3);
-        registerId1=(int) API.registeredLogin(userName1,password1).getdata();
-        registerId2=(int) API.registeredLogin(userName2,password2).getdata();
-        registerId3= (int)API.registeredLogin(userName3,password3).getdata();
-        storeId1=(int)API.openStore(registerId1,"kandabior store").getdata();
+        API.register(userName1,password1,20);
+        API.register(userName2,password2,20);
+        API.register(userName3,password3,20);
+        registerId1=(int) API.registeredLogin(userName1,password1).getData();
+        registerId2=(int) API.registeredLogin(userName2,password2).getData();
+        registerId3= (int)API.registeredLogin(userName3,password3).getData();
+        storeId1=(int)API.openStore(registerId1,"kandabior store").getData();
         LinkedList<String> catList= new LinkedList<>();
         catList.add("FOOD");
-        productId1= (int)API.addProduct(1, storeId1,"milk",catList ,10,"FOOD", 1 ).getdata();
-        observableId1 = (int) API.addObservable("Store1").getdata();
-        observableId2 = (int) API.addObservable("Store2").getdata();
+        productId1= (int)API.addProduct(1, storeId1,"milk",catList ,10,"FOOD", 1 ).getData();
+        observableId1 = (int) API.addObservable("Store1").getData();
+        observableId2 = (int) API.addObservable("Store2").getData();
         API.subscribeToObservable(observableId2,registerId2);
         API.subscribeToObservable(observableId2,registerId3);
 
@@ -92,8 +89,8 @@ public class NotficationsTest {
         Assertions.assertTrue(result2.isResult());
         Assertions.assertTrue(result3.isResult());
 
-        Queue<String> queue2  =  (Queue<String>)result2.getdata();
-        Queue<String> queue3  =  (Queue<String>)result3.getdata();
+        Queue<String> queue2  =  (Queue<String>)result2.getData();
+        Queue<String> queue3  =  (Queue<String>)result3.getData();
 
         Assertions.assertTrue(queue2.size()==3);
         Assertions.assertTrue(queue3.size()==3);
@@ -110,7 +107,7 @@ public class NotficationsTest {
         Result result2 = API.getMessagesQueue(registerId2);
         Assertions.assertTrue(result2.isResult());
 
-        Queue<String> queue2  =  (Queue<String>)result2.getdata();
+        Queue<String> queue2  =  (Queue<String>)result2.getData();
         Assertions.assertTrue(queue2.size()==3);
 
         Object[] list = queue2.toArray();
@@ -128,7 +125,7 @@ public class NotficationsTest {
         Result result2 = API.getMessagesQueue(registerId2);
         Assertions.assertTrue(result2.isResult());
 
-        Queue<String> queue2  =  (Queue<String>)result2.getdata();
+        Queue<String> queue2  =  (Queue<String>)result2.getData();
 
         Assertions.assertTrue(queue2.size()==0);
 
@@ -140,11 +137,11 @@ public class NotficationsTest {
 
         API.addStoreManager(registerId1,registerId2,storeId1);
         API.registeredLogout(registerId2);
-        int notificationId = (int)API.getNotificationIdByStoreId(storeId1).getdata();
+        int notificationId = (int)API.getNotificationIdByStoreId(storeId1).getData();
         API.notifyToSubscribers(notificationId,"msg1");
         Result result2 = API.getMessagesQueue(registerId2);
         Assertions.assertTrue(result2.isResult());
-        Queue<String> queue2  =  (Queue<String>)result2.getdata();
+        Queue<String> queue2  =  (Queue<String>)result2.getData();
         Assertions.assertTrue(queue2.size()==1);
     }
 
@@ -155,7 +152,7 @@ public class NotficationsTest {
         API.addStoreOwner(registerId1,registerId2,storeId1);
         API.registeredLogout(registerId2);
         API.registeredLogout(registerId1);
-        int notificationId = (int)API.getNotificationIdByStoreId(storeId1).getdata();
+        int notificationId = (int)API.getNotificationIdByStoreId(storeId1).getData();
         API.notifyToSubscribers(notificationId,"msg1");
         Result result1 = API.getMessagesQueue(registerId1);
         Result result2 = API.getMessagesQueue(registerId2);
@@ -163,8 +160,8 @@ public class NotficationsTest {
         Assertions.assertTrue(result1.isResult());
         Assertions.assertTrue(result2.isResult());
 
-        Queue<String> queue1  =  (Queue<String>)result1.getdata();
-        Queue<String> queue2  =  (Queue<String>)result2.getdata();
+        Queue<String> queue1  =  (Queue<String>)result1.getData();
+        Queue<String> queue2  =  (Queue<String>)result2.getData();
 
         Assertions.assertTrue(queue1.size()==1);
         Assertions.assertTrue(queue2.size()==1);

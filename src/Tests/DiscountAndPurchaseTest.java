@@ -43,7 +43,7 @@ public class DiscountAndPurchaseTest {
         productId2 = (int) API.addProduct(1, storeId1, "beer", catList2, 20, "ALCOHOL", 100).getData();
         productId3 = (int) API.addProduct(1, storeId1, "bread", catList1, 10, "FOOD", 100).getData();
         productId4 = (int) API.addProduct(1, storeId1, "cheese", catList1, 15, "FOOD", 100).getData();
-        begin = "01/06/2021";
+        begin = "01/04/2021";
         end = "01/06/2022";
     }
 

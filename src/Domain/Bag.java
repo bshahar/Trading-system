@@ -33,7 +33,6 @@ public class Bag {
         return output;
     }
 
-
     public void setProducts(Map<Product,Integer> prods) {
         this.productsAmounts = prods;
     }
@@ -45,4 +44,14 @@ public class Bag {
     public int getProdNum() {
         return productsAmounts.size();
     }
+
+    public double getBagTotalCost () {
+        double total = 0;
+        for (Product p: this.productsAmounts.keySet()) {
+            total += p.getPrice();
+        }
+        return total;
+    }
+
+
 }

@@ -10,10 +10,10 @@ public class Inventory {
         this.products = new HashMap<>();
     }
 
-    public boolean addProduct(Product prod, int numOfProd) {
-        if(numOfProd <= 0) return false;
+    public boolean addProduct(Product prod, int quantity) {
+        if(quantity <= 0) return false;
         synchronized (this) {
-            this.products.put(prod, numOfProd);
+            this.products.put(prod, quantity);
         }
         return true;
     }
@@ -29,16 +29,16 @@ public class Inventory {
     public boolean prodExists(int id){
         boolean found = false;
         for (Product p: products.keySet()) {
-            if(p.getId() == id)
+            if (p.getId() == id) {
                 found = true;
+                break;
+            }
         }
         return found;
     }
 
     public boolean canBuyProduct(Product prod, int numOfProd) {
-        if(numOfProd >0 && this.products.containsKey(prod) && products.get(prod) >= numOfProd)
-           return true;
-        return false;
+        return numOfProd > 0 && this.products.containsKey(prod) && products.get(prod) >= numOfProd;
     }
     public boolean removeProductAmount(Product prod, int numOfProd){
         if (this.products.containsKey(prod) && products.get(prod) >= numOfProd){
@@ -47,41 +47,44 @@ public class Inventory {
         }
         else
             return false;
-
-
     }
+
     public String toString(){
-        String output = "";
+        StringBuilder output = new StringBuilder();
         for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            output = output + p.getKey().toString() + " Quantity - " + p.getValue();
+            output.append(p.getKey().toString()).append(" Quantity - ").append(p.getValue());
         }
-        return output;
+        return output.toString();
     }
 
     public List<Integer> getProductsByName(Filter filter,double storeRank) {
         String name=filter.param;
         List<Integer> output = new LinkedList<>();
-        for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            if(p.getKey().getName().equals(name) && checkFilter(p.getKey(),filter,storeRank))
-                output.add(p.getKey().getId());
+        for (Product p : products.keySet()) {
+            String prodName=p.getName();
+            if(prodName.equals(name) && checkFilter(p,filter,storeRank))
+                output.add(p.getId());
         }
         return output;
     }
 
     private boolean checkFilter(Product product, Filter filter,double storeRank) {
-        if(filter.minPrice>product.getPrice()){
+        if (filter.minPrice > product.getPrice()) {
             return false;
         }
-        if(filter.maxPrice<product.getPrice()){
+        if (filter.maxPrice < product.getPrice()) {
             return false;
         }
-        if(filter.prodRank>product.getRate()){
+        if (filter.prodRank > product.getRate()) {
             return false;
         }
-        if(filter.category!="" && !product.containsCategory(filter.category)){
-            return false;
+        if (!filter.category.equals("")) {
+            if (!product.containsCategory(filter.category)) {
+
+                return false;
+            }
         }
-        if(filter.storeRank>storeRank){
+        if (filter.storeRank > storeRank) {
             return false;
         }
         return true;
@@ -90,18 +93,18 @@ public class Inventory {
 
     public List<Integer> getProductsByCategory(Filter filter, double storeRate) {
         List<Integer> output = new LinkedList<>();
-        for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            if(p.getKey().containsCategory(filter.param) && checkFilter(p.getKey(),filter,storeRate))
-                output.add(p.getKey().getId());
+        for (Product p : products.keySet()) {
+            if(p.containsCategory(filter.param) && checkFilter(p,filter,storeRate))
+                output.add(p.getId());
         }
         return output;
     }
 
     public List<Integer> getProductsByKeyWords(Filter filter, double storeRate) {
         List<Integer> output = new LinkedList<>();
-        for (Map.Entry<Product, Integer> p : products.entrySet()) {
-            if(p.getKey().containsKeyWords(filter.param) && checkFilter(p.getKey(),filter,storeRate) )
-                output.add(p.getKey().getId());
+        for (Product p : products.keySet()) {
+            if(p.containsKeyWords(filter.param) && checkFilter(p,filter,storeRate) )
+                output.add(p.getId());
         }
         return output;
     }
@@ -150,4 +153,11 @@ public class Inventory {
     public Map<Product,Integer> getProductsAmounts() {
         return products;
     }
+
+    public void setProductAmount(Product product, int amount) {
+        products.put(product,amount);
+
+    }
+
+
 }

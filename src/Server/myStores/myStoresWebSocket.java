@@ -1,5 +1,6 @@
 package Server.myStores;
 
+import Domain.Result;
 import Domain.Store;
 import Service.API;
 import org.eclipse.jetty.websocket.api.Session;
@@ -13,15 +14,9 @@ import java.io.IOException;
 import java.util.Queue;
 import java.util.concurrent.ConcurrentLinkedQueue;
 
-import Service.API;
-import org.eclipse.jetty.websocket.api.*;
-import org.eclipse.jetty.websocket.api.annotations.*;
-import java.io.*;
 import java.util.*;
-import java.util.concurrent.*;
-import org.json.JSONObject;
 
-    @WebSocket
+@WebSocket
     public class myStoresWebSocket {
 
         // Store sessions if you want to, for example, broadcast a message to all users
@@ -60,6 +55,15 @@ import org.json.JSONObject;
                 json.put("stores",jsonStores);
                 System.out.println(json);
                 session.getRemote().sendString(json.toString());
+            }else if(type.equals("GET_PERMISSIONS")){
+                int storeId = Integer.parseInt(jo.get("storeId").toString());
+                Result result=API.getUserPemissions(id,storeId);
+                JSONObject out= new JSONObject();
+                out.put("result",result.isResult());
+                out.put("type","GET_PERMISSIONS");
+                out.put("data",result.getData());
+                session.getRemote().sendString(out.toString());
+
             }
             else if(type.equals("LOGOUT"))
             {

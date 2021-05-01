@@ -1,9 +1,6 @@
 package Server;
 
-import Domain.Bag;
-import Domain.Product;
 import Domain.Result;
-import Domain.Store;
 import Service.API;
 import org.eclipse.jetty.websocket.api.*;
 import org.eclipse.jetty.websocket.api.annotations.*;
@@ -11,7 +8,6 @@ import java.io.*;
 import java.util.*;
 import java.util.concurrent.*;
 import org.json.JSONObject;
-import org.thymeleaf.expression.Ids;
 
 @WebSocket
 public class MakePurchase {
@@ -42,15 +38,15 @@ public class MakePurchase {
             JSONObject jsonOut=new JSONObject();
             jsonOut.put("type","BUY_PRODUCT");
             jsonOut.put("result",result.isResult());
-            jsonOut.put("message",result.getdata());
+            jsonOut.put("message",result.getData());
             session.getRemote().sendString(jsonOut.toString());
             if(result.isResult())
             {
-                Result result2=API.buyProduct(userId,storeId,creditInfo);
+                Result result2=API.getManagersAndOwnersOfStore(storeId);
                 JSONObject json= new JSONObject();
                 json.put("type", "ALERTS_USERS");
                 json.put("data", "Someone buy from your store! go check it out");
-                for(Integer id : (Set<Integer>)result2.getdata())
+                for(Integer id : (Set<Integer>)result2.getData())
                 {
                     if(MainWebSocket.sessionsMap.containsKey(id) && MainWebSocket.sessionsMap.get(id).isOpen())
                     {

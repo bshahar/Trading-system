@@ -1,5 +1,10 @@
 package Domain;
 
+import Domain.DiscountFormat.Discount;
+import Domain.DiscountPolicies.DiscountCondition;
+import Domain.PurchasePolicies.PurchaseCondition;
+
+import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
@@ -149,8 +154,6 @@ public class Member {
         return new Result(false,"permissions didn't remove ");
     }
 
-
-
     public void disableMyPermissions(Store store, List<Integer> opIndexes) {
         Permission p = permissions.get(store);
         if(p!= null) {
@@ -249,8 +252,6 @@ public class Member {
             }
         }
     }
-
-
 
     public void updateMyPermissions(Store store, List<Integer> opIndexes) {
         Permission p = permissions.get(store);
@@ -361,7 +362,7 @@ public class Member {
         return permissions.get(store).viewPurchaseHistory();
     }
 
-    public boolean addProductToStore(int productId,Store store, String name, List<Product.Category> categories, double price, String description, int quantity) {
+    public boolean addProductToStore(int productId,Store store, String name, List<String> categories, double price, String description, int quantity) {
         if(permissions.containsKey(store)){
             Permission permission= permissions.get(store);
             return permission.addProduct(productId,name, categories, price, description, quantity);
@@ -380,6 +381,36 @@ public class Member {
         }
     }
 
+    public Result addDiscountPolicy(Store store, String condition, String param, String category, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
+        if(permissions.containsKey(store)) {
+            Permission permission = permissions.get(store);
+            return permission.defineDiscountPolicy(param, condition, category, prodId, begin, end, conditions, percentage, op);
+        }
+        else
+            return new Result(false,"User has no permission for this action.");
+    }
+
+
+    public Result removeDiscountPolicy(Store store, int prodId, String category) {
+        if(permissions.containsKey(store)) {
+            Permission permission = permissions.get(store);
+            return permission.defineEditDiscountPolicy(prodId, category);
+        }
+        else
+            return new Result(false,"User has no permission for this action.");
+    }
+
+
+
+    public Result addPurchasePolicy(Store store, PurchaseCondition condition) {
+        if (permissions.containsKey(store)) {
+            Permission permission = permissions.get(store);
+            return permission.definePurchasePolicy(condition);
+        } else
+            return new Result(false, "User has no permission for this action.");
+    }
+
+
     public Result removeMangerFromStore(User owner,User manager, Store store) {
         if(permissions.containsKey(store)){
             Permission permission= permissions.get(store);
@@ -392,9 +423,15 @@ public class Member {
     public List<Store> getMyStores() {
         return this.myStores;
     }
+
     public void addToMyStores(Store store)
     {
         myStores.add(store);
+    }
+
+    public void removeFromMyStores(Store store)
+    {
+        myStores.remove(store);
     }
 
     public List<Permission> getPermissionsOfStore(int storeId) {
@@ -476,6 +513,40 @@ public class Member {
         return false;
         }
 
+    public Result removePurchasePolicy(Store store) {
+        if(permissions.containsKey(store)) {
+            Permission permission = permissions.get(store);
+            return permission.editPurchasePolicy();
+        }
+        else
+            return new Result(false,"User has no permission for this action.");
+    }
+
+    public Result getDiscountPolicies(Store store, int userId, int prodId, String category) {
+        if(permissions.containsValue(store)){
+            Permission permission = permissions.get(store);
+//            return permission.viewDiscountPolicies(Store store, int userId, int prodId, category);
+        }
+        else
+            return new Result(false,"User has no permission for this action.");
+
+        //remove when permission is implemented
+        return new Result(false,"User has no permission for this action.");
+    }
+
+    public Result getPurchasePolicy(Store store, int userId) {
+        if(permissions.containsValue(store)){
+            Permission permission = permissions.get(store);
+            // return permission.viewPurchasePolicies(Store store, int userId);
+        }
+        else
+            return new Result(false,"User has no permission for this action.");
+
+        //remove when permission is implemented
+        return new Result(false,"User has no permission for this action.");
+    }
+
+
 
     public Result removeOwnerFromStore(User owner, User ownerToRemove, Store store) {
         if(permissions.containsKey(store)){
@@ -484,6 +555,12 @@ public class Member {
         }else{
             return new Result(false,"User has no permissions");
         }
+    }
+
+    public Result editProduct(Store store,Product product, int price,int amount) {
+        if(permissions.get(store)!=null)
+            return permissions.get(store).editProduct(product,price,amount);
+        return new Result(false,"user has no permissions");
     }
 }
 

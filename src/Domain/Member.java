@@ -517,7 +517,7 @@ public class Member {
     public Result getDiscountPolicies(Store store, int userId, int prodId, String category) {
         if(permissions.containsValue(store)){
             Permission permission = permissions.get(store);
-          // return permission.viewDiscountPolicies(Store store, int userId);
+           //return permission.ViewDiscountPolicies(prodId, category);
         }
         else
             return new Result(false,"User has no permission for this action.");

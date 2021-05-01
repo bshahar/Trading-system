@@ -12,11 +12,9 @@ import java.util.List;
 public class API {
 
     private static TradingSystem tradingSystem;
-    public static void initTradingSystem(String userName){
-
-        User sysManager= new User(userName,19,0,1);
+    public static void initTradingSystem(){
+        User sysManager = new User("EOEDS", 0, 123456, 1);
         tradingSystem=new TradingSystem(sysManager);
-
     }
 
     public static Result guestLogin(){
@@ -96,8 +94,12 @@ public class API {
         return tradingSystem.getStorePurchaseHistory(ownerId,storeId);
     }
 
-    public static Result getGlobalPurchaseHistory(int tradingSystemManager){
-        return tradingSystem.getAllPurchases(tradingSystemManager);
+    public static Result getGlobalPurchaseUserHistory(int tradingSystemManager, int userId){  //system manager
+            return tradingSystem.getGlobalPurchaseUserHistory(tradingSystemManager, userId);
+    }
+
+    public static Result getGlobalPurchaseStoreHistory(int tradingSystemManager, int storeId){  //system manager
+        return getStorePurchaseHistory(tradingSystemManager, storeId);
     }
 
 

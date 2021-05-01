@@ -6,6 +6,7 @@ import Domain.DiscountPolicies.DiscountCondition;
 import Domain.DiscountPolicies.PolicyCondition;
 import Domain.Operators.*;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Permissions.AppointManager;
 import Service.*;
 import javafx.util.Pair;
 
@@ -28,6 +29,10 @@ public class TradingSystem {
     private List<User> users;
     private List<ObservableType> observers;
 
+    public int getSystemManagerId() {
+        return systemManager.getId();
+    }
+
     public List<Integer> getpermissionsIndex(List<String> names) {
         List<Integer> indexes =new LinkedList<>();
         for(String name: names){
@@ -43,6 +48,15 @@ public class TradingSystem {
             }
         }
         return -1;
+    }
+
+    public Result getGlobalPurchaseUserHistory(int tradingSystemManager, int userId) {
+        if(this.systemManager.getId() == tradingSystemManager){
+            KingLogger.logEvent("GLOBAL_USER_HISTORY:  system manager " + tradingSystemManager + "got purchase history of user " + userId);
+            return getUserPurchaseHistory(userId);
+        }
+        KingLogger.logEvent("GLOBAL_USER_HISTORY:  user " + tradingSystemManager + "is not a system manager");
+        return new Result(false, "Username is not system manager");
     }
 
 
@@ -102,7 +116,6 @@ public class TradingSystem {
         this.paymentAdapter = new PaymentAdapter(new DemoPayment());
         this.stores = Collections.synchronizedList(new LinkedList<>());
         this.receipts = Collections.synchronizedList(new LinkedList<>());
-        this.systemManager = systemManager;
         this.users = Collections.synchronizedList(new LinkedList<>());
         this.userAuth = new UserAuth();
         userCounter = new counter();
@@ -112,7 +125,12 @@ public class TradingSystem {
         observableCounter = new counter();
         this.observers = Collections.synchronizedList(new LinkedList<>());
         receiptCounter = new counter();
+        this.systemManager = systemManager;
+        AppointSystemManager(systemManager);
+    }
 
+    private void AppointSystemManager(User systemManager) {
+        systemManager.appointSystemManager(this.stores);
     }
 
     public Result getUserIdByName(String userName) {
@@ -515,6 +533,7 @@ public class TradingSystem {
         if(user!=null && user.isRegistered()) {
             int newId = storeCounter.inc();
             Store store = new Store(newId, storeName, user);
+            systemManager.addStoreToSystemManager(store);
             user.openStore(store);
             this.stores.add(store);
             KingLogger.logEvent("OPEN_STORE: User with id " + userId + " open the store " + storeName);
@@ -665,6 +684,8 @@ public class TradingSystem {
     public Result getNumOfStores() {
         return new Result(true,stores.size());
     }
+
+
 
     public Result getUserPurchaseHistory(int userId) {
         if(!getUserById(userId).isRegistered()){

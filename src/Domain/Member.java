@@ -562,5 +562,70 @@ public class Member {
             return permissions.get(store).editProduct(product,price,amount);
         return new Result(false,"user has no permissions");
     }
+
+    public void addStoreToSystemManager(Store store){
+        Permission p = new Permission(this, store);
+        p.allowOpenStore();
+        p.openStore();
+        p.allowAppointOwner();
+        p.allowAddProduct();
+        p.allowRemoveProduct();
+        p.allowEditProduct();
+        p.allowAppointManager();
+        p.allowRemoveManagerAppointment();
+        p.allowAppointOwner();
+        p.allowRemoveOwnerAppointment();
+        p.allowDefinePurchasePolicy();
+        p.allowEditPurchasePolicy();
+        p.allowDefinePurchaseFormat();
+        p.allowEditPurchaseFormat();
+        p.allowDefineDiscountPolicy();
+        p.allowEditDiscountPolicy();
+        p.allowDefineDiscountFormat();
+        p.allowEditDiscountFormat();
+        p.allowReopenStore();
+        p.allowGetWorkersInfo();
+        p.allowViewMessages();
+        p.allowReplayMessages();
+        p.allowViewPurchaseHistory();
+        p.allowAddPermissions();
+        p.allowRemovePermission();
+        permissions.put(store,p);
+    }
+
+    public void removeStoreToSystemManager(Store store){
+    }
+
+    public void setSystemManagerPermission(List<Store> stores) {
+        for(Store s: stores){
+            Permission p = new Permission(this, s);
+            p.allowOpenStore();
+            p.openStore();
+            p.allowAppointOwner();
+            p.allowAddProduct();
+            p.allowRemoveProduct();
+            p.allowEditProduct();
+            p.allowAppointManager();
+            p.allowRemoveManagerAppointment();
+            p.allowAppointOwner();
+            p.allowRemoveOwnerAppointment();
+            p.allowDefinePurchasePolicy();
+            p.allowEditPurchasePolicy();
+            p.allowDefinePurchaseFormat();
+            p.allowEditPurchaseFormat();
+            p.allowDefineDiscountPolicy();
+            p.allowEditDiscountPolicy();
+            p.allowDefineDiscountFormat();
+            p.allowEditDiscountFormat();
+            p.allowReopenStore();
+            p.allowGetWorkersInfo();
+            p.allowViewMessages();
+            p.allowReplayMessages();
+            p.allowViewPurchaseHistory();
+            p.allowAddPermissions();
+            p.allowRemovePermission();
+            permissions.put(s,p);
+        }
+    }
 }
 

@@ -49,6 +49,14 @@ public class PurchaseCondition {
                 pp = new TimeLimitPolicy(Integer.parseInt(policy.getPolicyParams().get(0)));
                 this.purchases.add(pp);
                 break;
+            case "Min Amount":
+                pp = new MinAmountPolicy(Integer.parseInt(policy.getPolicyParams().get(0)), Integer.parseInt(policy.getPolicyParams().get(1)));
+                this.purchases.add(pp);
+                break;
+            case "Max Amount":
+                pp = new MaxAmountPolicy(Integer.parseInt(policy.getPolicyParams().get(0)), Integer.parseInt(policy.getPolicyParams().get(1)));
+                this.purchases.add(pp);
+                break;
             default:
                 break;
         }

@@ -40,11 +40,10 @@ public class PolicyWebSocket {
                 int storeId= jo.getInt("storeId");
                 int prodId= jo.getInt("productId");
                 String operator= jo.get("operation").toString();
-                SimpleDateFormat format= new SimpleDateFormat("dd/MM/yyyy");
-                Date begin= format.parse(jo.get("begin").toString());
-                Date end= format.parse(jo.get("end").toString());
+                String begin= jo.get("begin").toString();
+                String end= jo.get("end").toString();
                 int precentage= jo.getInt("presentage");
-                String mathOp= jo.get("operation").toString();
+                String mathOp= jo.get("mathOp").toString();
                 JSONArray arr=jo.getJSONArray("list");
                 List<Pair<String,List<String>>> policies=new LinkedList<>();
                 for(int i=0; i<arr.length();i++){
@@ -69,9 +68,8 @@ public class PolicyWebSocket {
                 int storeId= jo.getInt("storeId");
                 String category= jo.getString("category");
                 String operator= jo.get("operation").toString();
-                SimpleDateFormat format= new SimpleDateFormat("dd/MM/yyyy");
-                Date begin= format.parse(jo.get("begin").toString());
-                Date end= format.parse(jo.get("end").toString());
+                String begin= jo.get("begin").toString();
+                String end= jo.get("end").toString();
                 int precentage= jo.getInt("presentage");
                 String mathOp= jo.get("mathOp").toString();
                 JSONArray arr=jo.getJSONArray("list");
@@ -97,11 +95,10 @@ public class PolicyWebSocket {
                 int userId= jo.getInt("userId");
                 int storeId= jo.getInt("storeId");
                 String operator= jo.get("operation").toString();
-                SimpleDateFormat format= new SimpleDateFormat("dd/MM/yyyy");
-                Date begin= format.parse(jo.get("begin").toString());
-                Date end= format.parse(jo.get("end").toString());
+                String begin= jo.get("begin").toString();
+                String end= jo.get("end").toString();
                 int precentage= jo.getInt("presentage");
-                String mathOp= jo.get("operation").toString();
+                String mathOp= jo.get("mathOp").toString();
                 JSONArray arr=jo.getJSONArray("list");
                 List<Pair<String,List<String>>> policies=new LinkedList<>();
                 for(int i=0; i<arr.length();i++){
@@ -109,13 +106,9 @@ public class PolicyWebSocket {
                     String name=policy.getString("policyName");
                     JSONArray jsonParams= policy.getJSONArray("params");
                     List<String> params =new LinkedList<>();
-                    params.add(jsonParams.getString(0));
-                    params.add(jsonParams.getString(1));
-                    params.add(jsonParams.getString(2));
-                    params.add(jsonParams.getString(3));
-                    params.add(jsonParams.getString(4));
-                    params.add(jsonParams.getString(5));
-                    params.add(jsonParams.getString(6));
+                    for(int j=0; j<jsonParams.length();j++){
+                        params.add(jsonParams.getString(j));
+                    }
 
                     Pair<String ,List<String>> pair= new Pair<>(name,params);
                     policies.add(pair);
@@ -131,11 +124,6 @@ public class PolicyWebSocket {
                 int storeId= jo.getInt("storeId");
                 int prodId= jo.getInt("productId");
                 String operator= jo.get("operation").toString();
-                SimpleDateFormat format= new SimpleDateFormat("dd/MM/yyyy");
-                Date begin= format.parse(jo.get("begin").toString());
-                Date end= format.parse(jo.get("end").toString());
-                int precentage= jo.getInt("presentage");
-                String mathOp= jo.get("operation").toString();
                 JSONArray arr=jo.getJSONArray("list");
                 List<Pair<String,List<String>>> policies=new LinkedList<>();
                 for(int i=0; i<arr.length();i++){
@@ -149,7 +137,7 @@ public class PolicyWebSocket {
                     Pair<String ,List<String>> pair= new Pair<>(name,params);
                     policies.add(pair);
                 }
-                Result result=API.addDiscountOnProduct(storeId,userId,prodId,operator,policies,begin,end,precentage,mathOp);
+                Result result=API.addPurchasePolicyOnProduct(storeId,userId,prodId,operator,policies);
                 JSONObject out=new JSONObject();
                 out.put("type","ADD_PURCHASE_POLICY_PRODUCT");
                 out.put("result",result.isResult());
@@ -160,11 +148,6 @@ public class PolicyWebSocket {
                 int storeId= jo.getInt("storeId");
                 String category= jo.getString("category");
                 String operator= jo.get("operation").toString();
-                SimpleDateFormat format= new SimpleDateFormat("dd/MM/yyyy");
-                Date begin= format.parse(jo.get("begin").toString());
-                Date end= format.parse(jo.get("end").toString());
-                int precentage= jo.getInt("presentage");
-                String mathOp= jo.get("mathOp").toString();
                 JSONArray arr=jo.getJSONArray("list");
                 List<Pair<String,List<String>>> policies=new LinkedList<>();
                 for(int i=0; i<arr.length();i++){
@@ -178,7 +161,7 @@ public class PolicyWebSocket {
                     Pair<String ,List<String>> pair= new Pair<>(name,params);
                     policies.add(pair);
                 }
-                Result result=API.addDiscountPolicyOnCategory(storeId,userId,category,operator,policies,begin,end,precentage,mathOp);
+                Result result=API.addPurchasePolicyOnCategory(storeId,userId,category,operator,policies);
                 JSONObject out=new JSONObject();
                 out.put("type","ADD_PURCHASE_POLICY_CATEGORY");
                 out.put("result",result.isResult());
@@ -188,11 +171,6 @@ public class PolicyWebSocket {
                 int userId= jo.getInt("userId");
                 int storeId= jo.getInt("storeId");
                 String operator= jo.get("operation").toString();
-                SimpleDateFormat format= new SimpleDateFormat("dd/MM/yyyy");
-                Date begin= format.parse(jo.get("begin").toString());
-                Date end= format.parse(jo.get("end").toString());
-                int precentage= jo.getInt("presentage");
-                String mathOp= jo.get("operation").toString();
                 JSONArray arr=jo.getJSONArray("list");
                 List<Pair<String,List<String>>> policies=new LinkedList<>();
                 for(int i=0; i<arr.length();i++){
@@ -200,18 +178,13 @@ public class PolicyWebSocket {
                     String name=policy.getString("policyName");
                     JSONArray jsonParams= policy.getJSONArray("params");
                     List<String> params =new LinkedList<>();
-                    params.add(jsonParams.getString(0));
-                    params.add(jsonParams.getString(1));
-                    params.add(jsonParams.getString(2));
-                    params.add(jsonParams.getString(3));
-                    params.add(jsonParams.getString(4));
-                    params.add(jsonParams.getString(5));
-                    params.add(jsonParams.getString(6));
-
+                    for(int j=0; j<jsonParams.length();j++){
+                        params.add(jsonParams.getString(j));
+                    }
                     Pair<String ,List<String>> pair= new Pair<>(name,params);
                     policies.add(pair);
                 }
-                Result result=API.addDiscountPolicyOnStore(storeId,userId,operator,policies,begin,end,precentage,mathOp);
+                Result result=API.addPurchasePolicyOnStore(storeId,userId,operator,policies);
                 JSONObject out=new JSONObject();
                 out.put("type","ADD_PURCHASE_POLICY_STORE");
                 out.put("result",result.isResult());

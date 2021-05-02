@@ -224,6 +224,8 @@ public class PermissionActionWebSocket {
                     }
                     JSONObject receiptJson= new JSONObject();
                     receiptJson.put("storeName", API.getStoreName(receipt.getStoreId()));
+                    receiptJson.put("totalCost",receipt.getTotalCost());
+
                     receiptJson.put("lines",linesJson);
                     receiptsJson[j]=receiptJson;
                     j++;

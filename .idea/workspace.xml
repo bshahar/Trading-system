@@ -23,11 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#42 more tests &amp; adding removal of policies">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_20140107__2_1.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Server/GetPolicyWebSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/PolicyWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/PolicyWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/myPurchases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/myPurchases.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,6 +105,10 @@
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Server" />
+      <recent name="Permissions" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Templates" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\docs" />
@@ -110,12 +116,24 @@
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server\Login" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\LoginPage" />
     </key>
-    <key name="CreateClassDialog.RecentsKey">
+    <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="Server" />
-      <recent name="Permissions" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest">
+  <component name="RunManager" selected="Application.Server">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server.Server" />
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DiscountAndPurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -142,22 +160,6 @@
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
       <option name="METHOD_NAME" value="addDiscountOnProductAndOpSuccessTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DiscountAndPurchaseTest.addPurchaseNotPermittedFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="addPurchaseNotPermittedFailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -197,11 +199,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.addDiscountOnProductAndOpSuccessTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.purchaseContradictsAgeOrAmountPolicyFailTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.addPurchasePolicyOnStoreSuccessTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.addPurchaseNotPermittedFailTest" />
       </list>
     </recent_temporary>
   </component>
@@ -508,80 +510,6 @@
     <MESSAGE value="#42 change date format" />
     <option name="LAST_COMMIT_MESSAGE" value="#42 change date format" />
   </component>
-  <component name="WindowStateProjectService">
-    <state x="551" y="307" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1619783208495">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="551" y="307" width="433" height="216" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1619783208495" />
-    <state width="422" height="466" key="DebuggerActiveHint" timestamp="1619888426632">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="422" height="466" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1619888426632" />
-    <state x="473" y="154" key="FileChooserDialogImpl" timestamp="1619892993672">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="473" y="154" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1619892993672" />
-    <state width="1537" height="232" key="GridCell.Tab.0.bottom" timestamp="1619888698221">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1537" height="232" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619888698221" />
-    <state width="1537" height="232" key="GridCell.Tab.0.center" timestamp="1619888698221">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1537" height="232" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1619888698221" />
-    <state width="1537" height="232" key="GridCell.Tab.0.left" timestamp="1619888698221">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1537" height="232" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1619888698221" />
-    <state width="1537" height="232" key="GridCell.Tab.0.right" timestamp="1619888698221">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1537" height="232" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1619888698221" />
-    <state width="1537" height="232" key="GridCell.Tab.1.bottom" timestamp="1619888706354">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1537" height="232" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1619888706354" />
-    <state width="1537" height="232" key="GridCell.Tab.1.center" timestamp="1619888706354">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1537" height="232" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1619888706354" />
-    <state width="1537" height="232" key="GridCell.Tab.1.left" timestamp="1619888706354">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1537" height="232" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1619888706354" />
-    <state width="1537" height="232" key="GridCell.Tab.1.right" timestamp="1619888706354">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1537" height="232" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1619888706354" />
-    <state x="657" y="280" width="534" height="263" key="MultipleFileMergeDialog" timestamp="1619876390316">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="657" y="280" width="534" height="263" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1619876390316" />
-    <state x="249" y="0" key="SettingsEditor" timestamp="1619893012319">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="249" y="0" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1619893012319" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1619886566414">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1619886566414" />
-    <state x="478" y="147" width="579" height="530" key="find.popup" timestamp="1619885162370">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="478" y="147" width="579" height="530" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1619885162370" />
-    <state x="534" y="201" key="git4idea.merge.GitMergeDialog" timestamp="1619891469428">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="534" y="201" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1619891469428" />
-    <state x="472" y="201" key="git4idea.merge.GitPullDialog" timestamp="1619876381741">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="472" y="201" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1619876381741" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1619783296924">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1619783296924" />
-  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -607,7 +535,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>426</line>
+          <line>428</line>
           <option name="timeStamp" value="29" />
         </line-breakpoint>
       </breakpoints>

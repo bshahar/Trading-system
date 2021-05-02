@@ -86,6 +86,8 @@ public class Member {
             p.allowViewPurchaseHistory();
             p.allowAddPermissions();
             p.allowRemovePermission();
+            p.allowViewDiscountPolicies();
+            p.allowViewPurchasePolicies();
             permissions.put(store,p);
         }
         else {
@@ -112,6 +114,8 @@ public class Member {
             permissions.get(store).allowViewPurchaseHistory();
             permissions.get(store).allowAddPermissions();
             permissions.get(store).allowRemovePermission();
+            permissions.get(store).allowViewDiscountPolicies();
+            permissions.get(store).allowViewPurchasePolicies();
         }
 
 
@@ -512,16 +516,16 @@ public class Member {
     }
 
     public Result getDiscountPolicies(Store store,int prodId, String category) {
-        if(permissions.containsValue(store)){
+        if(permissions.containsKey(store)){
             Permission permission = permissions.get(store);
-            return permission.defineViewPurchasePolicies(prodId, category);
+            return permission.defineViewDiscountPolicies(prodId, category);
         }
         else
             return new Result(false,"User has no permission for this action.");
     }
 
     public Result getPurchasePolicy(Store store, int prodId, String category) {
-        if(permissions.containsValue(store)){
+        if(permissions.containsKey(store)){
             Permission permission = permissions.get(store);
             return permission.defineViewPurchasePolicies(prodId, category);
         }

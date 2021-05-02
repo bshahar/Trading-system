@@ -33,6 +33,17 @@ public class PurchaseCondition {
         return operator.validateCondition(purchases,user, time, bag);
     }
 
+    public String getOperator() {
+        if(this.operator instanceof OrOperator)
+            return "Or";
+        else if(this.operator instanceof AndOperator)
+            return "And";
+        else if(this.operator instanceof XorOperator)
+            return "Xor";
+        else
+            return "";
+    }
+
     public void setOperator(LogicOperator operator) { this.operator = operator; }
 
     public void addPurchasePolicy(PolicyCondition policy) {

@@ -416,8 +416,7 @@ public class Store {
             Discount dis = this.discountsOnProducts.get(product);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
-                LogicOperator op = ((ConditionalDiscount) dis).getConditions().getOperator();
-                discountPolicies.add(String.valueOf(op));
+                discountPolicies.add(((ConditionalDiscount) dis).getConditions().getOperatorStr());
                 for (Policy policy: ((ConditionalDiscount) dis).getConditions().getDiscounts()) {
                     policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
                 }
@@ -428,6 +427,7 @@ public class Store {
             discountPolicies.add(dis.getBegin().toString());
             discountPolicies.add(dis.getEnd().toString());
             discountPolicies.add(String.valueOf(dis.getPercentage()));
+            discountPolicies.add(dis.getMathOpStr());
             return new Result(true, discountPolicies);
         }
         return new Result(false, "No discount policies on this product.");
@@ -439,8 +439,7 @@ public class Store {
             Discount dis = this.discountsOnCategories.get(category);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
-                LogicOperator op = ((ConditionalDiscount) dis).getConditions().getOperator();
-                discountPolicies.add(String.valueOf(op));
+                discountPolicies.add(((ConditionalDiscount) dis).getConditions().getOperatorStr());
                 for (Policy policy: ((ConditionalDiscount) dis).getConditions().getDiscounts()) {
                     policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
                 }
@@ -451,6 +450,7 @@ public class Store {
             discountPolicies.add(dis.getBegin().toString());
             discountPolicies.add(dis.getEnd().toString());
             discountPolicies.add(String.valueOf(dis.getPercentage()));
+            discountPolicies.add(dis.getMathOpStr());
             return new Result(true, discountPolicies);
         }
         return new Result(false, "No discount policies on this category.");
@@ -462,8 +462,7 @@ public class Store {
             Discount dis = this.discountsOnStore;
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
-                LogicOperator op = ((ConditionalDiscount) dis).getConditions().getOperator();
-                discountPolicies.add(String.valueOf(op));
+                discountPolicies.add(((ConditionalDiscount) dis).getConditions().getOperatorStr());
                 for (Policy policy: ((ConditionalDiscount) dis).getConditions().getDiscounts()) {
                     policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
                 }
@@ -471,9 +470,10 @@ public class Store {
             else
                 discountPolicies.add(""); //logic operator- if simple discount then empty
             discountPolicies.add(policiesParams);
-            discountPolicies.add(dis.getBegin().toString());
-            discountPolicies.add(dis.getEnd().toString());
+            discountPolicies.add(this.dateToString(dis.getBegin()));
+            discountPolicies.add(this.dateToString(dis.getEnd()));
             discountPolicies.add(String.valueOf(dis.getPercentage()));
+            discountPolicies.add(dis.getMathOpStr());
             return new Result(true, discountPolicies);
         }
         return new Result(false, "No discount policies in this store.");
@@ -488,10 +488,19 @@ public class Store {
             for (Policy policy : ((ImmediatePurchase) ip).getConditions().getPurchases()) {
                 policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
             }
+            purchasePolicies.add(ip.getConditions().getOperator());
             purchasePolicies.add(policiesParams);
+
             return new Result(true, purchasePolicies);
         }
         return new Result(false, "No purchase policies on this product.");
+    }
+
+
+    private String dateToString(Date date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DATE)+"/"+(calendar.get(Calendar.MONTH)+1) +"/" + calendar.get(Calendar.YEAR);
     }
 
     public Result viewPurchasePoliciesOnCategory(String category) {
@@ -502,6 +511,7 @@ public class Store {
             for (Policy policy : ((ImmediatePurchase) ip).getConditions().getPurchases()) {
                 policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
             }
+            purchasePolicies.add(ip.getConditions().getOperator());
             purchasePolicies.add(policiesParams);
             return new Result(true, purchasePolicies);
         }
@@ -516,6 +526,7 @@ public class Store {
             for (Policy policy : ((ImmediatePurchase) ip).getConditions().getPurchases()) {
                 policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
             }
+            purchasePolicies.add(ip.getConditions().getOperator());
             purchasePolicies.add(policiesParams);
             return new Result(true, purchasePolicies);
         }

@@ -28,6 +28,17 @@ public class DiscountCondition { //Compound object
 
     public void setOperator(LogicOperator operator) { this.operator = operator; }
 
+    public String getOperatorStr() {
+        if(this.operator instanceof OrOperator)
+            return "Or";
+        else if(this.operator instanceof AndOperator)
+            return "And";
+        else if(this.operator instanceof XorOperator)
+            return "Xor";
+        else
+            return "";
+    }
+
     public List<Policy> getDiscounts() {
         return discounts;
     }

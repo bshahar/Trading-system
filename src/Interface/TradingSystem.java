@@ -1033,63 +1033,7 @@ public class TradingSystem {
         cal.set(Calendar.MONTH, Integer.parseInt(parts[1]) - 1);//Calendar.DECEMBER);
         cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(parts[0]));
         return cal.getTime();
-        /*
-        String[] splitDate = date.split("/");
-        GregorianCalendar t =  new GregorianCalendar(Integer.parseInt(splitDate[2]) - 1900, Integer.parseInt(splitDate[1])+1, Integer.parseInt(splitDate[0]));
-        return new Date();
-        //ZonedDateTime zdt = temp.toZonedDateTime();
-        //Instant instant = zdt.toInstant();
-        //return Date.from(instant);
-        //return Calendar.set(Integer.parseInt(splitDate[2]) - 1900, Integer.parseInt(splitDate[1]+1), Integer.parseInt(splitDate[0]));
-
-        return Calendar.set(Integer.parseInt(splitDate[2]) - 1900, Integer.parseInt(splitDate[1]+1), Integer.parseInt(splitDate[0]));
-
-        if (splitDate.length == 3) {
-            int month = 1;
-            switch (Integer.parseInt(splitDate[1])) {
-                case 1:
-                    month = Calendar.JANUARY;
-                    break;
-                case 2:
-                    month = Calendar.FEBRUARY;
-                    break;
-                case 3:
-                    month = Calendar.MARCH;
-                    break;
-                case 4:
-                    month = Calendar.APRIL;
-                    break;
-                case 5:
-                    month = Calendar.MAY;
-                    break;
-                case 6:
-                    month = Calendar.JUNE;
-                    break;
-                case 7:
-                    month = Calendar.JULY;
-                    break;
-                case 8:
-                    month = Calendar.AUGUST;
-                    break;
-                case 9:
-                    month = Calendar.SEPTEMBER;
-                    break;
-                case 10:
-                    month = Calendar.OCTOBER;
-                    break;
-                case 11:
-                    month = Calendar.NOVEMBER;
-                    break;
-                case 12:
-                    month = Calendar.DECEMBER;
-                    break;
-            }
-            return new Date(Integer.parseInt(splitDate[0]), month, Integer.parseInt(splitDate[2]));
-        }
-        else
-            return null;
-
-         */
     }
+
 
 }

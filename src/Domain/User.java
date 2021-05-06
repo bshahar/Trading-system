@@ -4,6 +4,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
+import Domain.PurchaseFormat.Purchase;
 import Domain.PurchasePolicies.PurchaseCondition;
 
 import java.util.Date;
@@ -22,6 +23,8 @@ public class User implements Observer {
     private Queue<String> messages;
     private ObservableType observableType ;
 
+    private Queue<String> loginMessages;
+
 
     public User(String userName, int age, int id,int registered) {
         this.registered = registered;
@@ -33,6 +36,7 @@ public class User implements Observer {
         this.member = new Member();
         this.receipts=new LinkedList<>();
         this.messages = new ConcurrentLinkedDeque<>();
+        this.loginMessages = new ConcurrentLinkedDeque<>();
     }
 
     public boolean isRegistered()
@@ -197,8 +201,7 @@ public class User implements Observer {
         observableType = (ObservableType) observable;
         if(logged)
         {
-            //TODO add what happend when get here
-            //System.out.println(this.userName+ " got msg: "+observableType.getMessage());
+            loginMessages.add(observableType.getMessage());
         }
         else
             messages.add(observableType.getMessage());
@@ -206,13 +209,26 @@ public class User implements Observer {
 
     public Queue<String> getMessages()
     {
-        return this.messages;
+        Queue<String> new_megs;
+        new_megs = this.messages;
+        this.messages = new ConcurrentLinkedDeque<>();
+        return new_megs;
     }
+
+    public Queue<String> getLoginMessages()
+    {
+        Queue<String> new_megs;
+        new_megs = this.loginMessages;
+        this.loginMessages = new ConcurrentLinkedDeque<>();
+        return new_megs;
+    }
+
+
 
     public void addNotification(String string){
        if(isLogged())
        {
-           System.out.println(string);
+           this.loginMessages.add(string);
        }
        else
            this.messages.add(string);
@@ -269,27 +285,63 @@ public class User implements Observer {
         return member.addDiscountPolicy(store, condition, param, null, -1, begin, end, conditions, percentage, op);
     }
 
-    public Result addPurchasePolicy(Store store, PurchaseCondition condition) {
-        return member.addPurchasePolicy(store, condition);
+
+    public Result getDiscountOnProduct(Store store, int prodId) {
+        return member.getDiscountPolicies(store,prodId, "");
     }
 
-    public Result removePurchasePolicy(Store store) {
-        return member.removePurchasePolicy(store);
-    }
-
-    public Result getDiscountOnProduct(Store store, int userId, int prodId) {
-        return member.getDiscountPolicies(store, userId, prodId, "");
-    }
-
-    public Result getDiscountOnCategory(Store store, int userId, String category) {
-        return member.getDiscountPolicies(store, userId, -1, category);
+    public Result getDiscountOnCategory(Store store, String category) {
+        return member.getDiscountPolicies(store, -1, category);
     }
 
     public Result getDiscountOnStore(Store store, int userId) {
-        return member.getDiscountPolicies(store, userId, -1, "");
+        return member.getDiscountPolicies(store,-1, "");
+    }
+    /************************************************************************/
+
+    public Result addPurchaseOnProduct(Store store, String param, int prodId, PurchaseCondition conditions) {
+        return member.addPurchasePolicy(store, param,null,prodId,conditions);
     }
 
-    public Result getPurchasePolicy(Store store, int userId) {
-        return member.getPurchasePolicy(store, userId);
+    public Result removePurchaseOnProduct(Store store, int prodId, String category) {
+        return member.removePurchasePolicy(store, prodId,category);
+    }
+
+    public Result removePurchaseOnCategory(Store store, int prodId, String category) {
+        return member.removePurchasePolicy(store, prodId, category);
+    }
+
+    public Result removePurchaseOnStore(Store store, int prodId, String category) {
+        return member.removePurchasePolicy(store, prodId, category);
+    }
+
+    public Result addPurchaseOnCategory(Store store, String param, String category, PurchaseCondition conditions) {
+        return member.addPurchasePolicy(store, param, category, -1,conditions);
+    }
+
+    public Result addPurchaseOnStore(Store store, String param, PurchaseCondition conditions) {
+        return member.addPurchasePolicy(store, param, null, -1,conditions);
+    }
+
+
+    public Result getPurchaseOnProduct(Store store, int prodId) {
+        return member.getPurchasePolicy(store,prodId, "");
+    }
+
+    public Result getPurchaseOnCategory(Store store, int userId, String category) {
+        return member.getPurchasePolicy(store, -1, category);
+    }
+
+    public Result getPurchaseOnStore(Store store, int userId) {
+        return member.getPurchasePolicy(store,-1, "");
+    }
+
+
+    public Result removeDiscountPolicy(Store store, int prodId, String category) {
+        return member.removeDiscountPolicy(store, prodId, category);
+    }
+
+    public Result removePurchasePolicy(Store store, int prodId, String category) {
+        return this.member.removePurchasePolicy(store, prodId, category);
     }
 }

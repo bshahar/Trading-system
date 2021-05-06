@@ -165,8 +165,84 @@ public class NotficationsTest {
 
         Assertions.assertTrue(queue1.size()==1);
         Assertions.assertTrue(queue2.size()==1);
+    }
+
+    @Test
+    public void notifyToUserThatNowNoLongerOwnerLoggedIn(){
+
+        API.addStoreOwner(registerId1,registerId2,storeId1);
+        API.removeOwner(registerId1,registerId2,storeId1);
+        Result result1 = API.getLoginMessagesQueue(registerId2);
+
+        Assertions.assertTrue(result1.isResult());
+
+        Queue<String> queue1  =  (Queue<String>)result1.getData();
+        Assertions.assertTrue(queue1.size()==2);
+    }
+
+    @Test
+    public void notifyToUserThatNowNoLongerManagerLoggedIn(){
+
+        API.addStoreManager(registerId1,registerId2,storeId1);
+        API.removeManager(registerId1,registerId2,storeId1);
+        Result result1 = API.getLoginMessagesQueue(registerId2);
+
+        Assertions.assertTrue(result1.isResult());
+
+        Queue<String> queue1  =  (Queue<String>)result1.getData();
+        Assertions.assertTrue(queue1.size()==2);
+    }
+
+    @Test
+    public void notifyToUserThatNoLonerOwnerLogout(){
+
+        API.addStoreOwner(registerId1,registerId2,storeId1);
+        API.registeredLogout(registerId2);
+        API.removeOwner(registerId1,registerId2,storeId1);
+        Result result_logout = API.getMessagesQueue(registerId2);
+        Result result_login = API.getLoginMessagesQueue(registerId2);
+        Assertions.assertTrue(result_logout.isResult());
+        Assertions.assertTrue(result_login.isResult());
+        Queue<String> queue_login  =  (Queue<String>)result_login.getData();
+        Queue<String> queue_logout  =  (Queue<String>)result_logout.getData();
+
+        Assertions.assertTrue(queue_login.size()==1);
+        Assertions.assertTrue(queue_logout.size()==1);
+
+        Object[] list_login = queue_login.toArray();
+        Object[] list_logout = queue_logout.toArray();
+        Assertions.assertEquals(list_logout[0],"You are no longer owner in store: kandabior store");
+        Assertions.assertEquals(list_login[0],"You are now owner in store: kandabior store");
+    }
+
+    @Test
+    public void notifyToUserThatNoLonerManagerLogout(){
+
+        API.addStoreManager(registerId1,registerId2,storeId1);
+        API.registeredLogout(registerId2);
+        API.removeManager(registerId1,registerId2,storeId1);
+        Result result_logout = API.getMessagesQueue(registerId2);
+        Result result_login = API.getLoginMessagesQueue(registerId2);
+        Assertions.assertTrue(result_logout.isResult());
+        Assertions.assertTrue(result_login.isResult());
+        Queue<String> queue_login  =  (Queue<String>)result_login.getData();
+        Queue<String> queue_logout  =  (Queue<String>)result_logout.getData();
+
+        Assertions.assertTrue(queue_login.size()==1);
+        Assertions.assertTrue(queue_logout.size()==1);
+
+        Object[] list_login = queue_login.toArray();
+        Object[] list_logout = queue_logout.toArray();
+        Assertions.assertEquals(list_logout[0],"You are no longer manager in store: kandabior store");
+        Assertions.assertEquals(list_login[0],"You are now manager in store: kandabior store");
+
+
 
     }
+
+
+
+
 
 
 

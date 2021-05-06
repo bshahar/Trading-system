@@ -16,9 +16,7 @@ public class AgeLimitPolicy extends PurchasePolicy{
 
     @Override
     public boolean validateCondition(User user, Date time, Bag bag) {
-        if (user.getAge() >= ageLimit)
-            return true;
-        return false;
+        return user.getAge() >= ageLimit;
     }
 
     @Override

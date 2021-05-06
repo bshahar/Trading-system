@@ -2,6 +2,7 @@ package Domain.PurchaseFormat;
 
 import Domain.Bag;
 import Domain.DiscountPolicies.DiscountCondition;
+import Domain.Product;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Domain.PurchasePolicies.PurchasePolicy;
 import Domain.User;
@@ -18,12 +19,14 @@ public class ImmediatePurchase extends Purchase {
         this.conditions = conditions;
     }
 
-    public boolean validatePurchase(User user, Date time, Bag bag) {
-        return conditions.validateCondition(user, time, bag);
+    public boolean validatePurchase( User user, Date time, Bag bag) {
+        return conditions.validateCondition( user, time, bag);
     }
 
     @Override
     public boolean validatePurchase(List<PurchasePolicy> policies) {
         return false;
     }
+
+    public PurchaseCondition getConditions() { return this.conditions; }
 }

@@ -1,6 +1,9 @@
 package Domain.DiscountFormat;
 
 import Domain.Bag;
+import Domain.Operators.AndOperator;
+import Domain.Operators.OrOperator;
+import Domain.Operators.XorOperator;
 import Domain.Product;
 import Domain.User;
 
@@ -30,5 +33,12 @@ public abstract class Discount {
 
     public MathOp getMathOp() {
         return this.mathOp;
+    }
+
+    public String getMathOpStr() {
+        if(String.valueOf(this.mathOp).equals("MAX"))
+            return "Max";
+        else
+            return "Sum";
     }
 }

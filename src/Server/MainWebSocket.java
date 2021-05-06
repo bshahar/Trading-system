@@ -81,9 +81,7 @@ public class MainWebSocket {
             json.put("result", result.isResult());
             json.put("data", result.getData());
             session.getRemote().sendString(json.toString());
-
         }
     }
-
 
 }

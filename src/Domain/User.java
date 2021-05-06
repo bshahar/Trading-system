@@ -22,6 +22,7 @@ public class User implements Observer {
     private List<Receipt> receipts;
     private Queue<String> messages;
     private ObservableType observableType ;
+    private boolean isSystemManager;
 
     private Queue<String> loginMessages;
 
@@ -37,6 +38,7 @@ public class User implements Observer {
         this.receipts=new LinkedList<>();
         this.messages = new ConcurrentLinkedDeque<>();
         this.loginMessages = new ConcurrentLinkedDeque<>();
+        this.isSystemManager = false;
     }
 
     public boolean isRegistered()
@@ -44,6 +46,9 @@ public class User implements Observer {
         return (1==this.registered);
     }
 
+    public Member getMember() {
+        return member;
+    }
 
     public Bag getBagByStoreId(int storeId){
         for (Bag bag : bags){
@@ -107,7 +112,14 @@ public class User implements Observer {
 
     public void openStore(Store store) {
         this.member.openStore(this,store);
+    }
 
+    public void addStoreToSystemManager(Store store) {
+        this.member.addStoreToSystemManager(store);
+    }
+
+    public void removeStoreToSystemManager(Store store) {
+        this.member.removeStoreToSystemManager(store);
     }
 
     public Result addStoreOwner(User owner, User user, Store store) {
@@ -343,5 +355,10 @@ public class User implements Observer {
 
     public Result removePurchasePolicy(Store store, int prodId, String category) {
         return this.member.removePurchasePolicy(store, prodId, category);
+    }
+
+    public void appointSystemManager(List<Store> stores) {
+        this.isSystemManager = true;
+        this.member.setSystemManagerPermission(stores);
     }
 }

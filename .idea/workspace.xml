@@ -22,12 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#42 more tests &amp; adding removal of policies">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="front">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/GetPolicyWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/GetPolicyWebSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -455,7 +452,13 @@
       <option name="presentableId" value="LOCAL‎00037" />
       <updated>1619891439060</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL‎00038" summary="front">
+      <created>1619952243151</created>
+      <option name="number" value="LOCAL‎00038" />
+      <option name="presentableId" value="LOCAL‎00038" />
+      <updated>1619952243151</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -478,8 +481,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="stores and products updates2 #24" />
-    <MESSAGE value="connect trading system to stores #27" />
     <MESSAGE value="adding permissions test #27 #26" />
     <MESSAGE value="merges #26" />
     <MESSAGE value="fixed store tests #26" />
@@ -503,7 +504,9 @@
     <MESSAGE value="#42 more tests" />
     <MESSAGE value="#42 more tests &amp; adding removal of policies" />
     <MESSAGE value="#42 change date format" />
-    <option name="LAST_COMMIT_MESSAGE" value="#42 change date format" />
+    <MESSAGE value="edit policy wev socket" />
+    <MESSAGE value="front" />
+    <option name="LAST_COMMIT_MESSAGE" value="front" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -512,11 +515,6 @@
           <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
           <line>260</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/StoreWebSocket.java</url>

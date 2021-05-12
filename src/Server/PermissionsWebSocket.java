@@ -62,9 +62,6 @@ public class PermissionsWebSocket {
                 session.getRemote().sendString(jsonObject.toString());
 
             }
-
-
-
         }else if(type.equals("UPDATE_PERMISSIONS")) {
             String userName= jo.get("userName").toString();
             int ownerId= Integer.parseInt(jo.get("ownerId").toString());
@@ -74,9 +71,19 @@ public class PermissionsWebSocket {
             List<String> toRemove= new LinkedList<>();
             for(int i=0; i<permissions.length(); i++){
                 JSONObject json= permissions.getJSONObject(i);
-//                if(json.getBoolean())
-//                String per= json.get("per");
+                if(json.getBoolean("isAllowed")){
+                    toAdd.add(json.getString("per"));
+                }else{
+                    toRemove.add(json.getString("per"));
+                }
             }
+            API.addPermissions(ownerId,(int)API.getUserIdByName(userName).getData(),storeId,API.getpermissionsIndex(toAdd));
+            API.RemovePermissions(ownerId,(int)API.getUserIdByName(userName).getData(),storeId,API.getpermissionsIndex(toRemove));
+            JSONObject out= new JSONObject();
+            out.put("type", "UPDATE_PERMISSIONS");
+            out.put("result",true);
+            session.getRemote().sendString(out.toString());
+
         }
 
 

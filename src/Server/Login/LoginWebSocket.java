@@ -43,7 +43,8 @@ public class LoginWebSocket {
                 String email = jo.get("email").toString();
                 String pass = jo.get("password").toString();
                 if (type.equals("REGISTER")) {
-                    Result result = API.register(email, pass, 20);
+                    int age = jo.getInt("age");
+                    Result result = API.register(email, pass, age);
                     if (!result.isResult()) {
                         JSONObject json = new JSONObject();
                         json.put("result", "false");

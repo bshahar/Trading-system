@@ -84,7 +84,17 @@ public class PermissionActionWebSocket {
             jsonOut.put("result", result.isResult());
             jsonOut.put("message", result.getData());
             session.getRemote().sendString(jsonOut.toString());
-
+            if(result.isResult())
+            {
+                int userId = Integer.parseInt(jo.get("userId").toString());
+                JSONObject json= new JSONObject();
+                json.put("type", "ALERT");
+                json.put("data", "You are now manager of store : "+storeId);
+                    if(MainWebSocket.sessionsMap.containsKey(userId) && MainWebSocket.sessionsMap.get(userId).isOpen())
+                    {
+                        MainWebSocket.sessionsMap.get(userId).getRemote().sendString(json.toString());
+                    }
+            }
         } else if (type.equals("REMOVE_MANAGER")) {
             int ownerId = Integer.parseInt(jo.get("ownerId").toString());
             String userName = jo.get("userName").toString();
@@ -99,6 +109,18 @@ public class PermissionActionWebSocket {
             jsonOut.put("result", result.isResult());
             jsonOut.put("message", result.getData());
             session.getRemote().sendString(jsonOut.toString());
+            if(result.isResult())
+            {
+                int userId = Integer.parseInt(jo.get("userId").toString());
+                JSONObject json= new JSONObject();
+                json.put("type", "ALERT");
+                json.put("data", "You are removed  of been manager of store : "+storeId);
+                if(MainWebSocket.sessionsMap.containsKey(userId) && MainWebSocket.sessionsMap.get(userId).isOpen())
+                {
+                    MainWebSocket.sessionsMap.get(userId).getRemote().sendString(json.toString());
+                }
+            }
+
 
         }else if (type.equals("ADD_OWNER")) {
             int ownerId = Integer.parseInt(jo.get("ownerId").toString());
@@ -114,6 +136,18 @@ public class PermissionActionWebSocket {
             jsonOut.put("result", result.isResult());
             jsonOut.put("message", result.getData());
             session.getRemote().sendString(jsonOut.toString());
+            if(result.isResult())
+            {
+                int userId = Integer.parseInt(jo.get("userId").toString());
+                JSONObject json= new JSONObject();
+                json.put("type", "ALERT");
+                json.put("data", "You are now manager of store : "+storeId);
+                if(MainWebSocket.sessionsMap.containsKey(userId) && MainWebSocket.sessionsMap.get(userId).isOpen())
+                {
+                    MainWebSocket.sessionsMap.get(userId).getRemote().sendString(json.toString());
+                }
+            }
+
 
         }else if (type.equals("REMOVE_OWNER")) {
             int ownerId = Integer.parseInt(jo.get("ownerId").toString());
@@ -129,6 +163,17 @@ public class PermissionActionWebSocket {
             jsonOut.put("result", result.isResult());
             jsonOut.put("message", result.getData());
             session.getRemote().sendString(jsonOut.toString());
+            if(result.isResult())
+            {
+                int userId = Integer.parseInt(jo.get("userId").toString());
+                JSONObject json= new JSONObject();
+                json.put("type", "ALERT");
+                json.put("data", "You are removed  of been manager of store: "+storeId);
+                if(MainWebSocket.sessionsMap.containsKey(userId) && MainWebSocket.sessionsMap.get(userId).isOpen())
+                {
+                    MainWebSocket.sessionsMap.get(userId).getRemote().sendString(json.toString());
+                }
+            }
 
         }
         else if (type.equals("GET_WORKERS")) {
@@ -179,6 +224,8 @@ public class PermissionActionWebSocket {
                     }
                     JSONObject receiptJson= new JSONObject();
                     receiptJson.put("storeName", API.getStoreName(receipt.getStoreId()));
+                    receiptJson.put("totalCost",receipt.getTotalCost());
+
                     receiptJson.put("lines",linesJson);
                     receiptsJson[j]=receiptJson;
                     j++;

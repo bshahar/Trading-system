@@ -6,9 +6,12 @@ import Domain.DiscountPolicies.DiscountCondition;
 import Domain.DiscountPolicies.PolicyCondition;
 import Domain.Operators.*;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Permissions.AppointManager;
 import Service.*;
 import javafx.util.Pair;
 
+import java.time.Instant;
+import java.time.ZonedDateTime;
 import java.util.*;
 
 public class TradingSystem {
@@ -27,6 +30,36 @@ public class TradingSystem {
     private List<Receipt> receipts;
     private List<User> users;
     private List<ObservableType> observers;
+
+    public int getSystemManagerId() {
+        return systemManager.getId();
+    }
+
+    public List<Integer> getpermissionsIndex(List<String> names) {
+        List<Integer> indexes =new LinkedList<>();
+        for(String name: names){
+            indexes.add(getIndex(TradingSystem.permissionsName, name));
+        }
+        return indexes;
+    }
+
+    private Integer getIndex(String[] permissionsName, String name) {
+        for(int i=0; i<permissionsName.length;i++){
+            if(permissionsName[i].equals(name)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public Result getGlobalPurchaseUserHistory(int tradingSystemManager, int userId) {
+        if(this.systemManager.getId() == tradingSystemManager){
+            KingLogger.logEvent("GLOBAL_USER_HISTORY:  system manager " + tradingSystemManager + "got purchase history of user " + userId);
+            return getUserPurchaseHistory(userId);
+        }
+        KingLogger.logEvent("GLOBAL_USER_HISTORY:  user " + tradingSystemManager + "is not a system manager");
+        return new Result(false, "Username is not system manager");
+    }
 
 
     public static enum Permission {
@@ -53,7 +86,9 @@ public class TradingSystem {
         ReopenStore,
         ReplayMessages,
         ViewMessages,
-        ViewPurchaseHistory
+        ViewPurchaseHistory,
+        ViewDiscountPolicies,
+        ViewPurchasePolicies
     }
     public static String[] permissionsName= {
             "DEF",
@@ -79,13 +114,15 @@ public class TradingSystem {
             "ReopenStore",
             "ReplayMessages",
             "ViewMessages",
-            "ViewPurchaseHistory"};
+            "ViewPurchaseHistory",
+            "ViewDiscountPolicies",
+            "ViewPurchasePolicies"
+    };
 
     public TradingSystem (User systemManager) {
         this.paymentAdapter = new PaymentAdapter(new DemoPayment());
         this.stores = Collections.synchronizedList(new LinkedList<>());
         this.receipts = Collections.synchronizedList(new LinkedList<>());
-        this.systemManager = systemManager;
         this.users = Collections.synchronizedList(new LinkedList<>());
         this.userAuth = new UserAuth();
         userCounter = new counter();
@@ -95,7 +132,12 @@ public class TradingSystem {
         observableCounter = new counter();
         this.observers = Collections.synchronizedList(new LinkedList<>());
         receiptCounter = new counter();
+        this.systemManager = systemManager;
+        AppointSystemManager(systemManager);
+    }
 
+    private void AppointSystemManager(User systemManager) {
+        systemManager.appointSystemManager(this.stores);
     }
 
     public Result getUserIdByName(String userName) {
@@ -413,16 +455,19 @@ public class TradingSystem {
             }
             Bag bag = new Bag(store);
             bag.setProducts(products);
-            if (store.validatePurchase(getUserById(userId), new Date(), bag)) {
                 Map<Product, Integer> productsAmountBuy = new HashMap<>();
                 double totalCost = 0;
                 for (Product product : productsAmountBag.keySet()) {
                     synchronized (product) {
-                        if (store.canBuyProduct(product, productsAmountBag.get(product))) {
-                            store.removeProductAmount(product, productsAmountBag.get(product));
-                            productsAmountBuy.put(product, productsAmountBag.get(product));
-                            totalCost += ((product.getPrice() - store.calcDiscountPerProduct(product,new Date(),getUserById(userId),bag)) * products.get(product));
+                        if (store.validatePurchasePerProduct(product,getUserById(userId),new Date(),bag)) {
+                            if (store.canBuyProduct(product, productsAmountBag.get(product))) {
+                                store.removeProductAmount(product, productsAmountBag.get(product));
+                                productsAmountBuy.put(product, productsAmountBag.get(product));
+                                totalCost += ((product.getPrice() - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));
+                            }
                         }
+                        else
+                            return new Result(false, "Purchase is not approved by store's policy.");
                     }
                 }
                 if (paymentAdapter.pay(totalCost, creditInfo)) {
@@ -435,19 +480,17 @@ public class TradingSystem {
                     if (productsAmountBag.size() == productsAmountBuy.size()) {
                         KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId);
                         notifyToSubscribers(getStoreById(storeId).getNotificationId(), "Some one buy from your store! you can go to your purchase to see more details");
-                        return new Result(true, "purchase confirmed successfully");
+                        return new Result(true, rec.getReceiptId());
                     } else {
                         KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " try to purchase in store " + storeId + "but soe product are missing");
-                        return new Result(true, "some product missing");
+                        return new Result(true, rec.getReceiptId());
                     }
                 } else {
                     store.abortPurchase(productsAmountBuy);
                     KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
                     return new Result(false, "payment failed");
                 }
-            }
-            else
-                return new Result(false, "Purchase is not approved by store's policy.");
+
 
         }
 
@@ -498,6 +541,7 @@ public class TradingSystem {
         if(user!=null && user.isRegistered()) {
             int newId = storeCounter.inc();
             Store store = new Store(newId, storeName, user);
+            systemManager.addStoreToSystemManager(store);
             user.openStore(store);
             this.stores.add(store);
             KingLogger.logEvent("OPEN_STORE: User with id " + userId + " open the store " + storeName);
@@ -520,8 +564,8 @@ public class TradingSystem {
         if(result.isResult())
         {
             KingLogger.logEvent("ADD_STORE_OWNER: User with id " + owner + " try to add store owner and" + result.getData());
-
             subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
+            user.addNotification("You are now owner in store: "+getStoreName(storeId));
         }
         return result;
 
@@ -577,6 +621,7 @@ public class TradingSystem {
         {
             KingLogger.logEvent("REMOVE_MANAGER: User with id " + ownerId + " remove manager and " + result.getData());
             unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
+            getUserById(managerId).addNotification("You are no longer manager in store: "+ getStoreName(storeId));
         }
         return result;
 
@@ -589,6 +634,7 @@ public class TradingSystem {
         if(result.isResult())
         {
             unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
+            getUserById(managerId).addNotification("You are no longer owner in store: "+ getStoreName(storeId));
         }
         return result;
 
@@ -649,6 +695,8 @@ public class TradingSystem {
         return new Result(true,stores.size());
     }
 
+
+
     public Result getUserPurchaseHistory(int userId) {
         if(!getUserById(userId).isRegistered()){
             KingLogger.logEvent("GET_USER_PURCHASE_HISTORY: User with id " + userId + " is not registered");
@@ -691,9 +739,11 @@ public class TradingSystem {
     }
 
 
-    public Result addDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public Result addDiscountPolicyOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, String beginStr, String endStr, int percentage, String mathOp) {
         Store st = getStoreById(storeId);
-        if(st != null && percentage > 0 && percentage <= 100 ) {
+        Date begin = this.stringToDate(beginStr);
+        Date end = this.stringToDate(endStr);
+        if(st != null && st.prodExists(prodId) && percentage > 0 && percentage <= 100 && end.after(new Date())) {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
@@ -704,7 +754,7 @@ public class TradingSystem {
                 DiscountCondition conditions = new DiscountCondition();
                 for (Pair<String, List<String>> pair: policiesParams) {
                     PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
-                    conditions.addDiscount(pol);
+                    conditions.addDiscountPolicy(pol);
                 }
                 setDiscountOperator(operator, conditions);
                 return getUserById(userId).addDiscountOnProduct(st, "complex", "PRODUCT", prodId, begin, end, conditions, percentage, op);
@@ -713,63 +763,96 @@ public class TradingSystem {
         return new Result(false, "Could not add discount policy.");
     }
 
-    public Result addDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public Result addDiscountPolicyOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, String beginStr, String endStr, int percentage, String mathOp) {
+        Date begin = this.stringToDate(beginStr);
+        Date end = this.stringToDate(endStr);
         Store st = getStoreById(storeId);
-        if(st != null && percentage > 0 && percentage <= 100 && !end.after(new Date())) {
+        if(st != null && percentage > 0 && percentage <= 100 && end.after(new Date())) {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
             if (operator == null) {
-                return getUserById(userId).addDiscountOnCategory(st, "simple", "PRODUCT", category, begin, end, null, percentage, op);
+                return getUserById(userId).addDiscountOnCategory(st, "simple", "CATEGORY", category, begin, end, null, percentage, op);
             }
             else {
                 DiscountCondition conditions = new DiscountCondition();
                 for (Pair<String, List<String>> pair: policiesParams) {
                     PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
-                    conditions.addDiscount(pol);
+                    conditions.addDiscountPolicy(pol);
                 }
                 setDiscountOperator(operator, conditions);
-                return getUserById(userId).addDiscountOnCategory(st, "complex", "PRODUCT", category, begin, end, conditions, percentage, op);
+                return getUserById(userId).addDiscountOnCategory(st, "complex", "CATEGORY", category, begin, end, conditions, percentage, op);
             }
         }
         return new Result(false, "Could not add discount policy.");
     }
 
-    public Result addDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public Result addDiscountPolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, String beginStr, String endStr, int percentage, String mathOp) {
+        Date begin = this.stringToDate(beginStr);
+        Date end = this.stringToDate(endStr);
         Store st = getStoreById(storeId);
-        if(st != null && percentage > 0 && percentage <= 100 && !end.after(new Date())) {
+        if(st != null && percentage > 0 && percentage <= 100 && end.after(new Date())) {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
             if (operator == null) {
-                return getUserById(userId).addDiscountOnStore(st, "simple", "PRODUCT", begin, end, null, percentage, op);
+                return getUserById(userId).addDiscountOnStore(st, "simple", "STORE", begin, end, null, percentage, op);
             }
             else {
                 DiscountCondition conditions = new DiscountCondition();
                 for (Pair<String, List<String>> pair: policiesParams) {
                     PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
-                    conditions.addDiscount(pol);
+                    conditions.addDiscountPolicy(pol);
                 }
                 setDiscountOperator(operator, conditions);
-                return getUserById(userId).addDiscountOnStore(st, "simple", "PRODUCT", begin, end, conditions, percentage, op);
+                return getUserById(userId).addDiscountOnStore(st, "simple", "STORE", begin, end, conditions, percentage, op);
             }
         }
         return new Result(false, "Could not add discount policy.");
     }
 
-    public Result addPurchasePolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams){
+    public Result addPurchasePolicyOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams) {
         Store st = getStoreById(storeId);
-        if(st != null) {
-            PurchaseCondition conditions = new PurchaseCondition();
-            for (Pair<String, List<String>> pair: policiesParams) {
-                PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
-                conditions.addPurchase(pol);
-            }
-            setPurchaseOperator(operator, conditions);
-            return getUserById(userId).addPurchasePolicy(st, conditions);
+        if(st != null && st.prodExists(prodId))  {
+                PurchaseCondition conditions = new PurchaseCondition();
+                for (Pair<String, List<String>> pair: policiesParams) {
+                    PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
+                    conditions.addPurchasePolicy(pol);
+                }
+                setPurchaseOperator(operator, conditions);
+                return getUserById(userId).addPurchaseOnProduct(st,"PRODUCT", prodId, conditions);
         }
         return new Result(false, "Could not add purchase policy.");
     }
+
+    public Result addPurchasePolicyOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams) {
+        Store st = getStoreById(storeId);
+        if(st != null) {
+                PurchaseCondition conditions = new PurchaseCondition();
+                for (Pair<String, List<String>> pair: policiesParams) {
+                    PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
+                    conditions.addPurchasePolicy(pol);
+                }
+                setPurchaseOperator(operator, conditions);
+                return getUserById(userId).addPurchaseOnCategory(st, "CATEGORY", category, conditions);
+            }
+        return new Result(false, "Could not add discount policy.");
+    }
+
+    public Result addPurchasePolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        Store st = getStoreById(storeId);
+        if(st != null) {
+                PurchaseCondition conditions = new PurchaseCondition();
+                for (Pair<String, List<String>> pair: policiesParams) {
+                    PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
+                    conditions.addPurchasePolicy(pol);
+                }
+                setPurchaseOperator(operator, conditions);
+                return getUserById(userId).addPurchaseOnStore(st, "STORE", conditions);
+        }
+        return new Result(false, "Could not add discount policy.");
+    }
+
 
     private void setDiscountOperator(String operator, DiscountCondition conditions) {
         switch (operator) {
@@ -819,8 +902,18 @@ public class TradingSystem {
         {
             return new Result(true,getUserById(userId).getMessages());
         }
-        return new Result(false,"user isnt exist");
+        return new Result(false,"user isn't exist");
     }
+    public Result getLoginMessagesQueue (int userId) {
+        if(getUserById(userId)!=null)
+        {
+            return new Result(true,getUserById(userId).getLoginMessages());
+        }
+        return new Result(false,"user isn't exist");
+    }
+
+
+
 
     public Result getNotificationIdByStoreId(int storeId) {
         if(getStoreById(storeId)!=null)
@@ -914,44 +1007,87 @@ public class TradingSystem {
         return new Result(false, "No receipt with this user id and store.");
     }
 
-    public Result editDiscountOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
+    public Result editDiscountPolicyOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, String begin, String end, int percentage, String mathOp) {
         if(getUserById(userId).removeDiscountOnProduct(getStoreById(storeId), prodId, null).isResult())
-            return addDiscountOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
+            return addDiscountPolicyOnProduct(storeId, userId, prodId, operator, policiesParams, begin, end, percentage, mathOp);
         return new Result(false, "Could ont edit discount on product.");
     }
 
-    public Result editDiscountOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
-        if(getUserById(userId).removeDiscountOnCategory(getStoreById(storeId), -1, category).isResult())
-            return addDiscountOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
+    public Result editDiscountPolicyOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams, String begin, String end, int percentage, String mathOp) {
+        if(getUserById(userId).removeDiscountOnCategory(getStoreById(storeId), -1, category).isResult()) {
+            return addDiscountPolicyOnCategory(storeId, userId, category, operator, policiesParams, begin, end, percentage, mathOp);
+        }
         return new Result(false, "Could ont edit discount on category.");
     }
 
-    public Result editDiscountOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, Date begin, Date end, int percentage, String mathOp) {
-        if(getUserById(userId).removeDiscountOnStore(getStoreById(storeId), -1, null).isResult())
-            return addDiscountOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
+    public Result editDiscountPolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams, String begin, String end, int percentage, String mathOp) {
+        if(getUserById(userId).removeDiscountOnStore(getStoreById(storeId), -1, null).isResult()) {
+            return addDiscountPolicyOnStore(storeId, userId, operator, policiesParams, begin, end, percentage, mathOp);
+        }
         return new Result(false, "Could ont edit discount on store.");
     }
 
-    public Result editPurchasePolicy(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
-        if(getUserById(userId).removePurchasePolicy(getStoreById(storeId)).isResult())
-            return addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
-        return new Result(false, "Could ont edit purchase policy in store.");
+    public Result editPurchasePolicyOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        if(getUserById(userId).removePurchaseOnProduct(getStoreById(storeId), prodId, null).isResult())
+            return addPurchasePolicyOnProduct(storeId, userId, prodId, operator, policiesParams);
+        return new Result(false, "Could ont edit purchase on product.");
     }
 
-    //TODO add permissions for functions below
+    public Result editPurchasePolicyOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams) {
+        if(getUserById(userId).removePurchaseOnCategory(getStoreById(storeId), -1, category).isResult())
+            return addPurchasePolicyOnCategory(storeId, userId, category, operator, policiesParams);
+        return new Result(false, "Could ont edit purchase on category.");
+    }
+
+    public Result editPurchasePolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
+        if(getUserById(userId).removePurchaseOnStore(getStoreById(storeId), -1, null).isResult())
+            return addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
+        return new Result(false, "Could ont edit purchase on store.");
+    }
+
+
+
     public Result getDiscountOnProduct(int storeId, int userId, int prodId) {
-        return getUserById(userId).getDiscountOnProduct(getStoreById(storeId), userId, prodId);
+        return getUserById(userId).getDiscountOnProduct(getStoreById(storeId), prodId);
     }
 
     public Result getDiscountOnCategory(int storeId, int userId, String category) {
-        return getUserById(userId).getDiscountOnCategory(getStoreById(storeId), userId, category);
+        return getUserById(userId).getDiscountOnCategory(getStoreById(storeId), category);
     }
 
     public Result getDiscountOnStore(int storeId, int userId) {
         return getUserById(userId).getDiscountOnStore(getStoreById(storeId), userId);
     }
 
-    public Result getPurchasePolicy(int storeId, int userId) {
-        return getUserById(userId).getPurchasePolicy(getStoreById(storeId), userId);
+
+    public Result getPurchaseOnProduct(int storeId, int userId, int prodId) {
+        return getUserById(userId).getPurchaseOnProduct(getStoreById(storeId), prodId);
     }
+
+    public Result getPurchaseOnCategory(int storeId, int userId, String category) {
+        return getUserById(userId).getPurchaseOnCategory(getStoreById(storeId), userId, category);
+    }
+
+    public Result getPurchaseOnStore(int storeId, int userId) {
+        return getUserById(userId).getPurchaseOnStore(getStoreById(storeId), userId);
+    }
+
+    public Result removeDiscountPolicy(int storeId, int userId, int prodId, String category) {
+        return getUserById(userId).removeDiscountPolicy(getStoreById(storeId), prodId, category);
+    }
+
+    public Result removePurchasePolicy(int storeId, int userId, int prodId, String category) {
+        return getUserById(userId).removePurchasePolicy(getStoreById(storeId), prodId, category);
+    }
+
+    private Date stringToDate(String date) {
+        String[] parts = date.split("/");
+        Calendar cal = Calendar.getInstance();
+        cal.set(Calendar.YEAR, Integer.parseInt(parts[2]));
+        cal.set(Calendar.MONTH, Integer.parseInt(parts[1]) - 1);//Calendar.DECEMBER);
+        cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(parts[0]));
+        return cal.getTime();
+    }
+
+
 }

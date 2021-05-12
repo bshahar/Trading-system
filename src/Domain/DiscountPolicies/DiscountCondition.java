@@ -28,6 +28,17 @@ public class DiscountCondition { //Compound object
 
     public void setOperator(LogicOperator operator) { this.operator = operator; }
 
+    public String getOperatorStr() {
+        if(this.operator instanceof OrOperator)
+            return "Or";
+        else if(this.operator instanceof AndOperator)
+            return "And";
+        else if(this.operator instanceof XorOperator)
+            return "Xor";
+        else
+            return "";
+    }
+
     public List<Policy> getDiscounts() {
         return discounts;
     }
@@ -36,7 +47,7 @@ public class DiscountCondition { //Compound object
         return operator;
     }
 
-    public void addDiscount(PolicyCondition policy) {
+    public void addDiscountPolicy(PolicyCondition policy) {
         DiscountPolicy dp;
         if (this.discounts == null)
             this.discounts = new LinkedList<>();

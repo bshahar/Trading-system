@@ -29,18 +29,20 @@ public class Server {
         Spark.webSocket("/search", SearchProductsWebSocket.class);
         Spark.webSocket("/myStores/UpdatePermissions", PermissionsWebSocket.class);
         Spark.webSocket("/discountAndPurchasesPolicies", PolicyWebSocket.class);
+        Spark.webSocket("/getDiscountAndPurchasesPolicies", GetPolicyWebSocket.class);
 
 
 
 
 
-        API.initTradingSystem("ELAD");
+
+        API.initTradingSystem();
         API.forTest();
 
-//        Spark.get("/Login",((request, response) -> {
-//            HashMap<String ,Object> model = new HashMap<>();
-//            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Login"));
-//        }));
+        Spark.get("/Login",((request, response) -> {
+            HashMap<String ,Object> model = new HashMap<>();
+            return new ThymeleafTemplateEngine().render(new ModelAndView(model,"Login"));
+        }));
 ////
 //        Spark.get("/Main",((request, response) -> {
 //            HashMap<String ,Object> model = new HashMap<>();

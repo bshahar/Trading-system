@@ -30,7 +30,7 @@ public class StoreTest {
     public void setUp() {
 //        User systemManager = new User("Elad",1,1);
 //        tradingSystem= new TradingSystem(systemManager);
-        API.initTradingSystem("Elad");
+        API.initTradingSystem();
         String userName1="kandabior";
         String password1= "or321654";
         String userName2="elad";

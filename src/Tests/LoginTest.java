@@ -13,7 +13,7 @@ public class LoginTest {
 
     @BeforeEach
     public void setUp() {
-        API.initTradingSystem("Elad");
+        API.initTradingSystem();
     }
 
     //AT-4.1

@@ -24,12 +24,25 @@
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="pemission action web socket">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PermissionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PermissionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/StoreTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Cart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Store.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/StorePermissions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/myStores.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/MainWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MainWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/MakePurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MakePurchase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/Cart.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/Login.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/Main.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/Store.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/StorePermissions.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Templates/myStores.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,7 +67,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="React" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -441,7 +454,14 @@
       <option name="presentableId" value="LOCAL‎00035" />
       <updated>1619853413449</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="add notfications">
+      <created>1620825592018</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1620825592018</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -501,11 +521,6 @@
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/StoreWebSocket.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="14" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/SearchProductsWebSocket.java</url>
           <line>75</line>
           <option name="timeStamp" value="16" />
@@ -530,6 +545,26 @@
           <line>65</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
+          <line>182</line>
+          <option name="timeStamp" value="26" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/MakePurchase.java</url>
+          <line>38</line>
+          <option name="timeStamp" value="30" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
+          <line>83</line>
+          <option name="timeStamp" value="33" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
+          <line>69</line>
+          <option name="timeStamp" value="34" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -538,9 +573,9 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Server.LoginPage.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

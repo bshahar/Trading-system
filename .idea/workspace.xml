@@ -191,10 +191,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.PurchaseTest" />
         <item itemvalue="JUnit.LoginTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="Application.KingLogger" />
       </list>
     </recent_temporary>
@@ -455,13 +455,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="store and products update #24" />

@@ -747,7 +747,7 @@ public class TradingSystem {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
-            if (operator == null) {
+            if (policiesParams == null || policiesParams.size() == 0) {
                 return getUserById(userId).addDiscountOnProduct(st, "simple", "PRODUCT", prodId, begin, end, null, percentage, op);
             }
             else {
@@ -771,7 +771,7 @@ public class TradingSystem {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
-            if (operator == null) {
+            if (policiesParams == null || policiesParams.size() == 0) {
                 return getUserById(userId).addDiscountOnCategory(st, "simple", "CATEGORY", category, begin, end, null, percentage, op);
             }
             else {
@@ -795,7 +795,7 @@ public class TradingSystem {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
-            if (operator == null) {
+            if (policiesParams == null || policiesParams.size() == 0) {
                 return getUserById(userId).addDiscountOnStore(st, "simple", "STORE", begin, end, null, percentage, op);
             }
             else {
@@ -805,7 +805,7 @@ public class TradingSystem {
                     conditions.addDiscountPolicy(pol);
                 }
                 setDiscountOperator(operator, conditions);
-                return getUserById(userId).addDiscountOnStore(st, "simple", "STORE", begin, end, conditions, percentage, op);
+                return getUserById(userId).addDiscountOnStore(st, "complex", "STORE", begin, end, conditions, percentage, op);
             }
         }
         return new Result(false, "Could not add discount policy.");

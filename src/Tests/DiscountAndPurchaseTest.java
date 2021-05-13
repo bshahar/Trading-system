@@ -316,4 +316,11 @@ public class DiscountAndPurchaseTest {
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
 
+    @Test
+    public void addSimpleDiscountOnStoreSuccessTest() {
+        List<Pair<String, List<String>>> policies = new LinkedList<>();
+        //discount of 10% on drinks
+        Assertions.assertTrue(API.addDiscountPolicyOnStore(storeId1, registerId1, "", policies, begin, end, 10, "Sum").isResult());
+    }
+
 }

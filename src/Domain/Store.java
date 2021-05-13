@@ -32,6 +32,7 @@ public class Store {
     //private List<ImmediatePurchase> purchasePoliciesInStore;
     private Map<User,List<User>> appointments; //appointer & list of appointees
     private Map<Integer, Bag> usersBags;
+
     private double rate;
     private int ratesCount;
 

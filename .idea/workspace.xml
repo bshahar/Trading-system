@@ -489,6 +489,10 @@
     <option name="LAST_COMMIT_MESSAGE" value="pemission action web socket" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="585" y="115" key="CommitChangelistDialog2" timestamp="1620930795924">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="585" y="115" key="CommitChangelistDialog2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1620930795924" />
     <state width="1237" height="109" key="GridCell.Tab.0.bottom" timestamp="1619873194570">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
@@ -517,10 +521,10 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="656" y="344" key="com.intellij.ide.util.TipDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1620930740226" />
-    <state x="660" y="311" key="git4idea.merge.GitPullDialog" timestamp="1620930766976">
+    <state x="660" y="311" key="git4idea.merge.GitPullDialog" timestamp="1620930803275">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="660" y="311" key="git4idea.merge.GitPullDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1620930766976" />
+    <state x="660" y="311" key="git4idea.merge.GitPullDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1620930803275" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

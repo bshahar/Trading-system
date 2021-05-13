@@ -31,6 +31,8 @@ public class Server {
         Spark.webSocket("/discountAndPurchasesPolicies", PolicyWebSocket.class);
         Spark.webSocket("/getDiscountAndPurchasesPolicies", GetPolicyWebSocket.class);
         Spark.webSocket("/deletePolicyAndPurchase", RemovePolicyAndPurchases.class);
+        Spark.webSocket("/AdminWebSocket", AdminWebSocket.class);
+
 
 
         API.initTradingSystem();

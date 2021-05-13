@@ -22,11 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix alert #72">
-      <change afterPath="$PROJECT_DIR$/src/Server/RemovePolicyAndPurchases.java" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add remove policies">
+      <change afterPath="$PROJECT_DIR$/src/Server/AdminWebSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/myPurchases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/myPurchases.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -469,7 +475,13 @@
       <option name="project" value="LOCAL" />
       <updated>1620909438704</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL‎00040" summary="add remove policies">
+      <created>1620924442926</created>
+      <option name="number" value="LOCAL‎00040" />
+      <option name="presentableId" value="LOCAL‎00040" />
+      <updated>1620924442926</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -526,11 +538,6 @@
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
-          <line>62</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/SearchProductsWebSocket.java</url>
           <line>75</line>
           <option name="timeStamp" value="16" />
@@ -552,7 +559,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>199</line>
+          <line>206</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -564,6 +571,26 @@
           <url>file://$PROJECT_DIR$/src/Tests/NotficationsTest.java</url>
           <line>208</line>
           <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
+          <line>183</line>
+          <option name="timeStamp" value="40" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="41" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="42" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Service/API.java</url>
+          <line>15</line>
+          <option name="timeStamp" value="43" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -75,6 +75,7 @@ public class LoginWebSocket {
                         json.put("result", "true");
                         json.put("message", "login success");
                         json.put("id", result.getData());
+                        json.put("systemManager",API.isSystemManager((int)result.getData()));
                         session.getRemote().sendString(json.toString());
                         System.out.println("success login");
                     }

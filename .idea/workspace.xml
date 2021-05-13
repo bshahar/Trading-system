@@ -22,27 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="pemission action web socket">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix alert #72">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt.lck" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Cart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/Store.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/StorePermissions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Templates/myStores.html" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/MainWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MainWebSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/MakePurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MakePurchase.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/Cart.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/Login.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/Main.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/Store.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/StorePermissions.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/myStores.html" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -461,7 +446,14 @@
       <option name="project" value="LOCAL" />
       <updated>1620825592018</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fix alert #72">
+      <created>1620902813053</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1620902813053</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -505,7 +497,8 @@
     <MESSAGE value="logger in the trading system" />
     <MESSAGE value="logger in the code" />
     <MESSAGE value="pemission action web socket" />
-    <option name="LAST_COMMIT_MESSAGE" value="pemission action web socket" />
+    <MESSAGE value="fix alert #72" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix alert #72" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -541,29 +534,14 @@
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/PermissionsWebSocket.java</url>
-          <line>65</line>
-          <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>182</line>
+          <line>200</line>
           <option name="timeStamp" value="26" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/MakePurchase.java</url>
           <line>38</line>
           <option name="timeStamp" value="30" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>83</line>
-          <option name="timeStamp" value="33" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="34" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

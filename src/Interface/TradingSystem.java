@@ -9,6 +9,7 @@ import Domain.PurchasePolicies.PurchaseCondition;
 import Permissions.AppointManager;
 import Server.MainWebSocket;
 import Service.*;
+import ch.qos.logback.core.encoder.EchoEncoder;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
 import org.json.JSONObject;
@@ -85,6 +86,23 @@ public class TradingSystem {
                 if (sessionsMap.containsKey(id) && sessionsMap.get(id).isOpen()) {
                     sessionsMap.get(id).getRemote().sendString(json.toString());
                 }
+            }
+            return new Result(true,"send successfully alerts\n");
+        }
+        catch (Exception e)
+        {
+            return new Result(false,"Exception while sending msg\n");
+        }
+
+    }
+
+    public Result sendAlert(int userId, String msg) {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("type", "ALERT");
+            json.put("data", msg);
+            if (sessionsMap.containsKey(userId) && sessionsMap.get(userId).isOpen()) {
+                sessionsMap.get(userId).getRemote().sendString(json.toString());
             }
             return new Result(true,"send successfully alerts\n");
         }

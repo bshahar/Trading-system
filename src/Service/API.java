@@ -148,6 +148,9 @@ public class API {
     public static Result sendAlertsAfterPurchase(int storeId) {
         return tradingSystem.sendAlertsAfterPurchase(storeId);
     }
+    public static Result sendAlert(int userId,String msg) {
+        return tradingSystem.sendAlert(userId,msg);
+    }
 
 
 

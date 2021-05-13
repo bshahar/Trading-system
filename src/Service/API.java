@@ -6,15 +6,52 @@ import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
 
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Properties;
 
 public class API {
 
     private static TradingSystem tradingSystem;
-    public static void initTradingSystem(){
-        User sysManager = new User("EOEDS", 0, 123456, 1);
-        tradingSystem=new TradingSystem(sysManager);
+
+    public static void initTradingSystem() throws IOException {
+
+        Properties appProps = new Properties();
+
+        InputStream input = API.class.getClassLoader().getResourceAsStream("appConfig.properties");
+        if(input != null)
+            appProps.load(input);
+        else
+            throw new FileNotFoundException("Property file was not found.");
+
+        String sysManagerName = appProps.getProperty("systemManagerName");
+        String sysManagerId = appProps.getProperty("systemManagerId");
+        String sysManagerAge = appProps.getProperty("systemManagerAge");
+        User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), 1);
+        tradingSystem = new TradingSystem(sysManager);
+
+        /*
+        //String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
+        //String appConfigPath = rootPath + "appConfig.properties";
+
+        //Properties appProps = new Properties();
+        try {
+            appProps.load(new FileInputStream(appConfigPath));
+            String sysManagerName = appProps.getProperty("systemManagerName");
+            String sysManagerId = appProps.getProperty("systemManagerId");
+            String sysManagerAge = appProps.getProperty("systemManagerAge");
+            User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), 1);
+            tradingSystem = new TradingSystem(sysManager);
+            return true;
+        } catch (IOException e) {
+            return false;
+        }
+
+         */
     }
 
     public static Result guestLogin(){

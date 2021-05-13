@@ -5,8 +5,13 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Properties;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -53,7 +58,30 @@ public class PermissionTest {
 
     @BeforeEach
     void setUp() {
-        API.initTradingSystem();
+        Properties testProps = new Properties();
+        try {
+            API.initTradingSystem();
+            InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
+            if(input != null)
+                testProps.load(input);
+            else
+                throw new FileNotFoundException("Property file was not found.");
+        } catch (Exception e) {
+        }
+
+
+        API.register(testProps.getProperty("user1name"), testProps.getProperty("user1password"), Integer.parseInt(testProps.getProperty("user1age")));
+        API.register(testProps.getProperty("user2name"), testProps.getProperty("user2password"), Integer.parseInt(testProps.getProperty("user2age")));
+        API.register(testProps.getProperty("user3name"), testProps.getProperty("user3password"), Integer.parseInt(testProps.getProperty("user3age")));
+
+        registerId1 = (int) API.registeredLogin(testProps.getProperty("user1name"), testProps.getProperty("user1password")).getData();
+        registerId2 = (int) API.registeredLogin(testProps.getProperty("user2name"), testProps.getProperty("user2password")).getData();
+        registerId3 = (int) API.registeredLogin(testProps.getProperty("user3name"), testProps.getProperty("user3password")).getData();
+
+        storeId1 = (int) API.openStore(registerId1, testProps.getProperty("storeNameTest")).getData();
+
+        /*
+        API.initTradingSystem("Elad");
         String userName1 = "kandabior";
         String password1 = "or321654";
         String userName2 = "elad";
@@ -67,15 +95,17 @@ public class PermissionTest {
         registerId2 = (int) API.registeredLogin(userName2, password2).getData();
         registerId3 = (int) API.registeredLogin(userName3, password3).getData();
         storeId1 = (int) API.openStore(registerId1, "kandabior store").getData();
-        LinkedList<String> catList = new LinkedList<>();
-        catList.add("FOOD");
-        int productId = (int) API.addProduct(1, storeId1, "milk", catList, 10, "FOOD", 5).getData();
+        //LinkedList<String> catList = new LinkedList<>();
+        //catList.add("FOOD");
+        //int productId = (int) API.addProduct(1, storeId1, "milk", catList, 10, "FOOD", 5).getData();
+
+         */
     }
 
 
     @Test
     public void systemMangerPermissions() {
-        assertTrue(API.getAllPurchases(0).isResult());
+        assertTrue(API.getAllPurchases(123456).isResult());
     }
 
     @Test

@@ -804,7 +804,7 @@ public class TradingSystem {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
-            if (operator == null) {
+            if (policiesParams == null || policiesParams.size() == 0) {
                 return getUserById(userId).addDiscountOnProduct(st, "simple", "PRODUCT", prodId, begin, end, null, percentage, op);
             }
             else {
@@ -828,7 +828,7 @@ public class TradingSystem {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
-            if (operator == null) {
+            if (policiesParams == null || policiesParams.size() == 0) {
                 return getUserById(userId).addDiscountOnCategory(st, "simple", "CATEGORY", category, begin, end, null, percentage, op);
             }
             else {
@@ -852,7 +852,7 @@ public class TradingSystem {
             Discount.MathOp op = Discount.MathOp.SUM;
             if(mathOp.equals("Max"))
                 op = Discount.MathOp.MAX;
-            if (operator == null) {
+            if (policiesParams == null || policiesParams.size() == 0) {
                 return getUserById(userId).addDiscountOnStore(st, "simple", "STORE", begin, end, null, percentage, op);
             }
             else {
@@ -862,7 +862,7 @@ public class TradingSystem {
                     conditions.addDiscountPolicy(pol);
                 }
                 setDiscountOperator(operator, conditions);
-                return getUserById(userId).addDiscountOnStore(st, "simple", "STORE", begin, end, conditions, percentage, op);
+                return getUserById(userId).addDiscountOnStore(st, "complex", "STORE", begin, end, conditions, percentage, op);
             }
         }
         return new Result(false, "Could not add discount policy.");
@@ -1130,11 +1130,15 @@ public class TradingSystem {
     }
 
     public Result removeDiscountPolicy(int storeId, int userId, int prodId, String category) {
-        return getUserById(userId).removeDiscountPolicy(getStoreById(storeId), prodId, category);
+        if(getStoreById(storeId) != null && getStoreById(storeId).prodExists(prodId))
+            return getUserById(userId).removeDiscountPolicy(getStoreById(storeId), prodId, category);
+        return new Result(false, "Product id does not exist in this store.");
     }
 
     public Result removePurchasePolicy(int storeId, int userId, int prodId, String category) {
-        return getUserById(userId).removePurchasePolicy(getStoreById(storeId), prodId, category);
+        if(getStoreById(storeId) != null && getStoreById(storeId).prodExists(prodId))
+            return getUserById(userId).removePurchasePolicy(getStoreById(storeId), prodId, category);
+        return new Result(false, "Product id does not exist in this store.");
     }
 
     private Date stringToDate(String date) {

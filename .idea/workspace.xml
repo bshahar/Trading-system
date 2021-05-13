@@ -23,9 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="pemission action web socket">
-      <change afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/PurchaseOffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +207,6 @@
       <workItem from="1617440371798" duration="9756000" />
       <workItem from="1617723869195" duration="331000" />
       <workItem from="1619873004711" duration="5248000" />
-      <workItem from="1620893989301" duration="4705000" />
     </task>
     <task id="LOCAL‎00001" summary="Dorin's changes #24">
       <created>1617455826555</created>
@@ -441,7 +439,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -483,6 +481,28 @@
     <MESSAGE value="pemission action web socket" />
     <option name="LAST_COMMIT_MESSAGE" value="pemission action web socket" />
   </component>
+  <component name="WindowStateProjectService">
+    <state width="1237" height="109" key="GridCell.Tab.0.bottom" timestamp="1619873194570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="109" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1619873194570" />
+    <state width="1237" height="109" key="GridCell.Tab.0.center" timestamp="1619873194570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="109" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1619873194570" />
+    <state width="1237" height="109" key="GridCell.Tab.0.left" timestamp="1619873194570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="109" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1619873194570" />
+    <state width="1237" height="109" key="GridCell.Tab.0.right" timestamp="1619873194570">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1237" height="109" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1619873194570" />
+    <state x="142" y="0" key="SettingsEditor" timestamp="1619873858885">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1619873858885" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -493,7 +513,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
-          <line>62</line>
+          <line>63</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

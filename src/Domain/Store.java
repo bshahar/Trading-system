@@ -424,8 +424,8 @@ public class Store {
             else
                 discountPolicies.add(""); //logic operator- if simple discount then empty
             discountPolicies.add(policiesParams);
-            discountPolicies.add(dis.getBegin().toString());
-            discountPolicies.add(dis.getEnd().toString());
+            discountPolicies.add(this.dateToString(dis.getBegin()));
+            discountPolicies.add(this.dateToString(dis.getEnd()));
             discountPolicies.add(String.valueOf(dis.getPercentage()));
             discountPolicies.add(dis.getMathOpStr());
             return new Result(true, discountPolicies);
@@ -447,8 +447,8 @@ public class Store {
             else
                 discountPolicies.add(""); //logic operator- if simple discount then empty
             discountPolicies.add(policiesParams);
-            discountPolicies.add(dis.getBegin().toString());
-            discountPolicies.add(dis.getEnd().toString());
+            discountPolicies.add(this.dateToString(dis.getBegin()));
+            discountPolicies.add(this.dateToString(dis.getEnd()));
             discountPolicies.add(String.valueOf(dis.getPercentage()));
             discountPolicies.add(dis.getMathOpStr());
             return new Result(true, discountPolicies);

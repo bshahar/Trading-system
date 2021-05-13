@@ -6,6 +6,7 @@ import Domain.DiscountPolicies.DiscountCondition;
 import Domain.DiscountPolicies.PolicyCondition;
 import Domain.Operators.*;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Domain.Sessions.SessionInterface;
 import Permissions.AppointManager;
 import Server.MainWebSocket;
 import Service.*;
@@ -35,7 +36,7 @@ public class TradingSystem {
     private List<Receipt> receipts;
     private List<User> users;
     private List<ObservableType> observers;
-    public static Map<Integer , Session> sessionsMap ;
+    public static Map<Integer , SessionInterface> sessionsMap ;
 
     public int getSystemManagerId() {
         return systemManager.getId();
@@ -68,24 +69,19 @@ public class TradingSystem {
     }
 
     public Result addSession(int userId, Session session) {
-        sessionsMap.put(userId,session);
+        getUserById(userId).setSession(session);
         return new Result(true,"session added\n");
     }
     public Result removeSession(int userId) {
-        sessionsMap.remove(userId);
+        getUserById(userId).setSession(null);
         return new Result(true,"session remove\n");
     }
 
     public Result sendAlertsAfterPurchase(int storeId) {
         try {
             Result result2 = API.getManagersAndOwnersOfStore(storeId);
-            JSONObject json = new JSONObject();
-            json.put("type", "ALERT");
-            json.put("data", "Someone buy from your store! go check it out");
             for (Integer id : (Set<Integer>) result2.getData()) {
-                if (sessionsMap.containsKey(id) && sessionsMap.get(id).isOpen()) {
-                    sessionsMap.get(id).getRemote().sendString(json.toString());
-                }
+                sendAlert(id,"Someone buy from your store! go check it out");
             }
             return new Result(true,"send successfully alerts\n");
         }
@@ -101,13 +97,7 @@ public class TradingSystem {
             JSONObject json = new JSONObject();
             json.put("type", "ALERT");
             json.put("data", msg);
-            if (sessionsMap.containsKey(userId) && sessionsMap.get(userId).isOpen()) {
-                sessionsMap.get(userId).getRemote().sendString(json.toString());
-            }
-            else
-            {
-                getUserById(userId).addNotification(msg);
-            }
+            getUserById(userId).addNotification(json.toString());
             return new Result(true,"send successfully alerts\n");
         }
         catch (Exception e)
@@ -620,7 +610,7 @@ public class TradingSystem {
         {
             KingLogger.logEvent("ADD_STORE_OWNER: User with id " + owner + " try to add store owner and" + result.getData());
             subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
-            user.addNotification("You are now owner in store: "+getStoreName(storeId));
+            sendAlert(userId,"You are now owner in store: "+getStoreName(storeId));
         }
         return result;
 
@@ -645,7 +635,7 @@ public class TradingSystem {
             KingLogger.logEvent("ADD_STORE_EVENT: User with id " + ownerId + " appoint " + userId + "to be manager of store " + storeId);
 
             subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
-            getUserById(userId).addNotification("You are now manager in store: "+ getStoreName(storeId));
+            sendAlert(userId,"You are now manager in store: "+ getStoreName(storeId));
         }
         return result;
     }
@@ -676,7 +666,7 @@ public class TradingSystem {
         {
             KingLogger.logEvent("REMOVE_MANAGER: User with id " + ownerId + " remove manager and " + result.getData());
             unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
-            getUserById(managerId).addNotification("You are no longer manager in store: "+ getStoreName(storeId));
+            sendAlert(managerId,"You are no longer manager in store: "+ getStoreName(storeId));
         }
         return result;
 
@@ -689,7 +679,7 @@ public class TradingSystem {
         if(result.isResult())
         {
             unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
-            getUserById(managerId).addNotification("You are no longer owner in store: "+ getStoreName(storeId));
+            sendAlert(managerId,"You are no longer owner in store: "+ getStoreName(storeId));
         }
         return result;
 

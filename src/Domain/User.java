@@ -6,6 +6,9 @@ import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchaseFormat.Purchase;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Domain.Sessions.SessionInterface;
+import Domain.Sessions.realSession;
+import org.eclipse.jetty.websocket.api.Session;
 
 import java.util.Date;
 import java.util.LinkedList;
@@ -23,6 +26,7 @@ public class User implements Observer {
     private Queue<String> messages;
     private ObservableType observableType ;
     private boolean isSystemManager;
+    private SessionInterface session;
 
     private Queue<String> loginMessages;
 
@@ -39,6 +43,7 @@ public class User implements Observer {
         this.messages = new ConcurrentLinkedDeque<>();
         this.loginMessages = new ConcurrentLinkedDeque<>();
         this.isSystemManager = false;
+        this.session = new realSession();
     }
 
     public boolean isRegistered()
@@ -237,13 +242,12 @@ public class User implements Observer {
 
 
 
-    public void addNotification(String string){
-       if(isLogged())
-       {
-           this.loginMessages.add(string);
-       }
-       else
-           this.messages.add(string);
+    public void addNotification(String msg){
+           session.send(msg);
+    }
+    public void setSession(Session s)
+    {
+        this.session.set(s);
     }
 
 

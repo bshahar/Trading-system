@@ -84,9 +84,6 @@ public class PermissionActionWebSocket {
                 jsonOut.put("message", result2.getData());
                 session.getRemote().sendString(jsonOut.toString());
                 String storeName = API.getStoreName(storeId);
-                if(result2.isResult()) {
-                    API.sendAlert(userId,"You are now manager of store : "+storeName);
-                }
             }
 
         } else if (type.equals("REMOVE_MANAGER")) {
@@ -103,9 +100,6 @@ public class PermissionActionWebSocket {
                 jsonOut.put("message", result2.getData());
                 session.getRemote().sendString(jsonOut.toString());
                 String storeName = API.getStoreName(storeId);
-                if(result2.isResult()) {
-                    API.sendAlert(userId,"You are no longer manager of store : "+storeName);
-                }
             }
 
         }else if (type.equals("ADD_OWNER")) {
@@ -122,9 +116,6 @@ public class PermissionActionWebSocket {
                 jsonOut.put("message", result2.getData());
                 session.getRemote().sendString(jsonOut.toString());
                 String storeName = API.getStoreName(storeId);
-                if(result2.isResult()) {
-                    API.sendAlert(userId,"You are now manager of store : "+storeName);
-                }
             }
         }else if (type.equals("REMOVE_OWNER")) {
             int ownerId = Integer.parseInt(jo.get("ownerId").toString());
@@ -140,9 +131,6 @@ public class PermissionActionWebSocket {
                 jsonOut.put("message", result2.getData());
                 session.getRemote().sendString(jsonOut.toString());
                 String storeName = API.getStoreName(storeId);
-                if(result2.isResult()) {
-                    API.sendAlert(userId,"You are no longer owner of store : "+storeName);
-                }
             }
         }
         else if (type.equals("GET_WORKERS")) {

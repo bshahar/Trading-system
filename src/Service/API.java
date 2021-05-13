@@ -150,6 +150,10 @@ public class API {
     public static Result sendAlert(int userId,String msg) {
         return tradingSystem.sendAlert(userId,msg);
     }
+    public static void setSessionDemo(int userId)
+    {
+        tradingSystem.setSessionDemo(userId);
+    }
 
 
 

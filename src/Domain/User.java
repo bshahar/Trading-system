@@ -6,9 +6,11 @@ import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchaseFormat.Purchase;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Domain.Sessions.DemoSession;
 import Domain.Sessions.SessionInterface;
 import Domain.Sessions.realSession;
 import org.eclipse.jetty.websocket.api.Session;
+import org.json.JSONObject;
 
 import java.util.Date;
 import java.util.LinkedList;
@@ -235,7 +237,7 @@ public class User implements Observer {
     public Queue<String> getLoginMessages()
     {
         Queue<String> new_megs;
-        new_megs = this.loginMessages;
+        new_megs = ((DemoSession)this.session).getMsgs();
         this.loginMessages = new ConcurrentLinkedDeque<>();
         return new_megs;
     }
@@ -243,11 +245,22 @@ public class User implements Observer {
 
 
     public void addNotification(String msg){
+        if(!logged)
+        {
+            JSONObject jo = new JSONObject(msg);
+            String data = jo.get("data").toString();
+            this.messages.add(data);
+        }
+        else
            session.send(msg);
     }
     public void setSession(Session s)
     {
         this.session.set(s);
+    }
+    public void setSessionDemo()
+    {
+        this.session = new DemoSession();
     }
 
 

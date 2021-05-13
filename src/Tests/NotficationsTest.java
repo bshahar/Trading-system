@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.util.*;
 
 public class NotficationsTest {
@@ -22,8 +26,41 @@ public class NotficationsTest {
 
     @BeforeEach
     public void setUp() {
+        Properties testProps = new Properties();
+        try {
+            API.initTradingSystem();
+            InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
+            if(input != null)
+                testProps.load(input);
+            else
+                throw new FileNotFoundException("Property file was not found.");
+        } catch (Exception e) {
+        }
 
-        API.initTradingSystem("Elad");
+        API.register(testProps.getProperty("user1name"), testProps.getProperty("user1password"), Integer.parseInt(testProps.getProperty("user1age")));
+        API.register(testProps.getProperty("user2name"), testProps.getProperty("user2password"), Integer.parseInt(testProps.getProperty("user2age")));
+        API.register(testProps.getProperty("user3name"), testProps.getProperty("user3password"), Integer.parseInt(testProps.getProperty("user3age")));
+
+        registerId1 = (int) API.registeredLogin(testProps.getProperty("user1name"), testProps.getProperty("user1password")).getData();
+        registerId2 = (int) API.registeredLogin(testProps.getProperty("user2name"), testProps.getProperty("user2password")).getData();
+        registerId3 = (int) API.registeredLogin(testProps.getProperty("user3name"), testProps.getProperty("user3password")).getData();
+
+        storeId1 = (int) API.openStore(registerId1, testProps.getProperty("storeNameTest")).getData();
+        LinkedList<String> catList = new LinkedList<>();
+        catList.add(testProps.getProperty("categoryFood"));
+
+        productId1 = (int) API.addProduct(1, storeId1, testProps.getProperty("prodMilkName"), catList,
+                Integer.parseInt(testProps.getProperty("milkPrice")),
+                testProps.getProperty("descriptionFood"),
+                Integer.parseInt(testProps.getProperty("prodQuantity1"))).getData();
+
+        observableId1 = (int) API.addObservable(testProps.getProperty("observableName1")).getData();
+        observableId2 = (int) API.addObservable(testProps.getProperty("observableName2")).getData();
+
+        API.subscribeToObservable(observableId2, registerId2);
+        API.subscribeToObservable(observableId2, registerId3);
+
+        /*API.initTradingSystem("Elad");
         String userName1="kandabior";
         String password1= "or321654";
         String userName2="elad";
@@ -44,6 +81,8 @@ public class NotficationsTest {
         observableId2 = (int) API.addObservable("Store2").getData();
         API.subscribeToObservable(observableId2,registerId2);
         API.subscribeToObservable(observableId2,registerId3);
+
+         */
 
     }
 

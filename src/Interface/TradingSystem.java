@@ -1073,11 +1073,15 @@ public class TradingSystem {
     }
 
     public Result removeDiscountPolicy(int storeId, int userId, int prodId, String category) {
-        return getUserById(userId).removeDiscountPolicy(getStoreById(storeId), prodId, category);
+        if(getStoreById(storeId) != null && getStoreById(storeId).prodExists(prodId))
+            return getUserById(userId).removeDiscountPolicy(getStoreById(storeId), prodId, category);
+        return new Result(false, "Product id does not exist in this store.");
     }
 
     public Result removePurchasePolicy(int storeId, int userId, int prodId, String category) {
-        return getUserById(userId).removePurchasePolicy(getStoreById(storeId), prodId, category);
+        if(getStoreById(storeId) != null && getStoreById(storeId).prodExists(prodId))
+            return getUserById(userId).removePurchasePolicy(getStoreById(storeId), prodId, category);
+        return new Result(false, "Product id does not exist in this store.");
     }
 
     private Date stringToDate(String date) {

@@ -309,7 +309,6 @@ public class User implements Observer {
     public Result getDiscountOnStore(Store store, int userId) {
         return member.getDiscountPolicies(store,-1, "");
     }
-    /************************************************************************/
 
     public Result addPurchaseOnProduct(Store store, String param, int prodId, PurchaseCondition conditions) {
         return member.addPurchasePolicy(store, param,null,prodId,conditions);

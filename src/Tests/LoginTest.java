@@ -6,6 +6,10 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
+import java.util.Properties;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginTest {
@@ -13,7 +17,10 @@ public class LoginTest {
 
     @BeforeEach
     public void setUp() {
-        API.initTradingSystem("Elad");
+        try {
+            API.initTradingSystem();
+        } catch (Exception e) {
+        }
     }
 
     //AT-4.1

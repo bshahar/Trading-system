@@ -7,12 +7,17 @@ import Domain.DiscountPolicies.PolicyCondition;
 import Domain.Operators.*;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Permissions.AppointManager;
+import Server.MainWebSocket;
 import Service.*;
+import ch.qos.logback.core.encoder.EchoEncoder;
 import javafx.util.Pair;
+import org.eclipse.jetty.websocket.api.Session;
+import org.json.JSONObject;
 
 import java.time.Instant;
 import java.time.ZonedDateTime;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class TradingSystem {
 
@@ -30,6 +35,7 @@ public class TradingSystem {
     private List<Receipt> receipts;
     private List<User> users;
     private List<ObservableType> observers;
+    public static Map<Integer , Session> sessionsMap ;
 
     public int getSystemManagerId() {
         return systemManager.getId();
@@ -59,6 +65,56 @@ public class TradingSystem {
         }
         KingLogger.logEvent("GLOBAL_USER_HISTORY:  user " + tradingSystemManager + "is not a system manager");
         return new Result(false, "Username is not system manager");
+    }
+
+    public Result addSession(int userId, Session session) {
+        sessionsMap.put(userId,session);
+        return new Result(true,"session added\n");
+    }
+    public Result removeSession(int userId) {
+        sessionsMap.remove(userId);
+        return new Result(true,"session remove\n");
+    }
+
+    public Result sendAlertsAfterPurchase(int storeId) {
+        try {
+            Result result2 = API.getManagersAndOwnersOfStore(storeId);
+            JSONObject json = new JSONObject();
+            json.put("type", "ALERT");
+            json.put("data", "Someone buy from your store! go check it out");
+            for (Integer id : (Set<Integer>) result2.getData()) {
+                if (sessionsMap.containsKey(id) && sessionsMap.get(id).isOpen()) {
+                    sessionsMap.get(id).getRemote().sendString(json.toString());
+                }
+            }
+            return new Result(true,"send successfully alerts\n");
+        }
+        catch (Exception e)
+        {
+            return new Result(false,"Exception while sending msg\n");
+        }
+
+    }
+
+    public Result sendAlert(int userId, String msg) {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("type", "ALERT");
+            json.put("data", msg);
+            if (sessionsMap.containsKey(userId) && sessionsMap.get(userId).isOpen()) {
+                sessionsMap.get(userId).getRemote().sendString(json.toString());
+            }
+            else
+            {
+                getUserById(userId).addNotification(msg);
+            }
+            return new Result(true,"send successfully alerts\n");
+        }
+        catch (Exception e)
+        {
+            return new Result(false,"Exception while sending msg\n");
+        }
+
     }
 
 
@@ -134,6 +190,7 @@ public class TradingSystem {
         receiptCounter = new counter();
         this.systemManager = systemManager;
         AppointSystemManager(systemManager);
+        sessionsMap = new ConcurrentHashMap<>();
     }
 
     private void AppointSystemManager(User systemManager) {
@@ -490,8 +547,6 @@ public class TradingSystem {
                     KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
                     return new Result(false, "payment failed");
                 }
-
-
         }
 
         catch (Exception e) {

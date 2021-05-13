@@ -35,25 +35,13 @@ public class MakePurchase {
             int storeId=Integer.parseInt(jo.get("storeId").toString());
             String creditInfo= jo.get("creditInfo").toString();
             Result result=API.buyProduct(userId,storeId,creditInfo);
+            if(result.isResult())
+                API.sendAlertsAfterPurchase(storeId);
             JSONObject jsonOut=new JSONObject();
             jsonOut.put("type","BUY_PRODUCT");
             jsonOut.put("result",result.isResult());
             jsonOut.put("message",result.getData());
             session.getRemote().sendString(jsonOut.toString());
-            if(result.isResult())
-            {
-                Result result2=API.getManagersAndOwnersOfStore(storeId);
-                JSONObject json= new JSONObject();
-                json.put("type", "ALERTS_USERS");
-                json.put("data", "Someone buy from your store! go check it out");
-                for(Integer id : (Set<Integer>)result2.getData())
-                {
-                    if(MainWebSocket.sessionsMap.containsKey(id) && MainWebSocket.sessionsMap.get(id).isOpen())
-                    {
-                        MainWebSocket.sessionsMap.get(id).getRemote().sendString(json.toString());
-                    }
-                }
-            }
             }
         }
 

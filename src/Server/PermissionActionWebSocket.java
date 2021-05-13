@@ -77,24 +77,15 @@ public class PermissionActionWebSocket {
             Result result = API.getUserIdByName(userName);
             if (result.isResult()) {
                 int userId = (int) result.getData();
-                result = API.addStoreManager(ownerId, userId, storeId);
+                Result result2 = API.addStoreManager(ownerId, userId, storeId);
+                JSONObject jsonOut = new JSONObject();
+                jsonOut.put("type", "ADD_MANAGER");
+                jsonOut.put("result", result2.isResult());
+                jsonOut.put("message", result2.getData());
+                session.getRemote().sendString(jsonOut.toString());
+                String storeName = API.getStoreName(storeId);
             }
-            JSONObject jsonOut = new JSONObject();
-            jsonOut.put("type", "ADD_MANAGER");
-            jsonOut.put("result", result.isResult());
-            jsonOut.put("message", result.getData());
-            session.getRemote().sendString(jsonOut.toString());
-            if(result.isResult())
-            {
-                int userId = Integer.parseInt(jo.get("userId").toString());
-                JSONObject json= new JSONObject();
-                json.put("type", "ALERT");
-                json.put("data", "You are now manager of store : "+storeId);
-                    if(MainWebSocket.sessionsMap.containsKey(userId) && MainWebSocket.sessionsMap.get(userId).isOpen())
-                    {
-                        MainWebSocket.sessionsMap.get(userId).getRemote().sendString(json.toString());
-                    }
-            }
+
         } else if (type.equals("REMOVE_MANAGER")) {
             int ownerId = Integer.parseInt(jo.get("ownerId").toString());
             String userName = jo.get("userName").toString();
@@ -102,25 +93,14 @@ public class PermissionActionWebSocket {
             Result result = API.getUserIdByName(userName);
             if (result.isResult()) {
                 int userId = (int) result.getData();
-                result = API.removeManager(ownerId, userId, storeId);
+                Result result2 = API.removeManager(ownerId, userId, storeId);
+                JSONObject jsonOut = new JSONObject();
+                jsonOut.put("type", "REMOVE_MANAGER");
+                jsonOut.put("result", result2.isResult());
+                jsonOut.put("message", result2.getData());
+                session.getRemote().sendString(jsonOut.toString());
+                String storeName = API.getStoreName(storeId);
             }
-            JSONObject jsonOut = new JSONObject();
-            jsonOut.put("type", "REMOVE_MANAGER");
-            jsonOut.put("result", result.isResult());
-            jsonOut.put("message", result.getData());
-            session.getRemote().sendString(jsonOut.toString());
-            if(result.isResult())
-            {
-                int userId = Integer.parseInt(jo.get("userId").toString());
-                JSONObject json= new JSONObject();
-                json.put("type", "ALERT");
-                json.put("data", "You are removed  of been manager of store : "+storeId);
-                if(MainWebSocket.sessionsMap.containsKey(userId) && MainWebSocket.sessionsMap.get(userId).isOpen())
-                {
-                    MainWebSocket.sessionsMap.get(userId).getRemote().sendString(json.toString());
-                }
-            }
-
 
         }else if (type.equals("ADD_OWNER")) {
             int ownerId = Integer.parseInt(jo.get("ownerId").toString());
@@ -129,26 +109,14 @@ public class PermissionActionWebSocket {
             Result result = API.getUserIdByName(userName);
             if (result.isResult()) {
                 int userId = (int) result.getData();
-                result = API.addStoreOwner(ownerId, userId, storeId);
+                Result result2 = API.addStoreOwner(ownerId, userId, storeId);
+                JSONObject jsonOut = new JSONObject();
+                jsonOut.put("type", "ADD_OWNER");
+                jsonOut.put("result", result2.isResult());
+                jsonOut.put("message", result2.getData());
+                session.getRemote().sendString(jsonOut.toString());
+                String storeName = API.getStoreName(storeId);
             }
-            JSONObject jsonOut = new JSONObject();
-            jsonOut.put("type", "ADD_OWNER");
-            jsonOut.put("result", result.isResult());
-            jsonOut.put("message", result.getData());
-            session.getRemote().sendString(jsonOut.toString());
-            if(result.isResult())
-            {
-                int userId = Integer.parseInt(jo.get("userId").toString());
-                JSONObject json= new JSONObject();
-                json.put("type", "ALERT");
-                json.put("data", "You are now manager of store : "+storeId);
-                if(MainWebSocket.sessionsMap.containsKey(userId) && MainWebSocket.sessionsMap.get(userId).isOpen())
-                {
-                    MainWebSocket.sessionsMap.get(userId).getRemote().sendString(json.toString());
-                }
-            }
-
-
         }else if (type.equals("REMOVE_OWNER")) {
             int ownerId = Integer.parseInt(jo.get("ownerId").toString());
             String userName = jo.get("userName").toString();
@@ -156,25 +124,14 @@ public class PermissionActionWebSocket {
             Result result = API.getUserIdByName(userName);
             if (result.isResult()) {
                 int userId = (int) result.getData();
-                result = API.removeOwner(ownerId, userId, storeId);
+                Result result2 = API.removeOwner(ownerId, userId, storeId);
+                JSONObject jsonOut = new JSONObject();
+                jsonOut.put("type", "REMOVE_OWNER");
+                jsonOut.put("result", result2.isResult());
+                jsonOut.put("message", result2.getData());
+                session.getRemote().sendString(jsonOut.toString());
+                String storeName = API.getStoreName(storeId);
             }
-            JSONObject jsonOut = new JSONObject();
-            jsonOut.put("type", "REMOVE_OWNER");
-            jsonOut.put("result", result.isResult());
-            jsonOut.put("message", result.getData());
-            session.getRemote().sendString(jsonOut.toString());
-            if(result.isResult())
-            {
-                int userId = Integer.parseInt(jo.get("userId").toString());
-                JSONObject json= new JSONObject();
-                json.put("type", "ALERT");
-                json.put("data", "You are removed  of been manager of store: "+storeId);
-                if(MainWebSocket.sessionsMap.containsKey(userId) && MainWebSocket.sessionsMap.get(userId).isOpen())
-                {
-                    MainWebSocket.sessionsMap.get(userId).getRemote().sendString(json.toString());
-                }
-            }
-
         }
         else if (type.equals("GET_WORKERS")) {
             int ownerId = Integer.parseInt(jo.get("userId").toString());

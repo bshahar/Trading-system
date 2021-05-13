@@ -3,6 +3,7 @@ package Service;
 import Domain.*;
 import Interface.TradingSystem;
 import javafx.util.Pair;
+import org.eclipse.jetty.websocket.api.Session;
 
 
 import java.util.LinkedList;
@@ -73,7 +74,6 @@ public class API {
     }
 
 
-
     public static Result removeManager(int ownerId,int managerId,int storeId){
         return tradingSystem.removeManager(ownerId, managerId, storeId);
     }
@@ -138,6 +138,23 @@ public class API {
     public static Result getManagersAndOwnersOfStore(int storeId) {
         return tradingSystem.getManagersAndOwnersOfStore(storeId);
     }
+    public static Result addSession(int userId, Session session) {
+        return tradingSystem.addSession(userId,session);
+    }
+    public static Result removeSession(int userId) {
+        return tradingSystem.removeSession(userId);
+    }
+    public static Result sendAlertsAfterPurchase(int storeId) {
+        return tradingSystem.sendAlertsAfterPurchase(storeId);
+    }
+    public static Result sendAlert(int userId,String msg) {
+        return tradingSystem.sendAlert(userId,msg);
+    }
+    public static void setSessionDemo(int userId)
+    {
+        tradingSystem.setSessionDemo(userId);
+    }
+
 
 
 

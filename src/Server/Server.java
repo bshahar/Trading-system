@@ -9,12 +9,13 @@ import spark.ModelAndView;
 import spark.Spark;
 import spark.template.thymeleaf.ThymeleafTemplateEngine;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 public class Server {
 
-    public static void main(String []args){
-        //Spark.secure("security/version2/KeyStore.jks", "123456", null,null);
+    public static void main(String []args) throws IOException {
+        Spark.secure("security/version2/KeyStore.jks", "123456", null,null);
         Spark.webSocket("/Login", LoginWebSocket.class);
         Spark.webSocket("/Main/*",MainWebSocket.class);
         Spark.webSocket("/Store/currentStore",StoreWebSocket.class);
@@ -33,7 +34,11 @@ public class Server {
         Spark.webSocket("/deletePolicyAndPurchase", RemovePolicyAndPurchases.class);
 
 
-        API.initTradingSystem();
+        try {
+            API.initTradingSystem();
+        } catch (IOException e) {
+            //TODO deal with failure of getting config file
+        }
         API.forTest();
 
 

@@ -11,6 +11,7 @@ import Service.counter;
 import javafx.util.Pair;
 
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class Store {
 
@@ -46,17 +47,16 @@ public class Store {
         this.employees = Collections.synchronizedList(new LinkedList<>());
         this.employees.add(owner);
         this.receipts = new LinkedList<>();
-        this.appointments= new HashMap<>();
-        appointments.put(owner,new LinkedList<>());
+        this.appointments = new HashMap<>();
+        this.appointments.put(owner, new LinkedList<>());
         this.owners = Collections.synchronizedList(new LinkedList<>());
         this.managers = Collections.synchronizedList(new LinkedList<>());
-        this.discountsOnProducts = new HashMap<>();
-        this.discountsOnCategories = new HashMap<>();
+        this.discountsOnProducts = new ConcurrentHashMap<>();
+        this.discountsOnCategories = new ConcurrentHashMap<>();
         this.counter = new counter();
         this.usersBags = new HashMap<>();
-        this.purchasesOnProducts = new HashMap<>();
-        this.purchasesOnCategories = new HashMap<>();
-
+        this.purchasesOnProducts = new ConcurrentHashMap<>();
+        this.purchasesOnCategories = new ConcurrentHashMap<>();
     }
 
     public Inventory getInventory() {
@@ -424,8 +424,8 @@ public class Store {
             else
                 discountPolicies.add(""); //logic operator- if simple discount then empty
             discountPolicies.add(policiesParams);
-            discountPolicies.add(dis.getBegin().toString());
-            discountPolicies.add(dis.getEnd().toString());
+            discountPolicies.add(this.dateToString(dis.getBegin()));
+            discountPolicies.add(this.dateToString(dis.getEnd()));
             discountPolicies.add(String.valueOf(dis.getPercentage()));
             discountPolicies.add(dis.getMathOpStr());
             return new Result(true, discountPolicies);
@@ -447,8 +447,8 @@ public class Store {
             else
                 discountPolicies.add(""); //logic operator- if simple discount then empty
             discountPolicies.add(policiesParams);
-            discountPolicies.add(dis.getBegin().toString());
-            discountPolicies.add(dis.getEnd().toString());
+            discountPolicies.add(this.dateToString(dis.getBegin()));
+            discountPolicies.add(this.dateToString(dis.getEnd()));
             discountPolicies.add(String.valueOf(dis.getPercentage()));
             discountPolicies.add(dis.getMathOpStr());
             return new Result(true, discountPolicies);

@@ -23,7 +23,7 @@ public class NotficationsTest {
     @BeforeEach
     public void setUp() {
 
-        API.initTradingSystem("Elad");
+        API.initTradingSystem();
         String userName1="kandabior";
         String password1= "or321654";
         String userName2="elad";

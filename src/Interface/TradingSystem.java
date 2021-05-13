@@ -6,6 +6,7 @@ import Domain.DiscountPolicies.DiscountCondition;
 import Domain.DiscountPolicies.PolicyCondition;
 import Domain.Operators.*;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Domain.Sessions.DemoSession;
 import Domain.Sessions.SessionInterface;
 import Permissions.AppointManager;
 import Server.MainWebSocket;
@@ -105,6 +106,10 @@ public class TradingSystem {
             return new Result(false,"Exception while sending msg\n");
         }
 
+    }
+
+    public void setSessionDemo(int userId) {
+        getUserById(userId).setSessionDemo();
     }
 
 

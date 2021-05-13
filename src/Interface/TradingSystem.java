@@ -104,6 +104,10 @@ public class TradingSystem {
             if (sessionsMap.containsKey(userId) && sessionsMap.get(userId).isOpen()) {
                 sessionsMap.get(userId).getRemote().sendString(json.toString());
             }
+            else
+            {
+                getUserById(userId).addNotification(msg);
+            }
             return new Result(true,"send successfully alerts\n");
         }
         catch (Exception e)

@@ -74,7 +74,6 @@ public class API {
     }
 
 
-
     public static Result removeManager(int ownerId,int managerId,int storeId){
         return tradingSystem.removeManager(ownerId, managerId, storeId);
     }

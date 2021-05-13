@@ -30,6 +30,7 @@ public class Server {
         Spark.webSocket("/myStores/UpdatePermissions", PermissionsWebSocket.class);
         Spark.webSocket("/discountAndPurchasesPolicies", PolicyWebSocket.class);
         Spark.webSocket("/getDiscountAndPurchasesPolicies", GetPolicyWebSocket.class);
+        Spark.webSocket("/deletePolicyAndPurchase", RemovePolicyAndPurchases.class);
 
 
         API.initTradingSystem();

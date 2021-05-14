@@ -90,5 +90,10 @@
     <orderEntry type="library" name="jfxrt" level="project" />
     <orderEntry type="library" name="json-201401073" level="project" />
     <orderEntry type="library" name="json-20140107 (2)1" level="project" />
+    <orderEntry type="library" name="openjdk-11+28_windows-x64_bin" level="project" />
+    <orderEntry type="library" name="httpclient5-5.1" level="project" />
+    <orderEntry type="library" name="1" level="project" />
+    <orderEntry type="library" name="jackson-core-2.12.3" level="project" />
+    <orderEntry type="library" name="com.fasterxml.jackson.databind" level="project" />
   </component>
 </module>

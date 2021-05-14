@@ -170,8 +170,9 @@ public class TradingSystem {
             "ViewPurchasePolicies"
     };
 
-    public TradingSystem (User systemManager) {
-        this.paymentAdapter = new PaymentAdapter(new DemoPayment());
+    public TradingSystem (User systemManager, String externalSystemsUrl) {
+        this.paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+        this.supplementAdapter = new SupplementAdapter(externalSystemsUrl);
         this.stores = Collections.synchronizedList(new LinkedList<>());
         this.receipts = Collections.synchronizedList(new LinkedList<>());
         this.users = Collections.synchronizedList(new LinkedList<>());
@@ -497,7 +498,7 @@ public class TradingSystem {
         }
     }
 
-    public Result buyProducts(int userId, int storeId, String creditInfo) {
+    public Result buyProducts(int userId, int storeId, Map<String, String> paymentData, Map<String, String> supplementData) {
         try {
             Map<Product, Integer> products = getBag(userId, storeId);
             Store store = getStoreById(storeId);
@@ -507,28 +508,34 @@ public class TradingSystem {
             }
             Bag bag = new Bag(store);
             bag.setProducts(products);
-                Map<Product, Integer> productsAmountBuy = new HashMap<>();
-                double totalCost = 0;
-                for (Product product : productsAmountBag.keySet()) {
-                    synchronized (product) {
-                        if (store.validatePurchasePerProduct(product,getUserById(userId),new Date(),bag)) {
-                            if (store.canBuyProduct(product, productsAmountBag.get(product))) {
-                                store.removeProductAmount(product, productsAmountBag.get(product));
-                                productsAmountBuy.put(product, productsAmountBag.get(product));
-                                totalCost += ((product.getPrice() - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));
-                            }
+            Map<Product, Integer> productsAmountBuy = new HashMap<>();
+            double totalCost = 0;
+            for (Product product : productsAmountBag.keySet()) {
+                synchronized (product) {
+                    if (store.validatePurchasePerProduct(product, getUserById(userId), new Date(), bag)) {
+                        if (store.canBuyProduct(product, productsAmountBag.get(product))) {
+                            store.removeProductAmount(product, productsAmountBag.get(product));
+                            productsAmountBuy.put(product, productsAmountBag.get(product));
+                            totalCost += ((product.getPrice() - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));
                         }
-                        else
-                            return new Result(false, "Purchase is not approved by store's policy.");
-                    }
+                    } else
+                        return new Result(false, "Purchase is not approved by store's policy.");
                 }
-                if (paymentAdapter.pay(totalCost, creditInfo)) {
-                    getUserById(userId).removeProductFromCart(productsAmountBuy, storeId);
-                    Receipt rec = new Receipt(receiptCounter.inc(),storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
-                    rec.setTotalCost(totalCost);
-                    this.receipts.add(rec);
-                    store.addReceipt(rec);
-                    getUserById(userId).addReceipt(rec);
+            }
+            Result paymentResult = paymentAdapter.pay(paymentData);
+            if (paymentResult.isResult()
+                    && Integer.parseInt((String) paymentResult.getData()) > 10000
+                    && Integer.parseInt((String) paymentResult.getData()) < 100000) {
+                getUserById(userId).removeProductFromCart(productsAmountBuy, storeId);
+                Receipt rec = new Receipt(receiptCounter.inc(), storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
+                rec.setTotalCost(totalCost);
+                this.receipts.add(rec);
+                store.addReceipt(rec);
+                getUserById(userId).addReceipt(rec);
+                Result supplementResult = supplementAdapter.supply(supplementData);
+                if (supplementResult.isResult()
+                        && Integer.parseInt((String) supplementResult.getData()) > 10000
+                        && Integer.parseInt((String) supplementResult.getData()) < 100000) {
                     if (productsAmountBag.size() == productsAmountBuy.size()) {
                         KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId);
                         notifyToSubscribers(getStoreById(storeId).getNotificationId(), "Some one buy from your store! you can go to your purchase to see more details");
@@ -537,16 +544,19 @@ public class TradingSystem {
                         KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " try to purchase in store " + storeId + "but soe product are missing");
                         return new Result(true, rec.getReceiptId());
                     }
-                } else {
+                } else { //supplement failed
                     store.abortPurchase(productsAmountBuy);
                     KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
-                    return new Result(false, "payment failed");
+                    return new Result(false, "supplement failed");
                 }
-        }
-
-        catch (Exception e) {
+            } else { //payment failed
+                store.abortPurchase(productsAmountBuy);
+                KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
+                return new Result(false, "payment failed");
+            }
+        } catch (Exception e) {
             KingLogger.logError("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
-            return new Result(false,"purchase failed");
+            return new Result(false, "purchase failed");
         }
     }
 

@@ -12,6 +12,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 public class API {
@@ -32,7 +33,7 @@ public class API {
         String sysManagerId = appProps.getProperty("systemManagerId");
         String sysManagerAge = appProps.getProperty("systemManagerAge");
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), 1);
-        tradingSystem = new TradingSystem(sysManager);
+        tradingSystem = new TradingSystem(sysManager, appProps.getProperty("externalSystemsUrl"));
 
         /*
         //String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
@@ -77,8 +78,8 @@ public class API {
         return tradingSystem.getCart(userId);
     }
 
-    public static Result buyProduct(int userId, int storeId, String creditInfo) {
-        return tradingSystem.buyProducts(userId, storeId, creditInfo);
+    public static Result buyProduct(int userId, int storeId, Map<String, String> paymentData, Map<String, String> supplementData) {
+        return tradingSystem.buyProducts(userId, storeId, paymentData, supplementData);
     }
 
     public static Result registeredLogin(String username, String password){
@@ -246,8 +247,8 @@ public class API {
         addProductToCart(registerId3,1,1,2);
         addProductToCart(registerId3,2,2,2);
         addProductToCart(registerId3,2,4,2);
-        buyProduct(registerId3,storeId1,"123456789");
-        buyProduct(registerId3,storeId2,"123456789");
+        //buyProduct(registerId3,storeId1,"123456789");
+        //buyProduct(registerId3,storeId2,"123456789");
         registeredLogout(registerId3);
 
 

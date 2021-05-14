@@ -10,10 +10,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class API {
 
@@ -196,62 +193,88 @@ public class API {
 
 
 
-    public static void forTest()
-    {
-        int registerId1;
-        int registerId2;
-        int registerId3;
+    public static void forTest() {
+        Properties testProps = new Properties();
+
+        try {
+            InputStream input = API.class.getClassLoader().getResourceAsStream("systemExampleSetUp.properties");
+            if (input != null)
+                testProps.load(input);
+        } catch (Exception e) {
+        }
+
+
         //guests
         int guestId1;
         int guestId2;
         //stores
         int storeId1;
         int storeId2;
-        String userName1="elad";
-        String password1= "123";
-        String userName2="or";
-        String password2= "123";
-        String userName3="erez";
-        String password3= "123";
-        registerId1= (int)register(userName1,password1,20).getData();
-        registerId2= (int) register(userName2,password2,20).getData();
-        registerId3= (int)register(userName3,password3,20).getData();
-        register("or1" ,password3,20);
-        register("or2",password3,20);
-        register("or3",password3,20);
-        register("or4",password3,20);
-        register("or5",password3,20);
-        register("or6",password3,20);
-        registerId1= (int)registeredLogin(userName1,password1).getData();
-        storeId1=(int )openStore(registerId1,"kandabior store").getData();
-        storeId2=(int)openStore(registerId1,"elad store").getData();
-        addStoreOwner(registerId1,4,storeId1);
-        addStoreOwner(registerId1,5,storeId1);
-        addStoreOwner(registerId1,6,storeId1);
-        addStoreOwner(registerId1,7,storeId1);
-        addStoreOwner(registerId1,8,storeId1);
-        addStoreOwner(registerId1,9,storeId1);
+        String userName1 = testProps.getProperty("user1");
+        String userName2 = testProps.getProperty("user2");
+        String userName3 = testProps.getProperty("user3");
+        String password = testProps.getProperty("usersPassword");
+        //TODO why initialized twice???
+        int registerId1 = (int) register(userName1, password, Integer.parseInt(testProps.getProperty("usersAge"))).getData();
+        int registerId2 = (int) register(userName2, password, Integer.parseInt(testProps.getProperty("usersAge"))).getData();
+        int registerId3 = (int) register(userName3, password, 20).getData();
+        register(testProps.getProperty("newUser1"), password, Integer.parseInt(testProps.getProperty("usersAge")));
+        register(testProps.getProperty("newUser2"), password, Integer.parseInt(testProps.getProperty("usersAge")));
+        register(testProps.getProperty("newUser3"), password, Integer.parseInt(testProps.getProperty("usersAge")));
+        register(testProps.getProperty("newUser4"), password, Integer.parseInt(testProps.getProperty("usersAge")));
+        register(testProps.getProperty("newUser5"), password, Integer.parseInt(testProps.getProperty("usersAge")));
+        register(testProps.getProperty("newUser6"), password, Integer.parseInt(testProps.getProperty("usersAge")));
+        registerId1 = (int) registeredLogin(userName1, password).getData();
+        storeId1 = (int) openStore(registerId1, testProps.getProperty("store1Name")).getData();
+        storeId2 = (int) openStore(registerId1, testProps.getProperty("store2Name")).getData();
+        addStoreOwner(registerId1, 4, storeId1);
+        addStoreOwner(registerId1, 5, storeId1);
+        addStoreOwner(registerId1, 6, storeId1);
+        addStoreOwner(registerId1, 7, storeId1);
+        addStoreOwner(registerId1, 8, storeId1);
+        addStoreOwner(registerId1, 9, storeId1);
 
-
-        LinkedList<String> catList= new LinkedList<>();
-        catList.add("FOOD");
-        LinkedList<String> catList2= new LinkedList<>();
-        catList.add("FOOD2");
-        addProduct(registerId1, storeId1,"Milk",catList2 ,10,"FOOD", 10 ).getData();
-        addProduct(registerId1, storeId1,"Meat",catList ,40,"FOOD2", 2 ).getData();
-        addProduct(registerId1, storeId1,"Banana",catList ,4,"Hello", 20 ).getData();
-        addProduct(registerId1, storeId2,"Water",catList2 ,5,"FOOD", 13 ).getData();
+        LinkedList<String> catList1 = new LinkedList<>();
+        catList1.add(testProps.getProperty("categoryFood1"));
+        LinkedList<String> catList2 = new LinkedList<>();
+        catList2.add(testProps.getProperty("categoryFood2"));
+        addProduct(registerId1, storeId1, testProps.getProperty("prod1Name"), catList2,
+                Integer.parseInt(testProps.getProperty("prod1Price")), testProps.getProperty("prodDescFood"),
+                Integer.parseInt(testProps.getProperty("prodQuantity10"))).getData();
+        addProduct(registerId1, storeId1, testProps.getProperty("prod2Name"), catList1,
+                Integer.parseInt(testProps.getProperty("prod2Price")), testProps.getProperty("prodDescFood2"),
+                Integer.parseInt(testProps.getProperty("prodQuantity2"))).getData();
+        addProduct(registerId1, storeId1, testProps.getProperty("prod3Name"), catList1,
+                Integer.parseInt(testProps.getProperty("prod3Price")), testProps.getProperty("prodDescHello"),
+                Integer.parseInt(testProps.getProperty("prodQuantity20"))).getData();
+        addProduct(registerId1, storeId2, testProps.getProperty("prod4Name"), catList2,
+                Integer.parseInt(testProps.getProperty("prod4Price")), testProps.getProperty("prodDescFood"),
+                Integer.parseInt(testProps.getProperty("prodQuantity13"))).getData();
         registeredLogout(registerId1);
 
-        registerId3= (int)registeredLogin(userName3,password3).getData();
-        addProductToCart(registerId3,1,1,2);
-        addProductToCart(registerId3,2,2,2);
-        addProductToCart(registerId3,2,4,2);
-        //buyProduct(registerId3,storeId1,"123456789");
-        //buyProduct(registerId3,storeId2,"123456789");
+        registerId3 = (int) registeredLogin(userName3, password).getData();
+        addProductToCart(registerId3, 1, 1, 2);
+        addProductToCart(registerId3, 2, 2, 2);
+        addProductToCart(registerId3, 2, 4, 2);
+
+        Map<String, String> payment = new HashMap<>();
+        payment.put("card_number", testProps.getProperty("creditCardNumber"));
+        payment.put("month", testProps.getProperty("creditExpMonth"));
+        payment.put("year", testProps.getProperty("creditExpYear"));
+        payment.put("holder", testProps.getProperty("user1name"));
+        payment.put("cvv", testProps.getProperty("creditCvv"));
+        payment.put("id", String.valueOf(registerId1));
+
+        Map<String, String> supplement = new HashMap<>();
+        supplement.put("name", testProps.getProperty("user1name"));
+        supplement.put("address", testProps.getProperty("supplyAddress"));
+        supplement.put("city", testProps.getProperty("supplyCity"));
+        supplement.put("country", testProps.getProperty("supplyCountry"));
+        supplement.put("zip", testProps.getProperty("supplyZipCode"));
+
+        buyProduct(registerId3, storeId1, payment, supplement);
+        buyProduct(registerId3, storeId2, payment, supplement);
         registeredLogout(registerId3);
-
-
     }
 
     public static List<Store>  getMyStores(int id) {

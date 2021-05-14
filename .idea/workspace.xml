@@ -22,29 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix dates sent to GUI in view policies">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/com_fasterxml_jackson_databind.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/httpclient5_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_12_3.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/openjdk_11_28_windows_x64_bin.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Service/HttpClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#64 implement adapters to external systems - not finished">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/testsSetUp.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/testsSetUp.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DemoPayment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DemoPayment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/PaymentInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PaymentInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/SupplementInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/SupplementInterface.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/MakePurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MakePurchase.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/PaymentAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/PaymentAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/SupplementAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/SupplementAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/StoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -69,7 +51,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="ExternalSystems" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -481,7 +463,13 @@
       <option name="presentableId" value="LOCAL‎00038" />
       <updated>1620917785926</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL‎00039" summary="#64 implement adapters to external systems - not finished">
+      <created>1620998577532</created>
+      <option name="number" value="LOCAL‎00039" />
+      <option name="presentableId" value="LOCAL‎00039" />
+      <updated>1620998577532</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -528,7 +516,8 @@
     <MESSAGE value="xml" />
     <MESSAGE value="#62 create configuration files for system initialization and tests" />
     <MESSAGE value="fix dates sent to GUI in view policies" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix dates sent to GUI in view policies" />
+    <MESSAGE value="#64 implement adapters to external systems - not finished" />
+    <option name="LAST_COMMIT_MESSAGE" value="#64 implement adapters to external systems - not finished" />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1620988711266">

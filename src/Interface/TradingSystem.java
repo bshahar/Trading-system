@@ -579,7 +579,7 @@ public class TradingSystem {
         int productId = productCounter.inc();
         if (user.addProductToStore(productId,store,name, categories, price, description, quantity)){
             KingLogger.logEvent("ADD_PRODUCT_TO_STORE: User with id " + userId + " add product to store " + storeId);
-            return new Result(true,productId);
+            return new Result(true, productId);
         }
         else{
             KingLogger.logEvent("ADD_PRODUCT_TO_STORE: User with id " + userId + " cant add product to store " + storeId);

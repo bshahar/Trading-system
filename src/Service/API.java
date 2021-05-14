@@ -471,5 +471,14 @@ public class API {
         return tradingSystem.getPurchaseOnStore(storeId, userId);
     }
 
+    //TODO if not using storeId & userId then delete from signature
+    public static Result cancelPayment(int storeId, int userId, String transactionId) {
+        return tradingSystem.cancelPayment(storeId, userId, transactionId);
+    }
+
+    public static Result cancelSupplement(int storeId, int userId, String transactionId) {
+        return tradingSystem.cancelSupplement(storeId, userId, transactionId);
+    }
+
 
 }

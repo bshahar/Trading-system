@@ -1153,5 +1153,20 @@ public class TradingSystem {
         return cal.getTime();
     }
 
+    public Result cancelPayment(int storeId, int userId, String transactionId) {
+        //TODO validate user id? -> transaction was made by this user
+        Result cancelPaymentResult = paymentAdapter.cancelPayment(Integer.parseInt(transactionId));
+        if(cancelPaymentResult.isResult() && (Integer)cancelPaymentResult.getData() == 1)
+            return new Result(true, "Payment was canceled successfully.");
+        return new Result(false, "Could not cancel payment.");
+    }
+
+    public Result cancelSupplement(int storeId, int userId, String transactionId) {
+        //TODO validate user id? -> transaction was made by this user
+        Result cancelSupplementResult = supplementAdapter.cancelSupplement(Integer.parseInt(transactionId));
+        if(cancelSupplementResult.isResult() && (Integer)cancelSupplementResult.getData() == 1)
+            return new Result(true, "Supplement was canceled successfully.");
+        return new Result(false, "Could not cancel payment.");
+    }
 
 }

@@ -2,7 +2,6 @@ package Tests;
 
 import Domain.Result;
 import Service.API;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

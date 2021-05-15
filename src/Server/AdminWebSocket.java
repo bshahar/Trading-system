@@ -1,24 +1,27 @@
 package Server;
 
-import Domain.*;
+import Domain.Receipt;
+import Domain.Result;
 import Service.API;
-import org.eclipse.jetty.websocket.api.*;
-import org.eclipse.jetty.websocket.api.annotations.*;
-import java.io.*;
-import java.util.*;
-import java.util.concurrent.*;
+import org.eclipse.jetty.websocket.api.Session;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
+import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import org.json.JSONObject;
 
-@WebSocket
-public class myPurchases {
+import java.io.IOException;
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
-    // Store sessions if you want to, for example, broadcast a message to all users
+@WebSocket
+public class AdminWebSocket {
     private static final Queue<Session> sessions = new ConcurrentLinkedQueue<>();
 
     @OnWebSocketConnect
     public void connected(Session session) {
         sessions.add(session);
-
     }
 
     @OnWebSocketClose
@@ -30,11 +33,11 @@ public class myPurchases {
     public void message(Session session, String message) throws IOException {
         JSONObject jo = new JSONObject(message);
         String type = jo.get("type").toString();
-        if(type.equals("GET_PURCHASES")){
-            int userId=Integer.parseInt(jo.get("userId").toString());
-            Result result= API.getUserPurchaseHistory(userId);
+        if (type.equals("GET_GLOBAL_PURCHASES")) {
+            int userId=jo.getInt("userId");
+            Result result=API.getAllPurchases(userId);
             JSONObject jsonOut=new JSONObject();
-            jsonOut.put("type","GET_PURCHASES");
+            jsonOut.put("type","GET_GLOBAL_PURCHASES");
             if(result.isResult()){
                 List<Receipt> receipts=(List<Receipt>)result.getData();
                 JSONObject[] receiptsJson=new JSONObject[receipts.size()];
@@ -53,7 +56,6 @@ public class myPurchases {
                     JSONObject receiptJson= new JSONObject();
                     receiptJson.put("storeName", API.getStoreName(receipt.getStoreId()));
                     receiptJson.put("userName", receipt.getUserName());
-
                     receiptJson.put("totalCost",receipt.getTotalCost());
                     receiptJson.put("lines",linesJson);
                     receiptsJson[j]=receiptJson;
@@ -71,6 +73,4 @@ public class myPurchases {
             }
         }
     }
-
 }
-

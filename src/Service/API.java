@@ -481,4 +481,7 @@ public class API {
     }
 
 
+    public static boolean isSystemManager(int userId) {
+        return tradingSystem.isSystemManager(userId);
+    }
 }

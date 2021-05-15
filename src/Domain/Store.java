@@ -580,6 +580,10 @@ public class Store {
     public int getProductAmount(Integer prodId) {
         return inventory.getProductsAmounts().get(getProductById(prodId));
     }
+
+    public boolean removeReceipt(Receipt receipt) {
+        return this.receipts.remove(receipt);
+    }
 }
 
 

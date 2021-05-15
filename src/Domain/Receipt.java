@@ -4,15 +4,16 @@ import java.util.*;
 
 public class Receipt {
 
-    public class ReceiptLine{
+    public class ReceiptLine {
 
         String ProdName;
         double price;
         int amount;
-        public ReceiptLine(String Prod, double price, int amount){
-            this.ProdName= Prod;
-            this.price=price;
-            this.amount=amount;
+
+        public ReceiptLine(String Prod, double price, int amount) {
+            this.ProdName = Prod;
+            this.price = price;
+            this.amount = amount;
         }
 
         public String getProdName() {
@@ -27,44 +28,64 @@ public class Receipt {
             return amount;
         }
     }
+
     private int id;
     private int storeId;
     private int userId;
     private String userName; //Unique
     private List<ReceiptLine> lines;
     private double totalCost;
+    private int paymentTransaction;
+    private int supplementTransaction;
 
 
-
-    public Receipt(int id, int storeId,int userId, String userName, Map<Product, Integer> lines) {
+    public Receipt(int id, int storeId, int userId, String userName, Map<Product, Integer> lines, int paymentTransaction, int supplementTransaction) {
         this.id = id;
         this.storeId = storeId;
-        this.userId= userId;
+        this.userId = userId;
         this.userName = userName;
-        this.lines= new LinkedList<ReceiptLine>();
-        for (Product p: lines.keySet()) {
-            this.lines.add(new ReceiptLine(p.getName(), p.getPrice(),lines.get(p)));
+        this.paymentTransaction = paymentTransaction;
+        this.supplementTransaction = supplementTransaction;
+        this.lines = new LinkedList<>();
+        for (Product p : lines.keySet()) {
+            this.lines.add(new ReceiptLine(p.getName(), p.getPrice(), lines.get(p)));
         }
     }
 
-    public int getReceiptId() { return this.id; }
+    public int getReceiptId() {
+        return this.id;
+    }
 
     public int getStoreId() {
         return storeId;
     }
 
-    public String getUserName(){return userName;}
-    public int getUserId(){return userId;}
+    public String getUserName() {
+        return userName;
+    }
+
+    public int getUserId() {
+        return userId;
+    }
 
     public List<ReceiptLine> getLines() {
         return lines;
-
     }
 
-    public void setTotalCost(double totalCost) { this.totalCost = totalCost; }
+    public void setTotalCost(double totalCost) {
+        this.totalCost = totalCost;
+    }
 
-    public double getTotalCost() { return this.totalCost; }
+    public double getTotalCost() {
+        return this.totalCost;
+    }
 
+    public int getPaymentTransaction() {
+        return paymentTransaction;
+    }
 
+    public int getSupplementTransaction() {
+        return supplementTransaction;
+    }
 
 }

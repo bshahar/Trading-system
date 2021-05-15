@@ -15,7 +15,7 @@ import java.util.HashMap;
 public class Server {
 
     public static void main(String []args) throws IOException {
-        Spark.secure("security/version2/KeyStore.jks", "123456", null,null);
+//        Spark.secure("security/version2/KeyStore.jks", "123456", null,null);
         Spark.webSocket("/Login", LoginWebSocket.class);
         Spark.webSocket("/Main/*",MainWebSocket.class);
         Spark.webSocket("/Store/currentStore",StoreWebSocket.class);

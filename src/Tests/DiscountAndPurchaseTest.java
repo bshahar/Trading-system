@@ -7,25 +7,85 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
+import java.io.InputStream;
 import java.util.*;
 
 public class DiscountAndPurchaseTest {
 
     private int registerId1;
     private int registerId2;
-    private int registerId3;
     private int storeId1;
-    private int storeId2;
     private int productId1;
     private int productId2;
     private int productId3;
     private int productId4;
     private String begin;
     private String end;
+    private Map<String, String> payment;
+    private Map<String, String> supplement;
 
     @BeforeEach
     public void setUp() {
-        API.initTradingSystem();
+        Properties testProps = new Properties();
+        try {
+            API.initTradingSystem(true);
+            InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
+            if(input != null)
+                testProps.load(input);
+            else
+                throw new FileNotFoundException("Property file was not found.");
+        } catch (Exception e) {
+        }
+
+        API.register(testProps.getProperty("user1name"), testProps.getProperty("user1password"), Integer.parseInt(testProps.getProperty("user1age")));
+        API.register(testProps.getProperty("user2name"), testProps.getProperty("user2password"), Integer.parseInt(testProps.getProperty("user2age")));
+
+        registerId1 = (int) API.registeredLogin(testProps.getProperty("user1name"), testProps.getProperty("user1password")).getData();
+        registerId2 = (int) API.registeredLogin(testProps.getProperty("user2name"), testProps.getProperty("user2password")).getData();
+
+        storeId1 = (int) API.openStore(registerId1, testProps.getProperty("storeNameTest")).getData();
+        LinkedList<String> catList1 = new LinkedList<>();
+        catList1.add(testProps.getProperty("categoryFood"));
+        LinkedList<String> catList2 = new LinkedList<>();
+        catList2.add(testProps.getProperty("categoryDrinks"));
+
+        productId1 = (int) API.addProduct(1, storeId1, testProps.getProperty("prodMilkName"), catList1,
+                Integer.parseInt(testProps.getProperty("milkPrice")),
+                testProps.getProperty("descriptionFood"),
+                Integer.parseInt(testProps.getProperty("prodQuantity100"))).getData();
+        productId2 = (int) API.addProduct(1, storeId1, testProps.getProperty("prodBeerName"), catList2,
+                Integer.parseInt(testProps.getProperty("beerPrice")),
+                testProps.getProperty("descriptionAlcohol"),
+                Integer.parseInt(testProps.getProperty("prodQuantity100"))).getData();
+        productId3 = (int) API.addProduct(1, storeId1, testProps.getProperty("prodBreadName"), catList1,
+                Integer.parseInt(testProps.getProperty("breadPrice")),
+                testProps.getProperty("descriptionFood"),
+                Integer.parseInt(testProps.getProperty("prodQuantity100"))).getData();
+        productId4 = (int) API.addProduct(1, storeId1, testProps.getProperty("prodCheeseName"), catList1,
+                Integer.parseInt(testProps.getProperty("cheesePrice")),
+                testProps.getProperty("descriptionFood"),
+                Integer.parseInt(testProps.getProperty("prodQuantity100"))).getData();
+
+        begin = testProps.getProperty("dateBegin");
+        end = testProps.getProperty("dateEnd");
+
+        payment = new HashMap<>();
+        payment.put("card_number", testProps.getProperty("creditCardNumber"));
+        payment.put("month", testProps.getProperty("creditExpMonth"));
+        payment.put("year", testProps.getProperty("creditExpYear"));
+        payment.put("holder", testProps.getProperty("user1name"));
+        payment.put("cvv", testProps.getProperty("creditCvv"));
+        payment.put("id", String.valueOf(registerId1));
+
+        supplement = new HashMap<>();
+        supplement.put("name", testProps.getProperty("user1name"));
+        supplement.put("address", testProps.getProperty("supplyAddress"));
+        supplement.put("city", testProps.getProperty("supplyCity"));
+        supplement.put("country", testProps.getProperty("supplyCountry"));
+        supplement.put("zip", testProps.getProperty("supplyZipCode"));
+
+        /*API.initTradingSystem();
         String userName1 = "kandabior";
         String password1 = "or321654";
         String userName2 = "elad";
@@ -39,12 +99,14 @@ public class DiscountAndPurchaseTest {
         catList1.add("FOOD");
         LinkedList<String> catList2 = new LinkedList<>();
         catList2.add("DRINKS");
+
         productId1 = (int) API.addProduct(1, storeId1, "milk", catList1, 10, "FOOD", 100).getData();
         productId2 = (int) API.addProduct(1, storeId1, "beer", catList2, 20, "ALCOHOL", 100).getData();
         productId3 = (int) API.addProduct(1, storeId1, "bread", catList1, 10, "FOOD", 100).getData();
         productId4 = (int) API.addProduct(1, storeId1, "cheese", catList1, 15, "FOOD", 100).getData();
         begin = "01/04/2021";
         end = "01/06/2022";
+         */
     }
 
     @Test
@@ -69,7 +131,7 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId3, 3);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 240;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -81,7 +143,7 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId3, 3);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 250;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -108,7 +170,7 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId3, 1);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 160;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -120,7 +182,7 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId3, 1);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 220;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -151,7 +213,7 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId3, 3);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 280;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -207,14 +269,14 @@ public class DiscountAndPurchaseTest {
         addPurchasePolicyOnCategorySuccessTest();
         //user at age 16 tries to buy alcohol when policy is age >= 18
         API.addProductToCart(registerId2, storeId1, productId2, 5);
-        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, "Credit1").isResult());
+        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, payment, supplement).isResult());
     }
 
     @Test
     public void purchaseContradictsAgeAndAmountPolicyFailTest() {
         addPurchasePolicyOnStoreSuccessTest();
         API.addProductToCart(registerId2, storeId1, productId2, 5);
-        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, "Credit1").isResult());
+        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, payment, supplement).isResult());
     }
 
     @Test
@@ -237,7 +299,7 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId3, 2);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 260;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -265,9 +327,16 @@ public class DiscountAndPurchaseTest {
         //API.addProductToCart(registerId2, storeId1, productId3, 2);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 160;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
+    }
+
+    @Test
+    public void addSimpleDiscountOnStoreSuccessTest() {
+        List<Pair<String, List<String>>> policies = new LinkedList<>();
+        //discount of 10% on drinks
+        Assertions.assertTrue(API.addDiscountPolicyOnStore(storeId1, registerId1, "", policies, begin, end, 10, "Sum").isResult());
     }
 
 }

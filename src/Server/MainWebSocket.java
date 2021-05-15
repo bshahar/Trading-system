@@ -21,7 +21,7 @@ public class MainWebSocket {
     public void connected(Session session) {
         sessions.add(session);
         int id  = Integer.parseInt(session.getUpgradeRequest().getParameterMap().get("userId").get(0));
-        sessionsMap.put(id,session);
+        API.addSession(id,session);
     }
 
     @OnWebSocketClose
@@ -29,7 +29,7 @@ public class MainWebSocket {
 
         sessions.remove(session);
         int id  = Integer.parseInt(session.getUpgradeRequest().getParameterMap().get("userId").get(0));
-        sessionsMap.remove(id);
+        API.removeSession(id);
     }
 
     @OnWebSocketMessage

@@ -6,6 +6,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
+
 import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginTest {
@@ -13,7 +21,10 @@ public class LoginTest {
 
     @BeforeEach
     public void setUp() {
-        API.initTradingSystem();
+        try {
+            API.initTradingSystem(true);
+        } catch (Exception e) {
+        }
     }
 
     //AT-4.1
@@ -126,6 +137,13 @@ public class LoginTest {
         String password= "or321654";
         API.register(userName,password, 20);
         Assertions.assertEquals(false,API.guestRegister(guestId,"kandabior","or321654").isResult());
+    }
+
+    @Test
+    public void connectionTest() throws IOException {
+
+
+
     }
 
 }

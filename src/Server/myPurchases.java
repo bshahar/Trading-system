@@ -52,6 +52,8 @@ public class myPurchases {
                     }
                     JSONObject receiptJson= new JSONObject();
                     receiptJson.put("storeName", API.getStoreName(receipt.getStoreId()));
+                    receiptJson.put("userName", receipt.getUserName());
+
                     receiptJson.put("totalCost",receipt.getTotalCost());
                     receiptJson.put("lines",linesJson);
                     receiptsJson[j]=receiptJson;
@@ -64,6 +66,8 @@ public class myPurchases {
             }else{
                 jsonOut.put("result",false);
                 jsonOut.put("message",result.getData());
+                session.getRemote().sendString(jsonOut.toString());
+
             }
         }
     }

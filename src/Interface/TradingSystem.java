@@ -29,8 +29,8 @@ public class TradingSystem {
     private static counter receiptCounter;
     private static counter observableCounter;
 
-    private PaymentAdapter paymentAdapter;
-    private SupplementAdapter supplementAdapter;
+    private static PaymentInterface paymentAdapter;
+    private static SupplementInterface supplementAdapter;
     private UserAuth userAuth;
     private List<Store> stores;
     private User systemManager;
@@ -112,6 +112,14 @@ public class TradingSystem {
         getUserById(userId).setSessionDemo();
     }
 
+    public static void setPaymentAdapterDemo() { paymentAdapter = new DemoPayment(); }
+
+    public static void setSupplementAdapterDemo() { supplementAdapter = null; } //TODO create
+
+    public static void initializeSystemForTests() {
+        setPaymentAdapterDemo();
+        setSupplementAdapterDemo();
+    }
     public boolean isSystemManager(int userId) {
         return getUserById(userId).isSystemManager();
 
@@ -175,8 +183,13 @@ public class TradingSystem {
             "ViewPurchasePolicies"
     };
 
-    public TradingSystem (User systemManager) {
-        this.paymentAdapter = new PaymentAdapter(new DemoPayment());
+    public TradingSystem (User systemManager, String externalSystemsUrl, boolean forTest) {
+        if(forTest)
+            initializeSystemForTests();
+        else {
+            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
+        }
         this.stores = Collections.synchronizedList(new LinkedList<>());
         this.receipts = Collections.synchronizedList(new LinkedList<>());
         this.users = Collections.synchronizedList(new LinkedList<>());
@@ -504,7 +517,7 @@ public class TradingSystem {
         }
     }
 
-    public Result buyProducts(int userId, int storeId, String creditInfo) {
+    public Result buyProducts(int userId, int storeId, Map<String, String> paymentData, Map<String, String> supplementData) {
         try {
             Map<Product, Integer> products = getBag(userId, storeId);
             Store store = getStoreById(storeId);
@@ -514,28 +527,34 @@ public class TradingSystem {
             }
             Bag bag = new Bag(store);
             bag.setProducts(products);
-                Map<Product, Integer> productsAmountBuy = new HashMap<>();
-                double totalCost = 0;
-                for (Product product : productsAmountBag.keySet()) {
-                    synchronized (product) {
-                        if (store.validatePurchasePerProduct(product,getUserById(userId),new Date(),bag)) {
-                            if (store.canBuyProduct(product, productsAmountBag.get(product))) {
-                                store.removeProductAmount(product, productsAmountBag.get(product));
-                                productsAmountBuy.put(product, productsAmountBag.get(product));
-                                totalCost += ((product.getPrice() - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));
-                            }
+            Map<Product, Integer> productsAmountBuy = new HashMap<>();
+            double totalCost = 0;
+            for (Product product : productsAmountBag.keySet()) {
+                synchronized (product) {
+                    if (store.validatePurchasePerProduct(product, getUserById(userId), new Date(), bag)) {
+                        if (store.canBuyProduct(product, productsAmountBag.get(product))) {
+                            store.removeProductAmount(product, productsAmountBag.get(product));
+                            productsAmountBuy.put(product, productsAmountBag.get(product));
+                            totalCost += ((product.getPrice() - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));
                         }
-                        else
-                            return new Result(false, "Purchase is not approved by store's policy.");
-                    }
+                    } else
+                        return new Result(false, "Purchase is not approved by store's policy.");
                 }
-                if (paymentAdapter.pay(totalCost, creditInfo)) {
-                    getUserById(userId).removeProductFromCart(productsAmountBuy, storeId);
-                    Receipt rec = new Receipt(receiptCounter.inc(),storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
-                    rec.setTotalCost(totalCost);
-                    this.receipts.add(rec);
-                    store.addReceipt(rec);
-                    getUserById(userId).addReceipt(rec);
+            }
+            Result paymentResult = paymentAdapter.pay(paymentData);
+            if (paymentResult.isResult()
+                    && Integer.parseInt((String) paymentResult.getData()) > 10000
+                    && Integer.parseInt((String) paymentResult.getData()) < 100000) {
+                getUserById(userId).removeProductFromCart(productsAmountBuy, storeId);
+                Receipt rec = new Receipt(receiptCounter.inc(), storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
+                rec.setTotalCost(totalCost);
+                this.receipts.add(rec);
+                store.addReceipt(rec);
+                getUserById(userId).addReceipt(rec);
+                Result supplementResult = supplementAdapter.supply(supplementData);
+                if (supplementResult.isResult()
+                        && Integer.parseInt((String) supplementResult.getData()) > 10000
+                        && Integer.parseInt((String) supplementResult.getData()) < 100000) {
                     if (productsAmountBag.size() == productsAmountBuy.size()) {
                         KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId);
                         notifyToSubscribers(getStoreById(storeId).getNotificationId(), "Some one buy from your store! you can go to your purchase to see more details");
@@ -544,16 +563,19 @@ public class TradingSystem {
                         KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " try to purchase in store " + storeId + "but soe product are missing");
                         return new Result(true, rec.getReceiptId());
                     }
-                } else {
+                } else { //supplement failed
                     store.abortPurchase(productsAmountBuy);
                     KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
-                    return new Result(false, "payment failed");
+                    return new Result(false, "supplement failed");
                 }
-        }
-
-        catch (Exception e) {
+            } else { //payment failed
+                store.abortPurchase(productsAmountBuy);
+                KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
+                return new Result(false, "payment failed");
+            }
+        } catch (Exception e) {
             KingLogger.logError("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
-            return new Result(false,"purchase failed");
+            return new Result(false, "purchase failed");
         }
     }
 
@@ -576,7 +598,7 @@ public class TradingSystem {
         int productId = productCounter.inc();
         if (user.addProductToStore(productId,store,name, categories, price, description, quantity)){
             KingLogger.logEvent("ADD_PRODUCT_TO_STORE: User with id " + userId + " add product to store " + storeId);
-            return new Result(true,productId);
+            return new Result(true, productId);
         }
         else{
             KingLogger.logEvent("ADD_PRODUCT_TO_STORE: User with id " + userId + " cant add product to store " + storeId);
@@ -1150,5 +1172,20 @@ public class TradingSystem {
         return cal.getTime();
     }
 
+    public Result cancelPayment(int storeId, int userId, String transactionId) {
+        //TODO validate user id? -> transaction was made by this user
+        Result cancelPaymentResult = paymentAdapter.cancelPayment(Integer.parseInt(transactionId));
+        if(cancelPaymentResult.isResult() && (Integer)cancelPaymentResult.getData() == 1)
+            return new Result(true, "Payment was canceled successfully.");
+        return new Result(false, "Could not cancel payment.");
+    }
+
+    public Result cancelSupplement(int storeId, int userId, String transactionId) {
+        //TODO validate user id? -> transaction was made by this user
+        Result cancelSupplementResult = supplementAdapter.cancelSupplement(Integer.parseInt(transactionId));
+        if(cancelSupplementResult.isResult() && (Integer)cancelSupplementResult.getData() == 1)
+            return new Result(true, "Supplement was canceled successfully.");
+        return new Result(false, "Could not cancel payment.");
+    }
 
 }

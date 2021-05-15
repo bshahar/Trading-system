@@ -2,13 +2,18 @@ package Tests;
 
 import Domain.Result;
 import Service.API;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
-import java.util.Properties;
+import java.io.OutputStream;
+import java.net.*;
+import java.nio.charset.StandardCharsets;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -18,7 +23,7 @@ public class LoginTest {
     @BeforeEach
     public void setUp() {
         try {
-            API.initTradingSystem();
+            API.initTradingSystem(true);
         } catch (Exception e) {
         }
     }
@@ -133,6 +138,13 @@ public class LoginTest {
         String password= "or321654";
         API.register(userName,password, 20);
         Assertions.assertEquals(false,API.guestRegister(guestId,"kandabior","or321654").isResult());
+    }
+
+    @Test
+    public void connectionTest() throws IOException {
+
+
+
     }
 
 }

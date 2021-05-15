@@ -16,7 +16,7 @@ public class API {
 
     private static TradingSystem tradingSystem;
 
-    public static void initTradingSystem() throws IOException {
+    public static void initTradingSystem(boolean forTest) throws IOException {
 
         Properties appProps = new Properties();
 
@@ -30,7 +30,7 @@ public class API {
         String sysManagerId = appProps.getProperty("systemManagerId");
         String sysManagerAge = appProps.getProperty("systemManagerAge");
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), 1);
-        tradingSystem = new TradingSystem(sysManager, appProps.getProperty("externalSystemsUrl"));
+        tradingSystem = new TradingSystem(sysManager, appProps.getProperty("externalSystemsUrl"), forTest);
 
         /*
         //String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();

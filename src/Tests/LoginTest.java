@@ -23,7 +23,7 @@ public class LoginTest {
     @BeforeEach
     public void setUp() {
         try {
-            API.initTradingSystem();
+            API.initTradingSystem(true);
         } catch (Exception e) {
         }
     }

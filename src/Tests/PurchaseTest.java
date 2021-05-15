@@ -33,7 +33,7 @@ public class PurchaseTest {
     public void setUp() {
         testProps = new Properties();
         try {
-            API.initTradingSystem();
+            API.initTradingSystem(true);
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)
                 testProps.load(input);

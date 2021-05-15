@@ -29,8 +29,8 @@ public class TradingSystem {
     private static counter receiptCounter;
     private static counter observableCounter;
 
-    private PaymentAdapter paymentAdapter;
-    private SupplementAdapter supplementAdapter;
+    private static PaymentInterface paymentAdapter;
+    private static SupplementInterface supplementAdapter;
     private UserAuth userAuth;
     private List<Store> stores;
     private User systemManager;
@@ -112,6 +112,14 @@ public class TradingSystem {
         getUserById(userId).setSessionDemo();
     }
 
+    public static void setPaymentAdapterDemo() { paymentAdapter = new DemoPayment(); }
+
+    public static void setSupplementAdapterDemo() { supplementAdapter = null; } //TODO create
+
+    public static void initializeSystemForTests() {
+        setPaymentAdapterDemo();
+        setSupplementAdapterDemo();
+    }
 
     public static enum Permission {
         DEF,
@@ -170,9 +178,13 @@ public class TradingSystem {
             "ViewPurchasePolicies"
     };
 
-    public TradingSystem (User systemManager, String externalSystemsUrl) {
-        this.paymentAdapter = new PaymentAdapter(externalSystemsUrl);
-        this.supplementAdapter = new SupplementAdapter(externalSystemsUrl);
+    public TradingSystem (User systemManager, String externalSystemsUrl, boolean forTest) {
+        if(forTest)
+            initializeSystemForTests();
+        else {
+            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
+        }
         this.stores = Collections.synchronizedList(new LinkedList<>());
         this.receipts = Collections.synchronizedList(new LinkedList<>());
         this.users = Collections.synchronizedList(new LinkedList<>());

@@ -10,7 +10,7 @@ public class ReceiptEntity {
     private Integer storeId;
     private Integer userId;
     private String userName;
-    private Integer totalCost;
+    private Double totalCost;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -53,12 +53,12 @@ public class ReceiptEntity {
     }
 
     @Basic
-    @Column(name = "totalCost", nullable = true)
-    public Integer getTotalCost() {
+    @Column(name = "totalCost", nullable = true, precision = 0)
+    public Double getTotalCost() {
         return totalCost;
     }
 
-    public void setTotalCost(Integer totalCost) {
+    public void setTotalCost(Double totalCost) {
         this.totalCost = totalCost;
     }
 

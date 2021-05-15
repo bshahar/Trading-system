@@ -18,13 +18,14 @@ public class PurchaseOffer extends Purchase {
 
     public PurchaseOffer(int id, PurchaseCondition conditions, double priceOfOffer){
         this.id = id;
-        this.conditions = conditions;
+       // this.conditions = conditions;
         this.priceOfOffer = priceOfOffer;
         this.isApproved = false;
     }
 
     public boolean validatePurchase( User user, Date time, Bag bag) {
-        return conditions.validateCondition( user, time, bag);
+        //return conditions.validateCondition( user, time, bag);
+        return true;
     }
 
     @Override
@@ -32,5 +33,13 @@ public class PurchaseOffer extends Purchase {
         return false;
     }
 
-    public PurchaseCondition getConditions() { return this.conditions; }
+    //public PurchaseCondition getConditions() { return this.conditions; }
+
+    public double getPriceOfOffer() { return this.priceOfOffer; }
+
+    public void setPriceOfOffer(double priceOfOffer){this.priceOfOffer = priceOfOffer;}
+
+    public boolean getIsApproved(){return isApproved;}
+
+    public void setIsApproved(boolean isApproved){this.isApproved = isApproved;}
 }

@@ -33,7 +33,7 @@ public class Store {
     //private List<ImmediatePurchase> purchasePoliciesInStore;
     private Map<User,List<User>> appointments; //appointer & list of appointees
     private Map<Integer, Bag> usersBags;
-
+    private Map<Product,LinkedList<Pair<User,Double>>> offersOnProduct;
     private double rate;
     private int ratesCount;
 
@@ -58,6 +58,7 @@ public class Store {
         this.usersBags = new HashMap<>();
         this.purchasesOnProducts = new ConcurrentHashMap<>();
         this.purchasesOnCategories = new ConcurrentHashMap<>();
+        this.offersOnProduct = new ConcurrentHashMap<>();
     }
 
     public Inventory getInventory() {
@@ -576,6 +577,29 @@ public class Store {
 
     public int getProductAmount(Integer prodId) {
         return inventory.getProductsAmounts().get(getProductById(prodId));
+    }
+
+    public void addPurchaseOffer(int prodId, User user, double offer, int numOfProd) {
+        Bag b = user.getBagByStoreId(this.storeId);
+        b.addNewOffer(getProductById(prodId),numOfProd);
+        if(this.offersOnProduct.containsKey(getProductById(prodId))){
+            List offers = this.offersOnProduct.get(getProductById(prodId));
+            Iterator<Pair> iterator = offers.iterator();
+            while (iterator.hasNext()) {
+                Pair p = iterator.next();
+                if (p.getKey().equals(user)) {
+                    offers.remove(p);
+                }
+            }
+            offers.add(new Pair<>(user,offer));
+        }
+        else{
+            LinkedList offers = new LinkedList();
+            offers.add(new Pair<>(user,offer));
+            this.offersOnProduct.put(getProductById(prodId),offers);
+        }
+        // send alert to all manager and owners
+
     }
 }
 

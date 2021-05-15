@@ -54,6 +54,7 @@ public class myPurchases {
                     receiptJson.put("storeName", API.getStoreName(receipt.getStoreId()));
                     receiptJson.put("userName", receipt.getUserName());
                     receiptJson.put("receiptId",receipt.getReceiptId());
+                    receiptJson.put("storeId",receipt.getStoreId());
                     receiptJson.put("totalCost", receipt.getTotalCost());
                     receiptJson.put("lines", linesJson);
                     receiptsJson[j] = receiptJson;
@@ -72,11 +73,11 @@ public class myPurchases {
         } else if (type.equals("CANCEL_PURCHASE")) {
 
             int receiptId =jo.getInt("receiptId");
-//            Result result= API.cancelPurchase(receiptId);//TODO merge with dorin
+            Result result= API.cancelPurchase(receiptId);//TODO merge with dorin
             JSONObject jsonOut = new JSONObject();
             jsonOut.put("type", "CANCEL_PURCHASE");
-//            jsonOut.put("result",result.isResult());
-//            jsonOut.put("message",result.getData());
+            jsonOut.put("result",result.isResult());
+            jsonOut.put("message",result.getData());
             session.getRemote().sendString(jsonOut.toString());
 
 

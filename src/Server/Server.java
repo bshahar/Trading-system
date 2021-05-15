@@ -37,7 +37,7 @@ public class Server {
 
 
         try {
-            API.initTradingSystem(false);
+            API.initTradingSystem(true);
         } catch (IOException e) {
             //TODO deal with failure of getting config file
         }

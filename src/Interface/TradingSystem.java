@@ -114,7 +114,7 @@ public class TradingSystem {
 
     public static void setPaymentAdapterDemo() { paymentAdapter = new DemoPayment(); }
 
-    public static void setSupplementAdapterDemo() { supplementAdapter = null; } //TODO create
+    public static void setSupplementAdapterDemo() { supplementAdapter = new DemoSupplement(); }
 
     public static void initializeSystemForTests() {
         setPaymentAdapterDemo();
@@ -553,8 +553,8 @@ public class TradingSystem {
                 getUserById(userId).addReceipt(rec);
                 Result supplementResult = supplementAdapter.supply(supplementData);
                 if (supplementResult.isResult()
-                        && Integer.parseInt((String) supplementResult.getData()) > 10000
-                        && Integer.parseInt((String) supplementResult.getData()) < 100000) {
+                        && ((int) supplementResult.getData()) > 10000
+                        && ((int) supplementResult.getData()) < 100000) {
                     if (productsAmountBag.size() == productsAmountBuy.size()) {
                         KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId);
                         notifyToSubscribers(getStoreById(storeId).getNotificationId(), "Some one buy from your store! you can go to your purchase to see more details");

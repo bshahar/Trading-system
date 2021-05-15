@@ -4,23 +4,23 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "receiptline", schema = "tradingsystemproject", catalog = "")
-@IdClass(ReceiptlineEntityPK.class)
-public class ReceiptlineEntity {
-    private int receipId;
+@Table(name = "receiptLine", schema = "zw9P3SlfWt", catalog = "")
+@IdClass(ReceiptLineEntityPK.class)
+public class ReceiptLineEntity {
+    private int receiptId;
     private int receiptLineId;
     private String prodName;
     private Integer price;
     private Integer amount;
 
     @Id
-    @Column(name = "receipId", nullable = false)
-    public int getReceipId() {
-        return receipId;
+    @Column(name = "receiptId", nullable = false)
+    public int getReceiptId() {
+        return receiptId;
     }
 
-    public void setReceipId(int receipId) {
-        this.receipId = receipId;
+    public void setReceiptId(int receiptId) {
+        this.receiptId = receiptId;
     }
 
     @Id
@@ -67,8 +67,8 @@ public class ReceiptlineEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ReceiptlineEntity that = (ReceiptlineEntity) o;
-        return receipId == that.receipId &&
+        ReceiptLineEntity that = (ReceiptLineEntity) o;
+        return receiptId == that.receiptId &&
                 receiptLineId == that.receiptLineId &&
                 Objects.equals(prodName, that.prodName) &&
                 Objects.equals(price, that.price) &&
@@ -77,6 +77,6 @@ public class ReceiptlineEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(receipId, receiptLineId, prodName, price, amount);
+        return Objects.hash(receiptId, receiptLineId, prodName, price, amount);
     }
 }

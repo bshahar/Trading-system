@@ -2,21 +2,12 @@ package Server;
 import Persistance.HibernateUtil;
 import Persistance.ReceiptEntity;
 import org.hibernate.Session;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
-import Domain.Receipt;
-import Permissions.AddProduct;
-import Permissions.OpenStore;
 import Server.Login.LoginWebSocket;
 import Server.myStores.myStoresWebSocket;
 import Service.API;
-import org.hibernate.Session;
-import spark.ModelAndView;
 import spark.Spark;
-import spark.template.thymeleaf.ThymeleafTemplateEngine;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 public class Server {
 
@@ -48,11 +39,12 @@ public class Server {
         rec.setStoreId(2);
         rec.setUserId(3);
         rec.setUserName("ErezTest");
-        rec.setTotalCost(10.00);
+        rec.setTotalCost(10);
         session.save(rec);
         session.getTransaction().commit();
         session.close();
         //
+
 
 
         try {

@@ -4,13 +4,13 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "receipt", schema = "tradingsystemproject", catalog = "")
+@Table(name = "receipt", schema = "zw9P3SlfWt", catalog = "")
 public class ReceiptEntity {
     private int id;
     private Integer storeId;
     private Integer userId;
     private String userName;
-    private Double totalCost;
+    private Integer totalCost;
 
     @Id
     @Column(name = "id", nullable = false)
@@ -53,12 +53,12 @@ public class ReceiptEntity {
     }
 
     @Basic
-    @Column(name = "totalCost", nullable = true, precision = 0)
-    public Double getTotalCost() {
+    @Column(name = "totalCost", nullable = true)
+    public Integer getTotalCost() {
         return totalCost;
     }
 
-    public void setTotalCost(Double totalCost) {
+    public void setTotalCost(Integer totalCost) {
         this.totalCost = totalCost;
     }
 

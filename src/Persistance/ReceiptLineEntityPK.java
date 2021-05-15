@@ -5,18 +5,18 @@ import javax.persistence.Id;
 import java.io.Serializable;
 import java.util.Objects;
 
-public class ReceiptlineEntityPK implements Serializable {
-    private int receipId;
+public class ReceiptLineEntityPK implements Serializable {
+    private int receiptId;
     private int receiptLineId;
 
-    @Column(name = "receipId", nullable = false)
+    @Column(name = "receiptId", nullable = false)
     @Id
-    public int getReceipId() {
-        return receipId;
+    public int getReceiptId() {
+        return receiptId;
     }
 
-    public void setReceipId(int receipId) {
-        this.receipId = receipId;
+    public void setReceiptId(int receiptId) {
+        this.receiptId = receiptId;
     }
 
     @Column(name = "receiptLineId", nullable = false)
@@ -33,13 +33,13 @@ public class ReceiptlineEntityPK implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        ReceiptlineEntityPK that = (ReceiptlineEntityPK) o;
-        return receipId == that.receipId &&
+        ReceiptLineEntityPK that = (ReceiptLineEntityPK) o;
+        return receiptId == that.receiptId &&
                 receiptLineId == that.receiptLineId;
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(receipId, receiptLineId);
+        return Objects.hash(receiptId, receiptLineId);
     }
 }

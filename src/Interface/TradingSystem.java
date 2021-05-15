@@ -579,6 +579,33 @@ public class TradingSystem {
         }
     }
 
+    public Result payAndSupply(Map<String, String> paymentData, Map<String, String> supplementData) {
+        if (validatePaymentDetails(paymentData)) {
+            if (validateSupplementDetails(supplementData)) {
+                Result paymentResult = paymentAdapter.pay(paymentData);
+                Result supplementResult = supplementAdapter.supply(supplementData);
+
+            }
+            return new Result(false, "Supplement details are invalid.");
+        }
+        return new Result(false, "Payment details are invalid.");
+    }
+
+    private boolean validatePaymentDetails(Map<String, String> paymentData) {
+        return Integer.parseInt(paymentData.get("month")) > 0
+                && Integer.parseInt(paymentData.get("month")) < 13
+                && Integer.parseInt(paymentData.get("year")) >= 2021
+                && Integer.parseInt(paymentData.get("year")) < 2035
+                && paymentData.get("cvv").length() == 3
+                && Integer.parseInt(paymentData.get("cvv")) > 0;
+        //Not validating length of credit card number & holder id for easy testing
+    }
+
+    private boolean validateSupplementDetails(Map<String, String> supplementData) {
+        return supplementData.get("zip").length() == 7
+                && Integer.parseInt(supplementData.get("zip")) > 0;
+    }
+
     private Map<Product, Integer> getBag(int userId, int storeId) {
         try {
             User user = getUserById(userId);
@@ -1208,6 +1235,9 @@ public class TradingSystem {
                     purchaseBag.put(st.getProductByName(rLine.getProdName()), rLine.getAmount());
                 }
                 st.abortPurchase(purchaseBag);
+                this.receipts.remove(receipt);
+                st.removeReceipt(receipt);
+                getUserById(receipt.getUserId()).removeReceipt(receipt);
                 return new Result(true, "Purchase was canceled successfully.");
             }
             return cancelSupplyResult;

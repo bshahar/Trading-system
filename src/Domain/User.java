@@ -382,4 +382,8 @@ public class User implements Observer {
         return isSystemManager;
 
     }
+
+    public boolean removeReceipt(Receipt receipt) {
+        return this.receipts.remove(receipt);
+    }
 }

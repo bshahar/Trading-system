@@ -517,6 +517,7 @@ public class TradingSystem {
         }
     }
 
+
     public Result buyProducts(int userId, int storeId, Map<String, String> paymentData, Map<String, String> supplementData) {
         try {
             Map<Product, Integer> products = getBag(userId, storeId);
@@ -541,54 +542,49 @@ public class TradingSystem {
                         return new Result(false, "Purchase is not approved by store's policy.");
                 }
             }
-            Result paymentResult = paymentAdapter.pay(paymentData);
-            Result supplementResult = supplementAdapter.supply(supplementData);
-            if (paymentResult.isResult()
-                    && ((int) paymentResult.getData()) > 10000
-                    && ((int) paymentResult.getData()) < 100000) {
-                if (supplementResult.isResult()
-                        && ((int) supplementResult.getData()) > 10000
-                        && ((int) supplementResult.getData()) < 100000) {
-                    getUserById(userId).removeProductFromCart(productsAmountBuy, storeId);
-                    Receipt rec = new Receipt(receiptCounter.inc(), storeId, userId, getUserById(userId).getUserName(), productsAmountBuy, (int)paymentResult.getData(), (int)supplementResult.getData());
-                    rec.setTotalCost(totalCost);
-                    this.receipts.add(rec);
-                    store.addReceipt(rec);
-                    getUserById(userId).addReceipt(rec);
-                    if (productsAmountBag.size() == productsAmountBuy.size()) {
-                        KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId);
-                        notifyToSubscribers(getStoreById(storeId).getNotificationId(), "Some one buy from your store! you can go to your purchase to see more details");
-                        return new Result(true, rec.getReceiptId());
-                    } else {
-                        KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " try to purchase in store " + storeId + "but soe product are missing");
-                        return new Result(true, rec.getReceiptId());
-                    }
-                } else { //supplement failed
-                    store.abortPurchase(productsAmountBuy);
-                    KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
-                    return new Result(false, "supplement failed");
-                }
-            } else { //payment failed
+            if (!validatePaymentDetails(paymentData)) {
                 store.abortPurchase(productsAmountBuy);
                 KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
-                return new Result(false, "payment failed");
+                return new Result(false, "Payment details are invalid.");
             }
+            if (!validateSupplementDetails(supplementData)) {
+                store.abortPurchase(productsAmountBuy);
+                KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
+                return new Result(false, "Supplement details are invalid.");
+            }
+            Result paymentResult = paymentAdapter.pay(paymentData);
+            Result supplementResult = supplementAdapter.supply(supplementData);
+            if (!paymentResult.isResult()
+                    || ((int) paymentResult.getData()) > 100000
+                    || ((int) paymentResult.getData()) < 10000) {
+                store.abortPurchase(productsAmountBuy);
+                KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
+                return new Result(false, "Payment has failed.");
+            }
+            if (!supplementResult.isResult()
+                    || ((int) supplementResult.getData()) > 100000
+                    || ((int) supplementResult.getData()) < 10000) {
+                store.abortPurchase(productsAmountBuy);
+                KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
+                return new Result(false, "Supplement has failed.");
+            }
+            getUserById(userId).removeProductFromCart(productsAmountBuy, storeId);
+            Receipt rec = new Receipt(receiptCounter.inc(), storeId, userId, getUserById(userId).getUserName(), productsAmountBuy, (int) paymentResult.getData(), (int) supplementResult.getData());
+            rec.setTotalCost(totalCost);
+            this.receipts.add(rec);
+            store.addReceipt(rec);
+            getUserById(userId).addReceipt(rec);
+            if (productsAmountBag.size() == productsAmountBuy.size()) {
+                KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId);
+                notifyToSubscribers(getStoreById(storeId).getNotificationId(), "Some one buy from your store! you can go to your purchase to see more details");
+            } else {
+                KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId + "but some products are missing");
+            }
+            return new Result(true, rec.getReceiptId());
         } catch (Exception e) {
             KingLogger.logError("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
             return new Result(false, "purchase failed");
         }
-    }
-
-    public Result payAndSupply(Map<String, String> paymentData, Map<String, String> supplementData) {
-        if (validatePaymentDetails(paymentData)) {
-            if (validateSupplementDetails(supplementData)) {
-                Result paymentResult = paymentAdapter.pay(paymentData);
-                Result supplementResult = supplementAdapter.supply(supplementData);
-
-            }
-            return new Result(false, "Supplement details are invalid.");
-        }
-        return new Result(false, "Payment details are invalid.");
     }
 
     private boolean validatePaymentDetails(Map<String, String> paymentData) {
@@ -1238,6 +1234,7 @@ public class TradingSystem {
                 this.receipts.remove(receipt);
                 st.removeReceipt(receipt);
                 getUserById(receipt.getUserId()).removeReceipt(receipt);
+                KingLogger.logEvent("CANCEL_PURCHASE: purchase that was made with receipt id " + receiptId + " was canceled.");
                 return new Result(true, "Purchase was canceled successfully.");
             }
             return cancelSupplyResult;

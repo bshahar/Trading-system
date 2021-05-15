@@ -22,9 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add externals">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#64 remove purchase from receipts">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -100,10 +100,6 @@
     <property name="settings.editor.selected.configurable" value="android.project.structure" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Server" />
-      <recent name="Permissions" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\דורין\Desktop\תואר\סמסטר ו\סדנה\Trading-system\resources" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Templates" />
@@ -111,17 +107,23 @@
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server\Login" />
     </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Server" />
+      <recent name="Permissions" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Server">
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server.Server" />
+  <component name="RunManager" selected="JUnit.LoginTest.connectionTest">
+    <configuration name="DiscountAndPurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="Server.*" />
+          <option name="PATTERN" value="Tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -192,11 +194,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.LoginTest.connectionTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.viewDiscountPolicyOnStoreSuccessTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.addSimpleDiscountOnStoreSuccessTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.addDiscountOnStoreSuccessTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
       </list>
     </recent_temporary>
   </component>
@@ -489,7 +491,13 @@
       <option name="presentableId" value="LOCAL‎00043" />
       <updated>1621081806082</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL‎00044" summary="#64 remove purchase from receipts">
+      <created>1621085583270</created>
+      <option name="number" value="LOCAL‎00044" />
+      <option name="presentableId" value="LOCAL‎00044" />
+      <updated>1621085583270</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -512,7 +520,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="merges #26" />
     <MESSAGE value="fixed store tests #26" />
     <MESSAGE value="." />
     <MESSAGE value="workspace" />
@@ -537,7 +544,95 @@
     <MESSAGE value="#64 add option to cancel payment/ supplement" />
     <MESSAGE value="#64" />
     <MESSAGE value="#64 fix cancel purchase (payment &amp; supplement)" />
-    <option name="LAST_COMMIT_MESSAGE" value="#64 fix cancel purchase (payment &amp; supplement)" />
+    <MESSAGE value="#64 remove purchase from receipts" />
+    <option name="LAST_COMMIT_MESSAGE" value="#64 remove purchase from receipts" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser" timestamp="1620988711266">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="574" y="119" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1620988711266" />
+    <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes" timestamp="1621077104672">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="551" y="281" width="433" height="267" key="#com.intellij.refactoring.move.moveClassesOrPackages.MoveClassesOrPackagesDialog.classes/0.0.1536.824@0.0.1536.824" timestamp="1621077104672" />
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620909286148">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1620909286148" />
+    <state width="488" height="438" key="DebuggerActiveHint" timestamp="1620985507310">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="488" height="438" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1620985507310" />
+    <state x="268" y="283" key="DetectedRootsChooserDialog" timestamp="1620986741150">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="268" y="283" key="DetectedRootsChooserDialog/0.0.1536.824@0.0.1536.824" timestamp="1620986741150" />
+    <state x="253" y="122" key="FileChooserDialogImpl" timestamp="1620987092355">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="253" y="122" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1620987092355" />
+    <state width="1537" height="237" key="GridCell.Tab.0.bottom" timestamp="1620986298119">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1237" height="109" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1619873194570" />
+    <state width="1537" height="237" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620986298119" />
+    <state width="1537" height="237" key="GridCell.Tab.0.center" timestamp="1620986298118">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1237" height="109" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1619873194570" />
+    <state width="1537" height="237" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1620986298118" />
+    <state width="1537" height="237" key="GridCell.Tab.0.left" timestamp="1620986298118">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1237" height="109" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1619873194570" />
+    <state width="1537" height="237" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1620986298118" />
+    <state width="1537" height="237" key="GridCell.Tab.0.right" timestamp="1620986298118">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1237" height="109" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1619873194570" />
+    <state width="1537" height="237" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1620986298118" />
+    <state width="1537" height="237" key="GridCell.Tab.1.bottom" timestamp="1620986298119">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1537" height="237" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620986298119" />
+    <state width="1537" height="237" key="GridCell.Tab.1.center" timestamp="1620986298119">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1537" height="237" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1620986298119" />
+    <state width="1537" height="237" key="GridCell.Tab.1.left" timestamp="1620986298119">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1537" height="237" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1620986298119" />
+    <state width="1537" height="237" key="GridCell.Tab.1.right" timestamp="1620986298119">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1537" height="237" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1620986298119" />
+    <state x="15" y="0" width="914" height="824" key="SettingsEditor" timestamp="1621076032972">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1619873858885" />
+    <state x="15" y="0" width="914" height="824" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1621076032972" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1621085591809">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1621085591809" />
+    <state x="478" y="147" width="579" height="530" key="find.popup" timestamp="1621076039783">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="147" width="579" height="530" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1621076039783" />
+    <state x="512" y="201" key="git4idea.merge.GitMergeDialog" timestamp="1621001269044">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="512" y="201" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1621001269044" />
+    <state x="0" y="36" key="new project wizard" timestamp="1620912124169">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="0" y="36" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1620912124169" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1621080686097">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1621080686097" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -581,11 +676,6 @@
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
           <line>463</line>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>543</line>
-          <option name="timeStamp" value="41" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

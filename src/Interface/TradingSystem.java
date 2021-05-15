@@ -542,19 +542,19 @@ public class TradingSystem {
                 }
             }
             Result paymentResult = paymentAdapter.pay(paymentData);
+            Result supplementResult = supplementAdapter.supply(supplementData);
             if (paymentResult.isResult()
                     && ((int) paymentResult.getData()) > 10000
                     && ((int) paymentResult.getData()) < 100000) {
-                getUserById(userId).removeProductFromCart(productsAmountBuy, storeId);
-                Receipt rec = new Receipt(receiptCounter.inc(), storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
-                rec.setTotalCost(totalCost);
-                this.receipts.add(rec);
-                store.addReceipt(rec);
-                getUserById(userId).addReceipt(rec);
-                Result supplementResult = supplementAdapter.supply(supplementData);
                 if (supplementResult.isResult()
                         && ((int) supplementResult.getData()) > 10000
                         && ((int) supplementResult.getData()) < 100000) {
+                    getUserById(userId).removeProductFromCart(productsAmountBuy, storeId);
+                    Receipt rec = new Receipt(receiptCounter.inc(), storeId, userId, getUserById(userId).getUserName(), productsAmountBuy, (int)paymentResult.getData(), (int)supplementResult.getData());
+                    rec.setTotalCost(totalCost);
+                    this.receipts.add(rec);
+                    store.addReceipt(rec);
+                    getUserById(userId).addReceipt(rec);
                     if (productsAmountBag.size() == productsAmountBuy.size()) {
                         KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId);
                         notifyToSubscribers(getStoreById(storeId).getNotificationId(), "Some one buy from your store! you can go to your purchase to see more details");
@@ -817,6 +817,14 @@ public class TradingSystem {
         return null;
     }
 
+    private Product getProductByName(String productName) {
+        for (Store store : stores) {
+            if (store.getProductByName(productName) != null) {
+                return store.getProductByName(productName);
+            }
+        }
+        return null;
+    }
 
     public Result addDiscountPolicyOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams, String beginStr, String endStr, int percentage, String mathOp) {
         Store st = getStoreById(storeId);
@@ -1167,25 +1175,45 @@ public class TradingSystem {
         String[] parts = date.split("/");
         Calendar cal = Calendar.getInstance();
         cal.set(Calendar.YEAR, Integer.parseInt(parts[2]));
-        cal.set(Calendar.MONTH, Integer.parseInt(parts[1]) - 1);//Calendar.DECEMBER);
+        cal.set(Calendar.MONTH, Integer.parseInt(parts[1]) - 1);
         cal.set(Calendar.DAY_OF_MONTH, Integer.parseInt(parts[0]));
         return cal.getTime();
     }
 
-    public Result cancelPayment(int storeId, int userId, String transactionId) {
-        //TODO validate user id? -> transaction was made by this user
+    public Result cancelPayment(String transactionId) {
         Result cancelPaymentResult = paymentAdapter.cancelPayment(Integer.parseInt(transactionId));
         if(cancelPaymentResult.isResult() && (Integer)cancelPaymentResult.getData() == 1)
             return new Result(true, "Payment was canceled successfully.");
         return new Result(false, "Could not cancel payment.");
     }
 
-    public Result cancelSupplement(int storeId, int userId, String transactionId) {
-        //TODO validate user id? -> transaction was made by this user
+    public Result cancelSupplement(String transactionId) {
         Result cancelSupplementResult = supplementAdapter.cancelSupplement(Integer.parseInt(transactionId));
         if(cancelSupplementResult.isResult() && (Integer)cancelSupplementResult.getData() == 1)
             return new Result(true, "Supplement was canceled successfully.");
         return new Result(false, "Could not cancel payment.");
+    }
+
+    public Result cancelPurchase(int receiptId) {
+        Receipt receipt = (Receipt)getReceipt(receiptId).getData();
+        int paymentTransaction = receipt.getPaymentTransaction();
+        int supplementTransaction = receipt.getSupplementTransaction();
+        Result cancelPayResult = cancelPayment(String.valueOf(paymentTransaction));
+        if(cancelPayResult.isResult()) {
+            Result cancelSupplyResult = cancelSupplement(String.valueOf(supplementTransaction));
+            if(cancelSupplyResult.isResult()) {
+                Store st = getStoreById(receipt.getStoreId());
+                Map<Product, Integer> purchaseBag = new HashMap<>();
+                for(Receipt.ReceiptLine rLine : receipt.getLines()) {
+                    purchaseBag.put(st.getProductByName(rLine.getProdName()), rLine.getAmount());
+                }
+                st.abortPurchase(purchaseBag);
+                return new Result(true, "Purchase was canceled successfully.");
+            }
+            return cancelSupplyResult;
+        }
+        else
+            return cancelPayResult;
     }
 
 }

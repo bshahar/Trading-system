@@ -157,6 +157,10 @@ public class Store {
         return inventory.getProductById(id);
     }
 
+    public Product getProductByName(String name) {
+        return inventory.getProductByName(name);
+    }
+
     public boolean canBuyProduct(Product product, int amount) {
         return inventory.canBuyProduct(product,amount);
     }

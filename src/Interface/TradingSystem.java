@@ -543,8 +543,8 @@ public class TradingSystem {
             }
             Result paymentResult = paymentAdapter.pay(paymentData);
             if (paymentResult.isResult()
-                    && Integer.parseInt((String) paymentResult.getData()) > 10000
-                    && Integer.parseInt((String) paymentResult.getData()) < 100000) {
+                    && ((int) paymentResult.getData()) > 10000
+                    && ((int) paymentResult.getData()) < 100000) {
                 getUserById(userId).removeProductFromCart(productsAmountBuy, storeId);
                 Receipt rec = new Receipt(receiptCounter.inc(), storeId, userId, getUserById(userId).getUserName(), productsAmountBuy);
                 rec.setTotalCost(totalCost);

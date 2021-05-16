@@ -22,11 +22,69 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix db problems">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Persistance/AgeLimitPolicyEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/AgeLimitPolicyEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/AppointmentsEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/AppointmentsEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/BagProductAmountEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/BagProductAmountEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/ConditionalDiscountEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/ConditionalDiscountEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/CountersEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountByMinimalAmountEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountByMinimalAmountEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountByMinimalCostEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountByMinimalCostEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountByPurchaseTimeEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountByPurchaseTimeEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountConditionEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountsEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/ImmediatePurchasesEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/InventoryEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/InventoryEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/MaxAmountPolicyEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/MaxAmountPolicyEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/MemberStorePermissionsEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/MemberStorePermissionsEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/MinAmountPolicyEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/MinAmountPolicyEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/ProductCategoriesEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/ProductReviewsEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/ProductsEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/PurchaseConditionEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/ReceiptLinesEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/ReceiptsEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnCategoriesEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnCategoriesEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnProductsEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnProductsEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnStoresEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreEmployeesEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreManagersEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreOwnersEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnCategoriesEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnCategoriesEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnProductsEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnProductsEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnStoresEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreReceiptsEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreReceiptsEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/StoresEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/TimeLimitPolicyEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/TimeLimitPolicyEntityPK.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/UserMessagesEntity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistance/UsersEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/MyWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/ReceiptEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/ReceiptLineEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/ReceiptLineEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/hibernate.cfg.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -96,7 +154,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="Hibernet" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -144,7 +202,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.22987013" />
-    <property name="project.structure.side.proportion" value="0.14681725" />
+    <property name="project.structure.side.proportion" value="0.30332923" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
@@ -154,16 +212,16 @@
       <recent name="Server" />
       <recent name="Permissions" />
     </key>
-    <key name="ImportMappingsDialog.RecentPackages">
-      <recent name="" />
-      <recent name="Persistance" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\erez1\IdeaProjects\Trading-system\src\Persistance" />
       <recent name="C:\Users\erez1\IdeaProjects\Trading-system\.idea\libraries" />
       <recent name="C:\Users\דורין\Desktop\תואר\סמסטר ו\סדנה\Trading-system\resources" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Templates" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\docs" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="Persistance" />
+      <recent name="" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Server">
@@ -176,6 +234,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -564,13 +633,12 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="connect trading system to stores #27" />
@@ -599,142 +667,6 @@
     <MESSAGE value="new db" />
     <MESSAGE value="fix db problems" />
     <option name="LAST_COMMIT_MESSAGE" value="fix db problems" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="403" y="66" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1621152270461">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="403" y="66" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621152270461" />
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser" timestamp="1621001982443">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="229" key="#com.intellij.ide.util.MemberChooser/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621001982443" />
-    <state x="689" y="295" key="#com.intellij.ide.util.PackageChooserDialog" timestamp="1621000360041">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="689" y="295" key="#com.intellij.ide.util.PackageChooserDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621000360041" />
-    <state x="630" y="423" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath" timestamp="1621154475943">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="630" y="423" key="#com.intellij.javaee.module.view.common.J2EE.J2EEDeploymentDescriptorLocationPanel.changeDDPath/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621154475943" />
-    <state x="734" y="77" key="#com.intellij.jpa.generation.ui.DatabaseSchemaImportDialog" timestamp="1621152250477">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="734" y="77" key="#com.intellij.jpa.generation.ui.DatabaseSchemaImportDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621152250477" />
-    <state x="624" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1621100797418">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1536.824@0.0.1536.824" timestamp="1620909286148" />
-    <state x="624" y="201" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621100797418" />
-    <state x="562" y="111" key="CommitChangelistDialog2" timestamp="1621152324337">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="562" y="111" key="CommitChangelistDialog2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621152324337" />
-    <state width="488" height="438" key="DebuggerActiveHint" timestamp="1620920437582">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="488" height="438" key="DebuggerActiveHint/0.0.1536.824@0.0.1536.824" timestamp="1620920437582" />
-    <state x="843" y="313" key="FileChooserDialogImpl" timestamp="1621003987080">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="843" y="313" key="FileChooserDialogImpl/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621003987080" />
-    <state width="1877" height="195" key="GridCell.Tab.0.bottom" timestamp="1621153681421">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1237" height="109" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1619873194570" />
-    <state width="1537" height="195" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620920453264" />
-    <state width="1877" height="195" key="GridCell.Tab.0.bottom/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621153681421" />
-    <state width="1877" height="195" key="GridCell.Tab.0.center" timestamp="1621153681421">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1237" height="109" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1619873194570" />
-    <state width="1537" height="195" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1620920453264" />
-    <state width="1877" height="195" key="GridCell.Tab.0.center/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621153681421" />
-    <state width="1877" height="195" key="GridCell.Tab.0.left" timestamp="1621153681420">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1237" height="109" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1619873194570" />
-    <state width="1537" height="195" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1620920453264" />
-    <state width="1877" height="195" key="GridCell.Tab.0.left/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621153681420" />
-    <state width="1877" height="195" key="GridCell.Tab.0.right" timestamp="1621153681421">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1237" height="109" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1619873194570" />
-    <state width="1537" height="195" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1620920453264" />
-    <state width="1877" height="195" key="GridCell.Tab.0.right/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621153681421" />
-    <state width="1877" height="105" key="GridCell.Tab.1.bottom" timestamp="1621093112218">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1537" height="195" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1620920456905" />
-    <state width="1877" height="105" key="GridCell.Tab.1.bottom/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621093112218" />
-    <state width="1877" height="105" key="GridCell.Tab.1.center" timestamp="1621093112218">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1537" height="195" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1620920456905" />
-    <state width="1877" height="105" key="GridCell.Tab.1.center/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621093112218" />
-    <state width="1877" height="105" key="GridCell.Tab.1.left" timestamp="1621093112218">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1537" height="195" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1620920456904" />
-    <state width="1877" height="105" key="GridCell.Tab.1.left/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621093112218" />
-    <state width="1877" height="105" key="GridCell.Tab.1.right" timestamp="1621093112218">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1537" height="195" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1620920456905" />
-    <state width="1877" height="105" key="GridCell.Tab.1.right/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621093112218" />
-    <state width="196" height="457" key="HiddenNamespacesPopup" timestamp="1621089764705">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="196" height="457" key="HiddenNamespacesPopup/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621089764705" />
-    <state x="256" y="91" width="1282" height="851" key="SettingsEditor" timestamp="1621154661157">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="142" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1619873858885" />
-    <state x="15" y="0" width="914" height="824" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1620912945636" />
-    <state x="256" y="91" width="1282" height="851" key="SettingsEditor/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621154661157" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2" timestamp="1621151790526">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1620914255984" />
-    <state x="451" y="183" key="Vcs.Push.Dialog.v2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621151790526" />
-    <state x="845" y="392" width="326" height="255" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1" timestamp="1621091964165">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="845" y="392" width="326" height="255" key="com.intellij.database.actions.DdlActions$DeleteProvider2$1/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621091964165" />
-    <state x="676" y="161" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog" timestamp="1621099822602">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="676" y="161" key="com.intellij.database.view.ui.AbstractDbRefactoringDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621099822602" />
-    <state x="795" y="208" key="com.intellij.database.view.ui.DbObjectDialog" timestamp="1620996223374">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="795" y="208" key="com.intellij.database.view.ui.DbObjectDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1620996223374" />
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog" timestamp="1621150961601">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="656" y="344" key="com.intellij.ide.util.TipDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621150961601" />
-    <state x="598" y="186" width="724" height="669" key="find.popup" timestamp="1621153346085">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="478" y="147" width="579" height="530" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1620907341172" />
-    <state x="598" y="186" width="724" height="669" key="find.popup/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621153346085" />
-    <state x="640" y="254" key="git4idea.merge.GitMergeDialog" timestamp="1620932432928">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="512" y="201" key="git4idea.merge.GitMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1620889927494" />
-    <state x="640" y="254" key="git4idea.merge.GitMergeDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1620932432928" />
-    <state x="660" y="311" key="git4idea.merge.GitPullDialog" timestamp="1621151515368">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="660" y="311" key="git4idea.merge.GitPullDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621151515368" />
-    <state x="0" y="36" key="new project wizard" timestamp="1620912124169">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="0" y="36" key="new project wizard/0.0.1536.824@0.0.1536.824" timestamp="1620912124169" />
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1621153351956">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621153351956" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -802,9 +734,9 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Server.LoginPage.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

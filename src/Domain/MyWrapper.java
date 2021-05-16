@@ -1,7 +1,7 @@
 package Domain;
 
 import Persistance.HibernateUtil;
-import Persistance.ReceiptEntity;
+import Persistance.ReceiptsEntity;
 import org.hibernate.Session;
 import org.hibernate.query.Query;
 
@@ -23,8 +23,8 @@ public class MyWrapper {
                 case "receipt": {
                     Session session2 = HibernateUtil.getSessionFactory().openSession();
                     session2.beginTransaction();
-                    ReceiptEntity rec2 = new ReceiptEntity();
-                    String str = "FROM receipt";
+                    ReceiptsEntity rec2 = new ReceiptsEntity();
+                    String str = "FROM Receipts";
                     Query query = session2.createQuery(str);
                     this.value = query.list();
                     //TODO insert the receipt line into the value receiptline
@@ -54,7 +54,7 @@ public class MyWrapper {
         //adding to db
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
-        ReceiptEntity rec = new ReceiptEntity();
+        ReceiptsEntity rec = new ReceiptsEntity();
         rec.setId(receipt.getReceiptId());
         rec.setStoreId(receipt.getStoreId());
         rec.setUserId(receipt.getUserId());

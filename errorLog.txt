@@ -64,3 +64,7 @@
  
 [2021-05-16] [11:28:07] [WARNING] BUY_PRODUCTS: User with id 3 couldn't make a purchase in store 2
  
+[2021-05-16] [11:48:53] [WARNING] BUY_PRODUCTS: User with id 3 couldn't make a purchase in store 1
+ 
+[2021-05-16] [11:48:53] [WARNING] BUY_PRODUCTS: User with id 3 couldn't make a purchase in store 2
+ 

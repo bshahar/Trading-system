@@ -40,6 +40,11 @@ public class TradingSystem {
     public static Map<Integer , SessionInterface> sessionsMap ;
 
 
+    public boolean isSystemManager(int userId) {
+        return getUserById(userId).isSystemManager();
+
+    }
+
 
     public static enum Permission {
         DEF,
@@ -104,6 +109,8 @@ public class TradingSystem {
         this.stores = Collections.synchronizedList(new LinkedList<>());
         this.users = Collections.synchronizedList(new LinkedList<>());
         this.userAuth = new UserAuth();
+        userAuth.register(systemManager.getUserName(), "123");
+        users.add(systemManager);
         userCounter = new counter();
         storeCounter = new counter();
         productCounter=new counter();

@@ -6,7 +6,7 @@ import Domain.*;
 import java.util.*;
 
 public class DiscountCondition { //Compound object
-
+//todo id
     private List<Policy> discounts;
     private LogicOperator operator;
 

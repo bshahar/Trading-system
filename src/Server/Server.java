@@ -32,17 +32,17 @@ public class Server {
 
 
         //test for inserting to database
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        session.beginTransaction();
-//        ReceiptEntity rec = new ReceiptEntity();
-//        rec.setId(2);
-//        rec.setStoreId(2);
-//        rec.setUserId(3);
-//        rec.setUserName("ErezTest");
-//        rec.setTotalCost(10.00);
-//        session.save(rec);
-//        session.getTransaction().commit();
-//        session.close();
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        ReceiptEntity rec = new ReceiptEntity();
+        rec.setId(100);
+        rec.setStoreId(2);
+        rec.setUserId(3);
+        rec.setUserName("ErezTest");
+        rec.setTotalCost(10.00);
+        session.save(rec);
+        session.getTransaction().commit();
+        session.close();
 
         //test for fetching from database
 //        Session session2 = HibernateUtil.getSessionFactory().openSession();

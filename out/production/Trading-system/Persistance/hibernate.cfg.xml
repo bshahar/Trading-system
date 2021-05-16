@@ -4,9 +4,10 @@
     "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
   <session-factory>
-    <property name="connection.url">jdbc:mysql://remotemysql.com:3306</property>
+    <property name="connection.url">jdbc:mysql://remotemysql.com:3306/zw9P3SlfWt</property>
     <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-
+    <property name="hibernate.connection.password">WQHbR3UruT</property>
+    <property name="hibernate.connection.username">zw9P3SlfWt</property>
       <mapping class="Persistance.ReceiptEntity"/>
     <mapping class="Persistance.ReceiptLineEntity"/>
 

@@ -22,10 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/META-INF/Trading-system.kotlin_module" beforeDir="false" />
-    </list>
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="new db" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -242,11 +239,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.addSimpleDiscountOnStoreSuccessTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.viewDiscountPolicyOnStoreSuccessTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.addSimpleDiscountOnStoreSuccessTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.addDiscountOnStoreSuccessTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
+        <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
   </component>
@@ -539,7 +536,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621093171555</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="new db">
+      <created>1621151306022</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1621151306022</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

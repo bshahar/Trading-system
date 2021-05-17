@@ -22,14 +22,10 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 add of discount on product">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Persistance/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/Persistance/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountFormat/Discount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountFormat/Discount.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/MyWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/DiscountByPurchaseTimeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/DiscountByPurchaseTimeEntity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,7 +288,7 @@
       <workItem from="1619873004711" duration="5248000" />
       <workItem from="1620932301990" duration="15827000" />
       <workItem from="1621150957601" duration="3676000" />
-      <workItem from="1621238907087" duration="8483000" />
+      <workItem from="1621238907087" duration="11972000" />
     </task>
     <task id="LOCAL‎00001" summary="Dorin's changes #24">
       <created>1617455826555</created>
@@ -559,7 +555,13 @@
       <option name="presentableId" value="LOCAL‎00041" />
       <updated>1621239191518</updated>
     </task>
-    <option name="localTasksCounter" value="42" />
+    <task id="LOCAL‎00042" summary="#61 add of discount on product">
+      <created>1621252578159</created>
+      <option name="number" value="LOCAL‎00042" />
+      <option name="presentableId" value="LOCAL‎00042" />
+      <updated>1621252578159</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,7 +584,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="connect trading system to stores #27" />
     <MESSAGE value="adding permissions test #27 #26" />
     <MESSAGE value="merges #26" />
     <MESSAGE value="fixed store tests #26" />
@@ -607,7 +608,8 @@
     <MESSAGE value="new db" />
     <MESSAGE value="fix db problems" />
     <MESSAGE value="xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="xml" />
+    <MESSAGE value="#61 add of discount on product" />
+    <option name="LAST_COMMIT_MESSAGE" value="#61 add of discount on product" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -651,11 +653,6 @@
           <url>file://$PROJECT_DIR$/src/Server/PermissionsWebSocket.java</url>
           <line>65</line>
           <option name="timeStamp" value="22" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>463</line>
-          <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>

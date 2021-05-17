@@ -24,6 +24,8 @@ public class MyWrapper {
         value =obj;
     }
 
+    public Object getValue() { return this.value; }
+
     public Object get(String dbName) {
         if (!updatedValue) {
 
@@ -81,7 +83,24 @@ public class MyWrapper {
         ((Map<Product, Discount>) value).put(prod, dis);
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
+        addDiscountPolicy(session, dis);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
 
+    public boolean add(String category, Discount dis) {
+        Map<String, Discount> map = (Map<String, Discount>) value;
+        ((Map<String, Discount>) value).put(category, dis);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        addDiscountPolicy(session, dis);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+    private void addDiscountPolicy(Session session, Discount dis) {
         //Discount (simple & conditional)
         DiscountsEntity disEntity = new DiscountsEntity();
         disEntity.setId(dis.getId());
@@ -131,10 +150,28 @@ public class MyWrapper {
             condDisEntity.setConditionId(condId);
             condDisEntity.setDiscountId(dis.getId());
         }
+    }
+
+    public boolean remove(Product prod) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(prod);
         session.getTransaction().commit();
         session.close();
+        //TODO fix implementation
         return true;
     }
+
+    public boolean remove(String category) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(category);
+        session.getTransaction().commit();
+        session.close();
+        //TODO fix implementation
+        return true;
+    }
+
 
     private String dateToString(Date date){
         Calendar calendar = Calendar.getInstance();

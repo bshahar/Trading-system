@@ -6,11 +6,13 @@ import Domain.*;
 import java.util.*;
 
 public class DiscountCondition { //Compound object
-//todo id
+
+    private int id;
     private List<Policy> discounts;
     private LogicOperator operator;
 
-    public DiscountCondition(){
+    public DiscountCondition(int id){
+        this.id = id;
         this.discounts = new LinkedList<Policy>();
         this.operator = new NoneOperator();
     }
@@ -25,6 +27,8 @@ public class DiscountCondition { //Compound object
             return discounts.get(0).validateCondition(user, time, bag);
         return operator.validateCondition(discounts, user, time, bag);
     }
+
+    public int getId() { return this.id; }
 
     public void setOperator(LogicOperator operator) { this.operator = operator; }
 

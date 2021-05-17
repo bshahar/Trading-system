@@ -8,9 +8,9 @@ import java.util.Objects;
 @IdClass(DiscountByPurchaseTimeEntityPK.class)
 public class DiscountByPurchaseTimeEntity {
     private int conditionId;
-    private byte byDayInWeek;
-    private int byDayInMonth;
-    private byte byHourInDay;
+    private boolean byDayInWeek;
+    private boolean byDayInMonth;
+    private boolean byHourInDay;
     private int dayInWeek;
     private int dayInMonth;
     private int beginHour;
@@ -28,31 +28,31 @@ public class DiscountByPurchaseTimeEntity {
 
     @Id
     @Column(name = "byDayInWeek")
-    public byte getByDayInWeek() {
+    public boolean getByDayInWeek() {
         return byDayInWeek;
     }
 
-    public void setByDayInWeek(byte byDayInWeek) {
+    public void setByDayInWeek(boolean byDayInWeek) {
         this.byDayInWeek = byDayInWeek;
     }
 
     @Id
     @Column(name = "byDayInMonth")
-    public int getByDayInMonth() {
+    public boolean getByDayInMonth() {
         return byDayInMonth;
     }
 
-    public void setByDayInMonth(int byDayInMonth) {
+    public void setByDayInMonth(boolean byDayInMonth) {
         this.byDayInMonth = byDayInMonth;
     }
 
     @Id
     @Column(name = "byHourInDay")
-    public byte getByHourInDay() {
+    public boolean getByHourInDay() {
         return byHourInDay;
     }
 
-    public void setByHourInDay(byte byHourInDay) {
+    public void setByHourInDay(boolean byHourInDay) {
         this.byHourInDay = byHourInDay;
     }
 

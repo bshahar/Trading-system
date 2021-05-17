@@ -23,69 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Persistance/AgeLimitPolicyEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/AgeLimitPolicyEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/AppointmentsEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/AppointmentsEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/BagProductAmountEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/BagProductAmountEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/ConditionalDiscountEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/ConditionalDiscountEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/CountersEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountByMinimalAmountEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountByMinimalAmountEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountByMinimalCostEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountByMinimalCostEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountByPurchaseTimeEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountByPurchaseTimeEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountConditionEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/DiscountsEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/ImmediatePurchasesEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/InventoryEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/InventoryEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/MaxAmountPolicyEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/MaxAmountPolicyEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/MemberStorePermissionsEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/MemberStorePermissionsEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/MinAmountPolicyEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/MinAmountPolicyEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/ProductCategoriesEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/ProductReviewsEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/ProductsEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/PurchaseConditionEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/ReceiptLinesEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/ReceiptsEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnCategoriesEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnCategoriesEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnProductsEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnProductsEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnStoresEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreEmployeesEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreManagersEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreOwnersEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnCategoriesEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnCategoriesEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnProductsEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnProductsEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnStoresEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreReceiptsEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StoreReceiptsEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/StoresEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/TimeLimitPolicyEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/TimeLimitPolicyEntityPK.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/UserMessagesEntity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistance/UsersEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Persistance/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/Persistance/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountFormat/Discount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountFormat/Discount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/MyWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permission.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/ReceiptEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/ReceiptLineEntity.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/ReceiptLineEntityPK.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistance/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/hibernate.cfg.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/DiscountByPurchaseTimeEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/DiscountByPurchaseTimeEntity.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -149,12 +93,12 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/purchaseSystem" />
+    <option name="BRANCH" value="main" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Hibernet" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -234,17 +178,6 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -343,6 +276,7 @@
       </list>
     </option>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -358,6 +292,7 @@
       <workItem from="1619873004711" duration="5248000" />
       <workItem from="1620932301990" duration="15827000" />
       <workItem from="1621150957601" duration="3676000" />
+      <workItem from="1621238907087" duration="8483000" />
     </task>
     <task id="LOCAL‎00001" summary="Dorin's changes #24">
       <created>1617455826555</created>
@@ -618,11 +553,17 @@
       <option name="project" value="LOCAL" />
       <updated>1621151775266</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL‎00041" summary="xml">
+      <created>1621239191518</created>
+      <option name="number" value="LOCAL‎00041" />
+      <option name="presentableId" value="LOCAL‎00041" />
+      <updated>1621239191518</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -659,21 +600,21 @@
     <MESSAGE value="logger in the trading system" />
     <MESSAGE value="logger in the code" />
     <MESSAGE value="pemission action web socket" />
-    <MESSAGE value="xml" />
     <MESSAGE value="#62 create configuration files for system initialization and tests" />
     <MESSAGE value="fix dates sent to GUI in view policies" />
     <MESSAGE value="adding database infrastructure" />
     <MESSAGE value=".." />
     <MESSAGE value="new db" />
     <MESSAGE value="fix db problems" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix db problems" />
+    <MESSAGE value="xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
-          <line>286</line>
+          <line>300</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -713,17 +654,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>459</line>
+          <line>463</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>331</line>
-          <option name="timeStamp" value="38" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>325</line>
+          <line>341</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
       </breakpoints>

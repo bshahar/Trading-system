@@ -1,22 +1,10 @@
 package Server;
-import Persistance.HibernateUtil;
-import Persistance.ReceiptEntity;
-import org.hibernate.Session;
-import org.hibernate.cfg.Configuration;
-import org.hibernate.query.Query;
-import Domain.Receipt;
-import Permissions.AddProduct;
-import Permissions.OpenStore;
 import Server.Login.LoginWebSocket;
 import Server.myStores.myStoresWebSocket;
 import Service.API;
-import org.hibernate.Session;
-import spark.ModelAndView;
 import spark.Spark;
-import spark.template.thymeleaf.ThymeleafTemplateEngine;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 public class Server {
 
@@ -43,18 +31,26 @@ public class Server {
 
 
         //test for inserting to database
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        ReceiptEntity rec = new ReceiptEntity();
-        rec.setId(1);
-        rec.setStoreId(2);
-        rec.setUserId(3);
-        rec.setUserName("ErezTest");
-        rec.setTotalCost(10.00);
-        session.save(rec);
-        session.getTransaction().commit();
-        session.close();
-        //
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        session.beginTransaction();
+//        ReceiptEntity rec = new ReceiptEntity();
+//        rec.setId(102);
+//        rec.setStoreId(2);
+//        rec.setUserId(3);
+//        rec.setUserName("ErezTest");
+//        rec.setTotalCost(10.00);
+//        session.save(rec);
+//        session.getTransaction().commit();
+//        session.close();
+
+        //test for fetching from database
+//        Session session2 = HibernateUtil.getSessionFactory().openSession();
+//        session2.beginTransaction();
+//        ReceiptEntity rec2 = new ReceiptEntity();
+//        session2.load(rec2,1);
+//        System.out.println(rec2.getId() + " - " +rec2.getStoreId() + " - " + rec2.getUserName());
+//        session.getTransaction().commit();
+//        session.close();
 
 
         try {

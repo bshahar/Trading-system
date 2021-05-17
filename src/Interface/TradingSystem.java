@@ -34,83 +34,11 @@ public class TradingSystem {
     private UserAuth userAuth;
     private List<Store> stores;
     private User systemManager;
-    private List<Receipt> receipts;
+    private MyWrapper receipts;
     private List<User> users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
 
-    public int getSystemManagerId() {
-        return systemManager.getId();
-    }
-
-    public List<Integer> getpermissionsIndex(List<String> names) {
-        List<Integer> indexes =new LinkedList<>();
-        for(String name: names){
-            indexes.add(getIndex(TradingSystem.permissionsName, name));
-        }
-        return indexes;
-    }
-
-    private Integer getIndex(String[] permissionsName, String name) {
-        for(int i=0; i<permissionsName.length;i++){
-            if(permissionsName[i].equals(name)){
-                return i;
-            }
-        }
-        return -1;
-    }
-
-    public Result getGlobalPurchaseUserHistory(int tradingSystemManager, int userId) {
-        if(this.systemManager.getId() == tradingSystemManager){
-            KingLogger.logEvent("GLOBAL_USER_HISTORY:  system manager " + tradingSystemManager + "got purchase history of user " + userId);
-            return getUserPurchaseHistory(userId);
-        }
-        KingLogger.logEvent("GLOBAL_USER_HISTORY:  user " + tradingSystemManager + "is not a system manager");
-        return new Result(false, "Username is not system manager");
-    }
-
-    public Result addSession(int userId, Session session) {
-        getUserById(userId).setSession(session);
-        return new Result(true,"session added\n");
-    }
-    public Result removeSession(int userId) {
-        getUserById(userId).setSession(null);
-        return new Result(true,"session remove\n");
-    }
-
-    public Result sendAlertsAfterPurchase(int storeId) {
-        try {
-            Result result2 = API.getManagersAndOwnersOfStore(storeId);
-            for (Integer id : (Set<Integer>) result2.getData()) {
-                sendAlert(id,"Someone buy from your store! go check it out");
-            }
-            return new Result(true,"send successfully alerts\n");
-        }
-        catch (Exception e)
-        {
-            return new Result(false,"Exception while sending msg\n");
-        }
-
-    }
-
-    public Result sendAlert(int userId, String msg) {
-        try {
-            JSONObject json = new JSONObject();
-            json.put("type", "ALERT");
-            json.put("data", msg);
-            getUserById(userId).addNotification(json.toString());
-            return new Result(true,"send successfully alerts\n");
-        }
-        catch (Exception e)
-        {
-            return new Result(false,"Exception while sending msg\n");
-        }
-
-    }
-
-    public void setSessionDemo(int userId) {
-        getUserById(userId).setSessionDemo();
-    }
 
     public static void setPaymentAdapterDemo() { paymentAdapter = new DemoPayment(); }
 
@@ -190,8 +118,8 @@ public class TradingSystem {
             paymentAdapter = new PaymentAdapter(externalSystemsUrl);
             supplementAdapter = new SupplementAdapter(externalSystemsUrl);
         }
+        this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
         this.stores = Collections.synchronizedList(new LinkedList<>());
-        this.receipts = Collections.synchronizedList(new LinkedList<>());
         this.users = Collections.synchronizedList(new LinkedList<>());
         this.userAuth = new UserAuth();
         userAuth.register(systemManager.getUserName(), "123");
@@ -207,6 +135,81 @@ public class TradingSystem {
         AppointSystemManager(systemManager);
         sessionsMap = new ConcurrentHashMap<>();
     }
+
+    public int getSystemManagerId() {
+        return systemManager.getId();
+    }
+
+    public List<Integer> getpermissionsIndex(List<String> names) {
+        List<Integer> indexes =new LinkedList<>();
+        for(String name: names){
+            indexes.add(getIndex(TradingSystem.permissionsName, name));
+        }
+        return indexes;
+    }
+
+    private Integer getIndex(String[] permissionsName, String name) {
+        for(int i=0; i<permissionsName.length;i++){
+            if(permissionsName[i].equals(name)){
+                return i;
+            }
+        }
+        return -1;
+    }
+
+    public Result getGlobalPurchaseUserHistory(int tradingSystemManager, int userId) {
+        if(this.systemManager.getId() == tradingSystemManager){
+            KingLogger.logEvent("GLOBAL_USER_HISTORY:  system manager " + tradingSystemManager + "got purchase history of user " + userId);
+            return getUserPurchaseHistory(userId);
+        }
+        KingLogger.logEvent("GLOBAL_USER_HISTORY:  user " + tradingSystemManager + "is not a system manager");
+        return new Result(false, "Username is not system manager");
+    }
+
+    public Result addSession(int userId, Session session) {
+        getUserById(userId).setSession(session);
+        return new Result(true,"session added\n");
+    }
+    public Result removeSession(int userId) {
+        getUserById(userId).setSession(null);
+        return new Result(true,"session remove\n");
+    }
+
+    public Result sendAlertsAfterPurchase(int storeId) {
+        try {
+            Result result2 = API.getManagersAndOwnersOfStore(storeId);
+            for (Integer id : (Set<Integer>) result2.getData()) {
+                sendAlert(id,"Someone buy from your store! go check it out");
+            }
+            return new Result(true,"send successfully alerts\n");
+        }
+        catch (Exception e)
+        {
+            return new Result(false,"Exception while sending msg\n");
+        }
+
+    }
+
+    public Result sendAlert(int userId, String msg) {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("type", "ALERT");
+            json.put("data", msg);
+            getUserById(userId).addNotification(json.toString());
+            return new Result(true,"send successfully alerts\n");
+        }
+        catch (Exception e)
+        {
+            return new Result(false,"Exception while sending msg\n");
+        }
+
+    }
+
+    public void setSessionDemo(int userId) {
+        getUserById(userId).setSessionDemo();
+    }
+
+
 
     private void AppointSystemManager(User systemManager) {
         systemManager.appointSystemManager(this.stores);
@@ -646,6 +649,7 @@ public class TradingSystem {
             systemManager.addStoreToSystemManager(store);
             user.openStore(store);
             this.stores.add(store);
+
             KingLogger.logEvent("OPEN_STORE: User with id " + userId + " open the store " + storeName);
             Result result = addObservable(storeName);
             int subscribeId = (int)result.getData();
@@ -1110,7 +1114,7 @@ public class TradingSystem {
     }
 
     public Result getReceipt(int receiptId) {
-        for (Receipt r: this.receipts) {
+        for (Receipt r: (List<Receipt>)this.receipts.get("receipt")) {
             if(r.getReceiptId() == receiptId)
                 return new Result(true, r);
         }

@@ -2,11 +2,11 @@ package Service;
 
 import Domain.*;
 import Interface.TradingSystem;
+import Persistance.User;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
 
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -31,8 +31,9 @@ public class API {
         String sysManagerName = appProps.getProperty("systemManagerName");
         String sysManagerId = appProps.getProperty("systemManagerId");
         String sysManagerAge = appProps.getProperty("systemManagerAge");
+        String testing = appProps.getProperty("test");
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), 1);
-        tradingSystem = new TradingSystem(sysManager);
+        tradingSystem = new TradingSystem(sysManager,Integer.parseInt(testing));
 
         /*
         //String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();

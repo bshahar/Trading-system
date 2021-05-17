@@ -1,12 +1,18 @@
 <?xml version='1.0' encoding='utf-8'?>
 <!DOCTYPE hibernate-configuration PUBLIC
     "-//Hibernate/Hibernate Configuration DTD//EN"
-    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"
+        >
 <hibernate-configuration>
+
   <session-factory>
-    <property name="connection.url">jdbc:mysql://remotemysql.com:3306</property>
+
+    <property name="connection.url">jdbc:mysql://remotemysql.com:3306/zw9P3SlfWt</property>
     <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-      <mapping class="Persistance.AgeLimitPolicyEntity"/>
+    <property name="hibernate.connection.password">WQHbR3UruT</property>
+    <property name="hibernate.connection.username">zw9P3SlfWt</property>
+
+    <mapping class="Persistance.AgeLimitPolicyEntity"/>
       <mapping class="Persistance.AppointmentsEntity"/>
       <mapping class="Persistance.BagProductAmountEntity"/>
       <mapping class="Persistance.ConditionalDiscountEntity"/>
@@ -25,7 +31,6 @@
     <mapping class="Persistance.ProductReviewsEntity"/>
     <mapping class="Persistance.ProductsEntity"/>
     <mapping class="Persistance.PurchaseConditionEntity"/>
-    <mapping class="Persistance.ReceiptLinesEntity"/>
     <mapping class="Persistance.ReceiptsEntity"/>
     <mapping class="Persistance.StoreDiscountsOnCategoriesEntity"/>
     <mapping class="Persistance.StoreDiscountsOnProductsEntity"/>
@@ -40,10 +45,11 @@
     <mapping class="Persistance.StoresEntity"/>
     <mapping class="Persistance.TimeLimitPolicyEntity"/>
     <mapping class="Persistance.UserMessagesEntity"/>
-    <mapping class="Persistance.UsersEntity"/>
+    <mapping class="Persistance.User"/>
 
 
     <!-- DB schema will be updated if needed -->
     <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
   </session-factory>
+
 </hibernate-configuration>

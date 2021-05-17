@@ -1,6 +1,7 @@
 package Permissions;
 
 import Domain.*;
+import Persistance.User;
 
 
 public class AppointOwner {

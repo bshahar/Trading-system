@@ -9,21 +9,9 @@ import java.util.Objects;
 @Entity
 @Table(name = "ReceiptLines", schema = "zw9P3SlfWt", catalog = "")
 public class ReceiptLinesEntity {
-    private int receiptId;
     private String prodName;
     private Integer price;
     private Integer amount;
-    private Integer productId;
-
-    @Basic
-    @Column(name = "receiptId")
-    public int getReceiptId() {
-        return receiptId;
-    }
-
-    public void setReceiptId(int receiptId) {
-        this.receiptId = receiptId;
-    }
 
     @Basic
     @Column(name = "prodName")
@@ -55,26 +43,16 @@ public class ReceiptLinesEntity {
         this.amount = amount;
     }
 
-    @Basic
-    @Column(name = "productId")
-    public Integer getProductId() {
-        return productId;
-    }
-
-    public void setProductId(Integer productId) {
-        this.productId = productId;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         ReceiptLinesEntity that = (ReceiptLinesEntity) o;
-        return receiptId == that.receiptId && Objects.equals(prodName, that.prodName) && Objects.equals(price, that.price) && Objects.equals(amount, that.amount) && Objects.equals(productId, that.productId);
+        return Objects.equals(prodName, that.prodName) && Objects.equals(price, that.price) && Objects.equals(amount, that.amount);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(receiptId, prodName, price, amount, productId);
+        return Objects.hash(prodName, price, amount);
     }
 }

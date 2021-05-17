@@ -2,13 +2,8 @@ package Domain;
 
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
-import Domain.Member;
 import Domain.PurchasePolicies.PurchaseCondition;
-import Domain.PurchasePolicies.PurchasePolicy;
-import Domain.Receipt;
-import Domain.Product;
-import Domain.Store;
-import Domain.User;
+import Persistance.User;
 import Permissions.*;
 
 import java.util.*;

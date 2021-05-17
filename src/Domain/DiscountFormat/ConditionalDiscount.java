@@ -3,7 +3,7 @@ package Domain.DiscountFormat;
 import Domain.Bag;
 import Domain.DiscountPolicies.*;
 import Domain.Product;
-import Domain.User;
+import Persistance.User;
 
 import java.util.*;
 

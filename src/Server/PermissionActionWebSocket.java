@@ -1,6 +1,7 @@
 package Server;
 
 import Domain.*;
+import Persistance.User;
 import Service.API;
 import org.eclipse.jetty.websocket.api.*;
 import org.eclipse.jetty.websocket.api.annotations.*;

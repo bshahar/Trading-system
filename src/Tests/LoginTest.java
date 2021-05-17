@@ -3,6 +3,7 @@ package Tests;
 import Domain.Result;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
+import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

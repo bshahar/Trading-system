@@ -3,7 +3,7 @@ package Permissions;
 import Domain.Member;
 import Domain.Result;
 import Domain.Store;
-import Domain.User;
+import Persistance.User;
 
 public class RemoveOwnerAppointment {
     final private Member member;

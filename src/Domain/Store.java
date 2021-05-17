@@ -2,11 +2,9 @@ package Domain;
 
 import Domain.DiscountFormat.*;
 import Domain.DiscountPolicies.DiscountCondition;
-import Domain.Operators.LogicOperator;
-import Domain.Operators.NoneOperator;
 import Domain.PurchaseFormat.ImmediatePurchase;
-import Domain.PurchaseFormat.Purchase;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Persistance.User;
 import Service.counter;
 import javafx.util.Pair;
 

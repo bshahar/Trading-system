@@ -1,15 +1,12 @@
 package Persistance;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
 @Table(name = "Counters", schema = "zw9P3SlfWt", catalog = "")
 public class CountersEntity {
-    private Integer storeCounter;
+    private int storeCounter;
     private Integer userCounter;
     private Integer productCounter;
     private Integer receiptCounter;
@@ -18,13 +15,13 @@ public class CountersEntity {
     private Integer discountConditionCounter;
     private Integer notificationCounter;
 
-    @Basic
+    @Id
     @Column(name = "storeCounter")
-    public Integer getStoreCounter() {
+    public int getStoreCounter() {
         return storeCounter;
     }
 
-    public void setStoreCounter(Integer storeCounter) {
+    public void setStoreCounter(int storeCounter) {
         this.storeCounter = storeCounter;
     }
 
@@ -103,7 +100,7 @@ public class CountersEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         CountersEntity that = (CountersEntity) o;
-        return Objects.equals(storeCounter, that.storeCounter) && Objects.equals(userCounter, that.userCounter) && Objects.equals(productCounter, that.productCounter) && Objects.equals(receiptCounter, that.receiptCounter) && Objects.equals(observableCounter, that.observableCounter) && Objects.equals(immediatePurchaseCounter, that.immediatePurchaseCounter) && Objects.equals(discountConditionCounter, that.discountConditionCounter) && Objects.equals(notificationCounter, that.notificationCounter);
+        return storeCounter == that.storeCounter && Objects.equals(userCounter, that.userCounter) && Objects.equals(productCounter, that.productCounter) && Objects.equals(receiptCounter, that.receiptCounter) && Objects.equals(observableCounter, that.observableCounter) && Objects.equals(immediatePurchaseCounter, that.immediatePurchaseCounter) && Objects.equals(discountConditionCounter, that.discountConditionCounter) && Objects.equals(notificationCounter, that.notificationCounter);
     }
 
     @Override

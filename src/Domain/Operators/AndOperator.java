@@ -2,7 +2,7 @@ package Domain.Operators;
 
 import Domain.Bag;
 import Domain.Policy;
-import Domain.User;
+import Persistance.User;
 
 import java.util.*;
 

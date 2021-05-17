@@ -6,18 +6,14 @@ import Domain.DiscountPolicies.DiscountCondition;
 import Domain.DiscountPolicies.PolicyCondition;
 import Domain.Operators.*;
 import Domain.PurchasePolicies.PurchaseCondition;
-import Domain.Sessions.DemoSession;
 import Domain.Sessions.SessionInterface;
-import Permissions.AppointManager;
-import Server.MainWebSocket;
+
+import Persistance.User;
 import Service.*;
-import ch.qos.logback.core.encoder.EchoEncoder;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
 import org.json.JSONObject;
 
-import java.time.Instant;
-import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -35,7 +31,7 @@ public class TradingSystem {
     private List<Store> stores;
     private User systemManager;
     private MyWrapper receipts;
-    private List<User> users;
+    private MyWrapper users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
 
@@ -103,14 +99,14 @@ public class TradingSystem {
             "ViewPurchasePolicies"
     };
 
-    public TradingSystem (User systemManager) {
-        this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
+    public TradingSystem (User systemManager,int testing) {
+        this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()),testing);
         this.paymentAdapter = new PaymentAdapter(new DemoPayment());
         this.stores = Collections.synchronizedList(new LinkedList<>());
-        this.users = Collections.synchronizedList(new LinkedList<>());
+        this.users =  new MyWrapper(Collections.synchronizedList(new LinkedList<>()),testing);
         this.userAuth = new UserAuth();
         userAuth.register(systemManager.getUserName(), "123");
-        users.add(systemManager);
+        //users.add(systemManager);
         userCounter = new counter();
         storeCounter = new counter();
         productCounter=new counter();
@@ -204,11 +200,11 @@ public class TradingSystem {
 
     public Result getUserIdByName(String userName) {
 
-        for(User user : users){
-            if(user.getUserName().equals(userName)){
-                return new Result(true,user.getId());
-            }
-        }
+//        for(User user : users){
+//            if(user.getUserName().equals(userName)){
+//                return new Result(true,user.getId());
+//            }
+//        }
         return new Result(false, "User Name not exist");
     }
 
@@ -229,12 +225,12 @@ public class TradingSystem {
     //if the user performed login successfully return his id. else return -1
     public Result login(String userName,String pass) {
         if(userAuth.loginAuthentication(userName,pass)) {
-            for (User user : users) {
-                if (user.getUserName().equals(userName) && !user.isLogged()) {
-                    user.setLogged(true);
+            User user = users.searchUserByName(userName);
+            if(user!=null && (user.getLogged().equals((byte)0)))
+            {
+                    user.setLogged((byte)1);
                     KingLogger.logEvent("LOGIN:  User " + userName + " logged into the system.");
                     return new Result( true,user.getId());
-                }
             }
         }
         KingLogger.logEvent("LOGIN:  User " + userName + ": Username or Password not correct");
@@ -312,7 +308,7 @@ public class TradingSystem {
 
     public Result guestLogin() {
         User guest = new User("Guest", 19,  userCounter.inc(), 0);
-        guest.setLogged(true);
+        guest.setLogged((byte)1);
         users.add(guest);
         int id = guest.getId();
         KingLogger.logEvent("GUEST_LOGIN: Guest logged into the system with id: " + id);
@@ -322,7 +318,7 @@ public class TradingSystem {
     public Result isLogged(int userId) {
         User user = getUserById(userId);
         if (user != null)
-            return new Result(true,user.isLogged());
+            return new Result(true,user.isLooged());
         return new Result(false,"User not exist");
     }
 
@@ -330,9 +326,9 @@ public class TradingSystem {
     public Result guestRegister (int userId, String userName, String password){
         try {
             if(userAuth.guestRegister(userName,password)){
-                getUserById(userId).setRegistered();
+                getUserById(userId).setRegistered((byte) 0);
                 getUserById(userId).setName(userName);
-                getUserById(userId).setLogged(false);
+                getUserById(userId).setLogged((byte)0);
                 KingLogger.logEvent("GUEST_REGISTER: User " + userName + " registered to the system.");
                 return new Result(true,userId);
 
@@ -350,30 +346,26 @@ public class TradingSystem {
 
     public Result logout(int userId) {
         User user = getUserById(userId);
-        if (user == null || !user.isLogged() || !user.isRegistered()) {
+        if (user == null || !user.isLooged()|| !user.isRegistered()) {
             KingLogger.logEvent("LOGOUT: User " + userId + ": User has not logged in");
             return new Result(false,"User has not logged in");
         }
-        user.setLogged(false);
+        user.setLogged((byte)0);
         KingLogger.logEvent("LOGOUT: User " + user.getUserName() + " logged out of the system.");
         return new Result(true,true);
     }
 
     public User getUserById(int userId) {
-        for (User user : users) {
-            if (user.getId() == userId)
-                return user;
-        }
-        return null;
+        return (User)this.users.getOne("user",userId);
     }
 
     public Result getNumOfUsers(){
-        return new Result(true,users.size());
+         return new Result(true,users.size());
     }
 
     public Result getAllStoresInfo(int userId) {
         User u = getUserById(userId);
-        if (u != null && u.isLogged()) {
+        if (u != null && u.isLooged()) {
             return new Result(true,this.stores) ;
         }
         KingLogger.logEvent("GET_ALL_STORES_INFO: User with id " + userId + " tried to get stores info while logged out and failed.");
@@ -382,7 +374,7 @@ public class TradingSystem {
     public String getAllStoresNames(int userId) {
         User u = getUserById(userId);
         StringBuilder storesNames = new StringBuilder();
-        if (u != null && u.isLogged()) {
+        if (u != null &&  u.getLogged().equals((byte)1)) {
             for(Store store : this.stores)
                 storesNames.append(store.getName()+",");
             storesNames.deleteCharAt(storesNames.length()-1);
@@ -396,7 +388,7 @@ public class TradingSystem {
 
     public Result getProducts(Filter filter, int userId){
         try{
-            if(getUserById(userId).isLogged()) {
+            if(getUserById(userId).isLooged()) {
                 Map<Integer, Integer> output = new HashMap<>();
                 switch (filter.searchType) {
                     case "Name":
@@ -442,7 +434,7 @@ public class TradingSystem {
         try {
             Bag b = getUserById(userId).getBagByStoreId(storeId);
             if(amount>0){
-                if (getUserById(userId).isLogged()){
+                if (getUserById(userId).isLooged()){
                     if( getStoreById(storeId).getInventory().prodExists(prodId)){
                         if (b != null) {
                             b.addProduct(getProductById(prodId), amount);
@@ -474,7 +466,7 @@ public class TradingSystem {
 
     public Result getCart(int userId) {
         try {
-            if (getUserById(userId) != null && getUserById(userId).isLogged()) {
+            if (getUserById(userId) != null && getUserById(userId).isLooged()) {
                 List<Bag> bags = getUserById(userId).getBags();
                 KingLogger.logEvent("GET_CART: User with id " + userId + " got his cart.");
                 return new Result(true,bags); //List<Bag>
@@ -601,7 +593,7 @@ public class TradingSystem {
         if(user!=null && user.isRegistered()) {
             int newId = storeCounter.inc();
             Store store = new Store(newId, storeName, user);
-            systemManager.addStoreToSystemManager(store);
+           // systemManager.addStoreToSystemManager(store);
             user.openStore(store);
             this.stores.add(store);
 

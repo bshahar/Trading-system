@@ -34,10 +34,94 @@ public class TradingSystem {
     private UserAuth userAuth;
     private List<Store> stores;
     private User systemManager;
-    private List<Receipt> receipts;
+    private MyWrapper receipts;
     private List<User> users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
+
+
+    public boolean isSystemManager(int userId) {
+        return getUserById(userId).isSystemManager();
+
+    }
+
+
+    public static enum Permission {
+        DEF,
+        AddProduct,
+        AppointManager,
+        AppointOwner,
+        CloseStore,
+        DefineDiscountFormat,
+        DefineDiscountPolicy,
+        DefinePurchaseFormat,
+        DefinePurchasePolicy,
+        EditDiscountFormat,
+        EditDiscountPolicy,
+        EditProduct,
+        EditPurchaseFormat,
+        EditPurchasePolicy,
+        GetWorkersInfo,
+        OpenStore,
+        RemoveManagerAppointment,
+        RemoveOwnerAppointment,
+        None,
+        RemoveProduct,
+        ReopenStore,
+        ReplayMessages,
+        ViewMessages,
+        ViewPurchaseHistory,
+        ViewDiscountPolicies,
+        ViewPurchasePolicies
+    }
+    public static String[] permissionsName= {
+            "DEF",
+            "AddProduct",
+            "AppointManager",
+            "AppointOwner",
+            "CloseStore",
+            "DefineDiscountFormat",
+            "DefineDiscountPolicy",
+            "DefinePurchaseFormat",
+            "DefinePurchasePolicy",
+            "EditDiscountFormat",
+            "EditDiscountPolicy",
+            "EditProduct",
+            "EditPurchaseFormat",
+            "EditPurchasePolicy",
+            "GetWorkersInfo",
+            "OpenStore",
+            "RemoveManagerAppointmen",
+            "RemoveOwnerAppointment",
+            "None",
+            "RemoveProduct",
+            "ReopenStore",
+            "ReplayMessages",
+            "ViewMessages",
+            "ViewPurchaseHistory",
+            "ViewDiscountPolicies",
+            "ViewPurchasePolicies"
+    };
+
+    public TradingSystem (User systemManager) {
+        this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
+        this.paymentAdapter = new PaymentAdapter(new DemoPayment());
+        this.stores = Collections.synchronizedList(new LinkedList<>());
+        this.users = Collections.synchronizedList(new LinkedList<>());
+        this.userAuth = new UserAuth();
+        userAuth.register(systemManager.getUserName(), "123");
+        users.add(systemManager);
+        userCounter = new counter();
+        storeCounter = new counter();
+        productCounter=new counter();
+        KingLogger.logEvent("Trading System initialized");
+        observableCounter = new counter();
+        this.observers = Collections.synchronizedList(new LinkedList<>());
+        receiptCounter = new counter();
+        this.systemManager = systemManager;
+        AppointSystemManager(systemManager);
+        sessionsMap = new ConcurrentHashMap<>();
+    }
 
     public int getSystemManagerId() {
         return systemManager.getId();
@@ -113,80 +197,6 @@ public class TradingSystem {
     }
 
 
-    public static enum Permission {
-        DEF,
-        AddProduct,
-        AppointManager,
-        AppointOwner,
-        CloseStore,
-        DefineDiscountFormat,
-        DefineDiscountPolicy,
-        DefinePurchaseFormat,
-        DefinePurchasePolicy,
-        EditDiscountFormat,
-        EditDiscountPolicy,
-        EditProduct,
-        EditPurchaseFormat,
-        EditPurchasePolicy,
-        GetWorkersInfo,
-        OpenStore,
-        RemoveManagerAppointment,
-        RemoveOwnerAppointment,
-        None,
-        RemoveProduct,
-        ReopenStore,
-        ReplayMessages,
-        ViewMessages,
-        ViewPurchaseHistory,
-        ViewDiscountPolicies,
-        ViewPurchasePolicies
-    }
-    public static String[] permissionsName= {
-            "DEF",
-            "AddProduct",
-            "AppointManager",
-            "AppointOwner",
-            "CloseStore",
-            "DefineDiscountFormat",
-            "DefineDiscountPolicy",
-            "DefinePurchaseFormat",
-            "DefinePurchasePolicy",
-            "EditDiscountFormat",
-            "EditDiscountPolicy",
-            "EditProduct",
-            "EditPurchaseFormat",
-            "EditPurchasePolicy",
-            "GetWorkersInfo",
-            "OpenStore",
-            "RemoveManagerAppointmen",
-            "RemoveOwnerAppointment",
-            "None",
-            "RemoveProduct",
-            "ReopenStore",
-            "ReplayMessages",
-            "ViewMessages",
-            "ViewPurchaseHistory",
-            "ViewDiscountPolicies",
-            "ViewPurchasePolicies"
-    };
-
-    public TradingSystem (User systemManager) {
-        this.paymentAdapter = new PaymentAdapter(new DemoPayment());
-        this.stores = Collections.synchronizedList(new LinkedList<>());
-        this.receipts = Collections.synchronizedList(new LinkedList<>());
-        this.users = Collections.synchronizedList(new LinkedList<>());
-        this.userAuth = new UserAuth();
-        userCounter = new counter();
-        storeCounter = new counter();
-        productCounter=new counter();
-        KingLogger.logEvent("Trading System initialized");
-        observableCounter = new counter();
-        this.observers = Collections.synchronizedList(new LinkedList<>());
-        receiptCounter = new counter();
-        this.systemManager = systemManager;
-        AppointSystemManager(systemManager);
-        sessionsMap = new ConcurrentHashMap<>();
-    }
 
     private void AppointSystemManager(User systemManager) {
         systemManager.appointSystemManager(this.stores);
@@ -594,6 +604,7 @@ public class TradingSystem {
             systemManager.addStoreToSystemManager(store);
             user.openStore(store);
             this.stores.add(store);
+
             KingLogger.logEvent("OPEN_STORE: User with id " + userId + " open the store " + storeName);
             Result result = addObservable(storeName);
             int subscribeId = (int)result.getData();
@@ -1050,7 +1061,7 @@ public class TradingSystem {
     }
 
     public Result getReceipt(int receiptId) {
-        for (Receipt r: this.receipts) {
+        for (Receipt r: (List<Receipt>)this.receipts.get("receipt")) {
             if(r.getReceiptId() == receiptId)
                 return new Result(true, r);
         }

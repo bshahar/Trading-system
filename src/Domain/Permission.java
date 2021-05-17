@@ -20,32 +20,32 @@ public class Permission {
     final private Store store;
 
 
-    private AddProduct addProduct;
-    private RemoveProduct removeProduct;
-    private EditProduct editProduct;
-    private AppointManager appointManager;
-    private RemoveManagerAppointment removeManagerAppointment;
-    private AppointOwner appointOwner;
-    private RemoveOwnerAppointment removeOwnerAppointment;
-    private DefinePurchasePolicy definePurchasePolicy;
-    private EditPurchasePolicy editPurchasePolicy;
-    private DefinePurchaseFormat definePurchaseFormat;
-    private EditPurchaseFormat editPurchaseFormat;
-    private DefineDiscountPolicy defineDiscountPolicy;
-    private EditDiscountPolicy editDiscountPolicy;
-    private DefineDiscountFormat defineDiscountFormat;
-    private EditDiscountFormat editDiscountFormat;
-    private CloseStore closeStore;
-    private ReopenStore reopenStore;
-    private GetWorkersInfo getWorkersInfo;
-    private ViewMessages viewMessages;
-    private ReplayMessages replayMessages;
-    private ViewPurchaseHistory viewPurchaseHistory;
-    private OpenStore openStore;
-    private AddPermissions addPermissions;
-    private RemovePermission removePermission;
-    private ViewDiscountPolicies viewDiscountPolicies;
-    private ViewPurchasePolicies viewPurchasePolicies;
+    private AddProduct                      addProduct;
+    private RemoveProduct                   removeProduct;
+    private EditProduct                     editProduct;
+    private AppointManager                  appointManager;
+    private RemoveManagerAppointment        removeManagerAppointment;
+    private AppointOwner                    appointOwner;
+    private RemoveOwnerAppointment          removeOwnerAppointment;
+    private DefinePurchasePolicy            definePurchasePolicy;
+    private EditPurchasePolicy              editPurchasePolicy;
+    private DefinePurchaseFormat            definePurchaseFormat;
+    private EditPurchaseFormat              editPurchaseFormat;
+    private DefineDiscountPolicy            defineDiscountPolicy;
+    private EditDiscountPolicy              editDiscountPolicy;
+    private DefineDiscountFormat            defineDiscountFormat;
+    private EditDiscountFormat              editDiscountFormat;
+    private CloseStore                      closeStore;
+    private ReopenStore                     reopenStore;
+    private GetWorkersInfo                  getWorkersInfo;
+    private ViewMessages                    viewMessages;
+    private ReplayMessages                  replayMessages;
+    private ViewPurchaseHistory             viewPurchaseHistory;
+    private OpenStore                       openStore;
+    private AddPermissions                  addPermissions;
+    private RemovePermission                removePermission;
+    private ViewDiscountPolicies            viewDiscountPolicies;
+    private ViewPurchasePolicies            viewPurchasePolicies;
 
     public Permission(Member member, Store store) {
         this.member = member;

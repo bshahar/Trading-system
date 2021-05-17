@@ -377,4 +377,9 @@ public class User implements Observer {
         this.isSystemManager = true;
         this.member.setSystemManagerPermission(stores);
     }
+
+    public boolean isSystemManager() {
+        return isSystemManager;
+
+    }
 }

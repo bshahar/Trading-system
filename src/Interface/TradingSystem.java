@@ -31,7 +31,7 @@ public class TradingSystem {
     private List<Store> stores;
     private User systemManager;
     private MyWrapper receipts;
-    private MyWrapper users;
+    private MyWrapperInterface users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
 
@@ -100,10 +100,18 @@ public class TradingSystem {
     };
 
     public TradingSystem (User systemManager,int testing) {
-        this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()),testing);
+        if(testing==1)
+        {
+            this.users =  new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
+        }
+        else
+        {
+            this.users =  new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
+        }
+        this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
         this.paymentAdapter = new PaymentAdapter(new DemoPayment());
         this.stores = Collections.synchronizedList(new LinkedList<>());
-        this.users =  new MyWrapper(Collections.synchronizedList(new LinkedList<>()),testing);
+
         this.userAuth = new UserAuth();
         userAuth.register(systemManager.getUserName(), "123");
         //users.add(systemManager);

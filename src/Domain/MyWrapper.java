@@ -14,20 +14,18 @@ import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 
-public class MyWrapper {
+public class MyWrapper implements MyWrapperInterface {
 
 
     List<User> users;
 
 
     private Object value;
-    private boolean testing;
     private boolean updatedValue=false;
     private TradingSystem ts;
 
-    public MyWrapper(Object obj,int testing){
+    public MyWrapper(Object obj){
         value =obj;
-        this.testing = testing==1;
         this.users = Collections.synchronizedList(new LinkedList<>());
     }
 
@@ -81,11 +79,7 @@ public class MyWrapper {
     }
     //User
     public boolean add(User user){
-        if(testing) {
-            this.users.add(user);
-            return true;
-        }
-        else {
+        try {
             Session session = HibernateUtil.getSessionFactory().openSession();
             session.beginTransaction();
             session.save(user);
@@ -93,14 +87,15 @@ public class MyWrapper {
             session.getTransaction().commit();
             return userId > 0;
         }
+        catch (Exception e)
+        {
+            return false;
+        }
     }
 
     public Object getOne(String name,int id) {
         switch (name) {
             case "user": {
-                if(testing)
-                    return getUserById(id);
-
                 Session session = HibernateUtil.getSessionFactory().openSession();
                 session.beginTransaction();
                 return (User) session.get(User.class, id);
@@ -122,8 +117,6 @@ public class MyWrapper {
         return true;
     }
     public User searchUserByName(String name) {
-        if(testing)
-            return getUserByName(name);
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         Criteria crit = session.createCriteria(User.class);
@@ -134,7 +127,7 @@ public class MyWrapper {
             return null;
     }
 
-    private User getUserById(int id)
+    public User getUserById(int id)
     {
         for(User user : users)
         {
@@ -143,7 +136,7 @@ public class MyWrapper {
         }
         return null;
     }
-    private User getUserByName(String name)
+    public User getUserByName(String name)
     {
         for(User user : users)
         {
@@ -155,12 +148,7 @@ public class MyWrapper {
 
 
     public Object size() {
-        if(testing)
-            return users.size();
-        else
-        {
-            //TODO!
+        //TODO
             return 0;
-        }
     }
 }

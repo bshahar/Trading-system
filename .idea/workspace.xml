@@ -23,14 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="user to db">
-      <change afterPath="$PROJECT_DIR$/src/Domain/MyWrapperInterface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Domain/MyWrapperTesting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt.lck" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/MyWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapperTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/MyWrapperTesting.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +92,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/purchaseSystem" />
+    <option name="BRANCH" value="UserDataBase" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -709,8 +707,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
-          <line>69</line>
-          <option name="timeStamp" value="56" />
+          <line>68</line>
+          <option name="timeStamp" value="59" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />

@@ -49,12 +49,12 @@ public class TradingSystem {
             this.users =  new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
             this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
         }
-        if(forTest)
-            initializeSystemForTests();
-        else {
-            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
-            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
-        }
+//        if(forTest)
+//            initializeSystemForTests();
+//        else {
+//            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+//            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
+//        }
         this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
         this.stores = Collections.synchronizedList(new LinkedList<>());
 

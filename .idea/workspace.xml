@@ -23,7 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -541,7 +541,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621425041756</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="..">
+      <created>1621442955548</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1621442955551</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -576,7 +583,6 @@
     <MESSAGE value="add store page" />
     <MESSAGE value="merged gui with result" />
     <MESSAGE value="add React to fucking proj" />
-    <MESSAGE value=".." />
     <MESSAGE value="logger in the trading system" />
     <MESSAGE value="logger in the code" />
     <MESSAGE value="pemission action web socket" />
@@ -590,7 +596,8 @@
     <MESSAGE value="#64 fix cancel purchase (payment &amp; supplement)" />
     <MESSAGE value="#64 remove purchase from receipts" />
     <MESSAGE value="Receipt and ReceiptLine" />
-    <option name="LAST_COMMIT_MESSAGE" value="Receipt and ReceiptLine" />
+    <MESSAGE value=".." />
+    <option name="LAST_COMMIT_MESSAGE" value=".." />
   </component>
   <component name="WindowStateProjectService">
     <state x="552" y="178" key="#Assign_Data_Sources" timestamp="1621423719051">
@@ -601,24 +608,37 @@
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="290" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621422555667" />
-    <state x="572" y="111" key="CommitChangelistDialog2" timestamp="1621425039976">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="381" y="0" key="CommitChangelistDialog2" timestamp="1621442948678">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="381" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1621442948678" />
     <state x="572" y="111" key="CommitChangelistDialog2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621425039976" />
     <state x="666" y="261" key="FileChooserDialogImpl" timestamp="1621423110699">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="261" key="FileChooserDialogImpl/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621423110699" />
+    <state x="28" y="22" width="1144" height="617" key="MergeDialog" timestamp="1621443763101">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="28" y="22" width="1144" height="617" key="MergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1621443763101" />
+    <state x="354" y="57" key="MultipleFileMergeDialog" timestamp="1621443765930">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="354" y="57" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1621443765930" />
     <state x="284" y="0" key="SettingsEditor" timestamp="1621432725383">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
     <state x="284" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1621432725383" />
     <state x="440" y="94" key="SettingsEditor/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621423616614" />
-    <state x="368" y="147" key="Vcs.Push.Dialog.v2" timestamp="1621436800417">
+    <state x="368" y="147" key="Vcs.Push.Dialog.v2" timestamp="1621443928341">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="368" y="147" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1621436800417" />
+    <state x="368" y="147" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1621443928341" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621422277025" />
+    <state x="424" y="132" key="git4idea.merge.GitMergeDialog" timestamp="1621443998259">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="424" y="132" key="git4idea.merge.GitMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1621443998259" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -660,7 +680,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>463</line>
+          <line>396</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
       </breakpoints>

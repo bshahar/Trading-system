@@ -22,19 +22,62 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add externals">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/MyWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapperTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/MyWrapperTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Receipt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/AdminWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/AdminWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/myPurchases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/myPurchases.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - @localhost" type="feb32156:DbDataSourceImpl" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - @localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - @localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="zw9P3SlfWt: schema" type="76f4a085:MysqlImplModel$Schema" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - @localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="zw9P3SlfWt: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="ReceiptLines: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+    </expand>
+    <select />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -51,7 +94,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="RecieptAndReceiptLine_db" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -88,18 +131,18 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/com.fasterxml.jackson.databind.jar!/" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/mysql-connector-java-8.0.25.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Libraries" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.22987013" />
     <property name="project.structure.side.proportion" value="0.30057803" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="android.project.structure" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -193,11 +236,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.PurchaseTest" />
         <item itemvalue="JUnit.LoginTest.connectionTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.viewDiscountPolicyOnStoreSuccessTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.addSimpleDiscountOnStoreSuccessTest" />
-        <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
   </component>
@@ -214,6 +257,7 @@
       <workItem from="1617440371798" duration="9756000" />
       <workItem from="1617723869195" duration="331000" />
       <workItem from="1619873004711" duration="5248000" />
+      <workItem from="1621422073639" duration="7377000" />
     </task>
     <task id="LOCAL‎00001" summary="Dorin's changes #24">
       <created>1617455826555</created>
@@ -496,7 +540,14 @@
       <option name="presentableId" value="LOCAL‎00044" />
       <updated>1621085583270</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="Receipt and ReceiptLine">
+      <created>1621425041755</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1621425041756</updated>
+    </task>
+    <option name="localTasksCounter" value="46" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -511,15 +562,15 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed store tests #26" />
     <MESSAGE value="." />
     <MESSAGE value="workspace" />
     <MESSAGE value="adding store test #26" />
@@ -544,17 +595,35 @@
     <MESSAGE value="#64" />
     <MESSAGE value="#64 fix cancel purchase (payment &amp; supplement)" />
     <MESSAGE value="#64 remove purchase from receipts" />
-    <option name="LAST_COMMIT_MESSAGE" value="#64 remove purchase from receipts" />
+    <MESSAGE value="Receipt and ReceiptLine" />
+    <option name="LAST_COMMIT_MESSAGE" value="Receipt and ReceiptLine" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="261" y="0" key="CommitChangelistDialog2" timestamp="1621436722018">
+    <state x="552" y="178" key="#Assign_Data_Sources" timestamp="1621423719051">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="178" key="#Assign_Data_Sources/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621423719051" />
+    <state x="290" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1621422555667">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="290" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621422555667" />
+    <state x="572" y="111" key="CommitChangelistDialog2" timestamp="1621425039976">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="572" y="111" key="CommitChangelistDialog2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621425039976" />
+    <state x="666" y="261" key="FileChooserDialogImpl" timestamp="1621423110699">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="666" y="261" key="FileChooserDialogImpl/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621423110699" />
+    <state x="284" y="0" key="SettingsEditor" timestamp="1621432725383">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="261" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1621436722018" />
-    <state x="362" y="119" key="git4idea.merge.GitMergeDialog" timestamp="1621436737269">
-      <screen x="0" y="0" width="1280" height="680" />
+    <state x="284" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1621432725383" />
+    <state x="440" y="94" key="SettingsEditor/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621423616614" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1621422277025">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="362" y="119" key="git4idea.merge.GitMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1621436737269" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621422277025" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

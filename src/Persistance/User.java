@@ -1,8 +1,5 @@
 package Persistance;
 
-import java.util.*;
-import java.util.concurrent.ConcurrentLinkedDeque;
-
 import Domain.*;
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
@@ -14,9 +11,9 @@ import org.eclipse.jetty.websocket.api.Session;
 import org.json.JSONObject;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
+import java.util.concurrent.ConcurrentLinkedDeque;
+
 @Entity
 @Table(name = "Users", schema = "zw9P3SlfWt", catalog = "")
 public class User implements Observer {

@@ -3,7 +3,6 @@ package Domain;
 import Interface.TradingSystem;
 import Persistance.HibernateUtil;
 import Persistance.ReceiptsEntity;
-
 import Persistance.User;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -18,6 +17,7 @@ public class MyWrapper implements MyWrapperInterface {
 
 
     List<User> users;
+    List<Receipt> receipts;
 
 
     private Object value;
@@ -27,28 +27,82 @@ public class MyWrapper implements MyWrapperInterface {
     public MyWrapper(Object obj){
         value =obj;
         this.users = Collections.synchronizedList(new LinkedList<>());
+        this.receipts = Collections.synchronizedList(new LinkedList<>());
     }
 
     public Object get(String dbName) {
         if (!updatedValue) {
             switch(dbName){
-                case "receipt": {
-                    Session session2 = HibernateUtil.getSessionFactory().openSession();
-                    session2.beginTransaction();
-                    ReceiptsEntity rec2 = new ReceiptsEntity();
-                    String str = "FROM Receipts";
-                    Query query = session2.createQuery(str);
-                    this.value = query.list();
-                    //TODO insert the receipt line into the value receiptline
-                    session2.close();
-                    break;
-                }
+//                case "receipt": {
+//                    Session session2 = HibernateUtil.getSessionFactory().openSession();
+//                    session2.beginTransaction();
+//                    Receipt rec2 = new Receipt();
+//                    String str = "FROM Receipts";
+//                    Query query = session2.createQuery(str);
+//                    this.value = query.list();
+//                    //TODO insert the receipt line into the value receiptline
+//                    session2.close();
+//                    break;
+//                }
             }
             updatedValue = true;
         }
         return value;
     }
 
+    public Object getOne(String name,int id) {
+        switch (name) {
+            case "user": {
+                Session session = HibernateUtil.getSessionFactory().openSession();
+                session.beginTransaction();
+                return (User) session.get(User.class, id);
+            }
+            case "receipt": {
+                for(Receipt r : this.receipts){
+                    if(r.getId() == id)
+                        return r;
+                }
+                Session session = HibernateUtil.getSessionFactory().openSession();
+                session.beginTransaction();
+                Query q = session.createQuery("select * from ReceiptLines where id = :id").setParameter("id", id);
+                List<ReceiptLine> reclines = q.list();
+                Receipt rec = session.get(Receipt.class, id);
+                rec.setLines(reclines);
+                this.receipts.add(rec);
+                return rec;
+            }
+        }
+        return null;
+    }
+    public boolean remove(String name , int id) {
+        switch (name) {
+            case "user": {
+                Session session = HibernateUtil.getSessionFactory().openSession();
+                session.beginTransaction();
+                User userToDelete = new User();
+                userToDelete.setId(id);
+                session.delete(userToDelete);
+                session.getTransaction().commit();
+            }
+            case "receipt": {
+                for(Receipt r : this.receipts){
+                    if(r.getId() == id)
+                        this.receipts.remove(r);
+                }
+                Session session = HibernateUtil.getSessionFactory().openSession();
+                session.beginTransaction();
+                Receipt recToDelete = new Receipt();
+                recToDelete.setId(id);
+                session.delete(recToDelete);
+                session.createQuery("delete from ReceiptLines where id = :id").setParameter("id", id).executeUpdate();
+                session.getTransaction().commit();
+            }
+        }
+        return true;
+    }
+
+//==========================================================================
+//Store
     public boolean add(Store store){
         List<Store> list= (List<Store>) value;
         list.add(store);
@@ -56,7 +110,8 @@ public class MyWrapper implements MyWrapperInterface {
         return false;
     }
 
-
+//==========================================================================
+//Receipt
 
     public boolean add(Receipt receipt){
         List<Receipt> list= (List<Receipt>) receipt;
@@ -65,7 +120,7 @@ public class MyWrapper implements MyWrapperInterface {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();
         ReceiptsEntity rec = new ReceiptsEntity();
-        rec.setId(receipt.getReceiptId());
+        rec.setId(receipt.getId());
         rec.setStoreId(receipt.getStoreId());
         rec.setUserId(receipt.getUserId());
         rec.setUserName(receipt.getUserName());
@@ -77,6 +132,8 @@ public class MyWrapper implements MyWrapperInterface {
 
         return true;
     }
+
+    //====================================================================
     //User
     public boolean add(User user){
         try {
@@ -93,29 +150,6 @@ public class MyWrapper implements MyWrapperInterface {
         }
     }
 
-    public Object getOne(String name,int id) {
-        switch (name) {
-            case "user": {
-                Session session = HibernateUtil.getSessionFactory().openSession();
-                session.beginTransaction();
-                return (User) session.get(User.class, id);
-            }
-        }
-        return null;
-    }
-    public boolean remove(String name , int id) {
-        switch (name) {
-            case "user": {
-                Session session = HibernateUtil.getSessionFactory().openSession();
-                session.beginTransaction();
-                User userToDelete = new User();
-                userToDelete.setId(id);
-                session.delete(userToDelete);
-                session.getTransaction().commit();
-            }
-        }
-        return true;
-    }
     public User searchUserByName(String name) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();

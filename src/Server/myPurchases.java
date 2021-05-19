@@ -1,13 +1,20 @@
 package Server;
 
-import Domain.*;
+import Domain.Receipt;
+import Domain.ReceiptLine;
+import Domain.Result;
 import Service.API;
-import org.eclipse.jetty.websocket.api.*;
-import org.eclipse.jetty.websocket.api.annotations.*;
-import java.io.*;
-import java.util.*;
-import java.util.concurrent.*;
+import org.eclipse.jetty.websocket.api.Session;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketConnect;
+import org.eclipse.jetty.websocket.api.annotations.OnWebSocketMessage;
+import org.eclipse.jetty.websocket.api.annotations.WebSocket;
 import org.json.JSONObject;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.Queue;
+import java.util.concurrent.ConcurrentLinkedQueue;
 
 @WebSocket
 public class myPurchases {
@@ -42,7 +49,7 @@ public class myPurchases {
                 for (Receipt receipt : receipts) {
                     JSONObject[] linesJson = new JSONObject[receipt.getLines().size()];
                     int i = 0;
-                    for (Receipt.ReceiptLine receiptLine : receipt.getLines()) {
+                    for (ReceiptLine receiptLine : receipt.getLines()) {
                         JSONObject receiptLineJson = new JSONObject();
                         receiptLineJson.put("prodName", receiptLine.getProdName());
                         receiptLineJson.put("price", receiptLine.getPrice());
@@ -53,7 +60,7 @@ public class myPurchases {
                     JSONObject receiptJson = new JSONObject();
                     receiptJson.put("storeName", API.getStoreName(receipt.getStoreId()));
                     receiptJson.put("userName", receipt.getUserName());
-                    receiptJson.put("receiptId",receipt.getReceiptId());
+                    receiptJson.put("receiptId",receipt.getId());
                     receiptJson.put("storeId",receipt.getStoreId());
                     receiptJson.put("totalCost", receipt.getTotalCost());
                     receiptJson.put("lines", linesJson);

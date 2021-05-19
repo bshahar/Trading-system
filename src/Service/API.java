@@ -404,6 +404,10 @@ public class API {
         return tradingSystem.addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
     }
 
+    public static Result addPurchaseOffer(int storeId, int userId, int prodId, double offer, int numOfProd){
+        return tradingSystem.addPurchaseOffer(storeId, userId, prodId, offer, numOfProd);
+    }
+
 
     public static Result getReceipt(int receiptId) {
         return tradingSystem.getReceipt(receiptId);

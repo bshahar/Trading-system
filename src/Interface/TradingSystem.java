@@ -88,6 +88,15 @@ public class TradingSystem {
 
     }
 
+    public Result addPurchaseOffer(int storeId, int userId, int prodId, double offer, int numOfProd) {
+        Store st = getStoreById(storeId);
+        if(st != null && st.prodExists(prodId))  {
+            st.addPurchaseOffer(prodId, getUserById(userId), offer, numOfProd);
+            return new Result(true, "Purchase offer was added.");
+        }
+        return new Result(false, "Could not add purchase offer.");
+    }
+
 
     public static enum Permission {
         DEF,

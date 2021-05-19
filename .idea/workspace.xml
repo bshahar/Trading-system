@@ -51,7 +51,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="ConfigFileAPIClass" />
+        <entry key="$PROJECT_DIR$" value="RecieptAndReceiptLine_db" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -193,11 +193,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.PurchaseTest" />
         <item itemvalue="JUnit.LoginTest.connectionTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.viewDiscountPolicyOnStoreSuccessTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.addSimpleDiscountOnStoreSuccessTest" />
+        <item itemvalue="Application.Server" />
       </list>
     </recent_temporary>
   </component>
@@ -545,6 +545,12 @@
     <MESSAGE value="#64 fix cancel purchase (payment &amp; supplement)" />
     <MESSAGE value="#64 remove purchase from receipts" />
     <option name="LAST_COMMIT_MESSAGE" value="#64 remove purchase from receipts" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="362" y="119" key="git4idea.merge.GitMergeDialog" timestamp="1621436704059">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="362" y="119" key="git4idea.merge.GitMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1621436704058" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

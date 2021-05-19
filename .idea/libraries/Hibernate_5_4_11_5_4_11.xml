@@ -20,6 +20,7 @@
       <root url="jar://$PROJECT_DIR$/lib/jaxb-runtime-2.3.1.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/byte-buddy-1.10.7.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/hibernate-core-5.4.11.Final.jar!/" />
+      <root url="jar://$USER_HOME$/Desktop/mysql-connector-java-8.0.25.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

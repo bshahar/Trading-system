@@ -4,19 +4,18 @@ import Domain.*;
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.DiscountPolicies.PolicyCondition;
-import Domain.Operators.*;
+import Domain.Operators.AndOperator;
+import Domain.Operators.NoneOperator;
+import Domain.Operators.OrOperator;
+import Domain.Operators.XorOperator;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Domain.Sessions.SessionInterface;
-
 import Persistance.User;
 import Service.*;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
 import org.json.JSONObject;
 
-import java.sql.Wrapper;
-import java.time.Instant;
-import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -33,10 +32,45 @@ public class TradingSystem {
     private UserAuth userAuth;
     private List<Store> stores;
     private User systemManager;
-    private MyWrapper receipts;
+    private MyWrapperInterface receipts;
     private MyWrapperInterface users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
+
+    public TradingSystem (User systemManager,int testing) {
+        if(testing==1)
+        {
+            this.users =  new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
+            this.receipts = new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
+        }
+        else
+        {
+            this.users =  new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
+            this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
+        }
+        if(forTest)
+            initializeSystemForTests();
+        else {
+            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
+        }
+        this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
+        this.stores = Collections.synchronizedList(new LinkedList<>());
+
+        this.userAuth = new UserAuth();
+        userAuth.register(systemManager.getUserName(), "123");
+        //users.add(systemManager);
+        userCounter = new counter();
+        storeCounter = new counter();
+        productCounter=new counter();
+        KingLogger.logEvent("Trading System initialized");
+        observableCounter = new counter();
+        this.observers = Collections.synchronizedList(new LinkedList<>());
+        receiptCounter = new counter();
+        this.systemManager = systemManager;
+        AppointSystemManager(systemManager);
+        sessionsMap = new ConcurrentHashMap<>();
+    }
 
 
     public static void setPaymentAdapterDemo() { paymentAdapter = new DemoPayment(); }
@@ -110,38 +144,7 @@ public class TradingSystem {
             "ViewPurchasePolicies"
     };
 
-    public TradingSystem (User systemManager,int testing) {
-        if(testing==1)
-        {
-            this.users =  new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
-        }
-        else
-        {
-            this.users =  new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
-        }
-        if(forTest)
-            initializeSystemForTests();
-        else {
-            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
-            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
-        }
-        this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
-        this.stores = Collections.synchronizedList(new LinkedList<>());
 
-        this.userAuth = new UserAuth();
-        userAuth.register(systemManager.getUserName(), "123");
-        //users.add(systemManager);
-        userCounter = new counter();
-        storeCounter = new counter();
-        productCounter=new counter();
-        KingLogger.logEvent("Trading System initialized");
-        observableCounter = new counter();
-        this.observers = Collections.synchronizedList(new LinkedList<>());
-        receiptCounter = new counter();
-        this.systemManager = systemManager;
-        AppointSystemManager(systemManager);
-        sessionsMap = new ConcurrentHashMap<>();
-    }
 
     public int getSystemManagerId() {
         return systemManager.getId();
@@ -586,7 +589,7 @@ public class TradingSystem {
             } else {
                 KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId + "but some products are missing");
             }
-            return new Result(true, rec.getReceiptId());
+            return new Result(true, rec.getId());
         } catch (Exception e) {
             KingLogger.logError("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
             return new Result(false, "purchase failed");
@@ -1118,7 +1121,7 @@ public class TradingSystem {
 
     public Result getReceipt(int receiptId) {
         for (Receipt r: (List<Receipt>)this.receipts.get("receipt")) {
-            if(r.getReceiptId() == receiptId)
+            if(r.getId() == receiptId)
                 return new Result(true, r);
         }
         return new Result(false, "No receipt with this user id and store.");
@@ -1226,19 +1229,19 @@ public class TradingSystem {
 
     public Result cancelPurchase(int receiptId) {
         Receipt receipt = (Receipt)getReceipt(receiptId).getData();
-        int paymentTransaction = receipt.getPaymentTransaction();
-        int supplementTransaction = receipt.getSupplementTransaction();
+        int paymentTransaction = receipt.getPaymentTransactionId();
+        int supplementTransaction = receipt.getSupplementTransactionId();
         Result cancelPayResult = cancelPayment(String.valueOf(paymentTransaction));
         if(cancelPayResult.isResult()) {
             Result cancelSupplyResult = cancelSupplement(String.valueOf(supplementTransaction));
             if(cancelSupplyResult.isResult()) {
                 Store st = getStoreById(receipt.getStoreId());
                 Map<Product, Integer> purchaseBag = new HashMap<>();
-                for(Receipt.ReceiptLine rLine : receipt.getLines()) {
+                for(ReceiptLine rLine : receipt.getLines()) {
                     purchaseBag.put(st.getProductByName(rLine.getProdName()), rLine.getAmount());
                 }
                 st.abortPurchase(purchaseBag);
-                this.receipts.remove(receipt);
+                this.receipts.remove("receipt", receipt.getId());
                 st.removeReceipt(receipt);
                 getUserById(receipt.getUserId()).removeReceipt(receipt);
                 KingLogger.logEvent("CANCEL_PURCHASE: purchase that was made with receipt id " + receiptId + " was canceled.");

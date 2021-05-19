@@ -3,7 +3,6 @@ package Domain;
 import Interface.TradingSystem;
 import Persistance.HibernateUtil;
 import Persistance.ReceiptsEntity;
-
 import Persistance.User;
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -18,6 +17,7 @@ public class MyWrapper implements MyWrapperInterface {
 
 
     List<User> users;
+    List<Receipt> receipts;
 
 
     private Object value;
@@ -27,6 +27,7 @@ public class MyWrapper implements MyWrapperInterface {
     public MyWrapper(Object obj){
         value =obj;
         this.users = Collections.synchronizedList(new LinkedList<>());
+        this.receipts = Collections.synchronizedList(new LinkedList<>());
     }
 
     public Object get(String dbName) {
@@ -47,50 +48,6 @@ public class MyWrapper implements MyWrapperInterface {
             updatedValue = true;
         }
         return value;
-    }
-
-    public boolean add(Store store){
-        List<Store> list= (List<Store>) value;
-        list.add(store);
-
-        return false;
-    }
-
-
-
-    public boolean add(Receipt receipt){
-        List<Receipt> list= (List<Receipt>) receipt;
-        list.add(receipt);
-        //adding to db
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        ReceiptsEntity rec = new ReceiptsEntity();
-        rec.setId(receipt.getReceiptId());
-        rec.setStoreId(receipt.getStoreId());
-        rec.setUserId(receipt.getUserId());
-        rec.setUserName(receipt.getUserName());
-        rec.setTotalCost(receipt.getTotalCost());
-        session.save(rec);
-        //TODO for receiptLine
-        session.getTransaction().commit();
-        session.close();
-
-        return true;
-    }
-    //User
-    public boolean add(User user){
-        try {
-            Session session = HibernateUtil.getSessionFactory().openSession();
-            session.beginTransaction();
-            session.save(user);
-            Integer userId = user.getId();
-            session.getTransaction().commit();
-            return userId > 0;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
     }
 
     public Object getOne(String name,int id) {
@@ -116,6 +73,56 @@ public class MyWrapper implements MyWrapperInterface {
         }
         return true;
     }
+
+//==========================================================================
+//Store
+    public boolean add(Store store){
+        List<Store> list= (List<Store>) value;
+        list.add(store);
+
+        return false;
+    }
+
+//==========================================================================
+//Receipt
+    
+    public boolean add(Receipt receipt){
+        List<Receipt> list= (List<Receipt>) receipt;
+        list.add(receipt);
+        //adding to db
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        ReceiptsEntity rec = new ReceiptsEntity();
+        rec.setId(receipt.getId());
+        rec.setStoreId(receipt.getStoreId());
+        rec.setUserId(receipt.getUserId());
+        rec.setUserName(receipt.getUserName());
+        rec.setTotalCost(receipt.getTotalCost());
+        session.save(rec);
+        //TODO for receiptLine
+        session.getTransaction().commit();
+        session.close();
+
+        return true;
+    }
+
+    //====================================================================
+    //User
+    public boolean add(User user){
+        try {
+            Session session = HibernateUtil.getSessionFactory().openSession();
+            session.beginTransaction();
+            session.save(user);
+            Integer userId = user.getId();
+            session.getTransaction().commit();
+            return userId > 0;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
     public User searchUserByName(String name) {
         Session session = HibernateUtil.getSessionFactory().openSession();
         session.beginTransaction();

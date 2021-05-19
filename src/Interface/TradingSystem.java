@@ -38,23 +38,18 @@ public class TradingSystem {
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
 
-    public TradingSystem (User systemManager,int testing) {
-        if(testing==1)
-        {
-            this.users =  new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
+    public TradingSystem (User systemManager, String externalSystemsUrl, boolean testing) {
+        if(testing) {
+            this.users = new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
             this.receipts = new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
+            initializeSystemForTests();
         }
-        else
-        {
-            this.users =  new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
+        else {
+            this.users = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
             this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
+            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
         }
-//        if(forTest)
-//            initializeSystemForTests();
-//        else {
-//            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
-//            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
-//        }
         this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
         this.stores = Collections.synchronizedList(new LinkedList<>());
 

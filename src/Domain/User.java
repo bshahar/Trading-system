@@ -386,4 +386,8 @@ public class User implements Observer {
     public boolean removeReceipt(Receipt receipt) {
         return this.receipts.remove(receipt);
     }
+
+    public Result responedToOffer(Store store, int prodId, int offerId, String responed, int counterOffer) {
+        return member.responedToOffer(store, prodId, offerId, responed, counterOffer);
+    }
 }

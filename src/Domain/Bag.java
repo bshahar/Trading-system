@@ -1,5 +1,6 @@
 package Domain;
 
+import Domain.PurchaseFormat.PurchaseOffer;
 import javafx.util.Pair;
 
 import java.util.*;
@@ -8,15 +9,16 @@ import java.util.*;
 public class Bag {
     private Store store;
     Map<Product,Integer> productsAmounts;
-    Map<Product,Integer> productsMayApproved; //products waiting for response
     Map<Product,Double> productsApproved; // the product that approved and his price
+    Map<Product, PurchaseOffer> counterOffers;
 
     public Bag(Store store)
     {
         this.store = store;
         this.productsAmounts = new HashMap<>();
-        this.productsMayApproved = new HashMap<>();
         this.productsApproved = new HashMap<>();
+        this.counterOffers = new HashMap<>();
+
     }
 
     public int getStoreId() {
@@ -62,7 +64,24 @@ public class Bag {
         return total;
     }
 
-    public void offerApproved(Product prod, double offer){
+    public void approveCounterOffer(Product prod) {
+        double priceOfOffer = this.counterOffers.get(prod).getPriceOfOffer();
+        int amountOfProd = this.counterOffers.get(prod).getNumOfProd();
+        this.productsAmounts.put(prod,amountOfProd);
+        this.counterOffers.remove(prod);
+        this.productsApproved.put(prod,priceOfOffer);
+
+    }
+
+    public void rejectCounterOffer(Product prod) {
+        this.counterOffers.remove(prod);
+    }
+
+    public Map<Product, Double> getOfferPrices() {
+        return this.productsApproved;
+    }
+
+   /* public void offerApproved(Product prod, double offer){
         int quantity = productsMayApproved.get(prod);
         productsApproved.put(prod,offer); //save the price for this user
         productsAmounts.put(prod,quantity);
@@ -74,7 +93,7 @@ public class Bag {
 
     public void addNewOffer(Product prod, int numOfProd){
         this.productsMayApproved.put(prod,numOfProd);
-    }
+    }*/
 
 
 }

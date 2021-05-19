@@ -46,6 +46,7 @@ public class Permission {
     private RemovePermission removePermission;
     private ViewDiscountPolicies viewDiscountPolicies;
     private ViewPurchasePolicies viewPurchasePolicies;
+    private ResponedToOffer responedToOffer;
 
     public Permission(Member member, Store store) {
         this.member = member;
@@ -268,6 +269,8 @@ public class Permission {
         return new Result(false,"User has no permission for this action.");
     }
 
+
+
     public void allowViewDiscountPolicies() {
         this.viewDiscountPolicies = new ViewDiscountPolicies(this.member,this.store);
     }
@@ -286,6 +289,7 @@ public class Permission {
     public void allowViewPurchasePolicies() {
         this.viewPurchasePolicies = new ViewPurchasePolicies(this.member, this.store);
     }
+
 
     public void disableViewPurchasePolicies() {
         if(this.viewPurchasePolicies == null) return;
@@ -468,6 +472,25 @@ public class Permission {
     }
 
 
+    public void allowResponedToOffer() {
+        this.responedToOffer = new ResponedToOffer(this.member,this.store);
+    }
+
+    public Result responedToOffer(int prodId, int offerId, String responed, int counterOffer)
+    {
+        if(this.responedToOffer!= null)
+            return this.responedToOffer.action(prodId,offerId, responed, counterOffer);
+        return new Result(false,"User has no permissions");
+    }
+
+    public void disableResponedToOffer()
+    {
+        if(this.responedToOffer == null) return;
+        this.responedToOffer = null;
+    }
+
+
+
     public Member getMember() {
         return member;
     }
@@ -559,6 +582,7 @@ public class Permission {
     public ViewPurchaseHistory getViewPurchaseHistory() {
         return viewPurchaseHistory;
     }
+    public ResponedToOffer getResponedToOffer(){ return responedToOffer;}
 
     public OpenStore getOpenStore() {
         return openStore;
@@ -571,4 +595,6 @@ public class Permission {
     public RemovePermission getRemovePermission() {
         return removePermission;
     }
+
+
 }

@@ -402,10 +402,37 @@ public class API {
         return tradingSystem.addPurchasePolicyOnStore(storeId, userId, operator, policiesParams);
     }
 
-    public static Result addPurchaseOffer(int storeId, int userId, int prodId, double offer, int numOfProd){
+    public static Result addPurchaseOffer(int storeId, int userId, int prodId, double offer, int numOfProd){//offer = price per one product
         return tradingSystem.addPurchaseOffer(storeId, userId, prodId, offer, numOfProd);
     }
 
+    public static Result approvePurchaseOffer(int storeId, int userId, int prodId, int offerId){
+        return tradingSystem.responedToOffer(storeId, userId, prodId, offerId, "APPROVED" , -1);
+    }
+
+    public static Result disapprovePurchaseOffer(int storeId, int userId, int prodId, int offerId){
+        return tradingSystem.responedToOffer(storeId, userId, prodId, offerId, "DISAPPROVED", -1);
+    }
+
+    public static Result counterPurchaseOffer(int storeId, int userId, int prodId, int offerId, int counterOffer){
+        return tradingSystem.responedToOffer(storeId, userId, prodId, offerId, "COUNTEROFFER", counterOffer);
+    }
+
+    public static Result approveCounterOffer(int storeId, int userId, int prodId,  boolean approve){
+        return tradingSystem.responedToCounterPurchaseOffer(storeId, userId, prodId, true);
+    }
+
+    public static Result rejectCounterOffer(int storeId, int userId, int prodId,  boolean approve){
+        return tradingSystem.responedToCounterPurchaseOffer(storeId, userId, prodId, false);
+    }
+
+    public static Result getOffersForStore(int storeId, int userId){
+        return null; //permissions
+    }
+
+    public static Result getOffersForCostumer(int userId){
+        return null;
+    }
 
     public static Result getReceipt(int receiptId) {
         return tradingSystem.getReceipt(receiptId);

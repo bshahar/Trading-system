@@ -49,6 +49,7 @@ public class Member {
         p.allowRemovePermission();
         p.allowViewDiscountPolicies();
         p.allowViewPurchasePolicies();
+        p.allowResponedToOffer();
         permissions.put(store,p);
     }
 
@@ -89,6 +90,7 @@ public class Member {
             p.allowRemovePermission();
             p.allowViewDiscountPolicies();
             p.allowViewPurchasePolicies();
+            p.allowResponedToOffer();
             permissions.put(store,p);
         }
         else {
@@ -117,6 +119,7 @@ public class Member {
             permissions.get(store).allowRemovePermission();
             permissions.get(store).allowViewDiscountPolicies();
             permissions.get(store).allowViewPurchasePolicies();
+            permissions.get(store).allowResponedToOffer();
         }
 
 
@@ -250,6 +253,10 @@ public class Member {
                     }
                     case 23: {
                         p.disableViewPurchaseHistory();
+                        break;
+                    }
+                    case 24:{
+                        p.disableResponedToOffer();
                         break;
                     }
                 }
@@ -404,6 +411,15 @@ public class Member {
             return new Result(false,"User has no permission for this action.");
     }
 
+    public Result responedToOffer(Store store, int prodId, int offerId, String responed, int counterOffer) {
+        if(permissions.containsKey(store)) {
+            Permission permission = permissions.get(store);
+            return permission.responedToOffer(prodId,offerId, responed, counterOffer);
+        }
+        else
+            return new Result(false,"User has no permission for this action.");
+    }
+
 
     public Result removeMangerFromStore(User owner,User manager, Store store) {
         if(permissions.containsKey(store)){
@@ -501,6 +517,9 @@ public class Member {
                     }
                     case 23: {
                         return p.getViewPurchaseHistory()!=null;
+                    }
+                    case 24:{
+                        return p.getResponedToOffer()!=null;
                     }
                 }
             }

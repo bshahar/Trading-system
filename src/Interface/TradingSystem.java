@@ -74,6 +74,59 @@ public class TradingSystem {
         sessionsMap = new ConcurrentHashMap<>();
     }
 
+//    public int getSystemManagerId() {
+//        return systemManager.getId();
+//    }
+//
+//    public List<Integer> getpermissionsIndex(List<String> names) {
+//        List<Integer> indexes =new LinkedList<>();
+//        for(String name: names){
+//            indexes.add(getIndex(TradingSystem.permissionsName, name));
+//        }
+//        return indexes;
+//    }
+//
+//    private Integer getIndex(String[] permissionsName, String name) {
+//        for(int i=0; i<permissionsName.length;i++){
+//            if(permissionsName[i].equals(name)){
+//                return i;
+//            }
+//        }
+//        return -1;
+//    }
+//
+//    public Result getGlobalPurchaseUserHistory(int tradingSystemManager, int userId) {
+//        if(this.systemManager.getId() == tradingSystemManager){
+//            KingLogger.logEvent("GLOBAL_USER_HISTORY:  system manager " + tradingSystemManager + "got purchase history of user " + userId);
+//            return getUserPurchaseHistory(userId);
+//        }
+//        KingLogger.logEvent("GLOBAL_USER_HISTORY:  user " + tradingSystemManager + "is not a system manager");
+//        return new Result(false, "Username is not system manager");
+//    }
+//
+//    public Result addSession(int userId, Session session) {
+//        getUserById(userId).setSession(session);
+//        return new Result(true,"session added\n");
+//    }
+//    public Result removeSession(int userId) {
+//        getUserById(userId).setSession(null);
+//        return new Result(true,"session remove\n");
+//    }
+//
+//    public Result sendAlertsAfterPurchase(int storeId) {
+//        try {
+//            Result result2 = API.getManagersAndOwnersOfStore(storeId);
+//            for (Integer id : (Set<Integer>) result2.getData()) {
+//                sendAlert(id,"Someone buy from your store! go check it out");
+//            }
+//            return new Result(true,"send successfully alerts\n");
+//        }
+//        catch (Exception e)
+//        {
+//            return new Result(false,"Exception while sending msg\n");
+//        }
+//
+//    }
 
     public static void setPaymentAdapterDemo() { paymentAdapter = new DemoPayment(); }
 
@@ -91,10 +144,42 @@ public class TradingSystem {
     public Result addPurchaseOffer(int storeId, int userId, int prodId, double offer, int numOfProd) {
         Store st = getStoreById(storeId);
         if(st != null && st.prodExists(prodId))  {
-            st.addPurchaseOffer(prodId, getUserById(userId), offer, numOfProd);
-            return new Result(true, "Purchase offer was added.");
+            int offerId = st.addPurchaseOffer(prodId, getUserById(userId), offer, numOfProd);
+            List<User> ownersManagers = new LinkedList<>();
+            ownersManagers.addAll(st.getOwners());
+            ownersManagers.addAll(st.getManagers());
+            for(User u:ownersManagers){
+                sendAlert(u.getId(),"Someone has made an offer on " + getProductById(prodId).getName() +" with id " + prodId);
+            }
+            return new Result(true, offerId);
         }
-        return new Result(false, "Could not add purchase offer.");
+        return new Result(false, -1);
+    }
+
+
+
+    public Result responedToOffer(int storeId, int userId, int prodId, int offerId, String responed, int counterOffer) {
+        int informTo = getStoreById(storeId).getUserMadeTheOffer(prodId,offerId);
+        Result r = getUserById(userId).responedToOffer(getStoreById(storeId),prodId,offerId,responed,counterOffer);
+        if(responed.equals("APPROVED") && r.isResult()){
+            sendAlert(informTo,"Your offer had been approved!");
+        }
+        else if(responed.equals("DISAPPROVED") && r.isResult()){
+            sendAlert(informTo,"Your offer had been disapproved.");
+        }
+        else if(responed.equals("COUNTEROFFER") && r.isResult()){
+            sendAlert(informTo,"The store management sent you a counter offer.");
+        }
+        return r;
+    }
+
+    public Result responedToCounterPurchaseOffer(int storeId, int userId, int prodId, boolean approve) {
+        Bag bag = getUserById(userId).getBagByStoreId(storeId);
+        if(approve){
+          bag.approveCounterOffer(getProductById(prodId));
+        }
+        bag.rejectCounterOffer(getProductById(prodId));
+        return new Result(true, "the counter offer has been responed");
     }
 
 
@@ -124,7 +209,9 @@ public class TradingSystem {
         ViewMessages,
         ViewPurchaseHistory,
         ViewDiscountPolicies,
-        ViewPurchasePolicies
+        ViewPurchasePolicies,
+        ResponedToOffer
+
     }
     public static String[] permissionsName= {
             "DEF",
@@ -152,7 +239,8 @@ public class TradingSystem {
             "ViewMessages",
             "ViewPurchaseHistory",
             "ViewDiscountPolicies",
-            "ViewPurchasePolicies"
+            "ViewPurchasePolicies",
+            "ResponedToOffer"
     };
 
 
@@ -543,6 +631,7 @@ public class TradingSystem {
             Map<Product, Integer> products = getBag(userId, storeId);
             Store store = getStoreById(storeId);
             Map<Product, Integer> productsAmountBag = new HashMap<>();
+            Map<Product,Double> offerPrices = getOfferPrices(userId,storeId);
             for (Product p : products.keySet()) {
                 productsAmountBag.put(p, products.get(p));
             }
@@ -556,7 +645,11 @@ public class TradingSystem {
                         if (store.canBuyProduct(product, productsAmountBag.get(product))) {
                             store.removeProductAmount(product, productsAmountBag.get(product));
                             productsAmountBuy.put(product, productsAmountBag.get(product));
-                            totalCost += ((product.getPrice() - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));
+                            if(offerPrices.containsKey(product)) {
+                                totalCost += ((offerPrices.get(product) - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));
+                            }
+                            else
+                                totalCost += ((product.getPrice() - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));
                         }
                     } else
                         return new Result(false, "Purchase is not approved by store's policy.");
@@ -631,6 +724,19 @@ public class TradingSystem {
         }
         catch (Exception e) {
             KingLogger.logError("GET_BAG: User with id " + userId + " couldn't view his bag from store " + storeId);
+            return null;
+        }
+    }
+
+    private Map<Product, Double> getOfferPrices(int userId, int storeId) {
+        try {
+            User user = getUserById(userId);
+            Bag bag = user.getBagByStoreId(storeId);
+            KingLogger.logEvent("GET_BAG: User with id " + userId + " view his offer prices from store " + storeId);
+            return bag.getOfferPrices();
+        }
+        catch (Exception e) {
+            KingLogger.logError("GET_BAG: User with id " + userId + " couldn't view his offer prices from store " + storeId);
             return null;
         }
     }

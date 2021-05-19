@@ -10,14 +10,18 @@ import java.util.List;
 
 public class PurchaseOffer extends Purchase {
     private int id;
-    private PurchaseCondition conditions;
+    //private PurchaseCondition conditions;
     private double priceOfOffer;
     private boolean isApproved;
+    private int numOfProd;
+    private User user;
 
-    public PurchaseOffer(int id, PurchaseCondition conditions, double priceOfOffer){
+    public PurchaseOffer(int id, double priceOfOffer , int numOfProd, User user){
         this.id = id;
        // this.conditions = conditions;
         this.priceOfOffer = priceOfOffer;
+        this.numOfProd = numOfProd;
+        this.user  = user;
         this.isApproved = false;
     }
 
@@ -35,9 +39,15 @@ public class PurchaseOffer extends Purchase {
 
     public double getPriceOfOffer() { return this.priceOfOffer; }
 
+    public User getUser() { return this.user; }
+
+    public int getId() {return this.id;}
+
     public void setPriceOfOffer(double priceOfOffer){this.priceOfOffer = priceOfOffer;}
 
     public boolean getIsApproved(){return isApproved;}
 
     public void setIsApproved(boolean isApproved){this.isApproved = isApproved;}
+
+    public int getNumOfProd(){return this.numOfProd;}
 }

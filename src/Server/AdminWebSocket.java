@@ -1,6 +1,7 @@
 package Server;
 
 import Domain.Receipt;
+import Domain.ReceiptLine;
 import Domain.Result;
 import Service.API;
 import org.eclipse.jetty.websocket.api.Session;
@@ -45,7 +46,7 @@ public class AdminWebSocket {
                 for(Receipt receipt : receipts){
                     JSONObject[] linesJson= new JSONObject[receipt.getLines().size()];
                     int i=0;
-                    for(Receipt.ReceiptLine receiptLine : receipt.getLines()){
+                    for(ReceiptLine receiptLine : receipt.getLines()){
                         JSONObject receiptLineJson= new JSONObject();
                         receiptLineJson.put("prodName",receiptLine.getProdName());
                         receiptLineJson.put("price",receiptLine.getPrice());

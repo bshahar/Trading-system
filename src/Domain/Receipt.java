@@ -117,9 +117,12 @@ public class Receipt {
         return Objects.hash(id, storeId, userId, userName, totalCost, paymentTransactionId, supplementTransactionId);
     }
 
+    @Transient
     public List<ReceiptLine> getLines() {
         return lines;
     }
-
+    public void setLines(List<ReceiptLine> lines){
+        this.lines = lines;
+    }
 
 }

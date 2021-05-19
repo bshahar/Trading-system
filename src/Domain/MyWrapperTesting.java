@@ -9,7 +9,7 @@ import java.util.List;
 
 public class MyWrapperTesting implements MyWrapperInterface {
     List<User> users;
-
+    List<Receipt> receipts;
 
     private Object value;
     private boolean testing;
@@ -19,6 +19,7 @@ public class MyWrapperTesting implements MyWrapperInterface {
     public MyWrapperTesting(Object obj){
         value =obj;
         this.users = Collections.synchronizedList(new LinkedList<>());
+        this.receipts = Collections.synchronizedList(new LinkedList<>());
     }
 
 

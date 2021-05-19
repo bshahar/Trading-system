@@ -1,5 +1,12 @@
 package Domain;
 
+import Domain.DiscountFormat.ConditionalDiscount;
+import Domain.DiscountFormat.Discount;
+import Domain.DiscountFormat.SimpleDiscount;
+import Domain.DiscountPolicies.*;
+import Persistance.*;
+import com.sun.org.apache.xalan.internal.xsltc.dom.SAXImpl;
+import javafx.util.Pair;
 import Interface.TradingSystem;
 import Persistance.HibernateUtil;
 import Persistance.ReceiptsEntity;
@@ -11,7 +18,10 @@ import org.hibernate.query.Query;
 
 import java.util.Collections;
 import java.util.LinkedList;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 public class MyWrapper implements MyWrapperInterface {
 
@@ -29,6 +39,8 @@ public class MyWrapper implements MyWrapperInterface {
         this.users = Collections.synchronizedList(new LinkedList<>());
         this.receipts = Collections.synchronizedList(new LinkedList<>());
     }
+
+    public Object getValue() { return this.value; }
 
     public Object get(String dbName) {
         if (!updatedValue) {
@@ -133,6 +145,90 @@ public class MyWrapper implements MyWrapperInterface {
         return true;
     }
 
+    public boolean add(Product prod, Discount dis) {
+        Map<Product, Discount> map = (Map<Product, Discount>) value;
+        ((Map<Product, Discount>) value).put(prod, dis);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        addDiscountPolicy(session, dis);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+    public boolean add(String category, Discount dis) {
+        Map<String, Discount> map = (Map<String, Discount>) value;
+        ((Map<String, Discount>) value).put(category, dis);
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        addDiscountPolicy(session, dis);
+        session.getTransaction().commit();
+        session.close();
+        return true;
+    }
+
+    private void addDiscountPolicy(Session session, Discount dis) {
+        //Discount (simple & conditional)
+        DiscountsEntity disEntity = new DiscountsEntity();
+        disEntity.setId(dis.getId());
+        disEntity.setPercentage(dis.getPercentage());
+        disEntity.setMathOperator(dis.getMathOpStr());
+        disEntity.setBeginDate(dateToString(dis.getBegin()));
+        disEntity.setEndDate(dateToString(dis.getEnd()));
+
+        //Conditional discount
+        if(dis instanceof ConditionalDiscount) {
+            DiscountConditionEntity disCondEntity = new DiscountConditionEntity();
+            int condId = ((ConditionalDiscount) dis).getConditions().getId();
+            disCondEntity.setId(condId);
+            disCondEntity.setLogicOperator(((ConditionalDiscount) dis).getConditions().getOperatorStr());
+            session.save(disCondEntity);
+
+            List<Policy> policies = ((ConditionalDiscount) dis).getConditions().getDiscounts();
+            for (Policy pol: policies) {
+                if(pol instanceof DiscountByMinimalAmount) {
+                    DiscountByMinimalAmountEntity entity = new DiscountByMinimalAmountEntity();
+                    entity.setConditionId(condId);
+                    entity.setMinAmount(Integer.parseInt(pol.getPolicyParams().get(0)));
+                    entity.setProductId(Integer.parseInt(pol.getPolicyParams().get(1)));
+                    session.save(entity);
+                }
+                else if(pol instanceof DiscountByMinimalCost) {
+                    DiscountByMinimalCostEntity entity = new DiscountByMinimalCostEntity();
+                    entity.setConditionId(condId);
+                    entity.setMinCost(Double.parseDouble(pol.getPolicyParams().get(0)));
+                    session.save(entity);
+                }
+                else { //Discount by purchase time
+                    //params = boolean byDayInWeek, boolean byDayInMonth, boolean byHourInDay, int dayInWeek, int dayInMonth, int beginHour, int endHour
+                    DiscountByPurchaseTimeEntity entity = new DiscountByPurchaseTimeEntity();
+                    entity.setConditionId(condId);
+                    entity.setByDayInWeek(Boolean.parseBoolean(pol.getPolicyParams().get(0)));
+                    entity.setByDayInMonth(Boolean.parseBoolean(pol.getPolicyParams().get(1)));
+                    entity.setByHourInDay(Boolean.parseBoolean(pol.getPolicyParams().get(2)));
+                    entity.setDayInWeek(Integer.parseInt(pol.getPolicyParams().get(3)));
+                    entity.setDayInMonth(Integer.parseInt(pol.getPolicyParams().get(4)));
+                    entity.setBeginHour(Integer.parseInt(pol.getPolicyParams().get(5)));
+                    entity.setEndHour(Integer.parseInt(pol.getPolicyParams().get(6)));
+                    session.save(entity);
+                }
+            } //Finish inserting to DB each policy in discount
+            ConditionalDiscountEntity condDisEntity = new ConditionalDiscountEntity();
+            condDisEntity.setConditionId(condId);
+            condDisEntity.setDiscountId(dis.getId());
+        }
+    }
+
+    public boolean remove(Product prod) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(prod);
+        session.getTransaction().commit();
+        session.close();
+        //TODO fix implementation
+        return true;
+    }
+
     //====================================================================
     //User
     public boolean add(User user){
@@ -160,7 +256,22 @@ public class MyWrapper implements MyWrapperInterface {
         else
             return null;
     }
+    public boolean remove(String category) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(category);
+        session.getTransaction().commit();
+        session.close();
+        //TODO fix implementation
+        return true;
+    }
 
+
+    private String dateToString(Date date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DATE)+"/"+(calendar.get(Calendar.MONTH)+1) +"/" + calendar.get(Calendar.YEAR);
+    }
     public User getUserById(int id)
     {
         for(User user : users)

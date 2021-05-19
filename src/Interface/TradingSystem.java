@@ -26,6 +26,7 @@ public class TradingSystem {
     private static counter productCounter;
     private static counter receiptCounter;
     private static counter observableCounter;
+    private static counter conditionCounter;
 
     private static PaymentInterface paymentAdapter;
     private static SupplementInterface supplementAdapter;
@@ -64,6 +65,7 @@ public class TradingSystem {
         storeCounter = new counter();
         productCounter=new counter();
         KingLogger.logEvent("Trading System initialized");
+        conditionCounter = new counter();
         observableCounter = new counter();
         this.observers = Collections.synchronizedList(new LinkedList<>());
         receiptCounter = new counter();
@@ -871,7 +873,7 @@ public class TradingSystem {
                 return getUserById(userId).addDiscountOnProduct(st, "simple", "PRODUCT", prodId, begin, end, null, percentage, op);
             }
             else {
-                DiscountCondition conditions = new DiscountCondition();
+                DiscountCondition conditions = new DiscountCondition(conditionCounter.inc());
                 for (Pair<String, List<String>> pair: policiesParams) {
                     PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
                     conditions.addDiscountPolicy(pol);
@@ -895,7 +897,7 @@ public class TradingSystem {
                 return getUserById(userId).addDiscountOnCategory(st, "simple", "CATEGORY", category, begin, end, null, percentage, op);
             }
             else {
-                DiscountCondition conditions = new DiscountCondition();
+                DiscountCondition conditions = new DiscountCondition(conditionCounter.inc());
                 for (Pair<String, List<String>> pair: policiesParams) {
                     PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
                     conditions.addDiscountPolicy(pol);
@@ -919,7 +921,7 @@ public class TradingSystem {
                 return getUserById(userId).addDiscountOnStore(st, "simple", "STORE", begin, end, null, percentage, op);
             }
             else {
-                DiscountCondition conditions = new DiscountCondition();
+                DiscountCondition conditions = new DiscountCondition(conditionCounter.inc());
                 for (Pair<String, List<String>> pair: policiesParams) {
                     PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
                     conditions.addDiscountPolicy(pol);

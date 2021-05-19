@@ -11,6 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class PurchaseCondition {
+    //todo id
     private List<Policy> purchases;
     private LogicOperator operator;
 

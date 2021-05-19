@@ -26,6 +26,8 @@ public abstract class Discount {
 
     public Date getEnd() { return this.end; }
 
+    public int getId() { return this.id; }
+
     public int getPercentage() { return this.percentage; }
 
     public MathOp getMathOp() {

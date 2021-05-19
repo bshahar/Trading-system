@@ -547,10 +547,14 @@
     <option name="LAST_COMMIT_MESSAGE" value="#64 remove purchase from receipts" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="362" y="119" key="git4idea.merge.GitMergeDialog" timestamp="1621436704059">
+    <state x="261" y="0" key="CommitChangelistDialog2" timestamp="1621436722018">
       <screen x="0" y="0" width="1280" height="680" />
     </state>
-    <state x="362" y="119" key="git4idea.merge.GitMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1621436704058" />
+    <state x="261" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1621436722018" />
+    <state x="362" y="119" key="git4idea.merge.GitMergeDialog" timestamp="1621436737269">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="362" y="119" key="git4idea.merge.GitMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1621436737269" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

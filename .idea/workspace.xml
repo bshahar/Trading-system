@@ -24,12 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/MyWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapperTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/MyWrapperTesting.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Receipt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/AdminWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/AdminWebSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/myPurchases.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/myPurchases.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -620,9 +614,10 @@
     </state>
     <state x="284" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1621432725383" />
     <state x="440" y="94" key="SettingsEditor/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621423616614" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1621422277025">
-      <screen x="0" y="0" width="1920" height="1040" />
+    <state x="368" y="147" key="Vcs.Push.Dialog.v2" timestamp="1621436800417">
+      <screen x="0" y="0" width="1280" height="680" />
     </state>
+    <state x="368" y="147" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1621436800417" />
     <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621422277025" />
   </component>
   <component name="XDebuggerManager">

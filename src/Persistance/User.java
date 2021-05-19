@@ -452,4 +452,8 @@ public class User implements Observer {
     public boolean isLooged() {
         return this.logged==1;
     }
+
+    public boolean removeReceipt(Receipt receipt) {
+        return this.receipts.remove(receipt);
+    }
 }

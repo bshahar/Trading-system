@@ -22,18 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix trading system constructor">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix trading system constructor 2">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/MyWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PermissionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PermissionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/StoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +155,7 @@
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server\Login" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest.addDiscountOnProductAndOpSuccessTest">
+  <component name="RunManager" selected="JUnit.LoginTest">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Server" />
       <module name="Trading-system" />
@@ -217,7 +211,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.connectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -227,8 +221,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="METHOD_NAME" value="connectionTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -250,11 +243,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.LoginTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.addDiscountOnProductAndOpSuccessTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest" />
         <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.PurchaseTest" />
-        <item itemvalue="JUnit.LoginTest.connectionTest" />
       </list>
     </recent_temporary>
   </component>
@@ -273,7 +266,7 @@
       <workItem from="1617723869195" duration="331000" />
       <workItem from="1619873004711" duration="5248000" />
       <workItem from="1621422073639" duration="7377000" />
-      <workItem from="1621447218768" duration="4340000" />
+      <workItem from="1621447218768" duration="5237000" />
     </task>
     <task id="LOCAL‎00001" summary="Dorin's changes #24">
       <created>1617455826555</created>
@@ -583,7 +576,13 @@
       <option name="presentableId" value="LOCAL‎00048" />
       <updated>1621449340285</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL‎00049" summary="fix trading system constructor 2">
+      <created>1621502661751</created>
+      <option name="number" value="LOCAL‎00049" />
+      <option name="presentableId" value="LOCAL‎00049" />
+      <updated>1621502661751</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -606,7 +605,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="workspace" />
     <MESSAGE value="adding store test #26" />
     <MESSAGE value="fix all tests #26" />
     <MESSAGE value="merge API, permissions" />
@@ -631,7 +629,8 @@
     <MESSAGE value="Receipt and ReceiptLine" />
     <MESSAGE value=".." />
     <MESSAGE value="fix trading system constructor" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix trading system constructor" />
+    <MESSAGE value="fix trading system constructor 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix trading system constructor 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

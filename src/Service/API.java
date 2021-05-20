@@ -29,7 +29,6 @@ public class API {
         String sysManagerName = appProps.getProperty("systemManagerName");
         String sysManagerId = appProps.getProperty("systemManagerId");
         String sysManagerAge = appProps.getProperty("systemManagerAge");
-        String testing = appProps.getProperty("test");
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), 1);
         tradingSystem = new TradingSystem(sysManager, appProps.getProperty("externalSystemsUrl"), Boolean.parseBoolean(appProps.getProperty("forTests")));
         //tradingSystem = new TradingSystem(sysManager, forTest);

@@ -22,17 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="user to db">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/PurchaseFormat/PurchaseOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/PurchaseOffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapperTesting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/MyWrapperTesting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistance/User.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
-  </component>
-  <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
@@ -69,7 +70,14 @@
         <item name="MySQL - @localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="zw9P3SlfWt: schema" type="76f4a085:MysqlImplModel$Schema" />
-        <item name="ReceiptLines: table" type="285a2a93:MysqlImplModel$Table" />
+        <item name="receipt: table" type="285a2a93:MysqlImplModel$Table" />
+      </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="MySQL - @localhost" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="zw9P3SlfWt: schema" type="76f4a085:MysqlImplModel$Schema" />
+        <item name="receiptLine: table" type="285a2a93:MysqlImplModel$Table" />
       </path>
     </expand>
     <select />
@@ -77,14 +85,14 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="HTML File" />
+        <option value="Interface" />
         <option value="Class" />
       </list>
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/ExternalSystems" />
+    <option name="BRANCH" value="UserDataBase" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -94,7 +102,6 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="ROOT_SYNC" value="DONT_SYNC" />
-    <option name="UPDATE_TYPE" value="MERGE" />
   </component>
   <component name="GitSEFilterConfiguration">
     <file-type-list>
@@ -116,9 +123,11 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="JPA.DatabaseSchemaImportDialog" value="a39d4c45-9de1-4a2e-80b6-9fb54af194a1" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
@@ -127,33 +136,38 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Desktop/mysql-connector-java-8.0.25.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Persistance/mysql-connector-java-8.0.25.jar!/" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Facets" />
     <property name="project.structure.proportion" value="0.22987013" />
-    <property name="project.structure.side.proportion" value="0.30057803" />
+    <property name="project.structure.side.proportion" value="0.30332923" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
+    <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
+      <recent name="Domain" />
       <recent name="Server" />
       <recent name="Permissions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\erez1\IdeaProjects\Trading-system\src\Persistance" />
+      <recent name="C:\Users\erez1\IdeaProjects\Trading-system\.idea\libraries" />
       <recent name="C:\Users\דורין\Desktop\תואר\סמסטר ו\סדנה\Trading-system\resources" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Templates" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\docs" />
-      <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server" />
-      <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Server\Login" />
+    </key>
+    <key name="ImportMappingsDialog.RecentPackages">
+      <recent name="Persistance" />
+      <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest">
+  <component name="RunManager" selected="JUnit.LoginTest">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Server" />
       <module name="Trading-system" />
@@ -167,38 +181,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscountAndPurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscountAndPurchaseTest.viewDiscountPolicyOnStoreSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="viewDiscountPolicyOnStoreSuccessTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.connectionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -208,13 +202,12 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="METHOD_NAME" value="connectionTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.loginSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -223,22 +216,77 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.PurchaseTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="METHOD_NAME" value="loginSuccessTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest.scalabilityUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="METHOD_NAME" value="scalabilityUserTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MyTest.loginSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.MyTest" />
+      <option name="METHOD_NAME" value="loginSuccessTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
+        <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.LoginTest.scalabilityUserTest" />
+        <item itemvalue="JUnit.LoginTest.loginSuccessTest" />
+        <item itemvalue="JUnit.MyTest.loginSuccessTest" />
         <item itemvalue="Application.Server" />
-        <item itemvalue="JUnit.PurchaseTest" />
-        <item itemvalue="JUnit.LoginTest.connectionTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.viewDiscountPolicyOnStoreSuccessTest" />
       </list>
     </recent_temporary>
   </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="MySQL - @localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="MySQL - @localhost: root" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -252,7 +300,10 @@
       <workItem from="1617440371798" duration="9756000" />
       <workItem from="1617723869195" duration="331000" />
       <workItem from="1619873004711" duration="5248000" />
-      <workItem from="1621422073639" duration="7377000" />
+      <workItem from="1620932301990" duration="15827000" />
+      <workItem from="1621150957601" duration="3676000" />
+      <workItem from="1621238212706" duration="13618000" />
+      <workItem from="1621357234715" duration="1629000" />
     </task>
     <task id="LOCAL‎00001" summary="Dorin's changes #24">
       <created>1617455826555</created>
@@ -499,68 +550,53 @@
       <option name="presentableId" value="LOCAL‎00038" />
       <updated>1620917785926</updated>
     </task>
-    <task id="LOCAL‎00039" summary="#64 implement adapters to external systems - not finished">
-      <created>1620998577532</created>
-      <option name="number" value="LOCAL‎00039" />
-      <option name="presentableId" value="LOCAL‎00039" />
-      <updated>1620998577532</updated>
-    </task>
-    <task id="LOCAL‎00040" summary="#63 add properties file">
-      <created>1621001244701</created>
-      <option name="number" value="LOCAL‎00040" />
-      <option name="presentableId" value="LOCAL‎00040" />
-      <updated>1621001244701</updated>
-    </task>
-    <task id="LOCAL‎00041" summary="#64 add option to cancel payment/ supplement">
-      <created>1621010758697</created>
-      <option name="number" value="LOCAL‎00041" />
-      <option name="presentableId" value="LOCAL‎00041" />
-      <updated>1621010758697</updated>
-    </task>
-    <task id="LOCAL‎00042" summary="#64">
-      <created>1621076548427</created>
-      <option name="number" value="LOCAL‎00042" />
-      <option name="presentableId" value="LOCAL‎00042" />
-      <updated>1621076548427</updated>
-    </task>
-    <task id="LOCAL‎00043" summary="#64 fix cancel purchase (payment &amp; supplement)">
-      <created>1621081806082</created>
-      <option name="number" value="LOCAL‎00043" />
-      <option name="presentableId" value="LOCAL‎00043" />
-      <updated>1621081806082</updated>
-    </task>
-    <task id="LOCAL‎00044" summary="#64 remove purchase from receipts">
-      <created>1621085583270</created>
-      <option name="number" value="LOCAL‎00044" />
-      <option name="presentableId" value="LOCAL‎00044" />
-      <updated>1621085583270</updated>
-    </task>
-    <task id="LOCAL-00045" summary="Receipt and ReceiptLine">
-      <created>1621425041755</created>
-      <option name="number" value="00045" />
-      <option name="presentableId" value="LOCAL-00045" />
+    <task id="LOCAL-00039" summary="new db">
+      <created>1621093171555</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
       <option name="project" value="LOCAL" />
-      <updated>1621425041756</updated>
+      <updated>1621093171555</updated>
     </task>
-    <task id="LOCAL-00046" summary="..">
-      <created>1621442955548</created>
-      <option name="number" value="00046" />
-      <option name="presentableId" value="LOCAL-00046" />
+    <task id="LOCAL-00040" summary="fix db problems">
+      <created>1621151775266</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
       <option name="project" value="LOCAL" />
-      <updated>1621442955551</updated>
+      <updated>1621151775266</updated>
     </task>
-    <task id="LOCAL-00047" summary="..">
-      <created>1621444018502</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
+    <task id="LOCAL-00041" summary="elad do everything!">
+      <created>1621164681957</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
       <option name="project" value="LOCAL" />
-      <updated>1621444018504</updated>
+      <updated>1621164681957</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00042" summary="elad do everything!">
+      <created>1621164734290</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1621164734290</updated>
+    </task>
+    <task id="LOCAL-00043" summary="user to db">
+      <created>1621277905934</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1621277905935</updated>
+    </task>
+    <task id="LOCAL-00044" summary="user to db">
+      <created>1621277937987</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1621277937987</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="1" />
+    <option name="version" value="3" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -571,15 +607,16 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="merges #26" />
+    <MESSAGE value="fixed store tests #26" />
     <MESSAGE value="." />
     <MESSAGE value="workspace" />
     <MESSAGE value="adding store test #26" />
@@ -597,80 +634,22 @@
     <MESSAGE value="xml" />
     <MESSAGE value="#62 create configuration files for system initialization and tests" />
     <MESSAGE value="fix dates sent to GUI in view policies" />
-    <MESSAGE value="#64 implement adapters to external systems - not finished" />
-    <MESSAGE value="#63 add properties file" />
-    <MESSAGE value="#64 add option to cancel payment/ supplement" />
-    <MESSAGE value="#64" />
-    <MESSAGE value="#64 fix cancel purchase (payment &amp; supplement)" />
-    <MESSAGE value="#64 remove purchase from receipts" />
-    <MESSAGE value="Receipt and ReceiptLine" />
+    <MESSAGE value="adding database infrastructure" />
     <MESSAGE value=".." />
-    <option name="LAST_COMMIT_MESSAGE" value=".." />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="552" y="178" key="#Assign_Data_Sources" timestamp="1621423719051">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="552" y="178" key="#Assign_Data_Sources/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621423719051" />
-    <state x="290" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1621422555667">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="290" y="176" key="#com.intellij.execution.impl.EditConfigurationsDialog/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621422555667" />
-    <state x="381" y="0" key="CommitChangelistDialog2" timestamp="1621444014421">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="381" y="0" key="CommitChangelistDialog2/0.0.1280.680@0.0.1280.680" timestamp="1621444014421" />
-    <state x="572" y="111" key="CommitChangelistDialog2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621425039976" />
-    <state x="666" y="261" key="FileChooserDialogImpl" timestamp="1621423110699">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="666" y="261" key="FileChooserDialogImpl/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621423110699" />
-    <state width="1237" height="195" key="GridCell.Tab.0.bottom" timestamp="1621444415560">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="195" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1621444415560" />
-    <state width="1237" height="195" key="GridCell.Tab.0.center" timestamp="1621444415560">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="195" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1621444415560" />
-    <state width="1237" height="195" key="GridCell.Tab.0.left" timestamp="1621444415557">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="195" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1621444415557" />
-    <state width="1237" height="195" key="GridCell.Tab.0.right" timestamp="1621444415560">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state width="1237" height="195" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1621444415560" />
-    <state x="28" y="22" width="1144" height="617" key="MergeDialog" timestamp="1621444256918">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="28" y="22" width="1144" height="617" key="MergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1621444256918" />
-    <state x="354" y="57" key="MultipleFileMergeDialog" timestamp="1621444260241">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="354" y="57" key="MultipleFileMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1621444260241" />
-    <state x="284" y="0" key="SettingsEditor" timestamp="1621432725383">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="284" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1621432725383" />
-    <state x="440" y="94" key="SettingsEditor/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621423616614" />
-    <state x="157" y="52" key="Vcs.Push.Dialog.v2" timestamp="1621444486039">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="157" y="52" key="Vcs.Push.Dialog.v2/0.0.1280.680@0.0.1280.680" timestamp="1621444486039" />
-    <state x="552" y="253" key="Vcs.Push.Dialog.v2/1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1621422277025" />
-    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1621444764029">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="450" y="258" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1280.680@0.0.1280.680" timestamp="1621444764029" />
-    <state x="424" y="132" key="git4idea.merge.GitMergeDialog" timestamp="1621444040879">
-      <screen x="0" y="0" width="1280" height="680" />
-    </state>
-    <state x="424" y="132" key="git4idea.merge.GitMergeDialog/0.0.1280.680@0.0.1280.680" timestamp="1621444040879" />
+    <MESSAGE value="new db" />
+    <MESSAGE value="fix db problems" />
+    <MESSAGE value="elad do everything!" />
+    <MESSAGE value="user to db" />
+    <option name="LAST_COMMIT_MESSAGE" value="user to db" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
+          <line>285</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
           <line>63</line>
@@ -708,9 +687,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>465</line>
+          <line>457</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
+          <line>331</line>
+          <option name="timeStamp" value="38" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
+          <line>325</line>
+          <option name="timeStamp" value="39" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/MyTest.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="54" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
+          <line>68</line>
+          <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
+          <option name="timeStamp" value="46" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>
@@ -719,9 +722,12 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Server.LoginPage.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>

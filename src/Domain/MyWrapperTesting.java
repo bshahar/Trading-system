@@ -71,6 +71,11 @@ public class MyWrapperTesting implements MyWrapperInterface {
 
     @Override
     public User getUserByName(String name) {
+        for(User user : users)
+        {
+            if(user.getUserName() == name)
+                return user;
+        }
         return null;
     }
 

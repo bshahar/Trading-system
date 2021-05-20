@@ -482,7 +482,7 @@ public class TradingSystem {
     }
 
     public User getUserById(int userId) {
-        return (User)this.users.getOne("user",userId);
+        return (User)this.users.getUserById(userId);
     }
 
     public Result getNumOfUsers(){

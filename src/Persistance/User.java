@@ -129,8 +129,6 @@ public class User implements Observer {
 
 
 
-
-
     @Transient
     public boolean isRegistered()
     {

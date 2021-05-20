@@ -54,7 +54,7 @@ public class Server {
 
 
         try {
-            API.initTradingSystem(true); //TODO need to get this param from config file?
+            API.initTradingSystem();
         } catch (IOException e) {
             //TODO deal with failure of getting config file
         }

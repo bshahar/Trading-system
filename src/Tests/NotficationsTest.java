@@ -6,11 +6,11 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.*;
+import java.util.LinkedList;
+import java.util.Properties;
+import java.util.Queue;
 
 public class NotficationsTest {
 
@@ -28,7 +28,7 @@ public class NotficationsTest {
     public void setUp() {
         Properties testProps = new Properties();
         try {
-            API.initTradingSystem(true);
+            API.initTradingSystem();
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)
                 testProps.load(input);

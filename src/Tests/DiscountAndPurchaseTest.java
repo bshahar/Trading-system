@@ -31,7 +31,7 @@ public class DiscountAndPurchaseTest {
     public void setUp() {
         Properties testProps = new Properties();
         try {
-            API.initTradingSystem(true);
+            API.initTradingSystem();
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)
                 testProps.load(input);

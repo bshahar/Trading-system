@@ -1,15 +1,12 @@
 package Tests;
 
-import Domain.Product;
 import Domain.Receipt;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
 
@@ -33,7 +30,7 @@ public class PurchaseTest {
     public void setUp() {
         testProps = new Properties();
         try {
-            API.initTradingSystem(true);
+            API.initTradingSystem();
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)
                 testProps.load(input);

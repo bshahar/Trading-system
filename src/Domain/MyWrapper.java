@@ -206,6 +206,21 @@ public class MyWrapper implements MyWrapperInterface {
         return true;
     }
 
+    public boolean remove(String category) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(category);
+        session.getTransaction().commit();
+        session.close();
+        //TODO fix implementation
+        return true;
+    }
+
+    private String dateToString(Date date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DATE)+"/"+(calendar.get(Calendar.MONTH)+1) +"/" + calendar.get(Calendar.YEAR);
+    }
 //==========================================================================
 //Receipt
 
@@ -256,22 +271,7 @@ public class MyWrapper implements MyWrapperInterface {
         else
             return null;
     }
-    public boolean remove(String category) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.delete(category);
-        session.getTransaction().commit();
-        session.close();
-        //TODO fix implementation
-        return true;
-    }
 
-
-    private String dateToString(Date date){
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        return calendar.get(Calendar.DATE)+"/"+(calendar.get(Calendar.MONTH)+1) +"/" + calendar.get(Calendar.YEAR);
-    }
     public User getUserById(int id)
     {
         for(User user : users)

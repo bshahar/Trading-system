@@ -27,30 +27,8 @@ public class Server {
         Spark.webSocket("/getDiscountAndPurchasesPolicies", GetPolicyWebSocket.class);
         Spark.webSocket("/deletePolicyAndPurchase", RemovePolicyAndPurchases.class);
         Spark.webSocket("/AdminWebSocket", AdminWebSocket.class);
+        Spark.webSocket("/myStores/bids", BidsWebSocket.class);
 
-
-
-        //test for inserting to database
-//        Session session = HibernateUtil.getSessionFactory().openSession();
-//        session.beginTransaction();
-//        ReceiptEntity rec = new ReceiptEntity();
-//        rec.setId(102);
-//        rec.setStoreId(2);
-//        rec.setUserId(3);
-//        rec.setUserName("ErezTest");
-//        rec.setTotalCost(10.00);
-//        session.save(rec);
-//        session.getTransaction().commit();
-//        session.close();
-
-        //test for fetching from database
-//        Session session2 = HibernateUtil.getSessionFactory().openSession();
-//        session2.beginTransaction();
-//        ReceiptEntity rec2 = new ReceiptEntity();
-//        session2.load(rec2,1);
-//        System.out.println(rec2.getId() + " - " +rec2.getStoreId() + " - " + rec2.getUserName());
-//        session.getTransaction().commit();
-//        session.close();
 
 
         try {

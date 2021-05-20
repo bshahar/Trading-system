@@ -518,7 +518,7 @@ public class Member {
                     case 23: {
                         return p.getViewPurchaseHistory()!=null;
                     }
-                    case 24:{
+                    case 26:{
                         return p.getResponedToOffer()!=null;
                     }
                 }

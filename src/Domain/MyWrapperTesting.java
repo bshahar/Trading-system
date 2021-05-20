@@ -73,7 +73,7 @@ public class MyWrapperTesting implements MyWrapperInterface {
     public User getUserByName(String name) {
         for(User user : users)
         {
-            if(user.getUserName() == name)
+            if(user.getUserName().equals( name))
                 return user;
         }
         return null;

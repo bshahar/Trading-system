@@ -102,7 +102,6 @@
     </orderEntry>
     <orderEntry type="library" name="com.sparkjava:spark-template-thymeleaf:2.7.1" level="project" />
     <orderEntry type="library" name="ch.qos.logback:logback-classic:1.2.3" level="project" />
-    <orderEntry type="library" name="json-20140107" level="project" />
     <orderEntry type="library" name="json-201401072" level="project" />
     <orderEntry type="library" name="javafx-sdk-11.0" level="project" />
     <orderEntry type="library" name="jfxrt" level="project" />
@@ -124,5 +123,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="Hibernate 5.4.11-5.4.11" level="project" />
+    <orderEntry type="library" name="json-20140107" level="project" />
   </component>
 </module>

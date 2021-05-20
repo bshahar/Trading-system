@@ -1,11 +1,8 @@
 package Domain.DiscountFormat;
 
 import Domain.Bag;
-import Domain.Operators.AndOperator;
-import Domain.Operators.OrOperator;
-import Domain.Operators.XorOperator;
 import Domain.Product;
-import Domain.User;
+import Persistance.User;
 
 import java.util.Date;
 
@@ -28,6 +25,8 @@ public abstract class Discount {
     public Date getBegin() { return this.begin; }
 
     public Date getEnd() { return this.end; }
+
+    public int getId() { return this.id; }
 
     public int getPercentage() { return this.percentage; }
 

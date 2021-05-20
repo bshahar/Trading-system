@@ -1,19 +1,15 @@
 package Tests;
 
 import Domain.*;
+import Persistance.User;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -30,12 +26,14 @@ public class StoreTest {
     //stores
     int storeId1;
     int storeId2;
+    private Map<String, String> payment;
+    private Map<String, String> supplement;
 
     @BeforeEach
     public void setUp() {
         Properties testProps = new Properties();
         try {
-            API.initTradingSystem();
+            API.initTradingSystem(true);
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)
                 testProps.load(input);
@@ -54,6 +52,21 @@ public class StoreTest {
         registerId3 = (int) API.registeredLogin(testProps.getProperty("user3name"), testProps.getProperty("user3password")).getData();
 
         storeId1 = (int) API.openStore(registerId1, testProps.getProperty("storeNameTest")).getData();
+
+        payment = new HashMap<>();
+        payment.put("card_number", testProps.getProperty("creditCardNumber"));
+        payment.put("month", testProps.getProperty("creditExpMonth"));
+        payment.put("year", testProps.getProperty("creditExpYear"));
+        payment.put("holder", testProps.getProperty("user1name"));
+        payment.put("cvv", testProps.getProperty("creditCvv"));
+        payment.put("id", String.valueOf(registerId1));
+
+        supplement = new HashMap<>();
+        supplement.put("name", testProps.getProperty("user1name"));
+        supplement.put("address", testProps.getProperty("supplyAddress"));
+        supplement.put("city", testProps.getProperty("supplyCity"));
+        supplement.put("country", testProps.getProperty("supplyCountry"));
+        supplement.put("zip", testProps.getProperty("supplyZipCode"));
 
         /*
         API.initTradingSystem("Elad");
@@ -319,7 +332,7 @@ public class StoreTest {
     //AT-20.1
     public void getPurchaseHistorySuccessTest() throws Exception{
         API.addProductToCart(registerId2,storeId1,1,1);
-        API.buyProduct(registerId2, storeId1, "Credit123");
+        API.buyProduct(registerId2, storeId1, payment, supplement);
         Assertions.assertEquals(storeId1,((List<Receipt>) API.getStorePurchaseHistory(registerId1,storeId1).getData()).get(0).getStoreId());
     }
 
@@ -328,7 +341,7 @@ public class StoreTest {
     public void getPurchaseHistoryNotPermitFailTest() throws Exception{
         API.addProductToCart(registerId2,storeId1,1,1);
 
-        API.buyProduct(registerId2, storeId1, "Credit123");
+        API.buyProduct(registerId2, storeId1, payment, supplement);
         assertFalse( API.getStorePurchaseHistory(registerId2,storeId1).isResult());
     }
 
@@ -339,7 +352,7 @@ public class StoreTest {
         API.addStoreOwner(registerId1,registerId2,storeId1);
         API.addProductToCart(registerId2,storeId1,1,1);
 
-        API.buyProduct(registerId2, storeId1, "Credit123");
+        API.buyProduct(registerId2, storeId1, payment, supplement);
 
         Assertions.assertEquals(storeId1,((List<Receipt>)API.getStorePurchaseHistory(registerId2,storeId1).getData()).get(0).getStoreId());
     }

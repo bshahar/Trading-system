@@ -1,5 +1,7 @@
 package Domain;
 
+import Persistance.User;
+
 import java.util.Date;
 import java.util.List;
 

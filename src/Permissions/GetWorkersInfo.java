@@ -3,9 +3,6 @@ package Permissions;
 import Domain.Member;
 import Domain.Result;
 import Domain.Store;
-import Domain.User;
-
-import java.util.List;
 
 public class GetWorkersInfo {
     final private Member member;

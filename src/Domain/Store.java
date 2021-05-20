@@ -2,11 +2,11 @@ package Domain;
 
 import Domain.DiscountFormat.*;
 import Domain.DiscountPolicies.DiscountCondition;
-import Domain.Operators.LogicOperator;
-import Domain.Operators.NoneOperator;
 import Domain.PurchaseFormat.ImmediatePurchase;
 import Domain.PurchaseFormat.Purchase;
+import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Persistance.User;
 import Service.counter;
 import javafx.util.Pair;
 
@@ -24,15 +24,17 @@ public class Store {
     private List<User> managers;
     private List<Receipt> receipts;
     private Service.counter counter;
-    private Map<Product, Discount> discountsOnProducts;
-    private Map<String, Discount> discountsOnCategories;
+    private Service.counter offerCounter;
+    private MyWrapper discountsOnProducts;
+    private MyWrapper discountsOnCategories;
     private Discount discountsOnStore;
     private Map<Product, ImmediatePurchase> purchasesOnProducts;
     private Map<String, ImmediatePurchase> purchasesOnCategories;
     private ImmediatePurchase purchasesOnStore;
-    //private List<ImmediatePurchase> purchasePoliciesInStore;
     private Map<User,List<User>> appointments; //appointer & list of appointees
     private Map<Integer, Bag> usersBags;
+    //private Map<Product,LinkedList<Pair<User,Double>>> offersOnProduct;
+    private Map<Product, LinkedList<PurchaseOffer>> offersOnProduct;
     private double rate;
     private int ratesCount;
 
@@ -40,7 +42,6 @@ public class Store {
     public Store(int id, String name, User owner) { //create a store with empty inventory
         this.storeId = id;
         this.name = name;
-        //this.shoppingBags = new LinkedList<>();
         this.inventory = new Inventory();
         this.rate = 0;
         this.ratesCount = 0;
@@ -51,12 +52,14 @@ public class Store {
         this.appointments.put(owner, new LinkedList<>());
         this.owners = Collections.synchronizedList(new LinkedList<>());
         this.managers = Collections.synchronizedList(new LinkedList<>());
-        this.discountsOnProducts = new ConcurrentHashMap<>();
-        this.discountsOnCategories = new ConcurrentHashMap<>();
+        this.discountsOnProducts = new MyWrapper(Collections.synchronizedMap(new HashMap<>()));
+        this.discountsOnCategories = new MyWrapper(Collections.synchronizedMap(new HashMap<>()));
         this.counter = new counter();
+        this.offerCounter = new counter();
         this.usersBags = new HashMap<>();
         this.purchasesOnProducts = new ConcurrentHashMap<>();
         this.purchasesOnCategories = new ConcurrentHashMap<>();
+        this.offersOnProduct = new ConcurrentHashMap<>();
     }
 
     public Inventory getInventory() {
@@ -157,6 +160,14 @@ public class Store {
         return inventory.getProductById(id);
     }
 
+    public List<User> getOwners(){return owners;}
+
+    public List<User> getManagers(){return managers;}
+
+    public Product getProductByName(String name) {
+        return inventory.getProductByName(name);
+    }
+
     public boolean canBuyProduct(Product product, int amount) {
         return inventory.canBuyProduct(product,amount);
     }
@@ -215,11 +226,11 @@ public class Store {
     }
 
     public void addDiscountOnProduct(int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        this.discountsOnProducts.put(getProductById(prodId), new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
+        this.discountsOnProducts.add(getProductById(prodId), new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
     public void addDiscountOnCategory(String category, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        this.discountsOnCategories.put(category, new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
+        this.discountsOnCategories.add(category, new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
     public void addDiscountOnStore(Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
@@ -264,59 +275,29 @@ public class Store {
         this.purchasesOnStore = null;
     }
 
-   /* public double calculateDiscounts(double totalCost, User user, String mathOperator) {
-        Bag bag = this.usersBags.get(user.getId());
-        switch (mathOperator) {
-            case "Max":
-                double discount = 0;
-                double temp;
-                if (this.discountsOnStore.size() > 0)
-                    discount = calcStoreDiscount(totalCost, user, bag);
-                if (this.discountsOnCategories.size() > 0) {
-                    temp = calcCategoriesDiscount(totalCost, user, bag);
-                    if (discount < temp)
-                        discount = temp;
-                }
-                if (this.discountsOnProducts.size() > 0) {
-                    temp = calcProductsDiscount(totalCost, user, bag);
-                    if (discount < temp)
-                        discount = temp;
-                }
-                totalCost -= discount;
-                break;
-            default:
-                if (this.discountsOnStore.size() > 0)
-                    totalCost -= calcStoreDiscount(totalCost, user, bag);
-                if (this.discountsOnCategories.size() > 0)
-                    totalCost -= calcCategoriesDiscount(totalCost, user, bag);
-                if (this.discountsOnProducts.size() > 0)
-                    totalCost -= calcProductsDiscount(totalCost, user, bag);
-                break;
-        }
-        return totalCost;
-    }
-*/
     public double calcDiscountPerProduct(Product prod, Date date, User user, Bag bag){
         List<Double> SumDiscount = new LinkedList<>();
         List<Double> MaxDiscount = new LinkedList<>();
         double discountProduct = 0;
         double discountCategory = 0;
         double discountStore = 0;
-        if (this.discountsOnProducts.containsKey(prod)) {
-            Discount dis = discountsOnProducts.get(prod);
+        Map<Product, Discount> discountsOnProductsMap = (Map<Product, Discount>)discountsOnProducts.getValue();
+        if (discountsOnProductsMap.containsKey(prod)) {
+            Discount dis = discountsOnProductsMap.get(prod);
             if(dis != null) {
-                discountProduct = discountsOnProducts.get(prod).calculateDiscount(prod, user, date, bag);
-                if (discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
+                discountProduct = discountsOnProductsMap.get(prod).calculateDiscount(prod, user, date, bag);
+                if (discountsOnProductsMap.get(prod).getMathOp().equals(Discount.MathOp.MAX))
                     MaxDiscount.add(discountProduct);
                 else
                     SumDiscount.add(discountProduct);
             }
         }
         for (String cat:prod.getCategories()) {
-            Discount dis = discountsOnCategories.get(cat);
+            Map<String, Discount> discountsOnCategoriesMap = (Map<String, Discount>)discountsOnCategories.getValue();
+            Discount dis = discountsOnCategoriesMap.get(cat);
             if(dis != null) {
                 discountCategory = dis.calculateDiscount(prod, user, date, bag);
-                if (discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
+                if (discountsOnProductsMap.get(prod).getMathOp().equals(Discount.MathOp.MAX))
                     MaxDiscount.add(discountCategory);
                 else
                     SumDiscount.add(discountCategory);
@@ -341,50 +322,13 @@ public class Store {
         return Math.min(finalDiscount, bag.getBagTotalCost()); //if discount > 100% return bag total cost (100% discount)
 
     }
-/*
-    private double calcStoreDiscount(double totalCost, User user, Bag bag) {
-        double discount = 0;
-        for (Discount disCon: this.discountsOnStore) {
-            discount += disCon.calculateDiscount(totalCost, user, new Date(), bag);
-        }
-        return discount;
-    }
 
-    private double calcCategoriesDiscount(double totalCost, User user, Bag bag) {
-        double discount = 0;
-        Bag discountProds = new Bag(this);
-        for (Product prod: bag.getProducts()) {
-            for (Product.Category category: prod.getCategories()) {
-                if (this.discountsOnCategories.containsKey(category))
-                    discountProds.addProduct(prod, bag.getProductsAmounts().get(prod));
-            }
-        }
-        for (Discount disCon : this.discountsOnStore) {
-            discount += disCon.calculateDiscount(totalCost, user, new Date(), discountProds);
-        }
-        return discount;
-    }
-
-    private double calcProductsDiscount(double totalCost, User user, Bag bag) {
-        double discount = 0;
-        Bag discountProds = new Bag(this);
-        for (Product prod : bag.getProducts()) {
-            if (this.discountsOnProducts.containsKey(prod)) {
-                discountProds.addProduct(prod, bag.getProductsAmounts().get(prod));
-            }
-        }
-        for (Discount disCon : this.discountsOnStore) {
-            discount += disCon.calculateDiscount(totalCost, user, new Date(), bag);
-        }
-        return discount;
-    }
-*/
     public void addSimpleDiscountOnProduct(int prodId, Date begin, Date end, int percentage, Discount.MathOp op) {
-        this.discountsOnProducts.put(getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage, op));
+        this.discountsOnProducts.add(getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
     public void addSimpleDiscountOnCategory(String category, Date begin, Date end, int percentage, Discount.MathOp op) {
-        this.discountsOnCategories.put(category, new SimpleDiscount(counter.inc(), begin, end, percentage, op));
+        this.discountsOnCategories.add(category, new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
     public void addSimpleDiscountOnStore(Date begin, Date end, int percentage, Discount.MathOp op) {
@@ -413,7 +357,8 @@ public class Store {
         Product product = getProductById(prodId);
         if(product != null) {
             List<Object> discountPolicies = new LinkedList<>();
-            Discount dis = this.discountsOnProducts.get(product);
+            Map<Product, Discount> discountsOnProductsMap = (Map<Product, Discount>)discountsOnProducts.getValue();
+            Discount dis = discountsOnProductsMap.get(product);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
                 discountPolicies.add(((ConditionalDiscount) dis).getConditions().getOperatorStr());
@@ -436,7 +381,8 @@ public class Store {
     public Result viewDiscountPoliciesOnCategory(String category) {
         if(category != null) {
             List<Object> discountPolicies = new LinkedList<>();
-            Discount dis = this.discountsOnCategories.get(category);
+            Map<String, Discount> discountsOnCategoriesMap = (Map<String, Discount>)discountsOnCategories.getValue();
+            Discount dis = discountsOnCategoriesMap.get(category);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
                 discountPolicies.add(((ConditionalDiscount) dis).getConditions().getOperatorStr());
@@ -575,6 +521,111 @@ public class Store {
 
     public int getProductAmount(Integer prodId) {
         return inventory.getProductsAmounts().get(getProductById(prodId));
+    }
+
+    public boolean removeReceipt(Receipt receipt) {
+        return this.receipts.remove(receipt);
+    }
+
+    public int addPurchaseOffer(int prodId, User user, double offer, int numOfProd) {
+        int offerId =  offerCounter.inc();
+        if(user.isRegistered()) {
+            if (this.offersOnProduct.containsKey(getProductById(prodId))) {
+                List<PurchaseOffer> offers = this.offersOnProduct.get(getProductById(prodId));
+                Iterator<PurchaseOffer> iterator = offers.iterator();
+                while (iterator.hasNext()) {
+                    PurchaseOffer p = iterator.next();
+                    if (p.getUser().equals(user)) {
+                        offers.remove(p);
+                    }
+                }
+                offers.add(new PurchaseOffer(offerId,offer,numOfProd,user));
+            } else {
+                LinkedList<PurchaseOffer> offers = new LinkedList();
+                offers.add(new PurchaseOffer(offerId,offer,numOfProd,user));
+                this.offersOnProduct.put(getProductById(prodId), offers);
+            }
+            return offerId;
+
+        }
+        return -1;
+    }
+    public int getUserMadeTheOffer(int prodId ,int offerId){
+        List<PurchaseOffer> offers = this.offersOnProduct.get(getProductById(prodId));
+        for (PurchaseOffer p: offers) {
+            if (p.getId() == offerId)
+                return p.getUser().getId();
+        }
+        return -1;
+    }
+
+    public void removeOffer(int prodId ,int offerId){
+        List<PurchaseOffer> offers = this.offersOnProduct.get(getProductById(prodId));
+        PurchaseOffer po = null;
+        for (PurchaseOffer p: offers) {
+            if (p.getId() == offerId)
+                po = p;
+        }
+        if(po != null)
+            offers.remove(po);
+        if(offers.size() == 0);
+        this.offersOnProduct.remove(getProductById(prodId));
+    }
+
+    public Result responedToOffer(int prodId, int offerId, String responed, int counterOffer) {
+        switch (responed){
+            case "APPROVED":
+                double offer = 0;
+                int amount = 0;
+                User user = null;
+                List<PurchaseOffer> offers = this.offersOnProduct.get(getProductById(prodId));
+                for (PurchaseOffer p: offers) {
+                    if(p.getId() == offerId) {
+                        offer = p.getPriceOfOffer();
+                        user = p.getUser();
+                        amount = p.getNumOfProd();
+                    }
+                }
+
+                if(user!=null) {
+                    Bag bag = user.getBagByStoreId(this.storeId);
+                    if(bag == null)
+                        bag = new Bag(this);
+                    bag.productsAmounts.put(getProductById(prodId), amount);
+                    bag.productsApproved.put(getProductById(prodId), offer);
+                    user.getBags().add(bag);
+                    removeOffer(prodId, offerId);
+                    return new Result(true, "the offer approved");
+                }
+                return new Result(false, "the offer wasn't found");
+            case "DISAPPROVED":
+                removeOffer(prodId, offerId);
+                return new Result(true, "the offer disapproved");
+            case "COUNTEROFFER":
+                user = null;
+                offers = this.offersOnProduct.get(getProductById(prodId));
+                PurchaseOffer po = null;
+                for (PurchaseOffer p: offers) {
+                    if(p.getId() == offerId) {
+                        p.setPriceOfOffer(counterOffer);
+                        user = p.getUser();
+                        po = p;
+                    }
+                }
+                if(user!=null) {
+                    Bag bag = user.getBagByStoreId(this.storeId);
+                    if(bag == null)
+                        bag = new Bag(this);
+                    bag.counterOffers.put(getProductById(prodId),po);
+                    user.getBags().add(bag);
+                    removeOffer(prodId, offerId);
+                    return new Result(true, "counter offer has been sent");
+                }
+                break;
+            default:
+                return new Result(false, "offer did not get response yet");
+        }
+        return new Result(false, "offer did not get response yet");
     }
 }
 

@@ -1,11 +1,9 @@
 package Domain.PurchaseFormat;
 
 import Domain.Bag;
-import Domain.DiscountPolicies.DiscountCondition;
-import Domain.Product;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Domain.PurchasePolicies.PurchasePolicy;
-import Domain.User;
+import Persistance.User;
 
 import java.util.Date;
 import java.util.List;

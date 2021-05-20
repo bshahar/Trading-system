@@ -126,6 +126,14 @@ public class Inventory {
         return null;
     }
 
+    public Product getProductByName(String prodName){
+        for(Product p : this.products.keySet()){
+            if(p.getName().equals(prodName))
+                return p;
+        }
+        return null;
+    }
+
     public Result removeProduct(int productId) {
         Product p = getProductById(productId);
         if (p != null){

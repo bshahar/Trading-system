@@ -2,13 +2,8 @@ package Domain;
 
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
-import Domain.Member;
 import Domain.PurchasePolicies.PurchaseCondition;
-import Domain.PurchasePolicies.PurchasePolicy;
-import Domain.Receipt;
-import Domain.Product;
-import Domain.Store;
-import Domain.User;
+import Persistance.User;
 import Permissions.*;
 
 import java.util.*;
@@ -20,33 +15,33 @@ public class Permission {
     final private Store store;
 
 
-    private AddProduct addProduct;
-    private RemoveProduct removeProduct;
-    private EditProduct editProduct;
-    private AppointManager appointManager;
-    private RemoveManagerAppointment removeManagerAppointment;
-    private AppointOwner appointOwner;
-    private RemoveOwnerAppointment removeOwnerAppointment;
-    private DefinePurchasePolicy definePurchasePolicy;
-    private EditPurchasePolicy editPurchasePolicy;
-    private DefinePurchaseFormat definePurchaseFormat;
-    private EditPurchaseFormat editPurchaseFormat;
-    private DefineDiscountPolicy defineDiscountPolicy;
-    private EditDiscountPolicy editDiscountPolicy;
-    private DefineDiscountFormat defineDiscountFormat;
-    private EditDiscountFormat editDiscountFormat;
-    private CloseStore closeStore;
-    private ReopenStore reopenStore;
-    private GetWorkersInfo getWorkersInfo;
-    private ViewMessages viewMessages;
-    private ReplayMessages replayMessages;
-    private ViewPurchaseHistory viewPurchaseHistory;
-    private OpenStore openStore;
-    private AddPermissions addPermissions;
-    private RemovePermission removePermission;
-    private ViewDiscountPolicies viewDiscountPolicies;
-    private ViewPurchasePolicies viewPurchasePolicies;
-
+    private AddProduct                      addProduct;
+    private RemoveProduct                   removeProduct;
+    private EditProduct                     editProduct;
+    private AppointManager                  appointManager;
+    private RemoveManagerAppointment        removeManagerAppointment;
+    private AppointOwner                    appointOwner;
+    private RemoveOwnerAppointment          removeOwnerAppointment;
+    private DefinePurchasePolicy            definePurchasePolicy;
+    private EditPurchasePolicy              editPurchasePolicy;
+    private DefinePurchaseFormat            definePurchaseFormat;
+    private EditPurchaseFormat              editPurchaseFormat;
+    private DefineDiscountPolicy            defineDiscountPolicy;
+    private EditDiscountPolicy              editDiscountPolicy;
+    private DefineDiscountFormat            defineDiscountFormat;
+    private EditDiscountFormat              editDiscountFormat;
+    private CloseStore                      closeStore;
+    private ReopenStore                     reopenStore;
+    private GetWorkersInfo                  getWorkersInfo;
+    private ViewMessages                    viewMessages;
+    private ReplayMessages                  replayMessages;
+    private ViewPurchaseHistory             viewPurchaseHistory;
+    private OpenStore                       openStore;
+    private AddPermissions                  addPermissions;
+    private RemovePermission                removePermission;
+    private ViewDiscountPolicies            viewDiscountPolicies;
+    private ViewPurchasePolicies            viewPurchasePolicies;
+    private ResponedToOffer responedToOffer;
     public Permission(Member member, Store store) {
         this.member = member;
         this.store = store;
@@ -268,6 +263,8 @@ public class Permission {
         return new Result(false,"User has no permission for this action.");
     }
 
+
+
     public void allowViewDiscountPolicies() {
         this.viewDiscountPolicies = new ViewDiscountPolicies(this.member,this.store);
     }
@@ -286,6 +283,7 @@ public class Permission {
     public void allowViewPurchasePolicies() {
         this.viewPurchasePolicies = new ViewPurchasePolicies(this.member, this.store);
     }
+
 
     public void disableViewPurchasePolicies() {
         if(this.viewPurchasePolicies == null) return;
@@ -468,6 +466,25 @@ public class Permission {
     }
 
 
+    public void allowResponedToOffer() {
+        this.responedToOffer = new ResponedToOffer(this.member,this.store);
+    }
+
+    public Result responedToOffer(int prodId, int offerId, String responed, int counterOffer)
+    {
+        if(this.responedToOffer!= null)
+            return this.responedToOffer.action(prodId,offerId, responed, counterOffer);
+        return new Result(false,"User has no permissions");
+    }
+
+    public void disableResponedToOffer()
+    {
+        if(this.responedToOffer == null) return;
+        this.responedToOffer = null;
+    }
+
+
+
     public Member getMember() {
         return member;
     }
@@ -559,6 +576,7 @@ public class Permission {
     public ViewPurchaseHistory getViewPurchaseHistory() {
         return viewPurchaseHistory;
     }
+    public ResponedToOffer getResponedToOffer(){ return responedToOffer;}
 
     public OpenStore getOpenStore() {
         return openStore;
@@ -571,4 +589,6 @@ public class Permission {
     public RemovePermission getRemovePermission() {
         return removePermission;
     }
+
+
 }

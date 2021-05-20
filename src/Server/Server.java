@@ -1,21 +1,15 @@
 package Server;
-
-import Permissions.AddProduct;
-import Permissions.OpenStore;
 import Server.Login.LoginWebSocket;
 import Server.myStores.myStoresWebSocket;
 import Service.API;
-import spark.ModelAndView;
 import spark.Spark;
-import spark.template.thymeleaf.ThymeleafTemplateEngine;
 
 import java.io.IOException;
-import java.util.HashMap;
 
 public class Server {
 
     public static void main(String []args) throws IOException {
-        Spark.secure("security/version2/KeyStore.jks", "123456", null,null);
+//        Spark.secure("security/version2/KeyStore.jks", "123456", null,null);
         Spark.webSocket("/Login", LoginWebSocket.class);
         Spark.webSocket("/Main/*",MainWebSocket.class);
         Spark.webSocket("/Store/currentStore",StoreWebSocket.class);
@@ -36,8 +30,31 @@ public class Server {
 
 
 
+        //test for inserting to database
+//        Session session = HibernateUtil.getSessionFactory().openSession();
+//        session.beginTransaction();
+//        ReceiptEntity rec = new ReceiptEntity();
+//        rec.setId(102);
+//        rec.setStoreId(2);
+//        rec.setUserId(3);
+//        rec.setUserName("ErezTest");
+//        rec.setTotalCost(10.00);
+//        session.save(rec);
+//        session.getTransaction().commit();
+//        session.close();
+
+        //test for fetching from database
+//        Session session2 = HibernateUtil.getSessionFactory().openSession();
+//        session2.beginTransaction();
+//        ReceiptEntity rec2 = new ReceiptEntity();
+//        session2.load(rec2,1);
+//        System.out.println(rec2.getId() + " - " +rec2.getStoreId() + " - " + rec2.getUserName());
+//        session.getTransaction().commit();
+//        session.close();
+
+
         try {
-            API.initTradingSystem();
+            API.initTradingSystem(true);
         } catch (IOException e) {
             //TODO deal with failure of getting config file
         }

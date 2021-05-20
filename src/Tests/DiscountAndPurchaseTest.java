@@ -1,6 +1,7 @@
 package Tests;
 
 import Domain.Receipt;
+import Domain.Result;
 import Service.API;
 import javafx.util.Pair;
 import org.junit.jupiter.api.Assertions;
@@ -20,14 +21,17 @@ public class DiscountAndPurchaseTest {
     private int productId2;
     private int productId3;
     private int productId4;
+    private int prouctId5;
     private String begin;
     private String end;
+    private Map<String, String> payment;
+    private Map<String, String> supplement;
 
     @BeforeEach
     public void setUp() {
         Properties testProps = new Properties();
         try {
-            API.initTradingSystem();
+            API.initTradingSystem(true);
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)
                 testProps.load(input);
@@ -64,10 +68,25 @@ public class DiscountAndPurchaseTest {
                 Integer.parseInt(testProps.getProperty("cheesePrice")),
                 testProps.getProperty("descriptionFood"),
                 Integer.parseInt(testProps.getProperty("prodQuantity100"))).getData();
+        prouctId5 = (int) API.addProduct(1, storeId1, "klik", catList1, 0, testProps.getProperty("descriptionFood"), 4 ).getData();
 
         begin = testProps.getProperty("dateBegin");
         end = testProps.getProperty("dateEnd");
 
+        payment = new HashMap<>();
+        payment.put("card_number", testProps.getProperty("creditCardNumber"));
+        payment.put("month", testProps.getProperty("creditExpMonth"));
+        payment.put("year", testProps.getProperty("creditExpYear"));
+        payment.put("holder", testProps.getProperty("user1name"));
+        payment.put("cvv", testProps.getProperty("creditCvv"));
+        payment.put("id", String.valueOf(registerId1));
+
+        supplement = new HashMap<>();
+        supplement.put("name", testProps.getProperty("user1name"));
+        supplement.put("address", testProps.getProperty("supplyAddress"));
+        supplement.put("city", testProps.getProperty("supplyCity"));
+        supplement.put("country", testProps.getProperty("supplyCountry"));
+        supplement.put("zip", testProps.getProperty("supplyZipCode"));
 
         /*API.initTradingSystem();
         String userName1 = "kandabior";
@@ -115,7 +134,7 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId3, 3);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 240;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -127,7 +146,7 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId3, 3);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 250;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -154,7 +173,7 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId3, 1);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 160;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -166,7 +185,7 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId3, 1);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 220;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -197,7 +216,7 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId3, 3);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 280;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -253,14 +272,14 @@ public class DiscountAndPurchaseTest {
         addPurchasePolicyOnCategorySuccessTest();
         //user at age 16 tries to buy alcohol when policy is age >= 18
         API.addProductToCart(registerId2, storeId1, productId2, 5);
-        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, "Credit1").isResult());
+        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, payment, supplement).isResult());
     }
 
     @Test
     public void purchaseContradictsAgeAndAmountPolicyFailTest() {
         addPurchasePolicyOnStoreSuccessTest();
         API.addProductToCart(registerId2, storeId1, productId2, 5);
-        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, "Credit1").isResult());
+        Assertions.assertFalse(API.buyProduct(registerId2, storeId1, payment, supplement).isResult());
     }
 
     @Test
@@ -283,7 +302,7 @@ public class DiscountAndPurchaseTest {
         API.addProductToCart(registerId2, storeId1, productId3, 2);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 260;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -311,7 +330,7 @@ public class DiscountAndPurchaseTest {
         //API.addProductToCart(registerId2, storeId1, productId3, 2);
         API.addProductToCart(registerId2, storeId1, productId2, 10);
         double expectedTotal = 160;
-        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, "Credit1").getData().toString());
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
@@ -322,5 +341,49 @@ public class DiscountAndPurchaseTest {
         //discount of 10% on drinks
         Assertions.assertTrue(API.addDiscountPolicyOnStore(storeId1, registerId1, "", policies, begin, end, 10, "Sum").isResult());
     }
+
+    @Test
+    public int addOfferSuccessTest() {
+        Result r = API.addPurchaseOffer(storeId1,registerId2,prouctId5,10,4);
+        Assertions.assertTrue(r.isResult());
+        return (int)r.getData();
+    }
+
+
+    @Test
+    public void approveOfferWithoutPermissionFailTest(){
+        int offerId = addOfferSuccessTest();
+        Assertions.assertFalse(API.approvePurchaseOffer(storeId1,registerId2,prouctId5,offerId).isResult());
+    }
+
+    @Test
+    public void approveOfferWithPermissionSuccessTest(){
+        int offerId = addOfferSuccessTest();
+        Assertions.assertTrue(API.approvePurchaseOffer(storeId1,registerId1,prouctId5,offerId).isResult());
+    }
+
+    @Test
+    public void buyProductAfterOfferSuccessTest(){
+        int offerId = addOfferSuccessTest();
+        API.approvePurchaseOffer(storeId1,registerId1,prouctId5,offerId);
+        double expectedTotal = 40;
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
+        double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
+        Assertions.assertEquals(expectedTotal, actualTotal);
+    }
+
+    @Test
+    public void buyProductAfterCounterOfferAndApprove(){
+        int offerId = addOfferSuccessTest();
+        API.counterPurchaseOffer(storeId1,registerId1,prouctId5,offerId,15);
+        API.approveCounterOffer(storeId1,registerId2,prouctId5,true);
+        double expectedTotal = 60;
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, payment, supplement).getData().toString());
+        double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
+        Assertions.assertEquals(expectedTotal, actualTotal);
+    }
+
+
+
 
 }

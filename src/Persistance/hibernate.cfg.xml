@@ -1,0 +1,55 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"
+        >
+<hibernate-configuration>
+
+  <session-factory>
+
+    <property name="connection.url">jdbc:mysql://remotemysql.com:3306/zw9P3SlfWt</property>
+    <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+    <property name="hibernate.connection.password">WQHbR3UruT</property>
+    <property name="hibernate.connection.username">zw9P3SlfWt</property>
+
+    <mapping class="Persistance.AgeLimitPolicyEntity"/>
+      <mapping class="Persistance.AppointmentsEntity"/>
+      <mapping class="Persistance.BagProductAmountEntity"/>
+      <mapping class="Persistance.ConditionalDiscountEntity"/>
+      <mapping class="Persistance.CountersEntity"/>
+    <mapping class="Persistance.DiscountByMinimalAmountEntity"/>
+    <mapping class="Persistance.DiscountByMinimalCostEntity"/>
+    <mapping class="Persistance.DiscountByPurchaseTimeEntity"/>
+    <mapping class="Persistance.DiscountConditionEntity"/>
+    <mapping class="Persistance.DiscountsEntity"/>
+    <mapping class="Persistance.ImmediatePurchasesEntity"/>
+    <mapping class="Persistance.InventoryEntity"/>
+    <mapping class="Persistance.MaxAmountPolicyEntity"/>
+    <mapping class="Persistance.MemberStorePermissionsEntity"/>
+    <mapping class="Persistance.MinAmountPolicyEntity"/>
+    <mapping class="Persistance.ProductCategoriesEntity"/>
+    <mapping class="Persistance.ProductReviewsEntity"/>
+    <mapping class="Persistance.ProductsEntity"/>
+    <mapping class="Persistance.PurchaseConditionEntity"/>
+    <mapping class="Persistance.ReceiptsEntity"/>
+    <mapping class="Persistance.StoreDiscountsOnCategoriesEntity"/>
+    <mapping class="Persistance.StoreDiscountsOnProductsEntity"/>
+    <mapping class="Persistance.StoreDiscountsOnStoresEntity"/>
+    <mapping class="Persistance.StoreEmployeesEntity"/>
+    <mapping class="Persistance.StoreManagersEntity"/>
+    <mapping class="Persistance.StoreOwnersEntity"/>
+    <mapping class="Persistance.StorePoliciesOnCategoriesEntity"/>
+    <mapping class="Persistance.StorePoliciesOnProductsEntity"/>
+    <mapping class="Persistance.StorePoliciesOnStoresEntity"/>
+    <mapping class="Persistance.StoreReceiptsEntity"/>
+    <mapping class="Persistance.StoresEntity"/>
+    <mapping class="Persistance.TimeLimitPolicyEntity"/>
+    <mapping class="Persistance.UserMessagesEntity"/>
+    <mapping class="Persistance.User"/>
+
+
+    <!-- DB schema will be updated if needed -->
+    <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->
+  </session-factory>
+
+</hibernate-configuration>

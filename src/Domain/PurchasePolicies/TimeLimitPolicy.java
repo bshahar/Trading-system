@@ -1,7 +1,7 @@
 package Domain.PurchasePolicies;
 
 import Domain.Bag;
-import Domain.User;
+import Persistance.User;
 
 import java.util.*;
 

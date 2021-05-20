@@ -383,6 +383,16 @@ public class DiscountAndPurchaseTest {
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
 
+   /* public void getOfferOfStore(){
+        int offerId = addOfferSuccessTest();
+        API.getOffersForStore(storeId1,registerId1);
+     //   int n = ((Map<PurchaseOffer,Product>)(API.getOffersForStore(storeId1,registerId1).getData())).size();
+     //   Assertions.assertEquals(n, 1);
+    }
+
+    */
+
+
 
 
 

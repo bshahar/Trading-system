@@ -13,6 +13,7 @@
         <setting name="provider-name" value="Hibernate" />
         <datasource-mapping>
           <factory-entry name="Entities" />
+          <factory-entry name="Trading-system" />
         </datasource-mapping>
         <naming-strategy-map />
       </configuration>
@@ -116,7 +117,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$USER_HOME$/Desktop/mysql-connector-java-8.0.25.jar!/" />
+          <root url="jar://$MODULE_DIR$/../../../../mysql-connector-java-8.0.25.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

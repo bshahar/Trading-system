@@ -452,7 +452,7 @@ public class User implements Observer {
         return this.receipts.remove(receipt);
     }
 
-    public Result responedToOffer(Store store, int prodId, int offerId, String responed, int counterOffer) {
-        return member.responedToOffer(store, prodId, offerId, responed, counterOffer);
+    public Result responedToOffer(Store store, int prodId, int offerId, String responed, double counterOffer, String option) {
+        return member.responedToOffer(store, prodId, offerId, responed, counterOffer, option);
     }
 }

@@ -411,10 +411,10 @@ public class Member {
             return new Result(false,"User has no permission for this action.");
     }
 
-    public Result responedToOffer(Store store, int prodId, int offerId, String responed, int counterOffer) {
+    public Result responedToOffer(Store store, int prodId, int offerId, String responed, double counterOffer, String option) {
         if(permissions.containsKey(store)) {
             Permission permission = permissions.get(store);
-            return permission.responedToOffer(prodId,offerId, responed, counterOffer);
+            return permission.responedToOffer(prodId,offerId, responed, counterOffer, option);
         }
         else
             return new Result(false,"User has no permission for this action.");

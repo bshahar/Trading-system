@@ -470,10 +470,10 @@ public class Permission {
         this.responedToOffer = new ResponedToOffer(this.member,this.store);
     }
 
-    public Result responedToOffer(int prodId, int offerId, String responed, int counterOffer)
+    public Result responedToOffer(int prodId, int offerId, String responed, double counterOffer, String option)
     {
         if(this.responedToOffer!= null)
-            return this.responedToOffer.action(prodId,offerId, responed, counterOffer);
+            return this.responedToOffer.action(prodId,offerId, responed, counterOffer, option);
         return new Result(false,"User has no permissions");
     }
 

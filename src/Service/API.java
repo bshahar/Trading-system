@@ -416,7 +416,7 @@ public class API {
         return tradingSystem.responedToOffer(storeId, userId, prodId, offerId, "DISAPPROVED", -1);
     }
 
-    public static Result counterPurchaseOffer(int storeId, int userId, int prodId, int offerId, int counterOffer){
+    public static Result counterPurchaseOffer(int storeId, int userId, int prodId, int offerId, double counterOffer){
         return tradingSystem.responedToOffer(storeId, userId, prodId, offerId, "COUNTEROFFER", counterOffer);
     }
 
@@ -429,11 +429,11 @@ public class API {
     }
 
     public static Result getOffersForStore(int storeId, int userId){
-        return null; //permissions
+        return tradingSystem.getOffersForStore(storeId, userId);
     }
 
     public static Result getOffersForCostumer(int userId){
-        return null;
+        return tradingSystem.getOffersForCostumer(userId);
     }
 
     public static Result getReceipt(int receiptId) {

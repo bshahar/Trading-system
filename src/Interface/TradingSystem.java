@@ -44,11 +44,15 @@ public class TradingSystem {
         {
             this.users =  new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
             this.receipts = new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
+            this.paymentAdapter = new DemoPayment();
+            this.supplementAdapter = new DemoSupplement();
         }
         else
         {
             this.users =  new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
             this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
+//            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+//            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
         }
 //        if(forTest)
 //            initializeSystemForTests();

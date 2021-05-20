@@ -97,7 +97,7 @@ public class Store {
     }
 
     public boolean addProductToStore(int productId,  String name, List<String> categories, double price, String description, int quantity) {
-        Product p = new Product(productId, name, categories, price, description);
+        Product p = new Product(productId, name, categories, price, description,this.storeId);
         return this.inventory.addProduct(p, quantity);
     }
 

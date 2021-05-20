@@ -5,15 +5,14 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileInputStream;
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.io.InputStream;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class PermissionTest {
 
@@ -60,7 +59,7 @@ public class PermissionTest {
     void setUp() {
         Properties testProps = new Properties();
         try {
-            API.initTradingSystem(true);
+            API.initTradingSystem();
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)
                 testProps.load(input);

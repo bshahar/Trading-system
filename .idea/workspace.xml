@@ -457,7 +457,13 @@
       <option name="presentableId" value="LOCAL‎00038" />
       <updated>1620917785926</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL‎00039" summary="buy product external systems">
+      <created>1621499821739</created>
+      <option name="number" value="LOCAL‎00039" />
+      <option name="presentableId" value="LOCAL‎00039" />
+      <updated>1621499821739</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -504,7 +510,8 @@
     <MESSAGE value="xml" />
     <MESSAGE value="#62 create configuration files for system initialization and tests" />
     <MESSAGE value="fix dates sent to GUI in view policies" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix dates sent to GUI in view policies" />
+    <MESSAGE value="buy product external systems" />
+    <option name="LAST_COMMIT_MESSAGE" value="buy product external systems" />
   </component>
   <component name="WindowStateProjectService">
     <state x="499" y="159" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1620909286148">

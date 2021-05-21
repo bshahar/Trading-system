@@ -1,6 +1,7 @@
 package Server;
 
 import Domain.Product;
+import Domain.Result;
 import Service.API;
 import org.eclipse.jetty.websocket.api.*;
 import org.eclipse.jetty.websocket.api.annotations.*;
@@ -66,6 +67,22 @@ public class StoreWebSocket {
             JSONObject json= new JSONObject();
             json.put("type", "ADD_PRODUCT");
             json.put("result",result);
+            session.getRemote().sendString(json.toString());
+        }else if(type.equals("SET_OFFER")){
+            int userId=jo.getInt("userId");
+            int storeId= jo.getInt("storeId");
+            int productId= jo.getInt("productId");
+            int amount= jo.getInt("amount");
+            int price= jo.getInt("price");
+            Result result=API.addPurchaseOffer(storeId,userId,productId,price,amount);
+            JSONObject json= new JSONObject();
+            json.put("type", "SET_OFFER");
+            json.put("result",result.isResult());
+            if(result.isResult()){
+                json.put("message","Bid has been offered, please wait for the store's manager");
+            }else{
+                json.put("message",result.getData());
+            }
             session.getRemote().sendString(json.toString());
         }
 

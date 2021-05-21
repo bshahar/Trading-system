@@ -97,7 +97,7 @@ public class Store {
     }
 
     public boolean addProductToStore(int productId,  String name, List<String> categories, double price, String description, int quantity) {
-        Product p = new Product(productId, name, categories, price, description);
+        Product p = new Product(productId, name, categories, price, description,this.storeId);
         return this.inventory.addProduct(p, quantity);
     }
 
@@ -591,11 +591,12 @@ public class Store {
 
                     if (user != null) {
                         Bag bag = user.getBagByStoreId(this.storeId);
-                        if (bag == null)
+                        if (bag == null) {
                             bag = new Bag(this);
+                            user.getBags().add(bag);
+                        }
                         bag.productsAmounts.put(getProductById(prodId), amount);
                         bag.productsApproved.put(getProductById(prodId), offer);
-                        user.getBags().add(bag);
                         removeOffer(prodId, offerId);
                         return new Result(true, "the offer approved");
                     }
@@ -616,10 +617,11 @@ public class Store {
                     }
                     if (user != null) {
                         Bag bag = user.getBagByStoreId(this.storeId);
-                        if (bag == null)
+                        if (bag == null) {
                             bag = new Bag(this);
+                            user.getBags().add(bag);
+                        }
                         bag.counterOffers.put(getProductById(prodId), po);
-                        user.getBags().add(bag);
                         removeOffer(prodId, offerId);
                         return new Result(true, "counter offer has been sent");
                     }

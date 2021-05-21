@@ -49,6 +49,11 @@ public class MyCartWebSocket {
                         JSONObject jsonProduct=new JSONObject();
                         jsonProduct.put("productName",product.getName());
                         jsonProduct.put("productId",product.getId());
+                        if(bag.getOfferPrices().containsKey(product)){
+                            jsonProduct.put("productPrice",bag.getOfferPrices().get(product));
+                        }else{
+                            jsonProduct.put("productPrice",product.getPrice());
+                        }
                         jsonProduct.put("productAmount",bag.getProductsAmounts().get(product));
                         jsonProducts[i]=jsonProduct;
                         i++;

@@ -22,7 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="user to db" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="Bid GUI">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,12 +87,12 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="UserDataBase" />
+    <option name="BRANCH" value="origin/getForOffer" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="addOfferGuiServer" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -129,16 +131,16 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/Persistance/mysql-connector-java-8.0.25.jar!/" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../json-20140107.jar" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
-    <property name="project.structure.last.edited" value="Facets" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.22987013" />
-    <property name="project.structure.side.proportion" value="0.30332923" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
@@ -160,7 +162,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LoginTest">
+  <component name="RunManager" selected="Application.Server">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Server" />
       <module name="Trading-system" />
@@ -239,11 +241,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.MyTest.loginSuccessTest" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.LoginTest" />
         <item itemvalue="JUnit.LoginTest.scalabilityUserTest" />
         <item itemvalue="JUnit.LoginTest.loginSuccessTest" />
-        <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.MyTest.loginSuccessTest" />
       </list>
     </recent_temporary>
   </component>
@@ -574,7 +576,25 @@
       <option name="project" value="LOCAL" />
       <updated>1621277937987</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL‎00045" summary="Bid GUI">
+      <created>1621508198040</created>
+      <option name="number" value="LOCAL‎00045" />
+      <option name="presentableId" value="LOCAL‎00045" />
+      <updated>1621508198040</updated>
+    </task>
+    <task id="LOCAL‎00046" summary="Bid GUI">
+      <created>1621518337105</created>
+      <option name="number" value="LOCAL‎00046" />
+      <option name="presentableId" value="LOCAL‎00046" />
+      <updated>1621518337105</updated>
+    </task>
+    <task id="LOCAL‎00047" summary="Bid GUI">
+      <created>1621526323475</created>
+      <option name="number" value="LOCAL‎00047" />
+      <option name="presentableId" value="LOCAL‎00047" />
+      <updated>1621526323475</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -597,7 +617,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="merges #26" />
     <MESSAGE value="fixed store tests #26" />
     <MESSAGE value="." />
     <MESSAGE value="workspace" />
@@ -622,7 +641,8 @@
     <MESSAGE value="fix db problems" />
     <MESSAGE value="elad do everything!" />
     <MESSAGE value="user to db" />
-    <option name="LAST_COMMIT_MESSAGE" value="user to db" />
+    <MESSAGE value="Bid GUI" />
+    <option name="LAST_COMMIT_MESSAGE" value="Bid GUI" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -631,16 +651,6 @@
           <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
           <line>298</line>
           <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
-          <line>63</line>
-          <option name="timeStamp" value="9" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/StoreWebSocket.java</url>
-          <line>33</line>
-          <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/SearchProductsWebSocket.java</url>
@@ -669,12 +679,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>403</line>
+          <line>404</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>388</line>
+          <line>398</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -686,6 +696,21 @@
           <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
           <line>73</line>
           <option name="timeStamp" value="59" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/BidsWebSocket.java</url>
+          <line>126</line>
+          <option name="timeStamp" value="64" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Service/API.java</url>
+          <line>80</line>
+          <option name="timeStamp" value="65" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/BidsWebSocket.java</url>
+          <line>64</line>
+          <option name="timeStamp" value="66" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />

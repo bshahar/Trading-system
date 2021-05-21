@@ -16,8 +16,9 @@ public class Product {
     private String description;
     private List<String> reviews;
     private int amount;
+    private int storeId;
 
-    public Product(int id, String name, List<String> categories, double price , String description) {
+    public Product(int id, String name, List<String> categories, double price , String description,int storeId) {
         this.id = id;
         this.name = name;
         this.categories = categories;
@@ -26,6 +27,11 @@ public class Product {
         this.description = description;
         this.rate = 0;
         this.reviews = new LinkedList<>();
+        this.storeId= storeId;
+    }
+
+    public int getStoreId() {
+        return storeId;
     }
 
     public int getAmount() {

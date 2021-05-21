@@ -30,9 +30,7 @@ public class API {
         String sysManagerId = appProps.getProperty("systemManagerId");
         String sysManagerAge = appProps.getProperty("systemManagerAge");
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), 1);
-        //tradingSystem = new TradingSystem(sysManager, appProps.getProperty("externalSystemsUrl"), forTest);
-        tradingSystem = new TradingSystem(sysManager,1);
-
+        tradingSystem = new TradingSystem(sysManager, appProps.getProperty("externalSystemsUrl"), Boolean.parseBoolean(appProps.getProperty("forTests")));
         /*
         //String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
         //String appConfigPath = rootPath + "appConfig.properties";

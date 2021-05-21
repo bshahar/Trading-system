@@ -2,7 +2,7 @@ package Domain.DiscountPolicies;
 
 import Domain.Bag;
 import Domain.Product;
-import Persistance.User;
+import Domain.User;
 
 import java.util.Date;
 import java.util.LinkedList;

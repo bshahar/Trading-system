@@ -3,7 +3,7 @@ package Server;
 import Domain.Receipt;
 import Domain.ReceiptLine;
 import Domain.Result;
-import Persistance.User;
+import Domain.User;
 import Service.API;
 import org.eclipse.jetty.websocket.api.Session;
 import org.eclipse.jetty.websocket.api.annotations.OnWebSocketClose;

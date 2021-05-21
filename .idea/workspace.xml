@@ -23,8 +23,119 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="Bid GUI">
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/1.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/1.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Hibernate_5_4_11_5_4_11.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/com_fasterxml_jackson_databind.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/com_fasterxml_jackson_databind.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/httpclient5_5_1.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jackson_core_2_12_3.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_sdk_11_0.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfxrt.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/json_20140107.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/openjdk_11_28_windows_x64_bin.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/openjdk_11_28_windows_x64_bin.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errorLog.txt.1" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt.1" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Persistance/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/Persistance/mysql-connector-java-8.0.25.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountFormat/ConditionalDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountFormat/ConditionalDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountFormat/Discount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountFormat/Discount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountFormat/SimpleDiscount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountFormat/SimpleDiscount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalAmount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalAmount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalCost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByPurchaseTime.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByPurchaseTime.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapperInterface.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/MyWrapperTesting.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Operators/AndOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Operators/AndOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Operators/LogicOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Operators/LogicOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Operators/NoneOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Operators/NoneOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Operators/OrOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Operators/OrOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Operators/XorOperator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Operators/XorOperator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Policy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Policy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/PurchaseFormat/ImmediatePurchase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/ImmediatePurchase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/PurchaseFormat/PurchaseOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/PurchaseOffer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/PurchasePolicies/AgeLimitPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/AgeLimitPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/PurchasePolicies/MaxAmountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/MaxAmountPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/PurchasePolicies/MinAmountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/MinAmountPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/PurchasePolicies/PurchaseCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/PurchaseCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/PurchasePolicies/PurchasePolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/PurchasePolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/PurchasePolicies/TimeLimitPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/TimeLimitPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/ReceiptLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/ReceiptLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/AppointManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/AppointManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/RemoveManagerAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/RemoveManagerAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/RemoveOwnerAppointment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/RemoveOwnerAppointment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/AgeLimitPolicyEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/AgeLimitPolicyEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/AppointmentsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/AppointmentsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/BagProductAmountEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/BagProductAmountEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/ConditionalDiscountEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/ConditionalDiscountEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/CountersEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/DiscountByMinimalAmountEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/DiscountByMinimalAmountEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/DiscountByMinimalCostEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/DiscountByMinimalCostEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/DiscountByPurchaseTimeEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/DiscountByPurchaseTimeEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/DiscountConditionEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/DiscountsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/HibernateUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/ImmediatePurchasesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/InventoryEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/InventoryEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/MaxAmountPolicyEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/MaxAmountPolicyEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/MemberStorePermissionsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/MemberStorePermissionsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/MinAmountPolicyEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/MinAmountPolicyEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/ProductCategoriesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/ProductReviewsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/ProductsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/PurchaseConditionEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/ReceiptLinesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/ReceiptsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnCategoriesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnCategoriesEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnProductsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnProductsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StoreDiscountsOnStoresEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StoreEmployeesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StoreManagersEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StoreOwnersEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnCategoriesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnCategoriesEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnProductsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnProductsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StorePoliciesOnStoresEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StoreReceiptsEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StoreReceiptsEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/StoresEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/TimeLimitPolicyEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/TimeLimitPolicyEntityPK.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/UserMessagesEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/UsersEntity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistance/mysql-connector-java-8.0.25.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/PermissionActionWebSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/UserAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserAuth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/MyTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/MyTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/StoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -132,7 +243,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../json-20140107.jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -141,7 +252,7 @@
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.22987013" />
-    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="project.structure.side.proportion" value="0.5440977" />
     <property name="restartRequiresConfirmation" value="false" />
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
@@ -163,7 +274,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="JUnit.LoginTest">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Server" />
       <module name="Trading-system" />
@@ -173,6 +284,17 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -242,8 +364,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.LoginTest.scalabilityUserTest" />
         <item itemvalue="JUnit.LoginTest.loginSuccessTest" />
         <item itemvalue="JUnit.MyTest.loginSuccessTest" />
@@ -289,6 +411,7 @@
       <workItem from="1621150957601" duration="3676000" />
       <workItem from="1621238212706" duration="13618000" />
       <workItem from="1621357234715" duration="1629000" />
+      <workItem from="1621604791924" duration="827000" />
     </task>
     <task id="LOCAL‎00001" summary="Dorin's changes #24">
       <created>1617455826555</created>
@@ -680,7 +803,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>404</line>
+          <line>400</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -713,6 +836,11 @@
           <line>64</line>
           <option name="timeStamp" value="66" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
+          <line>28</line>
+          <option name="timeStamp" value="67" />
+        </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
           <option name="timeStamp" value="46" />
@@ -725,12 +853,12 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Server.LoginPage.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Server.LoginPage.*</FILTER>
     </SUITE>
   </component>
 </project>

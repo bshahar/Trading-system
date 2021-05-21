@@ -11,7 +11,7 @@ import Domain.Operators.XorOperator;
 import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Domain.Sessions.SessionInterface;
-import Persistance.User;
+import Domain.User;
 import Service.*;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
@@ -34,24 +34,20 @@ public class TradingSystem {
     private UserAuth userAuth;
     private List<Store> stores;
     private User systemManager;
-    private MyWrapperInterface receipts;
-    private MyWrapperInterface users;
+    private List<Receipt> receipts;
+    private List<User> users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
 
     public TradingSystem (User systemManager, String externalSystemsUrl, boolean testing) {
         if(testing) {
-            this.users = new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
-            this.receipts = new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
             initializeSystemForTests();
         }
-        else {
-            this.users = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
-            this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
-            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
-            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
-        }
-        this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
+        this.users =  Collections.synchronizedList(new LinkedList<>());
+        this.receipts =  Collections.synchronizedList(new LinkedList<>());
+        paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+        supplementAdapter = new SupplementAdapter(externalSystemsUrl);
+        this.receipts = Collections.synchronizedList(new LinkedList<>());
         this.stores = Collections.synchronizedList(new LinkedList<>());
 
         this.userAuth = new UserAuth();
@@ -363,7 +359,9 @@ public class TradingSystem {
     //if the user performed login successfully return his id. else return -1
     public Result login(String userName,String pass) {
         if(userAuth.loginAuthentication(userName,pass)) {
-            User user = users.searchUserByName(userName);
+            User user = getUserByName(userName);
+            //users.searchUserByName(userName);
+            //TODO!!!! ELAD
             if(user!=null && (user.getLogged().equals((byte)0)))
             {
                     user.setLogged((byte)1);
@@ -373,6 +371,15 @@ public class TradingSystem {
         }
         KingLogger.logEvent("LOGIN:  User " + userName + ": Username or Password not correct");
         return new Result(false, "Username or Password not correct");
+    }
+
+    private User getUserByName(String userName) {
+        for(User user : users)
+        {
+            if(user.getUserName().equals(userName))
+                return user;
+        }
+        return null;
     }
 
 
@@ -494,7 +501,13 @@ public class TradingSystem {
     }
 
     public User getUserById(int userId) {
-        return (User)this.users.getUserById(userId);
+
+        for(User user : users)
+        {
+            if(user.getId() == userId)
+                return user;
+        }
+        return null;
     }
 
     public Result getNumOfUsers(){
@@ -1249,7 +1262,7 @@ public class TradingSystem {
     }
 
     public Result getReceipt(int receiptId) {
-        for (Receipt r: (List<Receipt>)this.receipts.get("receipt")) {
+        for (Receipt r:receipts) {
             if(r.getId() == receiptId)
                 return new Result(true, r);
         }
@@ -1370,7 +1383,7 @@ public class TradingSystem {
                     purchaseBag.put(st.getProductByName(rLine.getProdName()), rLine.getAmount());
                 }
                 st.abortPurchase(purchaseBag);
-                this.receipts.remove("receipt", receipt.getId());
+                this.receipts.remove(receipt);
                 st.removeReceipt(receipt);
                 getUserById(receipt.getUserId()).removeReceipt(receipt);
                 KingLogger.logEvent("CANCEL_PURCHASE: purchase that was made with receipt id " + receiptId + " was canceled.");

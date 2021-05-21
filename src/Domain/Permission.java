@@ -3,7 +3,6 @@ package Domain;
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchasePolicies.PurchaseCondition;
-import Persistance.User;
 import Permissions.*;
 
 import java.util.*;

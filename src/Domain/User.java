@@ -1,6 +1,5 @@
-package Persistance;
+package Domain;
 
-import Domain.*;
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchasePolicies.PurchaseCondition;
@@ -14,8 +13,6 @@ import javax.persistence.*;
 import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
-@Entity
-@Table(name = "Users", schema = "zw9P3SlfWt", catalog = "")
 public class User implements Observer {
     private byte registered ;
     private List<Bag> bags;
@@ -52,8 +49,7 @@ public class User implements Observer {
         this.session = new realSession();
     }
 
-    @Id
-    @Column(name = "id")
+
     public int getId() {
         return id;
     }
@@ -62,8 +58,7 @@ public class User implements Observer {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "userName")
+
     public String getUserName() {
         return userName;
     }
@@ -72,8 +67,6 @@ public class User implements Observer {
         this.userName = userName;
     }
 
-    @Basic
-    @Column(name = "registered")
     public Byte getRegistered() {
         return registered;
     }
@@ -82,8 +75,7 @@ public class User implements Observer {
         this.registered = registered;
     }
 
-    @Basic
-    @Column(name = "age")
+
     public Integer getAge() {
         return age;
     }
@@ -92,8 +84,7 @@ public class User implements Observer {
         this.age = age;
     }
 
-    @Basic
-    @Column(name = "logged")
+
     public Byte getLogged() {
         return logged;
     }
@@ -104,8 +95,6 @@ public class User implements Observer {
 
 
 
-    @Basic
-    @Column(name = "isSystemManger")
     public Byte getIsSystemManger() {
         return isSystemManager;
     }
@@ -114,7 +103,7 @@ public class User implements Observer {
         this.isSystemManager = isSystemManger;
     }
 
-    @Override
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -122,23 +111,20 @@ public class User implements Observer {
         return id == that.id && Objects.equals(userName, that.userName) && Objects.equals(registered, that.registered) && Objects.equals(age, that.age) && Objects.equals(logged, that.logged) && Objects.equals(isSystemManager, that.isSystemManager);
     }
 
-    @Override
+
     public int hashCode() {
         return Objects.hash(id, userName, registered, age, logged, isSystemManager);
     }
 
 
 
-    @Transient
     public boolean isRegistered()
     {
         return (1==this.registered);
     }
-    @Transient
     public Member getMember() {
         return member;
     }
-    @Transient
     public Bag getBagByStoreId(int storeId){
         for (Bag bag : bags){
             if (bag.getStoreId() == storeId)
@@ -149,7 +135,7 @@ public class User implements Observer {
     }
 
 
-    @Transient
+
     public List<Bag> getBags() {
         return bags;
     }
@@ -159,7 +145,7 @@ public class User implements Observer {
     public String toString()
         {
             StringBuilder info = new StringBuilder();
-            info.append("Persistance.User Name: ");
+            info.append("Domain.User Name: ");
             info.append(this.userName);
             info.append(" Age: ");
             info.append(this.age);
@@ -433,17 +419,17 @@ public class User implements Observer {
     public Result removePurchasePolicy(Store store, int prodId, String category) {
         return this.member.removePurchasePolicy(store, prodId, category);
     }
-    @Transient
+
     public void appointSystemManager(List<Store> stores) {
         this.isSystemManager = 1;
         this.member.setSystemManagerPermission(stores);
     }
-    @Transient
+
     public boolean isSystemManager() {
         return isSystemManager==1;
 
     }
-    @Transient
+
     public boolean isLooged() {
         return this.logged==1;
     }

@@ -7,7 +7,6 @@ import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchaseFormat.ImmediatePurchase;
 import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
-import Persistance.User;
 import Service.counter;
 import javafx.util.Pair;
 
@@ -26,8 +25,8 @@ public class Store {
     private List<Receipt> receipts;
     private Service.counter counter;
     private Service.counter offerCounter;
-    private MyWrapper discountsOnProducts;
-    private MyWrapper discountsOnCategories;
+    private Map<Product,Discount> discountsOnProducts;
+    private Map<String,Discount> discountsOnCategories;
     private Discount discountsOnStore;
     private Map<Product, ImmediatePurchase> purchasesOnProducts;
     private Map<String, ImmediatePurchase> purchasesOnCategories;
@@ -53,8 +52,8 @@ public class Store {
         this.appointments.put(owner, new LinkedList<>());
         this.owners = Collections.synchronizedList(new LinkedList<>());
         this.managers = Collections.synchronizedList(new LinkedList<>());
-        this.discountsOnProducts = new MyWrapper(Collections.synchronizedMap(new HashMap<>()));
-        this.discountsOnCategories = new MyWrapper(Collections.synchronizedMap(new HashMap<>()));
+        this.discountsOnProducts = Collections.synchronizedMap(new HashMap<>());
+        this.discountsOnCategories = Collections.synchronizedMap(new HashMap<>());
         this.counter = new counter();
         this.offerCounter = new counter();
         this.usersBags = new HashMap<>();
@@ -227,11 +226,11 @@ public class Store {
     }
 
     public void addDiscountOnProduct(int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        this.discountsOnProducts.add(getProductById(prodId), new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
+        this.discountsOnProducts.put(getProductById(prodId), new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
     public void addDiscountOnCategory(String category, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        this.discountsOnCategories.add(category, new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
+        this.discountsOnCategories.put(category, new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
     public void addDiscountOnStore(Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
@@ -282,23 +281,21 @@ public class Store {
         double discountProduct = 0;
         double discountCategory = 0;
         double discountStore = 0;
-        Map<Product, Discount> discountsOnProductsMap = (Map<Product, Discount>)discountsOnProducts.getValue();
-        if (discountsOnProductsMap.containsKey(prod)) {
-            Discount dis = discountsOnProductsMap.get(prod);
+        if (discountsOnProducts.containsKey(prod)) {
+            Discount dis = discountsOnProducts.get(prod);
             if(dis != null) {
-                discountProduct = discountsOnProductsMap.get(prod).calculateDiscount(prod, user, date, bag);
-                if (discountsOnProductsMap.get(prod).getMathOp().equals(Discount.MathOp.MAX))
+                discountProduct = discountsOnProducts.get(prod).calculateDiscount(prod, user, date, bag);
+                if (discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
                     MaxDiscount.add(discountProduct);
                 else
                     SumDiscount.add(discountProduct);
             }
         }
         for (String cat:prod.getCategories()) {
-            Map<String, Discount> discountsOnCategoriesMap = (Map<String, Discount>)discountsOnCategories.getValue();
-            Discount dis = discountsOnCategoriesMap.get(cat);
+            Discount dis = discountsOnCategories.get(cat);
             if(dis != null) {
                 discountCategory = dis.calculateDiscount(prod, user, date, bag);
-                if (discountsOnProductsMap.get(prod).getMathOp().equals(Discount.MathOp.MAX))
+                if (discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
                     MaxDiscount.add(discountCategory);
                 else
                     SumDiscount.add(discountCategory);
@@ -325,11 +322,11 @@ public class Store {
     }
 
     public void addSimpleDiscountOnProduct(int prodId, Date begin, Date end, int percentage, Discount.MathOp op) {
-        this.discountsOnProducts.add(getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage, op));
+        this.discountsOnProducts.put(getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
     public void addSimpleDiscountOnCategory(String category, Date begin, Date end, int percentage, Discount.MathOp op) {
-        this.discountsOnCategories.add(category, new SimpleDiscount(counter.inc(), begin, end, percentage, op));
+        this.discountsOnCategories.put(category, new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
     public void addSimpleDiscountOnStore(Date begin, Date end, int percentage, Discount.MathOp op) {
@@ -358,8 +355,7 @@ public class Store {
         Product product = getProductById(prodId);
         if(product != null) {
             List<Object> discountPolicies = new LinkedList<>();
-            Map<Product, Discount> discountsOnProductsMap = (Map<Product, Discount>)discountsOnProducts.getValue();
-            Discount dis = discountsOnProductsMap.get(product);
+            Discount dis = discountsOnCategories.get(product);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
                 discountPolicies.add(((ConditionalDiscount) dis).getConditions().getOperatorStr());
@@ -382,8 +378,7 @@ public class Store {
     public Result viewDiscountPoliciesOnCategory(String category) {
         if(category != null) {
             List<Object> discountPolicies = new LinkedList<>();
-            Map<String, Discount> discountsOnCategoriesMap = (Map<String, Discount>)discountsOnCategories.getValue();
-            Discount dis = discountsOnCategoriesMap.get(category);
+            Discount dis = discountsOnCategories.get(category);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
                 discountPolicies.add(((ConditionalDiscount) dis).getConditions().getOperatorStr());

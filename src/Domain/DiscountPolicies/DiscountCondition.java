@@ -2,7 +2,7 @@ package Domain.DiscountPolicies;
 
 import Domain.Operators.*;
 import Domain.*;
-import Persistance.User;
+import Domain.User;
 
 import java.util.*;
 

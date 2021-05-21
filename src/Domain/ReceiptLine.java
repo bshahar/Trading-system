@@ -1,15 +1,7 @@
 package Domain;
-
-import Persistance.ReceiptLinesEntity;
-
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
 import java.util.Objects;
 
-@Entity
-@Table(name = "ReceiptLines", schema = "zw9P3SlfWt", catalog = "")
+
 public class ReceiptLine {
 
     String prodName;
@@ -24,8 +16,7 @@ public class ReceiptLine {
         this.amount = amount;
     }
 
-    @Basic
-    @Column(name = "prodName")
+
     public String getProdName() {
         return prodName;
     }
@@ -34,8 +25,7 @@ public class ReceiptLine {
         this.prodName = prodName;
     }
 
-    @Basic
-    @Column(name = "price")
+
     public Double getPrice() {
         return price;
     }
@@ -44,8 +34,7 @@ public class ReceiptLine {
         this.price = price;
     }
 
-    @Basic
-    @Column(name = "amount")
+
     public Integer getAmount() {
         return amount;
     }
@@ -54,7 +43,7 @@ public class ReceiptLine {
         this.amount = amount;
     }
 
-    @Override
+
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
@@ -62,7 +51,7 @@ public class ReceiptLine {
         return Objects.equals(prodName, that.prodName) && Objects.equals(price, that.price) && Objects.equals(amount, that.amount);
     }
 
-    @Override
+
     public int hashCode() {
         return Objects.hash(prodName, price, amount);
     }

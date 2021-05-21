@@ -2,7 +2,7 @@ package Service;
 
 import Domain.*;
 import Interface.TradingSystem;
-import Persistance.User;
+import Domain.User;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
 

@@ -2,7 +2,7 @@
 //
 //
 //import Domain.Result;
-//import Persistance.User;
+//import Domain.User;
 //import Persistance.HibernateUtil;
 //import Service.API;
 //import Persistance.HibernateUtil;

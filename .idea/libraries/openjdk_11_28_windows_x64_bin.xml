@@ -1,8 +1,6 @@
 <component name="libraryTable">
   <library name="openjdk-11+28_windows-x64_bin">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/../openjdk-11+28_windows-x64_bin.zip!/" />
-    </CLASSES>
+    <CLASSES />
     <JAVADOC />
     <SOURCES />
   </library>

@@ -3,7 +3,7 @@ package Domain.PurchaseFormat;
 import Domain.Bag;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Domain.PurchasePolicies.PurchasePolicy;
-import Persistance.User;
+import Domain.User;
 
 import java.util.Date;
 import java.util.List;

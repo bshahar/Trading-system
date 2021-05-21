@@ -1,7 +1,7 @@
 package Domain.PurchasePolicies;
 
 import Domain.*;
-import Persistance.User;
+import Domain.User;
 
 import java.util.Date;
 

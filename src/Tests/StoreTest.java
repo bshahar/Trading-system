@@ -1,7 +1,7 @@
 package Tests;
 
 import Domain.*;
-import Persistance.User;
+import Domain.User;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

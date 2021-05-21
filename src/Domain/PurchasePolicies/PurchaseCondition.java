@@ -4,7 +4,7 @@ package Domain.PurchasePolicies;
 import Domain.*;
 import Domain.DiscountPolicies.PolicyCondition;
 import Domain.Operators.*;
-import Persistance.User;
+import Domain.User;
 
 import java.util.Date;
 import java.util.LinkedList;

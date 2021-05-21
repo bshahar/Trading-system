@@ -16,7 +16,7 @@ public class API {
 
     private static TradingSystem tradingSystem;
 
-    public static void initTradingSystem(boolean forTest) throws IOException {
+    public static void initTradingSystem() throws IOException {
 
         Properties appProps = new Properties();
 
@@ -29,10 +29,9 @@ public class API {
         String sysManagerName = appProps.getProperty("systemManagerName");
         String sysManagerId = appProps.getProperty("systemManagerId");
         String sysManagerAge = appProps.getProperty("systemManagerAge");
-        String testing = appProps.getProperty("test");
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), 1);
-        //tradingSystem = new TradingSystem(sysManager, appProps.getProperty("externalSystemsUrl"), forTest);
-        tradingSystem = new TradingSystem(sysManager,Integer.parseInt(testing));
+        tradingSystem = new TradingSystem(sysManager, appProps.getProperty("externalSystemsUrl"), Boolean.parseBoolean(appProps.getProperty("forTests")));
+        //tradingSystem = new TradingSystem(sysManager, forTest);
 
         /*
         //String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
@@ -416,7 +415,7 @@ public class API {
         return tradingSystem.responedToOffer(storeId, userId, prodId, offerId, "DISAPPROVED", -1);
     }
 
-    public static Result counterPurchaseOffer(int storeId, int userId, int prodId, int offerId, int counterOffer){
+    public static Result counterPurchaseOffer(int storeId, int userId, int prodId, int offerId, double counterOffer){
         return tradingSystem.responedToOffer(storeId, userId, prodId, offerId, "COUNTEROFFER", counterOffer);
     }
 
@@ -429,11 +428,11 @@ public class API {
     }
 
     public static Result getOffersForStore(int storeId, int userId){
-        return null; //permissions
+        return tradingSystem.getOffersForStore(storeId, userId);
     }
 
     public static Result getOffersForCostumer(int userId){
-        return null;
+        return tradingSystem.getOffersForCostumer(userId);
     }
 
     public static Result getReceipt(int receiptId) {

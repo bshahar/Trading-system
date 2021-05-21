@@ -3,17 +3,10 @@ package Tests;
 import Domain.Result;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
-import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.*;
-import java.nio.charset.StandardCharsets;
-import java.util.*;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -23,7 +16,7 @@ public class LoginTest {
     @BeforeEach
     public void setUp() {
         try {
-            API.initTradingSystem(true);
+            API.initTradingSystem();
         } catch (Exception e) {
         }
     }

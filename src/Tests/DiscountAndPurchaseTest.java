@@ -31,7 +31,7 @@ public class DiscountAndPurchaseTest {
     public void setUp() {
         Properties testProps = new Properties();
         try {
-            API.initTradingSystem(true);
+            API.initTradingSystem();
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)
                 testProps.load(input);
@@ -382,6 +382,16 @@ public class DiscountAndPurchaseTest {
         double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
+
+   /* public void getOfferOfStore(){
+        int offerId = addOfferSuccessTest();
+        API.getOffersForStore(storeId1,registerId1);
+     //   int n = ((Map<PurchaseOffer,Product>)(API.getOffersForStore(storeId1,registerId1).getData())).size();
+     //   Assertions.assertEquals(n, 1);
+    }
+
+    */
+
 
 
 

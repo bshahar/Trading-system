@@ -1,9 +1,10 @@
 package Domain;
 
-import Domain.DiscountFormat.*;
+import Domain.DiscountFormat.ConditionalDiscount;
+import Domain.DiscountFormat.Discount;
+import Domain.DiscountFormat.SimpleDiscount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchaseFormat.ImmediatePurchase;
-import Domain.PurchaseFormat.Purchase;
 import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Persistance.User;
@@ -572,58 +573,73 @@ public class Store {
         this.offersOnProduct.remove(getProductById(prodId));
     }
 
-    public Result responedToOffer(int prodId, int offerId, String responed, int counterOffer) {
-        switch (responed){
-            case "APPROVED":
-                double offer = 0;
-                int amount = 0;
-                User user = null;
-                List<PurchaseOffer> offers = this.offersOnProduct.get(getProductById(prodId));
-                for (PurchaseOffer p: offers) {
-                    if(p.getId() == offerId) {
-                        offer = p.getPriceOfOffer();
-                        user = p.getUser();
-                        amount = p.getNumOfProd();
+    public Result responedToOffer(int prodId, int offerId, String responed, double counterOffer, String option) {
+        if(option.equals("ACT")) {
+            switch (responed) {
+                case "APPROVED":
+                    double offer = 0;
+                    int amount = 0;
+                    User user = null;
+                    List<PurchaseOffer> offers = this.offersOnProduct.get(getProductById(prodId));
+                    for (PurchaseOffer p : offers) {
+                        if (p.getId() == offerId) {
+                            offer = p.getPriceOfOffer();
+                            user = p.getUser();
+                            amount = p.getNumOfProd();
+                        }
                     }
-                }
 
-                if(user!=null) {
-                    Bag bag = user.getBagByStoreId(this.storeId);
-                    if(bag == null)
-                        bag = new Bag(this);
-                    bag.productsAmounts.put(getProductById(prodId), amount);
-                    bag.productsApproved.put(getProductById(prodId), offer);
-                    user.getBags().add(bag);
-                    removeOffer(prodId, offerId);
-                    return new Result(true, "the offer approved");
-                }
-                return new Result(false, "the offer wasn't found");
-            case "DISAPPROVED":
-                removeOffer(prodId, offerId);
-                return new Result(true, "the offer disapproved");
-            case "COUNTEROFFER":
-                user = null;
-                offers = this.offersOnProduct.get(getProductById(prodId));
-                PurchaseOffer po = null;
-                for (PurchaseOffer p: offers) {
-                    if(p.getId() == offerId) {
-                        p.setPriceOfOffer(counterOffer);
-                        user = p.getUser();
-                        po = p;
+                    if (user != null) {
+                        Bag bag = user.getBagByStoreId(this.storeId);
+                        if (bag == null)
+                            bag = new Bag(this);
+                        bag.productsAmounts.put(getProductById(prodId), amount);
+                        bag.productsApproved.put(getProductById(prodId), offer);
+                        user.getBags().add(bag);
+                        removeOffer(prodId, offerId);
+                        return new Result(true, "the offer approved");
                     }
-                }
-                if(user!=null) {
-                    Bag bag = user.getBagByStoreId(this.storeId);
-                    if(bag == null)
-                        bag = new Bag(this);
-                    bag.counterOffers.put(getProductById(prodId),po);
-                    user.getBags().add(bag);
+                    return new Result(false, "the offer wasn't found");
+                case "DISAPPROVED":
                     removeOffer(prodId, offerId);
-                    return new Result(true, "counter offer has been sent");
+                    return new Result(true, "the offer disapproved");
+                case "COUNTEROFFER":
+                    user = null;
+                    offers = this.offersOnProduct.get(getProductById(prodId));
+                    PurchaseOffer po = null;
+                    for (PurchaseOffer p : offers) {
+                        if (p.getId() == offerId) {
+                            p.setPriceOfOffer(counterOffer);
+                            user = p.getUser();
+                            po = p;
+                        }
+                    }
+                    if (user != null) {
+                        Bag bag = user.getBagByStoreId(this.storeId);
+                        if (bag == null)
+                            bag = new Bag(this);
+                        bag.counterOffers.put(getProductById(prodId), po);
+                        user.getBags().add(bag);
+                        removeOffer(prodId, offerId);
+                        return new Result(true, "counter offer has been sent");
+                    }
+                    break;
+                default:
+                    return new Result(false, "offer did not get response yet");
+
+        }
+        }
+
+        else
+        {
+           Map<PurchaseOffer, Product> output= new HashMap<>();
+            for (Map.Entry<Product, LinkedList<PurchaseOffer>> entry : offersOnProduct.entrySet()) {
+                List<PurchaseOffer> offers = entry.getValue();
+                for (PurchaseOffer p: offers) {
+                    output.put(p,entry.getKey());
                 }
-                break;
-            default:
-                return new Result(false, "offer did not get response yet");
+            }
+            return new Result(true, output);
         }
         return new Result(false, "offer did not get response yet");
     }

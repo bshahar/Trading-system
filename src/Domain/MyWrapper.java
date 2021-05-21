@@ -122,29 +122,6 @@ public class MyWrapper implements MyWrapperInterface {
         return false;
     }
 
-//==========================================================================
-//Receipt
-
-    public boolean add(Receipt receipt){
-        List<Receipt> list= (List<Receipt>) receipt;
-        list.add(receipt);
-        //adding to db
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        ReceiptsEntity rec = new ReceiptsEntity();
-        rec.setId(receipt.getId());
-        rec.setStoreId(receipt.getStoreId());
-        rec.setUserId(receipt.getUserId());
-        rec.setUserName(receipt.getUserName());
-        rec.setTotalCost(receipt.getTotalCost());
-        session.save(rec);
-        //TODO for receiptLine
-        session.getTransaction().commit();
-        session.close();
-
-        return true;
-    }
-
     public boolean add(Product prod, Discount dis) {
         Map<Product, Discount> map = (Map<Product, Discount>) value;
         ((Map<Product, Discount>) value).put(prod, dis);
@@ -229,6 +206,44 @@ public class MyWrapper implements MyWrapperInterface {
         return true;
     }
 
+    public boolean remove(String category) {
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        session.delete(category);
+        session.getTransaction().commit();
+        session.close();
+        //TODO fix implementation
+        return true;
+    }
+
+    private String dateToString(Date date){
+        Calendar calendar = Calendar.getInstance();
+        calendar.setTime(date);
+        return calendar.get(Calendar.DATE)+"/"+(calendar.get(Calendar.MONTH)+1) +"/" + calendar.get(Calendar.YEAR);
+    }
+//==========================================================================
+//Receipt
+
+    public boolean add(Receipt receipt){
+        List<Receipt> list= (List<Receipt>) receipt;
+        list.add(receipt);
+        //adding to db
+        Session session = HibernateUtil.getSessionFactory().openSession();
+        session.beginTransaction();
+        ReceiptsEntity rec = new ReceiptsEntity();
+        rec.setId(receipt.getId());
+        rec.setStoreId(receipt.getStoreId());
+        rec.setUserId(receipt.getUserId());
+        rec.setUserName(receipt.getUserName());
+        rec.setTotalCost(receipt.getTotalCost());
+        session.save(rec);
+        //TODO for receiptLine
+        session.getTransaction().commit();
+        session.close();
+
+        return true;
+    }
+
     //====================================================================
     //User
     public boolean add(User user){
@@ -256,22 +271,7 @@ public class MyWrapper implements MyWrapperInterface {
         else
             return null;
     }
-    public boolean remove(String category) {
-        Session session = HibernateUtil.getSessionFactory().openSession();
-        session.beginTransaction();
-        session.delete(category);
-        session.getTransaction().commit();
-        session.close();
-        //TODO fix implementation
-        return true;
-    }
 
-
-    private String dateToString(Date date){
-        Calendar calendar = Calendar.getInstance();
-        calendar.setTime(date);
-        return calendar.get(Calendar.DATE)+"/"+(calendar.get(Calendar.MONTH)+1) +"/" + calendar.get(Calendar.YEAR);
-    }
     public User getUserById(int id)
     {
         for(User user : users)

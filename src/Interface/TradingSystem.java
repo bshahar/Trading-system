@@ -8,6 +8,7 @@ import Domain.Operators.AndOperator;
 import Domain.Operators.NoneOperator;
 import Domain.Operators.OrOperator;
 import Domain.Operators.XorOperator;
+import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Domain.Sessions.SessionInterface;
 import Persistance.User;
@@ -38,23 +39,18 @@ public class TradingSystem {
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
 
-    public TradingSystem (User systemManager,int testing) {
-        if(testing==1)
-        {
-            this.users =  new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
+    public TradingSystem (User systemManager, String externalSystemsUrl, boolean testing) {
+        if(testing) {
+            this.users = new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
             this.receipts = new MyWrapperTesting(Collections.synchronizedList(new LinkedList<>()));
+            initializeSystemForTests();
         }
-        else
-        {
-            this.users =  new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
+        else {
+            this.users = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
             this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
+            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
         }
-//        if(forTest)
-//            initializeSystemForTests();
-//        else {
-//            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
-//            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
-//        }
         this.receipts = new MyWrapper(Collections.synchronizedList(new LinkedList<>()));
         this.stores = Collections.synchronizedList(new LinkedList<>());
 
@@ -158,9 +154,9 @@ public class TradingSystem {
 
 
 
-    public Result responedToOffer(int storeId, int userId, int prodId, int offerId, String responed, int counterOffer) {
+    public Result responedToOffer(int storeId, int userId, int prodId, int offerId, String responed, double counterOffer) {
         int informTo = getStoreById(storeId).getUserMadeTheOffer(prodId,offerId);
-        Result r = getUserById(userId).responedToOffer(getStoreById(storeId),prodId,offerId,responed,counterOffer);
+        Result r = getUserById(userId).responedToOffer(getStoreById(storeId),prodId,offerId,responed,counterOffer, "ACT");
         if(responed.equals("APPROVED") && r.isResult()){
             sendAlert(informTo,"Your offer had been approved!");
         }
@@ -180,6 +176,22 @@ public class TradingSystem {
         }
         bag.rejectCounterOffer(getProductById(prodId));
         return new Result(true, "the counter offer has been responed");
+    }
+
+    public Result getOffersForStore(int storeId, int userId) {
+        return getUserById(userId).responedToOffer(getStoreById(storeId), -1, -1, "", -1,  "GET");
+    }
+
+    public Result getOffersForCostumer(int userId) {
+        Map<PurchaseOffer, Product> output = new HashMap<>();
+        User u = getUserById(userId);
+        List<Bag> bags = u.getBags();
+        for (Bag b: bags) {
+           for(Map.Entry<Product, PurchaseOffer> entry : b.getCounterOffers().entrySet()){
+               output.put(entry.getValue() , entry.getKey());
+           }
+        }
+        return new Result(true, output);
     }
 
 

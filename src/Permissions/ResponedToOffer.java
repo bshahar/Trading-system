@@ -14,7 +14,7 @@ public class ResponedToOffer {
         this.member = member;
     }
 
-    public Result action(int prodId, int offerId , String responed, int counterOffer) {
-            return this.store.responedToOffer(prodId, offerId, responed, counterOffer);
+    public Result action(int prodId, int offerId , String responed, double counterOffer, String option) {
+            return this.store.responedToOffer(prodId, offerId, responed, counterOffer, option);
     }
 }

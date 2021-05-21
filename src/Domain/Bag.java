@@ -1,9 +1,11 @@
 package Domain;
 
 import Domain.PurchaseFormat.PurchaseOffer;
-import javafx.util.Pair;
 
-import java.util.*;
+import java.util.HashMap;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
 
 
 public class Bag {
@@ -79,6 +81,10 @@ public class Bag {
 
     public Map<Product, Double> getOfferPrices() {
         return this.productsApproved;
+    }
+
+    public Map<Product, PurchaseOffer> getCounterOffers() {
+        return this.counterOffers;
     }
 
    /* public void offerApproved(Product prod, double offer){

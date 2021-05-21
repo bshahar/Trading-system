@@ -24,6 +24,7 @@ public class LoginTest {
     //AT-4.1
     @Test
     public void loginSuccessTest(){
+
         String userName="kandabior";
         String password= "or321654";
         Assertions.assertEquals(1,API.register(userName,password, 20).getData());

@@ -12,6 +12,7 @@ import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Domain.Sessions.SessionInterface;
 import Domain.User;
+import Persistence.UserWrapper;
 import Service.*;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
@@ -35,7 +36,7 @@ public class TradingSystem {
     private List<Store> stores;
     private User systemManager;
     private List<Receipt> receipts;
-    private List<User> users;
+    private UserWrapper users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
 
@@ -43,7 +44,7 @@ public class TradingSystem {
         if(testing) {
             initializeSystemForTests();
         }
-        this.users =  Collections.synchronizedList(new LinkedList<>());
+        this.users =  new UserWrapper();
         this.receipts =  Collections.synchronizedList(new LinkedList<>());
         paymentAdapter = new PaymentAdapter(externalSystemsUrl);
         supplementAdapter = new SupplementAdapter(externalSystemsUrl);
@@ -345,8 +346,8 @@ public class TradingSystem {
 
     public Result register(String userName, int age, String pass) {
         if(userAuth.register(userName,pass)){
-            int userId=userCounter.inc();
-            users.add(new User(userName, age,  userId, 1));
+            int userId=22;//userCounter.inc();
+            users.add(new User(userName, age,  userId, true));
             return new Result(true,userId);
         }
         else{
@@ -360,11 +361,9 @@ public class TradingSystem {
     public Result login(String userName,String pass) {
         if(userAuth.loginAuthentication(userName,pass)) {
             User user = getUserByName(userName);
-            //users.searchUserByName(userName);
-            //TODO!!!! ELAD
-            if(user!=null && (user.getLogged().equals((byte)0)))
+            if(user!=null && (!user.getLogged()))
             {
-                    user.setLogged((byte)1);
+                    user.setLogged(true);
                     KingLogger.logEvent("LOGIN:  User " + userName + " logged into the system.");
                     return new Result( true,user.getId());
             }
@@ -374,12 +373,7 @@ public class TradingSystem {
     }
 
     private User getUserByName(String userName) {
-        for(User user : users)
-        {
-            if(user.getUserName().equals(userName))
-                return user;
-        }
-        return null;
+        return users.searchUserByName(userName);
     }
 
 
@@ -452,8 +446,8 @@ public class TradingSystem {
 
 
     public Result guestLogin() {
-        User guest = new User("Guest", 19,  userCounter.inc(), 0);
-        guest.setLogged((byte)1);
+        User guest = new User("Guest", 19,  userCounter.inc(), false);
+        guest.setLogged(true);
         users.add(guest);
         int id = guest.getId();
         KingLogger.logEvent("GUEST_LOGIN: Guest logged into the system with id: " + id);
@@ -471,9 +465,9 @@ public class TradingSystem {
     public Result guestRegister (int userId, String userName, String password){
         try {
             if(userAuth.guestRegister(userName,password)){
-                getUserById(userId).setRegistered((byte) 0);
+                getUserById(userId).setRegistered(false);
                 getUserById(userId).setName(userName);
-                getUserById(userId).setLogged((byte)0);
+                getUserById(userId).setLogged(false);
                 KingLogger.logEvent("GUEST_REGISTER: User " + userName + " registered to the system.");
                 return new Result(true,userId);
 
@@ -495,19 +489,13 @@ public class TradingSystem {
             KingLogger.logEvent("LOGOUT: User " + userId + ": User has not logged in");
             return new Result(false,"User has not logged in");
         }
-        user.setLogged((byte)0);
+        user.setLogged(false);
         KingLogger.logEvent("LOGOUT: User " + user.getUserName() + " logged out of the system.");
         return new Result(true,true);
     }
 
     public User getUserById(int userId) {
-
-        for(User user : users)
-        {
-            if(user.getId() == userId)
-                return user;
-        }
-        return null;
+       return users.get(userId);
     }
 
     public Result getNumOfUsers(){
@@ -525,7 +513,7 @@ public class TradingSystem {
     public String getAllStoresNames(int userId) {
         User u = getUserById(userId);
         StringBuilder storesNames = new StringBuilder();
-        if (u != null &&  u.getLogged().equals((byte)1)) {
+        if (u != null &&  u.getLogged()) {
             for(Store store : this.stores)
                 storesNames.append(store.getName()+",");
             storesNames.deleteCharAt(storesNames.length()-1);

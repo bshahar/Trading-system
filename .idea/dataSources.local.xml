@@ -14,5 +14,11 @@
         </introspection-scope>
       </schema-mapping>
     </data-source>
+    <data-source name="NewEladDb" uuid="f4007aa1-5bc0-43d1-8f27-b61f8ef1ca6c">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MYSQL" exact-version="0" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>root</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>

@@ -14,17 +14,17 @@ import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class User implements Observer {
-    private byte registered ;
+    private boolean registered ;
     private List<Bag> bags;
     private String userName;
     private int age;
-    private byte logged;
+    private boolean logged;
     private int id;
     private Member member;
     private List<Receipt> receipts;
     private Queue<String> messages;
     private ObservableType observableType ;
-    private byte isSystemManager;
+    private boolean isSystemManager;
     private SessionInterface session;
 
     private Queue<String> loginMessages;
@@ -34,18 +34,18 @@ public class User implements Observer {
 
     };
 
-    public User(String userName, int age, int id,int registered) {
-        this.registered = (byte)registered;
+    public User(String userName, int age, int id,boolean registered) {
+        this.registered = registered;
         this.bags = new LinkedList<>();
         this.userName = userName;
         this.age = age;
         this.id = id;
-        this.logged = (byte)0;
+        this.logged = false;
         this.member = new Member();
         this.receipts=new LinkedList<>();
         this.messages = new ConcurrentLinkedDeque<>();
         this.loginMessages = new ConcurrentLinkedDeque<>();
-        this.isSystemManager = (byte)0;
+        this.isSystemManager = false;
         this.session = new realSession();
     }
 
@@ -67,11 +67,11 @@ public class User implements Observer {
         this.userName = userName;
     }
 
-    public Byte getRegistered() {
+    public boolean getRegistered() {
         return registered;
     }
 
-    public void setRegistered(Byte registered) {
+    public void setRegistered(boolean registered) {
         this.registered = registered;
     }
 
@@ -85,21 +85,21 @@ public class User implements Observer {
     }
 
 
-    public Byte getLogged() {
+    public boolean getLogged() {
         return logged;
     }
 
-    public void setLogged(Byte logged) {
+    public void setLogged(boolean logged) {
         this.logged = logged;
     }
 
 
 
-    public Byte getIsSystemManger() {
+    public boolean getIsSystemManger() {
         return isSystemManager;
     }
 
-    public void setIsSystemManger(Byte isSystemManger) {
+    public void setIsSystemManger(boolean isSystemManger) {
         this.isSystemManager = isSystemManger;
     }
 
@@ -120,7 +120,7 @@ public class User implements Observer {
 
     public boolean isRegistered()
     {
-        return (1==this.registered);
+        return (this.registered);
     }
     public Member getMember() {
         return member;
@@ -265,7 +265,7 @@ public class User implements Observer {
     public void update(Observable observable, Object arg)
     {
         observableType = (ObservableType) observable;
-        if(this.logged==1)
+        if(this.logged)
         {
             loginMessages.add(observableType.getMessage());
         }
@@ -292,7 +292,7 @@ public class User implements Observer {
 
     @Transient
     public void addNotification(String msg){
-        if(logged==0)
+        if(logged)
         {
             JSONObject jo = new JSONObject(msg);
             String data = jo.get("data").toString();
@@ -421,17 +421,17 @@ public class User implements Observer {
     }
 
     public void appointSystemManager(List<Store> stores) {
-        this.isSystemManager = 1;
+        this.isSystemManager = true;
         this.member.setSystemManagerPermission(stores);
     }
 
     public boolean isSystemManager() {
-        return isSystemManager==1;
+        return isSystemManager;
 
     }
 
     public boolean isLooged() {
-        return this.logged==1;
+        return this.logged;
     }
 
     public boolean removeReceipt(Receipt receipt) {

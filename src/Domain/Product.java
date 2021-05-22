@@ -30,6 +30,17 @@ public class Product {
         this.storeId= storeId;
     }
 
+
+    public Product(int id, String name, double price , String description,int storeId,int ratesCount,double rate) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.ratesCount = ratesCount;
+        this.description = description;
+        this.rate = rate;
+        this.storeId= storeId;
+    }
+
     public int getStoreId() {
         return storeId;
     }
@@ -121,5 +132,9 @@ public class Product {
 
     public void setPrice(double price) {
         this.price=price;
+    }
+
+    public int getRateCount() {
+        return this.ratesCount;
     }
 }

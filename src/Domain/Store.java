@@ -7,6 +7,7 @@ import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchaseFormat.ImmediatePurchase;
 import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Persistence.*;
 import Service.counter;
 import javafx.util.Pair;
 
@@ -19,10 +20,10 @@ public class Store {
     private int notificationId;
     private String name;
     private Inventory inventory;
-    private List<User> employees;
-    private List<User> owners;
-    private List<User> managers;
-    private List<Receipt> receipts;
+    private StoreEmployeesWrapper employees;
+    private StoreOwnerWrapper owners;
+    private StoreManagerWrapper managers;
+    private StoreReceiptWrapper receipts;
     private Service.counter counter;
     private Service.counter offerCounter;
     private Map<Product,Discount> discountsOnProducts;
@@ -31,8 +32,7 @@ public class Store {
     private Map<Product, ImmediatePurchase> purchasesOnProducts;
     private Map<String, ImmediatePurchase> purchasesOnCategories;
     private ImmediatePurchase purchasesOnStore;
-    private Map<User,List<User>> appointments; //appointer & list of appointees
-    private Map<Integer, Bag> usersBags;
+    private AppointmentsWrapper appointments; //appointer & list of appointees
     //private Map<Product,LinkedList<Pair<User,Double>>> offersOnProduct;
     private Map<Product, LinkedList<PurchaseOffer>> offersOnProduct;
     private double rate;
@@ -45,22 +45,44 @@ public class Store {
         this.inventory = new Inventory();
         this.rate = 0;
         this.ratesCount = 0;
-        this.employees = Collections.synchronizedList(new LinkedList<>());
-        this.employees.add(owner);
-        this.receipts = new LinkedList<>();
-        this.appointments = new HashMap<>();
-        this.appointments.put(owner, new LinkedList<>());
-        this.owners = Collections.synchronizedList(new LinkedList<>());
-        this.managers = Collections.synchronizedList(new LinkedList<>());
+        this.employees = new StoreEmployeesWrapper();
+        this.employees.add(owner,storeId);
+        this.receipts = new StoreReceiptWrapper();
+        this.appointments = new AppointmentsWrapper();
+//        this.appointments.put(owner, new LinkedList<>());
+        this.owners = new StoreOwnerWrapper();
+        this.managers = new StoreManagerWrapper();
         this.discountsOnProducts = Collections.synchronizedMap(new HashMap<>());
         this.discountsOnCategories = Collections.synchronizedMap(new HashMap<>());
         this.counter = new counter();
         this.offerCounter = new counter();
-        this.usersBags = new HashMap<>();
         this.purchasesOnProducts = new ConcurrentHashMap<>();
         this.purchasesOnCategories = new ConcurrentHashMap<>();
         this.offersOnProduct = new ConcurrentHashMap<>();
     }
+
+    public Store(int id, String name) { //create a store with empty inventory
+        this.storeId = id;
+        this.name = name;
+        this.inventory = new Inventory();
+        this.rate = 0;
+        this.ratesCount = 0;
+        this.employees = new StoreEmployeesWrapper();
+//        this.employees.add(owner,storeId);
+        this.receipts = new StoreReceiptWrapper();
+        this.appointments = new AppointmentsWrapper();
+//        this.appointments.put(owner, new LinkedList<>());
+        this.owners = new StoreOwnerWrapper();
+        this.managers = new StoreManagerWrapper();
+        this.discountsOnProducts = Collections.synchronizedMap(new HashMap<>());
+        this.discountsOnCategories = Collections.synchronizedMap(new HashMap<>());
+        this.counter = new counter();
+        this.offerCounter = new counter();
+        this.purchasesOnProducts = new ConcurrentHashMap<>();
+        this.purchasesOnCategories = new ConcurrentHashMap<>();
+        this.offersOnProduct = new ConcurrentHashMap<>();
+    }
+
 
     public Inventory getInventory() {
         return inventory;
@@ -131,25 +153,25 @@ public class Store {
 
 
     public Result removeManager(User owner, User manager) {
-        if(appointments.get(owner).remove(manager)){
-            employees.remove(manager);
+//        if(appointments.get(owner).remove(manager)){
+        if(appointments.removeAppointment(this.storeId,owner.getId(),manager.getId())){
+            employees.remove(this.storeId,manager);
             manager.removeFromMyStores(this);
 
-            if(appointments.containsKey(manager)){
-                List<User> managers=appointments.get(manager);
-                for(User user : managers){
-                    this.managers.remove(user);
-                    removeManager(manager,user);
-                }
-
+            List<User> managers=appointments.get(this.storeId,manager);
+            for(User user : managers){
+                this.managers.remove(this.storeId,user);
+                removeManager(manager,user);
             }
+
+
             return new Result(true,true);
         }
         return new Result(false,"Remove of the manager has failed");
     }
 
     public List<User> getWorkersInformation(int ownerId) {
-        return this.employees;
+        return this.employees.getAll(storeId);
     }
 
     public boolean getStorePurchaseHistory(int ownerId) {
@@ -160,9 +182,9 @@ public class Store {
         return inventory.getProductById(id);
     }
 
-    public List<User> getOwners(){return owners;}
+    public List<User> getOwners(){return owners.getAll(storeId);}
 
-    public List<User> getManagers(){return managers;}
+    public List<User> getManagers(){return managers.getAll(storeId);}
 
     public Product getProductByName(String name) {
         return inventory.getProductByName(name);
@@ -177,11 +199,12 @@ public class Store {
     }
 
     public void addEmployee(User owner,User user) {
-        this.employees.add(user);
-        if (!this.appointments.containsKey(owner)) {
-            this.appointments.put(owner, new LinkedList<>());
-        }
-        this.appointments.get(owner).add(user);
+        this.employees.add(user,storeId);
+//        if (!this.appointments.containsKey(owner)) {
+//            this.appointments.put(owner, new LinkedList<>());
+//        }
+//        this.appointments.get(owner).add(user);
+        this.appointments.add(owner,user,storeId);
     }
     public Result getEmployees()
     {
@@ -193,26 +216,27 @@ public class Store {
     }
 
     public void addOwnerToAppointments( User user) {
-        appointments.put(user,new LinkedList<>());
+//        appointments.put(user,new LinkedList<>());
     }
 
     public void addReceipt(Receipt receipt)
     {
-        this.receipts.add(receipt);
+
+        this.receipts.add(receipt,storeId);
     }
 
     public boolean addOwner(User user) {
-        if(this.owners.contains(user))
+        if(this.owners.contains(user,storeId))
             return false;
-        owners.add(user);
+        owners.add(user,storeId);
         return true;
     }
     public boolean addManager(User user)
     {
         synchronized (managers) {
-            if (this.managers.contains(user))
+            if (this.managers.contains(user,storeId))
                 return false;
-            managers.add(user);
+            managers.add(user,storeId);
             return true;
         }
     }
@@ -476,7 +500,7 @@ public class Store {
     }
 
     public boolean isManager(User user) {
-        return this.managers.contains(user);
+        return this.managers.contains(user,storeId);
     }
 
     public boolean prodExists(int prodId){ return this.inventory.prodExists(prodId); }
@@ -484,11 +508,11 @@ public class Store {
 
     public Set<Integer> getManagersAndOwners() {
         Set<Integer> list = new HashSet<>();
-        for(User user: managers)
+        for(User user: managers.getAll(storeId))
         {
             list.add(user.getId());
         }
-        for(User user: owners)
+        for(User user: owners.getAll(storeId))
         {
             list.add(user.getId());
         }
@@ -496,16 +520,17 @@ public class Store {
     }
 
     public Result removeOwner(User owner, User ownerToDelete) {
-        if(appointments.get(owner).remove(ownerToDelete)){
-            employees.remove(ownerToDelete);
+//        if(appointments.get(owner).remove(ownerToDelete)){
+        if(appointments.removeAppointment(storeId,owner.getId(),ownerToDelete.getId())){
+            employees.remove(storeId,ownerToDelete);
             ownerToDelete.removeFromMyStores(this);
-            if(appointments.containsKey(ownerToDelete)){
-                List<User> ownersList=appointments.get(ownerToDelete);
-                for(User user : ownersList){
-                    this.owners.remove(user);
-                    removeOwner(ownerToDelete,user);
-                }
+
+            List<User> ownersList=appointments.get(storeId,ownerToDelete);
+            for(User user : ownersList){
+                this.owners.remove(user,storeId);
+                removeOwner(ownerToDelete,user);
             }
+
             return new Result(true,true);
         }
         return new Result(false,"Remove of the manager has failed");
@@ -520,7 +545,7 @@ public class Store {
     }
 
     public boolean removeReceipt(Receipt receipt) {
-        return this.receipts.remove(receipt);
+        return this.receipts.remove(receipt,storeId);
     }
 
     public int addPurchaseOffer(int prodId, User user, double offer, int numOfProd) {
@@ -640,6 +665,30 @@ public class Store {
         }
         return new Result(false, "offer did not get response yet");
     }
+
+    public int getRatesCount() {
+
+        return ratesCount;
+    }
+
+    public List<Receipt> getReceipts() {
+        return this.receipts.getAll(storeId);
+    }
+
+    public Map<User,List<User>> getAppointments() {
+        return this.appointments.getAll(storeId);
+
+    }
+
+    public void setRate(double rate) {
+        this.rate=rate;
+    }
+
+    public void setRateCount(int ratesCount) {
+        this.ratesCount=ratesCount;
+    }
+
+
 }
 
 

@@ -12,6 +12,7 @@ import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Domain.Sessions.SessionInterface;
 import Domain.User;
+import Persistence.StoreWrapper;
 import Persistence.ReceiptWrapper;
 import Persistence.UserWrapper;
 import Service.*;
@@ -34,7 +35,7 @@ public class TradingSystem {
     private static PaymentInterface paymentAdapter;
     private static SupplementInterface supplementAdapter;
     private UserAuth userAuth;
-    private List<Store> stores;
+    private StoreWrapper stores;
     private User systemManager;
     private ReceiptWrapper receipts;
     private UserWrapper users;
@@ -50,6 +51,7 @@ public class TradingSystem {
         paymentAdapter = new PaymentAdapter(externalSystemsUrl);
         supplementAdapter = new SupplementAdapter(externalSystemsUrl);
         this.stores = Collections.synchronizedList(new LinkedList<>());
+        this.stores = new StoreWrapper();
 
         this.userAuth = new UserAuth();
         userAuth.register(systemManager.getUserName(), "123");
@@ -330,7 +332,7 @@ public class TradingSystem {
 
 
     private void AppointSystemManager(User systemManager) {
-        systemManager.appointSystemManager(this.stores);
+        systemManager.appointSystemManager(this.stores.getAllStores());
     }
 
     public Result getUserIdByName(String userName) {
@@ -514,7 +516,7 @@ public class TradingSystem {
         User u = getUserById(userId);
         StringBuilder storesNames = new StringBuilder();
         if (u != null &&  u.getLogged()) {
-            for(Store store : this.stores)
+            for(Store store : this.stores.getAllStores())
                 storesNames.append(store.getName()+",");
             storesNames.deleteCharAt(storesNames.length()-1);
         }
@@ -529,6 +531,7 @@ public class TradingSystem {
         try{
             if(getUserById(userId).isLooged()) {
                 Map<Integer, Integer> output = new HashMap<>();
+                List<Store> stores=this.stores.getAllStores();
                 switch (filter.searchType) {
                     case "Name":
                         for (Store s : stores) {
@@ -915,12 +918,7 @@ public class TradingSystem {
 
     public Store getStoreById(int storeId)
     {
-        for(Store store : stores)
-        {
-            if(store.getStoreId() == storeId)
-                return store;
-        }
-        return null;
+        return stores.getById(storeId);
     }
 
     public Result getProductsFromStore(int storeId) {
@@ -934,7 +932,7 @@ public class TradingSystem {
     }
 
     public Result getNumOfStores() {
-        return new Result(true,stores.size());
+        return new Result(true,stores.getAllStores().size());
     }
 
 
@@ -963,16 +961,12 @@ public class TradingSystem {
 
 
     public String getStoreName(int storeId) {
-        for (Store store : stores) {
-            if (store.getStoreId() == storeId) {
-                return store.getName();
-            }
-        }
-        return "";
+        return getStoreById(storeId).getName();
+
     }
 
     public Product getProductById(Integer productId) {
-        for(Store store:stores){
+        for(Store store:stores.getAllStores()){
             if(store.getProductById(productId)!=null){
                 return store.getProductById(productId);
             }
@@ -981,7 +975,7 @@ public class TradingSystem {
     }
 
     private Product getProductByName(String productName) {
-        for (Store store : stores) {
+        for (Store store : stores.getAllStores()) {
             if (store.getProductByName(productName) != null) {
                 return store.getProductByName(productName);
             }
@@ -1202,7 +1196,7 @@ public class TradingSystem {
     }
 
     public int getProductAmount(Integer prodId) {
-        for(Store store: stores){
+        for(Store store: stores.getAllStores()){
             if(store.getProductById(prodId)!=null){
                 return store.getProductAmount(prodId);
             }

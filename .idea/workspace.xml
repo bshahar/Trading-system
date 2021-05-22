@@ -22,14 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="Bid GUI">
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByMinimalAmountDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_sdk_11_02.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javafx_sdk_11_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfxrt2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jfxrt.xml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 db dorin">
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/ConditionalDiscountDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByMinimalCostDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByPurchaseTimeDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/DiscountConditionDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/DiscountDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PlayGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PlayGround.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -277,13 +276,6 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="1096000" />
-    </task>
-    <task id="LOCAL-00002" summary="connect trading system to stores #27">
-      <created>1617728398806</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1617728398806</updated>
     </task>
     <task id="LOCAL-00003" summary="adding permissions test #27 #26">
       <created>1617737672773</created>
@@ -598,7 +590,13 @@
       <option name="project" value="LOCAL" />
       <updated>1621665190606</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL‎00051" summary="#61 db dorin">
+      <created>1621679191223</created>
+      <option name="number" value="LOCAL‎00051" />
+      <option name="presentableId" value="LOCAL‎00051" />
+      <updated>1621679191226</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -621,7 +619,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed store tests #26" />
     <MESSAGE value="." />
     <MESSAGE value="workspace" />
     <MESSAGE value="adding store test #26" />
@@ -646,9 +643,14 @@
     <MESSAGE value="elad do everything!" />
     <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bid GUI" />
+    <MESSAGE value="#61 db dorin" />
+    <option name="LAST_COMMIT_MESSAGE" value="#61 db dorin" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="936" y="103" key="#com.intellij.ide.util.MemberChooser" timestamp="1621681824185">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="936" y="103" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1621681824185" />
     <state width="1537" height="302" key="GridCell.Tab.0.bottom" timestamp="1621677864722">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -665,6 +667,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1537" height="302" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1621677864722" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1621679210584">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1621679210584" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

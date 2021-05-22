@@ -640,6 +640,20 @@ public class Store {
         }
         return new Result(false, "offer did not get response yet");
     }
+
+    public int getRatesCount() {
+
+        return ratesCount;
+    }
+
+    public List<Receipt> getReceipts() {
+        return this.receipts;
+    }
+
+    public Map<User,List<User>> getAppointments() {
+        return this.appointments;
+
+    }
 }
 
 

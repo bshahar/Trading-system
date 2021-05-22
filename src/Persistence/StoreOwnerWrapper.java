@@ -1,14 +1,12 @@
-package Tests;
+package Persistence;
 
 import Domain.User;
-import Persistence.DAO.UserDAO;
-import Persistence.UserWrapper;
+import Persistence.DAO.StoreOwnerDAO;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
-import com.j256.ormlite.table.TableUtils;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -17,28 +15,24 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.Properties;
 
-public class PlayGround {
-    public static void main(String args[]) throws IOException, SQLException {
-//       ConnectionSource connectionSource = connect();
-//
-//        Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
-//        accountDao.executeRaw("DELETE FROM Users");
-        //TableUtils.clearTable(connectionSource, UserDAO.class);
+public class StoreOwnerWrapper {
 
+    public void add(List<User> users, int storeId) {
+        try{
+            ConnectionSource connectionSource = connect();
+            Dao<StoreOwnerDAO, String> storeOwnerDAOManager = DaoManager.createDao(connectionSource,StoreOwnerDAO.class);
+            for(User user : users){
+                StoreOwnerDAO storeOwnerDAO= new StoreOwnerDAO(storeId,user.getId());
+                storeOwnerDAOManager.create(storeOwnerDAO);
+            }
+            connectionSource.close();
 
-        UserWrapper u = new UserWrapper();
-        u.add(new User("Elad",1,111,true));
-        u.get(111);
-        System.out.println("eeeefdfsfd");
-        u.get(111);
+        }catch(Exception e){
 
-
-//        connectionSource.close();
-       // API.initTradingSystem();
-        //API.register("elad","sol",22);
+        }
     }
 
-    public static ConnectionSource connect() throws IOException, SQLException {
+    public ConnectionSource connect() throws IOException, SQLException {
         Properties appProps = new Properties();
         InputStream input = API.class.getClassLoader().getResourceAsStream("appConfig.properties");
         if(input != null)
@@ -64,4 +58,5 @@ public class PlayGround {
         return new JdbcConnectionSource(url,userName,password);
 
     }
+
 }

@@ -1,4 +1,7 @@
 package Domain;
+import Persistence.ReceiptWrapper;
+import Persistence.UserMessagesWrapper;
+import Persistence.BagWrapper;
 
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
@@ -6,6 +9,7 @@ import Domain.PurchasePolicies.PurchaseCondition;
 import Domain.Sessions.DemoSession;
 import Domain.Sessions.SessionInterface;
 import Domain.Sessions.realSession;
+import Service.counter;
 import org.eclipse.jetty.websocket.api.Session;
 import org.json.JSONObject;
 
@@ -14,6 +18,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class User implements Observer {
+    private static counter messageCounter;
     private boolean registered ;
     private List<Bag> bags;
     private String userName;
@@ -22,10 +27,15 @@ public class User implements Observer {
     private int id;
     private Member member;
     private List<Receipt> receipts;
-    private Queue<String> messages;
+    private List<String> messages;
     private ObservableType observableType ;
     private boolean isSystemManager;
     private SessionInterface session;
+
+    private BagWrapper bagWrapper;
+    private UserMessagesWrapper messagesWrapper;
+    private ReceiptWrapper receiptWrapper;
+
 
     private Queue<String> loginMessages;
 
@@ -36,22 +46,60 @@ public class User implements Observer {
 
     public User(String userName, int age, int id,boolean registered) {
         this.registered = registered;
-        this.bags = new LinkedList<>();
+        this.bags = Collections.synchronizedList(new LinkedList<>());
         this.userName = userName;
         this.age = age;
         this.id = id;
         this.logged = false;
         this.member = new Member();
-        this.receipts=new LinkedList<>();
-        this.messages = new ConcurrentLinkedDeque<>();
+        this.receipts= Collections.synchronizedList(new LinkedList<>());
+        this.messages = Collections.synchronizedList(new LinkedList<>());
         this.loginMessages = new ConcurrentLinkedDeque<>();
         this.isSystemManager = false;
         this.session = new realSession();
+        messageCounter = new counter();
+        this.bagWrapper = new BagWrapper();
+        this.messagesWrapper = new UserMessagesWrapper();
+        this.receiptWrapper = new ReceiptWrapper();
+    }
+
+
+    public static counter getMessageCounter() {
+        return messageCounter;
+    }
+
+    public static void setMessageCounter(counter messageCounter) {
+        User.messageCounter = messageCounter;
     }
 
     public void setBags(List<Bag> bags) {
         this.bags = bags;
     }
+
+    public void setReceipts(List<Receipt> receipts) {
+        this.receipts = receipts;
+    }
+
+    public void setMessages(List<String> messages) {
+        this.messages = messages;
+    }
+
+
+
+    public boolean isLogged() {
+        return logged;
+    }
+
+
+
+    public ObservableType getObservableType() {
+        return observableType;
+    }
+
+    public SessionInterface getSession() {
+        return session;
+    }
+
 
     public void setAge(int age) {
         this.age = age;
@@ -61,13 +109,6 @@ public class User implements Observer {
         this.member = member;
     }
 
-    public void setReceipts(List<Receipt> receipts) {
-        this.receipts = receipts;
-    }
-
-    public void setMessages(Queue<String> messages) {
-        this.messages = messages;
-    }
 
     public void setObservableType(ObservableType observableType) {
         this.observableType = observableType;
@@ -160,19 +201,21 @@ public class User implements Observer {
     public Member getMember() {
         return member;
     }
+
     public Bag getBagByStoreId(int storeId){
-        for (Bag bag : bags){
-            if (bag.getStoreId() == storeId)
+        List<Bag> bags = this.bagWrapper.getAllUserBags(id);
+        for(Bag bag : bags)
+        {
+            if(bag.getStoreId() == storeId)
                 return bag;
         }
-
-        return null;
+       return null;
     }
 
 
 
     public List<Bag> getBags() {
-        return bags;
+        return bagWrapper.getAllUserBags(id);
     }
 
 
@@ -192,6 +235,7 @@ public class User implements Observer {
     public void createNewBag(Store store, int prodId, int amount) {
         Bag b = new Bag(store);
         b.addProduct(store.getProductById(prodId),amount);
+        this.bagWrapper.add(b,id);
         this.bags.add(b);
     }
 
@@ -268,7 +312,7 @@ public class User implements Observer {
     }
     @Transient
     public List<Receipt> getPurchaseHistory() {
-        return receipts;
+        return receiptWrapper.get();
     }
     @Transient
     public List<Store> getMyStores() {
@@ -305,14 +349,14 @@ public class User implements Observer {
             loginMessages.add(observableType.getMessage());
         }
         else
-            messages.add(observableType.getMessage());
+            messagesWrapper.add(id,messageCounter.inc(),observableType.getMessage());
     }
     @Transient
     public Queue<String> getMessages()
     {
         Queue<String> new_megs;
-        new_megs = this.messages;
-        this.messages = new ConcurrentLinkedDeque<>();
+        new_megs = this.messagesWrapper.getByUserId(id);
+        this.messagesWrapper.deleteAll(id);
         return new_megs;
     }
     @Transient
@@ -331,7 +375,7 @@ public class User implements Observer {
         {
             JSONObject jo = new JSONObject(msg);
             String data = jo.get("data").toString();
-            this.messages.add(data);
+            this.messagesWrapper.add(id,messageCounter.inc(),data);
         }
         else
            session.send(msg);
@@ -351,7 +395,7 @@ public class User implements Observer {
     }
 
     public void removeProductFromCart(Map<Product, Integer> productsAmountBuy,int storeId) {
-        for(Bag bag: bags){
+        for(Bag bag: bagWrapper.getAllUserBags(id)){
             if(bag.getStoreId()==storeId){
                 for(Product product : productsAmountBuy.keySet()){
                     bag.removeProduct(product);
@@ -365,7 +409,7 @@ public class User implements Observer {
     }
 
     public void removeBag(Bag b) {
-        bags.remove(b);
+        bagWrapper.deleteBag(b,id);
     }
 
     public Result editProduct(Store store, Product product,int price,int amount) {
@@ -470,7 +514,7 @@ public class User implements Observer {
     }
 
     public boolean removeReceipt(Receipt receipt) {
-        return this.receipts.remove(receipt);
+        return this.receiptWrapper.delete(receipt.getId());
     }
 
     public Result responedToOffer(Store store, int prodId, int offerId, String responed, double counterOffer, String option) {

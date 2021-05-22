@@ -1,23 +1,24 @@
 package Persistence;
 
-import Domain.Bag;
-import Domain.Product;
-import Domain.User;
+import Domain.*;
 import Persistence.DAO.BagProductAmountDAO;
+import Persistence.DAO.MemberStorePermissionsDAO;
+import Persistence.DAO.ReceiptDAO;
 import Persistence.DAO.UserDAO;
 import Persistence.connection.JdbcConnectionSource;
+import Persistence.spring.StoreWrapper;
 import Service.API;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.stmt.query.In;
 import com.j256.ormlite.support.ConnectionSource;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
 
 public class BagWrapper {
 
@@ -35,9 +36,6 @@ public class BagWrapper {
                 // persist the account object to the database
                 BagManager.create(bagDAO);
             }
-            BagProductAmountDAO bagDAO = new BagProductAmountDAO(user.getId(),user.getUserName(),user.isRegistered(),user.getAge(),user.getLogged(),user.isSystemManager());
-            // persist the account object to the database
-            BagManager.create(bagDAO);
             // close the connection source
             connectionSource.close();
             return true;
@@ -48,83 +46,44 @@ public class BagWrapper {
         }
     }
 
-    public User get(int id)
-    {
-        try {
-            ReceiptWrapper receiptWrapper = new ReceiptWrapper();
-            BagWrapper bagWrapper = new BagWrapper();
-            UserMessagesWrapper userMessagesWrapper  = new UserMessagesWrapper();
-            MemberStorePermissionsWrapper memberStorePermissionsWrapper = new MemberStorePermissionsWrapper();
-
-            ConnectionSource connectionSource = connect();
-            Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
-            UserDAO userDAO = accountDao.queryForId(Integer.toString(id));
-            User user = new User(userDAO.getUserName(),userDAO.getAge(),userDAO.getId(),userDAO.getRegistered());
-
-            user.setReceipts(receiptWrapper.getByUserId(user.getId()));
-            user.setLoginMessages(userMessagesWrapper.getByUserId(user.getId()));
-
-            user.setBags(bagWrapper.getByUserId(user.getId()));
-            user.setMember(memberStorePermissionsWrapper.get());
-
-
-            connectionSource.close();
-            return user;
-        }
-        catch (Exception e)
-        {
-            return null;
-        }
-    }
-    public List<User> get()
+    public List<Bag> getAllUserBags(int userId)
     {
         try {
             ConnectionSource connectionSource = connect();
-            Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
-            List<UserDAO> users = accountDao.queryForAll();
-            //TODO FILL THE USER ASS with for
-            // close the connection source
-            connectionSource.close();
-            return null;
-        }
-        catch (Exception e)
-        {
-            return null;
-        }
-    }
-    public int size()
-    {
-        try {
-            ConnectionSource connectionSource = connect();
-            Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
-            List<UserDAO> users = accountDao.queryForAll();
-            //TODO FILL THE USER ASS with for
-            // close the connection source
-            connectionSource.close();
-            return users.size();
-        }
-        catch (Exception e)
-        {
-            return -1;
-        }
-    }
-
-
-    public User searchUserByName(String userName)
-    {
-        try {
-            ConnectionSource connectionSource = connect();
-            Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
-            List<UserDAO> users = accountDao.queryForEq("userName",userName);
-            //TODO FILL THE USER ASS
-            // close the connection source
-            connectionSource.close();
-            if(users.size()>0)
-            {
-                return new User(users.get(0).getUserName(),users.get(0).getAge(),users.get(0).getId(),users.get(0).getRegistered());
+            Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
+            List<BagProductAmountDAO> bagsDAO = BagManager.queryForAll();
+            List<BagProductAmountDAO> userId_bag = Collections.synchronizedList(new LinkedList<>());
+            StoreWrapper storeWrapper = new StoreWrapper();
+            ProductWrapper productWrapper = new ProductWrapper();
+            List<Bag> result = Collections.synchronizedList(new LinkedList<>());
+            //get all the bags of the user
+            for (BagProductAmountDAO bagDAO : bagsDAO)
+                if (bagDAO.getUserId() == userId)
+                    userId_bag.add(bagDAO);
+            //get all the bags divided by store id
+            Map<Integer, List<BagProductAmountDAO>> storeId_Bag = new ConcurrentHashMap<>();
+            for (BagProductAmountDAO bagDAO : bagsDAO) {
+                if (storeId_Bag.containsKey(bagDAO.getStoreId())) {
+                    storeId_Bag.get(bagDAO.getStoreId()).add(bagDAO);
+                } else {
+                    List<BagProductAmountDAO> newList = new LinkedList<>();
+                    newList.add(bagDAO);
+                    storeId_Bag.put(bagDAO.getStoreId(), newList);
+                }
             }
-            else
-                return null;
+
+            for (Map.Entry<Integer, List<BagProductAmountDAO>> entry : storeId_Bag.entrySet())
+            {
+                Bag bag = new Bag(storeWrapper.getById(entry.getKey()));
+                Map<Product, Integer> productsAmount = new HashMap<>();
+                for (BagProductAmountDAO bagOfUserLine : entry.getValue()) {
+                    productsAmount.put(productWrapper.getById(bagOfUserLine.getProductId()),bagOfUserLine.getAmount());
+                }
+                bag.setProducts(productsAmount);
+                result.add(bag);
+            }
+            connectionSource.close();
+            return result;
         }
         catch (Exception e)
         {
@@ -132,14 +91,12 @@ public class BagWrapper {
         }
     }
 
-
-    public boolean delete(int id){
+    public boolean deleteByUserId(int userId){
         try {
             ConnectionSource connectionSource = connect();
             // instantiate the dao
-            Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
-            accountDao.deleteById(String.valueOf(id));
-            // close the connection source
+            Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
+            BagManager.executeRaw("DELETE FROM BagProductAmount WHERE user userId = "+String.valueOf(userId));
             connectionSource.close();
             return true;
         }
@@ -149,6 +106,35 @@ public class BagWrapper {
         }
     }
 
+    public boolean deleteByStoreId(int storeId){
+        try {
+            ConnectionSource connectionSource = connect();
+            // instantiate the dao
+            Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
+            BagManager.executeRaw("DELETE FROM BagProductAmount WHERE storeId = "+String.valueOf(storeId));
+            connectionSource.close();
+            return true;
+        }
+        catch (Exception e)
+        {
+            return false;
+        }
+    }
+
+    public void deleteBag(Bag b,int userId) {
+        try {
+            ConnectionSource connectionSource = connect();
+            Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
+            // instantiate the dao
+            for (Map.Entry<Product, Integer> entry : b.getProductsAmounts().entrySet()) {
+                BagManager.executeRaw("DELETE FROM BagProductAmount WHERE user userId = " + String.valueOf(userId)+" AND storeId= "+String.valueOf(b.getStoreId())+
+                        "AND productId= "+entry.getKey().getId());
+                connectionSource.close();
+            }
+        }
+        catch(Exception e) {
+        }
+    }
 
     public ConnectionSource connect() throws IOException, SQLException {
         Properties appProps = new Properties();
@@ -176,5 +162,6 @@ public class BagWrapper {
         return new JdbcConnectionSource(url,userName,password);
 
     }
+
 
 }

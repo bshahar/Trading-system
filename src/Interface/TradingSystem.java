@@ -12,6 +12,7 @@ import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Domain.Sessions.SessionInterface;
 import Domain.User;
+import Persistence.ReceiptWrapper;
 import Persistence.UserWrapper;
 import Service.*;
 import javafx.util.Pair;
@@ -35,7 +36,7 @@ public class TradingSystem {
     private UserAuth userAuth;
     private List<Store> stores;
     private User systemManager;
-    private List<Receipt> receipts;
+    private ReceiptWrapper receipts;
     private UserWrapper users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
@@ -45,10 +46,9 @@ public class TradingSystem {
             initializeSystemForTests();
         }
         this.users =  new UserWrapper();
-        this.receipts =  Collections.synchronizedList(new LinkedList<>());
+        this.receipts =  new ReceiptWrapper();
         paymentAdapter = new PaymentAdapter(externalSystemsUrl);
         supplementAdapter = new SupplementAdapter(externalSystemsUrl);
-        this.receipts = Collections.synchronizedList(new LinkedList<>());
         this.stores = Collections.synchronizedList(new LinkedList<>());
 
         this.userAuth = new UserAuth();
@@ -289,7 +289,7 @@ public class TradingSystem {
         return new Result(true,"session added\n");
     }
     public Result removeSession(int userId) {
-        getUserById(userId).setSession(null);
+        getUserById(userId).setSession((Session) null);
         return new Result(true,"session remove\n");
     }
 
@@ -346,7 +346,7 @@ public class TradingSystem {
 
     public Result register(String userName, int age, String pass) {
         if(userAuth.register(userName,pass)){
-            int userId=22;//userCounter.inc();
+            int userId=userCounter.inc();
             users.add(new User(userName, age,  userId, true));
             return new Result(true,userId);
         }
@@ -1250,10 +1250,9 @@ public class TradingSystem {
     }
 
     public Result getReceipt(int receiptId) {
-        for (Receipt r:receipts) {
-            if(r.getId() == receiptId)
-                return new Result(true, r);
-        }
+        Receipt r = receipts.get(receiptId);
+        if(r!=null)
+            return new Result(true, r);
         return new Result(false, "No receipt with this user id and store.");
     }
 
@@ -1371,7 +1370,7 @@ public class TradingSystem {
                     purchaseBag.put(st.getProductByName(rLine.getProdName()), rLine.getAmount());
                 }
                 st.abortPurchase(purchaseBag);
-                this.receipts.remove(receipt);
+                this.receipts.delete(receipt.getId());
                 st.removeReceipt(receipt);
                 getUserById(receipt.getUserId()).removeReceipt(receipt);
                 KingLogger.logEvent("CANCEL_PURCHASE: purchase that was made with receipt id " + receiptId + " was canceled.");

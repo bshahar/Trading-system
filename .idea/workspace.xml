@@ -23,22 +23,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="Bid GUI">
-      <change afterPath="$PROJECT_DIR$/src/Persistence/BagWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/BagProductAmountDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/MemberStorePermissionsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/ReceiptDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/ReceiptLinesDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/UserMessagesDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/ReceiptLinesWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/ReceiptWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/UserMessagesWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/ProductWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/spring/StoreWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Receipt.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/ReceiptLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/ReceiptLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/BagWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/BagWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/MemberStorePermissionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/MemberStorePermissionsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/UserMessagesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserMessagesWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -315,14 +310,7 @@
       <workItem from="1621238212706" duration="13618000" />
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
-      <workItem from="1621665148747" duration="8859000" />
-    </task>
-    <task id="LOCAL-00003" summary="adding permissions test #27 #26">
-      <created>1617737672773</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1617737672773</updated>
+      <workItem from="1621665148747" duration="19544000" />
     </task>
     <task id="LOCAL-00004" summary="adding permissions test #27 #26">
       <created>1617737829704</created>
@@ -637,7 +625,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621667265791</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="Bid GUI">
+      <created>1621675048711</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1621675048711</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

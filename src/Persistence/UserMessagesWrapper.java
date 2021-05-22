@@ -1,6 +1,7 @@
 package Persistence;
 
 import Domain.User;
+import Persistence.DAO.MemberStorePermissionsDAO;
 import Persistence.DAO.UserDAO;
 import Persistence.DAO.UserMessagesDAO;
 import Persistence.connection.JdbcConnectionSource;
@@ -74,6 +75,21 @@ public class UserMessagesWrapper {
             return false;
         }
     }
+    public void deleteAll(int id) {
+        try {
+            ConnectionSource connectionSource = connect();
+            // instantiate the dao
+            Dao<UserMessagesDAO, String> UserMessagesManager = DaoManager.createDao(connectionSource, UserMessagesDAO.class);
+            // create an instance of Account
+            UserMessagesManager.executeRaw("DELETE FROM UserMessages WHERE userId = " +String.valueOf(id));
+            connectionSource.close();
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
+
 
 
     public ConnectionSource connect() throws IOException, SQLException {
@@ -102,5 +118,6 @@ public class UserMessagesWrapper {
         return new JdbcConnectionSource(url,userName,password);
 
     }
+
 
 }

@@ -16,6 +16,20 @@ public class Member {
         this.permissions = new ConcurrentHashMap<>();
         this.myStores = new LinkedList<>();
     }
+
+
+    public Map<Store, Permission> getPermissions() {
+        return permissions;
+    }
+
+    public void setPermissions(Map<Store, Permission> permissions) {
+        this.permissions = permissions;
+    }
+
+    public void setMyStores(List<Store> myStores) {
+        this.myStores = myStores;
+    }
+
     public void openStore(User user, Store store)
     {
         store.addOwner(user);

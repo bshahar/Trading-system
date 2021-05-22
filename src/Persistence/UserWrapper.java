@@ -54,10 +54,8 @@ public class UserWrapper {
 
             user.setReceipts(receiptWrapper.getByUserId(user.getId()));
             user.setLoginMessages(userMessagesWrapper.getByUserId(user.getId()));
-
-            user.setBags(bagWrapper.getByUserId(user.getId()));
-            user.setMember(memberStorePermissionsWrapper.get());
-
+            user.setBags(bagWrapper.getAllUserBags(user.getId()));
+            user.setMember(memberStorePermissionsWrapper.getMemberByUserId(id));
 
             connectionSource.close();
             return user;

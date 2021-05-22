@@ -24,7 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="Bid GUI">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PlayGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PlayGround.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -287,12 +287,7 @@
       <workItem from="1621238212706" duration="13618000" />
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
-    </task>
-    <task id="LOCAL‎00001" summary="Dorin's changes #24">
-      <created>1617455826555</created>
-      <option name="number" value="LOCAL‎00001" />
-      <option name="presentableId" value="LOCAL‎00001" />
-      <updated>1617455826555</updated>
+      <workItem from="1621665148747" duration="1096000" />
     </task>
     <task id="LOCAL-00002" summary="connect trading system to stores #27">
       <created>1617728398806</created>
@@ -607,7 +602,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621612595515</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="Bid GUI">
+      <created>1621665190606</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1621665190606</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

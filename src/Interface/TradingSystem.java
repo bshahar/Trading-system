@@ -50,7 +50,6 @@ public class TradingSystem {
         this.receipts =  new ReceiptWrapper();
         paymentAdapter = new PaymentAdapter(externalSystemsUrl);
         supplementAdapter = new SupplementAdapter(externalSystemsUrl);
-        this.stores = Collections.synchronizedList(new LinkedList<>());
         this.stores = new StoreWrapper();
 
         this.userAuth = new UserAuth();

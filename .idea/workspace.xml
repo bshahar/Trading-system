@@ -23,9 +23,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add user and permission dao">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -303,13 +302,7 @@
       <workItem from="1621238212706" duration="13618000" />
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
-      <workItem from="1621665148747" duration="25635000" />
-    </task>
-    <task id="LOCAL‎00007" summary=".">
-      <created>1617808517811</created>
-      <option name="number" value="LOCAL‎00007" />
-      <option name="presentableId" value="LOCAL‎00007" />
-      <updated>1617808517811</updated>
+      <workItem from="1621665148747" duration="25938000" />
     </task>
     <task id="LOCAL-00008" summary="workspace">
       <created>1617811276698</created>
@@ -627,7 +620,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621694359316</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="add user and permission dao">
+      <created>1621699495567</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1621699495567</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -712,7 +712,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>400</line>
+          <line>424</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -742,7 +742,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/PlayGround.java</url>
-          <line>26</line>
+          <line>28</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">

@@ -112,12 +112,12 @@ public class LoginTest {
     @Test
     public void scalabilityUserTest(){
 
-//        for (int i=1; i<1000; i++){
-//            if(i!=(int)API.guestLogin().getData()){
-//                fail();
-//            }
-//        }
-//        Assertions.assertEquals(999,API.getNumOfUsers().getData());
+        for (int i=1; i<60; i++){
+            if(i!=(int)API.guestLogin().getData()){
+                fail();
+            }
+        }
+        Assertions.assertEquals(59,API.getNumOfUsers().getData());
     }
 
     //AT-3.1

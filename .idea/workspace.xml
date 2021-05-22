@@ -23,15 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add user and permission dao">
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/ReceiptDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/ReceiptDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -170,26 +169,13 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.LoginTest">
+  <component name="RunManager" selected="JUnit.NotficationsTest">
     <configuration name="PlayGround" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Tests.PlayGround" />
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server.Server" />
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -241,7 +227,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.scalabilityUserTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.logoutSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -251,19 +237,34 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="METHOD_NAME" value="scalabilityUserTest" />
+      <option name="METHOD_NAME" value="logoutSuccessTest" />
       <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="NotficationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.NotficationsTest" />
         <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.LoginTest.logoutSuccessTest" />
         <item itemvalue="JUnit.LoginTest.loginSuccessTest" />
         <item itemvalue="Application.PlayGround" />
-        <item itemvalue="Application.Server" />
-        <item itemvalue="JUnit.LoginTest.scalabilityUserTest" />
       </list>
     </recent_temporary>
   </component>
@@ -307,13 +308,7 @@
       <workItem from="1621238212706" duration="13618000" />
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
-      <workItem from="1621665148747" duration="21336000" />
-    </task>
-    <task id="LOCAL‎00005" summary="merges #26">
-      <created>1617781721231</created>
-      <option name="number" value="LOCAL‎00005" />
-      <option name="presentableId" value="LOCAL‎00005" />
-      <updated>1617781721231</updated>
+      <workItem from="1621665148747" duration="24470000" />
     </task>
     <task id="LOCAL‎00006" summary="fixed store tests #26">
       <created>1617790205166</created>
@@ -629,7 +624,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621688334740</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL-00054" summary="add user and permission dao">
+      <created>1621689945502</created>
+      <option name="number" value="00054" />
+      <option name="presentableId" value="LOCAL-00054" />
+      <option name="project" value="LOCAL" />
+      <updated>1621689945502</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -728,11 +730,6 @@
           <option name="timeStamp" value="54" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
-          <line>77</line>
-          <option name="timeStamp" value="59" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/BidsWebSocket.java</url>
           <line>126</line>
           <option name="timeStamp" value="64" />
@@ -751,11 +748,6 @@
           <url>file://$PROJECT_DIR$/src/Tests/PlayGround.java</url>
           <line>26</line>
           <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="83" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />

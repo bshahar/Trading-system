@@ -1,6 +1,7 @@
 package Persistence;
 
 import Domain.User;
+import Persistence.DAO.MemberStorePermissionsDAO;
 import Persistence.DAO.UserDAO;
 
 import Persistence.connection.JdbcConnectionSource;
@@ -39,6 +40,25 @@ public class UserWrapper {
         }
     }
 
+
+    public void setLogged(int logged,int userId)
+    {
+        try {
+            ConnectionSource connectionSource = connect();
+            // instantiate the dao
+            Dao<UserDAO, String> userManager = DaoManager.createDao(connectionSource, UserDAO.class);
+            // create an instance of Account
+            userManager.executeRaw("UPDATE Users\n" +
+                    "SET logged"+"= "+String.valueOf(logged)+
+                    " WHERE Id = "+String.valueOf(userId)+";");
+            connectionSource.close();
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
+
     public User get(int id)
     {
         try {
@@ -51,7 +71,7 @@ public class UserWrapper {
             Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
             UserDAO userDAO = accountDao.queryForId(Integer.toString(id));
             User user = new User(userDAO.getUserName(),userDAO.getAge(),userDAO.getId(),userDAO.getRegistered());
-
+            user.setLogged(userDAO.isLogged());
             user.setReceipts(receiptWrapper.getByUserId(user.getId()));
             user.setLoginMessages(userMessagesWrapper.getByUserId(user.getId()));
             user.setBags(bagWrapper.getAllUserBags(user.getId()));

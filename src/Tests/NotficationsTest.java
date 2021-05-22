@@ -1,6 +1,7 @@
 package Tests;
 
 import Domain.Result;
+import Persistence.DataBaseHelper;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,6 +27,7 @@ public class NotficationsTest {
 
     @BeforeEach
     public void setUp() {
+        DataBaseHelper.cleanAllTable();
         Properties testProps = new Properties();
         try {
             API.initTradingSystem();

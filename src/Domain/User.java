@@ -2,6 +2,7 @@ package Domain;
 import Persistence.ReceiptWrapper;
 import Persistence.UserMessagesWrapper;
 import Persistence.BagWrapper;
+import Persistence.UserWrapper;
 
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
@@ -35,6 +36,7 @@ public class User implements Observer {
     private BagWrapper bagWrapper;
     private UserMessagesWrapper messagesWrapper;
     private ReceiptWrapper receiptWrapper;
+    private UserWrapper userWrapper;
 
 
     private Queue<String> loginMessages;
@@ -61,6 +63,7 @@ public class User implements Observer {
         this.bagWrapper = new BagWrapper();
         this.messagesWrapper = new UserMessagesWrapper();
         this.receiptWrapper = new ReceiptWrapper();
+        this.userWrapper = new UserWrapper();
     }
 
 
@@ -166,6 +169,10 @@ public class User implements Observer {
     }
 
     public void setLogged(boolean logged) {
+        if(logged)
+            userWrapper.setLogged(1,id);
+        else
+            userWrapper.setLogged(0,id);
         this.logged = logged;
     }
 

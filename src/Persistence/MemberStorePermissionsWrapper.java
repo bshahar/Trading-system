@@ -1,15 +1,11 @@
 package Persistence;
 
 import Domain.*;
-import Persistence.DAO.BagProductAmountDAO;
 import Persistence.DAO.MemberStorePermissionsDAO;
-import Persistence.DAO.UserDAO;
 import Persistence.connection.JdbcConnectionSource;
-import Persistence.spring.StoreWrapper;
 import Service.API;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.stmt.UpdateBuilder;
 import com.j256.ormlite.support.ConnectionSource;
 
 import java.io.FileNotFoundException;
@@ -28,7 +24,7 @@ public class MemberStorePermissionsWrapper {
             Member member = new Member();
             ConnectionSource connectionSource = connect();
 
-            List<Store> stores = storeWrapper.getStoreByUserId(userId);
+            List<Store> stores = storeWrapper.getStoresByUserId(userId);
 
 
             Dao<MemberStorePermissionsDAO, String> MemberManager = DaoManager.createDao(connectionSource, MemberStorePermissionsDAO.class);

@@ -71,13 +71,14 @@ public class UserWrapper {
             Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
             UserDAO userDAO = accountDao.queryForId(Integer.toString(id));
             User user = new User(userDAO.getUserName(),userDAO.getAge(),userDAO.getId(),userDAO.getRegistered());
+            connectionSource.close();
             user.setLogged(userDAO.isLogged());
             user.setReceipts(receiptWrapper.getByUserId(user.getId()));
             user.setLoginMessages(userMessagesWrapper.getByUserId(user.getId()));
             user.setBags(bagWrapper.getAllUserBags(user.getId()));
             user.setMember(memberStorePermissionsWrapper.getMemberByUserId(id));
 
-            connectionSource.close();
+
             return user;
         }
         catch (Exception e)

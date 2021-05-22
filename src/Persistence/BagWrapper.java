@@ -2,15 +2,10 @@ package Persistence;
 
 import Domain.*;
 import Persistence.DAO.BagProductAmountDAO;
-import Persistence.DAO.MemberStorePermissionsDAO;
-import Persistence.DAO.ReceiptDAO;
-import Persistence.DAO.UserDAO;
 import Persistence.connection.JdbcConnectionSource;
-import Persistence.spring.StoreWrapper;
 import Service.API;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
-import com.j256.ormlite.stmt.query.In;
 import com.j256.ormlite.support.ConnectionSource;
 
 import java.io.FileNotFoundException;

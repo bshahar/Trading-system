@@ -43,7 +43,7 @@ public class TradingSystem {
 
     public TradingSystem (User systemManager, String externalSystemsUrl, boolean testing) {
         if(testing) {
-            initializeSystemForTests();
+           // initializeSystemForTests();
         }
         this.users =  new UserWrapper();
         this.receipts =  new ReceiptWrapper();

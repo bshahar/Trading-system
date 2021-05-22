@@ -3,7 +3,7 @@ package Persistence.DAO;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-    @DatabaseTable(tableName = "Receipts")
+    @DatabaseTable(tableName = "Users")
     public class UserDAO {
 
         @DatabaseField(id = true)

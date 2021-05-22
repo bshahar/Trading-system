@@ -43,6 +43,14 @@ public class Bag {
         return output;
     }
 
+    public Store getStore() {
+        return store;
+    }
+
+    public Map<Product, Double> getProductsApproved() {
+        return productsApproved;
+    }
+
     public void setProducts(Map<Product,Integer> prods) {
         this.productsAmounts = prods;
     }

@@ -23,8 +23,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="Bid GUI">
+      <change afterPath="$PROJECT_DIR$/src/Persistence/BagWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/BagProductAmountDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/MemberStorePermissionsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/ReceiptDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/ReceiptLinesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/UserMessagesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/ReceiptLinesWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/ReceiptWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/UserMessagesWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Receipt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/ReceiptLine.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/ReceiptLine.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/UserDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/UserDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -190,6 +205,19 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -287,14 +315,7 @@
       <workItem from="1621238212706" duration="13618000" />
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
-      <workItem from="1621665148747" duration="1096000" />
-    </task>
-    <task id="LOCAL-00002" summary="connect trading system to stores #27">
-      <created>1617728398806</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1617728398806</updated>
+      <workItem from="1621665148747" duration="8859000" />
     </task>
     <task id="LOCAL-00003" summary="adding permissions test #27 #26">
       <created>1617737672773</created>
@@ -609,7 +630,14 @@
       <option name="project" value="LOCAL" />
       <updated>1621665190606</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL-00051" summary="Bid GUI">
+      <created>1621667265791</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1621667265791</updated>
+    </task>
+    <option name="localTasksCounter" value="52" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

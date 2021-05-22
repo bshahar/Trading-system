@@ -49,6 +49,41 @@ public class User implements Observer {
         this.session = new realSession();
     }
 
+    public void setBags(List<Bag> bags) {
+        this.bags = bags;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
+
+    public void setReceipts(List<Receipt> receipts) {
+        this.receipts = receipts;
+    }
+
+    public void setMessages(Queue<String> messages) {
+        this.messages = messages;
+    }
+
+    public void setObservableType(ObservableType observableType) {
+        this.observableType = observableType;
+    }
+
+    public void setSystemManager(boolean systemManager) {
+        isSystemManager = systemManager;
+    }
+
+    public void setSession(SessionInterface session) {
+        this.session = session;
+    }
+
+    public void setLoginMessages(Queue<String> loginMessages) {
+        this.loginMessages = loginMessages;
+    }
 
     public int getId() {
         return id;

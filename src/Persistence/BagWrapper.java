@@ -1,34 +1,43 @@
 package Persistence;
 
+import Domain.Bag;
+import Domain.Product;
 import Domain.User;
+import Persistence.DAO.BagProductAmountDAO;
 import Persistence.DAO.UserDAO;
-
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
 
-
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
-public class UserWrapper {
+public class BagWrapper {
 
 
-    public boolean add(User user){
+    public boolean add(Bag bag, int userId){
         try {
             ConnectionSource connectionSource = connect();
             // instantiate the dao
-            Dao<UserDAO, String> userManager = DaoManager.createDao(connectionSource, UserDAO.class);
+            Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
             // create an instance of Account
-            UserDAO account = new UserDAO(user.getId(),user.getUserName(),user.isRegistered(),user.getAge(),user.getLogged(),user.isSystemManager());
+            Map<Product,Integer> productsAmounts = bag.getProductsAmounts();
+            for ( Map.Entry<Product,Integer> entry : productsAmounts.entrySet())
+            {
+                BagProductAmountDAO bagDAO = new BagProductAmountDAO(userId,bag.getStoreId(),entry.getKey().getId(),entry.getValue());
+                // persist the account object to the database
+                BagManager.create(bagDAO);
+            }
+            BagProductAmountDAO bagDAO = new BagProductAmountDAO(user.getId(),user.getUserName(),user.isRegistered(),user.getAge(),user.getLogged(),user.isSystemManager());
             // persist the account object to the database
-            userManager.create(account);
+            BagManager.create(bagDAO);
             // close the connection source
             connectionSource.close();
             return true;
@@ -112,7 +121,7 @@ public class UserWrapper {
             connectionSource.close();
             if(users.size()>0)
             {
-              return new User(users.get(0).getUserName(),users.get(0).getAge(),users.get(0).getId(),users.get(0).getRegistered());
+                return new User(users.get(0).getUserName(),users.get(0).getAge(),users.get(0).getId(),users.get(0).getRegistered());
             }
             else
                 return null;
@@ -167,7 +176,5 @@ public class UserWrapper {
         return new JdbcConnectionSource(url,userName,password);
 
     }
-
-
 
 }

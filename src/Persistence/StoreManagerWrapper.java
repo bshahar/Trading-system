@@ -1,7 +1,9 @@
 package Persistence;
 
 import Domain.User;
+import Persistence.DAO.AppointmentsDAO;
 import Persistence.DAO.StoreManagerDAO;
+import Persistence.DAO.StoreOwnerDAO;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
 import com.j256.ormlite.dao.Dao;
@@ -12,8 +14,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class StoreManagerWrapper {
 
@@ -25,6 +26,19 @@ public class StoreManagerWrapper {
                 StoreManagerDAO storeManagerDAO= new StoreManagerDAO(storeId,user.getId());
                 storeManagerDAOManager.create(storeManagerDAO);
             }
+            connectionSource.close();
+
+        }catch(Exception e){
+
+        }
+    }
+
+    public void add(User user, int storeId) {
+        try{
+            ConnectionSource connectionSource = connect();
+            Dao<StoreManagerDAO, String> storeManagerDAOManager = DaoManager.createDao(connectionSource,StoreManagerDAO.class);
+            StoreManagerDAO storeManagerDAO= new StoreManagerDAO(storeId,user.getId());
+            storeManagerDAOManager.create(storeManagerDAO);
             connectionSource.close();
 
         }catch(Exception e){
@@ -59,4 +73,52 @@ public class StoreManagerWrapper {
 
     }
 
+    public boolean remove(int storeId,User user) {
+        try{
+            ConnectionSource connectionSource = connect();
+            Dao<StoreManagerDAO, String> appointmentsDAOManager = DaoManager.createDao(connectionSource, StoreManagerDAO.class);
+            int out=appointmentsDAOManager.delete(new StoreManagerDAO(storeId,user.getId()));
+            connectionSource.close();
+            return out==1;
+        }catch (Exception e){
+            return false;
+        }
+    }
+
+    public List<User> getAll(int storeId) {
+        try{
+            ConnectionSource connectionSource = connect();
+            Dao<StoreManagerDAO, String> StoreManagerDAO = DaoManager.createDao(connectionSource, StoreManagerDAO.class);
+            Map<String,Object> map= new HashMap<>();
+            map.put("storeId",storeId);
+            List<StoreManagerDAO> StoreManagerDAOs= StoreManagerDAO.queryForFieldValues(map);
+            List<User> users= new LinkedList<>();
+            UserWrapper userWrapper= new UserWrapper();
+            for(StoreManagerDAO storeManagerDAO:StoreManagerDAOs){
+                users.add(userWrapper.get(storeManagerDAO.getUserId()));
+            }
+            return users;
+        }catch (Exception e){
+            return new LinkedList<>();
+        }
+    }
+
+    public boolean contains(User user, int storeId) {
+        try{
+            ConnectionSource connectionSource = connect();
+            Dao<StoreManagerDAO, String> storeManagerDAOManager = DaoManager.createDao(connectionSource, StoreManagerDAO.class);
+            Map<String,Object> map= new HashMap<>();
+            map.put("storeId",storeId);
+            List<StoreManagerDAO> StoreManagerDAOs= storeManagerDAOManager.queryForFieldValues(map);
+            for(StoreManagerDAO storeManagerDAO : StoreManagerDAOs){
+                if(storeManagerDAO.getUserId()== user.getId()){
+                    return true;
+                }
+            }
+            return false;
+        }catch(Exception e){
+            return false;
+        }
+
+    }
 }

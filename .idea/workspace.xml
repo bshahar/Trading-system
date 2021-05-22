@@ -22,29 +22,23 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="Bid GUI">
-      <change afterPath="$PROJECT_DIR$/src/Persistence/AppointmentsWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/AppointmentsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/InventoryDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/ProductDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreEmployeesDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreManagerDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreOwnerDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreReceiptDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/InventoryWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/ProductWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/StoreEmployeesWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/StoreManagerWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/StoreOwnerWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/StoreReceiptWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="storedb">
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/ProductCategoriesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/ProductReviewsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/ProductCategoryWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/ProductReviewsWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/ReceiptWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Product.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PlayGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PlayGround.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/AppointmentsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/AppointmentsWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/ProductWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/ProductWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreEmployeesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreEmployeesWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreManagerWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreManagerWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreOwnerWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreOwnerWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreReceiptWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreReceiptWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -167,8 +161,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="Persistence.DAO" />
       <recent name="Persistence" />
+      <recent name="Persistence.DAO" />
       <recent name="Domain" />
       <recent name="Server" />
       <recent name="Permissions" />
@@ -309,12 +303,6 @@
       <workItem from="1621238212706" duration="13618000" />
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
-    </task>
-    <task id="LOCAL‎00001" summary="Dorin's changes #24">
-      <created>1617455826555</created>
-      <option name="number" value="LOCAL‎00001" />
-      <option name="presentableId" value="LOCAL‎00001" />
-      <updated>1617455826555</updated>
     </task>
     <task id="LOCAL-00002" summary="connect trading system to stores #27">
       <created>1617728398806</created>
@@ -629,7 +617,13 @@
       <option name="project" value="LOCAL" />
       <updated>1621612595515</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL‎00050" summary="storedb">
+      <created>1621680384824</created>
+      <option name="number" value="LOCAL‎00050" />
+      <option name="presentableId" value="LOCAL‎00050" />
+      <updated>1621680384825</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -652,7 +646,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed store tests #26" />
     <MESSAGE value="." />
     <MESSAGE value="workspace" />
     <MESSAGE value="adding store test #26" />
@@ -677,7 +670,8 @@
     <MESSAGE value="elad do everything!" />
     <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bid GUI" />
+    <MESSAGE value="storedb" />
+    <option name="LAST_COMMIT_MESSAGE" value="storedb" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -714,7 +708,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>400</line>
+          <line>424</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

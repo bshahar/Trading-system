@@ -3,6 +3,7 @@ package Persistence;
 import Domain.Store;
 import Domain.User;
 import Persistence.DAO.StoreDAO;
+import Persistence.DAO.StoreEmployeesDAO;
 import Persistence.DAO.UserDAO;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
@@ -14,13 +15,9 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class StoreWrapper {
-
-
 
     public boolean add(Store store){
         try {
@@ -63,6 +60,58 @@ public class StoreWrapper {
         }
     }
 
+    public Store getById(int storeId){
+        try {
+            ConnectionSource connectionSource = connect();
+            Dao<StoreDAO, String> StoreDAOManager = DaoManager.createDao(connectionSource,StoreDAO.class);
+            StoreDAO storeDAO = StoreDAOManager.queryForId(Integer.toString(storeId));
+            Store store= new Store(storeDAO.getStoreId(),storeDAO.getName());
+            store.setNotificationId(storeDAO.getNotificationId());
+            store.setRate(storeDAO.getRate());
+            store.setRateCount(storeDAO.getRatesCount());
+            connectionSource.close();
+
+//            //Employees
+//            StoreEmployeesWrapper storeEmployeesWrapper= new StoreEmployeesWrapper();
+//            List<User> employees= storeEmployeesWrapper.getUsersByStoreId(storeId);
+//            store.setEmployees(employees);
+
+            return store;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
+    public List<Store> getStoresByUserId(int userId){
+        try {
+            ConnectionSource connectionSource = connect();
+
+            Dao<StoreEmployeesDAO, String> StoreEmployeesDAOManager = DaoManager.createDao(connectionSource,StoreEmployeesDAO.class);
+            Map<String,Object> map=new HashMap<>();
+            map.put("userId",userId);
+            List<StoreEmployeesDAO> storeDAOs = StoreEmployeesDAOManager.queryForFieldValues(map);
+            connectionSource.close();
+            List<Store> list= new LinkedList<>();
+            for(StoreEmployeesDAO storeEmployeesDAO: storeDAOs){
+                list.add(getById(storeEmployeesDAO.getStoreId()));
+            }
+            return list;
+
+//            //Employees
+//            StoreEmployeesWrapper storeEmployeesWrapper= new StoreEmployeesWrapper();
+//            List<User> employees= storeEmployeesWrapper.getUsersByStoreId(storeId);
+//            store.setEmployees(employees);
+
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
+
+
     public ConnectionSource connect() throws IOException, SQLException {
         Properties appProps = new Properties();
         InputStream input = API.class.getClassLoader().getResourceAsStream("appConfig.properties");
@@ -90,4 +139,25 @@ public class StoreWrapper {
 
     }
 
+    public List<Store> getAllStores() {
+        try {
+            ConnectionSource connectionSource = connect();
+            Dao<StoreDAO, String> StoreDAOManager = DaoManager.createDao(connectionSource,StoreDAO.class);
+            List<StoreDAO> storeDAOs = StoreDAOManager.queryForAll();
+            List<Store> stores =new LinkedList<>();
+            for(StoreDAO storeDAO :storeDAOs){
+                Store store= new Store(storeDAO.getStoreId(),storeDAO.getName());
+                store.setNotificationId(storeDAO.getNotificationId());
+                store.setRate(storeDAO.getRate());
+                store.setRateCount(storeDAO.getRatesCount());
+                stores.add(store);
+            }
+            connectionSource.close();
+            return stores;
+        }
+        catch (Exception e)
+        {
+            return null;
+        }
+    }
 }

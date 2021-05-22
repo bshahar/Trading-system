@@ -13,10 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class AppointmentsWrapper {
 
@@ -66,4 +63,70 @@ public class AppointmentsWrapper {
 
     }
 
+    public boolean removeAppointment(int storeId, int ownerId, int managerId) {
+        try {
+            ConnectionSource connectionSource = connect();
+            Dao<AppointmentsDAO, String> appointmentsDAOManager = DaoManager.createDao(connectionSource, AppointmentsDAO.class);
+            int out=appointmentsDAOManager.delete(new AppointmentsDAO(storeId, ownerId, managerId));
+            connectionSource.close();
+            return out==1;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
+    public List<User> get(int storeId, User manager) {
+        try{
+            ConnectionSource connectionSource = connect();
+            Dao<AppointmentsDAO, String> appointmentsDAOManager = DaoManager.createDao(connectionSource, AppointmentsDAO.class);
+            Map<String,Object> map= new HashMap<>();
+            map.put("storeId",storeId);
+            map.put("managerId",manager.getId());
+            List<AppointmentsDAO> appointmentsDAOS= appointmentsDAOManager.queryForFieldValues(map);
+            List<User> users= new LinkedList<>();
+            UserWrapper userWrapper= new UserWrapper();
+            for(AppointmentsDAO appointmentsDAO: appointmentsDAOS){
+                users.add(userWrapper.get(appointmentsDAO.getAppointedId()));
+            }
+            return users;
+        }catch (Exception e){
+            return new LinkedList<>();
+        }
+
+    }
+
+    public void add(User owner, User user, int storeId) {
+        try{
+            ConnectionSource connectionSource = connect();
+            Dao<AppointmentsDAO, String> appointmentsDAOManager = DaoManager.createDao(connectionSource,AppointmentsDAO.class);
+            AppointmentsDAO appointmentsDAO= new AppointmentsDAO(storeId, owner.getId(),user.getId());
+            appointmentsDAOManager.create(appointmentsDAO);
+        }catch(Exception e){
+
+        }
+
+    }
+
+    public Map<User, List<User>> getAll(int storeId) {
+        try{
+            ConnectionSource connectionSource = connect();
+            Dao<AppointmentsDAO, String> AppointmentsDAOManager = DaoManager.createDao(connectionSource,AppointmentsDAO.class);
+            Map<String,Object> map= new HashMap<>();
+            map.put("storeId",storeId);
+            List<AppointmentsDAO> AppointmentsDAOs= AppointmentsDAOManager.queryForFieldValues(map);
+            Map<User,List<User>> appointments= new HashMap<>();
+            UserWrapper userWrapper= new UserWrapper();
+            for(AppointmentsDAO appointmentsDAO : AppointmentsDAOs){
+                User manager= userWrapper.get(appointmentsDAO.getManagerId());
+                User appointed= userWrapper.get(appointmentsDAO.getAppointedId());
+                if (!appointments.containsKey(manager)) {
+                    appointments.put(manager, new LinkedList<>());
+                }
+                appointments.get(manager).add(appointed);
+            }
+            return appointments;
+        }catch (Exception e){
+            return new HashMap<>();
+        }
+    }
 }

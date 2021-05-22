@@ -34,16 +34,33 @@ public class ProductWrapper {
             productDAOManager.create(productDAO);
             connectionSource.close();
 
+            //Reviews
+            ProductReviewsWrapper productReviewsWrapper= new ProductReviewsWrapper();
+            productReviewsWrapper.add(product.getReviews(),product.getId());
+
             //Categories
-
-            //reviews
-
+            ProductCategoryWrapper productCategoryWrapper= new ProductCategoryWrapper();
+            productCategoryWrapper.add(product.getReviews(),product.getId());
 
             return true;
         }
         catch (Exception e)
         {
             return false;
+        }
+    }
+
+    public Product getById(int productId) {
+        try {
+            ConnectionSource connectionSource = connect();
+            Dao<ProductDAO, String> ProductDAOManager = DaoManager.createDao(connectionSource, ProductDAO.class);
+            ProductDAO productDAO = ProductDAOManager.queryForId(Integer.toString(productId));
+            Product product = new Product(productDAO.getId(), productDAO.getName(), productDAO.getPrice(),
+                    productDAO.getDescription(), productDAO.getStoreId(), productDAO.getRatesCount(), productDAO.getRate());
+            connectionSource.close();
+            return product;
+        } catch (Exception e) {
+            return null;
         }
     }
 

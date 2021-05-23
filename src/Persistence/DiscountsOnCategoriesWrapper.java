@@ -25,7 +25,7 @@ public class DiscountsOnCategoriesWrapper {
         this.value = new ConcurrentHashMap<>();
     }
 
-    public void add(String category, Discount discount) {
+    public void add(int storeId, String category, Discount discount) {
         try {
             ConnectionSource connectionSource = connect();
             if(this.value.containsKey(category))
@@ -76,6 +76,11 @@ public class DiscountsOnCategoriesWrapper {
                 ConditionalDiscountDAO condDisDaoObj = new ConditionalDiscountDAO(tmp.getId(), discount.getId());
                 conditionalDiscountDAO.create(condDisDaoObj);
             }
+            //StoreDiscountsOnCategories
+            Dao<StoreDiscountsOnCategoriesDAO, String> storeDiscountsOnCategoriesDAO = DaoManager.createDao(connectionSource, StoreDiscountsOnCategoriesDAO.class);
+            StoreDiscountsOnCategoriesDAO storeDisOnCatDaoObj = new StoreDiscountsOnCategoriesDAO(storeId, category, discount.getId());
+            storeDiscountsOnCategoriesDAO.create(storeDisOnCatDaoObj);
+
             connectionSource.close();
         } catch (Exception e) {
             //TODO add rollback

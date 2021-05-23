@@ -22,13 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 fix primary keys db">
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreDiscountsOnCategoriesDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreDiscountsOnProductsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreDiscountsOnStoresDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnCategoriesWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 add daos">
       <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -289,13 +283,7 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="1096000" />
-      <workItem from="1621682093021" duration="11647000" />
-    </task>
-    <task id="LOCAL‎00006" summary="fixed store tests #26">
-      <created>1617790205166</created>
-      <option name="number" value="LOCAL‎00006" />
-      <option name="presentableId" value="LOCAL‎00006" />
-      <updated>1617790205166</updated>
+      <workItem from="1621682093021" duration="12045000" />
     </task>
     <task id="LOCAL‎00007" summary=".">
       <created>1617808517811</created>
@@ -608,7 +596,13 @@
       <option name="presentableId" value="LOCAL‎00054" />
       <updated>1621787418141</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL‎00055" summary="#61 add daos">
+      <created>1621793682340</created>
+      <option name="number" value="LOCAL‎00055" />
+      <option name="presentableId" value="LOCAL‎00055" />
+      <updated>1621793682341</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -631,7 +625,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix all tests #26" />
     <MESSAGE value="merge API, permissions" />
     <MESSAGE value="change permissions" />
     <MESSAGE value="Adapter Injection #38" />
@@ -656,7 +649,8 @@
     <MESSAGE value="#61 discounts daos" />
     <MESSAGE value="#61 discounts wrapper" />
     <MESSAGE value="#61 fix primary keys db" />
-    <option name="LAST_COMMIT_MESSAGE" value="#61 fix primary keys db" />
+    <MESSAGE value="#61 add daos" />
+    <option name="LAST_COMMIT_MESSAGE" value="#61 add daos" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

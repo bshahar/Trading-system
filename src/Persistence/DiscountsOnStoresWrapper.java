@@ -22,7 +22,7 @@ public class DiscountsOnStoresWrapper {
 
     private Discount value;
 
-    public void add(Discount discount) {
+    public void add(int storeId, Discount discount) {
         try {
             ConnectionSource connectionSource = connect();
             if(this.value != null)
@@ -73,11 +73,16 @@ public class DiscountsOnStoresWrapper {
                 ConditionalDiscountDAO condDisDaoObj = new ConditionalDiscountDAO(tmp.getId(), discount.getId());
                 conditionalDiscountDAO.create(condDisDaoObj);
             }
+            //StoreDiscountsOnStores
+            Dao<StoreDiscountsOnStoresDAO, String> storeDiscountsOnStoresDAO = DaoManager.createDao(connectionSource, StoreDiscountsOnStoresDAO.class);
+            StoreDiscountsOnStoresDAO storeDisOnStoreDaoObj = new StoreDiscountsOnStoresDAO(storeId, discount.getId());
+            storeDiscountsOnStoresDAO.create(storeDisOnStoreDaoObj);
+
             connectionSource.close();
         } catch (Exception e) {
             //TODO add rollback
         }
-        this.value = discount; //Overwrite old entry in map
+        this.value = discount; //Overwrite old value
     }
 
     public void remove(int discountId) {

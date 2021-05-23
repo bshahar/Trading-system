@@ -6,9 +6,9 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "ProductReviews")
 public class ProductReviewsDAO {
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int productId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private String review;
 
     public ProductReviewsDAO(int productId, String review) {

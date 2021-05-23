@@ -87,19 +87,19 @@ public class Product {
         this.reviews.add(review);
     }
 
-    public String toString() {
-        String output =  "Name - " + this.name + " Categories -  ";
-        for (String c: categories) {
-            output += c + ", ";
-        }
-        if (output.endsWith(", "))
-            output.substring(0,output.length()-2);
-        output = output + "Price - " + this.price + " Rate - " + this.rate + " Description - " + this.description + " Reviews - ";
-        for (String r: reviews) {
-            output+=r;
-        }
-        return output;
-    }
+//    public String toString() {
+//        String output =  "Name - " + this.name + " Categories -  ";
+//        for (String c: categories) {
+//            output += c + ", ";
+//        }
+//        if (output.endsWith(", "))
+//            output.substring(0,output.length()-2);
+//        output = output + "Price - " + this.price + " Rate - " + this.rate + " Description - " + this.description + " Reviews - ";
+//        for (String r: reviews) {
+//            output+=r;
+//        }
+//        return output;
+//    }
 
     public boolean containsCategory(String category){
         String c = category;
@@ -136,5 +136,9 @@ public class Product {
 
     public int getRateCount() {
         return this.ratesCount;
+    }
+
+    public void setCategories(List<String> categories) {
+        this.categories=categories;
     }
 }

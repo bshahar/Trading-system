@@ -7,11 +7,11 @@ import com.j256.ormlite.table.DatabaseTable;
 public class BagProductAmountDAO {
 
 
-        @DatabaseField(id = true)
+        @DatabaseField(uniqueCombo = true)
         private int userId;
-        @DatabaseField(id = true)
+        @DatabaseField(uniqueCombo = true)
         private int storeId;
-        @DatabaseField(id = true)
+        @DatabaseField(uniqueCombo = true)
         private int productId;
         @DatabaseField
         private int amount;

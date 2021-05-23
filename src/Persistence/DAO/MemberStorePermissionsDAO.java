@@ -8,9 +8,9 @@ import com.j256.ormlite.table.DatabaseTable;
 public class MemberStorePermissionsDAO {
 
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int userId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int storeId;
     @DatabaseField
     private boolean addProduct;
@@ -65,7 +65,7 @@ public class MemberStorePermissionsDAO {
     @DatabaseField
     private boolean viewPurchasePolicies;
     @DatabaseField
-    private boolean ResponedToOffer;
+    private boolean responedToOffer;
 
 
     public MemberStorePermissionsDAO() {
@@ -190,7 +190,7 @@ public class MemberStorePermissionsDAO {
     }
 
     public boolean isResponedToOffer() {
-        return ResponedToOffer;
+        return responedToOffer;
     }
 
     public void setUserId(int userId) {
@@ -306,6 +306,6 @@ public class MemberStorePermissionsDAO {
     }
 
     public void setResponedToOffer(boolean responedToOffer) {
-        ResponedToOffer = responedToOffer;
+        this.responedToOffer = responedToOffer;
     }
 }

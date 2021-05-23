@@ -12,9 +12,7 @@ import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Domain.Sessions.SessionInterface;
 import Domain.User;
-import Persistence.StoreWrapper;
-import Persistence.ReceiptWrapper;
-import Persistence.UserWrapper;
+import Persistence.*;
 import Service.*;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
@@ -506,7 +504,7 @@ public class TradingSystem {
     public Result getAllStoresInfo(int userId) {
         User u = getUserById(userId);
         if (u != null && u.isLooged()) {
-            return new Result(true,this.stores) ;
+            return new Result(true,this.stores.getAllStores()) ;
         }
         KingLogger.logEvent("GET_ALL_STORES_INFO: User with id " + userId + " tried to get stores info while logged out and failed.");
         return new Result(false,"User has not logged in");
@@ -576,7 +574,7 @@ public class TradingSystem {
             Bag b = getUserById(userId).getBagByStoreId(storeId);
             if(amount>0){
                 if (getUserById(userId).isLooged()){
-                    if( getStoreById(storeId).getInventory().prodExists(prodId)){
+                    if( getStoreById(storeId).getInventory().prodExists(prodId,storeId)){
                         if (b != null) {
                             b.addProduct(getProductById(prodId), amount);
                             KingLogger.logEvent("ADD_PRODUCT_TO_BAG: Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
@@ -783,10 +781,10 @@ public class TradingSystem {
         User user = getUserById(userId);
         if(user!=null && user.isRegistered()) {
             int newId = storeCounter.inc();
-            Store store = new Store(newId, storeName, user);
+            Store store = new Store(newId, storeName);
            // systemManager.addStoreToSystemManager(store);
-            user.openStore(store);
-            this.stores.add(store);
+            this.stores.add(store,user);
+            user.openStore(store,user.getId());
 
             KingLogger.logEvent("OPEN_STORE: User with id " + userId + " open the store " + storeName);
             Result result = addObservable(storeName);
@@ -922,10 +920,12 @@ public class TradingSystem {
 
     public Result getProductsFromStore(int storeId) {
         List<Product> products=new LinkedList<>();
-        Map<Product , Integer> amounts= getStoreById(storeId).getInventory().getProductsAmounts();
-        for(Product product :amounts.keySet()){
+        Map<Integer , Integer> amounts= getStoreById(storeId).getInventory().getProductsAmounts(storeId);
+        ProductWrapper productWrapper= new ProductWrapper();
+        for(Integer productId :amounts.keySet()){
+            Product product=productWrapper.getById(productId);
             products.add(product);
-            product.setAmount(amounts.get(product));
+            product.setAmount(amounts.get(product.getId()));
         }
         return new Result(true,products);
     }
@@ -950,11 +950,15 @@ public class TradingSystem {
     }
 
     public List<Store> getMyStores(int id) {
-        if(checkValidUser(id))
-        {
-            return getUserById(id).getMyStores();
+        List<Store> out = new LinkedList<>();
+        if (checkValidUser(id)) {
+            for (Integer storeId : getUserById(id).getMyStores()) {
+                out.add(getStoreById(storeId));
+            }
+            return out;
+        }else {
+            return new LinkedList<>();
         }
-        return new LinkedList<>();
     }
 
 

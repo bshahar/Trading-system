@@ -13,9 +13,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 
 public class InventoryWrapper {
 
@@ -27,6 +25,21 @@ public class InventoryWrapper {
                 InventoryDAO inventoryDAO= new InventoryDAO(storeId, product.getId(),inventory.get(product));
                 inventoryDAOManager.create(inventoryDAO);
             }
+            connectionSource.close();
+
+        }catch(Exception e){
+
+        }
+    }
+    public void add(Product product,int amount, int storeId) {
+        try{
+            ProductWrapper productWrapper =new ProductWrapper();
+            productWrapper.add(product);
+
+            ConnectionSource connectionSource = connect();
+            Dao<InventoryDAO, String> inventoryDAOManager = DaoManager.createDao(connectionSource,InventoryDAO.class);
+            InventoryDAO inventoryDAO= new InventoryDAO(storeId, product.getId(),amount);
+            inventoryDAOManager.create(inventoryDAO);
             connectionSource.close();
 
         }catch(Exception e){
@@ -61,4 +74,82 @@ public class InventoryWrapper {
 
     }
 
+    public List<Product> getAllProducts(int storeId) {
+        try{
+            ProductWrapper productWrapper= new ProductWrapper();
+            ConnectionSource connectionSource = connect();
+            Dao<InventoryDAO, String> inventoryDAOManager = DaoManager.createDao(connectionSource,InventoryDAO.class);
+            Map<String,Object> map= new HashMap<>();
+            map.put("storeId",storeId);
+            List<InventoryDAO> inventoryDAOS = inventoryDAOManager.queryForFieldValues(map);
+            connectionSource.close();
+            List<Product> out= new LinkedList<>();
+            for(InventoryDAO inventoryDAO : inventoryDAOS){
+                out.add(productWrapper.getById(inventoryDAO.getProductId()));
+            }
+            return out;
+        }catch(Exception e){
+            return null;
+        }
+    }
+
+    public Map<Integer, Integer> getAllProductsAmount(int storeId) {
+        try{
+            ProductWrapper productWrapper= new ProductWrapper();
+            ConnectionSource connectionSource = connect();
+            Dao<InventoryDAO, String> inventoryDAOManager = DaoManager.createDao(connectionSource,InventoryDAO.class);
+            Map<String,Object> map= new HashMap<>();
+            map.put("storeId",storeId);
+            List<InventoryDAO> inventoryDAOS = inventoryDAOManager.queryForFieldValues(map);
+            Map<Integer,Integer> out= new HashMap<>();
+            for(InventoryDAO inventoryDAO : inventoryDAOS){
+                out.put(inventoryDAO.getProductId(),inventoryDAO.getAmount());
+            }
+            connectionSource.close();
+            return out;
+        }catch(Exception e){
+            return null;
+        }      }
+
+    public void updateAmount(int prodId, int amount, int storeId) {
+        try{
+            ConnectionSource connectionSource = connect();
+            Dao<InventoryDAO, String> inventoryDAOManager = DaoManager.createDao(connectionSource,InventoryDAO.class);
+            InventoryDAO inventoryDAO= new InventoryDAO(storeId, prodId,amount);
+            inventoryDAOManager.update(inventoryDAO);
+            connectionSource.close();
+
+        }catch(Exception e){
+
+        }
+
+    }
+
+    public void remove(Product p, int storeId,int amount) {
+        try{
+            ConnectionSource connectionSource = connect();
+            Dao<InventoryDAO, String> inventoryDAOManager = DaoManager.createDao(connectionSource,InventoryDAO.class);
+            InventoryDAO inventoryDAO= new InventoryDAO(storeId, p.getId(),amount);
+            inventoryDAOManager.delete(inventoryDAO);
+            connectionSource.close();
+
+        }catch(Exception e){
+
+        }
+    }
+
+    public int getAmount(int storeId, int productId) {
+        try{
+            ConnectionSource connectionSource = connect();
+            Dao<InventoryDAO, String> inventoryDAOManager = DaoManager.createDao(connectionSource,InventoryDAO.class);
+            Map<String,Object> map=new HashMap<>();
+            map.put("storeId",storeId);
+            map.put("productId",productId);
+            List<InventoryDAO> inventoryDAO= inventoryDAOManager.queryForFieldValues(map);
+            connectionSource.close();
+            return inventoryDAO.get(0).getAmount();
+
+        }catch(Exception e){
+            return -1;
+        }    }
 }

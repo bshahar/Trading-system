@@ -13,9 +13,9 @@ public class StoreManagerDAO {
         this.userId = userId;
     }
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int storeId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int userId;
 
 

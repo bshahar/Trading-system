@@ -8,11 +8,11 @@ public class AppointmentsDAO {
 
     public AppointmentsDAO(){    }
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int storeId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int managerId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int appointedId;
 
     public AppointmentsDAO(int storeId, int managerId, int appointedId) {

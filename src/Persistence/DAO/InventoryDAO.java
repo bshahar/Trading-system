@@ -7,9 +7,9 @@ import com.j256.ormlite.table.DatabaseTable;
 public class InventoryDAO {
 
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int storeId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int productId;
     @DatabaseField
     private int amount;

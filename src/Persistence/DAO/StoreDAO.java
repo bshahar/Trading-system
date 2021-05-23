@@ -11,7 +11,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
-@DatabaseTable(tableName = "Users")
+@DatabaseTable(tableName = "Stores")
 public class StoreDAO {
 
     @DatabaseField(id = true)
@@ -23,7 +23,7 @@ public class StoreDAO {
     @DatabaseField
     private double rate;
     @DatabaseField
-    private int ratesCount;
+    private int rateCount;
 
     public StoreDAO() {
     }
@@ -33,7 +33,7 @@ public class StoreDAO {
         this.notificationId = notificationId;
         this.name = name;
         this.rate = rate;
-        this.ratesCount = ratesCount;
+        this.rateCount = ratesCount;
     }
 
     public int getStoreId() {
@@ -69,10 +69,10 @@ public class StoreDAO {
     }
 
     public int getRatesCount() {
-        return ratesCount;
+        return rateCount;
     }
 
     public void setRatesCount(int ratesCount) {
-        this.ratesCount = ratesCount;
+        this.rateCount = ratesCount;
     }
 }

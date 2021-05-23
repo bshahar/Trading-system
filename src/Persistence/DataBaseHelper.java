@@ -1,10 +1,7 @@
 package Persistence;
 
 import Domain.User;
-import Persistence.DAO.BagProductAmountDAO;
-import Persistence.DAO.MemberStorePermissionsDAO;
-import Persistence.DAO.ReceiptDAO;
-import Persistence.DAO.UserDAO;
+import Persistence.DAO.*;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
 import com.j256.ormlite.dao.Dao;
@@ -35,6 +32,36 @@ public class DataBaseHelper {
 
             Dao<ReceiptDAO, String> receiptManager = DaoManager.createDao(connectionSource, ReceiptDAO.class);
             receiptManager.executeRaw("DELETE FROM Receipts");
+
+            Dao<StoreDAO, String> StoreManager = DaoManager.createDao(connectionSource,StoreDAO.class);
+            StoreManager.executeRaw("DELETE FROM Stores");
+
+
+            Dao<StoreReceiptDAO, String> StoreReceiptDAOManager = DaoManager.createDao(connectionSource,StoreReceiptDAO.class);
+            StoreReceiptDAOManager.executeRaw("DELETE FROM StoreReceipts");
+
+
+            Dao<StoreEmployeesDAO, String> StoreEmployeesDAOManager = DaoManager.createDao(connectionSource,StoreEmployeesDAO.class);
+            StoreEmployeesDAOManager.executeRaw("DELETE FROM StoreEmployees");
+
+            Dao<StoreOwnerDAO, String> StoreOwnerDAOManager = DaoManager.createDao(connectionSource,StoreOwnerDAO.class);
+            StoreOwnerDAOManager.executeRaw("DELETE FROM StoreOwners");
+
+            Dao<StoreManagerDAO, String> StoreManagerDAOManager = DaoManager.createDao(connectionSource,StoreManagerDAO.class);
+            StoreManagerDAOManager.executeRaw("DELETE FROM StoreManagers");
+
+            Dao<InventoryDAO, String> InventoryDAOManager = DaoManager.createDao(connectionSource,InventoryDAO.class);
+            InventoryDAOManager.executeRaw("DELETE FROM Inventory");
+
+            Dao<AppointmentsDAO, String>AppointmentsDAOManager = DaoManager.createDao(connectionSource,AppointmentsDAO.class);
+            AppointmentsDAOManager.executeRaw("DELETE FROM Appointments");
+
+            Dao<ProductDAO, String>ProductDAOManager = DaoManager.createDao(connectionSource,ProductDAO.class);
+            ProductDAOManager.executeRaw("DELETE FROM Products");
+            Dao<ProductReviewsDAO, String>ProductReviewsDAOManager = DaoManager.createDao(connectionSource,ProductReviewsDAO.class);
+            ProductReviewsDAOManager.executeRaw("DELETE FROM ProductReviews");
+            Dao<ProductCategoriesDAO, String>ProductCategoriesDAOManager = DaoManager.createDao(connectionSource,ProductCategoriesDAO.class);
+            ProductCategoriesDAOManager.executeRaw("DELETE FROM ProductCategories");
 
             connectionSource.close();
         } catch (Exception e)

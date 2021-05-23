@@ -19,7 +19,7 @@ import java.util.*;
 
 public class StoreWrapper {
 
-    public boolean add(Store store){
+    public boolean add(Store store,User user){
         try {
             //Stores
             ConnectionSource connectionSource = connect();
@@ -30,27 +30,27 @@ public class StoreWrapper {
 
             //StoresEmployees
             StoreEmployeesWrapper storeEmployeesWrapper= new StoreEmployeesWrapper();
-            storeEmployeesWrapper.add((List<User>)store.getEmployees().getData(),store.getStoreId());
-
-            //StoreOwners
-            StoreOwnerWrapper storeOwnerWrapper= new StoreOwnerWrapper();
-            storeOwnerWrapper.add(store.getOwners(),store.getStoreId());
-
-            //StoreManagers
-            StoreManagerWrapper storeManagerWrapper= new StoreManagerWrapper();
-            storeManagerWrapper.add(store.getManagers(),store.getStoreId());
-
-            //StoreReceipt
-            StoreReceiptWrapper storeReceiptWrapper= new StoreReceiptWrapper();
-            storeReceiptWrapper.add(store.getReceipts(),store.getStoreId());
-
-            //Appointments
-            AppointmentsWrapper appointmentsWrapper= new AppointmentsWrapper();
-            appointmentsWrapper.add(store.getAppointments(),store.getStoreId());
-
-            //Inventory
-            InventoryWrapper inventoryWrapper= new InventoryWrapper();
-            inventoryWrapper.add(store.getInventory().getProductsAmounts(),store.getStoreId());
+            storeEmployeesWrapper.add(user,store.getStoreId());
+//
+//            //StoreOwners
+//            StoreOwnerWrapper storeOwnerWrapper= new StoreOwnerWrapper();
+//            storeOwnerWrapper.add(store.getOwners(),store.getStoreId());
+//
+//            //StoreManagers
+//            StoreManagerWrapper storeManagerWrapper= new StoreManagerWrapper();
+//            storeManagerWrapper.add(store.getManagers(),store.getStoreId());
+//
+//            //StoreReceipt
+//            StoreReceiptWrapper storeReceiptWrapper= new StoreReceiptWrapper();
+//            storeReceiptWrapper.add(store.getReceipts(),store.getStoreId());
+//
+//            //Appointments
+//            AppointmentsWrapper appointmentsWrapper= new AppointmentsWrapper();
+//            appointmentsWrapper.add(store.getAppointments(),store.getStoreId());
+//
+//            //Inventory
+//            InventoryWrapper inventoryWrapper= new InventoryWrapper();
+//            inventoryWrapper.add(store.getInventory().getProductsAmounts(),store.getStoreId());
 
             return true;
         }
@@ -84,7 +84,7 @@ public class StoreWrapper {
         }
     }
 
-    public List<Store> getStoresByUserId(int userId){
+    public List<Integer> getStoresByUserId(int userId){
         try {
             ConnectionSource connectionSource = connect();
 
@@ -93,9 +93,9 @@ public class StoreWrapper {
             map.put("userId",userId);
             List<StoreEmployeesDAO> storeDAOs = StoreEmployeesDAOManager.queryForFieldValues(map);
             connectionSource.close();
-            List<Store> list= new LinkedList<>();
+            List<Integer> list= new LinkedList<>();
             for(StoreEmployeesDAO storeEmployeesDAO: storeDAOs){
-                list.add(getById(storeEmployeesDAO.getStoreId()));
+                list.add(storeEmployeesDAO.getStoreId());
             }
             return list;
 

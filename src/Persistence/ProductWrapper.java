@@ -40,7 +40,7 @@ public class ProductWrapper {
 
             //Categories
             ProductCategoryWrapper productCategoryWrapper= new ProductCategoryWrapper();
-            productCategoryWrapper.add(product.getReviews(),product.getId());
+            productCategoryWrapper.add(product.getCategories(),product.getId());
 
             return true;
         }
@@ -58,6 +58,8 @@ public class ProductWrapper {
             Product product = new Product(productDAO.getId(), productDAO.getName(), productDAO.getPrice(),
                     productDAO.getDescription(), productDAO.getStoreId(), productDAO.getRatesCount(), productDAO.getRate());
             connectionSource.close();
+            ProductCategoryWrapper productCategoryWrapper= new ProductCategoryWrapper();
+            product.setCategories(productCategoryWrapper.getCategories(product.getId()));
             return product;
         } catch (Exception e) {
             return null;
@@ -90,5 +92,6 @@ public class ProductWrapper {
         return new JdbcConnectionSource(url,userName,password);
 
     }
+
 
 }

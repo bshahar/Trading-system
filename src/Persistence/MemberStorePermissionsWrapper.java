@@ -18,13 +18,56 @@ import java.util.concurrent.ConcurrentHashMap;
 public class MemberStorePermissionsWrapper {
 
 
+    public void add(Permission p,int userId,int storeId) {
+        try{
+            ConnectionSource connectionSource = connect();
+            Dao<MemberStorePermissionsDAO, String> memberManager = DaoManager.createDao(connectionSource, MemberStorePermissionsDAO.class);
+            MemberStorePermissionsDAO memberStorePermissionsDAO = new MemberStorePermissionsDAO(userId,storeId);
+
+            memberStorePermissionsDAO.setAddPermissions(            p.getAddPermissions()!=null);
+            memberStorePermissionsDAO.setAddProduct(                p.getAddProduct()!=null);
+            memberStorePermissionsDAO.setAppointManager(            p.getAppointManager()!=null);
+            memberStorePermissionsDAO.setAppointOwner(              p.getAppointOwner()!=null);
+            memberStorePermissionsDAO.setCloseStore(                p.getCloseStore()!=null);
+            memberStorePermissionsDAO.setDefineDiscountFormat(      p.getDefineDiscountFormat()!=null);
+            memberStorePermissionsDAO.setDefineDiscountPolicy(      p.getDefineDiscountPolicy()!=null);
+            memberStorePermissionsDAO.setDefinePurchaseFormat(      p.getDefinePurchaseFormat()!=null);
+            memberStorePermissionsDAO.setDefinePurchasePolicy(      p.getDefinePurchasePolicy()!=null);
+            memberStorePermissionsDAO.setEditDiscountFormat(        p.getEditDiscountFormat()!=null);
+            memberStorePermissionsDAO.setEditDiscountPolicy(        p.getEditDiscountPolicy()!=null);
+            memberStorePermissionsDAO.setEditProduct(               p.getEditProduct()!=null);
+            memberStorePermissionsDAO.setEditPurchaseFormat(        p.getEditPurchaseFormat()!=null);
+            memberStorePermissionsDAO.setEditPurchasePolicy(        p.getEditPurchasePolicy()!=null);
+            memberStorePermissionsDAO.setGetWorkersInfo(            p.getGetWorkersInfo()!=null);
+            memberStorePermissionsDAO.setOpenStore(                 p.getOpenStore()!=null);
+            memberStorePermissionsDAO.setRemoveManagerAppointment(  p.getRemoveManagerAppointment()!=null);
+            memberStorePermissionsDAO.setRemoveOwnerAppointment(    p.getRemoveOwnerAppointment()!=null);
+            memberStorePermissionsDAO.setRemovePermission(          p.getRemovePermission()!=null);
+            memberStorePermissionsDAO.setRemoveProduct(             p.getRemoveProduct()!=null);
+            memberStorePermissionsDAO.setReopenStore(               p.getReopenStore()!=null);
+            memberStorePermissionsDAO.setReplayMessages(            p.getReplayMessages()!=null);
+            memberStorePermissionsDAO.setViewDiscountPolicies(      p.getViewDiscountPolicies()!=null);
+            memberStorePermissionsDAO.setViewMessages(              p.getViewMessages()!=null);
+            memberStorePermissionsDAO.setViewPurchaseHistory(       p.getViewPurchaseHistory()!=null);
+            memberStorePermissionsDAO.setResponedToOffer(           p.getResponedToOffer()!=null);
+            memberManager.create(memberStorePermissionsDAO);
+            connectionSource.close();
+
+
+
+        }catch (Exception e){
+
+        }
+    }
+
+
     public Member getMemberByUserId(int userId) {
         try {
             StoreWrapper storeWrapper = new StoreWrapper();
             Member member = new Member();
             ConnectionSource connectionSource = connect();
 
-            List<Store> stores = storeWrapper.getStoresByUserId(userId);
+            List<Integer> stores = storeWrapper.getStoresByUserId(userId);
 
 
             Dao<MemberStorePermissionsDAO, String> MemberManager = DaoManager.createDao(connectionSource, MemberStorePermissionsDAO.class);
@@ -40,13 +83,13 @@ public class MemberStorePermissionsWrapper {
                     storeId_Permissions.put(perDAO.getStoreId(), perDAO);
                 }
 
-            Map<Store, Permission> result = new ConcurrentHashMap<>();
+            Map<Integer, Permission> result = new ConcurrentHashMap<>();
 
             for ( Map.Entry<Integer, MemberStorePermissionsDAO>  entry : storeId_Permissions.entrySet())
             {
                 Store store = storeWrapper.getById(entry.getKey());
                 Permission p = makePermissionFromList(member,store,entry.getValue());
-                result.put(store,p);
+                result.put(store.getStoreId(),p);
 
             }
 
@@ -93,7 +136,7 @@ public class MemberStorePermissionsWrapper {
             if(permissionsDAO.isEditProduct())
                 p.allowEditProduct();
             if(permissionsDAO.isEditPurchaseFormat())
-                p.editPurchaseFormat();
+                p.allowEditPurchaseFormat();
             if(permissionsDAO.isEditPurchasePolicy())
                 p.allowEditPurchasePolicy();
             if(permissionsDAO.isGetWorkersInfo())
@@ -122,6 +165,8 @@ public class MemberStorePermissionsWrapper {
                 p.allowViewPurchaseHistory();
             if(permissionsDAO.isViewPurchasePolicies())
                 p.allowViewPurchaseHistory();
+            if(permissionsDAO.isResponedToOffer())
+                p.allowResponedToOffer();
 
             return p;
     }
@@ -190,5 +235,6 @@ public class MemberStorePermissionsWrapper {
         return new JdbcConnectionSource(url,userName,password);
 
     }
+
 
 }

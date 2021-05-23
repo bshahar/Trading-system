@@ -23,12 +23,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add user and permission dao">
+      <change afterPath="$PROJECT_DIR$/eventLog.txt.1.lck" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errorLog.txt.lck" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/BagWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/BagWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt.1" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permission.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/AppointmentsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/AppointmentsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/BagProductAmountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/BagProductAmountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/InventoryDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/InventoryDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/MemberStorePermissionsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/MemberStorePermissionsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/ProductCategoriesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/ProductCategoriesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/ProductReviewsDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/ProductReviewsDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/ReceiptLinesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/ReceiptLinesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/StoreDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/StoreEmployeesDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreEmployeesDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/StoreManagerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreManagerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/StoreOwnerDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreOwnerDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/StoreReceiptDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreReceiptDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/InventoryWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/InventoryWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/spring/StoreWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/ProductCategoryWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/ProductCategoryWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/ProductWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/ProductWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/StoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -97,7 +126,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="main" />
+        <entry key="$PROJECT_DIR$" value="userDAO" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -123,6 +152,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -167,7 +197,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NotficationsTest.addObservableType">
+  <component name="RunManager" selected="JUnit.LoginTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -196,7 +226,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest.loginSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -205,45 +235,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="METHOD_NAME" value="loginSuccessTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.logoutSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="METHOD_NAME" value="logoutSuccessTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NotficationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NotficationsTest.addObservableType" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest.addProductToStoreSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -252,8 +250,40 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
-      <option name="METHOD_NAME" value="addObservableType" />
+      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
+      <option name="METHOD_NAME" value="addProductToStoreSuccessTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StoreTest.getProductByNameSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
+      <option name="METHOD_NAME" value="getProductByNameSuccessTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="StoreTest.getProductByNameWrongPriceFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
+      <option name="METHOD_NAME" value="getProductByNameWrongPriceFailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -261,11 +291,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NotficationsTest.addObservableType" />
-        <item itemvalue="JUnit.NotficationsTest" />
         <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="JUnit.LoginTest.logoutSuccessTest" />
-        <item itemvalue="JUnit.LoginTest.loginSuccessTest" />
+        <item itemvalue="JUnit.StoreTest.getProductByNameWrongPriceFailTest" />
+        <item itemvalue="JUnit.StoreTest" />
+        <item itemvalue="JUnit.StoreTest.addProductToStoreSuccessTest" />
+        <item itemvalue="JUnit.StoreTest.getProductByNameSuccessTest" />
       </list>
     </recent_temporary>
   </component>
@@ -657,6 +687,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="." />
     <MESSAGE value="workspace" />
     <MESSAGE value="adding store test #26" />
@@ -689,7 +720,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
-          <line>298</line>
+          <line>303</line>
           <option name="timeStamp" value="6" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -748,9 +779,34 @@
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="96" />
+          <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
+          <line>48</line>
+          <option name="timeStamp" value="102" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
+          <line>250</line>
+          <option name="timeStamp" value="109" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
+          <line>113</line>
+          <option name="timeStamp" value="110" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
+          <line>152</line>
+          <option name="timeStamp" value="112" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Domain/Inventory.java</url>
+          <line>66</line>
+          <option name="timeStamp" value="113" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
+          <line>36</line>
+          <option name="timeStamp" value="114" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
@@ -764,12 +820,12 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Tests.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Server.LoginPage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
     </SUITE>
   </component>
 </project>

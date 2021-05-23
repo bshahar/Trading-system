@@ -13,9 +13,9 @@ public class StoreReceiptDAO {
         this.receiptId = receiptId;
     }
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int storeId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int receiptId;
 
 

@@ -3,6 +3,7 @@ import Persistence.ReceiptWrapper;
 import Persistence.UserMessagesWrapper;
 import Persistence.BagWrapper;
 import Persistence.UserWrapper;
+import Persistence.MemberStorePermissionsWrapper;
 
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
@@ -37,6 +38,8 @@ public class User implements Observer {
     private UserMessagesWrapper messagesWrapper;
     private ReceiptWrapper receiptWrapper;
     private UserWrapper userWrapper;
+    private MemberStorePermissionsWrapper memberStorePermissionsWrapper;
+
 
 
     private Queue<String> loginMessages;
@@ -64,6 +67,7 @@ public class User implements Observer {
         this.messagesWrapper = new UserMessagesWrapper();
         this.receiptWrapper = new ReceiptWrapper();
         this.userWrapper = new UserWrapper();
+        this.memberStorePermissionsWrapper= new MemberStorePermissionsWrapper();
     }
 
 
@@ -250,8 +254,9 @@ public class User implements Observer {
         this.userName=userName;
     }
 
-    public void openStore(Store store) {
+    public void openStore(Store store,int userId) {
         this.member.openStore(this,store);
+        this.memberStorePermissionsWrapper.add(this.member.getPermissions().get(store.getStoreId()), userId,store.getStoreId());
     }
 
     public void addStoreToSystemManager(Store store) {
@@ -322,7 +327,7 @@ public class User implements Observer {
         return receiptWrapper.get();
     }
     @Transient
-    public List<Store> getMyStores() {
+    public List<Integer> getMyStores() {
         return this.member.getMyStores();
     }
     public void addToMyStores(Store store)

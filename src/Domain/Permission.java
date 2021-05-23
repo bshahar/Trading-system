@@ -40,7 +40,7 @@ public class Permission {
     private RemovePermission                removePermission;
     private ViewDiscountPolicies            viewDiscountPolicies;
     private ViewPurchasePolicies            viewPurchasePolicies;
-    private ResponedToOffer responedToOffer;
+    private ResponedToOffer                 responedToOffer;
     public Permission(Member member, Store store) {
         this.member = member;
         this.store = store;
@@ -590,4 +590,8 @@ public class Permission {
     }
 
 
+    public ViewDiscountPolicies getViewDiscountPolicies() {
+
+        return viewDiscountPolicies;
+    }
 }

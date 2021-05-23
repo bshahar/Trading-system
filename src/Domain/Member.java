@@ -8,8 +8,8 @@ import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Member {
-    Map<Store, Permission> permissions;
-    List<Store> myStores;
+    Map<Integer, Permission> permissions; //integer=storeId
+    List<Integer> myStores;
 
     public Member ()
     {
@@ -18,22 +18,22 @@ public class Member {
     }
 
 
-    public Map<Store, Permission> getPermissions() {
+    public Map<Integer, Permission> getPermissions() {
         return permissions;
     }
 
-    public void setPermissions(Map<Store, Permission> permissions) {
+    public void setPermissions(Map<Integer, Permission> permissions) {
         this.permissions = permissions;
     }
 
-    public void setMyStores(List<Store> myStores) {
+    public void setMyStores(List<Integer> myStores) {
         this.myStores = myStores;
     }
 
     public void openStore(User user, Store store)
     {
         store.addOwner(user);
-        myStores.add(store);
+        myStores.add(store.getStoreId());
         Permission p = new Permission(this, store);
         p.allowOpenStore();
         p.openStore();
@@ -63,19 +63,19 @@ public class Member {
         p.allowViewDiscountPolicies();
         p.allowViewPurchasePolicies();
         p.allowResponedToOffer();
-        permissions.put(store,p);
+        permissions.put(store.getStoreId(),p);
     }
 
 
     public Result addStoreOwner(User owner, User user, Store store) {
-        if(permissions.get(store)!=null)
-            return permissions.get(store).appointOwner(owner,user);
+        if(permissions.get(store.getStoreId())!=null)
+            return permissions.get(store.getStoreId()).appointOwner(owner,user);
         return new Result(false, "User has not permissions");
 
     }
 
     public void updateOwnerPermission(Store store) {
-        if(!permissions.containsKey(store))
+        if(!permissions.containsKey(store.getStoreId()))
         {
             Permission p = new Permission(this, store);
             p.allowAppointOwner();
@@ -104,70 +104,70 @@ public class Member {
             p.allowViewDiscountPolicies();
             p.allowViewPurchasePolicies();
             p.allowResponedToOffer();
-            permissions.put(store,p);
+            permissions.put(store.getStoreId(),p);
         }
         else {
-            permissions.get(store).allowAppointOwner();
-            permissions.get(store).allowAddProduct();
-            permissions.get(store).allowRemoveProduct();
-            permissions.get(store).allowEditProduct();
-            permissions.get(store).allowAppointManager();
-            permissions.get(store).allowRemoveManagerAppointment();
-            permissions.get(store).allowAppointOwner();
-            permissions.get(store).allowRemoveOwnerAppointment();
-            permissions.get(store).allowDefinePurchasePolicy();
-            permissions.get(store).allowEditPurchasePolicy();
-            permissions.get(store).allowDefinePurchaseFormat();
-            permissions.get(store).allowEditPurchaseFormat();
-            permissions.get(store).allowDefineDiscountPolicy();
-            permissions.get(store).allowEditDiscountPolicy();
-            permissions.get(store).allowDefineDiscountFormat();
-            permissions.get(store).allowEditDiscountFormat();
-            permissions.get(store).allowReopenStore();
-            permissions.get(store).allowGetWorkersInfo();
-            permissions.get(store).allowViewMessages();
-            permissions.get(store).allowReplayMessages();
-            permissions.get(store).allowViewPurchaseHistory();
-            permissions.get(store).allowAddPermissions();
-            permissions.get(store).allowRemovePermission();
-            permissions.get(store).allowViewDiscountPolicies();
-            permissions.get(store).allowViewPurchasePolicies();
-            permissions.get(store).allowResponedToOffer();
+            permissions.get(store.getStoreId()).allowAppointOwner();
+            permissions.get(store.getStoreId()).allowAddProduct();
+            permissions.get(store.getStoreId()).allowRemoveProduct();
+            permissions.get(store.getStoreId()).allowEditProduct();
+            permissions.get(store.getStoreId()).allowAppointManager();
+            permissions.get(store.getStoreId()).allowRemoveManagerAppointment();
+            permissions.get(store.getStoreId()).allowAppointOwner();
+            permissions.get(store.getStoreId()).allowRemoveOwnerAppointment();
+            permissions.get(store.getStoreId()).allowDefinePurchasePolicy();
+            permissions.get(store.getStoreId()).allowEditPurchasePolicy();
+            permissions.get(store.getStoreId()).allowDefinePurchaseFormat();
+            permissions.get(store.getStoreId()).allowEditPurchaseFormat();
+            permissions.get(store.getStoreId()).allowDefineDiscountPolicy();
+            permissions.get(store.getStoreId()).allowEditDiscountPolicy();
+            permissions.get(store.getStoreId()).allowDefineDiscountFormat();
+            permissions.get(store.getStoreId()).allowEditDiscountFormat();
+            permissions.get(store.getStoreId()).allowReopenStore();
+            permissions.get(store.getStoreId()).allowGetWorkersInfo();
+            permissions.get(store.getStoreId()).allowViewMessages();
+            permissions.get(store.getStoreId()).allowReplayMessages();
+            permissions.get(store.getStoreId()).allowViewPurchaseHistory();
+            permissions.get(store.getStoreId()).allowAddPermissions();
+            permissions.get(store.getStoreId()).allowRemovePermission();
+            permissions.get(store.getStoreId()).allowViewDiscountPolicies();
+            permissions.get(store.getStoreId()).allowViewPurchasePolicies();
+            permissions.get(store.getStoreId()).allowResponedToOffer();
         }
 
 
     }
 
     public Result addStoreManager(User owner,User user, Store store) {
-        return permissions.get(store).appointManager(owner,user);
+        return permissions.get(store.getStoreId()).appointManager(owner,user);
     }
 
     public void updateManagerPermission(Store store) {
-        if(!permissions.containsKey(store))
+        if(!permissions.containsKey(store.getStoreId()))
         {
             Permission p = new Permission(this, store);
             p.allowGetWorkersInfo();
             p.allowViewMessages();
             p.allowReplayMessages();
-            permissions.put(store,p);
+            permissions.put(store.getStoreId(),p);
         }
         else {
-            permissions.get(store).allowGetWorkersInfo();
-            permissions.get(store).allowViewMessages();
-            permissions.get(store).allowReplayMessages();
+            permissions.get(store.getStoreId()).allowGetWorkersInfo();
+            permissions.get(store.getStoreId()).allowViewMessages();
+            permissions.get(store.getStoreId()).allowReplayMessages();
         }
 
     }
 
     public Result addPermissions(User user, Store store, List<Integer> opIndexes) {
-        if(permissions.get(store)!=null && store.isManager(user) && permissions.get(store).addPermissions()) {
+        if(permissions.get(store.getStoreId())!=null && store.isManager(user) && permissions.get(store.getStoreId()).addPermissions()) {
             user.updateMyPermissions(store, opIndexes);
             return new Result(true,"permissions added successfully");
         }
         return new Result(false,"permissions didn't added ");
     }
     public Result removePermissions(User user, Store store, List<Integer> opIndexes) {
-        if(permissions.get(store)!=null && store.isManager(user) &&permissions.get(store).removePermission()) {
+        if(permissions.get(store.getStoreId())!=null && store.isManager(user) &&permissions.get(store.getStoreId()).removePermission()) {
             user.disableMyPermissions(store, opIndexes);
             return new Result(true,"permissions remove successfully");
         }
@@ -175,7 +175,7 @@ public class Member {
     }
 
     public void disableMyPermissions(Store store, List<Integer> opIndexes) {
-        Permission p = permissions.get(store);
+        Permission p = permissions.get(store.getStoreId());
         if(p!= null) {
             for (int permission : opIndexes) {
                 switch (permission) {
@@ -278,7 +278,7 @@ public class Member {
     }
 
     public void updateMyPermissions(Store store, List<Integer> opIndexes) {
-        Permission p = permissions.get(store);
+        Permission p = permissions.get(store.getStoreId());
         if(p!= null) {
             for (int permission : opIndexes) {
                 switch (permission) {
@@ -377,18 +377,18 @@ public class Member {
     }
 
     public Result getWorkersInformation(Store store) {
-        if(!permissions.containsKey(store)) return new Result(false,"User has no permissions");
-        return permissions.get(store).getWorkersInfo();
+        if(!permissions.containsKey(store.getStoreId())) return new Result(false,"User has no permissions");
+        return permissions.get(store.getStoreId()).getWorkersInfo();
     }
 
     public Result getStorePurchaseHistory(Store store) {
-        if(!permissions.containsKey(store)) return new Result(false,"User has not permissions");
-        return permissions.get(store).viewPurchaseHistory();
+        if(!permissions.containsKey(store.getStoreId())) return new Result(false,"User has not permissions");
+        return permissions.get(store.getStoreId()).viewPurchaseHistory();
     }
 
     public boolean addProductToStore(int productId,Store store, String name, List<String> categories, double price, String description, int quantity) {
-        if(permissions.containsKey(store)){
-            Permission permission= permissions.get(store);
+        if(permissions.containsKey(store.getStoreId())){
+            Permission permission= permissions.get(store.getStoreId());
             return permission.addProduct(productId,name, categories, price, description, quantity);
 
         }else{
@@ -397,8 +397,8 @@ public class Member {
     }
 
     public Result removeProductFromStore(Store store, int productId) {
-        if(permissions.containsKey(store)){
-            Permission permission= permissions.get(store);
+        if(permissions.containsKey(store.getStoreId())){
+            Permission permission= permissions.get(store.getStoreId());
             return permission.removeProduct(productId);
         }else{
             return new Result(false,"User have no permissions");
@@ -406,8 +406,8 @@ public class Member {
     }
 
     public Result addDiscountPolicy(Store store, String condition, String param, String category, int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        if(permissions.containsKey(store)) {
-            Permission permission = permissions.get(store);
+        if(permissions.containsKey(store.getStoreId())) {
+            Permission permission = permissions.get(store.getStoreId());
             return permission.defineDiscountPolicy(param, condition, category, prodId, begin, end, conditions, percentage, op);
         }
         else
@@ -416,8 +416,8 @@ public class Member {
 
 
     public Result removeDiscountPolicy(Store store, int prodId, String category) {
-        if(permissions.containsKey(store)) {
-            Permission permission = permissions.get(store);
+        if(permissions.containsKey(store.getStoreId())) {
+            Permission permission = permissions.get(store.getStoreId());
             return permission.defineEditDiscountPolicy(prodId, category);
         }
         else
@@ -425,8 +425,8 @@ public class Member {
     }
 
     public Result responedToOffer(Store store, int prodId, int offerId, String responed, double counterOffer, String option) {
-        if(permissions.containsKey(store)) {
-            Permission permission = permissions.get(store);
+        if(permissions.containsKey(store.getStoreId())) {
+            Permission permission = permissions.get(store.getStoreId());
             return permission.responedToOffer(prodId,offerId, responed, counterOffer, option);
         }
         else
@@ -435,26 +435,26 @@ public class Member {
 
 
     public Result removeMangerFromStore(User owner,User manager, Store store) {
-        if(permissions.containsKey(store)){
-            Permission permission= permissions.get(store);
+        if(permissions.containsKey(store.getStoreId())){
+            Permission permission= permissions.get(store.getStoreId());
             return (permission.removeManagerAppointment(owner, manager));
         }else{
             return new Result(false,"User has no permissions");
         }
     }
 
-    public List<Store> getMyStores() {
+    public List<Integer> getMyStores() {
         return this.myStores;
     }
 
     public void addToMyStores(Store store)
     {
-        myStores.add(store);
+        myStores.add(store.getStoreId());
     }
 
     public void removeFromMyStores(Store store)
     {
-        myStores.remove(store);
+        myStores.remove(store.getStoreId());
     }
 
     public List<Permission> getPermissionsOfStore(int storeId) {
@@ -462,7 +462,7 @@ public class Member {
     }
 
     public boolean checkPermissions(Store store ,int permissionId) {
-        Permission p = permissions.get(store);
+        Permission p = permissions.get(store.getStoreId());
         if(p!= null) {
                 switch (permissionId) {
                     case 1: {
@@ -540,8 +540,8 @@ public class Member {
         }
 
     public Result removePurchasePolicy(Store store, int prodId, String category) {
-        if(permissions.containsKey(store)) {
-            Permission permission = permissions.get(store);
+        if(permissions.containsKey(store.getStoreId())) {
+            Permission permission = permissions.get(store.getStoreId());
             return permission.editPurchasePolicy(prodId, category);
         }
         else
@@ -549,8 +549,8 @@ public class Member {
     }
 
     public Result getDiscountPolicies(Store store,int prodId, String category) {
-        if(permissions.containsKey(store)){
-            Permission permission = permissions.get(store);
+        if(permissions.containsKey(store.getStoreId())){
+            Permission permission = permissions.get(store.getStoreId());
             return permission.defineViewDiscountPolicies(prodId, category);
         }
         else
@@ -558,8 +558,8 @@ public class Member {
     }
 
     public Result getPurchasePolicy(Store store, int prodId, String category) {
-        if(permissions.containsKey(store)){
-            Permission permission = permissions.get(store);
+        if(permissions.containsKey(store.getStoreId())){
+            Permission permission = permissions.get(store.getStoreId());
             return permission.defineViewPurchasePolicies(prodId, category);
         }
         else
@@ -569,8 +569,8 @@ public class Member {
 
 
     public Result removeOwnerFromStore(User owner, User ownerToRemove, Store store) {
-        if(permissions.containsKey(store)){
-            Permission permission= permissions.get(store);
+        if(permissions.containsKey(store.getStoreId())){
+            Permission permission= permissions.get(store.getStoreId());
             return (permission.removeOwnerAppointment(owner, ownerToRemove));
         }else{
             return new Result(false,"User has no permissions");
@@ -578,14 +578,14 @@ public class Member {
     }
 
     public Result editProduct(Store store,Product product, int price,int amount) {
-        if(permissions.get(store)!=null)
-            return permissions.get(store).editProduct(product,price,amount);
+        if(permissions.get(store.getStoreId())!=null)
+            return permissions.get(store.getStoreId()).editProduct(product,price,amount);
         return new Result(false,"user has no permissions");
     }
 
     public Result addPurchasePolicy(Store store,String param, String category, int prodId, PurchaseCondition conditions) {
-        if(permissions.containsKey(store)) {
-            Permission permission = permissions.get(store);
+        if(permissions.containsKey(store.getStoreId())) {
+            Permission permission = permissions.get(store.getStoreId());
             return permission.definePurchasePolicy(param, category, prodId, conditions);
         }
         else
@@ -619,7 +619,7 @@ public class Member {
         p.allowViewPurchaseHistory();
         p.allowAddPermissions();
         p.allowRemovePermission();
-        permissions.put(store,p);
+        permissions.put(store.getStoreId(),p);
     }
 
     public void removeStoreToSystemManager(Store store){
@@ -653,8 +653,10 @@ public class Member {
             p.allowViewPurchaseHistory();
             p.allowAddPermissions();
             p.allowRemovePermission();
-            permissions.put(s,p);
+            permissions.put(s.getStoreId(),p);
         }
     }
+
+
 }
 

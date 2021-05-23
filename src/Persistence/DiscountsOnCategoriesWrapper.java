@@ -1,10 +1,8 @@
 package Persistence;
-
 import Domain.DiscountFormat.ConditionalDiscount;
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.*;
 import Domain.Policy;
-import Domain.Product;
 import Persistence.DAO.*;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
@@ -19,18 +17,18 @@ import java.sql.SQLException;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
-public class DiscountsOnProductsWrapper {
+public class DiscountsOnCategoriesWrapper {
 
-    private Map<Product, Discount> value;
+    private Map<String, Discount> value;
 
-    public DiscountsOnProductsWrapper() {
+    public DiscountsOnCategoriesWrapper() {
         this.value = new ConcurrentHashMap<>();
     }
 
-    public void add(Product product, Discount discount) {
+    public void add(String category, Discount discount) {
         try {
             ConnectionSource connectionSource = connect();
-            if(this.value.containsKey(product))
+            if(this.value.containsKey(category))
                 remove(discount.getId()); //Remove from DB
             //Discounts
             Dao<DiscountDAO, String> discountDAO = DaoManager.createDao(connectionSource, DiscountDAO.class);
@@ -47,7 +45,7 @@ public class DiscountsOnProductsWrapper {
                 List<Policy> policies = tmp.getConditions().getDiscounts();
                 for (Policy pol : policies) {
                     if(pol instanceof DiscountByMinimalAmount) {
-                     Dao<DiscountByMinimalAmountDAO, String> discountByMinimalAmountDAO = DaoManager.createDao(connectionSource, DiscountByMinimalAmountDAO.class);
+                        Dao<DiscountByMinimalAmountDAO, String> discountByMinimalAmountDAO = DaoManager.createDao(connectionSource, DiscountByMinimalAmountDAO.class);
                         DiscountByMinimalAmountDAO minAmountDaoObj = new DiscountByMinimalAmountDAO(tmp.getId(),
                                 Integer.parseInt(pol.getPolicyParams().get(1)),
                                 Integer.parseInt(pol.getPolicyParams().get(0)));
@@ -78,13 +76,11 @@ public class DiscountsOnProductsWrapper {
                 ConditionalDiscountDAO condDisDaoObj = new ConditionalDiscountDAO(tmp.getId(), discount.getId());
                 conditionalDiscountDAO.create(condDisDaoObj);
             }
-
-
             connectionSource.close();
         } catch (Exception e) {
             //TODO add rollback
         }
-        this.value.put(product, discount); //Overwrite old entry in map
+        this.value.put(category, discount); //Overwrite old entry in map
     }
 
     public void remove(int discountId) {

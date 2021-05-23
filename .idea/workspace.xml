@@ -22,12 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 discounts wrapper">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 fix primary keys db">
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreDiscountsOnCategoriesDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreDiscountsOnProductsDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StoreDiscountsOnStoresDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnCategoriesWrapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/ConditionalDiscountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/ConditionalDiscountDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByMinimalAmountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByMinimalAmountDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByMinimalCostDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByMinimalCostDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByPurchaseTimeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByPurchaseTimeDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -288,13 +289,7 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="1096000" />
-      <workItem from="1621682093021" duration="6763000" />
-    </task>
-    <task id="LOCAL‎00005" summary="merges #26">
-      <created>1617781721231</created>
-      <option name="number" value="LOCAL‎00005" />
-      <option name="presentableId" value="LOCAL‎00005" />
-      <updated>1617781721231</updated>
+      <workItem from="1621682093021" duration="11647000" />
     </task>
     <task id="LOCAL‎00006" summary="fixed store tests #26">
       <created>1617790205166</created>
@@ -607,7 +602,13 @@
       <option name="presentableId" value="LOCAL‎00053" />
       <updated>1621693429834</updated>
     </task>
-    <option name="localTasksCounter" value="54" />
+    <task id="LOCAL‎00054" summary="#61 fix primary keys db">
+      <created>1621787418141</created>
+      <option name="number" value="LOCAL‎00054" />
+      <option name="presentableId" value="LOCAL‎00054" />
+      <updated>1621787418141</updated>
+    </task>
+    <option name="localTasksCounter" value="55" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -630,7 +631,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="adding store test #26" />
     <MESSAGE value="fix all tests #26" />
     <MESSAGE value="merge API, permissions" />
     <MESSAGE value="change permissions" />
@@ -655,7 +655,8 @@
     <MESSAGE value="#61 db dorin" />
     <MESSAGE value="#61 discounts daos" />
     <MESSAGE value="#61 discounts wrapper" />
-    <option name="LAST_COMMIT_MESSAGE" value="#61 discounts wrapper" />
+    <MESSAGE value="#61 fix primary keys db" />
+    <option name="LAST_COMMIT_MESSAGE" value="#61 fix primary keys db" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

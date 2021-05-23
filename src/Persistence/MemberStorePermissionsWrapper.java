@@ -71,17 +71,15 @@ public class MemberStorePermissionsWrapper {
 
 
             Dao<MemberStorePermissionsDAO, String> MemberManager = DaoManager.createDao(connectionSource, MemberStorePermissionsDAO.class);
-            List<MemberStorePermissionsDAO> permissions = MemberManager.queryForAll();
+            Map<String,Object> map= new HashMap<>();
+            map.put("userId",userId);
+            List<MemberStorePermissionsDAO> permissions = MemberManager.queryForFieldValues(map);
             //get all the permissions of the user
-            List<MemberStorePermissionsDAO> permissionsByUser =Collections.synchronizedList(new LinkedList<>());
-            for(MemberStorePermissionsDAO permissionsDAO : permissions)
-                if(permissionsDAO.getUserId()==userId)
-                    permissionsByUser.add(permissionsDAO);
-
+//
             Map<Integer, MemberStorePermissionsDAO> storeId_Permissions = new ConcurrentHashMap<>();
             for (MemberStorePermissionsDAO perDAO : permissions) {
-                    storeId_Permissions.put(perDAO.getStoreId(), perDAO);
-                }
+                storeId_Permissions.put(perDAO.getStoreId(), perDAO);
+            }
 
             Map<Integer, Permission> result = new ConcurrentHashMap<>();
 

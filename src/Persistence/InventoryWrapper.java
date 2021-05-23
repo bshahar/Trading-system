@@ -130,11 +130,11 @@ public class InventoryWrapper {
             ConnectionSource connectionSource = connect();
             Dao<InventoryDAO, String> inventoryDAOManager = DaoManager.createDao(connectionSource,InventoryDAO.class);
             InventoryDAO inventoryDAO= new InventoryDAO(storeId, p.getId(),amount);
-            inventoryDAOManager.delete(inventoryDAO);
+            inventoryDAOManager.executeRaw("DELETE FROM Inventory WHERE storeId="+storeId+" AND productId="+p.getId());
             connectionSource.close();
 
         }catch(Exception e){
-
+            System.out.println(e.toString());
         }
     }
 

@@ -208,11 +208,11 @@ public class Store {
     }
     public Result getEmployees()
     {
-        return new Result(true,this.employees);
+        return new Result(true,this.employees.getAll(storeId));
     }
 
     public Result getPurchaseHistory() {
-        return new Result(true,this.receipts);
+        return new Result(true,this.receipts.getAll(storeId));
     }
 
     public void addOwnerToAppointments( User user) {

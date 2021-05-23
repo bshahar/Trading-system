@@ -18,28 +18,28 @@ import java.util.concurrent.ConcurrentHashMap;
 public class BagWrapper {
 
 
-    public boolean add(Bag bag, int userId){
-        try {
-            ConnectionSource connectionSource = connect();
-            // instantiate the dao
-            Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
-            // create an instance of Account
-            Map<Product,Integer> productsAmounts = bag.getProductsAmounts();
-            for ( Map.Entry<Product,Integer> entry : productsAmounts.entrySet())
-            {
-                BagProductAmountDAO bagDAO = new BagProductAmountDAO(userId,bag.getStoreId(),entry.getKey().getId(),entry.getValue());
-                // persist the account object to the database
-                BagManager.create(bagDAO);
-            }
-            // close the connection source
-            connectionSource.close();
-            return true;
-        }
-        catch (Exception e)
-        {
-            return false;
-        }
-    }
+//    public boolean add(Bag bag, int userId){
+//        try {
+//            ConnectionSource connectionSource = connect();
+//            // instantiate the dao
+//            Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
+//            // create an instance of Account
+//            Map<Product,Integer> productsAmounts = bag.getProductsAmounts();
+//            for ( Map.Entry<Product,Integer> entry : productsAmounts.entrySet())
+//            {
+//                BagProductAmountDAO bagDAO = new BagProductAmountDAO(userId,bag.getStoreId(),entry.getKey().getId(),entry.getValue());
+//                // persist the account object to the database
+//                BagManager.create(bagDAO);
+//            }
+//            // close the connection source
+//            connectionSource.close();
+//            return true;
+//        }
+//        catch (Exception e)
+//        {
+//            return false;
+//        }
+//    }
 
     public List<Bag> getAllUserBags(int userId)
     {
@@ -70,11 +70,6 @@ public class BagWrapper {
             for (Map.Entry<Integer, List<BagProductAmountDAO>> entry : storeId_Bag.entrySet())
             {
                 Bag bag = new Bag(storeWrapper.getById(entry.getKey()));
-                Map<Product, Integer> productsAmount = new HashMap<>();
-                for (BagProductAmountDAO bagOfUserLine : entry.getValue()) {
-                    productsAmount.put(productWrapper.getById(bagOfUserLine.getProductId()),bagOfUserLine.getAmount());
-                }
-                bag.setProducts(productsAmount);
                 result.add(bag);
             }
             connectionSource.close();
@@ -116,13 +111,13 @@ public class BagWrapper {
         }
     }
 
-    public void deleteBag(Bag b,int userId) {
+    public void deleteBag(int userId,int storeId) {
         try {
             ConnectionSource connectionSource = connect();
             Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
             // instantiate the dao
-            for (Map.Entry<Product, Integer> entry : b.getProductsAmounts().entrySet()) {
-                BagManager.executeRaw("DELETE FROM BagProductAmount WHERE user userId = " + String.valueOf(userId)+" AND storeId= "+String.valueOf(b.getStoreId())+
+            for (Map.Entry<Product, Integer> entry : getProductsAmount(userId,storeId).entrySet()) {
+                BagManager.executeRaw("DELETE FROM BagProductAmount WHERE user userId = " + String.valueOf(userId)+" AND storeId= "+String.valueOf(storeId)+
                         "AND productId= "+entry.getKey().getId());
                 connectionSource.close();
             }
@@ -159,4 +154,88 @@ public class BagWrapper {
     }
 
 
+    public void add(Product product, int amount, int storeId, int userId) {
+        try {
+            ConnectionSource connectionSource = connect();
+            Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
+            BagProductAmountDAO bagProductAmountDAO= new BagProductAmountDAO(userId,storeId, product.getId(),amount);
+            BagManager.create(bagProductAmountDAO);
+            connectionSource.close();
+
+        }
+        catch (Exception e)
+        {
+
+        }
+
+    }
+
+    public Map<Product, Integer> getProductsAmount(int userId, int storeId) {
+        try {
+            ConnectionSource connectionSource = connect();
+            Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
+            Map<String,Object> map= new HashMap<>();
+            map.put("userId",userId);
+            map.put("storeId",storeId);
+            List<BagProductAmountDAO> bagProductAmountDAOS=BagManager.queryForFieldValues(map);
+            connectionSource.close();
+            Map<Product,Integer>out= new HashMap<>();
+            ProductWrapper productWrapper= new ProductWrapper();
+            for(BagProductAmountDAO bagProductAmountDAO: bagProductAmountDAOS){
+                out.put(productWrapper.getById(bagProductAmountDAO.getProductId()), bagProductAmountDAO.getAmount());
+            }
+            return out;
+
+        }
+        catch (Exception e)
+        {
+            return new HashMap<>();
+        }
+    }
+
+    public void addProducts(Map<Product, Integer> prods, int userId, int storeId) {
+        try {
+            ConnectionSource connectionSource = connect();
+            Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
+            for(Product product : prods.keySet()){
+                BagProductAmountDAO bagProductAmountDAO = new BagProductAmountDAO(userId,storeId, product.getId(), prods.get(product));
+                BagManager.create(bagProductAmountDAO);
+
+            }
+            connectionSource.close();
+
+        }
+        catch (Exception e)
+        {
+        }
+
+    }
+
+    public void remove(Product prodId, int userId, int storeId) {
+        try {
+            ConnectionSource connectionSource = connect();
+            Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
+            BagManager.executeRaw("DELETE FROM BagProductAmount WHERE userId=" + (userId) + " AND storeId=" + (storeId) +
+                    "AND productId=" + prodId.getId());
+            connectionSource.close();
+
+        } catch (Exception e) {
+        }
+    }
+
+    public int size(int userId, int storeId) {
+        try {
+            ConnectionSource connectionSource = connect();
+            Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
+            Map<String,Object> map= new HashMap<>();
+            map.put("userId",userId);
+            map.put("storeId",storeId);
+            List<BagProductAmountDAO> list=BagManager.queryForFieldValues(map);
+            connectionSource.close();
+            return list.size();
+
+        } catch (Exception e) {
+            return -1;
+        }
+    }
 }

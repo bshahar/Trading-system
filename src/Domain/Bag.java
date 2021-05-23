@@ -1,6 +1,7 @@
 package Domain;
 
 import Domain.PurchaseFormat.PurchaseOffer;
+import Persistence.BagWrapper;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -10,14 +11,14 @@ import java.util.Map;
 
 public class Bag {
     private Store store;
-    Map<Product,Integer> productsAmounts;
+    BagWrapper productsAmounts;
     Map<Product,Double> productsApproved; // the product that approved and his price
     Map<Product, PurchaseOffer> counterOffers;
 
     public Bag(Store store)
     {
         this.store = store;
-        this.productsAmounts = new HashMap<>();
+        this.productsAmounts = new BagWrapper();
         this.productsApproved = new HashMap<>();
         this.counterOffers = new HashMap<>();
 
@@ -27,17 +28,17 @@ public class Bag {
         return this.store.getStoreId();
     }
 
-    public void addProduct(Product product,int amount) {
-        this.productsAmounts.put(product,amount);
+    public void addProduct(Product product,int amount,int userId) {
+        this.productsAmounts.add(product,amount,store.getStoreId(),userId);
     }
 
-    public Map<Product,Integer> getProductsAmounts() {
-        return productsAmounts;
+    public Map<Product,Integer> getProductsAmounts(int userId) {
+        return productsAmounts.getProductsAmount(userId,store.getStoreId());
     }
 
-    public List<Product> getProducts() {
+    public List<Product> getProducts(int userId) {
         List<Product> output = new LinkedList<>();
-        for (Product prod: this.productsAmounts.keySet()) {
+        for (Product prod: this.productsAmounts.getProductsAmount(userId,store.getStoreId()).keySet()) {
             output.add(prod);
         }
         return output;
@@ -51,21 +52,21 @@ public class Bag {
         return productsApproved;
     }
 
-    public void setProducts(Map<Product,Integer> prods) {
-        this.productsAmounts = prods;
+    public void setProducts(Map<Product,Integer> prods,int userId,int storeId) {
+        this.productsAmounts.addProducts(prods,userId,storeId);
     }
 
-    public void removeProduct(Product prodId) {
-        this.productsAmounts.remove(prodId);
+    public void removeProduct(Product prodId,int userId,int storeId) {
+        this.productsAmounts.remove(prodId,userId,storeId);
     }
 
-    public int getProdNum() {
-        return productsAmounts.size();
+    public int getProdNum(int userId,int storeId) {
+        return productsAmounts.size(userId,storeId);
     }
 
-    public double getBagTotalCost () {
+    public double getBagTotalCost (int userId,int storeId) {
         double total = 0;
-        for (Product p: this.productsAmounts.keySet()) {
+        for (Product p: this.productsAmounts.getProductsAmount(userId,storeId).keySet()) {
             if(!this.productsApproved.containsKey(p))
                 total += p.getPrice();
             else
@@ -74,10 +75,10 @@ public class Bag {
         return total;
     }
 
-    public void approveCounterOffer(Product prod) {
+    public void approveCounterOffer(Product prod,int storeId,int userId) {
         double priceOfOffer = this.counterOffers.get(prod).getPriceOfOffer();
         int amountOfProd = this.counterOffers.get(prod).getNumOfProd();
-        this.productsAmounts.put(prod,amountOfProd);
+        this.productsAmounts.add(prod,amountOfProd,storeId,userId);
         this.counterOffers.remove(prod);
         this.productsApproved.put(prod,priceOfOffer);
 

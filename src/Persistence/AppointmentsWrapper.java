@@ -67,9 +67,20 @@ public class AppointmentsWrapper {
         try {
             ConnectionSource connectionSource = connect();
             Dao<AppointmentsDAO, String> appointmentsDAOManager = DaoManager.createDao(connectionSource, AppointmentsDAO.class);
-            int out=appointmentsDAOManager.delete(new AppointmentsDAO(storeId, ownerId, managerId));
-            connectionSource.close();
-            return out==1;
+            Map<String,Object> map= new HashMap<>();
+            map.put("storeId",storeId);
+            map.put("managerId",ownerId);
+            map.put("appointedId",managerId);
+            List<AppointmentsDAO> appointmentsDAO= appointmentsDAOManager.queryForFieldValues(map);
+            if(appointmentsDAO.size()==1){
+                appointmentsDAOManager.executeRaw("DELETE FROM Appointments WHERE storeId="+storeId+"" +
+                        " AND managerId="+ownerId+" AND appointedId="+managerId);
+                connectionSource.close();
+                return true;
+            }else{
+                connectionSource.close();
+                return false;
+            }
         } catch (Exception e) {
             return false;
         }

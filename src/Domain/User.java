@@ -245,8 +245,7 @@ public class User implements Observer {
 
     public void createNewBag(Store store, int prodId, int amount) {
         Bag b = new Bag(store);
-        b.addProduct(store.getProductById(prodId),amount);
-        this.bagWrapper.add(b,id);
+        b.addProduct(store.getProductById(prodId),amount,id);
         this.bags.add(b);
     }
 
@@ -276,7 +275,8 @@ public class User implements Observer {
     }
 
     public Result addStoreManager(User user, Store store) {
-        return this.member.addStoreManager(this,user,store);
+        this.member.addStoreManager(this,user,store);
+        return this.memberStorePermissionsWrapper.add(user.member.getPermissions().get(store.getStoreId()), user.getId(),store.getStoreId());
     }
 
     public void updateManagerPermission(Store store) {
@@ -410,8 +410,8 @@ public class User implements Observer {
         for(Bag bag: bagWrapper.getAllUserBags(id)){
             if(bag.getStoreId()==storeId){
                 for(Product product : productsAmountBuy.keySet()){
-                    bag.removeProduct(product);
-                    if(bag.getProdNum()==0){
+                    bag.removeProduct(product,id,storeId);
+                    if(bag.getProdNum(id,storeId)==0){
                         removeBag(bag);
                     }
                 }
@@ -421,7 +421,7 @@ public class User implements Observer {
     }
 
     public void removeBag(Bag b) {
-        bagWrapper.deleteBag(b,id);
+        bagWrapper.deleteBag(id,b.getStoreId());
     }
 
     public Result editProduct(Store store, Product product,int price,int amount) {
@@ -531,5 +531,9 @@ public class User implements Observer {
 
     public Result responedToOffer(Store store, int prodId, int offerId, String responed, double counterOffer, String option) {
         return member.responedToOffer(store, prodId, offerId, responed, counterOffer, option);
+    }
+
+    public void updateRegistered(String userName) {
+        userWrapper.updateRegistered(userName,id);
     }
 }

@@ -454,7 +454,11 @@ public class Member {
 
     public void removeFromMyStores(Store store)
     {
-        myStores.remove(store.getStoreId());
+        for(Integer id: myStores){
+            if(id==store.getStoreId()){
+                myStores.remove(id);
+            }
+        }
     }
 
     public List<Permission> getPermissionsOfStore(int storeId) {

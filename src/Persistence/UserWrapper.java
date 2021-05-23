@@ -9,6 +9,7 @@ import Service.API;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
 
 import java.io.FileNotFoundException;
@@ -49,7 +50,7 @@ public class UserWrapper {
             Dao<UserDAO, String> userManager = DaoManager.createDao(connectionSource, UserDAO.class);
             // create an instance of Account
             userManager.executeRaw("UPDATE Users\n" +
-                    "SET logged"+"= "+String.valueOf(logged)+
+                    "SET logged= "+String.valueOf(logged)+
                     " WHERE Id = "+String.valueOf(userId)+";");
             connectionSource.close();
         }
@@ -188,5 +189,20 @@ public class UserWrapper {
     }
 
 
+    public void updateRegistered(String userName,int userId) {
+        try {
+            ConnectionSource connectionSource = connect();
+            // instantiate the dao
+            Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
+            accountDao.executeRaw("UPDATE Users SET userName='"+userName+"', logged=1, registered=1 WHERE id="+userId);
+            // close the connection source
+            connectionSource.close();
 
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.toString());
+        }
+
+    }
 }

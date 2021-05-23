@@ -18,7 +18,7 @@ import java.util.concurrent.ConcurrentHashMap;
 public class MemberStorePermissionsWrapper {
 
 
-    public void add(Permission p,int userId,int storeId) {
+    public Result add(Permission p,int userId,int storeId) {
         try{
             ConnectionSource connectionSource = connect();
             Dao<MemberStorePermissionsDAO, String> memberManager = DaoManager.createDao(connectionSource, MemberStorePermissionsDAO.class);
@@ -53,10 +53,11 @@ public class MemberStorePermissionsWrapper {
             memberManager.create(memberStorePermissionsDAO);
             connectionSource.close();
 
+            return new Result(true,"permissions updated successfully");
 
 
         }catch (Exception e){
-
+            return new Result(false,"permissions couldn't be updated");
         }
     }
 

@@ -77,9 +77,9 @@ public class StoreManagerWrapper {
         try{
             ConnectionSource connectionSource = connect();
             Dao<StoreManagerDAO, String> appointmentsDAOManager = DaoManager.createDao(connectionSource, StoreManagerDAO.class);
-            int out=appointmentsDAOManager.delete(new StoreManagerDAO(storeId,user.getId()));
+            appointmentsDAOManager.executeRaw("DELETE FROM StoreManagers WHERE storeId="+storeId+" AND userId="+user.getId());
             connectionSource.close();
-            return out==1;
+            return true;
         }catch (Exception e){
             return false;
         }

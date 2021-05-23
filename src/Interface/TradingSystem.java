@@ -42,12 +42,15 @@ public class TradingSystem {
 
     public TradingSystem (User systemManager, String externalSystemsUrl, boolean testing) {
         if(testing) {
-           // initializeSystemForTests();
+            paymentAdapter = new DemoPayment();
+            supplementAdapter = new DemoSupplement();
+        }else{
+            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
         }
         this.users =  new UserWrapper();
         this.receipts =  new ReceiptWrapper();
-        paymentAdapter = new PaymentAdapter(externalSystemsUrl);
-        supplementAdapter = new SupplementAdapter(externalSystemsUrl);
+
         this.stores = new StoreWrapper();
 
         this.userAuth = new UserAuth();
@@ -168,7 +171,7 @@ public class TradingSystem {
     public Result responedToCounterPurchaseOffer(int storeId, int userId, int prodId, boolean approve) {
         Bag bag = getUserById(userId).getBagByStoreId(storeId);
         if(approve){
-          bag.approveCounterOffer(getProductById(prodId));
+          bag.approveCounterOffer(getProductById(prodId),storeId,userId);
         }
         bag.rejectCounterOffer(getProductById(prodId));
         return new Result(true, "the counter offer has been responed");
@@ -464,9 +467,11 @@ public class TradingSystem {
     public Result guestRegister (int userId, String userName, String password){
         try {
             if(userAuth.guestRegister(userName,password)){
-                getUserById(userId).setRegistered(false);
-                getUserById(userId).setName(userName);
-                getUserById(userId).setLogged(false);
+                User user= getUserById(userId);
+                user.updateRegistered(userName);
+//                getUserById(userId).setRegistered(false);
+//                getUserById(userId).setName(userName);
+//                getUserById(userId).setLogged(false);
                 KingLogger.logEvent("GUEST_REGISTER: User " + userName + " registered to the system.");
                 return new Result(true,userId);
 
@@ -576,7 +581,7 @@ public class TradingSystem {
                 if (getUserById(userId).isLooged()){
                     if( getStoreById(storeId).getInventory().prodExists(prodId,storeId)){
                         if (b != null) {
-                            b.addProduct(getProductById(prodId), amount);
+                            b.addProduct(getProductById(prodId), amount,userId);
                             KingLogger.logEvent("ADD_PRODUCT_TO_BAG: Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
                             return new Result(true,true);
                         }
@@ -622,8 +627,8 @@ public class TradingSystem {
         try {
             Bag b = getUserById(userId).getBagByStoreId(storeId);
             if (b != null) {
-                b.removeProduct(getProductById(prodId));
-                if(b.getProdNum()==0){
+                b.removeProduct(getProductById(prodId),userId,storeId);
+                if(b.getProdNum(userId,storeId)==0){
                     getUserById(userId).removeBag(b);
                 }
                 KingLogger.logEvent("REMOVE_PRODUCT_FROM_BUG: Domain.Product number " + prodId + " was removed from bag of store " + storeId + " for user " + userId);
@@ -649,7 +654,7 @@ public class TradingSystem {
                 productsAmountBag.put(p, products.get(p));
             }
             Bag bag = new Bag(store);
-            bag.setProducts(products);
+            bag.setProducts(products,userId,storeId);
             Map<Product, Integer> productsAmountBuy = new HashMap<>();
             double totalCost = 0;
             for (Product product : productsAmountBag.keySet()) {
@@ -733,7 +738,7 @@ public class TradingSystem {
             User user = getUserById(userId);
             Bag bag = user.getBagByStoreId(storeId);
             KingLogger.logEvent("GET_BAG: User with id " + userId + " view his bag from store " + storeId);
-            return bag.getProductsAmounts();
+            return bag.getProductsAmounts(userId);
         }
         catch (Exception e) {
             KingLogger.logError("GET_BAG: User with id " + userId + " couldn't view his bag from store " + storeId);

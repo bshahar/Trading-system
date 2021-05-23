@@ -27,9 +27,24 @@
       <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt.1" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt.1.lck" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalAmount.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalAmount.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalCost.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/DiscountPolicies/DiscountByMinimalCost.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/PurchasePolicies/MaxAmountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/MaxAmountPolicy.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/PurchasePolicies/MinAmountPolicy.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/MinAmountPolicy.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/AppointmentsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/AppointmentsWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/BagWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/BagWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/InventoryWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/InventoryWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreEmployeesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreEmployeesWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreManagerWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreManagerWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/MyCartWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MyCartWebSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tests/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/StoreTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +185,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StoreTest.getPurchaseHistorySuccessTest">
+  <component name="RunManager" selected="JUnit.LoginTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -180,6 +195,21 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -199,7 +229,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest.getProductByCategoryWrongCategoryFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest.addStoreManagerNotPermitFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -209,13 +239,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
-      <option name="METHOD_NAME" value="getProductByCategoryWrongCategoryFailTest" />
+      <option name="METHOD_NAME" value="addStoreManagerNotPermitFailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest.getProductByNameAndCategorySuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest.addToCartGuestThenRegisteredSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -225,13 +255,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
-      <option name="METHOD_NAME" value="getProductByNameAndCategorySuccessTest" />
+      <option name="METHOD_NAME" value="addToCartGuestThenRegisteredSuccessTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest.getPurchaseHistorySuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest.removeStoreManagerNotTheAppointerFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -241,23 +271,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
-      <option name="METHOD_NAME" value="getPurchaseHistorySuccessTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StoreTest.getStoreWorkersInfoSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
-      <option name="METHOD_NAME" value="getStoreWorkersInfoSuccessTest" />
+      <option name="METHOD_NAME" value="removeStoreManagerNotTheAppointerFailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -265,11 +279,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StoreTest.getPurchaseHistorySuccessTest" />
-        <item itemvalue="JUnit.StoreTest.getStoreWorkersInfoSuccessTest" />
-        <item itemvalue="JUnit.StoreTest.getProductByCategoryWrongCategoryFailTest" />
-        <item itemvalue="JUnit.StoreTest.getProductByNameAndCategorySuccessTest" />
+        <item itemvalue="JUnit.LoginTest" />
         <item itemvalue="JUnit.StoreTest" />
+        <item itemvalue="JUnit.StoreTest.addToCartGuestThenRegisteredSuccessTest" />
+        <item itemvalue="JUnit.StoreTest.removeStoreManagerNotTheAppointerFailTest" />
+        <item itemvalue="JUnit.StoreTest.addStoreManagerNotPermitFailTest" />
       </list>
     </recent_temporary>
   </component>
@@ -314,12 +328,6 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="27039000" />
-    </task>
-    <task id="LOCAL‎00010" summary="fix all tests #26">
-      <created>1617894697741</created>
-      <option name="number" value="LOCAL‎00010" />
-      <option name="presentableId" value="LOCAL‎00010" />
-      <updated>1617894697741</updated>
     </task>
     <task id="LOCAL‎00011" summary="merge API, permissions">
       <created>1618585406886</created>
@@ -638,7 +646,13 @@
       <option name="presentableId" value="LOCAL‎00058" />
       <updated>1621781181014</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL‎00059" summary="store and inventory DB">
+      <created>1621789695754</created>
+      <option name="number" value="LOCAL‎00059" />
+      <option name="presentableId" value="LOCAL‎00059" />
+      <updated>1621789695754</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -693,11 +707,6 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
-          <line>310</line>
-          <option name="timeStamp" value="6" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/SearchProductsWebSocket.java</url>
           <line>75</line>
           <option name="timeStamp" value="16" />
@@ -724,7 +733,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>424</line>
+          <line>425</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -799,7 +808,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Persistence/InventoryWrapper.java</url>
-          <line>132</line>
+          <line>131</line>
           <option name="timeStamp" value="122" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -809,8 +818,43 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
-          <line>346</line>
+          <line>362</line>
           <option name="timeStamp" value="126" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
+          <line>663</line>
+          <option name="timeStamp" value="127" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
+          <line>675</line>
+          <option name="timeStamp" value="130" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
+          <line>311</line>
+          <option name="timeStamp" value="131" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
+          <line>297</line>
+          <option name="timeStamp" value="132" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
+          <line>319</line>
+          <option name="timeStamp" value="134" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
+          <line>194</line>
+          <option name="timeStamp" value="136" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Persistence/UserWrapper.java</url>
+          <line>196</line>
+          <option name="timeStamp" value="137" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />

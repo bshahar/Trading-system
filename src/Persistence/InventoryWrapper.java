@@ -115,8 +115,7 @@ public class InventoryWrapper {
         try{
             ConnectionSource connectionSource = connect();
             Dao<InventoryDAO, String> inventoryDAOManager = DaoManager.createDao(connectionSource,InventoryDAO.class);
-            InventoryDAO inventoryDAO= new InventoryDAO(storeId, prodId,amount);
-            inventoryDAOManager.update(inventoryDAO);
+            inventoryDAOManager.executeRaw("UPDATE Inventory SET amount="+amount+" WHERE storeId="+storeId+" AND productId="+prodId);
             connectionSource.close();
 
         }catch(Exception e){

@@ -154,6 +154,7 @@ public class Store {
 
     public Result removeManager(User owner, User manager) {
 //        if(appointments.get(owner).remove(manager)){
+
         if(appointments.removeAppointment(this.storeId,owner.getId(),manager.getId())){
             employees.remove(this.storeId,manager);
             manager.removeFromMyStores(this);
@@ -341,7 +342,7 @@ public class Store {
             if(disc > finalDiscount)
                 finalDiscount = disc;
         }
-        return Math.min(finalDiscount, bag.getBagTotalCost()); //if discount > 100% return bag total cost (100% discount)
+        return Math.min(finalDiscount, bag.getBagTotalCost(user.getId(),storeId)); //if discount > 100% return bag total cost (100% discount)
 
     }
 
@@ -615,7 +616,7 @@ public class Store {
                             bag = new Bag(this);
                             user.getBags().add(bag);
                         }
-                        bag.productsAmounts.put(getProductById(prodId), amount);
+                        bag.productsAmounts.add(getProductById(prodId), amount,storeId,user.getId());
                         bag.productsApproved.put(getProductById(prodId), offer);
                         removeOffer(prodId, offerId);
                         return new Result(true, "the offer approved");

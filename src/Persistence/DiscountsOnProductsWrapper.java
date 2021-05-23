@@ -101,6 +101,14 @@ public class DiscountsOnProductsWrapper {
         }
     }
 
+    public boolean contains(Product product) {
+        return this.value.containsKey(product);
+    }
+
+    public Discount get(Product product) {
+        return this.value.get(product);
+    }
+
     private String dateToString(Date date) {
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(date);

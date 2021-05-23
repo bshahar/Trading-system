@@ -5,6 +5,7 @@ import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountByMinimalAmount;
 import Domain.DiscountPolicies.DiscountByMinimalCost;
 import Domain.Policy;
+import Domain.Product;
 import Persistence.DAO.*;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
@@ -21,6 +22,10 @@ import java.util.*;
 public class DiscountsOnStoresWrapper {
 
     private Discount value;
+
+    public DiscountsOnStoresWrapper(Discount discount) {
+        this.value = discount;
+    }
 
     public void add(int storeId, Discount discount) {
         try {
@@ -95,6 +100,8 @@ public class DiscountsOnStoresWrapper {
 
         }
     }
+
+    public Discount getValue() { return this.value; }
 
     private String dateToString(Date date) {
         Calendar calendar = Calendar.getInstance();

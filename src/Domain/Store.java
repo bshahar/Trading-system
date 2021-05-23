@@ -7,6 +7,9 @@ import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchaseFormat.ImmediatePurchase;
 import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Persistence.DiscountsOnCategoriesWrapper;
+import Persistence.DiscountsOnProductsWrapper;
+import Persistence.DiscountsOnStoresWrapper;
 import Service.counter;
 import javafx.util.Pair;
 
@@ -25,9 +28,9 @@ public class Store {
     private List<Receipt> receipts;
     private Service.counter counter;
     private Service.counter offerCounter;
-    private Map<Product,Discount> discountsOnProducts;
-    private Map<String,Discount> discountsOnCategories;
-    private Discount discountsOnStore;
+    private DiscountsOnProductsWrapper discountsOnProducts;
+    private DiscountsOnCategoriesWrapper discountsOnCategories;
+    private DiscountsOnStoresWrapper discountsOnStore;
     private Map<Product, ImmediatePurchase> purchasesOnProducts;
     private Map<String, ImmediatePurchase> purchasesOnCategories;
     private ImmediatePurchase purchasesOnStore;
@@ -52,8 +55,8 @@ public class Store {
         this.appointments.put(owner, new LinkedList<>());
         this.owners = Collections.synchronizedList(new LinkedList<>());
         this.managers = Collections.synchronizedList(new LinkedList<>());
-        this.discountsOnProducts = Collections.synchronizedMap(new HashMap<>());
-        this.discountsOnCategories = Collections.synchronizedMap(new HashMap<>());
+        this.discountsOnProducts = new DiscountsOnProductsWrapper();
+        this.discountsOnCategories = new DiscountsOnCategoriesWrapper();
         this.counter = new counter();
         this.offerCounter = new counter();
         this.usersBags = new HashMap<>();
@@ -226,15 +229,15 @@ public class Store {
     }
 
     public void addDiscountOnProduct(int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        this.discountsOnProducts.put(getProductById(prodId), new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
+        this.discountsOnProducts.add(this.storeId, getProductById(prodId), new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
     public void addDiscountOnCategory(String category, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        this.discountsOnCategories.put(category, new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
+        this.discountsOnCategories.add(this.storeId, category, new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
     public void addDiscountOnStore(Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        this.discountsOnStore = new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op);
+        this.discountsOnStore = new DiscountsOnStoresWrapper(new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
     public void addPurchaseOnProduct(int prodId, PurchaseCondition conditions) {
@@ -250,15 +253,17 @@ public class Store {
     }
 
     public void removeDiscountOnProduct(int prodId){
-        Product prod = this.inventory.getProductById(prodId);
-        this.discountsOnProducts.remove(prod);
+        int discountId = this.discountsOnProducts.get(getProductById(prodId)).getId();
+        this.discountsOnProducts.remove(discountId);
     }
 
     public void removeDiscountOnCategory(String category){
-        this.discountsOnCategories.remove(category);
+        int discountId = this.discountsOnCategories.get(category).getId();
+        this.discountsOnCategories.remove(discountId);
     }
 
     public void removeDiscountOnStore(){
+        this.discountsOnStore.remove(this.discountsOnStore.getValue().getId());
         this.discountsOnStore = null;
     }
 
@@ -281,7 +286,7 @@ public class Store {
         double discountProduct = 0;
         double discountCategory = 0;
         double discountStore = 0;
-        if (discountsOnProducts.containsKey(prod)) {
+        if (discountsOnProducts.contains(prod)) {
             Discount dis = discountsOnProducts.get(prod);
             if(dis != null) {
                 discountProduct = discountsOnProducts.get(prod).calculateDiscount(prod, user, date, bag);
@@ -302,8 +307,8 @@ public class Store {
             }
         }
         if (this.discountsOnStore != null) {
-            discountStore = discountsOnStore.calculateDiscount(prod,user,date,bag);
-            if(discountsOnStore.getMathOp().equals(Discount.MathOp.MAX))
+            discountStore = discountsOnStore.getValue().calculateDiscount(prod,user,date,bag);
+            if(discountsOnStore.getValue().getMathOp().equals(Discount.MathOp.MAX))
                 MaxDiscount.add(discountStore);
             else
                 SumDiscount.add(discountStore);
@@ -322,15 +327,15 @@ public class Store {
     }
 
     public void addSimpleDiscountOnProduct(int prodId, Date begin, Date end, int percentage, Discount.MathOp op) {
-        this.discountsOnProducts.put(getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage, op));
+        this.discountsOnProducts.add(this.storeId, getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
     public void addSimpleDiscountOnCategory(String category, Date begin, Date end, int percentage, Discount.MathOp op) {
-        this.discountsOnCategories.put(category, new SimpleDiscount(counter.inc(), begin, end, percentage, op));
+        this.discountsOnCategories.add(this.storeId, category, new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
     public void addSimpleDiscountOnStore(Date begin, Date end, int percentage, Discount.MathOp op) {
-        this.discountsOnStore = new SimpleDiscount(counter.inc(), begin, end, percentage, op);
+        this.discountsOnStore = new DiscountsOnStoresWrapper(new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
     public boolean validatePurchasePerProduct(Product prod ,User user, Date time, Bag bag){
@@ -355,7 +360,7 @@ public class Store {
         Product product = getProductById(prodId);
         if(product != null) {
             List<Object> discountPolicies = new LinkedList<>();
-            Discount dis = discountsOnCategories.get(product);
+            Discount dis = discountsOnProducts.get(product);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
                 discountPolicies.add(((ConditionalDiscount) dis).getConditions().getOperatorStr());
@@ -401,7 +406,7 @@ public class Store {
     public Result viewDiscountPoliciesOnStore() {
         if(this.discountsOnStore != null) {
             List<Object> discountPolicies = new LinkedList<>();
-            Discount dis = this.discountsOnStore;
+            Discount dis = this.discountsOnStore.getValue();
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
                 discountPolicies.add(((ConditionalDiscount) dis).getConditions().getOperatorStr());

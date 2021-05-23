@@ -3,6 +3,7 @@ import Domain.DiscountFormat.ConditionalDiscount;
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.*;
 import Domain.Policy;
+import Domain.Product;
 import Persistence.DAO.*;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
@@ -97,6 +98,14 @@ public class DiscountsOnCategoriesWrapper {
         } catch (Exception e) {
 
         }
+    }
+
+    public boolean contains(String category) {
+        return this.value.containsKey(category);
+    }
+
+    public Discount get(String category) {
+        return this.value.get(category);
     }
 
     private String dateToString(Date date) {

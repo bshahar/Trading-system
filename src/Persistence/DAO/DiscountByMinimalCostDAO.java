@@ -6,9 +6,9 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "DiscountByMinimalCost")
 public class DiscountByMinimalCostDAO {
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int conditionId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private double minCost;
 
     public DiscountByMinimalCostDAO() {}

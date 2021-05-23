@@ -81,6 +81,7 @@ public class DiscountsOnProductsWrapper {
             }
             connectionSource.close();
         } catch (Exception e) {
+
             //TODO add rollback
         }
         this.value.put(product, discount); //Overwrite old entry in map

@@ -6,21 +6,21 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "DiscountByPurchaseTime")
 public class DiscountByPurchaseTimeDAO {
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int conditionId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private boolean byDayInWeek;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private boolean byDayInMonth;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private boolean byHourInDay;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int dayInWeek;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int dayInMonth;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int beginHour;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int endHour;
 
     public DiscountByPurchaseTimeDAO() {}

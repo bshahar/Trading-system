@@ -7,11 +7,11 @@ import com.j256.ormlite.table.DatabaseTable;
 
 public class DiscountByMinimalAmountDAO {
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int conditionId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int productId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int minAmount;
 
     public DiscountByMinimalAmountDAO() {}

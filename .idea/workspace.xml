@@ -22,9 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 discounts daos">
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 discounts wrapper">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/ConditionalDiscountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/ConditionalDiscountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByMinimalAmountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByMinimalAmountDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByMinimalCostDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByMinimalCostDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByPurchaseTimeDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/DiscountByPurchaseTimeDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,14 +288,7 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="1096000" />
-      <workItem from="1621682093021" duration="6168000" />
-    </task>
-    <task id="LOCAL-00004" summary="adding permissions test #27 #26">
-      <created>1617737829704</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1617737829704</updated>
+      <workItem from="1621682093021" duration="6763000" />
     </task>
     <task id="LOCAL‎00005" summary="merges #26">
       <created>1617781721231</created>
@@ -604,7 +601,13 @@
       <option name="presentableId" value="LOCAL‎00052" />
       <updated>1621681943347</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL‎00053" summary="#61 discounts wrapper">
+      <created>1621693429833</created>
+      <option name="number" value="LOCAL‎00053" />
+      <option name="presentableId" value="LOCAL‎00053" />
+      <updated>1621693429834</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +630,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="workspace" />
     <MESSAGE value="adding store test #26" />
     <MESSAGE value="fix all tests #26" />
     <MESSAGE value="merge API, permissions" />
@@ -652,7 +654,8 @@
     <MESSAGE value="Bid GUI" />
     <MESSAGE value="#61 db dorin" />
     <MESSAGE value="#61 discounts daos" />
-    <option name="LAST_COMMIT_MESSAGE" value="#61 discounts daos" />
+    <MESSAGE value="#61 discounts wrapper" />
+    <option name="LAST_COMMIT_MESSAGE" value="#61 discounts wrapper" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -22,28 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="Bid GUI">
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/AgeLimitPolicyDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/ImmediatePurchasesDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/MaxAmountPolicyDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/MinAmountPolicyDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/ProductOffersDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/PurchaseConditionDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/PurchaseOffersDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StorePoliciesOnCategoriesDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StorePoliciesOnProductsDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/StorePoliciesOnStoresDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/TimeLimitPolicyDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/UserApprovedOffersDAO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/UsersCounterOffersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx_sdk_11_02.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/javafx_sdk_11_0.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/jfxrt2.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/jfxrt.xml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 add to tables connecting discounts to stores">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PlayGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PlayGround.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnCategoriesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnCategoriesWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -125,6 +109,12 @@
       <filtered-out-file-type name="TAG" />
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
+  </component>
+  <component name="InvalidFacetManager">
+    <ignored-facets>
+      <facet id="Trading-system/invalid/Hibernate" />
+      <facet id="Trading-system/invalid/JPA" />
+    </ignored-facets>
   </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
@@ -209,6 +199,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -266,6 +267,7 @@
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -285,46 +287,7 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="1096000" />
-      <workItem from="1621682806568" duration="11212000" />
-    </task>
-    <task id="LOCAL-00002" summary="connect trading system to stores #27">
-      <created>1617728398806</created>
-      <option name="number" value="00002" />
-      <option name="presentableId" value="LOCAL-00002" />
-      <option name="project" value="LOCAL" />
-      <updated>1617728398806</updated>
-    </task>
-    <task id="LOCAL-00003" summary="adding permissions test #27 #26">
-      <created>1617737672773</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1617737672773</updated>
-    </task>
-    <task id="LOCAL-00004" summary="adding permissions test #27 #26">
-      <created>1617737829704</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1617737829704</updated>
-    </task>
-    <task id="LOCAL‎00005" summary="merges #26">
-      <created>1617781721231</created>
-      <option name="number" value="LOCAL‎00005" />
-      <option name="presentableId" value="LOCAL‎00005" />
-      <updated>1617781721231</updated>
-    </task>
-    <task id="LOCAL‎00006" summary="fixed store tests #26">
-      <created>1617790205166</created>
-      <option name="number" value="LOCAL‎00006" />
-      <option name="presentableId" value="LOCAL‎00006" />
-      <updated>1617790205166</updated>
-    </task>
-    <task id="LOCAL‎00007" summary=".">
-      <created>1617808517811</created>
-      <option name="number" value="LOCAL‎00007" />
-      <option name="presentableId" value="LOCAL‎00007" />
-      <updated>1617808517811</updated>
+      <workItem from="1621682093021" duration="14290000" />
     </task>
     <task id="LOCAL-00008" summary="workspace">
       <created>1617811276698</created>
@@ -607,11 +570,47 @@
       <option name="project" value="LOCAL" />
       <updated>1621665190606</updated>
     </task>
-    <option name="localTasksCounter" value="51" />
+    <task id="LOCAL‎00051" summary="#61 db dorin">
+      <created>1621679191223</created>
+      <option name="number" value="LOCAL‎00051" />
+      <option name="presentableId" value="LOCAL‎00051" />
+      <updated>1621679191226</updated>
+    </task>
+    <task id="LOCAL‎00052" summary="#61 discounts daos">
+      <created>1621681943346</created>
+      <option name="number" value="LOCAL‎00052" />
+      <option name="presentableId" value="LOCAL‎00052" />
+      <updated>1621681943347</updated>
+    </task>
+    <task id="LOCAL‎00053" summary="#61 discounts wrapper">
+      <created>1621693429833</created>
+      <option name="number" value="LOCAL‎00053" />
+      <option name="presentableId" value="LOCAL‎00053" />
+      <updated>1621693429834</updated>
+    </task>
+    <task id="LOCAL‎00054" summary="#61 fix primary keys db">
+      <created>1621787418141</created>
+      <option name="number" value="LOCAL‎00054" />
+      <option name="presentableId" value="LOCAL‎00054" />
+      <updated>1621787418141</updated>
+    </task>
+    <task id="LOCAL‎00055" summary="#61 add daos">
+      <created>1621793682340</created>
+      <option name="number" value="LOCAL‎00055" />
+      <option name="presentableId" value="LOCAL‎00055" />
+      <updated>1621793682341</updated>
+    </task>
+    <task id="LOCAL‎00056" summary="#61 add to tables connecting discounts to stores">
+      <created>1621794283145</created>
+      <option name="number" value="LOCAL‎00056" />
+      <option name="presentableId" value="LOCAL‎00056" />
+      <updated>1621794283145</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="3" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -630,12 +629,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fixed store tests #26" />
-    <MESSAGE value="." />
-    <MESSAGE value="workspace" />
-    <MESSAGE value="adding store test #26" />
-    <MESSAGE value="fix all tests #26" />
-    <MESSAGE value="merge API, permissions" />
     <MESSAGE value="change permissions" />
     <MESSAGE value="Adapter Injection #38" />
     <MESSAGE value="update server and gui #44" />
@@ -655,37 +648,13 @@
     <MESSAGE value="elad do everything!" />
     <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
-    <option name="LAST_COMMIT_MESSAGE" value="Bid GUI" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser" timestamp="1621703450272">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="574" y="128" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1621703450272" />
-    <state x="486" y="167" key="FileChooserDialogImpl" timestamp="1621682963335">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="486" y="167" key="FileChooserDialogImpl/0.0.1536.824@0.0.1536.824" timestamp="1621682963335" />
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom" timestamp="1621702850245">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1621702850245" />
-    <state width="1493" height="210" key="GridCell.Tab.0.center" timestamp="1621702850244">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1621702850244" />
-    <state width="1493" height="210" key="GridCell.Tab.0.left" timestamp="1621702850243">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1621702850243" />
-    <state width="1493" height="210" key="GridCell.Tab.0.right" timestamp="1621702850244">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state width="1493" height="210" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1621702850244" />
-    <state x="425" y="187" key="run.anything.popup" timestamp="1621685409297">
-      <screen x="0" y="0" width="1536" height="824" />
-    </state>
-    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1621685409297" />
+    <MESSAGE value="#61 db dorin" />
+    <MESSAGE value="#61 discounts daos" />
+    <MESSAGE value="#61 discounts wrapper" />
+    <MESSAGE value="#61 fix primary keys db" />
+    <MESSAGE value="#61 add daos" />
+    <MESSAGE value="#61 add to tables connecting discounts to stores" />
+    <option name="LAST_COMMIT_MESSAGE" value="#61 add to tables connecting discounts to stores" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -721,11 +690,6 @@
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>395</line>
-          <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
           <line>398</line>
           <option name="timeStamp" value="39" />
@@ -737,7 +701,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
-          <line>75</line>
+          <line>74</line>
           <option name="timeStamp" value="59" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -747,13 +711,18 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Service/API.java</url>
-          <line>76</line>
+          <line>78</line>
           <option name="timeStamp" value="65" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Server/BidsWebSocket.java</url>
           <line>64</line>
           <option name="timeStamp" value="66" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/PlayGround.java</url>
+          <line>26</line>
+          <option name="timeStamp" value="79" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
@@ -767,12 +736,12 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Server.LoginPage.*</FILTER>
-    </SUITE>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Server.LoginPage.*</FILTER>
+    </SUITE>
   </component>
 </project>

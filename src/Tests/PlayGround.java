@@ -19,17 +19,19 @@ import java.util.Properties;
 
 public class PlayGround {
     public static void main(String args[]) throws IOException, SQLException {
-       //ConnectionSource connectionSource = connect();
+       ConnectionSource connectionSource = connect();
 
-//        Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
-//        accountDao.executeRaw("DELETE FROM Users");
+        Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
+        accountDao.executeRaw("DELETE FROM Users");
         //TableUtils.clearTable(connectionSource, UserDAO.class);
-        UserWrapper u = new UserWrapper();
+        /*UserWrapper u = new UserWrapper();
         u.add(new User("Elad",1,111,true));
         u.get(111);
         System.out.println("eeeefdfsfd");
         u.get(111);
-       //connectionSource.close();
+
+         */
+       connectionSource.close();
        // API.initTradingSystem();
         //API.register("elad","sol",22);
     }

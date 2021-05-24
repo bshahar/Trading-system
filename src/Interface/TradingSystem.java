@@ -10,7 +10,9 @@ import Domain.Operators.OrOperator;
 import Domain.Operators.XorOperator;
 import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Domain.Sessions.DemoSession;
 import Domain.Sessions.SessionInterface;
+import Domain.Sessions.realSession;
 import Domain.User;
 import Persistence.*;
 import Service.*;
@@ -29,7 +31,7 @@ public class TradingSystem {
     private static counter receiptCounter;
     private static counter observableCounter;
     private static counter conditionCounter;
-
+    public static Map<Integer , DemoSession> demoSessionMap ;
     private static PaymentInterface paymentAdapter;
     private static SupplementInterface supplementAdapter;
     private UserAuth userAuth;
@@ -39,6 +41,7 @@ public class TradingSystem {
     private UserWrapper users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
+
 
     public TradingSystem (User systemManager, String externalSystemsUrl, boolean testing) {
         if(testing) {
@@ -67,6 +70,7 @@ public class TradingSystem {
         this.systemManager = systemManager;
         AppointSystemManager(systemManager);
         sessionsMap = new ConcurrentHashMap<>();
+        demoSessionMap = new ConcurrentHashMap<>();
     }
 
 //    public int getSystemManagerId() {
@@ -287,10 +291,14 @@ public class TradingSystem {
     }
 
     public Result addSession(int userId, Session session) {
-        getUserById(userId).setSession(session);
+        realSession realSession = new realSession();
+        realSession.set(session);
+        sessionsMap.put(userId,realSession);
+        //getUserById(userId).setSession(session);
         return new Result(true,"session added\n");
     }
     public Result removeSession(int userId) {
+        sessionsMap.remove(userId);
         getUserById(userId).setSession((Session) null);
         return new Result(true,"session remove\n");
     }
@@ -315,7 +323,8 @@ public class TradingSystem {
             JSONObject json = new JSONObject();
             json.put("type", "ALERT");
             json.put("data", msg);
-            getUserById(userId).addNotification(json.toString());
+            sessionsMap.get(userId).send(json.toString());
+            //getUserById(userId).addNotification(json.toString());
             return new Result(true,"send successfully alerts\n");
         }
         catch (Exception e)
@@ -326,7 +335,8 @@ public class TradingSystem {
     }
 
     public void setSessionDemo(int userId) {
-        getUserById(userId).setSessionDemo();
+        sessionsMap.put(userId,new DemoSession());
+        //getUserById(userId).setSessionDemo();
     }
 
 
@@ -788,12 +798,14 @@ public class TradingSystem {
             int newId = storeCounter.inc();
             Store store = new Store(newId, storeName);
            // systemManager.addStoreToSystemManager(store);
+            Result result = addObservable(storeName);
+            int subscribeId = (int)result.getData();
+            store.setNotificationId(subscribeId);
             this.stores.add(store,user);
             user.openStore(store,user.getId());
 
             KingLogger.logEvent("OPEN_STORE: User with id " + userId + " open the store " + storeName);
-            Result result = addObservable(storeName);
-            int subscribeId = (int)result.getData();
+
             store.setNotificationId(subscribeId);
             subscribeToObservable(subscribeId,userId);
             return new Result(true,newId);
@@ -1157,10 +1169,8 @@ public class TradingSystem {
         return new Result(false,"user isn't exist");
     }
     public Result getLoginMessagesQueue (int userId) {
-        if(getUserById(userId)!=null)
-        {
-            return new Result(true,getUserById(userId).getLoginMessages());
-        }
+        if(sessionsMap.containsKey(userId))
+            return new Result(true,sessionsMap.get(userId).getMsgs());
         return new Result(false,"user isn't exist");
     }
 

@@ -384,12 +384,15 @@ public class User implements Observer {
     public void addNotification(String msg){
         if(logged)
         {
+            session.send(msg);
+        }
+        else
+        {
             JSONObject jo = new JSONObject(msg);
             String data = jo.get("data").toString();
             this.messagesWrapper.add(id,messageCounter.incAndGet("messageCounter"),data);
         }
-        else
-           session.send(msg);
+
     }
     public void setSession(Session s)
     {

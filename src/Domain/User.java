@@ -56,7 +56,7 @@ public class User implements Observer {
         this.age = age;
         this.id = id;
         this.logged = false;
-        this.member = new Member();
+        this.member = new Member(id);
         this.receipts= Collections.synchronizedList(new LinkedList<>());
         this.messages = Collections.synchronizedList(new LinkedList<>());
         this.loginMessages = new ConcurrentLinkedDeque<>();
@@ -255,7 +255,7 @@ public class User implements Observer {
 
     public void openStore(Store store,int userId) {
         this.member.openStore(this,store);
-        this.memberStorePermissionsWrapper.add(this.member.getPermissions().get(store.getStoreId()), userId,store.getStoreId());
+      //  this.memberStorePermissionsWrapper.add(this.member.getPermissions().get(store.getStoreId()), userId,store.getStoreId());
     }
 
     public void addStoreToSystemManager(Store store) {
@@ -288,7 +288,7 @@ public class User implements Observer {
     }
 
     public void updateMyPermissions(Store store, List<Integer> opIndexes) {
-        this.member.updateMyPermissions(store,opIndexes);
+        this.member.updateMyPermissions(store,opIndexes,id);
     }
 
     public Result removePermissions(User user, Store store, List<Integer> opIndexes) {

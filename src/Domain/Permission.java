@@ -4,12 +4,14 @@ import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Permissions.*;
+import Persistence.MemberStorePermissionsWrapper;
 
 import java.util.*;
 
 import java.util.List;
 
 public class Permission {
+    MemberStorePermissionsWrapper memberStorePermissionsWrapper;
     final private Member member;
     final private Store store;
 
@@ -44,10 +46,12 @@ public class Permission {
     public Permission(Member member, Store store) {
         this.member = member;
         this.store = store;
+        this.memberStorePermissionsWrapper = new MemberStorePermissionsWrapper();
     }
 
     public void allowAddProduct()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"addProduct");
         this.addProduct = new AddProduct(this.member,this.store);
     }
     public void disableAddProduct()
@@ -67,6 +71,7 @@ public class Permission {
 
     public void allowRemoveProduct()
     {
+       // memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"removeProduct");
         this.removeProduct = new RemoveProduct(this.member,this.store);
     }
     public void disableRemoveProduct()
@@ -83,6 +88,7 @@ public class Permission {
 
     public void allowEditProduct()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"editProduct");
         this.editProduct = new EditProduct(this.member,this.store);
     }
     public void disableEditProduct()
@@ -99,7 +105,8 @@ public class Permission {
 
     public void allowAppointManager()
     {
-        this.appointManager = new AppointManager(this.member,this.store);
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"appointManager");
+       this.appointManager = new AppointManager(this.member,this.store);
     }
     public void disableAppointManager()
     {
@@ -114,6 +121,7 @@ public class Permission {
 
     public void allowRemoveManagerAppointment()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"removeManagerAppointment");
         this.removeManagerAppointment = new RemoveManagerAppointment(this.member,this.store);
     }
 
@@ -132,8 +140,8 @@ public class Permission {
 
 
     public void allowAppointOwner()
-    {
-        this.appointOwner = new AppointOwner(this.member,this.store);
+    {//memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"appointOwner");
+       this.appointOwner = new AppointOwner(this.member,this.store);
     }
     public void disableAppointOwner()
     {
@@ -149,6 +157,7 @@ public class Permission {
 
     public void allowRemoveOwnerAppointment()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"removeOwnerAppointment");
         this.removeOwnerAppointment = new RemoveOwnerAppointment(this.member,this.store);
     }
     public void disableRemoveOwnerAppointment()
@@ -171,6 +180,7 @@ public class Permission {
 
     public void allowDefinePurchasePolicy()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"definePurchasePolicy");
         this.definePurchasePolicy = new DefinePurchasePolicy(this.member,this.store);
     }
     public void disableDefinePurchasePolicy()
@@ -187,6 +197,7 @@ public class Permission {
 
     public void allowEditPurchasePolicy()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"editPurchasePolicy");
         this.editPurchasePolicy = new EditPurchasePolicy(this.member,this.store);
     }
     public void disableEditPurchasePolicy()
@@ -202,6 +213,8 @@ public class Permission {
 
     public void allowDefinePurchaseFormat()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"definePurchaseFormat");
+
         this.definePurchaseFormat = new DefinePurchaseFormat(this.member,this.store);
     }
     public void disableDefinePurchaseFormat()
@@ -217,7 +230,9 @@ public class Permission {
 
     public void allowEditPurchaseFormat()
     {
-        this.editPurchaseFormat = new EditPurchaseFormat(this.member,this.store);
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"editPurchaseFormat");
+
+       this.editPurchaseFormat = new EditPurchaseFormat(this.member,this.store);
     }
     public void disableEditPurchaseFormat()
     {
@@ -232,6 +247,8 @@ public class Permission {
 
     public void allowDefineDiscountPolicy()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"defineDiscountPolicy");
+
         this.defineDiscountPolicy = new DefineDiscountPolicy(this.member,this.store);
     }
     public void disableDefineDiscountPolicy()
@@ -248,6 +265,8 @@ public class Permission {
 
     public void allowEditDiscountPolicy()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"editDiscountPolicy");
+
         this.editDiscountPolicy = new EditDiscountPolicy(this.member,this.store);
     }
     public void disableEditDiscountPolicy()
@@ -265,6 +284,8 @@ public class Permission {
 
 
     public void allowViewDiscountPolicies() {
+       // memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"viewDiscountPolicies");
+
         this.viewDiscountPolicies = new ViewDiscountPolicies(this.member,this.store);
     }
 
@@ -280,7 +301,8 @@ public class Permission {
     }
 
     public void allowViewPurchasePolicies() {
-        this.viewPurchasePolicies = new ViewPurchasePolicies(this.member, this.store);
+        memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"viewPurchasePolicies");
+        //this.viewPurchasePolicies = new ViewPurchasePolicies(this.member, this.store);
     }
 
 
@@ -297,6 +319,8 @@ public class Permission {
 
     public void allowDefineDiscountFormat()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"defineDiscountFormat");
+
         this.defineDiscountFormat = new DefineDiscountFormat(this.member,this.store);
     }
     public void disableDefineDiscountFormat()
@@ -312,6 +336,8 @@ public class Permission {
 
     public void allowEditDiscountFormat()
     {
+       // memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"editDiscountFormat");
+
         this.editDiscountFormat = new EditDiscountFormat(this.member,this.store);
     }
     public void disableEditDiscountFormat()
@@ -327,6 +353,8 @@ public class Permission {
 
     public void allowCloseStore()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"closeStore");
+
         this.closeStore = new CloseStore(this.member,this.store);
     }
     public void disableCloseStore()
@@ -342,6 +370,8 @@ public class Permission {
 
     public void allowReopenStore()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"reopenStore");
+
         this.reopenStore = new ReopenStore(this.member,this.store);
     }
     public void disableReopenStore()
@@ -357,6 +387,8 @@ public class Permission {
 
     public void allowGetWorkersInfo()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"getWorkersInfo");
+
         this.getWorkersInfo = new GetWorkersInfo(this.member,this.store);
     }
     public void disableGetWorkersInfo()
@@ -373,6 +405,8 @@ public class Permission {
 
     public void allowViewMessages()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"viewMessages");
+
         this.viewMessages = new ViewMessages(this.member,this.store);
     }
     public void disableViewMessages()
@@ -388,6 +422,8 @@ public class Permission {
 
     public void allowReplayMessages()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"replayMessages");
+
         this.replayMessages = new ReplayMessages(this.member,this.store);
     }
     public void disableReplayMessages()
@@ -403,6 +439,8 @@ public class Permission {
 
     public void allowViewPurchaseHistory()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"viewPurchaseHistory");
+
         this.viewPurchaseHistory = new ViewPurchaseHistory(this.member,this.store);
     }
     public void disableViewPurchaseHistory()
@@ -419,7 +457,10 @@ public class Permission {
 
     public void allowOpenStore()
     {
-        this.openStore = new OpenStore(this.member,this.store);
+
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"openStore");
+
+       this.openStore = new OpenStore(this.member,this.store);
     }
     public void disableOpenStore()
     {
@@ -434,6 +475,8 @@ public class Permission {
 
     public void allowAddPermissions()
     {
+       // memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"addPermissions");
+
         this.addPermissions = new AddPermissions(this.member,this.store);
     }
     public void disableAddPermissions()
@@ -450,6 +493,7 @@ public class Permission {
 
     public void allowRemovePermission()
     {
+        //memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"removePermission");
         this.removePermission = new RemovePermission(this.member,this.store);
     }
     public void disableRemovePermission()
@@ -466,6 +510,8 @@ public class Permission {
 
 
     public void allowResponedToOffer() {
+      //  memberStorePermissionsWrapper.enablePermissionOnUser(member.getId(),store.getStoreId(),"responedToOffer");
+
         this.responedToOffer = new ResponedToOffer(this.member,this.store);
     }
 
@@ -493,6 +539,7 @@ public class Permission {
     }
 
     public AddProduct getAddProduct() {
+       //return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),member.getId(),"addProduct");
         return addProduct;
     }
 
@@ -593,5 +640,117 @@ public class Permission {
     public ViewDiscountPolicies getViewDiscountPolicies() {
 
         return viewDiscountPolicies;
+    }
+
+    public void setMemberStorePermissionsWrapper(MemberStorePermissionsWrapper memberStorePermissionsWrapper) {
+        this.memberStorePermissionsWrapper = memberStorePermissionsWrapper;
+    }
+
+    public void setAddProduct( ) {
+        this.addProduct = new AddProduct(this.member,this.store);
+    }
+
+    public void setRemoveProduct( ) {
+        this.removeProduct = new RemoveProduct(this.member,this.store);
+    }
+
+    public void setEditProduct( ) {
+        this.editProduct = new EditProduct(this.member,this.store);
+    }
+
+    public void setAppointManager( ) {
+        this.appointManager = new AppointManager(this.member,this.store);
+    }
+
+    public void setRemoveManagerAppointment( ) {
+        this.removeManagerAppointment = new RemoveManagerAppointment(this.member,this.store);
+    }
+
+    public void setAppointOwner( ) {
+        this.appointOwner = new AppointOwner(this.member,this.store);
+    }
+
+    public void setRemoveOwnerAppointment( ) {
+        this.removeOwnerAppointment = new RemoveOwnerAppointment(this.member,this.store);
+    }
+
+    public void setDefinePurchasePolicy( ) {
+        this.definePurchasePolicy = new DefinePurchasePolicy(this.member,this.store);
+    }
+
+    public void setEditPurchasePolicy( ) {
+        this.editPurchasePolicy = new EditPurchasePolicy(this.member,this.store);
+    }
+
+    public void setDefinePurchaseFormat( ) {
+        this.definePurchaseFormat = new DefinePurchaseFormat(this.member,this.store);
+    }
+
+    public void setEditPurchaseFormat( ) {
+        this.editPurchaseFormat = new EditPurchaseFormat(this.member,this.store);
+    }
+
+    public void setDefineDiscountPolicy( ) {
+        this.defineDiscountPolicy = new DefineDiscountPolicy(this.member,this.store);
+    }
+
+    public void setEditDiscountPolicy( ) {
+        this.editDiscountPolicy = new EditDiscountPolicy(this.member,this.store);
+    }
+
+    public void setDefineDiscountFormat( ) {
+        this.defineDiscountFormat = new DefineDiscountFormat(this.member,this.store);
+    }
+
+    public void setEditDiscountFormat( ) {
+        this.editDiscountFormat = new EditDiscountFormat(this.member,this.store);
+    }
+
+    public void setCloseStore() {
+        this.closeStore = new CloseStore(this.member,this.store);
+    }
+
+    public void setReopenStore() {
+        this.reopenStore = new ReopenStore(this.member,this.store);
+    }
+
+    public void setGetWorkersInfo() {
+        this.getWorkersInfo = new GetWorkersInfo(this.member,this.store);
+    }
+
+    public void setViewMessages() {
+        this.viewMessages = new ViewMessages(this.member,this.store);
+    }
+
+    public void setReplayMessages() {
+        this.replayMessages = new ReplayMessages(this.member,this.store);
+    }
+
+    public void setViewPurchaseHistory() {
+        this.viewPurchaseHistory = new ViewPurchaseHistory(this.member,this.store);
+    }
+
+    public void setOpenStore() {
+        this.openStore = new OpenStore(this.member,this.store);
+    }
+
+    public void setAddPermissions() {
+        this.addPermissions = new AddPermissions(this.member,this.store);
+    }
+
+    public void setRemovePermission() {
+        this.removePermission = new RemovePermission(this.member,this.store);
+    }
+
+    public void setViewDiscountPolicies() {
+        this.viewDiscountPolicies = new ViewDiscountPolicies(this.member,this.store);
+    }
+
+    public void setViewPurchasePolicies() {
+        this.viewPurchasePolicies = new ViewPurchasePolicies(this.member,this.store);
+    }
+
+    public void setResponedToOffer() {
+        this.responedToOffer = new ResponedToOffer(this.member,this.store);
     }
 }

@@ -3,28 +3,28 @@ package Domain;
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Persistence.MemberStorePermissionsWrapper;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class Member {
-    Map<Integer, Permission> permissions; //integer=storeId
     List<Integer> myStores;
+    MemberStorePermissionsWrapper memberStorePermissionsWrapper;
+    int id;
 
-    public Member ()
+    public Member (int userId)
     {
-        this.permissions = new ConcurrentHashMap<>();
+        //this.permissions = new ConcurrentHashMap<>();
         this.myStores = new LinkedList<>();
+        this.memberStorePermissionsWrapper = new MemberStorePermissionsWrapper();
+        this.id = userId;
     }
 
-
-    public Map<Integer, Permission> getPermissions() {
-        return permissions;
+    public int getId() {
+        return id;
     }
 
-    public void setPermissions(Map<Integer, Permission> permissions) {
-        this.permissions = permissions;
-    }
 
     public void setMyStores(List<Integer> myStores) {
         this.myStores = myStores;
@@ -63,20 +63,23 @@ public class Member {
         p.allowViewDiscountPolicies();
         p.allowViewPurchasePolicies();
         p.allowResponedToOffer();
-        permissions.put(store.getStoreId(),p);
+        memberStorePermissionsWrapper.add(p, user.getId(), store.getStoreId());
+        //permissions.put(store.getStoreId(),p);
     }
 
 
     public Result addStoreOwner(User owner, User user, Store store) {
-        if(permissions.get(store.getStoreId())!=null)
-            return permissions.get(store.getStoreId()).appointOwner(owner,user);
+        Permission p = memberStorePermissionsWrapper.getPermission(owner,store);
+        if(p!=null)
+            return p.appointOwner(owner,user);
         return new Result(false, "User has not permissions");
+//        if(permissions.get(store.getStoreId())!=null)
+//            return permissions.get(store.getStoreId()).appointOwner(owner,user);
+//        return new Result(false, "User has not permissions");
 
     }
 
     public void updateOwnerPermission(Store store) {
-        if(!permissions.containsKey(store.getStoreId()))
-        {
             Permission p = new Permission(this, store);
             p.allowAppointOwner();
             p.allowAddProduct();
@@ -104,70 +107,58 @@ public class Member {
             p.allowViewDiscountPolicies();
             p.allowViewPurchasePolicies();
             p.allowResponedToOffer();
-            permissions.put(store.getStoreId(),p);
-        }
-        else {
-            permissions.get(store.getStoreId()).allowAppointOwner();
-            permissions.get(store.getStoreId()).allowAddProduct();
-            permissions.get(store.getStoreId()).allowRemoveProduct();
-            permissions.get(store.getStoreId()).allowEditProduct();
-            permissions.get(store.getStoreId()).allowAppointManager();
-            permissions.get(store.getStoreId()).allowRemoveManagerAppointment();
-            permissions.get(store.getStoreId()).allowAppointOwner();
-            permissions.get(store.getStoreId()).allowRemoveOwnerAppointment();
-            permissions.get(store.getStoreId()).allowDefinePurchasePolicy();
-            permissions.get(store.getStoreId()).allowEditPurchasePolicy();
-            permissions.get(store.getStoreId()).allowDefinePurchaseFormat();
-            permissions.get(store.getStoreId()).allowEditPurchaseFormat();
-            permissions.get(store.getStoreId()).allowDefineDiscountPolicy();
-            permissions.get(store.getStoreId()).allowEditDiscountPolicy();
-            permissions.get(store.getStoreId()).allowDefineDiscountFormat();
-            permissions.get(store.getStoreId()).allowEditDiscountFormat();
-            permissions.get(store.getStoreId()).allowReopenStore();
-            permissions.get(store.getStoreId()).allowGetWorkersInfo();
-            permissions.get(store.getStoreId()).allowViewMessages();
-            permissions.get(store.getStoreId()).allowReplayMessages();
-            permissions.get(store.getStoreId()).allowViewPurchaseHistory();
-            permissions.get(store.getStoreId()).allowAddPermissions();
-            permissions.get(store.getStoreId()).allowRemovePermission();
-            permissions.get(store.getStoreId()).allowViewDiscountPolicies();
-            permissions.get(store.getStoreId()).allowViewPurchasePolicies();
-            permissions.get(store.getStoreId()).allowResponedToOffer();
-        }
-
-
+            memberStorePermissionsWrapper.add(p, id, store.getStoreId());
     }
 
     public Result addStoreManager(User owner,User user, Store store) {
-        return permissions.get(store.getStoreId()).appointManager(owner,user);
+        Permission p = memberStorePermissionsWrapper.getPermission(owner,store);
+        return p.appointManager(owner,user);
+        //return permissions.get(store.getStoreId()).appointManager(owner,user);
     }
 
-    public void updateManagerPermission(Store store) {
-        if(!permissions.containsKey(store.getStoreId()))
+    public void updateManagerPermission(Store store,User user) {
+        Permission p = memberStorePermissionsWrapper.getPermission(user,store);
+        if(p== null)
         {
-            Permission p = new Permission(this, store);
-            p.allowGetWorkersInfo();
-            p.allowViewMessages();
-            p.allowReplayMessages();
-            permissions.put(store.getStoreId(),p);
+            Permission newP = new Permission(this, store);
+            newP.allowGetWorkersInfo();
+            newP.allowViewMessages();
+            newP.allowReplayMessages();
+            memberStorePermissionsWrapper.add(newP, id, store.getStoreId());
         }
         else {
-            permissions.get(store.getStoreId()).allowGetWorkersInfo();
-            permissions.get(store.getStoreId()).allowViewMessages();
-            permissions.get(store.getStoreId()).allowReplayMessages();
+            memberStorePermissionsWrapper.enablePermissionOnUser(id,store.getStoreId(),"getWorkersInfo");
+            memberStorePermissionsWrapper.enablePermissionOnUser(id,store.getStoreId(),"viewMessages");
+            memberStorePermissionsWrapper.enablePermissionOnUser(id,store.getStoreId(),"replayMessages");
         }
+
+//        if(!permissions.containsKey(store.getStoreId()))
+//        {
+//            Permission p = new Permission(this, store);
+//            p.allowGetWorkersInfo();
+//            p.allowViewMessages();
+//            p.allowReplayMessages();
+//            permissions.put(store.getStoreId(),p);
+//        }
+//        else {
+//            permissions.get(store.getStoreId()).allowGetWorkersInfo();
+//            permissions.get(store.getStoreId()).allowViewMessages();
+//            permissions.get(store.getStoreId()).allowReplayMessages();
+//        }
 
     }
 
     public Result addPermissions(User user, Store store, List<Integer> opIndexes) {
-        if(permissions.get(store.getStoreId())!=null && store.isManager(user) && permissions.get(store.getStoreId()).addPermissions()) {
+        Permission p = memberStorePermissionsWrapper.getPermission(user,store);
+        if(p!=null && store.isManager(user) && p.addPermissions()) {
             user.updateMyPermissions(store, opIndexes);
             return new Result(true,"permissions added successfully");
         }
         return new Result(false,"permissions didn't added ");
     }
     public Result removePermissions(User user, Store store, List<Integer> opIndexes) {
-        if(permissions.get(store.getStoreId())!=null && store.isManager(user) &&permissions.get(store.getStoreId()).removePermission()) {
+        Permission p = memberStorePermissionsWrapper.getPermission(user,store);
+        if(p!=null && store.isManager(user) && p.removePermission()) {
             user.disableMyPermissions(store, opIndexes);
             return new Result(true,"permissions remove successfully");
         }
@@ -175,109 +166,130 @@ public class Member {
     }
 
     public void disableMyPermissions(Store store, List<Integer> opIndexes) {
-        Permission p = permissions.get(store.getStoreId());
-        if(p!= null) {
             for (int permission : opIndexes) {
                 switch (permission) {
                     case 1: {
-                        p.disableAddProduct();
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
+                       // p.disableAddProduct();
                         break;
                     }
                     case 2: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"appointManager");
                         p.disableAppointManager();
                         break;
                     }
                     case 3: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"appointOwner");
                         p.disableAppointOwner();
                         break;
                     }
                     case 4: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"closeStore");
                         p.disableCloseStore();
                         break;
                     }
                     case 5: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"defineDiscountFormat");
                         p.disableDefineDiscountFormat();
                         break;
                     }
                     case 6: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"defineDiscountPolicy");
                         p.disableDefineDiscountPolicy();
                         break;
                     }
                     case 7: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"definePurchaseFormat");
                         p.disableDefinePurchaseFormat();
                         break;
                     }
                     case 8: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"definePurchasePolicy");
                         p.disableDefinePurchasePolicy();
                         break;
 
                     }
                     case 9: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"editDiscountFormat");
                         p.disableEditDiscountFormat();
                         break;
                     }
                     case 10: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableEditDiscountPolicy();
                         break;
                     }
                     case 11: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableEditProduct();
                         break;
                     }
                     case 12: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableEditPurchaseFormat();
                         break;
                     }
                     case 13: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableEditPurchasePolicy();
                         break;
                     }
                     case 14: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableGetWorkersInfo();
                         break;
                     }
                     case 15: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableOpenStore();
                         break;
                     }
                     case 16: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableRemoveManagerAppointment();
                         break;
                     }
                     case 17: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableRemoveOwnerAppointment();
                         break;
+
                     }
                     case 19: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableRemoveProduct();
                         break;
                     }
                     case 20: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableReopenStore();
                         break;
                     }
                     case 21: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableReplayMessages();
                         break;
                     }
                     case 22: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableViewMessages();
                         break;
                     }
                     case 23: {
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableViewPurchaseHistory();
                         break;
                     }
                     case 24:{
+                        memberStorePermissionsWrapper.disablePermissionOnUser(id,store.getStoreId(),"addProduct");
                         p.disableResponedToOffer();
                         break;
                     }
                 }
             }
-        }
     }
 
-    public void updateMyPermissions(Store store, List<Integer> opIndexes) {
+    public void updateMyPermissions(Store store, List<Integer> opIndexes,int userId) {
         Permission p = permissions.get(store.getStoreId());
         if(p!= null) {
             for (int permission : opIndexes) {
@@ -466,80 +478,86 @@ public class Member {
     }
 
     public boolean checkPermissions(Store store ,int permissionId) {
-        Permission p = permissions.get(store.getStoreId());
-        if(p!= null) {
+        //Permission p = permissions.get(store.getStoreId());
+        //Permission p = memberStorePermissionsWrapper.getPermission(store.getStoreId(),id);
                 switch (permissionId) {
                     case 1: {
-                        return p.getAddProduct()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"addProduct");
+                        //return p.getAddProduct()!=null;
                     }
                     case 2: {
-                        return p.getAppointManager()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"appointManager");
                     }
                     case 3: {
-                        return p.getAppointOwner()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"appointOwner");
                     }
                     case 4: {
-                        return p.getCloseStore()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"closeStore");
                     }
                     case 5: {
-                        return p.getDefineDiscountFormat()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"defineDiscountFormat");
                     }
                     case 6: {
-                        return p.getDefineDiscountPolicy()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"defineDiscountPolicy");
                     }
                     case 7: {
-                        return p.getDefinePurchaseFormat()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"definePurchaseFormat");
                     }
                     case 8: {
-                        return p.getDefinePurchasePolicy()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"definePurchasePolicy");
                     }
                     case 9: {
-                        return p.getEditDiscountFormat()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"editDiscountFormat");
                     }
                     case 10: {
-                        return p.getEditDiscountPolicy()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"editDiscountPolicy");
+
                     }
                     case 11: {
-                        return p.getEditProduct()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"editProduct");
                     }
                     case 12: {
-                        return p.getEditPurchaseFormat()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"editPurchaseFormat");
                     }
                     case 13: {
-                        return p.getEditPurchasePolicy()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"editPurchasePolicy");
                     }
                     case 14: {
-                        return p.getGetWorkersInfo()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"getWorkersInfo");
                     }
                     case 15: {
-                        return p.getOpenStore()!=null;
+
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"openStore");
                     }
                     case 16: {
-                        return p.getRemoveManagerAppointment()!=null;
+
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"removeManagerAppointment");
+
                     }
                     case 17: {
-                        return p.getRemoveOwnerAppointment()!=null;
+
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"removeOwnerAppointment");
                     }
                     case 19: {
-                        return p.getRemoveProduct()!=null;
+
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"removeProduct");
                     }
                     case 20: {
-                        return p.getReopenStore()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"reopenStore");
                     }
                     case 21: {
-                        return p.getReplayMessages()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"replayMessages");
                     }
                     case 22: {
-                        return p.getViewMessages()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"viewMessages");
                     }
                     case 23: {
-                        return p.getViewPurchaseHistory()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"viewPurchaseHistory");
                     }
                     case 26:{
-                        return p.getResponedToOffer()!=null;
+                        return memberStorePermissionsWrapper.checkPermission(store.getStoreId(),id,"responedToOffer");
                     }
                 }
-            }
         return false;
         }
 

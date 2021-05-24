@@ -239,11 +239,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PlayGround" />
-        <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.LoginTest.scalabilityUserTest" />
         <item itemvalue="JUnit.LoginTest.loginSuccessTest" />
+        <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="Application.PlayGround" />
       </list>
     </recent_temporary>
   </component>

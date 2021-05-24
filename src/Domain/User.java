@@ -4,6 +4,7 @@ import Persistence.UserMessagesWrapper;
 import Persistence.BagWrapper;
 import Persistence.UserWrapper;
 import Persistence.MemberStorePermissionsWrapper;
+import Persistence.CounterWrapper;
 
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountCondition;
@@ -20,7 +21,7 @@ import java.util.*;
 import java.util.concurrent.ConcurrentLinkedDeque;
 
 public class User implements Observer {
-    private static counter messageCounter;
+    private CounterWrapper messageCounter;
     private boolean registered ;
     private List<Bag> bags;
     private String userName;
@@ -62,7 +63,7 @@ public class User implements Observer {
         this.loginMessages = new ConcurrentLinkedDeque<>();
         this.isSystemManager = false;
         this.session = new realSession();
-        messageCounter = new counter();
+        messageCounter = new CounterWrapper();
         this.bagWrapper = new BagWrapper();
         this.messagesWrapper = new UserMessagesWrapper();
         this.receiptWrapper = new ReceiptWrapper();
@@ -71,13 +72,6 @@ public class User implements Observer {
     }
 
 
-    public static counter getMessageCounter() {
-        return messageCounter;
-    }
-
-    public static void setMessageCounter(counter messageCounter) {
-        User.messageCounter = messageCounter;
-    }
 
     public void setBags(List<Bag> bags) {
         this.bags = bags;
@@ -356,12 +350,17 @@ public class User implements Observer {
     public void update(Observable observable, Object arg)
     {
         observableType = (ObservableType) observable;
-        if(this.logged)
+        if(userWrapper.get(id).getLogged())
         {
             loginMessages.add(observableType.getMessage());
         }
         else
-            messagesWrapper.add(id,messageCounter.inc(),observableType.getMessage());
+        {
+
+            int msgId = this.messageCounter.incAndGet("messageCounter");
+            messagesWrapper.add(id,msgId,observableType.getMessage());
+        }
+
     }
     @Transient
     public Queue<String> getMessages()
@@ -387,7 +386,7 @@ public class User implements Observer {
         {
             JSONObject jo = new JSONObject(msg);
             String data = jo.get("data").toString();
-            this.messagesWrapper.add(id,messageCounter.inc(),data);
+            this.messagesWrapper.add(id,messageCounter.incAndGet("messageCounter"),data);
         }
         else
            session.send(msg);

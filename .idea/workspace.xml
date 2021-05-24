@@ -22,19 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="store and inventory DB">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="add user and permission dao">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt.1" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Member.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Permission.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Permission.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/AppointOwner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PermissionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PermissionTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -174,13 +168,28 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PermissionTest.changeManagerPermission">
+  <component name="RunManager" selected="JUnit.PermissionTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -201,7 +210,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PermissionTest.addProductPermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PermissionTest.addPermissionToNonPermission" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -211,7 +220,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.PermissionTest" />
-      <option name="METHOD_NAME" value="addProductPermission" />
+      <option name="METHOD_NAME" value="addPermissionToNonPermission" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -228,22 +237,6 @@
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.PermissionTest" />
       <option name="METHOD_NAME" value="changeManagerPermission" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PermissionTest.systemMangerPermissions" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.PermissionTest" />
-      <option name="METHOD_NAME" value="systemMangerPermissions" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -266,11 +259,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PermissionTest.changeManagerPermission" />
         <item itemvalue="JUnit.PermissionTest" />
-        <item itemvalue="JUnit.PermissionTest.addProductPermission" />
         <item itemvalue="JUnit.StoreTest" />
-        <item itemvalue="JUnit.PermissionTest.systemMangerPermissions" />
+        <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.PermissionTest.addPermissionToNonPermission" />
+        <item itemvalue="JUnit.PermissionTest.changeManagerPermission" />
       </list>
     </recent_temporary>
   </component>
@@ -315,12 +308,6 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="27039000" />
-    </task>
-    <task id="LOCAL‎00011" summary="merge API, permissions">
-      <created>1618585406886</created>
-      <option name="number" value="LOCAL‎00011" />
-      <option name="presentableId" value="LOCAL‎00011" />
-      <updated>1618585406886</updated>
     </task>
     <task id="LOCAL-00012" summary="change permissions">
       <created>1618590697723</created>
@@ -639,7 +626,14 @@
       <option name="presentableId" value="LOCAL‎00059" />
       <updated>1621789695754</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="add user and permission dao">
+      <created>1621862882794</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1621862882794</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -686,9 +680,9 @@
     <MESSAGE value="elad do everything!" />
     <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
-    <MESSAGE value="add user and permission dao" />
     <MESSAGE value="store and inventory DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="store and inventory DB" />
+    <MESSAGE value="add user and permission dao" />
+    <option name="LAST_COMMIT_MESSAGE" value="add user and permission dao" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -852,6 +846,16 @@
           <url>file://$PROJECT_DIR$/src/Tests/PermissionTest.java</url>
           <line>199</line>
           <option name="timeStamp" value="163" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Domain/Member.java</url>
+          <line>164</line>
+          <option name="timeStamp" value="167" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Domain/Member.java</url>
+          <line>162</line>
+          <option name="timeStamp" value="168" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />

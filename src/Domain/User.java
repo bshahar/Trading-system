@@ -275,8 +275,8 @@ public class User implements Observer {
     }
 
     public Result addStoreManager(User user, Store store) {
-        this.member.addStoreManager(this,user,store);
-        return this.memberStorePermissionsWrapper.add(user.member.getPermissions().get(store.getStoreId()), user.getId(),store.getStoreId());
+        return this.member.addStoreManager(this,user,store);
+        //return this.memberStorePermissionsWrapper.add(user.member.getPermissions().get(store.getStoreId()), user.getId(),store.getStoreId());
     }
 
     public void updateManagerPermission(Store store) {
@@ -288,7 +288,7 @@ public class User implements Observer {
     }
 
     public void updateMyPermissions(Store store, List<Integer> opIndexes) {
-        this.member.updateMyPermissions(store,opIndexes,id);
+        this.member.updateMyPermissions(store,opIndexes);
     }
 
     public Result removePermissions(User user, Store store, List<Integer> opIndexes) {

@@ -21,7 +21,7 @@ public class AppointOwner {
             user.updateOwnerPermission(store);
             user.addToMyStores(store);
             MemberStorePermissionsWrapper memberStorePermissionsWrapper= new MemberStorePermissionsWrapper();
-            memberStorePermissionsWrapper.add(user.getMember().getPermissions().get(store.getStoreId()),user.getId(),store.getStoreId());
+            memberStorePermissionsWrapper.add(user.getMember().getPermissions(store),user.getId(),store.getStoreId());
 
             return new Result(true,true);
         }

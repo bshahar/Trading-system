@@ -149,7 +149,7 @@ public class MemberStorePermissionsWrapper {
             }
 
             member.setMyStores(stores);
-            member.setPermissions(result);
+            //member.setPermissions(result);
 
 
             connectionSource.close();
@@ -164,18 +164,18 @@ public class MemberStorePermissionsWrapper {
     }
 
 
-    public Permission getPermission(User user, Store store ) {
+    public Permission getPermission(Member member, Store store ) {
         try {
             ConnectionSource connectionSource = connect();
             Dao<MemberStorePermissionsDAO, String> MemberManager = DaoManager.createDao(connectionSource, MemberStorePermissionsDAO.class);
             Map<String, Object> map = new HashMap<>();
-            map.put("userId", user.getId());
+            map.put("userId", member.getId());
             map.put("storeId", store.getStoreId());
             List<MemberStorePermissionsDAO> permissions = MemberManager.queryForFieldValues(map);
             connectionSource.close();
             if(permissions.size()==1)
             {
-                 return makePermissionFromList(user.getMember(),store,permissions.get(0));
+                 return makePermissionFromList(member,store,permissions.get(0));
             }
             return null;
         }
@@ -276,7 +276,7 @@ public class MemberStorePermissionsWrapper {
             // create an instance of Account
             MemberManager.executeRaw("UPDATE MemberStorePermissions\n" +
                     "SET "+permission_name+"= 0"+
-                    "WHERE userId = "+String.valueOf(userId)+"AND storeId= "+String.valueOf(storeID)+";");
+                    " WHERE userId = "+String.valueOf(userId)+" AND storeId= "+String.valueOf(storeID)+";");
             connectionSource.close();
             return true;
         }

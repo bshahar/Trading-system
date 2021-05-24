@@ -63,6 +63,9 @@ public class DataBaseHelper {
             Dao<ProductCategoriesDAO, String>ProductCategoriesDAOManager = DaoManager.createDao(connectionSource,ProductCategoriesDAO.class);
             ProductCategoriesDAOManager.executeRaw("DELETE FROM ProductCategories");
 
+            Dao<UserAuthDAO, String>UserAuthDAOManager = DaoManager.createDao(connectionSource,UserAuthDAO.class);
+            UserAuthDAOManager.executeRaw("DELETE FROM UserNamePasswords");
+
             connectionSource.close();
         } catch (Exception e)
         {

@@ -22,12 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="Permission Tests Works">
-      <change afterPath="$PROJECT_DIR$/src/Persistence/CounterWrapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/CounterDAO.java" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="store test and inventory DB pass">
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/UserAuthDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/UserAuthWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/UserAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserAuth.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,7 +99,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="userStoreDB" />
+        <entry key="$PROJECT_DIR$" value="eladNewBranch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -167,7 +170,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NotficationsTest">
+  <component name="RunManager" selected="JUnit.PermissionTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -194,6 +197,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="LoginTest.logoutTwiceFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="METHOD_NAME" value="logoutTwiceFailTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="NotficationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -205,22 +224,6 @@
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NotficationsTest.notifyToSubscribersThatLoggedOutContentOfMessage" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
-      <option name="METHOD_NAME" value="notifyToSubscribersThatLoggedOutContentOfMessage" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -257,11 +260,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NotficationsTest" />
-        <item itemvalue="JUnit.NotficationsTest.notifyToSubscribersThatLoggedOutContentOfMessage" />
         <item itemvalue="JUnit.PermissionTest" />
         <item itemvalue="JUnit.StoreTest" />
         <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.LoginTest.logoutTwiceFailTest" />
+        <item itemvalue="JUnit.NotficationsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -837,28 +840,33 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/PermissionTest.java</url>
-          <line>119</line>
+          <line>122</line>
           <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/PermissionTest.java</url>
-          <line>199</line>
+          <line>202</line>
           <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Member.java</url>
-          <line>164</line>
+          <line>157</line>
           <option name="timeStamp" value="167" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Member.java</url>
-          <line>162</line>
+          <line>154</line>
           <option name="timeStamp" value="168" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/NotficationsTest.java</url>
           <line>127</line>
           <option name="timeStamp" value="169" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="171" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
@@ -872,12 +880,12 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Tests.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Server.LoginPage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
     </SUITE>
   </component>
 </project>

@@ -53,9 +53,6 @@ public class Bag {
         return store;
     }
 
-    public Map<Product, Double> getProductsApproved() {
-        return productsApproved;
-    }
 
     public void setProducts(Map<Product,Integer> prods,int userId,int storeId) {
         this.productsAmounts.addProducts(prods,userId,storeId);
@@ -80,7 +77,7 @@ public class Bag {
         return total;
     }
 
-    public void approveCounterOffer(Product prod,int storeId,int userId) {
+    public void approveCounterOffer(Product prod,int storeId) {
         double priceOfOffer = this.counterOffers.get(prod).getPriceOfOffer();
         int amountOfProd = this.counterOffers.get(prod).getNumOfProd();
         int userId = this.counterOffers.get(prod).getUser().getId();

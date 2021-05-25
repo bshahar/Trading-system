@@ -476,11 +476,11 @@ public class API {
     }
 
     public static Result approveCounterOffer(int storeId, int userId, int prodId,  boolean approve){
-        return tradingSystem.responedToCounterPurchaseOffer(storeId, userId, prodId, true);
+        return tradingSystem.respondToCounterPurchaseOffer(storeId, userId, prodId, true);
     }
 
     public static Result rejectCounterOffer(int storeId, int userId, int prodId,  boolean approve){
-        return tradingSystem.responedToCounterPurchaseOffer(storeId, userId, prodId, false);
+        return tradingSystem.respondToCounterPurchaseOffer(storeId, userId, prodId, false);
     }
 
     public static Result getOffersForStore(int storeId, int userId){

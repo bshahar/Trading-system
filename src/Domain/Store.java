@@ -77,9 +77,9 @@ public class Store {
         this.discountsOnCategories = new DiscountsOnCategoriesWrapper();
         this.counter = new counter();
         this.offerCounter = new counter();
-        this.purchasesOnProducts = new ConcurrentHashMap<>();
-        this.purchasesOnCategories = new ConcurrentHashMap<>();
-        this.offersOnProduct = new ConcurrentHashMap<>();
+        this.purchasesOnProducts = new PurchasesOnProductsWrapper();
+        this.purchasesOnCategories = new PurchaseOnCategoriesWrapper();
+        this.offersOnProduct = new OffersOnProductWrapper();
     }
 
 

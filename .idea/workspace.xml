@@ -22,7 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 fix tests of discount policies" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment=".">
+      <change beforePath="$PROJECT_DIR$/src/Domain/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Bag.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +90,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/eladNewBranch" />
+    <option name="BRANCH" value="origin/purchaseDataBase" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -287,14 +292,7 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="1096000" />
-      <workItem from="1621682093021" duration="54429000" />
-    </task>
-    <task id="LOCAL-00014" summary="Adapter Injection #38">
-      <created>1618908950635</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1618908950635</updated>
+      <workItem from="1621682093021" duration="55052000" />
     </task>
     <task id="LOCAL-00015" summary="Adapter Injection #38">
       <created>1619101791571</created>
@@ -604,7 +602,13 @@
       <option name="presentableId" value="LOCAL‎00062" />
       <updated>1621975989800</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL‎00063" summary=".">
+      <created>1621976053386</created>
+      <option name="number" value="LOCAL‎00063" />
+      <option name="presentableId" value="LOCAL‎00063" />
+      <updated>1621976053386</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -627,7 +631,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="logger in the trading system" />
     <MESSAGE value="logger in the code" />
     <MESSAGE value="pemission action web socket" />
     <MESSAGE value="xml" />
@@ -652,7 +655,8 @@
     <MESSAGE value="#61 start fix discounts tests" />
     <MESSAGE value="#61 impl get discount on product from db" />
     <MESSAGE value="#61 fix tests of discount policies" />
-    <option name="LAST_COMMIT_MESSAGE" value="#61 fix tests of discount policies" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -724,7 +728,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>278</line>
+          <line>279</line>
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -734,7 +738,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>257</line>
+          <line>256</line>
           <option name="timeStamp" value="132" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

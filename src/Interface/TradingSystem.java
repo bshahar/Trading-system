@@ -172,10 +172,10 @@ public class TradingSystem {
         return r;
     }
 
-    public Result responedToCounterPurchaseOffer(int storeId, int userId, int prodId, boolean approve) {
+    public Result respondToCounterPurchaseOffer(int storeId, int userId, int prodId, boolean approve) {
         Bag bag = getUserById(userId).getBagByStoreId(storeId);
         if(approve){
-          bag.approveCounterOffer(getProductById(prodId),storeId,userId);
+          bag.approveCounterOffer(getProductById(prodId),storeId);
         }
         bag.rejectCounterOffer(getProductById(prodId));
         return new Result(true, "the counter offer has been responed");

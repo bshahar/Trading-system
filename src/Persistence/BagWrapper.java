@@ -69,7 +69,7 @@ public class BagWrapper {
 
             for (Map.Entry<Integer, List<BagProductAmountDAO>> entry : storeId_Bag.entrySet())
             {
-                Bag bag = new Bag(storeWrapper.getById(entry.getKey()));
+                Bag bag = new Bag(storeWrapper.getById(entry.getKey()), userId);
                 result.add(bag);
             }
             connectionSource.close();

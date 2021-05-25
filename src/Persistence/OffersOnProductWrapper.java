@@ -48,7 +48,6 @@ public class OffersOnProductWrapper {
 
             connectionSource.close();
         } catch (Exception e) {
-            //TODO add rollback
         }
         if(this.value.containsKey(prod)) {
             LinkedList<PurchaseOffer> offers = this.value.get(prod);
@@ -88,7 +87,11 @@ public class OffersOnProductWrapper {
 
     public LinkedList<PurchaseOffer> get(Store store, Product product) {
         this.value = get(store);
-        return this.value.get(product);
+        for (Product p: this.value.keySet()) {
+            if(p.getId() == product.getId())
+                return this.value.get(p);
+        }
+        return null;
     }
 
     public Map<Product, LinkedList<PurchaseOffer>> get(Store store) {

@@ -22,17 +22,18 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 union of discount &amp; purchase policies">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="tmp">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/PurchasePolicies/PurchaseCondition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchasePolicies/PurchaseCondition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt.1" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/StorePoliciesOnStoresDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/StorePoliciesOnStoresDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/PurchaseOnCategoriesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/PurchaseOnCategoriesWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/PurchaseOnStoresWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/PurchaseOnStoresWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/PurchasesOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/PurchasesOnProductsWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -133,6 +134,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="DatabaseDriversLRU" value="mysql" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="Downloaded.Files.Path.Enabled" value="false" />
@@ -177,19 +179,21 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest.addPurchasePolicyOnStoreSuccessTest">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscountAndPurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DiscountAndPurchaseTest.addOfferSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -199,28 +203,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DiscountAndPurchaseTest.addPurchasePolicyOnStoreSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="addPurchasePolicyOnStoreSuccessTest" />
+      <option name="METHOD_NAME" value="addOfferSuccessTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscountAndPurchaseTest.purchaseContradictsAgeAndAmountPolicyFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DiscountAndPurchaseTest.approveOfferWithPermissionSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -230,13 +219,13 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="purchaseContradictsAgeAndAmountPolicyFailTest" />
+      <option name="METHOD_NAME" value="approveOfferWithPermissionSuccessTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PermissionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DiscountAndPurchaseTest.approveOfferWithoutPermissionFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -245,13 +234,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.PermissionTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+      <option name="METHOD_NAME" value="approveOfferWithoutPermissionFailTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -260,19 +250,36 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+      <option name="METHOD_NAME" value="buyProductAfterCounterOfferAndApprove" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiscountAndPurchaseTest.buyProductAfterOfferSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+      <option name="METHOD_NAME" value="buyProductAfterOfferSuccessTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.addPurchasePolicyOnStoreSuccessTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.purchaseContradictsAgeAndAmountPolicyFailTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
-        <item itemvalue="JUnit.PermissionTest" />
-        <item itemvalue="JUnit.StoreTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterOfferSuccessTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithPermissionSuccessTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithoutPermissionFailTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.addOfferSuccessTest" />
       </list>
     </recent_temporary>
   </component>
@@ -296,14 +303,8 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="1096000" />
-      <workItem from="1621682093021" duration="58116000" />
-    </task>
-    <task id="LOCAL-00016" summary="Adapter Injection #38">
-      <created>1619167388809</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1619167388809</updated>
+      <workItem from="1621682093021" duration="58405000" />
+      <workItem from="1621980323419" duration="2783000" />
     </task>
     <task id="LOCAL-00017" summary="Adapter Injection #38">
       <created>1619170775766</created>
@@ -611,7 +612,13 @@
       <option name="presentableId" value="LOCAL‎00064" />
       <updated>1621977164562</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL‎00065" summary="tmp">
+      <created>1621980014399</created>
+      <option name="number" value="LOCAL‎00065" />
+      <option name="presentableId" value="LOCAL‎00065" />
+      <updated>1621980014399</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -634,7 +641,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="pemission action web socket" />
     <MESSAGE value="xml" />
     <MESSAGE value="#62 create configuration files for system initialization and tests" />
     <MESSAGE value="fix dates sent to GUI in view policies" />
@@ -659,7 +665,8 @@
     <MESSAGE value="#61 fix tests of discount policies" />
     <MESSAGE value="." />
     <MESSAGE value="#61 union of discount &amp; purchase policies" />
-    <option name="LAST_COMMIT_MESSAGE" value="#61 union of discount &amp; purchase policies" />
+    <MESSAGE value="tmp" />
+    <option name="LAST_COMMIT_MESSAGE" value="tmp" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -695,11 +702,6 @@
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>377</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/MyTest.java</url>
           <line>48</line>
           <option name="timeStamp" value="54" />
@@ -730,24 +732,34 @@
           <option name="timeStamp" value="126" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>258</line>
-          <option name="timeStamp" value="135" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Persistence/PurchasesOnProductsWrapper.java</url>
           <line>38</line>
           <option name="timeStamp" value="138" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Permissions/DefinePurchasePolicy.java</url>
-          <line>29</line>
-          <option name="timeStamp" value="140" />
+          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
+          <line>676</line>
+          <option name="timeStamp" value="156" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Persistence/PurchaseOnStoresWrapper.java</url>
-          <line>71</line>
-          <option name="timeStamp" value="141" />
+          <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
+          <line>342</line>
+          <option name="timeStamp" value="157" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
+          <line>359</line>
+          <option name="timeStamp" value="158" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
+          <line>357</line>
+          <option name="timeStamp" value="159" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
+          <line>175</line>
+          <option name="timeStamp" value="160" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
@@ -758,6 +770,7 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo parentTag="Domain.DiscountPolicies.DiscountCondition" memberName="id" />
+        <PinnedItemInfo parentTag="Persistence.DiscountsOnProductsWrapper" memberName="value" />
       </pinned-members>
     </pin-to-top-manager>
   </component>

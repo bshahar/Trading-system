@@ -673,8 +673,8 @@ public class TradingSystem {
                         if (store.canBuyProduct(product, productsAmountBag.get(product))) {
                             store.removeProductAmount(product, productsAmountBag.get(product));
                             productsAmountBuy.put(product, productsAmountBag.get(product));
-                            if(offerPrices.containsKey(product)) {
-                                totalCost += ((offerPrices.get(product) - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));
+                            if(offerContains(offerPrices, product.getId())) {
+                                totalCost += ((offerPrice(offerPrices, product.getId()) - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));
                             }
                             else
                                 totalCost += ((product.getPrice() - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));
@@ -726,6 +726,22 @@ public class TradingSystem {
             KingLogger.logError("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
             return new Result(false, "purchase failed");
         }
+    }
+
+    private boolean offerContains(Map<Product,Double> offers, int productId) {
+        for (Product p: offers.keySet()) {
+            if (p.getId() == productId)
+                return true;
+        }
+        return false;
+    }
+
+    private double offerPrice(Map<Product,Double> offers, int productId) {
+        for (Product p: offers.keySet()) {
+            if (p.getId() == productId)
+                return offers.get(p);
+        }
+        return -1;
     }
 
     private boolean validatePaymentDetails(Map<String, String> paymentData) {

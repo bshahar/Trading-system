@@ -30,10 +30,9 @@ public class DiscountsOnStoresWrapper {
 
     private Discount value;
 
-    /*
-    public DiscountsOnStoresWrapper(Discount discount) {
-        this.value = discount;
-    }*/
+
+    public DiscountsOnStoresWrapper() {
+    }
 
     public DiscountsOnStoresWrapper(int storeId, Discount discount) {
         try {

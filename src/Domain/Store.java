@@ -53,10 +53,12 @@ public class Store {
         this.managers = new StoreManagerWrapper();
         this.discountsOnProducts = new DiscountsOnProductsWrapper();
         this.discountsOnCategories = new DiscountsOnCategoriesWrapper();
+        //this.discountsOnStore = new DiscountsOnStoresWrapper();
         this.counter = new counter();
         this.offerCounter = new counter();
         this.purchasesOnProducts = new PurchasesOnProductsWrapper();
         this.purchasesOnCategories = new PurchaseOnCategoriesWrapper();
+        this.purchasesOnStore = new PurchaseOnStoresWrapper();
         this.offersOnProduct = new OffersOnProductWrapper();
     }
 
@@ -75,10 +77,12 @@ public class Store {
         this.managers = new StoreManagerWrapper();
         this.discountsOnProducts = new DiscountsOnProductsWrapper();
         this.discountsOnCategories = new DiscountsOnCategoriesWrapper();
+        //this.discountsOnStore = new DiscountsOnStoresWrapper();
         this.counter = new counter();
         this.offerCounter = new counter();
         this.purchasesOnProducts = new PurchasesOnProductsWrapper();
         this.purchasesOnCategories = new PurchaseOnCategoriesWrapper();
+        this.purchasesOnStore = new PurchaseOnStoresWrapper();
         this.offersOnProduct = new OffersOnProductWrapper();
     }
 
@@ -379,7 +383,7 @@ public class Store {
             if(ip != null)
                 isValid = isValid && ip.validatePurchase(user, time, bag);
         }
-        if (this.purchasesOnStore != null)
+        if (this.purchasesOnStore.getValue(this.storeId) != null)
             isValid = isValid && purchasesOnStore.getValue(this.storeId).validatePurchase(user, time, bag);
         return isValid;
 
@@ -435,9 +439,10 @@ public class Store {
     }
 
     public Result viewDiscountPoliciesOnStore() {
-        if(this.discountsOnStore != null) {
+        Discount dis = this.discountsOnStore.get(this.storeId);
+        if(dis != null) {
             List<Object> discountPolicies = new LinkedList<>();
-            Discount dis = this.discountsOnStore.get(this.storeId);
+            //Discount dis = this.discountsOnStore.get(this.storeId);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
                 discountPolicies.add(((ConditionalDiscount) dis).getConditions().getOperatorStr());

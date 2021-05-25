@@ -9,14 +9,14 @@ public class StorePoliciesOnStoresDAO {
     @DatabaseField(id = true)
     private int storeId;
     @DatabaseField
-    private int immediatePurchaseId;
+    private int immediateId;
 
     public StorePoliciesOnStoresDAO() {
         // ORMLite needs a no-arg constructor
     }
-    public StorePoliciesOnStoresDAO(int storeId, int immediatePurchaseId) {
+    public StorePoliciesOnStoresDAO(int storeId, int immediateId) {
         this.storeId = storeId;
-        this.immediatePurchaseId = immediatePurchaseId;
+        this.immediateId = immediateId;
     }
 
     public int getStoreId() {
@@ -24,15 +24,15 @@ public class StorePoliciesOnStoresDAO {
     }
 
     public int getImmediatePurchaseId() {
-        return immediatePurchaseId;
+        return immediateId;
     }
 
     public void setStoreId(int storeId) {
         this.storeId = storeId;
     }
 
-    public void setImmediatePurchaseId(int immediatePurchaseId) {
-        this.immediatePurchaseId = immediatePurchaseId;
+    public void setImmediatePurchaseId(int immediateId) {
+        this.immediateId = immediateId;
     }
 
 }

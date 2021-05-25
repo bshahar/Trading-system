@@ -28,9 +28,8 @@ public class PurchaseOnStoresWrapper {
 
     private ImmediatePurchase value;
 
- /*   public PurchaseOnStoresWrapper(ImmediatePurchase immediatePurchase) {
-        this.value = immediatePurchase;
-    }*/
+    public PurchaseOnStoresWrapper() {
+    }
 
     public PurchaseOnStoresWrapper(int storeId, ImmediatePurchase immediatePurchase) {
         try {

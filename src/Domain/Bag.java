@@ -2,6 +2,8 @@ package Domain;
 
 import Domain.PurchaseFormat.PurchaseOffer;
 import Persistence.BagWrapper;
+import Persistence.UserApprovedOffersWrapper;
+import Persistence.UserCounterOffersWrapper;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -11,16 +13,19 @@ import java.util.Map;
 
 public class Bag {
     private Store store;
+    private int userId;
     BagWrapper productsAmounts;
-    Map<Product,Double> productsApproved; // the product that approved and his price
-    Map<Product, PurchaseOffer> counterOffers;
+    UserApprovedOffersWrapper productsApproved; // the product that approved and his price
+    UserCounterOffersWrapper counterOffers;
 
-    public Bag(Store store)
+    public Bag(Store store, int userId)
     {
         this.store = store;
+        this.userId = userId;
         this.productsAmounts = new BagWrapper();
-        this.productsApproved = new HashMap<>();
-        this.counterOffers = new HashMap<>();
+        this.productsApproved = new UserApprovedOffersWrapper();
+        this.counterOffers = new UserCounterOffersWrapper();
+
 
     }
 
@@ -67,10 +72,10 @@ public class Bag {
     public double getBagTotalCost (int userId,int storeId) {
         double total = 0;
         for (Product p: this.productsAmounts.getProductsAmount(userId,storeId).keySet()) {
-            if(!this.productsApproved.containsKey(p))
+            if(!this.productsApproved.contains(p))
                 total += p.getPrice();
             else
-                total += productsApproved.get(p);
+                total += productsApproved.get(this.store, this.userId, p);
         }
         return total;
     }
@@ -78,22 +83,23 @@ public class Bag {
     public void approveCounterOffer(Product prod,int storeId,int userId) {
         double priceOfOffer = this.counterOffers.get(prod).getPriceOfOffer();
         int amountOfProd = this.counterOffers.get(prod).getNumOfProd();
+        int userId = this.counterOffers.get(prod).getUser().getId();
         this.productsAmounts.add(prod,amountOfProd,storeId,userId);
-        this.counterOffers.remove(prod);
-        this.productsApproved.put(prod,priceOfOffer);
+        this.counterOffers.remove(getStoreId(),prod,this.counterOffers.get(prod));
+        this.productsApproved.add(getStoreId(),userId, prod,this.counterOffers.get(prod).getPriceOfOffer());
 
     }
 
     public void rejectCounterOffer(Product prod) {
-        this.counterOffers.remove(prod);
+        this.counterOffers.remove(getStoreId(),prod,this.counterOffers.get(prod));
     }
 
     public Map<Product, Double> getOfferPrices() {
-        return this.productsApproved;
+        return this.productsApproved.get(this.store, this.userId);
     }
 
     public Map<Product, PurchaseOffer> getCounterOffers() {
-        return this.counterOffers;
+        return this.counterOffers.get(this.store, this.userId);
     }
 
    /* public void offerApproved(Product prod, double offer){

@@ -238,7 +238,7 @@ public class User implements Observer {
     }
 
     public void createNewBag(Store store, int prodId, int amount) {
-        Bag b = new Bag(store);
+        Bag b = new Bag(store, this.getId());
         b.addProduct(store.getProductById(prodId),amount,id);
         this.bags.add(b);
     }

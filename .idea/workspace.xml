@@ -22,9 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 put wrappers instead of maps in store class">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="stam">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -284,13 +284,7 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="1096000" />
-      <workItem from="1621682093021" duration="15825000" />
-    </task>
-    <task id="LOCAL‎00009" summary="adding store test #26">
-      <created>1617891384196</created>
-      <option name="number" value="LOCAL‎00009" />
-      <option name="presentableId" value="LOCAL‎00009" />
-      <updated>1617891384197</updated>
+      <workItem from="1621682093021" duration="16406000" />
     </task>
     <task id="LOCAL‎00010" summary="fix all tests #26">
       <created>1617894697741</created>
@@ -602,7 +596,13 @@
       <option name="presentableId" value="LOCAL‎00057" />
       <updated>1621796372945</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL‎00058" summary="stam">
+      <created>1621925919702</created>
+      <option name="number" value="LOCAL‎00058" />
+      <option name="presentableId" value="LOCAL‎00058" />
+      <updated>1621925919702</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -625,7 +625,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Adapter Injection #38" />
     <MESSAGE value="update server and gui #44" />
     <MESSAGE value="add store page" />
     <MESSAGE value="merged gui with result" />
@@ -650,7 +649,8 @@
     <MESSAGE value="#61 add daos" />
     <MESSAGE value="#61 add to tables connecting discounts to stores" />
     <MESSAGE value="#61 put wrappers instead of maps in store class" />
-    <option name="LAST_COMMIT_MESSAGE" value="#61 put wrappers instead of maps in store class" />
+    <MESSAGE value="stam" />
+    <option name="LAST_COMMIT_MESSAGE" value="stam" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -6,9 +6,9 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "AgeLimitPolicy")
 public class AgeLimitPolicyDAO {
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int conditionId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int ageLimit;
 
     public AgeLimitPolicyDAO() {

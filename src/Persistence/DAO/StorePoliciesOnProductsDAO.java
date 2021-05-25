@@ -6,9 +6,9 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "StorePoliciesOnProducts")
 public class StorePoliciesOnProductsDAO {
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int storeId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int productId;
     @DatabaseField
     private int immediatePurchaseId;

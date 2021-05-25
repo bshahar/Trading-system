@@ -6,11 +6,11 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "MaxAmountPolicy")
 public class MaxAmountPolicyDAO {
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int conditionId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int productId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int maxAmount;
 
     public MaxAmountPolicyDAO() {

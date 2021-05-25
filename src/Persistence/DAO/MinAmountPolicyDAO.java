@@ -6,11 +6,11 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "MinAmountPolicy")
 public class MinAmountPolicyDAO {
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int conditionId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int productId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int minAmount;
 
     public MinAmountPolicyDAO() {

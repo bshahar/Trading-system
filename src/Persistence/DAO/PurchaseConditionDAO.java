@@ -12,7 +12,6 @@ public class PurchaseConditionDAO {
     private String logicOperator;
 
     public PurchaseConditionDAO() {
-        // ORMLite needs a no-arg constructor
     }
 
     public PurchaseConditionDAO(int id, String logicOperator) {

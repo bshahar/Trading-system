@@ -6,11 +6,11 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "UsersCounterOffers")
 public class UsersCounterOffersDAO {
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int storeId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int userId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int productId;
     @DatabaseField
     private int offerId;

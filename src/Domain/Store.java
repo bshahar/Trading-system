@@ -7,9 +7,7 @@ import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchaseFormat.ImmediatePurchase;
 import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
-import Persistence.DiscountsOnCategoriesWrapper;
-import Persistence.DiscountsOnProductsWrapper;
-import Persistence.DiscountsOnStoresWrapper;
+import Persistence.*;
 import Service.counter;
 import javafx.util.Pair;
 
@@ -31,13 +29,12 @@ public class Store {
     private DiscountsOnProductsWrapper discountsOnProducts;
     private DiscountsOnCategoriesWrapper discountsOnCategories;
     private DiscountsOnStoresWrapper discountsOnStore;
-    private Map<Product, ImmediatePurchase> purchasesOnProducts;
-    private Map<String, ImmediatePurchase> purchasesOnCategories;
-    private ImmediatePurchase purchasesOnStore;
+    private PurchasesOnProductsWrapper purchasesOnProducts;
+    private PurchaseOnCategoriesWrapper purchasesOnCategories;
+    private PurchaseOnStoresWrapper purchasesOnStore;
     private Map<User,List<User>> appointments; //appointer & list of appointees
     private Map<Integer, Bag> usersBags;
-    //private Map<Product,LinkedList<Pair<User,Double>>> offersOnProduct;
-    private Map<Product, LinkedList<PurchaseOffer>> offersOnProduct;
+    private OffersOnProductWrapper offersOnProduct;
     private double rate;
     private int ratesCount;
 
@@ -60,9 +57,9 @@ public class Store {
         this.counter = new counter();
         this.offerCounter = new counter();
         this.usersBags = new HashMap<>();
-        this.purchasesOnProducts = new ConcurrentHashMap<>();
-        this.purchasesOnCategories = new ConcurrentHashMap<>();
-        this.offersOnProduct = new ConcurrentHashMap<>();
+        this.purchasesOnProducts = new PurchasesOnProductsWrapper();
+        this.purchasesOnCategories = new PurchaseOnCategoriesWrapper();
+        this.offersOnProduct = new OffersOnProductWrapper();
     }
 
     public Inventory getInventory() {
@@ -241,15 +238,15 @@ public class Store {
     }
 
     public void addPurchaseOnProduct(int prodId, PurchaseCondition conditions) {
-        this.purchasesOnProducts.put(getProductById(prodId), new ImmediatePurchase(counter.inc(), conditions));
+        this.purchasesOnProducts.add(this.storeId, getProductById(prodId), new ImmediatePurchase(counter.inc(), conditions));
     }
 
     public void addPurchaseOnCategory(String category, PurchaseCondition conditions) {
-        this.purchasesOnCategories.put(category, new ImmediatePurchase(counter.inc(), conditions));
+        this.purchasesOnCategories.add(this.storeId, category, new ImmediatePurchase(counter.inc(), conditions));
     }
 
     public void addPurchaseOnStore(PurchaseCondition conditions) {
-        this.purchasesOnStore = new ImmediatePurchase(counter.inc(), conditions);
+        this.purchasesOnStore = new PurchaseOnStoresWrapper(new ImmediatePurchase(counter.inc(), conditions));
     }
 
     public void removeDiscountOnProduct(int prodId){
@@ -268,15 +265,21 @@ public class Store {
     }
 
     public void removePurchaseOnProduct(int prodId){
-        Product prod = this.inventory.getProductById(prodId);
-        this.purchasesOnProducts.remove(prod);
+        /*Product prod = this.inventory.getProductById(prodId);
+        this.purchasesOnProducts.remove(prod);*/
+        int immId = this.purchasesOnProducts.get(getProductById(prodId)).getId();
+        this.purchasesOnProducts.remove(immId);
     }
 
     public void removePurchaseOnCategory(String category){
-        this.purchasesOnCategories.remove(category);
+        //this.purchasesOnCategories.remove(category);
+        int immId = this.purchasesOnCategories.get(category).getId();
+        this.purchasesOnCategories.remove(immId);
     }
 
     public void removePurchaseOnStore(){
+        //this.purchasesOnStore = null;
+        this.purchasesOnStore.remove(this.purchasesOnStore.getValue().getId());
         this.purchasesOnStore = null;
     }
 
@@ -340,7 +343,7 @@ public class Store {
 
     public boolean validatePurchasePerProduct(Product prod ,User user, Date time, Bag bag){
         boolean isValid = true;
-        if (this.purchasesOnProducts.containsKey(prod)) {
+        if (this.purchasesOnProducts.contains(prod)) {
             ImmediatePurchase ip = purchasesOnProducts.get(prod);
             if(ip != null)
                 isValid = isValid && ip.validatePurchase(user, time, bag);
@@ -351,7 +354,7 @@ public class Store {
                 isValid = isValid && ip.validatePurchase(user, time, bag);
         }
         if (this.purchasesOnStore != null)
-            isValid = isValid && purchasesOnStore.validatePurchase(user, time, bag);
+            isValid = isValid && purchasesOnStore.getValue().validatePurchase(user, time, bag);
         return isValid;
 
     }
@@ -428,7 +431,7 @@ public class Store {
 
     public Result viewPurchasePoliciesOnProduct(int prodId) {
         Product product = getProductById(prodId);
-        if(product != null && this.purchasesOnProducts.containsKey(product)) {
+        if(product != null && this.purchasesOnProducts.contains(product)) {
             List<Object> purchasePolicies = new LinkedList<>();
             ImmediatePurchase ip = this.purchasesOnProducts.get(product);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
@@ -451,9 +454,9 @@ public class Store {
     }
 
     public Result viewPurchasePoliciesOnCategory(String category) {
-        if(category != null && this.purchasesOnCategories.containsKey(category)) {
+        if(category != null && this.purchasesOnCategories.contains(category)) {
             List<Object> purchasePolicies = new LinkedList<>();
-            ImmediatePurchase ip = this.purchasesOnProducts.get(category);
+            ImmediatePurchase ip = this.purchasesOnCategories.get(category);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             for (Policy policy : ((ImmediatePurchase) ip).getConditions().getPurchases()) {
                 policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
@@ -468,7 +471,7 @@ public class Store {
     public Result viewPurchasePoliciesOnStore() {
         if(this.purchasesOnStore != null) {
             List<Object> purchasePolicies = new LinkedList<>();
-            ImmediatePurchase ip = this.purchasesOnStore;
+            ImmediatePurchase ip = this.purchasesOnStore.getValue();
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             for (Policy policy : ((ImmediatePurchase) ip).getConditions().getPurchases()) {
                 policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
@@ -531,7 +534,9 @@ public class Store {
     public int addPurchaseOffer(int prodId, User user, double offer, int numOfProd) {
         int offerId =  offerCounter.inc();
         if(user.isRegistered()) {
-            if (this.offersOnProduct.containsKey(getProductById(prodId))) {
+            PurchaseOffer po = new PurchaseOffer(offerId,offer,numOfProd,user);
+            this.offersOnProduct.add(this.storeId, getProductById(prodId), po);
+            /*if (this.offersOnProduct.contains(getProductById(prodId))) {
                 List<PurchaseOffer> offers = this.offersOnProduct.get(getProductById(prodId));
                 Iterator<PurchaseOffer> iterator = offers.iterator();
                 while (iterator.hasNext()) {
@@ -545,7 +550,7 @@ public class Store {
                 LinkedList<PurchaseOffer> offers = new LinkedList();
                 offers.add(new PurchaseOffer(offerId,offer,numOfProd,user));
                 this.offersOnProduct.put(getProductById(prodId), offers);
-            }
+            }*/
             return offerId;
 
         }
@@ -568,9 +573,7 @@ public class Store {
                 po = p;
         }
         if(po != null)
-            offers.remove(po);
-        if(offers.size() == 0);
-        this.offersOnProduct.remove(getProductById(prodId));
+           this.offersOnProduct.remove(getProductById(prodId), po);
     }
 
     public Result responedToOffer(int prodId, int offerId, String responed, double counterOffer, String option) {
@@ -596,7 +599,7 @@ public class Store {
                             user.getBags().add(bag);
                         }
                         bag.productsAmounts.put(getProductById(prodId), amount);
-                        bag.productsApproved.put(getProductById(prodId), offer);
+                        bag.productsApproved.add(this.storeId,user.getId(), getProductById(prodId), offer);
                         removeOffer(prodId, offerId);
                         return new Result(true, "the offer approved");
                     }
@@ -621,7 +624,7 @@ public class Store {
                             bag = new Bag(this);
                             user.getBags().add(bag);
                         }
-                        bag.counterOffers.put(getProductById(prodId), po);
+                        bag.counterOffers.add(this.storeId, getProductById(prodId), po);
                         removeOffer(prodId, offerId);
                         return new Result(true, "counter offer has been sent");
                     }
@@ -635,7 +638,7 @@ public class Store {
         else
         {
            Map<PurchaseOffer, Product> output= new HashMap<>();
-            for (Map.Entry<Product, LinkedList<PurchaseOffer>> entry : offersOnProduct.entrySet()) {
+            for (Map.Entry<Product, LinkedList<PurchaseOffer>> entry : offersOnProduct.get(this).entrySet()) {
                 List<PurchaseOffer> offers = entry.getValue();
                 for (PurchaseOffer p: offers) {
                     output.put(p,entry.getKey());

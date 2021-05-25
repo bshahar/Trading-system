@@ -7,9 +7,9 @@ import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "TimeLimitPolicy")
 public class TimeLimitPolicyDAO {
 
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int conditionId;
-    @DatabaseField(id = true)
+    @DatabaseField(uniqueCombo = true)
     private int HourInDay;
 
     public TimeLimitPolicyDAO() {

@@ -1,6 +1,8 @@
 package Domain;
 
 import Domain.PurchaseFormat.PurchaseOffer;
+import Persistence.UserApprovedOffersWrapper;
+import Persistence.UserCounterOffersWrapper;
 
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -11,15 +13,15 @@ import java.util.Map;
 public class Bag {
     private Store store;
     Map<Product,Integer> productsAmounts;
-    Map<Product,Double> productsApproved; // the product that approved and his price
-    Map<Product, PurchaseOffer> counterOffers;
+    UserApprovedOffersWrapper productsApproved; // the product that approved and his price
+    UserCounterOffersWrapper counterOffers;
 
     public Bag(Store store)
     {
         this.store = store;
         this.productsAmounts = new HashMap<>();
-        this.productsApproved = new HashMap<>();
-        this.counterOffers = new HashMap<>();
+        this.productsApproved = new UserApprovedOffersWrapper();
+        this.counterOffers = new UserCounterOffersWrapper();
 
     }
 
@@ -58,7 +60,7 @@ public class Bag {
     public double getBagTotalCost () {
         double total = 0;
         for (Product p: this.productsAmounts.keySet()) {
-            if(!this.productsApproved.containsKey(p))
+            if(!this.productsApproved.contains(p))
                 total += p.getPrice();
             else
                 total += productsApproved.get(p);
@@ -69,22 +71,23 @@ public class Bag {
     public void approveCounterOffer(Product prod) {
         double priceOfOffer = this.counterOffers.get(prod).getPriceOfOffer();
         int amountOfProd = this.counterOffers.get(prod).getNumOfProd();
+        int userId = this.counterOffers.get(prod).getUser().getId();
         this.productsAmounts.put(prod,amountOfProd);
-        this.counterOffers.remove(prod);
-        this.productsApproved.put(prod,priceOfOffer);
+        this.counterOffers.remove(getStoreId(),prod,this.counterOffers.get(prod));
+        this.productsApproved.add(getStoreId(),userId, prod,this.counterOffers.get(prod).getPriceOfOffer());
 
     }
 
     public void rejectCounterOffer(Product prod) {
-        this.counterOffers.remove(prod);
+        this.counterOffers.remove(getStoreId(),prod,this.counterOffers.get(prod));
     }
 
     public Map<Product, Double> getOfferPrices() {
-        return this.productsApproved;
+        return this.productsApproved.get();
     }
 
     public Map<Product, PurchaseOffer> getCounterOffers() {
-        return this.counterOffers;
+        return this.counterOffers.get();
     }
 
    /* public void offerApproved(Product prod, double offer){

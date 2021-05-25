@@ -8,7 +8,7 @@ public class ConditionalDiscountDAO {
     @DatabaseField(uniqueCombo = true)
     private int conditionId;
     @DatabaseField(uniqueCombo = true)
-    private double discountId;
+    private int discountId;
 
     public ConditionalDiscountDAO() {}
 
@@ -24,10 +24,10 @@ public class ConditionalDiscountDAO {
         this.conditionId = conditionId;
     }
 
-    public double getDiscountId() {
+    public int getDiscountId() {
         return discountId;
     }
-    public void setDiscountId(double discountId) {
+    public void setDiscountId(int discountId) {
         this.discountId = discountId;
     }
 

@@ -22,18 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="new db dorin">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 start fix discounts tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/ConditionalDiscountDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/ConditionalDiscountDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +171,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest.buyProductWithDiscountAndOpSuccessTest">
+  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest.addDiscountOnProductAndOpSuccessTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -270,8 +263,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductWithDiscountAndOpSuccessTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.addDiscountOnProductAndOpSuccessTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductWithDiscountAndOpSuccessTest" />
         <item itemvalue="JUnit.LoginTest.loginSuccessTest" />
         <item itemvalue="JUnit.PermissionTest" />
         <item itemvalue="JUnit.StoreTest" />
@@ -298,13 +291,7 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="1096000" />
-      <workItem from="1621682093021" duration="30368000" />
-    </task>
-    <task id="LOCAL‎00011" summary="merge API, permissions">
-      <created>1618585406886</created>
-      <option name="number" value="LOCAL‎00011" />
-      <option name="presentableId" value="LOCAL‎00011" />
-      <updated>1618585406886</updated>
+      <workItem from="1621682093021" duration="41506000" />
     </task>
     <task id="LOCAL-00012" summary="change permissions">
       <created>1618590697723</created>
@@ -616,7 +603,13 @@
       <option name="presentableId" value="LOCAL‎00059" />
       <updated>1621926365775</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL‎00060" summary="#61 start fix discounts tests">
+      <created>1621942495733</created>
+      <option name="number" value="LOCAL‎00060" />
+      <option name="presentableId" value="LOCAL‎00060" />
+      <updated>1621942495733</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -639,7 +632,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="add store page" />
     <MESSAGE value="merged gui with result" />
     <MESSAGE value="add React to fucking proj" />
     <MESSAGE value="logger in the trading system" />
@@ -664,7 +656,8 @@
     <MESSAGE value="#61 put wrappers instead of maps in store class" />
     <MESSAGE value="stam" />
     <MESSAGE value="new db dorin" />
-    <option name="LAST_COMMIT_MESSAGE" value="new db dorin" />
+    <MESSAGE value="#61 start fix discounts tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="#61 start fix discounts tests" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -731,7 +724,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java</url>
-          <line>30</line>
+          <line>35</line>
           <option name="timeStamp" value="82" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -741,7 +734,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java</url>
-          <line>56</line>
+          <line>61</line>
           <option name="timeStamp" value="95" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">

@@ -303,25 +303,23 @@ public class Store {
         this.purchasesOnStore = null;
     }
 
-    public double calcDiscountPerProduct(Product prod, Date date, User user, Bag bag){
+    public double calcDiscountPerProduct(Product prod, Date date, User user, Bag bag) {
         List<Double> SumDiscount = new LinkedList<>();
         List<Double> MaxDiscount = new LinkedList<>();
         double discountProduct = 0;
         double discountCategory = 0;
         double discountStore = 0;
-        if (discountsOnProducts.contains(prod)) {
-            Discount dis = discountsOnProducts.get(prod);
-            if(dis != null) {
-                discountProduct = discountsOnProducts.get(prod).calculateDiscount(prod, user, date, bag);
-                if (discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
-                    MaxDiscount.add(discountProduct);
-                else
-                    SumDiscount.add(discountProduct);
-            }
+        Discount disOnProd = discountsOnProducts.get(prod);
+        if (disOnProd != null) {
+            discountProduct = discountsOnProducts.get(prod).calculateDiscount(prod, user, date, bag);
+            if (discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
+                MaxDiscount.add(discountProduct);
+            else
+                SumDiscount.add(discountProduct);
         }
-        for (String cat:prod.getCategories()) {
+        for (String cat : prod.getCategories()) {
             Discount dis = discountsOnCategories.get(cat);
-            if(dis != null) {
+            if (dis != null) {
                 discountCategory = dis.calculateDiscount(prod, user, date, bag);
                 if (discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
                     MaxDiscount.add(discountCategory);
@@ -330,23 +328,22 @@ public class Store {
             }
         }
         if (this.discountsOnStore != null) {
-            discountStore = discountsOnStore.getValue().calculateDiscount(prod,user,date,bag);
-            if(discountsOnStore.getValue().getMathOp().equals(Discount.MathOp.MAX))
+            discountStore = discountsOnStore.getValue().calculateDiscount(prod, user, date, bag);
+            if (discountsOnStore.getValue().getMathOp().equals(Discount.MathOp.MAX))
                 MaxDiscount.add(discountStore);
             else
                 SumDiscount.add(discountStore);
         }
 
         double finalDiscount = 0;
-        for (double disc: SumDiscount) {
+        for (double disc : SumDiscount) {
             finalDiscount += disc;
         }
-        for (double disc:MaxDiscount) {
-            if(disc > finalDiscount)
+        for (double disc : MaxDiscount) {
+            if (disc > finalDiscount)
                 finalDiscount = disc;
         }
-        return Math.min(finalDiscount, bag.getBagTotalCost(user.getId(),storeId)); //if discount > 100% return bag total cost (100% discount)
-
+        return Math.min(finalDiscount, bag.getBagTotalCost(user.getId(), storeId)); //if discount > 100% return bag total cost (100% discount)
     }
 
     public void addSimpleDiscountOnProduct(int prodId, Date begin, Date end, int percentage, Discount.MathOp op) {

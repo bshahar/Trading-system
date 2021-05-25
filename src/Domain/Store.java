@@ -277,16 +277,20 @@ public class Store {
     public void removeDiscountOnProduct(int prodId){
         Product prod = this.inventory.getProductById(prodId,storeId);
         Discount discount = this.discountsOnProducts.get(prod);
-        this.discountsOnProducts.remove(discount);
+        if(discount != null)
+            this.discountsOnProducts.remove(discount);
     }
 
     public void removeDiscountOnCategory(String category){
-        int discountId = this.discountsOnCategories.get(category).getId();
-        this.discountsOnCategories.remove(discountId);
+        Discount dis = this.discountsOnCategories.get(category, this.storeId);
+        if(dis != null)
+            this.discountsOnCategories.remove(dis.getId());
     }
 
-    public void removeDiscountOnStore(){
-        this.discountsOnStore.remove(this.discountsOnStore.getValue().getId());
+    public void removeDiscountOnStore() {
+        Discount dis = this.discountsOnStore.get(this.storeId);
+        if (dis != null)
+            this.discountsOnStore.remove(dis.getId());
         this.discountsOnStore = null;
     }
 
@@ -311,14 +315,14 @@ public class Store {
         double discountStore = 0;
         Discount disOnProd = discountsOnProducts.get(prod);
         if (disOnProd != null) {
-            discountProduct = discountsOnProducts.get(prod).calculateDiscount(prod, user, date, bag);
-            if (discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
+            discountProduct = disOnProd.calculateDiscount(prod, user, date, bag);
+            if (disOnProd.getMathOp().equals(Discount.MathOp.MAX))
                 MaxDiscount.add(discountProduct);
             else
                 SumDiscount.add(discountProduct);
         }
         for (String cat : prod.getCategories()) {
-            Discount dis = discountsOnCategories.get(cat);
+            Discount dis = discountsOnCategories.get(cat, this.storeId);
             if (dis != null) {
                 discountCategory = dis.calculateDiscount(prod, user, date, bag);
                 if (discountsOnProducts.get(prod).getMathOp().equals(Discount.MathOp.MAX))
@@ -328,8 +332,8 @@ public class Store {
             }
         }
         if (this.discountsOnStore != null) {
-            discountStore = discountsOnStore.getValue().calculateDiscount(prod, user, date, bag);
-            if (discountsOnStore.getValue().getMathOp().equals(Discount.MathOp.MAX))
+            discountStore = discountsOnStore.get(this.storeId).calculateDiscount(prod, user, date, bag);
+            if (discountsOnStore.get(this.storeId).getMathOp().equals(Discount.MathOp.MAX))
                 MaxDiscount.add(discountStore);
             else
                 SumDiscount.add(discountStore);
@@ -401,9 +405,11 @@ public class Store {
     }
 
     public Result viewDiscountPoliciesOnCategory(String category) {
-        if(category != null) {
+        if(category != null && !category.equals("")) {
             List<Object> discountPolicies = new LinkedList<>();
-            Discount dis = discountsOnCategories.get(category);
+            Discount dis = discountsOnCategories.get(category, this.storeId);
+            if(dis == null)
+                return new Result(false, "No discount policies on this category.");
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
                 discountPolicies.add(((ConditionalDiscount) dis).getConditions().getOperatorStr());
@@ -426,7 +432,7 @@ public class Store {
     public Result viewDiscountPoliciesOnStore() {
         if(this.discountsOnStore != null) {
             List<Object> discountPolicies = new LinkedList<>();
-            Discount dis = this.discountsOnStore.getValue();
+            Discount dis = this.discountsOnStore.get(this.storeId);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             if(dis instanceof ConditionalDiscount) {
                 discountPolicies.add(((ConditionalDiscount) dis).getConditions().getOperatorStr());

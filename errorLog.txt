@@ -732,3 +732,17 @@
  
 [2021-05-24] [13:21:57] [WARNING] BUY_PRODUCTS: User with id 0 couldn't make a purchase in store 0
  
+[2021-05-25] [18:48:09] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-25] [18:49:52] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-25] [19:24:43] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-25] [19:37:42] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-25] [19:39:41] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-25] [19:49:38] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-25] [19:54:06] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 

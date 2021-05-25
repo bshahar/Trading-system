@@ -51,6 +51,7 @@ public class ReceiptWrapper {
             ReceiptLinesWrapper receiptLinesWrapper = new ReceiptLinesWrapper();
             List<ReceiptLine> ReceiptLineList = receiptLinesWrapper.getByReceiptId(id);
             Receipt receipt = new Receipt(receiptDAO.getId(),receiptDAO.getStoreId(),receiptDAO.getUserId(),receiptDAO.getUserName(),receiptDAO.getPaymentTransactionId(),receiptDAO.getSupplementTransactionId());
+            receipt.setTotalCost(receiptDAO.getTotalCost());
             receipt.setLines(ReceiptLineList);
             connectionSource.close();
             return receipt;

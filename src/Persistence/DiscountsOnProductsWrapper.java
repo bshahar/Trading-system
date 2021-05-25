@@ -90,7 +90,6 @@ public class DiscountsOnProductsWrapper {
 
             connectionSource.close();
         } catch (Exception e) {
-            //TODO add rollback
         }
         this.value.put(product, discount); //Overwrite old entry in map
     }
@@ -111,10 +110,6 @@ public class DiscountsOnProductsWrapper {
         }
     }
 
-    public boolean contains(Product product) {
-        return this.value.containsKey(product);
-    }
-
     public Discount get(Product product) {
         Discount d = this.value.get(product);
         if (d != null) return d;
@@ -129,7 +124,10 @@ public class DiscountsOnProductsWrapper {
                 StoreDiscountsOnProductsDAO value = storeDisOnProdDAOs.get(0);
                 //Check if conditional/simple discount
                 Dao<ConditionalDiscountDAO, String> condDisDAOManager = DaoManager.createDao(connectionSource, ConditionalDiscountDAO.class);
-                ConditionalDiscountDAO condDisDAO = condDisDAOManager.queryForId(String.valueOf(value.getDiscountId()));
+                Map<String, Object> condDisFields = new HashMap<>();
+                condDisFields.put("discountId", value.getDiscountId());
+                List<ConditionalDiscountDAO> condDisDAOs = condDisDAOManager.queryForFieldValues(condDisFields);
+                ConditionalDiscountDAO condDisDAO = condDisDAOs.get(0);
                 //Create Discount object
                 Dao<DiscountDAO, String> DiscountDAOManager = DaoManager.createDao(connectionSource, DiscountDAO.class);
                 DiscountDAO discountDAO = DiscountDAOManager.queryForId(String.valueOf(value.getDiscountId()));
@@ -161,33 +159,19 @@ public class DiscountsOnProductsWrapper {
                                 tmp.getDayInWeek(), tmp.getDayInMonth(), tmp.getBeginHour(), tmp.getEndHour()));
                     }
 
-                    DiscountCondition condition = new DiscountCondition(policies, stringToLogicOp(disCondDAO.getLogicOperator()));
+                    DiscountCondition condition = new DiscountCondition(disCondDAO.getId(), policies, stringToLogicOp(disCondDAO.getLogicOperator()));
                     ConditionalDiscount result = new ConditionalDiscount(discountDAO.getId(),
                             stringToDate(discountDAO.getBeginDate()), stringToDate(discountDAO.getEndDate()), condition,
                             discountDAO.getPercentage(), stringToMathOp(discountDAO.getMathOperator()));
+                    this.value.put(product, result);
                     return result;
                 }
                 else { //this is a simple discount
                     SimpleDiscount result = new SimpleDiscount(discountDAO.getId(), stringToDate(discountDAO.getBeginDate()),
                             stringToDate(discountDAO.getEndDate()), discountDAO.getPercentage(), stringToMathOp(discountDAO.getMathOperator()));
+                    this.value.put(product, result);
                     return result;
                 }
-
-               /* CloseableWrappedIterable<StoreDiscountsOnProductsDAO> itr = storeDisOnProdDAOManager.getWrappedIterable();
-                while (itr.iterator().hasNext()) {
-                    StoreDiscountsOnProductsDAO tmpDao = itr.iterator().next();
-                    if (tmpDao.getStoreId() == product.getStoreId() && tmpDao.getProductId() == product.getId()) {
-                        Dao<DiscountDAO, String> DiscountDAOManager = DaoManager.createDao(connectionSource, DiscountDAO.class);
-                        DiscountDAO discountDAO = DiscountDAOManager.queryForId(Integer.toString(tmpDao.getDiscountId()));
-                       // Discount result =
-                       // result.setId(discountDAO.getId());
-                       // result.setPercentage(discountDAO.getPercentage());
-                       // result.setBegin(stringToDate(discountDAO.getBeginDate()));
-                       // result.setEnd(stringToDate(discountDAO.getEndDate()));
-                       // result.setMathOp(stringToMathOp(discountDAO.getMathOperator()));
-                       // return result;
-                    }
-                }*/
             } catch (Exception e) {
                 return null;
             }

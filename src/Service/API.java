@@ -120,13 +120,13 @@ public class API {
         return tradingSystem.getStorePurchaseHistory(ownerId,storeId);
     }
 
-    public static Result getGlobalPurchaseUserHistory(int tradingSystemManager, int userId){  //system manager
-            return tradingSystem.getGlobalPurchaseUserHistory(tradingSystemManager, userId);
-    }
-
-    public static Result getGlobalPurchaseStoreHistory(int tradingSystemManager, int storeId){  //system manager
-        return getStorePurchaseHistory(tradingSystemManager, storeId);
-    }
+//    public static Result getGlobalPurchaseUserHistory(int tradingSystemManager, int userId){  //system manager
+//            return tradingSystem.getGlobalPurchaseUserHistory(tradingSystemManager, userId);
+//    }
+//
+//    public static Result getGlobalPurchaseStoreHistory(int tradingSystemManager, int storeId){  //system manager
+//        return getStorePurchaseHistory(tradingSystemManager, storeId);
+//    }
 
 
     public static Result register(String userName, String password, int age) {

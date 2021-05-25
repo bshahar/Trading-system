@@ -1,5 +1,6 @@
 package Tests;
 
+import Persistence.DataBaseHelper;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -57,6 +58,7 @@ public class PermissionTest {
 
     @BeforeEach
     void setUp() {
+        DataBaseHelper.cleanAllTable();
         Properties testProps = new Properties();
         try {
             API.initTradingSystem();
@@ -104,7 +106,8 @@ public class PermissionTest {
 
     @Test
     public void systemMangerPermissions() {
-        assertTrue(API.getAllPurchases(123456).isResult());
+
+        assertTrue(API.getAllPurchases(0).isResult());
     }
 
     @Test

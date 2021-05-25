@@ -120,5 +120,8 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="mysql-connector-java-8.0.25" level="project" />
+    <orderEntry type="library" name="javafx-sdk-11.0" level="project" />
+    <orderEntry type="library" name="jfxrt" level="project" />
+    <orderEntry type="library" name="json-201401074" level="project" />
   </component>
 </module>

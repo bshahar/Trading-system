@@ -2,6 +2,8 @@ package Domain.Sessions;
 
 import org.eclipse.jetty.websocket.api.Session;
 
+import java.util.Queue;
+
 public class realSession implements SessionInterface{
     Session session;
 
@@ -25,5 +27,10 @@ public class realSession implements SessionInterface{
     @Override
     public void set() {
 
+    }
+
+    @Override
+    public Queue<String> getMsgs() {
+        return null;
     }
 }

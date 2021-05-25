@@ -7,9 +7,7 @@ import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchaseFormat.ImmediatePurchase;
 import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
-import Persistence.DiscountsOnCategoriesWrapper;
-import Persistence.DiscountsOnProductsWrapper;
-import Persistence.DiscountsOnStoresWrapper;
+import Persistence.*;
 import Service.counter;
 import javafx.util.Pair;
 
@@ -22,10 +20,10 @@ public class Store {
     private int notificationId;
     private String name;
     private Inventory inventory;
-    private List<User> employees;
-    private List<User> owners;
-    private List<User> managers;
-    private List<Receipt> receipts;
+    private StoreEmployeesWrapper employees;
+    private StoreOwnerWrapper owners;
+    private StoreManagerWrapper managers;
+    private StoreReceiptWrapper receipts;
     private Service.counter counter;
     private Service.counter offerCounter;
     private DiscountsOnProductsWrapper discountsOnProducts;
@@ -34,8 +32,7 @@ public class Store {
     private Map<Product, ImmediatePurchase> purchasesOnProducts;
     private Map<String, ImmediatePurchase> purchasesOnCategories;
     private ImmediatePurchase purchasesOnStore;
-    private Map<User,List<User>> appointments; //appointer & list of appointees
-    private Map<Integer, Bag> usersBags;
+    private AppointmentsWrapper appointments; //appointer & list of appointees
     //private Map<Product,LinkedList<Pair<User,Double>>> offersOnProduct;
     private Map<Product, LinkedList<PurchaseOffer>> offersOnProduct;
     private double rate;
@@ -48,22 +45,22 @@ public class Store {
         this.inventory = new Inventory();
         this.rate = 0;
         this.ratesCount = 0;
-        this.employees = Collections.synchronizedList(new LinkedList<>());
-        this.employees.add(owner);
-        this.receipts = new LinkedList<>();
-        this.appointments = new HashMap<>();
-        this.appointments.put(owner, new LinkedList<>());
-        this.owners = Collections.synchronizedList(new LinkedList<>());
-        this.managers = Collections.synchronizedList(new LinkedList<>());
+        this.employees = new StoreEmployeesWrapper();
+        //this.employees.add(owner);
+        this.receipts = new StoreReceiptWrapper();
+        this.appointments = new AppointmentsWrapper();
+//        this.appointments.put(owner, new LinkedList<>());
+        this.owners = new StoreOwnerWrapper();
+        this.managers = new StoreManagerWrapper();
         this.discountsOnProducts = new DiscountsOnProductsWrapper();
         this.discountsOnCategories = new DiscountsOnCategoriesWrapper();
         this.counter = new counter();
         this.offerCounter = new counter();
-        this.usersBags = new HashMap<>();
         this.purchasesOnProducts = new ConcurrentHashMap<>();
         this.purchasesOnCategories = new ConcurrentHashMap<>();
         this.offersOnProduct = new ConcurrentHashMap<>();
     }
+
 
     public Inventory getInventory() {
         return inventory;
@@ -83,7 +80,7 @@ public class Store {
     }
 
     public boolean addToInventory(User currUser, Product prod, int numOfProd) {
-        return this.inventory.addProduct(prod , numOfProd);
+        return this.inventory.addProduct(prod , numOfProd ,storeId);
     }
 
     public String getName() {
@@ -91,7 +88,7 @@ public class Store {
     }
 
     private boolean validateProductId(int id){
-        return this.inventory.validateProductId(id);
+        return this.inventory.validateProductId(id,storeId);
     }
 
     public int getStoreId() {
@@ -100,13 +97,13 @@ public class Store {
 
     public boolean addProductToStore(int productId,  String name, List<String> categories, double price, String description, int quantity) {
         Product p = new Product(productId, name, categories, price, description,this.storeId);
-        return this.inventory.addProduct(p, quantity);
+        return this.inventory.addProduct(p, quantity,storeId);
     }
 
     public Result removeProductFromStore( int productId) {
         synchronized (inventory){
-            if(this.inventory.prodExists(productId)){
-                return this.inventory.removeProduct(productId);
+            if(this.inventory.prodExists(productId,storeId)){
+                return this.inventory.removeProduct(productId,storeId);
             }
             else{
                 return new Result(false,"Product not exist");
@@ -116,43 +113,44 @@ public class Store {
     }
 
     public List<Integer> getProductsByName(Filter filter){
-         return this.inventory.getProductsByName(filter,this.rate);
+         return this.inventory.getProductsByName(filter,this.rate,storeId);
     }
 
     public List<Integer> getProductsByCategory(Filter filter) {
-        return this.inventory.getProductsByCategory(filter,this.rate);
+        return this.inventory.getProductsByCategory(filter,this.rate,storeId);
     }
 
     public List<Integer> getProductsByKeyWords(Filter filter) {
 
-        return this.inventory.getProductsByKeyWords(filter, this.rate);
+        return this.inventory.getProductsByKeyWords(filter, this.rate,storeId);
     }
 
     public List<Integer> getProductsByPriceRange(String[] filter) {
-        return this.inventory.getProductsByPriceRange(filter);
+        return this.inventory.getProductsByPriceRange(filter,storeId);
     }
 
 
     public Result removeManager(User owner, User manager) {
-        if(appointments.get(owner).remove(manager)){
-            employees.remove(manager);
+//        if(appointments.get(owner).remove(manager)){
+
+        if(appointments.removeAppointment(this.storeId,owner.getId(),manager.getId())){
+            employees.remove(this.storeId,manager);
             manager.removeFromMyStores(this);
 
-            if(appointments.containsKey(manager)){
-                List<User> managers=appointments.get(manager);
-                for(User user : managers){
-                    this.managers.remove(user);
-                    removeManager(manager,user);
-                }
-
+            List<User> managers=appointments.get(this.storeId,manager);
+            for(User user : managers){
+                this.managers.remove(this.storeId,user);
+                removeManager(manager,user);
             }
+
+
             return new Result(true,true);
         }
         return new Result(false,"Remove of the manager has failed");
     }
 
     public List<User> getWorkersInformation(int ownerId) {
-        return this.employees;
+        return this.employees.getAll(storeId);
     }
 
     public boolean getStorePurchaseHistory(int ownerId) {
@@ -160,62 +158,64 @@ public class Store {
     }//TODO
 
     public Product getProductById(int id) {
-        return inventory.getProductById(id);
+        return inventory.getProductById(id,storeId);
     }
 
-    public List<User> getOwners(){return owners;}
+    public List<User> getOwners(){return owners.getAll(storeId);}
 
-    public List<User> getManagers(){return managers;}
+    public List<User> getManagers(){return managers.getAll(storeId);}
 
     public Product getProductByName(String name) {
-        return inventory.getProductByName(name);
+        return inventory.getProductByName(name,storeId);
     }
 
     public boolean canBuyProduct(Product product, int amount) {
-        return inventory.canBuyProduct(product,amount);
+        return inventory.canBuyProduct(product,amount,storeId);
     }
 
     public void removeProductAmount(Product product, Integer amount) {
-        inventory.removeProductAmount(product,amount);
+        inventory.removeProductAmount(product,amount,storeId);
     }
 
     public void addEmployee(User owner,User user) {
-        this.employees.add(user);
-        if (!this.appointments.containsKey(owner)) {
-            this.appointments.put(owner, new LinkedList<>());
-        }
-        this.appointments.get(owner).add(user);
+        this.employees.add(user,storeId);
+//        if (!this.appointments.containsKey(owner)) {
+//            this.appointments.put(owner, new LinkedList<>());
+//        }
+//        this.appointments.get(owner).add(user);
+        this.appointments.add(owner,user,storeId);
     }
     public Result getEmployees()
     {
-        return new Result(true,this.employees);
+        return new Result(true,this.employees.getAll(storeId));
     }
 
     public Result getPurchaseHistory() {
-        return new Result(true,this.receipts);
+        return new Result(true,this.receipts.getAll(storeId));
     }
 
     public void addOwnerToAppointments( User user) {
-        appointments.put(user,new LinkedList<>());
+//        appointments.put(user,new LinkedList<>());
     }
 
     public void addReceipt(Receipt receipt)
     {
-        this.receipts.add(receipt);
+
+        this.receipts.add(receipt,storeId);
     }
 
     public boolean addOwner(User user) {
-        if(this.owners.contains(user))
+        if(this.owners.contains(user,storeId))
             return false;
-        owners.add(user);
+        owners.add(user,storeId);
         return true;
     }
     public boolean addManager(User user)
     {
         synchronized (managers) {
-            if (this.managers.contains(user))
+            if (this.managers.contains(user,storeId))
                 return false;
-            managers.add(user);
+            managers.add(user,storeId);
             return true;
         }
     }
@@ -223,7 +223,7 @@ public class Store {
     public void abortPurchase(Map<Product, Integer> productsAmount) {
         for(Product product : productsAmount.keySet()){
             synchronized (product){
-                this.inventory.addProductAmount(product,productsAmount.get(product));
+                this.inventory.addProductAmount(product,productsAmount.get(product),storeId);
             }
         }
     }
@@ -253,7 +253,8 @@ public class Store {
     }
 
     public void removeDiscountOnProduct(int prodId){
-        int discountId = this.discountsOnProducts.get(getProductById(prodId)).getId();
+        Product prod = this.inventory.getProductById(prodId,storeId);
+        int discountId = this.discountsOnProducts.get(prod.getId();
         this.discountsOnProducts.remove(discountId);
     }
 
@@ -268,7 +269,7 @@ public class Store {
     }
 
     public void removePurchaseOnProduct(int prodId){
-        Product prod = this.inventory.getProductById(prodId);
+        Product prod = this.inventory.getProductById(prodId,storeId);
         this.purchasesOnProducts.remove(prod);
     }
 
@@ -322,7 +323,7 @@ public class Store {
             if(disc > finalDiscount)
                 finalDiscount = disc;
         }
-        return Math.min(finalDiscount, bag.getBagTotalCost()); //if discount > 100% return bag total cost (100% discount)
+        return Math.min(finalDiscount, bag.getBagTotalCost(user.getId(),storeId)); //if discount > 100% return bag total cost (100% discount)
 
     }
 
@@ -481,19 +482,19 @@ public class Store {
     }
 
     public boolean isManager(User user) {
-        return this.managers.contains(user);
+        return this.managers.contains(user,storeId);
     }
 
-    public boolean prodExists(int prodId){ return this.inventory.prodExists(prodId); }
+    public boolean prodExists(int prodId){ return this.inventory.prodExists(prodId,storeId); }
 
 
     public Set<Integer> getManagersAndOwners() {
         Set<Integer> list = new HashSet<>();
-        for(User user: managers)
+        for(User user: managers.getAll(storeId))
         {
             list.add(user.getId());
         }
-        for(User user: owners)
+        for(User user: owners.getAll(storeId))
         {
             list.add(user.getId());
         }
@@ -501,31 +502,32 @@ public class Store {
     }
 
     public Result removeOwner(User owner, User ownerToDelete) {
-        if(appointments.get(owner).remove(ownerToDelete)){
-            employees.remove(ownerToDelete);
+//        if(appointments.get(owner).remove(ownerToDelete)){
+        if(appointments.removeAppointment(storeId,owner.getId(),ownerToDelete.getId())){
+            employees.remove(storeId,ownerToDelete);
             ownerToDelete.removeFromMyStores(this);
-            if(appointments.containsKey(ownerToDelete)){
-                List<User> ownersList=appointments.get(ownerToDelete);
-                for(User user : ownersList){
-                    this.owners.remove(user);
-                    removeOwner(ownerToDelete,user);
-                }
+
+            List<User> ownersList=appointments.get(storeId,ownerToDelete);
+            for(User user : ownersList){
+                this.owners.remove(user,storeId);
+                removeOwner(ownerToDelete,user);
             }
+
             return new Result(true,true);
         }
         return new Result(false,"Remove of the manager has failed");
     }
 
     public void setProductAmount(Product product, int amount) {
-        inventory.setProductAmount(product,amount);
+        inventory.setProductAmount(product,amount,storeId);
     }
 
     public int getProductAmount(Integer prodId) {
-        return inventory.getProductsAmounts().get(getProductById(prodId));
+        return inventory.getProductsAmounts(storeId).get(getProductById(prodId));
     }
 
     public boolean removeReceipt(Receipt receipt) {
-        return this.receipts.remove(receipt);
+        return this.receipts.remove(receipt,storeId);
     }
 
     public int addPurchaseOffer(int prodId, User user, double offer, int numOfProd) {
@@ -595,7 +597,7 @@ public class Store {
                             bag = new Bag(this);
                             user.getBags().add(bag);
                         }
-                        bag.productsAmounts.put(getProductById(prodId), amount);
+                        bag.productsAmounts.add(getProductById(prodId), amount,storeId,user.getId());
                         bag.productsApproved.put(getProductById(prodId), offer);
                         removeOffer(prodId, offerId);
                         return new Result(true, "the offer approved");
@@ -645,6 +647,30 @@ public class Store {
         }
         return new Result(false, "offer did not get response yet");
     }
+
+    public int getRatesCount() {
+
+        return ratesCount;
+    }
+
+    public List<Receipt> getReceipts() {
+        return this.receipts.getAll(storeId);
+    }
+
+    public Map<User,List<User>> getAppointments() {
+        return this.appointments.getAll(storeId);
+
+    }
+
+    public void setRate(double rate) {
+        this.rate=rate;
+    }
+
+    public void setRateCount(int ratesCount) {
+        this.ratesCount=ratesCount;
+    }
+
+
 }
 
 

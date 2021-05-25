@@ -10,9 +10,11 @@ import Domain.Operators.OrOperator;
 import Domain.Operators.XorOperator;
 import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Domain.Sessions.DemoSession;
 import Domain.Sessions.SessionInterface;
+import Domain.Sessions.realSession;
 import Domain.User;
-import Persistence.UserWrapper;
+import Persistence.*;
 import Service.*;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
@@ -29,27 +31,30 @@ public class TradingSystem {
     private static counter receiptCounter;
     private static counter observableCounter;
     private static counter conditionCounter;
-
+    public static Map<Integer , DemoSession> demoSessionMap ;
     private static PaymentInterface paymentAdapter;
     private static SupplementInterface supplementAdapter;
     private UserAuth userAuth;
-    private List<Store> stores;
+    private StoreWrapper stores;
     private User systemManager;
-    private List<Receipt> receipts;
+    private ReceiptWrapper receipts;
     private UserWrapper users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
 
+
     public TradingSystem (User systemManager, String externalSystemsUrl, boolean testing) {
         if(testing) {
-            initializeSystemForTests();
+            paymentAdapter = new DemoPayment();
+            supplementAdapter = new DemoSupplement();
+        }else{
+            paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+            supplementAdapter = new SupplementAdapter(externalSystemsUrl);
         }
         this.users =  new UserWrapper();
-        this.receipts =  Collections.synchronizedList(new LinkedList<>());
-        paymentAdapter = new PaymentAdapter(externalSystemsUrl);
-        supplementAdapter = new SupplementAdapter(externalSystemsUrl);
-        this.receipts = Collections.synchronizedList(new LinkedList<>());
-        this.stores = Collections.synchronizedList(new LinkedList<>());
+        this.receipts =  new ReceiptWrapper();
+
+        this.stores = new StoreWrapper();
 
         this.userAuth = new UserAuth();
         userAuth.register(systemManager.getUserName(), "123");
@@ -65,6 +70,7 @@ public class TradingSystem {
         this.systemManager = systemManager;
         AppointSystemManager(systemManager);
         sessionsMap = new ConcurrentHashMap<>();
+        demoSessionMap = new ConcurrentHashMap<>();
     }
 
 //    public int getSystemManagerId() {
@@ -169,7 +175,7 @@ public class TradingSystem {
     public Result responedToCounterPurchaseOffer(int storeId, int userId, int prodId, boolean approve) {
         Bag bag = getUserById(userId).getBagByStoreId(storeId);
         if(approve){
-          bag.approveCounterOffer(getProductById(prodId));
+          bag.approveCounterOffer(getProductById(prodId),storeId,userId);
         }
         bag.rejectCounterOffer(getProductById(prodId));
         return new Result(true, "the counter offer has been responed");
@@ -285,11 +291,15 @@ public class TradingSystem {
     }
 
     public Result addSession(int userId, Session session) {
-        getUserById(userId).setSession(session);
+        realSession realSession = new realSession();
+        realSession.set(session);
+        sessionsMap.put(userId,realSession);
+        //getUserById(userId).setSession(session);
         return new Result(true,"session added\n");
     }
     public Result removeSession(int userId) {
-        getUserById(userId).setSession(null);
+        sessionsMap.remove(userId);
+        getUserById(userId).setSession((Session) null);
         return new Result(true,"session remove\n");
     }
 
@@ -313,7 +323,8 @@ public class TradingSystem {
             JSONObject json = new JSONObject();
             json.put("type", "ALERT");
             json.put("data", msg);
-            getUserById(userId).addNotification(json.toString());
+            sessionsMap.get(userId).send(json.toString());
+            //getUserById(userId).addNotification(json.toString());
             return new Result(true,"send successfully alerts\n");
         }
         catch (Exception e)
@@ -324,13 +335,14 @@ public class TradingSystem {
     }
 
     public void setSessionDemo(int userId) {
-        getUserById(userId).setSessionDemo();
+        sessionsMap.put(userId,new DemoSession());
+        //getUserById(userId).setSessionDemo();
     }
 
 
 
     private void AppointSystemManager(User systemManager) {
-        systemManager.appointSystemManager(this.stores);
+        systemManager.appointSystemManager(this.stores.getAllStores());
     }
 
     public Result getUserIdByName(String userName) {
@@ -346,7 +358,7 @@ public class TradingSystem {
 
     public Result register(String userName, int age, String pass) {
         if(userAuth.register(userName,pass)){
-            int userId=22;//userCounter.inc();
+            int userId=userCounter.inc();
             users.add(new User(userName, age,  userId, true));
             return new Result(true,userId);
         }
@@ -465,9 +477,11 @@ public class TradingSystem {
     public Result guestRegister (int userId, String userName, String password){
         try {
             if(userAuth.guestRegister(userName,password)){
-                getUserById(userId).setRegistered(false);
-                getUserById(userId).setName(userName);
-                getUserById(userId).setLogged(false);
+                User user= getUserById(userId);
+                user.updateRegistered(userName);
+//                getUserById(userId).setRegistered(false);
+//                getUserById(userId).setName(userName);
+//                getUserById(userId).setLogged(false);
                 KingLogger.logEvent("GUEST_REGISTER: User " + userName + " registered to the system.");
                 return new Result(true,userId);
 
@@ -505,7 +519,7 @@ public class TradingSystem {
     public Result getAllStoresInfo(int userId) {
         User u = getUserById(userId);
         if (u != null && u.isLooged()) {
-            return new Result(true,this.stores) ;
+            return new Result(true,this.stores.getAllStores()) ;
         }
         KingLogger.logEvent("GET_ALL_STORES_INFO: User with id " + userId + " tried to get stores info while logged out and failed.");
         return new Result(false,"User has not logged in");
@@ -514,7 +528,7 @@ public class TradingSystem {
         User u = getUserById(userId);
         StringBuilder storesNames = new StringBuilder();
         if (u != null &&  u.getLogged()) {
-            for(Store store : this.stores)
+            for(Store store : this.stores.getAllStores())
                 storesNames.append(store.getName()+",");
             storesNames.deleteCharAt(storesNames.length()-1);
         }
@@ -529,6 +543,7 @@ public class TradingSystem {
         try{
             if(getUserById(userId).isLooged()) {
                 Map<Integer, Integer> output = new HashMap<>();
+                List<Store> stores=this.stores.getAllStores();
                 switch (filter.searchType) {
                     case "Name":
                         for (Store s : stores) {
@@ -574,9 +589,9 @@ public class TradingSystem {
             Bag b = getUserById(userId).getBagByStoreId(storeId);
             if(amount>0){
                 if (getUserById(userId).isLooged()){
-                    if( getStoreById(storeId).getInventory().prodExists(prodId)){
+                    if( getStoreById(storeId).getInventory().prodExists(prodId,storeId)){
                         if (b != null) {
-                            b.addProduct(getProductById(prodId), amount);
+                            b.addProduct(getProductById(prodId), amount,userId);
                             KingLogger.logEvent("ADD_PRODUCT_TO_BAG: Domain.Product number " + prodId + " was added to bag of store " + storeId + " for user " + userId);
                             return new Result(true,true);
                         }
@@ -622,8 +637,8 @@ public class TradingSystem {
         try {
             Bag b = getUserById(userId).getBagByStoreId(storeId);
             if (b != null) {
-                b.removeProduct(getProductById(prodId));
-                if(b.getProdNum()==0){
+                b.removeProduct(getProductById(prodId),userId,storeId);
+                if(b.getProdNum(userId,storeId)==0){
                     getUserById(userId).removeBag(b);
                 }
                 KingLogger.logEvent("REMOVE_PRODUCT_FROM_BUG: Domain.Product number " + prodId + " was removed from bag of store " + storeId + " for user " + userId);
@@ -649,7 +664,7 @@ public class TradingSystem {
                 productsAmountBag.put(p, products.get(p));
             }
             Bag bag = new Bag(store);
-            bag.setProducts(products);
+            bag.setProducts(products,userId,storeId);
             Map<Product, Integer> productsAmountBuy = new HashMap<>();
             double totalCost = 0;
             for (Product product : productsAmountBag.keySet()) {
@@ -733,7 +748,7 @@ public class TradingSystem {
             User user = getUserById(userId);
             Bag bag = user.getBagByStoreId(storeId);
             KingLogger.logEvent("GET_BAG: User with id " + userId + " view his bag from store " + storeId);
-            return bag.getProductsAmounts();
+            return bag.getProductsAmounts(userId);
         }
         catch (Exception e) {
             KingLogger.logError("GET_BAG: User with id " + userId + " couldn't view his bag from store " + storeId);
@@ -781,14 +796,16 @@ public class TradingSystem {
         User user = getUserById(userId);
         if(user!=null && user.isRegistered()) {
             int newId = storeCounter.inc();
-            Store store = new Store(newId, storeName, user);
+            Store store = new Store(newId, storeName);
            // systemManager.addStoreToSystemManager(store);
-            user.openStore(store);
-            this.stores.add(store);
-
-            KingLogger.logEvent("OPEN_STORE: User with id " + userId + " open the store " + storeName);
             Result result = addObservable(storeName);
             int subscribeId = (int)result.getData();
+            store.setNotificationId(subscribeId);
+            this.stores.add(store,user);
+            user.openStore(store,user.getId());
+
+            KingLogger.logEvent("OPEN_STORE: User with id " + userId + " open the store " + storeName);
+
             store.setNotificationId(subscribeId);
             subscribeToObservable(subscribeId,userId);
             return new Result(true,newId);
@@ -915,26 +932,23 @@ public class TradingSystem {
 
     public Store getStoreById(int storeId)
     {
-        for(Store store : stores)
-        {
-            if(store.getStoreId() == storeId)
-                return store;
-        }
-        return null;
+        return stores.getById(storeId);
     }
 
     public Result getProductsFromStore(int storeId) {
         List<Product> products=new LinkedList<>();
-        Map<Product , Integer> amounts= getStoreById(storeId).getInventory().getProductsAmounts();
-        for(Product product :amounts.keySet()){
+        Map<Integer , Integer> amounts= getStoreById(storeId).getInventory().getProductsAmounts(storeId);
+        ProductWrapper productWrapper= new ProductWrapper();
+        for(Integer productId :amounts.keySet()){
+            Product product=productWrapper.getById(productId);
             products.add(product);
-            product.setAmount(amounts.get(product));
+            product.setAmount(amounts.get(product.getId()));
         }
         return new Result(true,products);
     }
 
     public Result getNumOfStores() {
-        return new Result(true,stores.size());
+        return new Result(true,stores.getAllStores().size());
     }
 
 
@@ -953,26 +967,26 @@ public class TradingSystem {
     }
 
     public List<Store> getMyStores(int id) {
-        if(checkValidUser(id))
-        {
-            return getUserById(id).getMyStores();
+        List<Store> out = new LinkedList<>();
+        if (checkValidUser(id)) {
+            for (Integer storeId : getUserById(id).getMyStores()) {
+                out.add(getStoreById(storeId));
+            }
+            return out;
+        }else {
+            return new LinkedList<>();
         }
-        return new LinkedList<>();
     }
 
 
 
     public String getStoreName(int storeId) {
-        for (Store store : stores) {
-            if (store.getStoreId() == storeId) {
-                return store.getName();
-            }
-        }
-        return "";
+        return getStoreById(storeId).getName();
+
     }
 
     public Product getProductById(Integer productId) {
-        for(Store store:stores){
+        for(Store store:stores.getAllStores()){
             if(store.getProductById(productId)!=null){
                 return store.getProductById(productId);
             }
@@ -981,7 +995,7 @@ public class TradingSystem {
     }
 
     private Product getProductByName(String productName) {
-        for (Store store : stores) {
+        for (Store store : stores.getAllStores()) {
             if (store.getProductByName(productName) != null) {
                 return store.getProductByName(productName);
             }
@@ -1155,10 +1169,8 @@ public class TradingSystem {
         return new Result(false,"user isn't exist");
     }
     public Result getLoginMessagesQueue (int userId) {
-        if(getUserById(userId)!=null)
-        {
-            return new Result(true,getUserById(userId).getLoginMessages());
-        }
+        if(sessionsMap.containsKey(userId))
+            return new Result(true,sessionsMap.get(userId).getMsgs());
         return new Result(false,"user isn't exist");
     }
 
@@ -1202,7 +1214,7 @@ public class TradingSystem {
     }
 
     public int getProductAmount(Integer prodId) {
-        for(Store store: stores){
+        for(Store store: stores.getAllStores()){
             if(store.getProductById(prodId)!=null){
                 return store.getProductAmount(prodId);
             }
@@ -1250,10 +1262,9 @@ public class TradingSystem {
     }
 
     public Result getReceipt(int receiptId) {
-        for (Receipt r:receipts) {
-            if(r.getId() == receiptId)
-                return new Result(true, r);
-        }
+        Receipt r = receipts.get(receiptId);
+        if(r!=null)
+            return new Result(true, r);
         return new Result(false, "No receipt with this user id and store.");
     }
 
@@ -1371,7 +1382,7 @@ public class TradingSystem {
                     purchaseBag.put(st.getProductByName(rLine.getProdName()), rLine.getAmount());
                 }
                 st.abortPurchase(purchaseBag);
-                this.receipts.remove(receipt);
+                this.receipts.delete(receipt.getId());
                 st.removeReceipt(receipt);
                 getUserById(receipt.getUserId()).removeReceipt(receipt);
                 KingLogger.logEvent("CANCEL_PURCHASE: purchase that was made with receipt id " + receiptId + " was canceled.");

@@ -1,6 +1,7 @@
 package Tests;
 
 import Domain.Result;
+import Persistence.DataBaseHelper;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -26,6 +27,7 @@ public class NotficationsTest {
 
     @BeforeEach
     public void setUp() {
+        DataBaseHelper.cleanAllTable();
         Properties testProps = new Properties();
         try {
             API.initTradingSystem();
@@ -60,29 +62,6 @@ public class NotficationsTest {
         API.subscribeToObservable(observableId2, registerId2);
         API.subscribeToObservable(observableId2, registerId3);
 
-        /*API.initTradingSystem("Elad");
-        String userName1="kandabior";
-        String password1= "or321654";
-        String userName2="elad";
-        String password2= "elad321654";
-        String userName3="erez";
-        String password3= "erez321654";
-        API.register(userName1,password1,20);
-        API.register(userName2,password2,20);
-        API.register(userName3,password3,20);
-        registerId1=(int) API.registeredLogin(userName1,password1).getData();
-        registerId2=(int) API.registeredLogin(userName2,password2).getData();
-        registerId3= (int)API.registeredLogin(userName3,password3).getData();
-        storeId1=(int)API.openStore(registerId1,"kandabior store").getData();
-        LinkedList<String> catList= new LinkedList<>();
-        catList.add("FOOD");
-        productId1= (int)API.addProduct(1, storeId1,"milk",catList ,10,"FOOD", 1 ).getData();
-        observableId1 = (int) API.addObservable("Store1").getData();
-        observableId2 = (int) API.addObservable("Store2").getData();
-        API.subscribeToObservable(observableId2,registerId2);
-        API.subscribeToObservable(observableId2,registerId3);
-
-         */
 
     }
 

@@ -2,6 +2,7 @@ package Permissions;
 
 import Domain.*;
 import Domain.User;
+import Persistence.MemberStorePermissionsWrapper;
 
 
 public class AppointOwner {
@@ -19,6 +20,8 @@ public class AppointOwner {
             store.addOwnerToAppointments(user);
             user.updateOwnerPermission(store);
             user.addToMyStores(store);
+            MemberStorePermissionsWrapper memberStorePermissionsWrapper= new MemberStorePermissionsWrapper();
+            memberStorePermissionsWrapper.add(user.getMember().getPermissions(store),user.getId(),store.getStoreId());
 
             return new Result(true,true);
         }

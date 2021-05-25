@@ -1,6 +1,7 @@
 package Tests;
 
 import Domain.Result;
+import Persistence.DataBaseHelper;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -16,8 +17,10 @@ public class LoginTest {
     @BeforeEach
     public void setUp() {
         try {
+            DataBaseHelper.cleanAllTable();
             API.initTradingSystem();
         } catch (Exception e) {
+            System.out.println("ERROR!");
         }
     }
 
@@ -109,12 +112,12 @@ public class LoginTest {
     @Test
     public void scalabilityUserTest(){
 
-        for (int i=1; i<1000; i++){
+        for (int i=1; i<60; i++){
             if(i!=(int)API.guestLogin().getData()){
                 fail();
             }
         }
-        Assertions.assertEquals(999,API.getNumOfUsers().getData());
+        Assertions.assertEquals(59,API.getNumOfUsers().getData());
     }
 
     //AT-3.1

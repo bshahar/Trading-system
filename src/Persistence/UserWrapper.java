@@ -1,6 +1,7 @@
 package Persistence;
 
 import Domain.User;
+import Persistence.DAO.MemberStorePermissionsDAO;
 import Persistence.DAO.UserDAO;
 
 import Persistence.connection.JdbcConnectionSource;
@@ -8,6 +9,7 @@ import Service.API;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 
 
 import java.io.FileNotFoundException;
@@ -24,11 +26,11 @@ public class UserWrapper {
         try {
             ConnectionSource connectionSource = connect();
             // instantiate the dao
-            Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
+            Dao<UserDAO, String> userManager = DaoManager.createDao(connectionSource, UserDAO.class);
             // create an instance of Account
             UserDAO account = new UserDAO(user.getId(),user.getUserName(),user.isRegistered(),user.getAge(),user.getLogged(),user.isSystemManager());
             // persist the account object to the database
-            accountDao.create(account);
+            userManager.create(account);
             // close the connection source
             connectionSource.close();
             return true;
@@ -39,16 +41,46 @@ public class UserWrapper {
         }
     }
 
-    public User get(int id)
+
+    public void setLogged(int logged,int userId)
     {
         try {
             ConnectionSource connectionSource = connect();
-            Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
-            UserDAO account2 = accountDao.queryForId(Integer.toString(id));
-            //TODO FILL THE USER ASS
-            // close the connection source
+            // instantiate the dao
+            Dao<UserDAO, String> userManager = DaoManager.createDao(connectionSource, UserDAO.class);
+            // create an instance of Account
+            userManager.executeRaw("UPDATE Users\n" +
+                    "SET logged= "+String.valueOf(logged)+
+                    " WHERE Id = "+String.valueOf(userId)+";");
             connectionSource.close();
-            return new User(account2.getUserName(),account2.getAge(),account2.getId(),account2.getRegistered());
+        }
+        catch (Exception e)
+        {
+        }
+    }
+
+
+    public User get(int id)
+    {
+        try {
+            ReceiptWrapper receiptWrapper = new ReceiptWrapper();
+            BagWrapper bagWrapper = new BagWrapper();
+            UserMessagesWrapper userMessagesWrapper  = new UserMessagesWrapper();
+            MemberStorePermissionsWrapper memberStorePermissionsWrapper = new MemberStorePermissionsWrapper();
+
+            ConnectionSource connectionSource = connect();
+            Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
+            UserDAO userDAO = accountDao.queryForId(Integer.toString(id));
+            User user = new User(userDAO.getUserName(),userDAO.getAge(),userDAO.getId(),userDAO.getRegistered());
+            connectionSource.close();
+            user.setLogged(userDAO.isLogged());
+            user.setReceipts(receiptWrapper.getByUserId(user.getId()));
+            user.setLoginMessages(userMessagesWrapper.getByUserId(user.getId()));
+            user.setBags(bagWrapper.getAllUserBags(user.getId()));
+            user.setMember(memberStorePermissionsWrapper.getMemberByUserId(id));
+
+
+            return user;
         }
         catch (Exception e)
         {
@@ -157,5 +189,20 @@ public class UserWrapper {
     }
 
 
+    public void updateRegistered(String userName,int userId) {
+        try {
+            ConnectionSource connectionSource = connect();
+            // instantiate the dao
+            Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
+            accountDao.executeRaw("UPDATE Users SET userName='"+userName+"', logged=1, registered=1 WHERE id="+userId);
+            // close the connection source
+            connectionSource.close();
 
+        }
+        catch (Exception e)
+        {
+            System.out.println(e.toString());
+        }
+
+    }
 }

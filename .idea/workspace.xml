@@ -22,12 +22,9 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 add to tables connecting discounts to stores">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61 put wrappers instead of maps in store class">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnCategoriesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnCategoriesWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +169,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.PlayGround">
+  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest.addDiscountOnProductAndOpSuccessTest">
     <configuration name="PlayGround" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Tests.PlayGround" />
       <module name="Trading-system" />
@@ -210,6 +207,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DiscountAndPurchaseTest.addDiscountOnProductAndOpSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+      <option name="METHOD_NAME" value="addDiscountOnProductAndOpSuccessTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -221,22 +234,6 @@
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest.loginSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="METHOD_NAME" value="loginSuccessTest" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -259,11 +256,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.addDiscountOnProductAndOpSuccessTest" />
         <item itemvalue="Application.PlayGround" />
         <item itemvalue="JUnit.LoginTest" />
         <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.LoginTest.scalabilityUserTest" />
-        <item itemvalue="JUnit.LoginTest.loginSuccessTest" />
       </list>
     </recent_temporary>
   </component>
@@ -287,14 +284,7 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="1096000" />
-      <workItem from="1621682093021" duration="14290000" />
-    </task>
-    <task id="LOCAL-00008" summary="workspace">
-      <created>1617811276698</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1617811276698</updated>
+      <workItem from="1621682093021" duration="15825000" />
     </task>
     <task id="LOCAL‎00009" summary="adding store test #26">
       <created>1617891384196</created>
@@ -606,7 +596,13 @@
       <option name="presentableId" value="LOCAL‎00056" />
       <updated>1621794283145</updated>
     </task>
-    <option name="localTasksCounter" value="57" />
+    <task id="LOCAL‎00057" summary="#61 put wrappers instead of maps in store class">
+      <created>1621796372945</created>
+      <option name="number" value="LOCAL‎00057" />
+      <option name="presentableId" value="LOCAL‎00057" />
+      <updated>1621796372945</updated>
+    </task>
+    <option name="localTasksCounter" value="58" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -629,7 +625,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="change permissions" />
     <MESSAGE value="Adapter Injection #38" />
     <MESSAGE value="update server and gui #44" />
     <MESSAGE value="add store page" />
@@ -654,7 +649,8 @@
     <MESSAGE value="#61 fix primary keys db" />
     <MESSAGE value="#61 add daos" />
     <MESSAGE value="#61 add to tables connecting discounts to stores" />
-    <option name="LAST_COMMIT_MESSAGE" value="#61 add to tables connecting discounts to stores" />
+    <MESSAGE value="#61 put wrappers instead of maps in store class" />
+    <option name="LAST_COMMIT_MESSAGE" value="#61 put wrappers instead of maps in store class" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -691,7 +687,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>398</line>
+          <line>375</line>
           <option name="timeStamp" value="39" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -723,6 +719,11 @@
           <url>file://$PROJECT_DIR$/src/Tests/PlayGround.java</url>
           <line>26</line>
           <option name="timeStamp" value="79" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java</url>
+          <line>30</line>
+          <option name="timeStamp" value="82" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />

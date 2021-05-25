@@ -87,29 +87,6 @@ public class DiscountAndPurchaseTest {
         supplement.put("city", testProps.getProperty("supplyCity"));
         supplement.put("country", testProps.getProperty("supplyCountry"));
         supplement.put("zip", testProps.getProperty("supplyZipCode"));
-
-        /*API.initTradingSystem();
-        String userName1 = "kandabior";
-        String password1 = "or321654";
-        String userName2 = "elad";
-        String password2 = "elad321654";
-        API.register(userName1, password1, 20);
-        API.register(userName2, password2, 16);
-        registerId1 = (int) API.registeredLogin(userName1, password1).getData();
-        registerId2 = (int) API.registeredLogin(userName2, password2).getData();
-        storeId1 = (int) API.openStore(registerId1, "kandabior store").getData();
-        LinkedList<String> catList1 = new LinkedList<>();
-        catList1.add("FOOD");
-        LinkedList<String> catList2 = new LinkedList<>();
-        catList2.add("DRINKS");
-
-        productId1 = (int) API.addProduct(1, storeId1, "milk", catList1, 10, "FOOD", 100).getData();
-        productId2 = (int) API.addProduct(1, storeId1, "beer", catList2, 20, "ALCOHOL", 100).getData();
-        productId3 = (int) API.addProduct(1, storeId1, "bread", catList1, 10, "FOOD", 100).getData();
-        productId4 = (int) API.addProduct(1, storeId1, "cheese", catList1, 15, "FOOD", 100).getData();
-        begin = "01/04/2021";
-        end = "01/06/2022";
-         */
     }
 
     @Test

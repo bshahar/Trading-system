@@ -2,6 +2,7 @@ package Persistence;
 
 import Domain.Product;
 import Domain.PurchaseFormat.PurchaseOffer;
+import Domain.Store;
 import Persistence.DAO.ProductOffersDAO;
 import Persistence.DAO.PurchaseOffersDAO;
 import Persistence.DAO.UserApprovedOffersDAO;
@@ -15,9 +16,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserApprovedOffersWrapper {
@@ -59,12 +58,34 @@ public class UserApprovedOffersWrapper {
         return this.value.containsKey(product);
     }
 
-    public Double get(Product product) {
+    public Double get(Store store, int userId, Product product) {
+        this.value = get(store, userId);
         return this.value.get(product);
     }
 
-    public Map<Product, Double> get() {
-        return this.value;
+    public Map<Product, Double> get(Store store, int userId) {
+        if(this.value == null || this.value.isEmpty()){
+            try {
+                ConnectionSource connectionSource = connect();
+                Dao<UserApprovedOffersDAO, String> userApprovedOffersDAOManager =  DaoManager.createDao(connectionSource, UserApprovedOffersDAO.class);
+                Map<String, Object> fields = new HashMap<>();
+                fields.put("storeId", store.getStoreId());
+                fields.put("userId", userId);
+                List<UserApprovedOffersDAO> userApprovedOffersDAOS = userApprovedOffersDAOManager.queryForFieldValues(fields);
+
+                for (UserApprovedOffersDAO userApprovedOffers: userApprovedOffersDAOS) {
+                    this.value.put(store.getProductById(userApprovedOffers.getProductId()),userApprovedOffers.getOfferPrice() );
+                }
+
+                return this.value;
+
+            }
+            catch (Exception e){
+                return this.value;
+            }
+        }
+        else
+            return this.value;
     }
 
     public ConnectionSource connect() throws IOException, SQLException {

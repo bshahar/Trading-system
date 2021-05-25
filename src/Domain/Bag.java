@@ -12,13 +12,15 @@ import java.util.Map;
 
 public class Bag {
     private Store store;
+    private int userId;
     Map<Product,Integer> productsAmounts;
     UserApprovedOffersWrapper productsApproved; // the product that approved and his price
     UserCounterOffersWrapper counterOffers;
 
-    public Bag(Store store)
+    public Bag(Store store, int userId)
     {
         this.store = store;
+        this.userId = userId;
         this.productsAmounts = new HashMap<>();
         this.productsApproved = new UserApprovedOffersWrapper();
         this.counterOffers = new UserCounterOffersWrapper();
@@ -63,7 +65,7 @@ public class Bag {
             if(!this.productsApproved.contains(p))
                 total += p.getPrice();
             else
-                total += productsApproved.get(p);
+                total += productsApproved.get(this.store, this.userId, p);
         }
         return total;
     }
@@ -83,11 +85,11 @@ public class Bag {
     }
 
     public Map<Product, Double> getOfferPrices() {
-        return this.productsApproved.get();
+        return this.productsApproved.get(this.store, this.userId);
     }
 
     public Map<Product, PurchaseOffer> getCounterOffers() {
-        return this.counterOffers.get();
+        return this.counterOffers.get(this.store, this.userId);
     }
 
    /* public void offerApproved(Product prod, double offer){

@@ -648,7 +648,7 @@ public class TradingSystem {
             for (Product p : products.keySet()) {
                 productsAmountBag.put(p, products.get(p));
             }
-            Bag bag = new Bag(store);
+            Bag bag = new Bag(store, userId);
             bag.setProducts(products);
             Map<Product, Integer> productsAmountBuy = new HashMap<>();
             double totalCost = 0;

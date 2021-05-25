@@ -2,6 +2,8 @@ package Persistence;
 
 import Domain.Product;
 import Domain.PurchaseFormat.PurchaseOffer;
+import Domain.Store;
+import Persistence.DAO.PurchaseOffersDAO;
 import Persistence.DAO.UserApprovedOffersDAO;
 import Persistence.DAO.UsersCounterOffersDAO;
 import Persistence.connection.JdbcConnectionSource;
@@ -14,15 +16,19 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class UserCounterOffersWrapper {
     private Map<Product, PurchaseOffer> value;
+    private UserWrapper userWrapper;
 
     public UserCounterOffersWrapper() {
         this.value = new ConcurrentHashMap<>();
+            this.userWrapper = new UserWrapper();
     }
 
     public void add(int storeId, Product prod, PurchaseOffer purchaseOffer) {
@@ -61,8 +67,32 @@ public class UserCounterOffersWrapper {
         return this.value.get(product);
     }
 
-    public Map<Product, PurchaseOffer> get() {
-        return this.value;
+    public Map<Product, PurchaseOffer> get(Store store, int userId) {
+        if(this.value == null || this.value.isEmpty()){
+            try {
+                ConnectionSource connectionSource = connect();
+                Dao<UsersCounterOffersDAO, String> userCounterOffersDAOManager =  DaoManager.createDao(connectionSource, UsersCounterOffersDAO.class);
+                Map<String, Object> fields = new HashMap<>();
+                fields.put("storeId", store.getStoreId());
+                fields.put("userId", userId);
+                List<UsersCounterOffersDAO> userCounterOffersDAOS = userCounterOffersDAOManager.queryForFieldValues(fields);
+
+                for (UsersCounterOffersDAO userCounterOffers: userCounterOffersDAOS) {
+                    Dao<PurchaseOffersDAO, String> accountDao = DaoManager.createDao(connectionSource, PurchaseOffersDAO.class);
+                    PurchaseOffersDAO pod = accountDao.queryForId(Integer.toString(userCounterOffers.getOfferId()));
+                    PurchaseOffer pod2 = new PurchaseOffer(pod.getId(), pod.getPriceOfOffer(), pod.getQuantity(),userWrapper.get(pod.getUserId()));
+                    this.value.put(store.getProductById(userCounterOffers.getProductId()),pod2 );
+                }
+
+                return this.value;
+
+            }
+            catch (Exception e){
+                return this.value;
+            }
+        }
+        else
+            return this.value;
     }
 
     public ConnectionSource connect() throws IOException, SQLException {

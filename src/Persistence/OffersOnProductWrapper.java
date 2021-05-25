@@ -16,23 +16,23 @@ import com.j256.ormlite.dao.CloseableWrappedIterable;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
+import org.omg.DynamicAny.DynAnyOperations;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Properties;
+import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
 public class OffersOnProductWrapper {
 
     private Map<Product, LinkedList<PurchaseOffer>> value;
+    private UserWrapper userWrapper;
 
     public OffersOnProductWrapper() {
         this.value = new ConcurrentHashMap<>();
+        this.userWrapper = new UserWrapper();
     }
 
     public void add(int storeId, Product prod, PurchaseOffer purchaseOffer) {
@@ -86,32 +86,46 @@ public class OffersOnProductWrapper {
         return this.value.containsKey(product);
     }*/
 
-    public LinkedList<PurchaseOffer> get(Product product) {
+    public LinkedList<PurchaseOffer> get(Store store, Product product) {
+        this.value = get(store);
         return this.value.get(product);
     }
 
     public Map<Product, LinkedList<PurchaseOffer>> get(Store store) {
-       /* if(this.value == null || this.value.isEmpty()){
+       if(this.value == null || this.value.isEmpty()){
             try {
                 ConnectionSource connectionSource = connect();
-                Dao<ProductOffersDAO, String> productOffersDAO = DaoManager.createDao(connectionSource, ProductOffersDAO.class);
-                CloseableWrappedIterable<ProductOffersDAO> itr = productOffersDAO.getWrappedIterable();
-                while (itr.iterator().hasNext()){
-                    ProductOffersDAO next = itr.iterator().next();
-                    if(next.getStoreId() == store.getStoreId() ){
-                        Dao<PurchaseOffersDAO, String> accountDao = DaoManager.createDao(connectionSource, PurchaseOffersDAO.class);
-                        PurchaseOffersDAO pod = accountDao.queryForId(Integer.toString(next.getOfferId()));
-                        PurchaseOffer pod2 = new PurchaseOffer(pod.getId(), pod.getPriceOfOffer(), pod.getQuantity(),pod.getUserId());
-                        this.value.put(store.getProductById(next.getProductId()),pod2);
+                Dao<ProductOffersDAO, String> productOffersDAOManager =  DaoManager.createDao(connectionSource, ProductOffersDAO.class);
+                Map<String, Object> fields = new HashMap<>();
+                fields.put("storeId", store.getStoreId());
+                List<ProductOffersDAO> productOffersDAOS = productOffersDAOManager.queryForFieldValues(fields);
+
+                for (ProductOffersDAO prodOffer: productOffersDAOS) {
+                    Dao<PurchaseOffersDAO, String> accountDao = DaoManager.createDao(connectionSource, PurchaseOffersDAO.class);
+                    PurchaseOffersDAO pod = accountDao.queryForId(Integer.toString(prodOffer.getOfferId()));
+                    PurchaseOffer pod2 = new PurchaseOffer(pod.getId(), pod.getPriceOfOffer(), pod.getQuantity(),userWrapper.get(pod.getUserId()));
+                    LinkedList<PurchaseOffer> offers = null;
+                    if (this.value.containsKey(store.getProductById(prodOffer.getProductId()))) {
+                        offers = this.value.get(store.getProductById(prodOffer.getProductId()));
+                        offers.add(pod2);
+                        this.value.put(store.getProductById(prodOffer.getProductId()), offers);
                     }
+                    else{
+                        offers = new LinkedList<PurchaseOffer>();
+                        offers.add(pod2);
+                        this.value.put(store.getProductById(prodOffer.getProductId()), offers);
+                    }
+
                 }
+
+               return this.value;
 
             }
             catch (Exception e){
-
+                return this.value;
             }
         }
-        else*/
+        else
             return this.value;
     }
     public ConnectionSource connect() throws IOException, SQLException {

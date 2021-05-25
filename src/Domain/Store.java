@@ -557,7 +557,7 @@ public class Store {
         return -1;
     }
     public int getUserMadeTheOffer(int prodId ,int offerId){
-        List<PurchaseOffer> offers = this.offersOnProduct.get(getProductById(prodId));
+        List<PurchaseOffer> offers = this.offersOnProduct.get(this, getProductById(prodId));
         for (PurchaseOffer p: offers) {
             if (p.getId() == offerId)
                 return p.getUser().getId();
@@ -566,7 +566,7 @@ public class Store {
     }
 
     public void removeOffer(int prodId ,int offerId){
-        List<PurchaseOffer> offers = this.offersOnProduct.get(getProductById(prodId));
+        List<PurchaseOffer> offers = this.offersOnProduct.get(this, getProductById(prodId));
         PurchaseOffer po = null;
         for (PurchaseOffer p: offers) {
             if (p.getId() == offerId)
@@ -583,7 +583,7 @@ public class Store {
                     double offer = 0;
                     int amount = 0;
                     User user = null;
-                    List<PurchaseOffer> offers = this.offersOnProduct.get(getProductById(prodId));
+                    List<PurchaseOffer> offers = this.offersOnProduct.get(this, getProductById(prodId));
                     for (PurchaseOffer p : offers) {
                         if (p.getId() == offerId) {
                             offer = p.getPriceOfOffer();
@@ -595,7 +595,7 @@ public class Store {
                     if (user != null) {
                         Bag bag = user.getBagByStoreId(this.storeId);
                         if (bag == null) {
-                            bag = new Bag(this);
+                            bag = new Bag(this, user.getId());
                             user.getBags().add(bag);
                         }
                         bag.productsAmounts.put(getProductById(prodId), amount);
@@ -609,7 +609,7 @@ public class Store {
                     return new Result(true, "the offer disapproved");
                 case "COUNTEROFFER":
                     user = null;
-                    offers = this.offersOnProduct.get(getProductById(prodId));
+                    offers = this.offersOnProduct.get(this, getProductById(prodId));
                     PurchaseOffer po = null;
                     for (PurchaseOffer p : offers) {
                         if (p.getId() == offerId) {
@@ -621,7 +621,7 @@ public class Store {
                     if (user != null) {
                         Bag bag = user.getBagByStoreId(this.storeId);
                         if (bag == null) {
-                            bag = new Bag(this);
+                            bag = new Bag(this, user.getId());
                             user.getBags().add(bag);
                         }
                         bag.counterOffers.add(this.storeId, getProductById(prodId), po);

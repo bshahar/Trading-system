@@ -273,13 +273,13 @@ public class Store {
 
     public void removePurchaseOnCategory(String category){
         //this.purchasesOnCategories.remove(category);
-        int immId = this.purchasesOnCategories.get(category).getId();
+        int immId = this.purchasesOnCategories.get(this.storeId,category).getId();
         this.purchasesOnCategories.remove(immId);
     }
 
     public void removePurchaseOnStore(){
         //this.purchasesOnStore = null;
-        this.purchasesOnStore.remove(this.purchasesOnStore.getValue().getId());
+        this.purchasesOnStore.remove(this.purchasesOnStore.getValue(this.storeId).getId());
         this.purchasesOnStore = null;
     }
 
@@ -349,12 +349,12 @@ public class Store {
                 isValid = isValid && ip.validatePurchase(user, time, bag);
         }
         for (String cat:prod.getCategories()) {
-            ImmediatePurchase ip = purchasesOnCategories.get(cat);
+            ImmediatePurchase ip = purchasesOnCategories.get(this.storeId,cat);
             if(ip != null)
                 isValid = isValid && ip.validatePurchase(user, time, bag);
         }
         if (this.purchasesOnStore != null)
-            isValid = isValid && purchasesOnStore.getValue().validatePurchase(user, time, bag);
+            isValid = isValid && purchasesOnStore.getValue(this.storeId).validatePurchase(user, time, bag);
         return isValid;
 
     }
@@ -456,7 +456,7 @@ public class Store {
     public Result viewPurchasePoliciesOnCategory(String category) {
         if(category != null && this.purchasesOnCategories.contains(category)) {
             List<Object> purchasePolicies = new LinkedList<>();
-            ImmediatePurchase ip = this.purchasesOnCategories.get(category);
+            ImmediatePurchase ip = this.purchasesOnCategories.get(this.storeId, category);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             for (Policy policy : ((ImmediatePurchase) ip).getConditions().getPurchases()) {
                 policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));
@@ -471,7 +471,7 @@ public class Store {
     public Result viewPurchasePoliciesOnStore() {
         if(this.purchasesOnStore != null) {
             List<Object> purchasePolicies = new LinkedList<>();
-            ImmediatePurchase ip = this.purchasesOnStore.getValue();
+            ImmediatePurchase ip = this.purchasesOnStore.getValue(this.storeId);
             List<Pair<String, List<String>>> policiesParams = new LinkedList<>();
             for (Policy policy : ((ImmediatePurchase) ip).getConditions().getPurchases()) {
                 policiesParams.add(new Pair<>(policy.getPolicyName(), policy.getPolicyParams()));

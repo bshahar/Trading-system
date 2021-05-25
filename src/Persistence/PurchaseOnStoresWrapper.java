@@ -4,11 +4,13 @@ import Domain.DiscountFormat.ConditionalDiscount;
 import Domain.DiscountFormat.Discount;
 import Domain.DiscountPolicies.DiscountByMinimalAmount;
 import Domain.DiscountPolicies.DiscountByMinimalCost;
+import Domain.Operators.AndOperator;
+import Domain.Operators.LogicOperator;
+import Domain.Operators.OrOperator;
+import Domain.Operators.XorOperator;
 import Domain.Policy;
 import Domain.PurchaseFormat.ImmediatePurchase;
-import Domain.PurchasePolicies.AgeLimitPolicy;
-import Domain.PurchasePolicies.MaxAmountPolicy;
-import Domain.PurchasePolicies.MinAmountPolicy;
+import Domain.PurchasePolicies.*;
 import Persistence.DAO.*;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
@@ -20,10 +22,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.Properties;
+import java.util.*;
 
 public class PurchaseOnStoresWrapper {
 
@@ -97,7 +96,80 @@ public class PurchaseOnStoresWrapper {
         }
     }
 
-    public ImmediatePurchase getValue() { return this.value; }
+    private LogicOperator stringToLogicOp(String str) {
+        switch (str) {
+            case "Or":
+                return new OrOperator();
+            case "And":
+                return new AndOperator();
+            default: return new XorOperator();
+        }
+    }
+
+    public ImmediatePurchase getValue(int storeId) {
+        ImmediatePurchase ip = this.value;
+        if (ip != null) return ip;
+        else {
+            try {
+                ConnectionSource connectionSource = connect();
+                Dao<StorePoliciesOnStoresDAO, String> storePoliciesOnStoresDAOManager = DaoManager.createDao(connectionSource, StorePoliciesOnStoresDAO.class);
+                Map<String, Object> fields = new HashMap<>();
+                fields.put("storeId", storeId);
+                List<StorePoliciesOnStoresDAO> storePolOnStoresDAOs = storePoliciesOnStoresDAOManager.queryForFieldValues(fields);
+                StorePoliciesOnStoresDAO value = storePolOnStoresDAOs.get(0);
+
+                int immediatePurchaseId = value.getImmediatePurchaseId();
+
+                Dao<ImmediatePurchasesDAO, String> immediatePurchasesDAOManager = DaoManager.createDao(connectionSource, ImmediatePurchasesDAO.class);
+                Map<String, Object> immpurFields = new HashMap<>();
+                immpurFields.put("id", immediatePurchaseId);
+                List<ImmediatePurchasesDAO> immpurDAOs = immediatePurchasesDAOManager.queryForFieldValues(immpurFields);
+                ImmediatePurchasesDAO immpurDAO = immpurDAOs.get(0);
+
+                int conditionId = immpurDAO.getConditionId();
+
+                Dao<PurchaseConditionDAO, String> purCondDAOManager = DaoManager.createDao(connectionSource, PurchaseConditionDAO.class);
+                PurchaseConditionDAO purCondDAO = purCondDAOManager.queryForId(String.valueOf(conditionId));
+
+                String logicOperator = purCondDAO.getLogicOperator();
+
+                List<Policy> policies = new LinkedList<>();
+                Map<String, Object> condIdFilter = new HashMap<>();
+                condIdFilter.put("conditionId", conditionId);
+                //Age Limit policy
+                Dao<AgeLimitPolicyDAO, String> ageLimitDAOManager = DaoManager.createDao(connectionSource, AgeLimitPolicyDAO.class);
+                List<AgeLimitPolicyDAO> ageLimitDAO = ageLimitDAOManager.queryForFieldValues(condIdFilter);
+                for (AgeLimitPolicyDAO tmp : ageLimitDAO) {
+                    policies.add(new AgeLimitPolicy(tmp.getAgeLimit()));
+                }
+                //Time Limit policy
+                Dao<TimeLimitPolicyDAO, String> timeLimitDAOManager = DaoManager.createDao(connectionSource, TimeLimitPolicyDAO.class);
+                List<TimeLimitPolicyDAO> timeLimitDAO = timeLimitDAOManager.queryForFieldValues(condIdFilter);
+                for (TimeLimitPolicyDAO tmp : timeLimitDAO) {
+                    policies.add(new TimeLimitPolicy(tmp.getHourInDay()));
+                }
+                //Max Amount Policy
+                Dao<MaxAmountPolicyDAO, String> maxAmountDAOManager = DaoManager.createDao(connectionSource, MaxAmountPolicyDAO.class);
+                List<MaxAmountPolicyDAO> maxAmountDAO = maxAmountDAOManager.queryForFieldValues(condIdFilter);
+                for (MaxAmountPolicyDAO tmp : maxAmountDAO) {
+                    policies.add(new MaxAmountPolicy(tmp.getMaxAmount(), tmp.getProductId()));
+                }
+                //Min Amount Policy
+                Dao<MinAmountPolicyDAO, String> minAmountDAOManager = DaoManager.createDao(connectionSource, MinAmountPolicyDAO.class);
+                List<MinAmountPolicyDAO> minAmountDAO = minAmountDAOManager.queryForFieldValues(condIdFilter);
+                for (MinAmountPolicyDAO tmp : minAmountDAO) {
+                    policies.add(new MinAmountPolicy(tmp.getMinAmount(), tmp.getProductId()));
+                }
+
+                PurchaseCondition condition = new PurchaseCondition(policies, stringToLogicOp(logicOperator));
+                ImmediatePurchase immediatePurchase = new ImmediatePurchase(immediatePurchaseId, condition);
+                this.value = immediatePurchase;
+                return immediatePurchase;
+            } catch (Exception e) {
+                return null;
+            }
+        }
+    }
 
     public ConnectionSource connect() throws IOException, SQLException {
         Properties appProps = new Properties();

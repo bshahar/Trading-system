@@ -1,5 +1,6 @@
 package Persistence;
 
+import Domain.DiscountPolicies.DiscountCondition;
 import Domain.User;
 import Persistence.DAO.*;
 import Persistence.connection.JdbcConnectionSource;
@@ -62,6 +63,12 @@ public class DataBaseHelper {
             ProductReviewsDAOManager.executeRaw("DELETE FROM ProductReviews");
             Dao<ProductCategoriesDAO, String>ProductCategoriesDAOManager = DaoManager.createDao(connectionSource,ProductCategoriesDAO.class);
             ProductCategoriesDAOManager.executeRaw("DELETE FROM ProductCategories");
+
+            Dao<DiscountDAO, String> DiscountDAOManager = DaoManager.createDao(connectionSource, DiscountDAO.class);
+            DiscountDAOManager.executeRaw("DELETE FROM Discounts");
+
+            Dao<DiscountConditionDAO, String> DiscountConditionDAOManager = DaoManager.createDao(connectionSource, DiscountConditionDAO.class);
+            DiscountConditionDAOManager.executeRaw("DELETE FROM DiscountCondition");
 
             connectionSource.close();
         } catch (Exception e)

@@ -2,6 +2,7 @@ package Tests;
 
 import Domain.Receipt;
 import Domain.Result;
+import Persistence.DataBaseHelper;
 import Service.API;
 import javafx.util.Pair;
 import org.junit.jupiter.api.Assertions;
@@ -31,6 +32,7 @@ public class DiscountAndPurchaseTest {
     public void setUp() {
         Properties testProps = new Properties();
         try {
+            DataBaseHelper.cleanAllTable();
             API.initTradingSystem();
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)

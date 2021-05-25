@@ -61,6 +61,28 @@ public class Store {
         this.offersOnProduct = new ConcurrentHashMap<>();
     }
 
+    public Store(int id, String name) { //create a store with empty inventory
+        this.storeId = id;
+        this.name = name;
+        this.inventory = new Inventory();
+        this.rate = 0;
+        this.ratesCount = 0;
+        this.employees = new StoreEmployeesWrapper();
+//        this.employees.add(owner,storeId);
+        this.receipts = new StoreReceiptWrapper();
+        this.appointments = new AppointmentsWrapper();
+//        this.appointments.put(owner, new LinkedList<>());
+        this.owners = new StoreOwnerWrapper();
+        this.managers = new StoreManagerWrapper();
+        this.discountsOnProducts = new DiscountsOnProductsWrapper();
+        this.discountsOnCategories = new DiscountsOnCategoriesWrapper();
+        this.counter = new counter();
+        this.offerCounter = new counter();
+        this.purchasesOnProducts = new ConcurrentHashMap<>();
+        this.purchasesOnCategories = new ConcurrentHashMap<>();
+        this.offersOnProduct = new ConcurrentHashMap<>();
+    }
+
 
     public Inventory getInventory() {
         return inventory;
@@ -254,8 +276,8 @@ public class Store {
 
     public void removeDiscountOnProduct(int prodId){
         Product prod = this.inventory.getProductById(prodId,storeId);
-        int discountId = this.discountsOnProducts.get(prod.getId();
-        this.discountsOnProducts.remove(discountId);
+        Discount discount = this.discountsOnProducts.get(prod);
+        this.discountsOnProducts.remove(discount);
     }
 
     public void removeDiscountOnCategory(String category){

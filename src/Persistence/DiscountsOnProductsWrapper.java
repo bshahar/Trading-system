@@ -31,7 +31,7 @@ public class DiscountsOnProductsWrapper {
         try {
             ConnectionSource connectionSource = connect();
             if(this.value.containsKey(product))
-                remove(discount.getId()); //Remove from DB
+                remove(discount); //Remove from DB
             //Discounts
             Dao<DiscountDAO, String> discountDAO = DaoManager.createDao(connectionSource, DiscountDAO.class);
             DiscountDAO discountDaoObj = new DiscountDAO(discount.getId(), discount.getMathOpStr(),
@@ -41,28 +41,28 @@ public class DiscountsOnProductsWrapper {
             if(discount instanceof ConditionalDiscount) {
                 ConditionalDiscount tmp = (ConditionalDiscount) discount;
                 Dao<DiscountConditionDAO, String> discountConditionDAO = DaoManager.createDao(connectionSource, DiscountConditionDAO.class);
-                DiscountConditionDAO disConDaoObj = new DiscountConditionDAO(tmp.getId(), tmp.getConditions().getOperatorStr());
+                DiscountConditionDAO disConDaoObj = new DiscountConditionDAO(tmp.getConditions().getId(), tmp.getConditions().getOperatorStr());
                 discountConditionDAO.create(disConDaoObj);
                 //Conditions
                 List<Policy> policies = tmp.getConditions().getDiscounts();
                 for (Policy pol : policies) {
                     if(pol instanceof DiscountByMinimalAmount) {
                      Dao<DiscountByMinimalAmountDAO, String> discountByMinimalAmountDAO = DaoManager.createDao(connectionSource, DiscountByMinimalAmountDAO.class);
-                        DiscountByMinimalAmountDAO minAmountDaoObj = new DiscountByMinimalAmountDAO(tmp.getId(),
+                        DiscountByMinimalAmountDAO minAmountDaoObj = new DiscountByMinimalAmountDAO(tmp.getConditions().getId(),
                                 Integer.parseInt(pol.getPolicyParams().get(1)),
                                 Integer.parseInt(pol.getPolicyParams().get(0)));
                         discountByMinimalAmountDAO.create(minAmountDaoObj);
                     }
                     else if(pol instanceof DiscountByMinimalCost) {
                         Dao<DiscountByMinimalCostDAO, String> discountByMinimalCostDAO = DaoManager.createDao(connectionSource, DiscountByMinimalCostDAO.class);
-                        DiscountByMinimalCostDAO minCostDaoObj = new DiscountByMinimalCostDAO(tmp.getId(),
-                                Integer.parseInt(pol.getPolicyParams().get(0)));
+                        DiscountByMinimalCostDAO minCostDaoObj = new DiscountByMinimalCostDAO(tmp.getConditions().getId(),
+                                Double.parseDouble(pol.getPolicyParams().get(0)));
                         discountByMinimalCostDAO.create(minCostDaoObj);
                     }
                     else { //DiscountByPurchaseTime
                         Dao<DiscountByPurchaseTimeDAO, String> discountByPurchaseTimeDAO = DaoManager.createDao(connectionSource, DiscountByPurchaseTimeDAO.class);
                         //params = boolean byDayInWeek, boolean byDayInMonth, boolean byHourInDay, int dayInWeek, int dayInMonth, int beginHour, int endHour
-                        DiscountByPurchaseTimeDAO purchaseTimeDaoObj = new DiscountByPurchaseTimeDAO (tmp.getId(),
+                        DiscountByPurchaseTimeDAO purchaseTimeDaoObj = new DiscountByPurchaseTimeDAO (tmp.getConditions().getId(),
                                 Boolean.parseBoolean(pol.getPolicyParams().get(0)),
                                 Boolean.parseBoolean(pol.getPolicyParams().get(1)),
                                 Boolean.parseBoolean(pol.getPolicyParams().get(2)),
@@ -90,12 +90,17 @@ public class DiscountsOnProductsWrapper {
         this.value.put(product, discount); //Overwrite old entry in map
     }
 
-    public void remove(int discountId) {
+    public void remove(Discount discount) {
         try {
             ConnectionSource connectionSource = connect();
             Dao<DiscountDAO, String> discountDAO = DaoManager.createDao(connectionSource, DiscountDAO.class);
-            discountDAO.deleteById(String.valueOf(discountId));
+            discountDAO.deleteById(String.valueOf(discount.getId()));
+            if(discount instanceof ConditionalDiscount) {
+                Dao<DiscountConditionDAO, String> conditionDAO = DaoManager.createDao(connectionSource, DiscountConditionDAO.class);
+                conditionDAO.deleteById(String.valueOf(((ConditionalDiscount) discount).getConditions().getId()));
+            }
             connectionSource.close();
+            this.value.remove(discount);
         } catch (Exception e) {
 
         }

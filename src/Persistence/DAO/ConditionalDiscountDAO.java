@@ -2,7 +2,7 @@ package Persistence.DAO;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "DiscountByMinimalCost")
+@DatabaseTable(tableName = "ConditionalDiscount")
 public class ConditionalDiscountDAO {
 
     @DatabaseField(uniqueCombo = true)

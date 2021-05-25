@@ -65,7 +65,7 @@ public class StoreWrapper {
             ConnectionSource connectionSource = connect();
             Dao<StoreDAO, String> StoreDAOManager = DaoManager.createDao(connectionSource,StoreDAO.class);
             StoreDAO storeDAO = StoreDAOManager.queryForId(Integer.toString(storeId));
-            Store store= new Store(storeDAO.getStoreId(),storeDAO.getName());
+            Store store=                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        new Store(storeDAO.getStoreId(),storeDAO.getName());
             store.setNotificationId(storeDAO.getNotificationId());
             store.setRate(storeDAO.getRate());
             store.setRateCount(storeDAO.getRatesCount());

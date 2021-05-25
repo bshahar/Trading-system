@@ -175,7 +175,7 @@ public class PurchasesOnProductsWrapper {
                     policies.add(new MinAmountPolicy(tmp.getMinAmount(), tmp.getProductId()));
                 }
 
-                PurchaseCondition condition = new PurchaseCondition(policies, stringToLogicOp(logicOperator));
+                PurchaseCondition condition = new PurchaseCondition(immpurDAO.getConditionId(), policies, stringToLogicOp(logicOperator));
                 ImmediatePurchase immediatePurchase = new ImmediatePurchase(immediatePurchaseId, condition);
 
                 this.value.put(product, immediatePurchase);

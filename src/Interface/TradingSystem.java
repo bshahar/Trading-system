@@ -1078,7 +1078,7 @@ public class TradingSystem {
     public Result addPurchasePolicyOnProduct(int storeId, int userId, int prodId, String operator, List<Pair<String, List<String>>> policiesParams) {
         Store st = getStoreById(storeId);
         if(st != null && st.prodExists(prodId))  {
-                PurchaseCondition conditions = new PurchaseCondition();
+                PurchaseCondition conditions = new PurchaseCondition(conditionCounter.inc());
                 for (Pair<String, List<String>> pair: policiesParams) {
                     PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
                     conditions.addPurchasePolicy(pol);
@@ -1092,7 +1092,7 @@ public class TradingSystem {
     public Result addPurchasePolicyOnCategory(int storeId, int userId, String category, String operator, List<Pair<String, List<String>>> policiesParams) {
         Store st = getStoreById(storeId);
         if(st != null) {
-                PurchaseCondition conditions = new PurchaseCondition();
+                PurchaseCondition conditions = new PurchaseCondition(conditionCounter.inc());
                 for (Pair<String, List<String>> pair: policiesParams) {
                     PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
                     conditions.addPurchasePolicy(pol);
@@ -1106,7 +1106,7 @@ public class TradingSystem {
     public Result addPurchasePolicyOnStore(int storeId, int userId, String operator, List<Pair<String, List<String>>> policiesParams) {
         Store st = getStoreById(storeId);
         if(st != null) {
-                PurchaseCondition conditions = new PurchaseCondition();
+                PurchaseCondition conditions = new PurchaseCondition(conditionCounter.inc());
                 for (Pair<String, List<String>> pair: policiesParams) {
                     PolicyCondition pol = new PolicyCondition(pair.getKey(), pair.getValue());
                     conditions.addPurchasePolicy(pol);

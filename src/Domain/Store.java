@@ -258,7 +258,7 @@ public class Store {
     }
 
     public void addDiscountOnStore(Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        this.discountsOnStore = new DiscountsOnStoresWrapper(new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
+        this.discountsOnStore = new DiscountsOnStoresWrapper(this.storeId, new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
     }
 
     public void addPurchaseOnProduct(int prodId, PurchaseCondition conditions) {
@@ -270,7 +270,7 @@ public class Store {
     }
 
     public void addPurchaseOnStore(PurchaseCondition conditions) {
-        this.purchasesOnStore = new PurchaseOnStoresWrapper(new ImmediatePurchase(counter.inc(), conditions));
+        this.purchasesOnStore = new PurchaseOnStoresWrapper(this.storeId, new ImmediatePurchase(counter.inc(), conditions));
     }
 
     public void removeDiscountOnProduct(int prodId){
@@ -289,7 +289,7 @@ public class Store {
     public void removeDiscountOnStore() {
         Discount dis = this.discountsOnStore.get(this.storeId);
         if (dis != null)
-            this.discountsOnStore.remove(dis.getId());
+            this.discountsOnStore.remove(dis);
         this.discountsOnStore = null;
     }
 
@@ -308,7 +308,7 @@ public class Store {
 
     public void removePurchaseOnStore(){
         //this.purchasesOnStore = null;
-        this.purchasesOnStore.remove(this.purchasesOnStore.getValue(this.storeId).getId());
+        this.purchasesOnStore.remove(this.purchasesOnStore.getValue(this.storeId));
         this.purchasesOnStore = null;
     }
 
@@ -364,7 +364,7 @@ public class Store {
     }
 
     public void addSimpleDiscountOnStore(Date begin, Date end, int percentage, Discount.MathOp op) {
-        this.discountsOnStore = new DiscountsOnStoresWrapper(new SimpleDiscount(counter.inc(), begin, end, percentage, op));
+        this.discountsOnStore = new DiscountsOnStoresWrapper(this.storeId, new SimpleDiscount(counter.inc(), begin, end, percentage, op));
     }
 
     public boolean validatePurchasePerProduct(Product prod ,User user, Date time, Bag bag){

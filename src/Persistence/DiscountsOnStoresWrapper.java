@@ -30,15 +30,16 @@ public class DiscountsOnStoresWrapper {
 
     private Discount value;
 
+    /*
     public DiscountsOnStoresWrapper(Discount discount) {
         this.value = discount;
-    }
+    }*/
 
-    public void add(int storeId, Discount discount) {
+    public DiscountsOnStoresWrapper(int storeId, Discount discount) {
         try {
             ConnectionSource connectionSource = connect();
             if(this.value != null)
-                remove(discount.getId()); //Remove from DB
+                remove(discount); //Remove from DB
             //Discounts
             Dao<DiscountDAO, String> discountDAO = DaoManager.createDao(connectionSource, DiscountDAO.class);
             DiscountDAO discountDaoObj = new DiscountDAO(discount.getId(), discount.getMathOpStr(),
@@ -97,11 +98,15 @@ public class DiscountsOnStoresWrapper {
         this.value = discount; //Overwrite old value
     }
 
-    public void remove(int discountId) {
+    public void remove(Discount discount) {
         try {
             ConnectionSource connectionSource = connect();
             Dao<DiscountDAO, String> discountDAO = DaoManager.createDao(connectionSource, DiscountDAO.class);
-            discountDAO.deleteById(String.valueOf(discountId));
+            discountDAO.deleteById(String.valueOf(discount.getId()));
+            if(discount instanceof ConditionalDiscount) {
+                Dao<DiscountConditionDAO, String> conditionDAO = DaoManager.createDao(connectionSource, DiscountConditionDAO.class);
+                conditionDAO.deleteById(String.valueOf(((ConditionalDiscount) discount).getConditions().getId()));
+            }
             connectionSource.close();
         } catch (Exception e) {
 

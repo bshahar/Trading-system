@@ -28,15 +28,15 @@ public class PurchaseOnStoresWrapper {
 
     private ImmediatePurchase value;
 
-    public PurchaseOnStoresWrapper(ImmediatePurchase immediatePurchase) {
+ /*   public PurchaseOnStoresWrapper(ImmediatePurchase immediatePurchase) {
         this.value = immediatePurchase;
-    }
+    }*/
 
-    public void add(int storeId, ImmediatePurchase immediatePurchase) {
+    public PurchaseOnStoresWrapper(int storeId, ImmediatePurchase immediatePurchase) {
         try {
             ConnectionSource connectionSource = connect();
             if(this.value != null)
-                remove(immediatePurchase.getId()); //Remove from DB
+                remove(immediatePurchase); //Remove from DB
             Dao<PurchaseConditionDAO, String> purchaseConditions = DaoManager.createDao(connectionSource, PurchaseConditionDAO.class);
             PurchaseConditionDAO purchaseCondObj = new PurchaseConditionDAO(immediatePurchase.getId(), immediatePurchase.getConditions().getOperator());
             purchaseConditions.create(purchaseCondObj);
@@ -46,7 +46,7 @@ public class PurchaseOnStoresWrapper {
                 if(pol instanceof AgeLimitPolicy) {
                     Dao<AgeLimitPolicyDAO, String> ageLimitPolicyDAO = DaoManager.createDao(connectionSource, AgeLimitPolicyDAO.class);
                     AgeLimitPolicyDAO ageLimDaoObj = new AgeLimitPolicyDAO(immediatePurchase.getId(),
-                            Integer.parseInt(pol.getPolicyParams().get(1)));
+                            Integer.parseInt(pol.getPolicyParams().get(0)));
                     ageLimitPolicyDAO.create(ageLimDaoObj);
                 }
                 else if(pol instanceof MaxAmountPolicy) {
@@ -64,7 +64,7 @@ public class PurchaseOnStoresWrapper {
                 else { //Time Limit Policy
                     Dao<TimeLimitPolicyDAO, String> timeLimitPolicyDAO = DaoManager.createDao(connectionSource, TimeLimitPolicyDAO.class);
                     TimeLimitPolicyDAO timeLimDaoObj = new TimeLimitPolicyDAO(immediatePurchase.getId(),
-                            Integer.parseInt(pol.getPolicyParams().get(1)));
+                            Integer.parseInt(pol.getPolicyParams().get(0)));
                     timeLimitPolicyDAO.create(timeLimDaoObj);
                 }
             } //Finish inserting policies
@@ -73,23 +73,24 @@ public class PurchaseOnStoresWrapper {
             ImmediatePurchasesDAO immediatePDaoObj = new ImmediatePurchasesDAO(immediatePurchase.getId(), immediatePurchase.getId());
             immediatePurchasesDAO.create(immediatePDaoObj);
 
-            //StorePoliciesOnProducts
+            //StorePoliciesOnStores
             Dao<StorePoliciesOnStoresDAO, String> storePoliciesOnStoresDAO = DaoManager.createDao(connectionSource, StorePoliciesOnStoresDAO.class);
             StorePoliciesOnStoresDAO storePoliciesOnStoresDaoObj = new StorePoliciesOnStoresDAO(storeId, immediatePurchase.getId());
             storePoliciesOnStoresDAO.create(storePoliciesOnStoresDaoObj);
 
             connectionSource.close();
         } catch (Exception e) {
-            //TODO add rollback
         }
         this.value = immediatePurchase; //Overwrite old value
     }
 
-    public void remove(int immediatePurchaseId) {
+    public void remove(ImmediatePurchase purchase) {
         try {
             ConnectionSource connectionSource = connect();
             Dao<ImmediatePurchasesDAO, String> immediatePurchasesDAO = DaoManager.createDao(connectionSource, ImmediatePurchasesDAO.class);
-            immediatePurchasesDAO.deleteById(String.valueOf(immediatePurchaseId));
+            immediatePurchasesDAO.deleteById(String.valueOf(purchase.getId()));
+            Dao<PurchaseConditionDAO, String> purchaseConditionDAO = DaoManager.createDao(connectionSource, PurchaseConditionDAO.class);
+            purchaseConditionDAO.deleteById(String.valueOf(purchase.getConditions().getId()));
             connectionSource.close();
         } catch (Exception e) {
 
@@ -161,7 +162,7 @@ public class PurchaseOnStoresWrapper {
                     policies.add(new MinAmountPolicy(tmp.getMinAmount(), tmp.getProductId()));
                 }
 
-                PurchaseCondition condition = new PurchaseCondition(policies, stringToLogicOp(logicOperator));
+                PurchaseCondition condition = new PurchaseCondition(immpurDAO.getConditionId(), policies, stringToLogicOp(logicOperator));
                 ImmediatePurchase immediatePurchase = new ImmediatePurchase(immediatePurchaseId, condition);
                 this.value = immediatePurchase;
                 return immediatePurchase;

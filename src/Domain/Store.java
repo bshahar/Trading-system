@@ -159,7 +159,7 @@ public class Store {
 
     public Result removeManager(User owner, User manager) {
 //        if(appointments.get(owner).remove(manager)){
-        if(!this.managers.contains(owner,storeId))
+        if(!this.managers.contains(manager,storeId))
             return new Result(false,"User is not manager of this store");
         if(appointments.removeAppointment(this.storeId,owner.getId(),manager.getId())){
             employees.remove(this.storeId,manager);
@@ -542,7 +542,7 @@ public class Store {
 
     public Result removeOwner(User owner, User ownerToDelete) {
 //        if(appointments.get(owner).remove(ownerToDelete)){
-        if(!this.owners.contains(owner,storeId))
+        if(!this.owners.contains(ownerToDelete,storeId))
             return new Result(false,"User is not owner of this store");
         if(appointments.removeAppointment(storeId,owner.getId(),ownerToDelete.getId())){
             employees.remove(storeId,ownerToDelete);

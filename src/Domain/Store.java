@@ -169,6 +169,7 @@ public class Store {
             this.managers.remove(this.storeId,manager);
             for(User user : managers){
                 removeManager(manager,user);
+                sendAlert(user,"you are not owner of store "+name);
             }
 
 
@@ -540,6 +541,30 @@ public class Store {
         return list;
     }
 
+    public Result sendAlert(User user, String msg) {
+        try {
+            JSONObject json = new JSONObject();
+            json.put("type", "ALERT");
+            json.put("data", msg);
+
+            if(user!=null )
+            {
+                if(user.isLooged())
+                    TradingSystem.sessionsMap.get(user.getId()).send(json.toString());
+                else
+                    user.addNotificationToLogOutUser(json.toString());
+            }
+
+            //getUserById(userId).addNotification(json.toString());
+            return new Result(true,"send successfully alerts\n");
+        }
+        catch (Exception e)
+        {
+            return new Result(false,"Exception while sending msg\n");
+        }
+
+    }
+
     public Result removeOwner(User owner, User ownerToDelete) {
 //        if(appointments.get(owner).remove(ownerToDelete)){
         if(!this.owners.contains(ownerToDelete,storeId))
@@ -552,6 +577,7 @@ public class Store {
             for(User user : ownersList){
                 this.owners.remove(user,storeId);
                 removeOwner(ownerToDelete,user);
+                sendAlert(user,"you are not owner of store "+name);
             }
 
             return new Result(true,true);

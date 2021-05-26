@@ -70,7 +70,7 @@ public class DiscountAndPurchaseTest {
                 Integer.parseInt(testProps.getProperty("cheesePrice")),
                 testProps.getProperty("descriptionFood"),
                 Integer.parseInt(testProps.getProperty("prodQuantity100"))).getData();
-        productId5 = (int) API.addProduct(1, storeId1, "klik", catList1, 0, testProps.getProperty("descriptionFood"), 4 ).getData();
+        productId5 = (int) API.addProduct(1, storeId1, "mlik", catList1, 0, testProps.getProperty("descriptionFood"), 4 ).getData();
 
         begin = testProps.getProperty("dateBegin");
         end = testProps.getProperty("dateEnd");

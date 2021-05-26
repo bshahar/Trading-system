@@ -30,8 +30,21 @@ public class API {
         String sysManagerName = appProps.getProperty("systemManagerName");
         String sysManagerId = appProps.getProperty("systemManagerId");
         String sysManagerAge = appProps.getProperty("systemManagerAge");
+        if(sysManagerName.equals("null") || sysManagerId.equals("null") || sysManagerAge.equals("null")){
+            throw new ExceptionInInitializerError("Configuration file not fine");
+        }
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), true);
-        tradingSystem = new TradingSystem(sysManager, appProps.getProperty("externalSystemsUrl"), Boolean.parseBoolean(appProps.getProperty("forTests")));
+        String externalSystemsUrl = appProps.getProperty("externalSystemsUrl");
+        String tf = appProps.getProperty("forTests");
+        if(!tf.equals("true") & !tf.equals("false")){
+            throw new ExceptionInInitializerError("Configuration file not fine");
+        }
+        boolean forTests = Boolean.parseBoolean(tf);
+
+
+
+
+        tradingSystem = new TradingSystem(sysManager, externalSystemsUrl, forTests);
 
         /*
         //String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();

@@ -481,7 +481,7 @@ public class API {
     }
 
     public static Result rejectCounterOffer(int storeId, int userId, int prodId,  boolean approve){
-        return tradingSystem.respondToCounterPurchaseOffer(storeId, userId, prodId, false);
+        return tradingSystem.respondToCounterPurchaseOffer(storeId,userId, prodId, false);
     }
 
     public static Result getOffersForStore(int storeId, int userId){

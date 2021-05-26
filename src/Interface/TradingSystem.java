@@ -196,13 +196,34 @@ public class TradingSystem {
     }
 
     public Result respondToCounterPurchaseOffer(int storeId, int userId, int prodId, boolean approve) {
+        Product prod = getProductById(prodId);
+        Store store = getStoreById(storeId);
+        UserCounterOffersWrapper counterOffers = new UserCounterOffersWrapper();
+        UserApprovedOffersWrapper productsApproved = new UserApprovedOffersWrapper();
+        BagWrapper productsAmounts = new BagWrapper();
+        if(approve){
 
+            double priceOfOffer = counterOffers.get(store, userId, prod).getPriceOfOffer();
+            int amountOfProd = counterOffers.get(store, userId, prod).getNumOfProd();
+            int userId2 =  counterOffers.get(store, userId, prod).getUser().getId();
+            productsAmounts.add(prod,amountOfProd,storeId,userId2);
+            counterOffers.remove(storeId,prod,counterOffers.get(store, userId, prod));
+            productsApproved.add(storeId,userId2, prod,priceOfOffer);
+            return new Result(true, "the counter offer has been approved");
+        }
+        else{
+            counterOffers.remove(storeId,prod,counterOffers.get(store, userId, prod));
+            return new Result(true, "the counter offer has been rejected");
+        }
+        /*
         Bag bag = getUserById(userId).getBagByStoreId(storeId);
         if(approve){
           bag.approveCounterOffer(getProductById(prodId),storeId);
         }
         bag.rejectCounterOffer(getProductById(prodId));
         return new Result(true, "the counter offer has been responed");
+
+         */
     }
 
     public Result getOffersForStore(int storeId, int userId) {

@@ -77,7 +77,7 @@ public class Bag {
         return total;
     }
 
-    public void approveCounterOffer(Product prod,int storeId) {
+    /*public void approveCounterOffer(Product prod,int storeId) {
         double priceOfOffer = this.counterOffers.get(prod).getPriceOfOffer();
         int amountOfProd = this.counterOffers.get(prod).getNumOfProd();
         int userId = this.counterOffers.get(prod).getUser().getId();
@@ -90,7 +90,7 @@ public class Bag {
     public void rejectCounterOffer(Product prod) {
         this.counterOffers.remove(getStoreId(),prod,this.counterOffers.get(prod));
     }
-
+*/
     public Map<Product, Double> getOfferPrices() {
         return this.productsApproved.get(this.store, this.userId);
     }

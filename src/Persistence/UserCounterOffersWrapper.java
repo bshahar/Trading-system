@@ -63,8 +63,13 @@ public class UserCounterOffersWrapper {
         return this.value.containsKey(product);
     }
 
-    public PurchaseOffer get(Product product) {
-        return this.value.get(product);
+    public PurchaseOffer get(Store store, int userId, Product product) {
+        this.value = get(store, userId);
+        for (Product p:value.keySet()) {
+            if (p.getId() == product.getId())
+                return this.value.get(p);
+        }
+       return null;
     }
 
     public Map<Product, PurchaseOffer> get(Store store, int userId) {

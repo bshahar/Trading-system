@@ -22,11 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="...">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="purchase and robust">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -172,7 +172,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NotficationsTest.notifyToUserThatNowNoLongerManagerLoggedIn">
+  <component name="RunManager" selected="JUnit.robust_stress">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -184,48 +184,18 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscountAndPurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="DiscountAndPurchaseTest and 6 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="buyProductAfterCounterOfferAndApprove" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="Tests.DiscountAndPurchaseTest" />
+        <pattern testClass="Tests.LoginTest" />
+        <pattern testClass="Tests.NotficationsTest" />
+        <pattern testClass="Tests.PermissionTest" />
+        <pattern testClass="Tests.PurchaseTest" />
+        <pattern testClass="Tests.robust_stress" />
+        <pattern testClass="Tests.StoreTest" />
+      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -261,13 +231,47 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <option name="TEST_OBJECT" value="uniqueId" />
+      <patterns>
+        <pattern testClass="Tests.DiscountAndPurchaseTest" />
+        <pattern testClass="Tests.LoginTest" />
+        <pattern testClass="Tests.NotficationsTest" />
+        <pattern testClass="Tests.PermissionTest" />
+        <pattern testClass="Tests.PurchaseTest" />
+        <pattern testClass="Tests.robust_stress" />
+        <pattern testClass="Tests.StoreTest" />
+      </patterns>
+      <uniqueIds>
+        <uniqueId value="[engine:junit-jupiter]/[class:Tests.StoreTest]" />
+      </uniqueIds>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="robust_stress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.robust_stress" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.robust_stress" />
+        <item itemvalue="JUnit.StoreTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest and 6 more" />
         <item itemvalue="JUnit.NotficationsTest.notifyToUserThatNowNoLongerManagerLoggedIn" />
         <item itemvalue="JUnit.NotficationsTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove" />
-        <item itemvalue="JUnit.LoginTest" />
       </list>
     </recent_temporary>
   </component>
@@ -295,13 +299,6 @@
       <workItem from="1621980323419" duration="3163000" />
       <workItem from="1622016743077" duration="9914000" />
       <workItem from="1622028989127" duration="4959000" />
-    </task>
-    <task id="LOCAL-00023" summary="update server and gui #44">
-      <created>1619276415055</created>
-      <option name="number" value="00023" />
-      <option name="presentableId" value="LOCAL-00023" />
-      <option name="project" value="LOCAL" />
-      <updated>1619276415055</updated>
     </task>
     <task id="LOCAL‎00024" summary="merged gui with result">
       <created>1619280357318</created>
@@ -604,7 +601,13 @@
       <option name="project" value="LOCAL" />
       <updated>1622065589409</updated>
     </task>
-    <option name="localTasksCounter" value="72" />
+    <task id="LOCAL‎00072" summary="purchase and robust">
+      <created>1622067666017</created>
+      <option name="number" value="LOCAL‎00072" />
+      <option name="presentableId" value="LOCAL‎00072" />
+      <updated>1622067666017</updated>
+    </task>
+    <option name="localTasksCounter" value="73" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -714,7 +717,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>565</line>
+          <line>591</line>
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -766,6 +769,11 @@
           <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
           <line>948</line>
           <option name="timeStamp" value="250" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/NotficationsTest.java</url>
+          <line>204</line>
+          <option name="timeStamp" value="251" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />

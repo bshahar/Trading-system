@@ -97,6 +97,7 @@ public class StoreReceiptWrapper {
             for(StoreReceiptDAO storeReceiptDAO: StoreReceiptDAOs){
                 receipts.add(receiptWrapper.get(storeReceiptDAO.getReceiptId()));
             }
+            connectionSource.close();
             return receipts;
         }catch (Exception e){
             return new LinkedList<>();

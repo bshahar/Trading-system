@@ -99,6 +99,7 @@ public class AppointmentsWrapper {
             for(AppointmentsDAO appointmentsDAO: appointmentsDAOS){
                 users.add(userWrapper.get(appointmentsDAO.getAppointedId()));
             }
+            connectionSource.close();
             return users;
         }catch (Exception e){
             return new LinkedList<>();
@@ -112,6 +113,7 @@ public class AppointmentsWrapper {
             Dao<AppointmentsDAO, String> appointmentsDAOManager = DaoManager.createDao(connectionSource,AppointmentsDAO.class);
             AppointmentsDAO appointmentsDAO= new AppointmentsDAO(storeId, owner.getId(),user.getId());
             appointmentsDAOManager.create(appointmentsDAO);
+            connectionSource.close();
         }catch(Exception e){
 
         }
@@ -135,6 +137,7 @@ public class AppointmentsWrapper {
                 }
                 appointments.get(manager).add(appointed);
             }
+            connectionSource.close();
             return appointments;
         }catch (Exception e){
             return new HashMap<>();

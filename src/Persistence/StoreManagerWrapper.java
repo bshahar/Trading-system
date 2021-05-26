@@ -97,6 +97,7 @@ public class StoreManagerWrapper {
             for(StoreManagerDAO storeManagerDAO:StoreManagerDAOs){
                 users.add(userWrapper.get(storeManagerDAO.getUserId()));
             }
+            connectionSource.close();
             return users;
         }catch (Exception e){
             return new LinkedList<>();
@@ -112,9 +113,11 @@ public class StoreManagerWrapper {
             List<StoreManagerDAO> StoreManagerDAOs= storeManagerDAOManager.queryForFieldValues(map);
             for(StoreManagerDAO storeManagerDAO : StoreManagerDAOs){
                 if(storeManagerDAO.getUserId()== user.getId()){
+                    connectionSource.close();
                     return true;
                 }
             }
+            connectionSource.close();
             return false;
         }catch(Exception e){
             return false;

@@ -165,11 +165,13 @@ public class DiscountsOnStoresWrapper {
                             stringToDate(discountDAO.getBeginDate()), stringToDate(discountDAO.getEndDate()), condition,
                             discountDAO.getPercentage(), stringToMathOp(discountDAO.getMathOperator()));
                     this.value = result;
+                    connectionSource.close();
                     return result;
                 } else { //this is a simple discount
                     SimpleDiscount result = new SimpleDiscount(discountDAO.getId(), stringToDate(discountDAO.getBeginDate()),
                             stringToDate(discountDAO.getEndDate()), discountDAO.getPercentage(), stringToMathOp(discountDAO.getMathOperator()));
                     this.value = result;
+                    connectionSource.close();
                     return result;
                 }
             } catch (Exception e) {

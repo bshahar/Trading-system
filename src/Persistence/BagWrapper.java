@@ -119,8 +119,8 @@ public class BagWrapper {
             for (Map.Entry<Product, Integer> entry : getProductsAmount(userId,storeId).entrySet()) {
                 BagManager.executeRaw("DELETE FROM BagProductAmount WHERE user userId = " + String.valueOf(userId)+" AND storeId= "+String.valueOf(storeId)+
                         "AND productId= "+entry.getKey().getId());
-                connectionSource.close();
             }
+            connectionSource.close();
         }
         catch(Exception e) {
         }

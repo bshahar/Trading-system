@@ -164,6 +164,7 @@ public class PurchaseOnStoresWrapper {
                 PurchaseCondition condition = new PurchaseCondition(immpurDAO.getConditionId(), policies, stringToLogicOp(logicOperator));
                 ImmediatePurchase immediatePurchase = new ImmediatePurchase(immediatePurchaseId, condition);
                 this.value = immediatePurchase;
+                connectionSource.close();
                 return immediatePurchase;
             } catch (Exception e) {
                 return null;

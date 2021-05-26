@@ -758,3 +758,77 @@
  
 [2021-05-26] [15:14:43] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
  
+[2021-05-26] [17:11:43] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:11:50] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:11:50] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:11:54] [WARNING] BUY_PRODUCTS: User with id 4 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:11:57] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:12:02] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:12:06] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:12:36] [WARNING] GET_BAG: User with id 2 couldn't view his bag from store 1
+ 
+[2021-05-26] [17:12:37] [WARNING] GET_BAG: User with id 2 couldn't view his offer prices from store 1
+ 
+[2021-05-26] [17:12:37] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:18:40] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:31:15] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:47:19] [WARNING] BUY_PRODUCTS: User with id 4 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:47:19] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 0 was not added to bag for user 0
+ 
+[2021-05-26] [17:47:19] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 0 was not added to bag for user 0
+ 
+[2021-05-26] [17:47:19] [WARNING] GET_BAG: User with id 0 couldn't view his bag from store 0
+ 
+[2021-05-26] [17:47:19] [WARNING] GET_BAG: User with id 0 couldn't view his offer prices from store 0
+ 
+[2021-05-26] [17:47:19] [WARNING] BUY_PRODUCTS: User with id 0 couldn't make a purchase in store 0
+ 
+[2021-05-26] [17:47:19] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 0 was not added to bag for user 0
+ 
+[2021-05-26] [17:47:19] [WARNING] GET_BAG: User with id 0 couldn't view his bag from store 0
+ 
+[2021-05-26] [17:47:19] [WARNING] GET_BAG: User with id 0 couldn't view his offer prices from store 0
+ 
+[2021-05-26] [17:47:19] [WARNING] BUY_PRODUCTS: User with id 0 couldn't make a purchase in store 0
+ 
+[2021-05-26] [17:47:19] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 0 was not added to bag for user 0
+ 
+[2021-05-26] [17:47:19] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 0 was not added to bag for user 0
+ 
+[2021-05-26] [17:47:19] [WARNING] GET_BAG: User with id 0 couldn't view his bag from store 0
+ 
+[2021-05-26] [17:47:19] [WARNING] GET_BAG: User with id 0 couldn't view his offer prices from store 0
+ 
+[2021-05-26] [17:47:19] [WARNING] BUY_PRODUCTS: User with id 0 couldn't make a purchase in store 0
+ 
+[2021-05-26] [17:55:35] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:55:35] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 0 was not added to bag for user 0
+ 
+[2021-05-26] [17:55:35] [WARNING] GET_BAG: User with id 0 couldn't view his bag from store 0
+ 
+[2021-05-26] [17:55:35] [WARNING] GET_BAG: User with id 0 couldn't view his offer prices from store 0
+ 
+[2021-05-26] [17:55:35] [WARNING] BUY_PRODUCTS: User with id 0 couldn't make a purchase in store 0
+ 
+[2021-05-26] [17:55:35] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 0 was not added to bag for user 0
+ 
+[2021-05-26] [17:55:35] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 0 was not added to bag for user 0
+ 
+[2021-05-26] [17:55:35] [WARNING] GET_BAG: User with id 0 couldn't view his bag from store 0
+ 
+[2021-05-26] [17:55:35] [WARNING] GET_BAG: User with id 0 couldn't view his offer prices from store 0
+ 
+[2021-05-26] [17:55:35] [WARNING] BUY_PRODUCTS: User with id 0 couldn't make a purchase in store 0
+ 

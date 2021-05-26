@@ -318,7 +318,7 @@ public class User implements Observer {
     }
     @Transient
     public List<Receipt> getPurchaseHistory() {
-        return receiptWrapper.get();
+        return receiptWrapper.getByUserId(id);
     }
     @Transient
     public List<Integer> getMyStores() {

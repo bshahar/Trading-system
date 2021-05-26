@@ -75,20 +75,7 @@ public class DiscountAndPurchaseTest {
         begin = testProps.getProperty("dateBegin");
         end = testProps.getProperty("dateEnd");
 
-        payment = new HashMap<>();
-        payment.put("card_number", testProps.getProperty("creditCardNumber"));
-        payment.put("month", testProps.getProperty("creditExpMonth"));
-        payment.put("year", testProps.getProperty("creditExpYear"));
-        payment.put("holder", testProps.getProperty("user1name"));
-        payment.put("cvv", testProps.getProperty("creditCvv"));
-        payment.put("id", String.valueOf(registerId1));
 
-        supplement = new HashMap<>();
-        supplement.put("name", testProps.getProperty("user1name"));
-        supplement.put("address", testProps.getProperty("supplyAddress"));
-        supplement.put("city", testProps.getProperty("supplyCity"));
-        supplement.put("country", testProps.getProperty("supplyCountry"));
-        supplement.put("zip", testProps.getProperty("supplyZipCode"));
     }
 
     @Test

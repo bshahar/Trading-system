@@ -89,16 +89,16 @@ public class DataBaseHelper {
             ImmediatePurchasesDAOManager.executeRaw("DELETE FROM ImmediatePurchases");
 
             Dao<UsersCounterOffersDAO, String> usersCounterOffersDAOManager = DaoManager.createDao(connectionSource, UsersCounterOffersDAO.class);
-            usersCounterOffersDAOManager.executeRaw("DELETE FROM usersCounterOffers");
+            usersCounterOffersDAOManager.executeRaw("DELETE FROM UsersCounterOffers");
 
             Dao<UserApprovedOffersDAO, String> usersapproveOffersDAOManager = DaoManager.createDao(connectionSource, UserApprovedOffersDAO.class);
-            usersapproveOffersDAOManager.executeRaw("DELETE FROM userApprovedOffers");
+            usersapproveOffersDAOManager.executeRaw("DELETE FROM UserApprovedOffers");
 
 
             Dao<UserAuthDAO, String>UserAuthDAOManager = DaoManager.createDao(connectionSource,UserAuthDAO.class);
             UserAuthDAOManager.executeRaw("DELETE FROM UserNamePasswords");
             Dao<CounterDAO, String>CounterDAOManager = DaoManager.createDao(connectionSource,CounterDAO.class);
-            UserAuthDAOManager.executeRaw("DELETE FROM Counters");
+            CounterDAOManager.executeRaw("DELETE FROM Counters");
             CounterDAO storeDAO= new CounterDAO(1,0,0,0,0,0,0,0,0,0,0);
             CounterDAOManager.create(storeDAO);
 
@@ -107,7 +107,7 @@ public class DataBaseHelper {
             connectionSource.close();
         } catch (Exception e)
         {
-
+            System.out.println(e);
         }
     }
 

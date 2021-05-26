@@ -3,7 +3,10 @@ package Service;
 import Domain.*;
 import Interface.TradingSystem;
 import Domain.User;
+import Persistence.DAO.CounterDAO;
 import Persistence.DataBaseHelper;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
 
@@ -294,6 +297,7 @@ public class API {
     public static void forTest()
     {
         DataBaseHelper.cleanAllTable();
+
         int registerId1;
         int registerId2;
         int registerId3;
@@ -339,13 +343,7 @@ public class API {
         addProduct(registerId1, storeId2,"Water",catList2 ,5,"FOOD", 13 ).getData();
         registeredLogout(registerId1);
 
-        registerId3= (int)registeredLogin(userName3,password3).getData();
-        addProductToCart(registerId3,1,1,2);
-        addProductToCart(registerId3,2,2,2);
-        addProductToCart(registerId3,2,4,2);
-//        buyProduct(registerId3,storeId1,"123456789");
-//        buyProduct(registerId3,storeId2,"123456789");
-        registeredLogout(registerId3);
+
 
 
     }

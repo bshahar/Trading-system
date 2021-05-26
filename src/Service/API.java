@@ -3,6 +3,7 @@ package Service;
 import Domain.*;
 import Interface.TradingSystem;
 import Domain.User;
+import Persistence.DataBaseHelper;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
 
@@ -279,6 +280,7 @@ public class API {
 
     public static void forTest()
     {
+        DataBaseHelper.cleanAllTable();
         int registerId1;
         int registerId2;
         int registerId3;

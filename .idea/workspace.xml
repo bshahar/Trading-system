@@ -22,19 +22,21 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="counter DB">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="...">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Sessions/DemoSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Sessions/DemoSession.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Sessions/SessionInterface.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Sessions/SessionInterface.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Sessions/realSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Sessions/realSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt.1" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt.1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Receipt.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Receipt.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/ProductWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/ProductWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/ReceiptWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/ReceiptWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/LoginTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,12 +194,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest and 3 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest and 4 more (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <option name="TEST_OBJECT" value="pattern" />
       <patterns>
         <pattern testClass="Tests.LoginTest" />
         <pattern testClass="Tests.PermissionTest" />
+        <pattern testClass="Tests.NotficationsTest" />
         <pattern testClass="Tests.PurchaseTest" />
         <pattern testClass="Tests.StoreTest" />
       </patterns>
@@ -219,7 +222,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NotficationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -228,13 +231,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NotficationsTest.notifyToUserThatNoLonerManagerLogout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.guestLogoutFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -243,23 +246,25 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
-      <option name="METHOD_NAME" value="notifyToUserThatNoLonerManagerLogout" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="METHOD_NAME" value="guestLogoutFailTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest and 4 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest.logoutSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="Tests.StoreTest" />
-        <pattern testClass="Tests.LoginTest" />
-        <pattern testClass="Tests.PermissionTest" />
-        <pattern testClass="Tests.DiscountAndPurchaseTest" />
-        <pattern testClass="Tests.NotficationsTest" />
-      </patterns>
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="METHOD_NAME" value="logoutSuccessTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -267,10 +272,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.LoginTest and 4 more" />
-        <item itemvalue="JUnit.StoreTest and 4 more" />
-        <item itemvalue="JUnit.NotficationsTest" />
-        <item itemvalue="JUnit.NotficationsTest.notifyToUserThatNoLonerManagerLogout" />
-        <item itemvalue="JUnit.LoginTest and 3 more" />
+        <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.LoginTest.guestLogoutFailTest" />
+        <item itemvalue="JUnit.LoginTest.logoutSuccessTest" />
+        <item itemvalue="JUnit.LoginTest and 4 more (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -298,13 +303,6 @@
       <workItem from="1621980323419" duration="3163000" />
       <workItem from="1622016743077" duration="9914000" />
       <workItem from="1622028989127" duration="4959000" />
-    </task>
-    <task id="LOCAL-00021" summary="update server and gui #44">
-      <created>1619193158569</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1619193158569</updated>
     </task>
     <task id="LOCAL-00022" summary="update server and gui #44">
       <created>1619193530538</created>
@@ -607,7 +605,14 @@
       <option name="presentableId" value="LOCAL‎00069" />
       <updated>1622037742290</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL-00070" summary="...">
+      <created>1622049242735</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1622049242736</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -653,9 +658,9 @@
     <MESSAGE value="#61 union of discount &amp; purchase policies" />
     <MESSAGE value="tmp" />
     <MESSAGE value="#61" />
-    <MESSAGE value="..." />
     <MESSAGE value="counter DB" />
-    <option name="LAST_COMMIT_MESSAGE" value="counter DB" />
+    <MESSAGE value="..." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -704,11 +709,6 @@
           <url>file://$PROJECT_DIR$/src/Tests/PlayGround.java</url>
           <line>26</line>
           <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
-          <line>19</line>
-          <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java</url>

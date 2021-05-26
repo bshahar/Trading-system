@@ -173,6 +173,12 @@ public class User implements Observer {
             userWrapper.setLogged(0,id);
         this.logged = logged;
     }
+    public void setUserLogged(int logged) {
+        if(logged==1)
+            this.logged = true;
+        else
+            this.logged = false;
+    }
 
 
 

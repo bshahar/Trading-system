@@ -33,6 +33,7 @@ public class Receipt {
         }
     }
 
+
     public Receipt(int id, int storeId, int userId, String userName, int paymentTransaction, int supplementTransaction) {
         this.id = id;
         this.storeId = storeId;

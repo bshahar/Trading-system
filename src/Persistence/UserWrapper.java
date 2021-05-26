@@ -16,10 +16,13 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 
 public class UserWrapper {
+    private static List<User> users = Collections.synchronizedList(new LinkedList<>());
 
 
     public boolean add(User user){
@@ -33,6 +36,7 @@ public class UserWrapper {
             userManager.create(account);
             // close the connection source
             connectionSource.close();
+            users.add(user);
             return true;
         }
         catch (Exception e)
@@ -41,6 +45,10 @@ public class UserWrapper {
         }
     }
 
+    public void clean()
+    {
+          users = Collections.synchronizedList(new LinkedList<>());
+    }
 
     public void setLogged(int logged,int userId)
     {
@@ -53,16 +61,33 @@ public class UserWrapper {
                     "SET logged= "+String.valueOf(logged)+
                     " WHERE Id = "+String.valueOf(userId)+";");
             connectionSource.close();
+            User user = getUserById(userId);
+            user.setUserLogged(logged);
         }
         catch (Exception e)
         {
         }
     }
 
+    private User getUserById(int userId)
+    {
+        for(User user : users)
+        {
+            if(user.getId() == userId)
+                return user;
+        }
+        return null;
+    }
+
+
 
     public User get(int id)
     {
         try {
+            if(getUserById(id)!=null)
+            {
+                return getUserById(id);
+            }
             ReceiptWrapper receiptWrapper = new ReceiptWrapper();
             BagWrapper bagWrapper = new BagWrapper();
             UserMessagesWrapper userMessagesWrapper  = new UserMessagesWrapper();
@@ -152,6 +177,7 @@ public class UserWrapper {
             accountDao.deleteById(String.valueOf(id));
             // close the connection source
             connectionSource.close();
+            this.users.remove(getUserById(id));
             return true;
         }
         catch (Exception e)
@@ -197,6 +223,7 @@ public class UserWrapper {
             accountDao.executeRaw("UPDATE Users SET userName='"+userName+"', logged=1, registered=1 WHERE id="+userId);
             // close the connection source
             connectionSource.close();
+            getUserById(userId).setUserName(userName);
 
         }
         catch (Exception e)

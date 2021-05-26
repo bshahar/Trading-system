@@ -4,54 +4,50 @@ import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 @DatabaseTable(tableName = "Counters")
 public class CounterDAO {
+
     @DatabaseField(id = true)
     private int id;
-         @DatabaseField
-        private int storeCounter;
-        @DatabaseField
-        private int userCounter;
-        @DatabaseField
-        private int productCounter;
-        @DatabaseField
-        private int receiptCounter;
-        @DatabaseField
-        private int observableCounter;
-        @DatabaseField
-        private int immediatePurchaseCounter;
-        @DatabaseField
-        private int discountConditionCounter;
-        @DatabaseField
-        private int notificationCounter;
+    @DatabaseField
+    private int storeCounter;
+    @DatabaseField
+    private int userCounter;
+    @DatabaseField
+    private int productCounter;
+    @DatabaseField
+    private int receiptCounter;
+    @DatabaseField
+    private int observableCounter;
+    @DatabaseField
+    private int conditionCounter;
+    @DatabaseField
+    private int offerCounter;
+    @DatabaseField
+    private int policyCounter;
+    @DatabaseField
+    private int notificationCounter;
     @DatabaseField
     private int messageCounter;
 
-        public CounterDAO() {
-            // ORMLite needs a no-arg constructor
-        }
+    public CounterDAO() {
+        // ORMLite needs a no-arg constructor
+    }
 
-    public CounterDAO(int messageCounter ,int id ,int storeCounter, int userCounter, int productCounter, int receiptCounter, int observableCounter, int immediatePurchaseCounter, int discountConditionCounter, int notificationCounter) {
-            this.messageCounter = messageCounter;
-            this.id = id;
-            this.storeCounter = storeCounter;
+    public CounterDAO(int id, int storeCounter, int userCounter, int productCounter, int receiptCounter, int observableCounter, int conditionCounter, int offerCounter, int policyCounter, int notificationCounter, int messageCounter) {
+        this.id = id;
+        this.storeCounter = storeCounter;
         this.userCounter = userCounter;
         this.productCounter = productCounter;
         this.receiptCounter = receiptCounter;
         this.observableCounter = observableCounter;
-        this.immediatePurchaseCounter = immediatePurchaseCounter;
-        this.discountConditionCounter = discountConditionCounter;
+        this.conditionCounter = conditionCounter;
+        this.offerCounter = offerCounter;
+        this.policyCounter = policyCounter;
         this.notificationCounter = notificationCounter;
+        this.messageCounter = messageCounter;
     }
 
     public int getId() {
         return id;
-    }
-
-    public int getMessageCounter() {
-        return messageCounter;
-    }
-
-    public void setMessageCounter(int messageCounter) {
-        this.messageCounter = messageCounter;
     }
 
     public void setId(int id) {
@@ -98,20 +94,28 @@ public class CounterDAO {
         this.observableCounter = observableCounter;
     }
 
-    public int getImmediatePurchaseCounter() {
-        return immediatePurchaseCounter;
+    public int getConditionCounter() {
+        return conditionCounter;
     }
 
-    public void setImmediatePurchaseCounter(int immediatePurchaseCounter) {
-        this.immediatePurchaseCounter = immediatePurchaseCounter;
+    public void setConditionCounter(int conditionCounter) {
+        this.conditionCounter = conditionCounter;
     }
 
-    public int getDiscountConditionCounter() {
-        return discountConditionCounter;
+    public int getOfferCounter() {
+        return offerCounter;
     }
 
-    public void setDiscountConditionCounter(int discountConditionCounter) {
-        this.discountConditionCounter = discountConditionCounter;
+    public void setOfferCounter(int offerCounter) {
+        this.offerCounter = offerCounter;
+    }
+
+    public int getPolicyCounter() {
+        return policyCounter;
+    }
+
+    public void setPolicyCounter(int policyCounter) {
+        this.policyCounter = policyCounter;
     }
 
     public int getNotificationCounter() {
@@ -120,5 +124,13 @@ public class CounterDAO {
 
     public void setNotificationCounter(int notificationCounter) {
         this.notificationCounter = notificationCounter;
+    }
+
+    public int getMessageCounter() {
+        return messageCounter;
+    }
+
+    public void setMessageCounter(int messageCounter) {
+        this.messageCounter = messageCounter;
     }
 }

@@ -24,7 +24,7 @@ public class Store {
     private StoreOwnerWrapper owners;
     private StoreManagerWrapper managers;
     private StoreReceiptWrapper receipts;
-    private Service.counter counter;
+    private Service.counter policyCounter;
     private Service.counter offerCounter;
     private Map<Product,Discount> discountsOnProducts;
     private Map<String,Discount> discountsOnCategories;
@@ -39,7 +39,7 @@ public class Store {
     private int ratesCount;
 
 
-    public Store(int id, String name, User owner) { //create a store with empty inventory
+    public Store(int id, String name, User owner, counter offerCounter, counter policyCounter  ) { //create a store with empty inventory
         this.storeId = id;
         this.name = name;
         this.inventory = new Inventory();
@@ -54,14 +54,14 @@ public class Store {
         this.managers = new StoreManagerWrapper();
         this.discountsOnProducts = Collections.synchronizedMap(new HashMap<>());
         this.discountsOnCategories = Collections.synchronizedMap(new HashMap<>());
-        this.counter = new counter();
-        this.offerCounter = new counter();
+        this.policyCounter = policyCounter;
+        this.offerCounter = offerCounter;
         this.purchasesOnProducts = new ConcurrentHashMap<>();
         this.purchasesOnCategories = new ConcurrentHashMap<>();
         this.offersOnProduct = new ConcurrentHashMap<>();
     }
 
-    public Store(int id, String name) { //create a store with empty inventory
+    public Store(int id, String name, counter offerCounter, counter policyCounter) { //create a store with empty inventory
         this.storeId = id;
         this.name = name;
         this.inventory = new Inventory();
@@ -76,8 +76,8 @@ public class Store {
         this.managers = new StoreManagerWrapper();
         this.discountsOnProducts = Collections.synchronizedMap(new HashMap<>());
         this.discountsOnCategories = Collections.synchronizedMap(new HashMap<>());
-        this.counter = new counter();
-        this.offerCounter = new counter();
+        this.policyCounter = policyCounter ;
+        this.offerCounter = offerCounter;
         this.purchasesOnProducts = new ConcurrentHashMap<>();
         this.purchasesOnCategories = new ConcurrentHashMap<>();
         this.offersOnProduct = new ConcurrentHashMap<>();
@@ -251,27 +251,27 @@ public class Store {
     }
 
     public void addDiscountOnProduct(int prodId, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        this.discountsOnProducts.put(getProductById(prodId), new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
+        this.discountsOnProducts.put(getProductById(prodId), new ConditionalDiscount(policyCounter.inc(), begin, end, conditions, percentage, op));
     }
 
     public void addDiscountOnCategory(String category, Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        this.discountsOnCategories.put(category, new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op));
+        this.discountsOnCategories.put(category, new ConditionalDiscount(policyCounter.inc(), begin, end, conditions, percentage, op));
     }
 
     public void addDiscountOnStore(Date begin, Date end, DiscountCondition conditions, int percentage, Discount.MathOp op) {
-        this.discountsOnStore = new ConditionalDiscount(counter.inc(), begin, end, conditions, percentage, op);
+        this.discountsOnStore = new ConditionalDiscount(policyCounter.inc(), begin, end, conditions, percentage, op);
     }
 
     public void addPurchaseOnProduct(int prodId, PurchaseCondition conditions) {
-        this.purchasesOnProducts.put(getProductById(prodId), new ImmediatePurchase(counter.inc(), conditions));
+        this.purchasesOnProducts.put(getProductById(prodId), new ImmediatePurchase(policyCounter.inc(), conditions));
     }
 
     public void addPurchaseOnCategory(String category, PurchaseCondition conditions) {
-        this.purchasesOnCategories.put(category, new ImmediatePurchase(counter.inc(), conditions));
+        this.purchasesOnCategories.put(category, new ImmediatePurchase(policyCounter.inc(), conditions));
     }
 
     public void addPurchaseOnStore(PurchaseCondition conditions) {
-        this.purchasesOnStore = new ImmediatePurchase(counter.inc(), conditions);
+        this.purchasesOnStore = new ImmediatePurchase(policyCounter.inc(), conditions);
     }
 
     public void removeDiscountOnProduct(int prodId){
@@ -347,15 +347,15 @@ public class Store {
     }
 
     public void addSimpleDiscountOnProduct(int prodId, Date begin, Date end, int percentage, Discount.MathOp op) {
-        this.discountsOnProducts.put(getProductById(prodId), new SimpleDiscount(counter.inc(), begin, end, percentage, op));
+        this.discountsOnProducts.put(getProductById(prodId), new SimpleDiscount(policyCounter.inc(), begin, end, percentage, op));
     }
 
     public void addSimpleDiscountOnCategory(String category, Date begin, Date end, int percentage, Discount.MathOp op) {
-        this.discountsOnCategories.put(category, new SimpleDiscount(counter.inc(), begin, end, percentage, op));
+        this.discountsOnCategories.put(category, new SimpleDiscount(policyCounter.inc(), begin, end, percentage, op));
     }
 
     public void addSimpleDiscountOnStore(Date begin, Date end, int percentage, Discount.MathOp op) {
-        this.discountsOnStore = new SimpleDiscount(counter.inc(), begin, end, percentage, op);
+        this.discountsOnStore = new SimpleDiscount(policyCounter.inc(), begin, end, percentage, op);
     }
 
     public boolean validatePurchasePerProduct(Product prod ,User user, Date time, Bag bag){

@@ -65,6 +65,11 @@ public class DataBaseHelper {
 
             Dao<UserAuthDAO, String>UserAuthDAOManager = DaoManager.createDao(connectionSource,UserAuthDAO.class);
             UserAuthDAOManager.executeRaw("DELETE FROM UserNamePasswords");
+            Dao<CounterDAO, String>CounterDAOManager = DaoManager.createDao(connectionSource,CounterDAO.class);
+            UserAuthDAOManager.executeRaw("DELETE FROM Counters");
+            CounterDAO storeDAO= new CounterDAO(1,0,0,0,0,0,0,0,0,0,0);
+            CounterDAOManager.create(storeDAO);
+
 
             connectionSource.close();
         } catch (Exception e)

@@ -2,6 +2,7 @@ package Persistence;
 
 import Domain.Store;
 import Domain.User;
+import Interface.TradingSystem;
 import Persistence.DAO.StoreDAO;
 import Persistence.DAO.StoreEmployeesDAO;
 import Persistence.DAO.UserDAO;
@@ -65,11 +66,11 @@ public class StoreWrapper {
             ConnectionSource connectionSource = connect();
             Dao<StoreDAO, String> StoreDAOManager = DaoManager.createDao(connectionSource,StoreDAO.class);
             StoreDAO storeDAO = StoreDAOManager.queryForId(Integer.toString(storeId));
-            Store store= new Store(storeDAO.getStoreId(),storeDAO.getName());
+            connectionSource.close();
+            Store store= new Store(storeDAO.getStoreId(),storeDAO.getName(), TradingSystem.getPolicyCounter(),TradingSystem.getOfferCounter());
             store.setNotificationId(storeDAO.getNotificationId());
             store.setRate(storeDAO.getRate());
             store.setRateCount(storeDAO.getRatesCount());
-            connectionSource.close();
 
 //            //Employees
 //            StoreEmployeesWrapper storeEmployeesWrapper= new StoreEmployeesWrapper();
@@ -146,7 +147,7 @@ public class StoreWrapper {
             List<StoreDAO> storeDAOs = StoreDAOManager.queryForAll();
             List<Store> stores =new LinkedList<>();
             for(StoreDAO storeDAO :storeDAOs){
-                Store store= new Store(storeDAO.getStoreId(),storeDAO.getName());
+                Store store= new Store(storeDAO.getStoreId(),storeDAO.getName(),TradingSystem.getPolicyCounter(),TradingSystem.getOfferCounter());
                 store.setNotificationId(storeDAO.getNotificationId());
                 store.setRate(storeDAO.getRate());
                 store.setRateCount(storeDAO.getRatesCount());

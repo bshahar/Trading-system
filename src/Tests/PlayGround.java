@@ -1,6 +1,8 @@
 package Tests;
 
 import Domain.User;
+import Persistence.DAO.CounterDAO;
+import Persistence.DAO.StoreDAO;
 import Persistence.DAO.UserDAO;
 import Persistence.UserWrapper;
 import Persistence.connection.JdbcConnectionSource;
@@ -9,6 +11,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import org.w3c.dom.css.Counter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -25,12 +28,18 @@ public class PlayGround {
 //        accountDao.executeRaw("DELETE FROM Users");
         //TableUtils.clearTable(connectionSource, UserDAO.class);
 
+//
+//        UserWrapper u = new UserWrapper();
+//        u.add(new User("Elad",1,111,true));
+//        u.get(111);
+//        System.out.println("eeeefdfsfd");
+//        u.get(111);
 
-        UserWrapper u = new UserWrapper();
-        u.add(new User("Elad",1,111,true));
-        u.get(111);
-        System.out.println("eeeefdfsfd");
-        u.get(111);
+        ConnectionSource connectionSource = connect();
+        Dao<CounterDAO, String> storeDAOManager = DaoManager.createDao(connectionSource,CounterDAO.class);
+        CounterDAO storeDAO= new CounterDAO(1,0,0,0,0,0,0,0,0,0,0);
+        storeDAOManager.create(storeDAO);
+        connectionSource.close();
 
 
 //        connectionSource.close();

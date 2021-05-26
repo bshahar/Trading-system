@@ -22,10 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="userAuth DB">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="store test and inventory DB pass">
+      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/UserAuthDAO.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Persistence/UserAuthWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/UserAuth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/UserAuth.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -94,7 +99,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="userStoreDB" />
+        <entry key="$PROJECT_DIR$" value="eladNewBranch" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -165,7 +170,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.NotficationsTest.notifyToUserThatNoLonerManagerLogout">
+  <component name="RunManager" selected="JUnit.PermissionTest">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -173,6 +178,37 @@
         </value>
       </option>
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LoginTest.logoutTwiceFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="METHOD_NAME" value="logoutTwiceFailTest" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -192,7 +228,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NotficationsTest.notifyToOwnersSubscribersToStore" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PermissionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -201,14 +237,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
-      <option name="METHOD_NAME" value="notifyToOwnersSubscribersToStore" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="Tests.PermissionTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NotficationsTest.notifyToUserThatNoLonerManagerLogout" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -217,52 +252,19 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
-      <option name="METHOD_NAME" value="notifyToUserThatNoLonerManagerLogout" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NotficationsTest.notifyToUserThatNowNoLongerManagerLoggedIn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
-      <option name="METHOD_NAME" value="notifyToUserThatNowNoLongerManagerLoggedIn" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NotficationsTest.notifyToUserThatNowNoLongerOwnerLoggedIn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
-      <option name="METHOD_NAME" value="notifyToUserThatNowNoLongerOwnerLoggedIn" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.NotficationsTest.notifyToUserThatNoLonerManagerLogout" />
+        <item itemvalue="JUnit.PermissionTest" />
+        <item itemvalue="JUnit.StoreTest" />
+        <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.LoginTest.logoutTwiceFailTest" />
         <item itemvalue="JUnit.NotficationsTest" />
-        <item itemvalue="JUnit.NotficationsTest.notifyToUserThatNowNoLongerManagerLoggedIn" />
-        <item itemvalue="JUnit.NotficationsTest.notifyToOwnersSubscribersToStore" />
-        <item itemvalue="JUnit.NotficationsTest.notifyToUserThatNowNoLongerOwnerLoggedIn" />
       </list>
     </recent_temporary>
   </component>
@@ -307,6 +309,12 @@
       <workItem from="1621357234715" duration="1629000" />
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="27039000" />
+    </task>
+    <task id="LOCAL‎00013" summary="change permissions">
+      <created>1618810312437</created>
+      <option name="number" value="LOCAL‎00013" />
+      <option name="presentableId" value="LOCAL‎00013" />
+      <updated>1618810312437</updated>
     </task>
     <task id="LOCAL-00014" summary="Adapter Injection #38">
       <created>1618908950635</created>
@@ -626,14 +634,7 @@
       <option name="project" value="LOCAL" />
       <updated>1621867512551</updated>
     </task>
-    <task id="LOCAL-00062" summary="Permission Tests Works">
-      <created>1621871051815</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1621871051815</updated>
-    </task>
-    <option name="localTasksCounter" value="63" />
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -794,12 +795,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>673</line>
+          <line>663</line>
           <option name="timeStamp" value="127" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>685</line>
+          <line>675</line>
           <option name="timeStamp" value="130" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -839,22 +840,22 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/PermissionTest.java</url>
-          <line>119</line>
+          <line>122</line>
           <option name="timeStamp" value="149" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/PermissionTest.java</url>
-          <line>199</line>
+          <line>202</line>
           <option name="timeStamp" value="163" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Member.java</url>
-          <line>164</line>
+          <line>157</line>
           <option name="timeStamp" value="167" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Member.java</url>
-          <line>162</line>
+          <line>154</line>
           <option name="timeStamp" value="168" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -863,19 +864,9 @@
           <option name="timeStamp" value="169" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/NotficationsTest.java</url>
-          <line>180</line>
-          <option name="timeStamp" value="183" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/NotficationsTest.java</url>
-          <line>177</line>
-          <option name="timeStamp" value="190" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/NotficationsTest.java</url>
-          <line>206</line>
-          <option name="timeStamp" value="192" />
+          <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
+          <line>79</line>
+          <option name="timeStamp" value="171" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />

@@ -20,6 +20,19 @@ public class realSession implements SessionInterface{
     }
 
     @Override
+    public void send(int userId, int messageId, String msg) {
+        try {
+            if (session.isOpen()) {
+                session.getRemote().sendString(msg);
+            }
+        }
+        catch (Exception e)
+        {
+
+        }
+    }
+
+    @Override
     public void set(Session s) {
         this.session = s;
     }

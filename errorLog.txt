@@ -832,7 +832,17 @@
  
 [2021-05-26] [17:55:35] [WARNING] BUY_PRODUCTS: User with id 0 couldn't make a purchase in store 0
  
-[2021-05-26] [21:03:35] [WARNING] Domain.User failed logging in with name: elad
+[2021-05-26] [20:07:45] [WARNING] GET_BAG: User with id 2 couldn't view his bag from store 1
  
-[2021-05-26] [21:04:35] [WARNING] Domain.User failed logging in with name: elad
+[2021-05-26] [20:07:45] [WARNING] GET_BAG: User with id 2 couldn't view his offer prices from store 1
+ 
+[2021-05-26] [20:07:45] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-26] [20:08:04] [WARNING] GET_BAG: User with id 2 couldn't view his bag from store 1
+ 
+[2021-05-26] [20:08:05] [WARNING] GET_BAG: User with id 2 couldn't view his offer prices from store 1
+ 
+[2021-05-26] [20:08:05] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-26] [20:18:45] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was not added to bag for user 6
  

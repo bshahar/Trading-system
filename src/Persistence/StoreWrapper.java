@@ -20,6 +20,7 @@ import java.sql.SQLException;
 import java.util.*;
 
 public class StoreWrapper {
+    private static List<Store> stores = Collections.synchronizedList(new LinkedList<>());
 
     public boolean add(Store store,User user){
         try {
@@ -53,7 +54,7 @@ public class StoreWrapper {
 //            //Inventory
 //            InventoryWrapper inventoryWrapper= new InventoryWrapper();
 //            inventoryWrapper.add(store.getInventory().getProductsAmounts(),store.getStoreId());
-
+            stores.add(store);
             return true;
         }
         catch (Exception e)
@@ -64,6 +65,8 @@ public class StoreWrapper {
 
     public Store getById(int storeId){
         try {
+            if(getStoreById(storeId)!=null)
+                return getStoreById(storeId);
             ConnectionSource connectionSource = connect();
             Dao<StoreDAO, String> StoreDAOManager = DaoManager.createDao(connectionSource,StoreDAO.class);
             StoreDAO storeDAO = StoreDAOManager.queryForId(Integer.toString(storeId));
@@ -86,10 +89,20 @@ public class StoreWrapper {
         }
     }
 
+    private Store getStoreById(int storeId)
+    {
+        for(Store store : stores)
+        {
+            if(store.getStoreId() == storeId)
+                return store;
+        }
+        return null;
+    }
+
+
     public List<Integer> getStoresByUserId(int userId){
         try {
             ConnectionSource connectionSource = connect();
-
             Dao<StoreEmployeesDAO, String> StoreEmployeesDAOManager = DaoManager.createDao(connectionSource,StoreEmployeesDAO.class);
             Map<String,Object> map=new HashMap<>();
             map.put("userId",userId);
@@ -113,6 +126,17 @@ public class StoreWrapper {
         }
     }
 
+//    private List<Integer> getStoresByUserIdCash(int userId)
+//    {
+//        List<Integer> list = Collections.synchronizedList(new LinkedList<>());
+//
+//        for(Store store : stores)
+//        {
+//            List<User> employees =  (List<User>)store.getEmployees().getData();
+//            for(User user : employees)
+//                if ()
+//        }
+//    }
 
     public ConnectionSource connect() throws IOException, SQLException {
         Properties appProps = new Properties();
@@ -161,5 +185,9 @@ public class StoreWrapper {
         {
             return null;
         }
+    }
+
+    public void clean() {
+        stores = Collections.synchronizedList(new LinkedList<>());
     }
 }

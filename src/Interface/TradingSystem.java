@@ -45,6 +45,7 @@ public class TradingSystem {
     private UserWrapper users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
+    private CounterWrapper counterWrapper;
 
 
     public TradingSystem (User systemManager, String externalSystemsUrl, boolean testing) {
@@ -65,7 +66,7 @@ public class TradingSystem {
         userAuth.register(systemManager.getUserName(), "123");
         //users.add(systemManager);
         initiateCounters();
-
+        this.counterWrapper = new CounterWrapper();
         this.observers = Collections.synchronizedList(new LinkedList<>());
         this.systemManager = systemManager;
         AppointSystemManager(systemManager);
@@ -368,7 +369,15 @@ public class TradingSystem {
             JSONObject json = new JSONObject();
             json.put("type", "ALERT");
             json.put("data", msg);
-            sessionsMap.get(userId).send(json.toString());
+            User user = getUserById(userId);
+            if(user!=null )
+            {
+                if(user.isLooged())
+                    sessionsMap.get(userId).send(json.toString());
+                else
+                    user.addNotificationToLogOutUser(json.toString());
+            }
+
             //getUserById(userId).addNotification(json.toString());
             return new Result(true,"send successfully alerts\n");
         }
@@ -944,8 +953,9 @@ public class TradingSystem {
         if(result.isResult())
         {
             KingLogger.logEvent("REMOVE_MANAGER: User with id " + ownerId + " remove manager and " + result.getData());
-            unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
             sendAlert(managerId,"You are no longer manager in store: "+ getStoreName(storeId));
+            unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
+
         }
         return result;
 

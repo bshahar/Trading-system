@@ -248,8 +248,6 @@ public class NotficationsTest {
         Object[] list_logout = queue_logout.toArray();
         Assertions.assertEquals(list_logout[0],"You are no longer manager in store: kandabior store");
 
-
-
     }
 
 

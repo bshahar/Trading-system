@@ -16,12 +16,14 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Properties;
 
 public class ProductWrapper {
 
+    private static List<Product> products = Collections.synchronizedList(new LinkedList<>());
 
 
     public boolean add(Product product){
@@ -41,7 +43,7 @@ public class ProductWrapper {
             //Categories
             ProductCategoryWrapper productCategoryWrapper= new ProductCategoryWrapper();
             productCategoryWrapper.add(product.getCategories(),product.getId());
-
+            products.add(product);
             return true;
         }
         catch (Exception e)
@@ -52,6 +54,8 @@ public class ProductWrapper {
 
     public Product getById(int productId) {
         try {
+            if(getProductById(productId)!=null)
+                return getProductById(productId);
             ConnectionSource connectionSource = connect();
             Dao<ProductDAO, String> ProductDAOManager = DaoManager.createDao(connectionSource, ProductDAO.class);
             ProductDAO productDAO = ProductDAOManager.queryForId(Integer.toString(productId));
@@ -64,6 +68,16 @@ public class ProductWrapper {
         } catch (Exception e) {
             return null;
         }
+    }
+
+    public Product getProductById(int productId)
+    {
+        for(Product product:products)
+        {
+            if(product.getId() == productId)
+                return product;
+        }
+        return null;
     }
 
     public ConnectionSource connect() throws IOException, SQLException {
@@ -93,5 +107,10 @@ public class ProductWrapper {
 
     }
 
+
+    public void clean()
+    {
+        products = Collections.synchronizedList(new LinkedList<>());
+    }
 
 }

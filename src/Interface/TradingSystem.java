@@ -31,6 +31,17 @@ public class TradingSystem {
     private static counter receiptCounter;
     private static counter observableCounter;
     private static counter conditionCounter;
+
+    public static counter getOfferCounter() {
+        return offerCounter;
+    }
+
+    public static counter getPolicyCounter() {
+        return policyCounter;
+    }
+
+    private static counter offerCounter;
+    private static counter policyCounter;
     public static Map<Integer , DemoSession> demoSessionMap ;
     private static PaymentInterface paymentAdapter;
     private static SupplementInterface supplementAdapter;
@@ -62,6 +73,8 @@ public class TradingSystem {
         userCounter = new counter();
         storeCounter = new counter();
         productCounter=new counter();
+        offerCounter = new counter();
+        policyCounter = new counter();
         KingLogger.logEvent("Trading System initialized");
         conditionCounter = new counter();
         observableCounter = new counter();
@@ -173,6 +186,7 @@ public class TradingSystem {
     }
 
     public Result respondToCounterPurchaseOffer(int storeId, int userId, int prodId, boolean approve) {
+
         Bag bag = getUserById(userId).getBagByStoreId(storeId);
         if(approve){
           bag.approveCounterOffer(getProductById(prodId),storeId);
@@ -812,7 +826,7 @@ public class TradingSystem {
         User user = getUserById(userId);
         if(user!=null && user.isRegistered()) {
             int newId = storeCounter.inc();
-            Store store = new Store(newId, storeName);
+            Store store = new Store(newId, storeName, offerCounter, policyCounter);
            // systemManager.addStoreToSystemManager(store);
             Result result = addObservable(storeName);
             int subscribeId = (int)result.getData();

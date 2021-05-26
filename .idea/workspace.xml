@@ -22,18 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="tmp">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="#61">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt.1" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/StorePoliciesOnStoresDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/StorePoliciesOnStoresDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/PurchaseOnStoresWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/PurchaseOnStoresWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,15 +175,13 @@
     </key>
   </component>
   <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -304,14 +297,8 @@
       <workItem from="1621604791924" duration="7637000" />
       <workItem from="1621665148747" duration="1096000" />
       <workItem from="1621682093021" duration="58405000" />
-      <workItem from="1621980323419" duration="2783000" />
-    </task>
-    <task id="LOCAL-00017" summary="Adapter Injection #38">
-      <created>1619170775766</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1619170775766</updated>
+      <workItem from="1621980323419" duration="3163000" />
+      <workItem from="1622016743077" duration="9914000" />
     </task>
     <task id="LOCAL-00018" summary="update server and gui #44">
       <created>1619181924550</created>
@@ -618,7 +605,13 @@
       <option name="presentableId" value="LOCAL‎00065" />
       <updated>1621980014399</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL‎00066" summary="#61">
+      <created>1621983451447</created>
+      <option name="number" value="LOCAL‎00066" />
+      <option name="presentableId" value="LOCAL‎00066" />
+      <updated>1621983451447</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -641,7 +634,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="xml" />
     <MESSAGE value="#62 create configuration files for system initialization and tests" />
     <MESSAGE value="fix dates sent to GUI in view policies" />
     <MESSAGE value="adding database infrastructure" />
@@ -666,7 +658,8 @@
     <MESSAGE value="." />
     <MESSAGE value="#61 union of discount &amp; purchase policies" />
     <MESSAGE value="tmp" />
-    <option name="LAST_COMMIT_MESSAGE" value="tmp" />
+    <MESSAGE value="#61" />
+    <option name="LAST_COMMIT_MESSAGE" value="#61" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -738,7 +731,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>676</line>
+          <line>689</line>
           <option name="timeStamp" value="156" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -747,19 +740,24 @@
           <option name="timeStamp" value="157" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>359</line>
-          <option name="timeStamp" value="158" />
+          <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
+          <line>655</line>
+          <option name="timeStamp" value="168" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>357</line>
-          <option name="timeStamp" value="159" />
+          <url>file://$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java</url>
+          <line>65</line>
+          <option name="timeStamp" value="172" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>175</line>
-          <option name="timeStamp" value="160" />
+          <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
+          <line>609</line>
+          <option name="timeStamp" value="173" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java</url>
+          <line>86</line>
+          <option name="timeStamp" value="174" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />

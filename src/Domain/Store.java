@@ -38,7 +38,7 @@ public class Store {
     private int ratesCount;
 
 
-    public Store(int id, String name, User owner) { //create a store with empty inventory
+    public Store(int id, String name, counter offerCounter, counter policyCounter, User owner) { //create a store with empty inventory
         this.storeId = id;
         this.name = name;
         this.inventory = new Inventory();
@@ -54,15 +54,15 @@ public class Store {
         this.discountsOnProducts = new DiscountsOnProductsWrapper();
         this.discountsOnCategories = new DiscountsOnCategoriesWrapper();
         //this.discountsOnStore = new DiscountsOnStoresWrapper();
-        this.counter = new counter();
-        this.offerCounter = new counter();
+        this.counter = policyCounter;
+        this.offerCounter = offerCounter;
         this.purchasesOnProducts = new PurchasesOnProductsWrapper();
         this.purchasesOnCategories = new PurchaseOnCategoriesWrapper();
         this.purchasesOnStore = new PurchaseOnStoresWrapper();
         this.offersOnProduct = new OffersOnProductWrapper();
     }
 
-    public Store(int id, String name) { //create a store with empty inventory
+    public Store(int id, String name, counter offerCounter, counter policyCounter) { //create a store with empty inventory
         this.storeId = id;
         this.name = name;
         this.inventory = new Inventory();
@@ -78,8 +78,8 @@ public class Store {
         this.discountsOnProducts = new DiscountsOnProductsWrapper();
         this.discountsOnCategories = new DiscountsOnCategoriesWrapper();
         //this.discountsOnStore = new DiscountsOnStoresWrapper();
-        this.counter = new counter();
-        this.offerCounter = new counter();
+        this.counter = policyCounter;
+        this.offerCounter = offerCounter;
         this.purchasesOnProducts = new PurchasesOnProductsWrapper();
         this.purchasesOnCategories = new PurchaseOnCategoriesWrapper();
         this.purchasesOnStore = new PurchaseOnStoresWrapper();
@@ -607,7 +607,7 @@ public class Store {
                 po = p;
         }
         if(po != null)
-           this.offersOnProduct.remove(getProductById(prodId), po);
+           this.offersOnProduct.remove(this, getProductById(prodId), po);
     }
 
     public Result responedToOffer(int prodId, int offerId, String responed, double counterOffer, String option) {
@@ -647,18 +647,20 @@ public class Store {
                     PurchaseOffer po = null;
                     for (PurchaseOffer p : offers) {
                         if (p.getId() == offerId) {
-                            p.setPriceOfOffer(counterOffer);
+                            //p.setPriceOfOffer(counterOffer);
+                            this.offersOnProduct.updateOfferPurchase(p.getId(), counterOffer);
                             user = p.getUser();
                             po = p;
                         }
                     }
                     if (user != null) {
-                        Bag bag = user.getBagByStoreId(this.storeId);
+                        UserCounterOffersWrapper counterOffersWrapper = new UserCounterOffersWrapper();
+                       /* Bag bag = user.getBagByStoreId(this.storeId);
                         if (bag == null) {
                             bag = new Bag(this, user.getId());
                             user.getBags().add(bag);
-                        }
-                        bag.counterOffers.add(this.storeId, getProductById(prodId), po);
+                        }*/
+                        counterOffersWrapper.add(this.storeId, getProductById(prodId), po);
                         removeOffer(prodId, offerId);
                         return new Result(true, "counter offer has been sent");
                     }

@@ -61,23 +61,30 @@ public class OffersOnProductWrapper {
         }
     }
 
-    public void remove(Product prod, PurchaseOffer po) {
+    public void remove(Store store, Product prod, PurchaseOffer po) {
         try {
             ConnectionSource connectionSource = connect();
+            Dao<ProductOffersDAO, String> productOffersDAO = DaoManager.createDao(connectionSource, ProductOffersDAO.class);
+            ProductOffersDAO productOffersDaoObj = new ProductOffersDAO(store.getStoreId(),po.getId(),prod.getId());
+            productOffersDAO.executeRaw("DELETE FROM ProductOffers WHERE storeId = " + store.getStoreId() + " AND offerId = " + po.getId() + " AND productId = " + prod.getId() + " ;");
+            connectionSource.close();
+            this.value = get(store);
+
+            /*ConnectionSource connectionSource = connect();
             Dao<PurchaseOffersDAO, String> purchaseOffersDAO = DaoManager.createDao(connectionSource, PurchaseOffersDAO.class);
             purchaseOffersDAO.deleteById(String.valueOf(po.getId()));
             connectionSource.close();
             LinkedList<PurchaseOffer> offers = this.value.get(prod);
-            if(offers.size() == 1){
+            if(offers != null && offers.size() == 1){
                 this.value.remove(prod);
             }
             else{
                 offers.remove(po);
                 this.value.put(prod, offers); //Overwrite old entry in map
             }
-
+*/
         } catch (Exception e) {
-
+System.out.println(e);
         }
     }
 
@@ -131,6 +138,20 @@ public class OffersOnProductWrapper {
         else
             return this.value;
     }
+
+    public void updateOfferPurchase(int purchaseOfferId, double newPrice){
+        try {
+            ConnectionSource connectionSource = connect();
+            Dao<PurchaseOffersDAO, String> purchaseOffersDAOS = DaoManager.createDao(connectionSource, PurchaseOffersDAO.class);
+            purchaseOffersDAOS.executeRaw("UPDATE PurchaseOffers" + " SET priceOfOffer = " + newPrice + " WHERE id = " + purchaseOfferId+  ";");
+            connectionSource.close();
+        }
+        catch(Exception e){
+            System.out.println(e);
+        }
+
+    }
+
     public ConnectionSource connect() throws IOException, SQLException {
         Properties appProps = new Properties();
         InputStream input = API.class.getClassLoader().getResourceAsStream("appConfig.properties");

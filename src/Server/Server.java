@@ -9,7 +9,7 @@ import java.io.IOException;
 public class Server {
 
     public static void main(String []args) throws IOException {
-//        Spark.secure("security/version2/KeyStore.jks", "123456", null,null);
+        //Spark.secure("security/version2/KeyStore.jks", "123456", null,null);
         Spark.webSocket("/Login", LoginWebSocket.class);
         Spark.webSocket("/Main/*",MainWebSocket.class);
         Spark.webSocket("/Store/currentStore",StoreWebSocket.class);
@@ -36,7 +36,7 @@ public class Server {
         } catch (IOException e) {
             //TODO deal with failure of getting config file
         }
-        API.forTest();
+//        API.forTest();
 
 
         Spark.init();

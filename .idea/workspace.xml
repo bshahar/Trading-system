@@ -22,7 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="." />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="..">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/PurchasesOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/PurchasesOnProductsWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/UserApprovedOffersWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserApprovedOffersWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/UserCounterOffersWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserCounterOffersWrapper.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +95,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/eladNewBranch" />
+    <option name="BRANCH" value="origin/purchase_tests_db_fixes" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -167,7 +177,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest">
+  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -260,8 +270,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
         <item itemvalue="JUnit.StoreTest" />
         <item itemvalue="JUnit.LoginTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterOfferSuccessTest" />
@@ -291,14 +301,7 @@
       <workItem from="1621682093021" duration="58405000" />
       <workItem from="1621980323419" duration="3163000" />
       <workItem from="1622016743077" duration="9914000" />
-      <workItem from="1622028989127" duration="5470000" />
-    </task>
-    <task id="LOCAL-00022" summary="update server and gui #44">
-      <created>1619193530538</created>
-      <option name="number" value="00022" />
-      <option name="presentableId" value="LOCAL-00022" />
-      <option name="project" value="LOCAL" />
-      <updated>1619193530538</updated>
+      <workItem from="1622028989127" duration="7517000" />
     </task>
     <task id="LOCAL-00023" summary="update server and gui #44">
       <created>1619276415055</created>
@@ -600,7 +603,13 @@
       <option name="presentableId" value="LOCAL‎00070" />
       <updated>1622067818003</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL‎00071" summary="..">
+      <created>1622067915680</created>
+      <option name="number" value="LOCAL‎00071" />
+      <option name="presentableId" value="LOCAL‎00071" />
+      <updated>1622067915680</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -624,7 +633,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="adding database infrastructure" />
-    <MESSAGE value=".." />
     <MESSAGE value="new db" />
     <MESSAGE value="fix db problems" />
     <MESSAGE value="elad do everything!" />
@@ -648,7 +656,8 @@
     <MESSAGE value="..." />
     <MESSAGE value="fix approve offer test" />
     <MESSAGE value="." />
-    <option name="LAST_COMMIT_MESSAGE" value="." />
+    <MESSAGE value=".." />
+    <option name="LAST_COMMIT_MESSAGE" value=".." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -700,12 +709,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/PlayGround.java</url>
-          <line>26</line>
+          <line>27</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
-          <line>19</line>
+          <line>20</line>
           <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -720,7 +729,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>549</line>
+          <line>555</line>
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -729,9 +738,9 @@
           <option name="timeStamp" value="174" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>205</line>
-          <option name="timeStamp" value="180" />
+          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
+          <line>357</line>
+          <option name="timeStamp" value="186" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />

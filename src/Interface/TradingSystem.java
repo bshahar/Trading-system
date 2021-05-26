@@ -728,6 +728,8 @@ public class TradingSystem {
                             productsAmountBuy.put(product, productsAmountBag.get(product));
                             if(offerContains(offerPrices, product.getId())) {
                                 totalCost += ((offerPrice(offerPrices, product.getId()) - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));
+                                UserApprovedOffersWrapper userApprovedOffersWrapper = new UserApprovedOffersWrapper();
+                                userApprovedOffersWrapper.remove(storeId,product,userId, offerPrice(offerPrices, product.getId()));
                             }
                             else
                                 totalCost += ((product.getPrice() - store.calcDiscountPerProduct(product, new Date(), getUserById(userId), bag)) * products.get(product));

@@ -15,6 +15,7 @@ import Domain.Sessions.SessionInterface;
 import Domain.Sessions.realSession;
 import Domain.User;
 import Persistence.*;
+import Persistence.DAO.CounterDAO;
 import Service.*;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
@@ -31,17 +32,9 @@ public class TradingSystem {
     private static counter receiptCounter;
     private static counter observableCounter;
     private static counter conditionCounter;
-
-    public static counter getOfferCounter() {
-        return offerCounter;
-    }
-
-    public static counter getPolicyCounter() {
-        return policyCounter;
-    }
-
     private static counter offerCounter;
     private static counter policyCounter;
+
     public static Map<Integer , DemoSession> demoSessionMap ;
     private static PaymentInterface paymentAdapter;
     private static SupplementInterface supplementAdapter;
@@ -61,6 +54,7 @@ public class TradingSystem {
         }else{
             paymentAdapter = new PaymentAdapter(externalSystemsUrl);
             supplementAdapter = new SupplementAdapter(externalSystemsUrl);
+
         }
         this.users =  new UserWrapper();
         this.receipts =  new ReceiptWrapper();
@@ -70,20 +64,36 @@ public class TradingSystem {
         this.userAuth = new UserAuth();
         userAuth.register(systemManager.getUserName(), "123");
         //users.add(systemManager);
-        userCounter = new counter();
-        storeCounter = new counter();
-        productCounter=new counter();
-        offerCounter = new counter();
-        policyCounter = new counter();
-        KingLogger.logEvent("Trading System initialized");
-        conditionCounter = new counter();
-        observableCounter = new counter();
+        initiateCounters();
+
         this.observers = Collections.synchronizedList(new LinkedList<>());
-        receiptCounter = new counter();
         this.systemManager = systemManager;
         AppointSystemManager(systemManager);
         sessionsMap = new ConcurrentHashMap<>();
         demoSessionMap = new ConcurrentHashMap<>();
+        KingLogger.logEvent("Trading System initialized");
+    }
+
+    public static counter getPolicyCounter() {
+        return policyCounter;
+    }
+
+    public static counter getOfferCounter() {
+        return offerCounter;
+    }
+
+    private void initiateCounters() {
+        CounterWrapper counterWrapper=new CounterWrapper();
+        CounterDAO counterDAO= counterWrapper.getAll();
+        userCounter = new counter(counterDAO.getUserCounter(),"userCounter");
+        storeCounter = new counter(counterDAO.getStoreCounter(),"storeCounter");
+        productCounter=new counter(counterDAO.getProductCounter(),"productCounter");
+        receiptCounter = new counter(counterDAO.getReceiptCounter(),"receiptCounter");
+        conditionCounter = new counter(counterDAO.getConditionCounter(),"conditionCounter");
+        offerCounter= new counter(counterDAO.getOfferCounter(),"offerCounter");
+        policyCounter = new counter(counterDAO.getPolicyCounter(),"policyCounter");
+        observableCounter = new counter(counterDAO.getObservableCounter(),"observableCounter");
+
     }
 
 //    public int getSystemManagerId() {
@@ -826,7 +836,7 @@ public class TradingSystem {
         User user = getUserById(userId);
         if(user!=null && user.isRegistered()) {
             int newId = storeCounter.inc();
-            Store store = new Store(newId, storeName, offerCounter, policyCounter);
+            Store store = new Store(newId, storeName,offerCounter,policyCounter);
            // systemManager.addStoreToSystemManager(store);
             Result result = addObservable(storeName);
             int subscribeId = (int)result.getData();

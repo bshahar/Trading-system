@@ -224,12 +224,12 @@ public class StoreTest {
     }
 
 
-    @Test
-    //AT-13 fail
-    public void main() throws Exception {
-        addProductToStoreUserNotOwnerFailTest();
-        removeProductFromStoreSuccessTest();
-    }
+//    @Test
+//    //AT-13 fail
+//    public void main() throws Exception {
+//        addProductToStoreUserNotOwnerFailTest();
+//        removeProductFromStoreSuccessTest();
+//    }
     @Test
     //AT-13 fail
     public void addProductToStoreUserNotOwnerFailTest() throws Exception {

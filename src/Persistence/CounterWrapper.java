@@ -37,6 +37,7 @@ public class CounterWrapper {
         }
         catch (Exception e)
         {
+            System.out.println(e);
             return -1;
         }
     }
@@ -47,7 +48,8 @@ public class CounterWrapper {
             ConnectionSource connectionSource = connect();
             // instantiate the dao
             Dao<CounterDAO, String> CounterManager = DaoManager.createDao(connectionSource, CounterDAO.class);
-            CounterDAO counterDao = CounterManager.queryForId("0");
+            CounterDAO counterDao = CounterManager.queryForId("1");
+            connectionSource.close();
             switch (counterName)
             {
                 case "storeCounter":
@@ -60,19 +62,38 @@ public class CounterWrapper {
                     return counterDao.getReceiptCounter();
                 case "observableCounter":
                     return counterDao.getObservableCounter();
-                case "immediatePurchaseCounter":
-                    return counterDao.getImmediatePurchaseCounter();
-                case "discountConditionCounter":
-                    return counterDao.getDiscountConditionCounter();
+                case "conditionCounter":
+                    return counterDao.getConditionCounter();
+                case "offerCounter":
+                    return counterDao.getOfferCounter();
+                case "policyCounter":
+                    return counterDao.getPolicyCounter();
                 case "notificationCounter":
                     return counterDao.getNotificationCounter();
                 case "messageCounter":
                     return counterDao.getMessageCounter();
             }
+
             return 0;
         }catch (Exception e)
         {
          return  -1;
+        }
+    }
+
+
+    public CounterDAO getAll() {
+        try {
+
+            ConnectionSource connectionSource = connect();
+            // instantiate the dao
+            Dao<CounterDAO, String> CounterManager = DaoManager.createDao(connectionSource, CounterDAO.class);
+            CounterDAO counterDao = CounterManager.queryForId("1");
+            connectionSource.close();
+            return counterDao;
+        }catch (Exception e)
+        {
+            return  null;
         }
     }
 

@@ -758,3 +758,37 @@
  
 [2021-05-26] [15:14:43] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
  
+[2021-05-26] [16:56:05] [WARNING] GET_BAG: User with id 3 couldn't view his bag from store 1
+ 
+[2021-05-26] [16:56:06] [WARNING] BUY_PRODUCTS: User with id 3 couldn't make a purchase in store 1
+ 
+[2021-05-26] [16:56:12] [WARNING] GET_BAG: User with id 3 couldn't view his bag from store 1
+ 
+[2021-05-26] [16:56:12] [WARNING] BUY_PRODUCTS: User with id 3 couldn't make a purchase in store 1
+ 
+[2021-05-26] [16:58:56] [WARNING] GET_BAG: User with id 2 couldn't view his bag from store 1
+ 
+[2021-05-26] [16:58:56] [WARNING] GET_BAG: User with id 2 couldn't view his offer prices from store 1
+ 
+[2021-05-26] [16:58:56] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-26] [16:59:21] [WARNING] GET_BAG: User with id 2 couldn't view his bag from store 1
+ 
+[2021-05-26] [16:59:21] [WARNING] GET_BAG: User with id 2 couldn't view his offer prices from store 1
+ 
+[2021-05-26] [16:59:21] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:01:24] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:01:31] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:01:31] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:01:35] [WARNING] BUY_PRODUCTS: User with id 4 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:01:39] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:01:45] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 1
+ 
+[2021-05-26] [17:01:49] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 1
+ 

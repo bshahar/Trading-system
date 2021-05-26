@@ -40,11 +40,13 @@ public class UserApprovedOffersWrapper {
        this.value.put(prod, purchaseOffer);
     }
 
-    public void remove(int storeId, Product prod, PurchaseOffer po) {
+    public void remove(int storeId, Product prod, int userId, double priceOffer) {
         try {
             ConnectionSource connectionSource = connect();
             Dao<UserApprovedOffersDAO, String> userApprovedOffersDao = DaoManager.createDao(connectionSource, UserApprovedOffersDAO.class);
-            UserApprovedOffersDAO userApprovedOffersDaoObj = new UserApprovedOffersDAO(po.getUser().getId(),storeId, prod.getId(),po.getPriceOfOffer());
+            UserApprovedOffersDAO userApprovedOffersDaoObj = new UserApprovedOffersDAO(userId,storeId, prod.getId(),priceOffer);
+            userApprovedOffersDao.executeRaw("DELETE FROM UserApprovedOffers WHERE userId = " + userId + " AND storeId = " + storeId + " AND productId = " + prod.getId() + " ;");
+
             userApprovedOffersDao.delete(userApprovedOffersDaoObj);
             connectionSource.close();
             this.value.remove(prod);

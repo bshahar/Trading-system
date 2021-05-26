@@ -89,7 +89,6 @@ public class PurchasesOnProductsWrapper {
 
             connectionSource.close();
         } catch (Exception e) {
-            //TODO add rollback
         }
         this.value.put(product, immediatePurchase); //Overwrite old entry in map
     }

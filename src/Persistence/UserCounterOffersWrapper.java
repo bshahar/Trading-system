@@ -40,7 +40,6 @@ public class UserCounterOffersWrapper {
 
             connectionSource.close();
         } catch (Exception e) {
-            //TODO add rollback
         }
         this.value.put(prod, purchaseOffer);
     }
@@ -50,7 +49,9 @@ public class UserCounterOffersWrapper {
             ConnectionSource connectionSource = connect();
             Dao<UsersCounterOffersDAO, String> usersCounterOffersDao = DaoManager.createDao(connectionSource, UsersCounterOffersDAO.class);
             UsersCounterOffersDAO userCounterOffersDaoObj = new UsersCounterOffersDAO(storeId,po.getUser().getId(), prod.getId(),po.getId());
-            usersCounterOffersDao.delete(userCounterOffersDaoObj);
+            usersCounterOffersDao.executeRaw("DELETE FROM UsersCounterOffers WHERE storeId = " + storeId + " AND userId = " + po.getUser().getId() + " AND productId = " + prod.getId() + " ;");
+            Dao<PurchaseOffersDAO, String> purchaseOffersDAOS = DaoManager.createDao(connectionSource, PurchaseOffersDAO.class);
+            usersCounterOffersDao.executeRaw("DELETE FROM PurchaseOffers WHERE id = "+po.getId()  +" ;");
             connectionSource.close();
             this.value.remove(prod);
 

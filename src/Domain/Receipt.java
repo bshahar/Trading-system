@@ -29,7 +29,7 @@ public class Receipt {
         this.supplementTransactionId = supplementTransaction;
         this.lines = new LinkedList<>();
         for (Product p : lines.keySet()) {
-            this.lines.add(new ReceiptLine(p.getName(), p.getPrice(), lines.get(p),id,storeId));
+            this.lines.add(new ReceiptLine(p.getName(), p.getPrice(), lines.get(p),id,p.getId()));
         }
     }
 

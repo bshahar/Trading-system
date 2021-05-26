@@ -36,9 +36,9 @@ public class ReceiptWrapper {
             // close the connection source
             connectionSource.close();
             ReceiptLinesWrapper receiptLinesWrapper = new ReceiptLinesWrapper();
-            for(ReceiptLine receiptLine : receipt.getLines())
+            for(ReceiptLine receiptLine : receipt.getLines()) {
                 receiptLinesWrapper.add(receiptLine);
-
+            }
 
             return true;
         }

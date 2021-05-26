@@ -388,6 +388,7 @@ public class TradingSystem {
 
     }
 
+
     public void setSessionDemo(int userId) {
         sessionsMap.put(userId,new DemoSession());
         //getUserById(userId).setSessionDemo();
@@ -401,11 +402,9 @@ public class TradingSystem {
 
     public Result getUserIdByName(String userName) {
 
-//        for(User user : users){
-//            if(user.getUserName().equals(userName)){
-//                return new Result(true,user.getId());
-//            }
-//        }
+        User user = this.users.searchUserByName(userName);
+        if(user!=null)
+            return new Result(true,user.getId());
         return new Result(false, "User Name not exist");
     }
 

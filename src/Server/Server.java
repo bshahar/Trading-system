@@ -36,7 +36,7 @@ public class Server {
         } catch (IOException e) {
             //TODO deal with failure of getting config file
         }
-//        API.forTest();
+        API.forTest();
 
 
         Spark.init();

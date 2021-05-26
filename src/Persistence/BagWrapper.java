@@ -216,7 +216,7 @@ public class BagWrapper {
             ConnectionSource connectionSource = connect();
             Dao<BagProductAmountDAO, String> BagManager = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
             BagManager.executeRaw("DELETE FROM BagProductAmount WHERE userId=" + (userId) + " AND storeId=" + (storeId) +
-                    "AND productId=" + prodId.getId());
+                    " AND productId=" + prodId.getId());
             connectionSource.close();
 
         } catch (Exception e) {

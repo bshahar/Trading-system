@@ -37,6 +37,8 @@ public class DataBaseHelper {
 
             Dao<ReceiptDAO, String> receiptManager = DaoManager.createDao(connectionSource, ReceiptDAO.class);
             receiptManager.executeRaw("DELETE FROM Receipts");
+            Dao<ReceiptLinesDAO, String> ReceiptLinesDAOManager = DaoManager.createDao(connectionSource,ReceiptLinesDAO.class);
+            ReceiptLinesDAOManager.executeRaw("DELETE FROM ReceiptLines");
 
             Dao<StoreDAO, String> StoreManager = DaoManager.createDao(connectionSource,StoreDAO.class);
             StoreManager.executeRaw("DELETE FROM Stores");

@@ -45,6 +45,7 @@ public class TradingSystem {
     private UserWrapper users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
+    private CounterWrapper counterWrapper;
 
 
     public TradingSystem (User systemManager, String externalSystemsUrl, boolean testing) {
@@ -65,7 +66,7 @@ public class TradingSystem {
         userAuth.register(systemManager.getUserName(), "123");
         //users.add(systemManager);
         initiateCounters();
-
+        this.counterWrapper = new CounterWrapper();
         this.observers = Collections.synchronizedList(new LinkedList<>());
         this.systemManager = systemManager;
         AppointSystemManager(systemManager);
@@ -368,7 +369,15 @@ public class TradingSystem {
             JSONObject json = new JSONObject();
             json.put("type", "ALERT");
             json.put("data", msg);
-            sessionsMap.get(userId).send(json.toString());
+            User user = getUserById(userId);
+            if(user!=null )
+            {
+                if(user.isLooged())
+                    sessionsMap.get(userId).send(json.toString());
+                else
+                    user.addNotificationToLogOutUser(json.toString());
+            }
+
             //getUserById(userId).addNotification(json.toString());
             return new Result(true,"send successfully alerts\n");
         }
@@ -378,6 +387,7 @@ public class TradingSystem {
         }
 
     }
+
 
     public void setSessionDemo(int userId) {
         sessionsMap.put(userId,new DemoSession());
@@ -392,11 +402,9 @@ public class TradingSystem {
 
     public Result getUserIdByName(String userName) {
 
-//        for(User user : users){
-//            if(user.getUserName().equals(userName)){
-//                return new Result(true,user.getId());
-//            }
-//        }
+        User user = this.users.searchUserByName(userName);
+        if(user!=null)
+            return new Result(true,user.getId());
         return new Result(false, "User Name not exist");
     }
 
@@ -738,35 +746,39 @@ public class TradingSystem {
                 KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
                 return new Result(false, "Supplement details are invalid.");
             }
-            Result paymentResult = paymentAdapter.pay(paymentData);
-            Result supplementResult = supplementAdapter.supply(supplementData);
-            if (!paymentResult.isResult()
-                    || ((int) paymentResult.getData()) > 100000
-                    || ((int) paymentResult.getData()) < 10000) {
-                store.abortPurchase(productsAmountBuy);
-                KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
-                return new Result(false, "Payment has failed.");
+            if(totalCost>0){
+                Result paymentResult = paymentAdapter.pay(paymentData);
+                Result supplementResult = supplementAdapter.supply(supplementData);
+                if (!paymentResult.isResult()
+                        || ((int) paymentResult.getData()) > 100000
+                        || ((int) paymentResult.getData()) < 10000) {
+                    store.abortPurchase(productsAmountBuy);
+                    KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
+                    return new Result(false, "Payment has failed.");
+                }
+                if (!supplementResult.isResult()
+                        || ((int) supplementResult.getData()) > 100000
+                        || ((int) supplementResult.getData()) < 10000) {
+                    store.abortPurchase(productsAmountBuy);
+                    KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
+                    return new Result(false, "Supplement has failed.");
+                }
+                getUserById(userId).removeProductFromCart(productsAmountBuy, storeId);
+                Receipt rec = new Receipt(receiptCounter.inc(), storeId, userId, getUserById(userId).getUserName(), productsAmountBuy, (int) paymentResult.getData(), (int) supplementResult.getData());
+                rec.setTotalCost(totalCost);
+                this.receipts.add(rec);
+                store.addReceipt(rec);
+                getUserById(userId).addReceipt(rec);
+                if (productsAmountBag.size() == productsAmountBuy.size()) {
+                    KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId);
+                    notifyToSubscribers(getStoreById(storeId).getNotificationId(), "Some one buy from your store! you can go to your purchase to see more details");
+                } else {
+                    KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId + "but some products are missing");
+                }
+                return new Result(true, rec.getId());
+            }else{
+                return new Result(false,"can't complete the purchase");
             }
-            if (!supplementResult.isResult()
-                    || ((int) supplementResult.getData()) > 100000
-                    || ((int) supplementResult.getData()) < 10000) {
-                store.abortPurchase(productsAmountBuy);
-                KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
-                return new Result(false, "Supplement has failed.");
-            }
-            getUserById(userId).removeProductFromCart(productsAmountBuy, storeId);
-            Receipt rec = new Receipt(receiptCounter.inc(), storeId, userId, getUserById(userId).getUserName(), productsAmountBuy, (int) paymentResult.getData(), (int) supplementResult.getData());
-            rec.setTotalCost(totalCost);
-            this.receipts.add(rec);
-            store.addReceipt(rec);
-            getUserById(userId).addReceipt(rec);
-            if (productsAmountBag.size() == productsAmountBuy.size()) {
-                KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId);
-                notifyToSubscribers(getStoreById(storeId).getNotificationId(), "Some one buy from your store! you can go to your purchase to see more details");
-            } else {
-                KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " made purchase in store " + storeId + "but some products are missing");
-            }
-            return new Result(true, rec.getId());
         } catch (Exception e) {
             KingLogger.logError("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
             return new Result(false, "purchase failed");
@@ -940,8 +952,9 @@ public class TradingSystem {
         if(result.isResult())
         {
             KingLogger.logEvent("REMOVE_MANAGER: User with id " + ownerId + " remove manager and " + result.getData());
-            unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
             sendAlert(managerId,"You are no longer manager in store: "+ getStoreName(storeId));
+            unsubscribeToObservable(getStoreById(storeId).getNotificationId(),managerId);
+
         }
         return result;
 

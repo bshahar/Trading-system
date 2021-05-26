@@ -53,7 +53,6 @@ public class HttpClient {
             String line;
             while ((line = rd.readLine()) != null) {
                 response.append(line);
-                response.append('\r');
             }
             rd.close();
             return new Result(true, response.toString());

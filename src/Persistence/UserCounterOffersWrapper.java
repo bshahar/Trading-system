@@ -88,7 +88,7 @@ public class UserCounterOffersWrapper {
                     PurchaseOffer pod2 = new PurchaseOffer(pod.getId(), pod.getPriceOfOffer(), pod.getQuantity(),userWrapper.get(pod.getUserId()));
                     this.value.put(store.getProductById(userCounterOffers.getProductId()),pod2 );
                 }
-
+                connectionSource.close();
                 return this.value;
 
             }

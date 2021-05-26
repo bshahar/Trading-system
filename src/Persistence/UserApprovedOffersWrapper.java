@@ -76,7 +76,7 @@ public class UserApprovedOffersWrapper {
                 for (UserApprovedOffersDAO userApprovedOffers: userApprovedOffersDAOS) {
                     this.value.put(store.getProductById(userApprovedOffers.getProductId()),userApprovedOffers.getOfferPrice() );
                 }
-
+                connectionSource.close();
                 return this.value;
 
             }

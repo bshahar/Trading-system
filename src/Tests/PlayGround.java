@@ -4,6 +4,7 @@ import Domain.User;
 import Persistence.DAO.CounterDAO;
 import Persistence.DAO.StoreDAO;
 import Persistence.DAO.UserDAO;
+import Persistence.DataBaseHelper;
 import Persistence.UserWrapper;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
@@ -35,13 +36,12 @@ public class PlayGround {
 //        System.out.println("eeeefdfsfd");
 //        u.get(111);
 
-        ConnectionSource connectionSource = connect();
-        Dao<CounterDAO, String> storeDAOManager = DaoManager.createDao(connectionSource,CounterDAO.class);
-        CounterDAO storeDAO= new CounterDAO(1,0,0,0,0,0,0,0,0,0,0);
-        storeDAOManager.create(storeDAO);
-        connectionSource.close();
-
-
+//        ConnectionSource connectionSource = connect();
+//        Dao<CounterDAO, String> storeDAOManager = DaoManager.createDao(connectionSource,CounterDAO.class);
+//        CounterDAO storeDAO= new CounterDAO(1,0,0,0,0,0,0,0,0,0,0);
+//        storeDAOManager.create(storeDAO);
+//        connectionSource.close();
+        DataBaseHelper.cleanAllTable();
 //        connectionSource.close();
        // API.initTradingSystem();
         //API.register("elad","sol",22);

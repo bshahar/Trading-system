@@ -99,6 +99,7 @@ public class StoreEmployeesWrapper {
             for(StoreEmployeesDAO storeEmployeesDAO: storeEmployeesDAOs){
                 users.add(userWrapper.get(storeEmployeesDAO.getUserId()));
             }
+            connectionSource.close();
             return users;
         }catch (Exception e){
             return new LinkedList<>();

@@ -174,6 +174,7 @@ public class PurchaseOnCategoriesWrapper {
                 PurchaseCondition condition = new PurchaseCondition(immpurDAO.getConditionId(), policies, stringToLogicOp(logicOperator));
                 ImmediatePurchase immediatePurchase = new ImmediatePurchase(immediatePurchaseId, condition);
                 this.value.put(category, immediatePurchase);
+                connectionSource.close();
                 return immediatePurchase;
             } catch (Exception e) {
                 return null;

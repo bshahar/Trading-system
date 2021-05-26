@@ -179,6 +179,7 @@ public class PurchasesOnProductsWrapper {
                 ImmediatePurchase immediatePurchase = new ImmediatePurchase(immediatePurchaseId, condition);
 
                 this.value.put(product, immediatePurchase);
+                connectionSource.close();
                 return immediatePurchase;
             } catch (Exception e) {
                 return null;

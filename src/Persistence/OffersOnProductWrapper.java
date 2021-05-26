@@ -127,11 +127,12 @@ System.out.println(e);
                     }
 
                 }
-
+                connectionSource.close();
                return this.value;
 
             }
             catch (Exception e){
+
                 return this.value;
             }
         }

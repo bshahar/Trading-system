@@ -2,6 +2,7 @@ package Tests;
 
 import Domain.Result;
 import Persistence.DataBaseHelper;
+import Persistence.UserWrapper;
 import Service.API;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;

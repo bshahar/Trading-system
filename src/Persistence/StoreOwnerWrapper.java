@@ -85,6 +85,7 @@ public class StoreOwnerWrapper {
             for(StoreOwnerDAO storeOwnerDAO: StoreOwnerDAOs){
                 users.add(userWrapper.get(storeOwnerDAO.getUserId()));
             }
+            connectionSource.close();
             return users;
         }catch (Exception e){
             return new LinkedList<>();
@@ -99,9 +100,11 @@ public class StoreOwnerWrapper {
             List<StoreOwnerDAO> StoreOwnerDAOs= StoreOwnerDAO.queryForFieldValues(map);
             for(StoreOwnerDAO storeOwnerDAO : StoreOwnerDAOs){
                 if(storeOwnerDAO.getUserId()== user.getId()){
+                    connectionSource.close();
                     return true;
                 }
             }
+            connectionSource.close();
             return false;
         }catch(Exception e){
             return false;

@@ -23,6 +23,7 @@ import java.util.Properties;
 
 public class ReceiptWrapper {
 
+
     public boolean add(Receipt receipt){
         try {
             ConnectionSource connectionSource = connect();
@@ -34,6 +35,11 @@ public class ReceiptWrapper {
             receiptManager.create(receiptDAO);
             // close the connection source
             connectionSource.close();
+            ReceiptLinesWrapper receiptLinesWrapper = new ReceiptLinesWrapper();
+            for(ReceiptLine receiptLine : receipt.getLines()) {
+                receiptLinesWrapper.add(receiptLine);
+            }
+
             return true;
         }
         catch (Exception e)

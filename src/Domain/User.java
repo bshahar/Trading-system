@@ -173,6 +173,12 @@ public class User implements Observer {
             userWrapper.setLogged(0,id);
         this.logged = logged;
     }
+    public void setUserLogged(int logged) {
+        if(logged==1)
+            this.logged = true;
+        else
+            this.logged = false;
+    }
 
 
 
@@ -318,7 +324,7 @@ public class User implements Observer {
     }
     @Transient
     public List<Receipt> getPurchaseHistory() {
-        return receiptWrapper.get();
+        return receiptWrapper.getByUserId(id);
     }
     @Transient
     public List<Integer> getMyStores() {
@@ -380,7 +386,12 @@ public class User implements Observer {
     }
 
 
-    @Transient
+    public void addNotificationToLogOutUser(String msg){
+            JSONObject jo = new JSONObject(msg);
+            String data = jo.get("data").toString();
+            this.messagesWrapper.add(id,messageCounter.incAndGet("messageCounter"),data);
+    }
+
     public void addNotification(String msg){
         if(logged)
         {
@@ -392,7 +403,6 @@ public class User implements Observer {
             String data = jo.get("data").toString();
             this.messagesWrapper.add(id,messageCounter.incAndGet("messageCounter"),data);
         }
-
     }
     public void setSession(Session s)
     {

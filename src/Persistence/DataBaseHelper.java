@@ -26,6 +26,9 @@ public class DataBaseHelper {
             Dao<UserDAO, String> userManager = DaoManager.createDao(connectionSource, UserDAO.class);
             userManager.executeRaw("DELETE FROM Users");
 
+            UserWrapper userWrapper = new UserWrapper();
+            userWrapper.clean();
+
             Dao<BagProductAmountDAO, String> bagManger = DaoManager.createDao(connectionSource, BagProductAmountDAO.class);
             bagManger.executeRaw("DELETE FROM BagProductAmount");
 
@@ -34,10 +37,14 @@ public class DataBaseHelper {
 
             Dao<ReceiptDAO, String> receiptManager = DaoManager.createDao(connectionSource, ReceiptDAO.class);
             receiptManager.executeRaw("DELETE FROM Receipts");
+            Dao<ReceiptLinesDAO, String> ReceiptLinesDAOManager = DaoManager.createDao(connectionSource,ReceiptLinesDAO.class);
+            ReceiptLinesDAOManager.executeRaw("DELETE FROM ReceiptLines");
 
             Dao<StoreDAO, String> StoreManager = DaoManager.createDao(connectionSource,StoreDAO.class);
             StoreManager.executeRaw("DELETE FROM Stores");
 
+            StoreWrapper storeWrapper = new StoreWrapper();
+            storeWrapper.clean();
 
             Dao<StoreReceiptDAO, String> StoreReceiptDAOManager = DaoManager.createDao(connectionSource,StoreReceiptDAO.class);
             StoreReceiptDAOManager.executeRaw("DELETE FROM StoreReceipts");
@@ -60,6 +67,10 @@ public class DataBaseHelper {
 
             Dao<ProductDAO, String>ProductDAOManager = DaoManager.createDao(connectionSource,ProductDAO.class);
             ProductDAOManager.executeRaw("DELETE FROM Products");
+
+            ProductWrapper productWrapper = new ProductWrapper();
+            productWrapper.clean();
+
             Dao<ProductReviewsDAO, String>ProductReviewsDAOManager = DaoManager.createDao(connectionSource,ProductReviewsDAO.class);
             ProductReviewsDAOManager.executeRaw("DELETE FROM ProductReviews");
             Dao<ProductCategoriesDAO, String>ProductCategoriesDAOManager = DaoManager.createDao(connectionSource,ProductCategoriesDAO.class);

@@ -7,9 +7,11 @@ import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchaseFormat.ImmediatePurchase;
 import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
+import Interface.TradingSystem;
 import Persistence.*;
 import Service.counter;
 import javafx.util.Pair;
+import org.json.JSONObject;
 
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
@@ -157,14 +159,15 @@ public class Store {
 
     public Result removeManager(User owner, User manager) {
 //        if(appointments.get(owner).remove(manager)){
-
+        if(!this.managers.contains(manager,storeId))
+            return new Result(false,"User is not manager of this store");
         if(appointments.removeAppointment(this.storeId,owner.getId(),manager.getId())){
             employees.remove(this.storeId,manager);
             manager.removeFromMyStores(this);
 
             List<User> managers=appointments.get(this.storeId,manager);
+            this.managers.remove(this.storeId,manager);
             for(User user : managers){
-                this.managers.remove(this.storeId,user);
                 removeManager(manager,user);
             }
 
@@ -230,7 +233,7 @@ public class Store {
     }
 
     public boolean addOwner(User user) {
-        if(this.owners.contains(user,storeId))
+        if(this.managers.contains(user,storeId) || this.owners.contains(user,storeId))
             return false;
         owners.add(user,storeId);
         return true;
@@ -238,7 +241,8 @@ public class Store {
     public boolean addManager(User user)
     {
         synchronized (managers) {
-            if (this.managers.contains(user,storeId))
+
+            if (this.managers.contains(user,storeId) || this.owners.contains(user,storeId))
                 return false;
             managers.add(user,storeId);
             return true;
@@ -538,6 +542,8 @@ public class Store {
 
     public Result removeOwner(User owner, User ownerToDelete) {
 //        if(appointments.get(owner).remove(ownerToDelete)){
+        if(!this.owners.contains(ownerToDelete,storeId))
+            return new Result(false,"User is not owner of this store");
         if(appointments.removeAppointment(storeId,owner.getId(),ownerToDelete.getId())){
             employees.remove(storeId,ownerToDelete);
             ownerToDelete.removeFromMyStores(this);

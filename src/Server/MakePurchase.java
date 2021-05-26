@@ -53,11 +53,14 @@ public class MakePurchase {
 
 
             Result result=API.buyProduct(userId,storeId,paymentMap,supplementMap);
-            if(result.isResult())
-                API.sendAlertsAfterPurchase(storeId);
             JSONObject jsonOut=new JSONObject();
+            if(result.isResult()){
+                API.sendAlertsAfterPurchase(storeId);
+                jsonOut.put("result","purchase completed successfully");
+            }else{
+                jsonOut.put("result",result.isResult());
+            }
             jsonOut.put("type","BUY_PRODUCT");
-            jsonOut.put("result",result.isResult());
             jsonOut.put("message",result.getData());
             session.getRemote().sendString(jsonOut.toString());
             }

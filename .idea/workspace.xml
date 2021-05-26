@@ -22,14 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="...">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Bag.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Bag.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/UserCounterOffersWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserCounterOffersWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
-    </list>
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix approve offer test" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -298,14 +291,7 @@
       <workItem from="1621682093021" duration="58405000" />
       <workItem from="1621980323419" duration="3163000" />
       <workItem from="1622016743077" duration="9914000" />
-      <workItem from="1622028989127" duration="4959000" />
-    </task>
-    <task id="LOCAL-00020" summary="update server and gui #44">
-      <created>1619187516931</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1619187516931</updated>
+      <workItem from="1622028989127" duration="5067000" />
     </task>
     <task id="LOCAL-00021" summary="update server and gui #44">
       <created>1619193158569</created>
@@ -609,7 +595,13 @@
       <option name="presentableId" value="LOCAL‎00068" />
       <updated>1622031336351</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL‎00069" summary="fix approve offer test">
+      <created>1622036828616</created>
+      <option name="number" value="LOCAL‎00069" />
+      <option name="presentableId" value="LOCAL‎00069" />
+      <updated>1622036828616</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -632,7 +624,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix dates sent to GUI in view policies" />
     <MESSAGE value="adding database infrastructure" />
     <MESSAGE value=".." />
     <MESSAGE value="new db" />
@@ -657,7 +648,8 @@
     <MESSAGE value="tmp" />
     <MESSAGE value="#61" />
     <MESSAGE value="..." />
-    <option name="LAST_COMMIT_MESSAGE" value="..." />
+    <MESSAGE value="fix approve offer test" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix approve offer test" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

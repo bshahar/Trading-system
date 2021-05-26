@@ -77,6 +77,13 @@ public class DataBaseHelper {
             Dao<ImmediatePurchasesDAO, String> ImmediatePurchasesDAOManager = DaoManager.createDao(connectionSource, ImmediatePurchasesDAO.class);
             ImmediatePurchasesDAOManager.executeRaw("DELETE FROM ImmediatePurchases");
 
+            Dao<UsersCounterOffersDAO, String> usersCounterOffersDAOManager = DaoManager.createDao(connectionSource, UsersCounterOffersDAO.class);
+            usersCounterOffersDAOManager.executeRaw("DELETE FROM usersCounterOffers");
+
+            Dao<UserApprovedOffersDAO, String> usersapproveOffersDAOManager = DaoManager.createDao(connectionSource, UserApprovedOffersDAO.class);
+            usersapproveOffersDAOManager.executeRaw("DELETE FROM userApprovedOffers");
+
+
             Dao<UserAuthDAO, String>UserAuthDAOManager = DaoManager.createDao(connectionSource,UserAuthDAO.class);
             UserAuthDAOManager.executeRaw("DELETE FROM UserNamePasswords");
             Dao<CounterDAO, String>CounterDAOManager = DaoManager.createDao(connectionSource,CounterDAO.class);

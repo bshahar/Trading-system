@@ -23,15 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="..">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/PurchasesOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/PurchasesOnProductsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/UserApprovedOffersWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserApprovedOffersWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/UserCounterOffersWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserCounterOffersWrapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -177,7 +171,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove">
+  <component name="RunManager" selected="JUnit.Tests in Trading-system">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -222,22 +216,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscountAndPurchaseTest.buyProductAfterOfferSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="buyProductAfterOfferSuccessTest" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -268,13 +246,27 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Tests in Trading-system" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove" />
+        <item itemvalue="JUnit.Tests in Trading-system" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove" />
         <item itemvalue="JUnit.StoreTest" />
         <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterOfferSuccessTest" />
       </list>
     </recent_temporary>
   </component>

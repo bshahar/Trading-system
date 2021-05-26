@@ -892,3 +892,59 @@
  
 [2021-05-27] [01:03:29] [WARNING] BUY_PRODUCTS: User with id 2 couldn't make a purchase in store 1
  
+[2021-05-27] [02:07:43] [WARNING] BUY_PRODUCTS: User with id 3 couldn't make a purchase in store 1
+ 
+[2021-05-27] [02:07:43] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was not added to bag for user 0
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_PRODUCTS: User with id 0 didn't succeed getting products by filter.
+ 
+[2021-05-27] [02:07:43] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was not added to bag for user 0
+ 
+[2021-05-27] [02:07:43] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was not added to bag for user 0
+ 
+[2021-05-27] [02:07:43] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was not added to bag for user 0
+ 
+[2021-05-27] [02:07:43] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 2 was not added to bag for user 0
+ 
+[2021-05-27] [02:07:43] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was not added to bag for user 0
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_BAG: User with id 0 couldn't view his bag from store 0
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_BAG: User with id 0 couldn't view his offer prices from store 0
+ 
+[2021-05-27] [02:07:43] [WARNING] BUY_PRODUCTS: User with id 0 couldn't make a purchase in store 0
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_PRODUCTS: User with id 0 didn't succeed getting products by filter.
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_PRODUCTS: User with id 0 didn't succeed getting products by filter.
+ 
+[2021-05-27] [02:07:43] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was not added to bag for user 0
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_PRODUCTS: User with id 0 didn't succeed getting products by filter.
+ 
+[2021-05-27] [02:07:43] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was not added to bag for user 6
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_PRODUCTS: User with id 0 didn't succeed getting products by filter.
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_PRODUCTS: User with id 0 didn't succeed getting products by filter.
+ 
+[2021-05-27] [02:07:43] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was not added to bag for user 8
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_PRODUCTS: User with id 0 didn't succeed getting products by filter.
+ 
+[2021-05-27] [02:07:43] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was not added to bag for user 0
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_BAG: User with id 0 couldn't view his bag from store 0
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_BAG: User with id 0 couldn't view his offer prices from store 0
+ 
+[2021-05-27] [02:07:43] [WARNING] BUY_PRODUCTS: User with id 0 couldn't make a purchase in store 0
+ 
+[2021-05-27] [02:07:43] [WARNING] ADD_PRODUCT_TO_BAG: Domain.Product number 1 was not added to bag for user 0
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_BAG: User with id 0 couldn't view his bag from store 0
+ 
+[2021-05-27] [02:07:43] [WARNING] GET_BAG: User with id 0 couldn't view his offer prices from store 0
+ 
+[2021-05-27] [02:07:43] [WARNING] BUY_PRODUCTS: User with id 0 couldn't make a purchase in store 0
+ 

@@ -22,7 +22,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix approve offer test" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -291,14 +291,7 @@
       <workItem from="1621682093021" duration="58405000" />
       <workItem from="1621980323419" duration="3163000" />
       <workItem from="1622016743077" duration="9914000" />
-      <workItem from="1622028989127" duration="5067000" />
-    </task>
-    <task id="LOCAL-00021" summary="update server and gui #44">
-      <created>1619193158569</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1619193158569</updated>
+      <workItem from="1622028989127" duration="5470000" />
     </task>
     <task id="LOCAL-00022" summary="update server and gui #44">
       <created>1619193530538</created>
@@ -601,7 +594,13 @@
       <option name="presentableId" value="LOCAL‎00069" />
       <updated>1622036828616</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL‎00070" summary=".">
+      <created>1622067818003</created>
+      <option name="number" value="LOCAL‎00070" />
+      <option name="presentableId" value="LOCAL‎00070" />
+      <updated>1622067818003</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,13 +642,13 @@
     <MESSAGE value="#61 start fix discounts tests" />
     <MESSAGE value="#61 impl get discount on product from db" />
     <MESSAGE value="#61 fix tests of discount policies" />
-    <MESSAGE value="." />
     <MESSAGE value="#61 union of discount &amp; purchase policies" />
     <MESSAGE value="tmp" />
     <MESSAGE value="#61" />
     <MESSAGE value="..." />
     <MESSAGE value="fix approve offer test" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix approve offer test" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

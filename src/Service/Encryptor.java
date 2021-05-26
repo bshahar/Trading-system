@@ -1,8 +1,10 @@
 package Service;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Base64;
 import java.util.logging.Level;
 import javax.crypto.*;
+import javax.crypto.spec.SecretKeySpec;
 
 public class Encryptor {
     static Cipher cipher;
@@ -12,7 +14,7 @@ public class Encryptor {
         try {
             KeyGenerator keyGenerator = KeyGenerator.getInstance("AES");
             keyGenerator.init(128); // block size is 128bits
-            SecretKey secretKey = keyGenerator.generateKey();
+            SecretKey secretKey = new SecretKeySpec("dRgUkXp2s5v8y/B?".getBytes(),"AES");
             this.key = secretKey;
             cipher = Cipher.getInstance("AES"); //SunJCE provider AES algorithm, mode(optional) and padding schema(optional)
         }

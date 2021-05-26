@@ -26,28 +26,11 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/AppointmentsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/AppointmentsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/BagWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/BagWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnCategoriesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnCategoriesWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/PurchaseOnCategoriesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/PurchaseOnCategoriesWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/PurchaseOnStoresWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/PurchaseOnStoresWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/PurchasesOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/PurchasesOnProductsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreEmployeesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreEmployeesWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreManagerWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreManagerWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreOwnerWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreOwnerWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreReceiptWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreReceiptWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/UserApprovedOffersWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserApprovedOffersWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/UserCounterOffersWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserCounterOffersWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PermissionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PermissionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/Encryptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/Encryptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/HttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/HttpClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/PlayGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PlayGround.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +176,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.StoreTest and 3 more">
+  <component name="RunManager" selected="JUnit.robust_stress">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -207,39 +190,46 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PermissionTest (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="PlayGround" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Tests.PlayGround" />
       <module name="Trading-system" />
-      <option name="TEST_OBJECT" value="uniqueId" />
-      <patterns>
-        <pattern testClass="Tests.StoreTest" />
-        <pattern testClass="Tests.PurchaseTest" />
-        <pattern testClass="Tests.PermissionTest" />
-        <pattern testClass="Tests.LoginTest" />
-      </patterns>
-      <uniqueIds>
-        <uniqueId value="[engine:junit-jupiter]/[class:Tests.PermissionTest]" />
-      </uniqueIds>
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PermissionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server.Server" />
       <module name="Trading-system" />
-      <option name="TEST_OBJECT" value="uniqueId" />
-      <patterns>
-        <pattern testClass="Tests.StoreTest" />
-        <pattern testClass="Tests.PurchaseTest" />
-        <pattern testClass="Tests.PermissionTest" />
-        <pattern testClass="Tests.LoginTest" />
-      </patterns>
-      <uniqueIds>
-        <uniqueId value="[engine:junit-jupiter]/[class:Tests.PermissionTest]" />
-      </uniqueIds>
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTest and 3 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <option name="TEST_OBJECT" value="pattern" />
+      <patterns>
+        <pattern testClass="Tests.LoginTest" />
+        <pattern testClass="Tests.PurchaseTest" />
+        <pattern testClass="Tests.StoreTest" />
+        <pattern testClass="Tests.PermissionTest" />
+      </patterns>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="robust_stress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -248,13 +238,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.PurchaseTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.robust_stress" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PurchaseTest.purchaseTwoItemsSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="robust_stress.concurrentPaymentSystem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -263,33 +253,20 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.PurchaseTest" />
-      <option name="METHOD_NAME" value="purchaseTwoItemsSuccessTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.robust_stress" />
+      <option name="METHOD_NAME" value="concurrentPaymentSystem" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="StoreTest and 3 more" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <option name="TEST_OBJECT" value="pattern" />
-      <patterns>
-        <pattern testClass="Tests.StoreTest" />
-        <pattern testClass="Tests.PurchaseTest" />
-        <pattern testClass="Tests.PermissionTest" />
-        <pattern testClass="Tests.LoginTest" />
-      </patterns>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.StoreTest and 3 more" />
-        <item itemvalue="JUnit.PermissionTest (1)" />
-        <item itemvalue="JUnit.PermissionTest" />
-        <item itemvalue="JUnit.PurchaseTest" />
-        <item itemvalue="JUnit.PurchaseTest.purchaseTwoItemsSuccessTest" />
+        <item itemvalue="JUnit.robust_stress" />
+        <item itemvalue="JUnit.robust_stress.concurrentPaymentSystem" />
+        <item itemvalue="Application.PlayGround" />
+        <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.LoginTest and 3 more" />
       </list>
     </recent_temporary>
   </component>
@@ -317,13 +294,6 @@
       <workItem from="1621980323419" duration="3163000" />
       <workItem from="1622016743077" duration="9914000" />
       <workItem from="1622028989127" duration="4959000" />
-    </task>
-    <task id="LOCAL-00021" summary="update server and gui #44">
-      <created>1619193158569</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1619193158569</updated>
     </task>
     <task id="LOCAL-00022" summary="update server and gui #44">
       <created>1619193530538</created>
@@ -626,7 +596,13 @@
       <option name="presentableId" value="LOCAL‎00069" />
       <updated>1622037742290</updated>
     </task>
-    <option name="localTasksCounter" value="70" />
+    <task id="LOCAL‎00070" summary="counter DB">
+      <created>1622045595493</created>
+      <option name="number" value="LOCAL‎00070" />
+      <option name="presentableId" value="LOCAL‎00070" />
+      <updated>1622045595493</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -720,11 +696,6 @@
           <option name="timeStamp" value="66" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/PlayGround.java</url>
-          <line>26</line>
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
           <line>19</line>
           <option name="timeStamp" value="86" />
@@ -763,6 +734,21 @@
           <url>file://$PROJECT_DIR$/src/Tests/PermissionTest.java</url>
           <line>140</line>
           <option name="timeStamp" value="211" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Service/API.java</url>
+          <line>307</line>
+          <option name="timeStamp" value="218" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/robust_stress.java</url>
+          <line>336</line>
+          <option name="timeStamp" value="221" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Service/PaymentAdapter.java</url>
+          <line>19</line>
+          <option name="timeStamp" value="222" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />

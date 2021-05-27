@@ -30,6 +30,17 @@ public class Product {
         this.storeId= storeId;
     }
 
+
+    public Product(int id, String name, double price , String description,int storeId,int ratesCount,double rate) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.ratesCount = ratesCount;
+        this.description = description;
+        this.rate = rate;
+        this.storeId= storeId;
+    }
+
     public int getStoreId() {
         return storeId;
     }
@@ -76,19 +87,19 @@ public class Product {
         this.reviews.add(review);
     }
 
-    public String toString() {
-        String output =  "Name - " + this.name + " Categories -  ";
-        for (String c: categories) {
-            output += c + ", ";
-        }
-        if (output.endsWith(", "))
-            output.substring(0,output.length()-2);
-        output = output + "Price - " + this.price + " Rate - " + this.rate + " Description - " + this.description + " Reviews - ";
-        for (String r: reviews) {
-            output+=r;
-        }
-        return output;
-    }
+//    public String toString() {
+//        String output =  "Name - " + this.name + " Categories -  ";
+//        for (String c: categories) {
+//            output += c + ", ";
+//        }
+//        if (output.endsWith(", "))
+//            output.substring(0,output.length()-2);
+//        output = output + "Price - " + this.price + " Rate - " + this.rate + " Description - " + this.description + " Reviews - ";
+//        for (String r: reviews) {
+//            output+=r;
+//        }
+//        return output;
+//    }
 
     public boolean containsCategory(String category){
         String c = category;
@@ -121,5 +132,13 @@ public class Product {
 
     public void setPrice(double price) {
         this.price=price;
+    }
+
+    public int getRateCount() {
+        return this.ratesCount;
+    }
+
+    public void setCategories(List<String> categories) {
+        this.categories=categories;
     }
 }

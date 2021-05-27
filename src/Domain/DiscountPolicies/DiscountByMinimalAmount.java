@@ -7,6 +7,7 @@ import Domain.User;
 import java.util.Date;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
 
 public class DiscountByMinimalAmount extends DiscountPolicy {
     private int prodId;
@@ -21,9 +22,10 @@ public class DiscountByMinimalAmount extends DiscountPolicy {
     @Override
     public boolean validateCondition(User user, Date time, Bag bag) {
         int amount = 0;
-        for (Product p: bag.getProducts()) {
-            if(p.getId() == this.prodId)
-                amount = bag.getProductsAmounts().get(p);
+        Map<Product, Integer> amounts = bag.getProductsAmounts(user.getId());
+        for (Product prod : amounts.keySet()) {
+            if (prod.getId() == this.prodId)
+                amount = amounts.get(prod);
         }
         return amount >= this.minAmount;
     }

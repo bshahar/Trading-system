@@ -11,16 +11,18 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class PurchaseCondition {
-    //todo id
+    private int id;
     private List<Policy> purchases;
     private LogicOperator operator;
 
-    public PurchaseCondition(){
+    public PurchaseCondition(int id){
+        this.id = id;
         this.purchases = new LinkedList<>();
         this.operator = new NoneOperator();
     }
 
-    public PurchaseCondition(List<Policy> purchases, LogicOperator operator) {
+    public PurchaseCondition(int id, List<Policy> purchases, LogicOperator operator) {
+        this.id = id;
         this.purchases = purchases;
         this.operator = operator;
     }
@@ -47,6 +49,8 @@ public class PurchaseCondition {
     }
 
     public void setOperator(LogicOperator operator) { this.operator = operator; }
+
+    public int getId() { return this.id; }
 
     public void addPurchasePolicy(PolicyCondition policy) {
         PurchasePolicy pp;

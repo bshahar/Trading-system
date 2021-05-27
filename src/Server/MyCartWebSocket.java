@@ -43,9 +43,9 @@ public class MyCartWebSocket {
                 for(Bag bag:bags){
                     int storeId=bag.getStoreId();
                     String storeName=API.getStoreName(storeId);
-                    JSONObject[] jsonProducts=new JSONObject[bag.getProducts().size()];
+                    JSONObject[] jsonProducts=new JSONObject[bag.getProducts(userId).size()];
                     int i=0;
-                    for(Product product: bag.getProducts()){
+                    for(Product product: bag.getProducts(userId)){
                         JSONObject jsonProduct=new JSONObject();
                         jsonProduct.put("productName",product.getName());
                         jsonProduct.put("productId",product.getId());
@@ -54,7 +54,7 @@ public class MyCartWebSocket {
                         }else{
                             jsonProduct.put("productPrice",product.getPrice());
                         }
-                        jsonProduct.put("productAmount",bag.getProductsAmounts().get(product));
+                        jsonProduct.put("productAmount",bag.getProductsAmounts(userId).get(product));
                         jsonProducts[i]=jsonProduct;
                         i++;
                     }

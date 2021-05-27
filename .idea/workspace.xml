@@ -22,7 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="purchase and robust" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="counter DB">
+      <change afterPath="$PROJECT_DIR$/src/Tests/robust_stress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,12 +92,12 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/purchase_tests_db_fixes" />
+    <option name="BRANCH" value="origin/eladNewBranch" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="purchase_tests_db_fixes" />
+        <entry key="$PROJECT_DIR$" value="UniteBranches" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -167,7 +174,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.Tests in Trading-system">
+  <component name="RunManager" selected="JUnit.PermissionTest">
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -196,22 +203,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="buyProductAfterCounterOfferAndApprove" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -222,6 +213,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PermissionTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.PermissionTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -242,7 +248,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Tests in Trading-system" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="robust_stress" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -251,18 +257,19 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="TEST_OBJECT" value="package" />
+      <option name="MAIN_CLASS_NAME" value="Tests.robust_stress" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.Tests in Trading-system" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApprove" />
         <item itemvalue="JUnit.StoreTest" />
+        <item itemvalue="JUnit.robust_stress" />
+        <item itemvalue="JUnit.PermissionTest" />
         <item itemvalue="JUnit.LoginTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
       </list>
     </recent_temporary>
   </component>
@@ -289,7 +296,28 @@
       <workItem from="1621682093021" duration="58405000" />
       <workItem from="1621980323419" duration="3163000" />
       <workItem from="1622016743077" duration="9914000" />
-      <workItem from="1622028989127" duration="7517000" />
+      <workItem from="1622028989127" duration="4959000" />
+    </task>
+    <task id="LOCAL-00020" summary="update server and gui #44">
+      <created>1619187516931</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1619187516931</updated>
+    </task>
+    <task id="LOCAL-00021" summary="update server and gui #44">
+      <created>1619193158569</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1619193158569</updated>
+    </task>
+    <task id="LOCAL-00022" summary="update server and gui #44">
+      <created>1619193530538</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1619193530538</updated>
     </task>
     <task id="LOCAL-00023" summary="update server and gui #44">
       <created>1619276415055</created>
@@ -579,25 +607,7 @@
       <option name="presentableId" value="LOCAL‎00068" />
       <updated>1622031336351</updated>
     </task>
-    <task id="LOCAL‎00069" summary="fix approve offer test">
-      <created>1622036828616</created>
-      <option name="number" value="LOCAL‎00069" />
-      <option name="presentableId" value="LOCAL‎00069" />
-      <updated>1622036828616</updated>
-    </task>
-    <task id="LOCAL‎00070" summary=".">
-      <created>1622067818003</created>
-      <option name="number" value="LOCAL‎00070" />
-      <option name="presentableId" value="LOCAL‎00070" />
-      <updated>1622067818003</updated>
-    </task>
-    <task id="LOCAL‎00071" summary="..">
-      <created>1622067915680</created>
-      <option name="number" value="LOCAL‎00071" />
-      <option name="presentableId" value="LOCAL‎00071" />
-      <updated>1622067915680</updated>
-    </task>
-    <option name="localTasksCounter" value="72" />
+    <option name="localTasksCounter" value="69" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -620,7 +630,9 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="fix dates sent to GUI in view policies" />
     <MESSAGE value="adding database infrastructure" />
+    <MESSAGE value=".." />
     <MESSAGE value="new db" />
     <MESSAGE value="fix db problems" />
     <MESSAGE value="elad do everything!" />
@@ -638,14 +650,12 @@
     <MESSAGE value="#61 start fix discounts tests" />
     <MESSAGE value="#61 impl get discount on product from db" />
     <MESSAGE value="#61 fix tests of discount policies" />
+    <MESSAGE value="." />
     <MESSAGE value="#61 union of discount &amp; purchase policies" />
     <MESSAGE value="tmp" />
     <MESSAGE value="#61" />
     <MESSAGE value="..." />
-    <MESSAGE value="fix approve offer test" />
-    <MESSAGE value="." />
-    <MESSAGE value=".." />
-    <option name="LAST_COMMIT_MESSAGE" value=".." />
+    <option name="LAST_COMMIT_MESSAGE" value="..." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -697,12 +707,12 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/PlayGround.java</url>
-          <line>27</line>
+          <line>26</line>
           <option name="timeStamp" value="79" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
-          <line>20</line>
+          <line>19</line>
           <option name="timeStamp" value="86" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -717,7 +727,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>555</line>
+          <line>565</line>
           <option name="timeStamp" value="173" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -726,9 +736,9 @@
           <option name="timeStamp" value="174" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>357</line>
-          <option name="timeStamp" value="186" />
+          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
+          <line>227</line>
+          <option name="timeStamp" value="180" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />

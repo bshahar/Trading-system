@@ -18,7 +18,8 @@ public class DiscountCondition { //Compound object
         this.operator = new NoneOperator();
     }
 
-    public DiscountCondition(List<Policy> discounts, LogicOperator operator) {
+    public DiscountCondition(int id, List<Policy> discounts, LogicOperator operator) {
+        this.id = id;
         this.discounts = discounts;
         this.operator = operator;
     }

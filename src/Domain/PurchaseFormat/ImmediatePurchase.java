@@ -12,6 +12,10 @@ public class ImmediatePurchase extends Purchase {
     private int id;
     private PurchaseCondition conditions;
 
+    public int getId() {
+        return id;
+    }
+
     public ImmediatePurchase(int id, PurchaseCondition conditions){
         this.id = id;
         this.conditions = conditions;

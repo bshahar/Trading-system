@@ -1,7 +1,10 @@
 package Tests;
 
 import Domain.User;
+import Persistence.DAO.CounterDAO;
+import Persistence.DAO.StoreDAO;
 import Persistence.DAO.UserDAO;
+import Persistence.DataBaseHelper;
 import Persistence.UserWrapper;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
@@ -9,6 +12,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
 import com.j256.ormlite.table.TableUtils;
+import org.w3c.dom.css.Counter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -19,19 +23,26 @@ import java.util.Properties;
 
 public class PlayGround {
     public static void main(String args[]) throws IOException, SQLException {
-       ConnectionSource connectionSource = connect();
-
-        Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
-        accountDao.executeRaw("DELETE FROM Users");
+//       ConnectionSource connectionSource = connect();
+//
+//        Dao<UserDAO, String> accountDao = DaoManager.createDao(connectionSource, UserDAO.class);
+//        accountDao.executeRaw("DELETE FROM Users");
         //TableUtils.clearTable(connectionSource, UserDAO.class);
-        /*UserWrapper u = new UserWrapper();
-        u.add(new User("Elad",1,111,true));
-        u.get(111);
-        System.out.println("eeeefdfsfd");
-        u.get(111);
 
-         */
-       connectionSource.close();
+//
+//        UserWrapper u = new UserWrapper();
+//        u.add(new User("Elad",1,111,true));
+//        u.get(111);
+//        System.out.println("eeeefdfsfd");
+//        u.get(111);
+
+//        ConnectionSource connectionSource = connect();
+//        Dao<CounterDAO, String> storeDAOManager = DaoManager.createDao(connectionSource,CounterDAO.class);
+//        CounterDAO storeDAO= new CounterDAO(1,0,0,0,0,0,0,0,0,0,0);
+//        storeDAOManager.create(storeDAO);
+//        connectionSource.close();
+        DataBaseHelper.cleanAllTable();
+//        connectionSource.close();
        // API.initTradingSystem();
         //API.register("elad","sol",22);
     }

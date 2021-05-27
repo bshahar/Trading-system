@@ -3,6 +3,10 @@ package Service;
 import Domain.*;
 import Interface.TradingSystem;
 import Domain.User;
+import Persistence.DAO.CounterDAO;
+import Persistence.DataBaseHelper;
+import com.j256.ormlite.dao.Dao;
+import com.j256.ormlite.dao.DaoManager;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
 
@@ -29,8 +33,22 @@ public class API {
         String sysManagerName = appProps.getProperty("systemManagerName");
         String sysManagerId = appProps.getProperty("systemManagerId");
         String sysManagerAge = appProps.getProperty("systemManagerAge");
+        if(sysManagerName.equals("null") || sysManagerId.equals("null") || sysManagerAge.equals("null")){
+            throw new ExceptionInInitializerError("Configuration file not fine");
+        }
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), true);
-        tradingSystem = new TradingSystem(sysManager, appProps.getProperty("externalSystemsUrl"), Boolean.parseBoolean(appProps.getProperty("forTests")));
+        String externalSystemsUrl = appProps.getProperty("externalSystemsUrl");
+        String tf = appProps.getProperty("forTests");
+        if(!tf.equals("true") & !tf.equals("false")){
+            throw new ExceptionInInitializerError("Configuration file not fine");
+        }
+        boolean forTests = Boolean.parseBoolean(tf);
+
+
+
+
+        tradingSystem = new TradingSystem(sysManager, externalSystemsUrl, forTests);
+
         /*
         //String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
         //String appConfigPath = rootPath + "appConfig.properties";
@@ -120,13 +138,13 @@ public class API {
         return tradingSystem.getStorePurchaseHistory(ownerId,storeId);
     }
 
-    public static Result getGlobalPurchaseUserHistory(int tradingSystemManager, int userId){  //system manager
-            return tradingSystem.getGlobalPurchaseUserHistory(tradingSystemManager, userId);
-    }
-
-    public static Result getGlobalPurchaseStoreHistory(int tradingSystemManager, int storeId){  //system manager
-        return getStorePurchaseHistory(tradingSystemManager, storeId);
-    }
+//    public static Result getGlobalPurchaseUserHistory(int tradingSystemManager, int userId){  //system manager
+//            return tradingSystem.getGlobalPurchaseUserHistory(tradingSystemManager, userId);
+//    }
+//
+//    public static Result getGlobalPurchaseStoreHistory(int tradingSystemManager, int storeId){  //system manager
+//        return getStorePurchaseHistory(tradingSystemManager, storeId);
+//    }
 
 
     public static Result register(String userName, String password, int age) {
@@ -278,6 +296,8 @@ public class API {
 
     public static void forTest()
     {
+        DataBaseHelper.cleanAllTable();
+
         int registerId1;
         int registerId2;
         int registerId3;
@@ -296,21 +316,21 @@ public class API {
         registerId1= (int)register(userName1,password1,20).getData();
         registerId2= (int) register(userName2,password2,20).getData();
         registerId3= (int)register(userName3,password3,20).getData();
-        register("or1" ,password3,20);
-        register("or2",password3,20);
-        register("or3",password3,20);
-        register("or4",password3,20);
-        register("or5",password3,20);
-        register("or6",password3,20);
+        int orId1= (int)register("or1" ,password3,20).getData();
+        int orId2= (int)register("or2",password3,20).getData();
+        int orId3= (int)register("or3",password3,20).getData();
+        int orId4= (int)register("or4",password3,20).getData();
+        int orId5= (int)register("or5",password3,20).getData();
+        int orId6= (int)register("or6",password3,20).getData();
         registerId1= (int)registeredLogin(userName1,password1).getData();
         storeId1=(int )openStore(registerId1,"kandabior store").getData();
         storeId2=(int)openStore(registerId1,"elad store").getData();
-        addStoreOwner(registerId1,4,storeId1);
-        addStoreOwner(registerId1,5,storeId1);
-        addStoreOwner(registerId1,6,storeId1);
-        addStoreOwner(registerId1,7,storeId1);
-        addStoreOwner(registerId1,8,storeId1);
-        addStoreOwner(registerId1,9,storeId1);
+        addStoreOwner(registerId1,orId1,storeId1);
+        addStoreOwner(registerId1,orId2,storeId1);
+        addStoreOwner(registerId1,orId3,storeId1);
+        addStoreOwner(registerId1,orId4,storeId1);
+        addStoreOwner(registerId1,orId5,storeId1);
+        addStoreOwner(registerId1,orId6,storeId1);
 
 
         LinkedList<String> catList= new LinkedList<>();
@@ -323,13 +343,7 @@ public class API {
         addProduct(registerId1, storeId2,"Water",catList2 ,5,"FOOD", 13 ).getData();
         registeredLogout(registerId1);
 
-        registerId3= (int)registeredLogin(userName3,password3).getData();
-        addProductToCart(registerId3,1,1,2);
-        addProductToCart(registerId3,2,2,2);
-        addProductToCart(registerId3,2,4,2);
-//        buyProduct(registerId3,storeId1,"123456789");
-//        buyProduct(registerId3,storeId2,"123456789");
-        registeredLogout(registerId3);
+
 
 
     }
@@ -476,11 +490,11 @@ public class API {
     }
 
     public static Result approveCounterOffer(int storeId, int userId, int prodId,  boolean approve){
-        return tradingSystem.responedToCounterPurchaseOffer(storeId, userId, prodId, true);
+        return tradingSystem.respondToCounterPurchaseOffer(storeId, userId, prodId, true);
     }
 
     public static Result rejectCounterOffer(int storeId, int userId, int prodId,  boolean approve){
-        return tradingSystem.responedToCounterPurchaseOffer(storeId, userId, prodId, false);
+        return tradingSystem.respondToCounterPurchaseOffer(storeId,userId, prodId, false);
     }
 
     public static Result getOffersForStore(int storeId, int userId){

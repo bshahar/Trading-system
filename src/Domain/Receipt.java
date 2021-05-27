@@ -6,8 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 
-@Entity
-@Table(name = "Receipts", schema = "zw9P3SlfWt", catalog = "")
+
 public class Receipt {
 
     private int id;
@@ -30,12 +29,22 @@ public class Receipt {
         this.supplementTransactionId = supplementTransaction;
         this.lines = new LinkedList<>();
         for (Product p : lines.keySet()) {
-            this.lines.add(new ReceiptLine(p.getName(), p.getPrice(), lines.get(p)));
+            this.lines.add(new ReceiptLine(p.getName(), p.getPrice(), lines.get(p),id,p.getId()));
         }
     }
 
-    @Id
-    @Column(name = "id")
+
+    public Receipt(int id, int storeId, int userId, String userName, int paymentTransaction, int supplementTransaction) {
+        this.id = id;
+        this.storeId = storeId;
+        this.userId = userId;
+        this.userName = userName;
+        this.paymentTransactionId = paymentTransaction;
+        this.supplementTransactionId = supplementTransaction;
+        this.lines = new LinkedList<>();
+    }
+
+
     public int getId() {
         return id;
     }
@@ -44,8 +53,6 @@ public class Receipt {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "storeId")
     public Integer getStoreId() {
         return storeId;
     }
@@ -54,8 +61,7 @@ public class Receipt {
         this.storeId = storeId;
     }
 
-    @Basic
-    @Column(name = "userId")
+
     public Integer getUserId() {
         return userId;
     }
@@ -64,8 +70,6 @@ public class Receipt {
         this.userId = userId;
     }
 
-    @Basic
-    @Column(name = "userName")
     public String getUserName() {
         return userName;
     }
@@ -74,8 +78,7 @@ public class Receipt {
         this.userName = userName;
     }
 
-    @Basic
-    @Column(name = "totalCost")
+
     public Double getTotalCost() {
         return totalCost;
     }
@@ -84,8 +87,7 @@ public class Receipt {
         this.totalCost = totalCost;
     }
 
-    @Basic
-    @Column(name = "paymentTransactionId")
+
     public Integer getPaymentTransactionId() {
         return paymentTransactionId;
     }
@@ -94,8 +96,7 @@ public class Receipt {
         this.paymentTransactionId = paymentTransactionId;
     }
 
-    @Basic
-    @Column(name = "supplementTransactionId")
+
     public Integer getSupplementTransactionId() {
         return supplementTransactionId;
     }
@@ -104,20 +105,9 @@ public class Receipt {
         this.supplementTransactionId = supplementTransactionId;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Receipt that = (Receipt) o;
-        return id == that.id && Objects.equals(storeId, that.storeId) && Objects.equals(userId, that.userId) && Objects.equals(userName, that.userName) && Objects.equals(totalCost, that.totalCost) && Objects.equals(paymentTransactionId, that.paymentTransactionId) && Objects.equals(supplementTransactionId, that.supplementTransactionId);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, storeId, userId, userName, totalCost, paymentTransactionId, supplementTransactionId);
-    }
 
-    @Transient
+
     public List<ReceiptLine> getLines() {
         return lines;
     }

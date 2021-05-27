@@ -1,15 +1,17 @@
 package Service;
 
+import Persistence.UserAuthWrapper;
+
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.logging.Level;
 
 public class UserAuth {
     private Encryptor encryptor;
-    private ConcurrentHashMap<String,String> userPass;
+    private UserAuthWrapper userPass;
 
     public UserAuth(){
         encryptor= new Encryptor();
-        userPass=new ConcurrentHashMap<>();
+        userPass=new UserAuthWrapper();
     }
 
 
@@ -18,7 +20,7 @@ public class UserAuth {
             if (userPass.containsKey(userName)) {
                 return false;
             } else {
-                userPass.put(userName, this.encryptor.encrypt(pass));
+                userPass.add(userName, this.encryptor.encrypt(pass));
                 return true;
             }
         }
@@ -49,7 +51,7 @@ public class UserAuth {
         if (userPass.containsKey(userName)) {
             return false;
         } else {
-            userPass.put(userName, this.encryptor.encrypt(password));
+            userPass.add(userName, this.encryptor.encrypt(password));
             return true;
         }
     }

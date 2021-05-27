@@ -7,15 +7,42 @@ public class ReceiptLine {
     String prodName;
     double price;
     int amount;
+    int receiptId;
+    int prodId;
 
     public ReceiptLine(){}
 
-    public ReceiptLine(String Prod, double price, int amount) {
+    public ReceiptLine(String Prod, double price, int amount,int receiptId,int prodId) {
         this.prodName = Prod;
         this.price = price;
         this.amount = amount;
+        this.receiptId = receiptId;
+        this.prodId = prodId;
     }
 
+    public int getReceiptId() {
+        return receiptId;
+    }
+
+    public int getProdId() {
+        return prodId;
+    }
+
+    public void setPrice(double price) {
+        this.price = price;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }
+
+    public void setReceiptId(int receiptId) {
+        this.receiptId = receiptId;
+    }
+
+    public void setProdId(int prodId) {
+        this.prodId = prodId;
+    }
 
     public String getProdName() {
         return prodName;

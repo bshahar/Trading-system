@@ -45,10 +45,11 @@ public class API {
         boolean forTests = Boolean.parseBoolean(tf);
 
 
-
-
         tradingSystem = new TradingSystem(sysManager, externalSystemsUrl, forTests);
 
+
+        if(Boolean.parseBoolean(appProps.getProperty("loadScenario")))
+            tradingSystem.loadScenario();
         /*
         //String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
         //String appConfigPath = rootPath + "appConfig.properties";

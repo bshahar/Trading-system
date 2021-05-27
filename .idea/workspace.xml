@@ -22,7 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="02" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="xml">
+      <change afterPath="$PROJECT_DIR$/resources/requestedTests.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -90,7 +96,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="a7ed7f97c3fee0899985040df6886ce37ea5c398" />
+        <entry key="$PROJECT_DIR$" value="purchase_tests_db_fixes" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -156,11 +162,11 @@
       <recent name="Permissions" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\דורין\Desktop\סדנה חדש\Trading-system\resources" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\jars" />
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\src\Persistence" />
       <recent name="C:\Users\erez1\IdeaProjects\Trading-system\src\Persistance" />
       <recent name="C:\Users\erez1\IdeaProjects\Trading-system\.idea\libraries" />
-      <recent name="C:\Users\דורין\Desktop\תואר\סמסטר ו\סדנה\Trading-system\resources" />
     </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="Persistance" />
@@ -289,12 +295,6 @@
       <workItem from="1621980323419" duration="3163000" />
       <workItem from="1622016743077" duration="9914000" />
       <workItem from="1622028989127" duration="7517000" />
-    </task>
-    <task id="LOCAL‎00025" summary="add React to fucking proj">
-      <created>1619343342456</created>
-      <option name="number" value="LOCAL‎00025" />
-      <option name="presentableId" value="LOCAL‎00025" />
-      <updated>1619343342456</updated>
     </task>
     <task id="LOCAL‎00026" summary="add React to fucking proj">
       <created>1619343570506</created>
@@ -595,7 +595,13 @@
       <option name="presentableId" value="LOCAL‎00073" />
       <updated>1622102036609</updated>
     </task>
-    <option name="localTasksCounter" value="74" />
+    <task id="LOCAL‎00074" summary="xml">
+      <created>1622102143475</created>
+      <option name="number" value="LOCAL‎00074" />
+      <option name="presentableId" value="LOCAL‎00074" />
+      <updated>1622102143475</updated>
+    </task>
+    <option name="localTasksCounter" value="75" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -618,7 +624,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="fix db problems" />
     <MESSAGE value="elad do everything!" />
     <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
@@ -643,95 +648,52 @@
     <MESSAGE value=".." />
     <MESSAGE value="fix delete from offers tables" />
     <MESSAGE value="02" />
-    <option name="LAST_COMMIT_MESSAGE" value="02" />
+    <MESSAGE value="xml" />
+    <option name="LAST_COMMIT_MESSAGE" value="xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/StoreTest.java</url>
-          <line>310</line>
-          <option name="timeStamp" value="6" />
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/Login/LoginWebSocket.java</url>
+          <line>63</line>
+          <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/SearchProductsWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/StoreWebSocket.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="14" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/SearchProductsWebSocket.java</url>
           <line>75</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/PolicyWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
           <line>60</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/PolicyWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
           <line>67</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/PolicyWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
           <line>82</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/PermissionsWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PermissionsWebSocket.java</url>
           <line>65</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/MyTest.java</url>
-          <line>48</line>
-          <option name="timeStamp" value="54" />
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Domain/Store.java</url>
+          <line>475</line>
+          <option name="timeStamp" value="24" />
         </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/BidsWebSocket.java</url>
-          <line>126</line>
-          <option name="timeStamp" value="64" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/BidsWebSocket.java</url>
-          <line>64</line>
-          <option name="timeStamp" value="66" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/PlayGround.java</url>
-          <line>27</line>
-          <option name="timeStamp" value="79" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/LoginTest.java</url>
-          <line>20</line>
-          <option name="timeStamp" value="86" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java</url>
-          <line>98</line>
-          <option name="timeStamp" value="126" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Persistence/PurchasesOnProductsWrapper.java</url>
-          <line>38</line>
-          <option name="timeStamp" value="138" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
-          <line>581</line>
-          <option name="timeStamp" value="173" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java</url>
-          <line>86</line>
-          <option name="timeStamp" value="174" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>357</line>
-          <option name="timeStamp" value="186" />
-        </line-breakpoint>
-        <breakpoint enabled="true" type="java-exception">
-          <properties class="java.lang.ExceptionInInitializerError" package="java.lang" />
-          <option name="timeStamp" value="46" />
-        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

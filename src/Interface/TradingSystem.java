@@ -21,6 +21,7 @@ import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
 import org.json.JSONObject;
 
+import java.io.InputStream;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -73,6 +74,41 @@ public class TradingSystem {
         sessionsMap = new ConcurrentHashMap<>();
         demoSessionMap = new ConcurrentHashMap<>();
         KingLogger.logEvent("Trading System initialized");
+    }
+
+    public void loadScenario() {
+        Properties testingProps = new Properties();
+        InputStream input = API.class.getClassLoader().getResourceAsStream("requestedTests.properties");
+        try {
+            if (input != null)
+                testingProps.load(input);
+        } catch (Exception e) { }
+
+        API.register(testingProps.getProperty("u1name"), testingProps.getProperty("u1password"), Integer.parseInt(testingProps.getProperty("u1age")));
+        API.register(testingProps.getProperty("u2name"), testingProps.getProperty("u2password"), Integer.parseInt(testingProps.getProperty("u2age")));
+        API.register(testingProps.getProperty("u3name"), testingProps.getProperty("u3password"), Integer.parseInt(testingProps.getProperty("u3age")));
+
+        int registerId1 = (int) API.registeredLogin(testingProps.getProperty("u1name"), testingProps.getProperty("u1password")).getData();
+        int registerId2 = (int) API.registeredLogin(testingProps.getProperty("u2name"), testingProps.getProperty("u2password")).getData();
+        int registerId3 = (int) API.registeredLogin(testingProps.getProperty("u3name"), testingProps.getProperty("u3password")).getData();
+
+        int storeId1 = (int) API.openStore(registerId2, testingProps.getProperty("storeNameTest")).getData();
+
+        LinkedList<String> catList = new LinkedList<>();
+        catList.add(testingProps.getProperty("categoryFood"));
+
+        int productId = (int) API.addProduct(registerId2, storeId1, testingProps.getProperty("prodBambaName"), catList,
+                Integer.parseInt(testingProps.getProperty("bambaPrice")),
+                testingProps.getProperty("descriptionBamba"),
+                Integer.parseInt(testingProps.getProperty("prodQuantity20"))).getData();
+
+        if(addStoreManager(registerId2, registerId1, storeId1).isResult()) {
+            List<Integer> opIndexes = new LinkedList<>();
+            opIndexes.add(1);
+            opIndexes.add(11);
+            opIndexes.add(19);
+            addPermissions(registerId2, registerId1, storeId1, opIndexes);
+        }
     }
 
     public static counter getPolicyCounter() {

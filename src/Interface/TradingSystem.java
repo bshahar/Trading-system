@@ -50,7 +50,7 @@ public class TradingSystem {
 
 
     public TradingSystem (User systemManager, String externalSystemsUrl, boolean testing) {
-        if(testing) {
+   if(testing) {
             paymentAdapter = new DemoPayment();
             supplementAdapter = new DemoSupplement();
         }else{
@@ -58,6 +58,8 @@ public class TradingSystem {
             supplementAdapter = new SupplementAdapter(externalSystemsUrl);
 
         }
+        paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+        supplementAdapter = new SupplementAdapter(externalSystemsUrl);
         this.users =  new UserWrapper();
         this.receipts =  new ReceiptWrapper();
 
@@ -791,23 +793,25 @@ public class TradingSystem {
             }
             if(totalCost>0){
                 Result paymentResult = paymentAdapter.pay(paymentData);
-                Result supplementResult = supplementAdapter.supply(supplementData);
+                int paymentTransactionId = Integer.parseInt(paymentResult.getData().toString());
                 if (!paymentResult.isResult()
-                        || ((int) paymentResult.getData()) > 100000
-                        || ((int) paymentResult.getData()) < 10000) {
+                        || paymentTransactionId > 100000
+                        || paymentTransactionId < 10000) {
                     store.abortPurchase(productsAmountBuy);
-                    KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
+                    KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a payment in store " + storeId);
                     return new Result(false, "Payment has failed.");
                 }
+                Result supplementResult = supplementAdapter.supply(supplementData);
+                int supplementTransactionId = Integer.parseInt(supplementResult.getData().toString());
                 if (!supplementResult.isResult()
-                        || ((int) supplementResult.getData()) > 100000
-                        || ((int) supplementResult.getData()) < 10000) {
+                        || supplementTransactionId > 100000
+                        || supplementTransactionId < 10000) {
                     store.abortPurchase(productsAmountBuy);
-                    KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't make a purchase in store " + storeId);
+                    KingLogger.logEvent("BUY_PRODUCTS: User with id " + userId + " couldn't get a supplement in store " + storeId);
                     return new Result(false, "Supplement has failed.");
                 }
                 getUserById(userId).removeProductFromCart(productsAmountBuy, storeId);
-                Receipt rec = new Receipt(receiptCounter.inc(), storeId, userId, getUserById(userId).getUserName(), productsAmountBuy, (int) paymentResult.getData(), (int) supplementResult.getData());
+                Receipt rec = new Receipt(receiptCounter.inc(), storeId, userId, getUserById(userId).getUserName(), productsAmountBuy, paymentTransactionId, supplementTransactionId);
                 rec.setTotalCost(totalCost);
                 this.receipts.add(rec);
                 store.addReceipt(rec);

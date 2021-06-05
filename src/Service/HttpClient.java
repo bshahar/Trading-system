@@ -20,30 +20,77 @@ public class HttpClient {
         }
     }
 
+   /* public Result handshake(Map<String, String> values) {
+        HttpURLConnection connection = null;
+
+        if (connection != null) {
+            return sendRequest(values);
+        }
+        return new Result(false, "Could not create connection to payment system.");
+    }*/
+
     public Result sendRequest(Map<String, String> values) {
         HttpURLConnection connection = null;
         try {
             connection = (HttpURLConnection) url.openConnection();
             connection.setRequestMethod("POST");
-            connection.setRequestProperty("Content-Type",
-                    "application/x-www-form-urlencoded");
-
-            StringJoiner sj = new StringJoiner("&");
+            connection.setDoOutput(true);
+            connection.setUseCaches(false);
+            /*StringJoiner sj = new StringJoiner("&");
             for (Map.Entry<String, String> entry : values.entrySet())
                 sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "="
                         + URLEncoder.encode(entry.getValue(), "UTF-8"));
             byte[] out = sj.toString().getBytes(StandardCharsets.UTF_8);
-            int length = out.length;
-
-            connection.setRequestProperty("Content-Language", "en-US");
-
-            connection.setUseCaches(false);
-            connection.setDoOutput(true);
+            int length = out.length;*/
+            StringBuilder sb = new StringBuilder();
+            boolean first = true;
+            for (Map.Entry<String, String> entry : values.entrySet()) {
+                if(first) first = false;
+                else
+                    sb.append("&");
+                sb.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
+                sb.append("=");
+                sb.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
+            }
+            byte[] out = sb.toString().getBytes(StandardCharsets.UTF_8);
 
             //Send request
-            DataOutputStream wr = new DataOutputStream(
-                    connection.getOutputStream());
-            wr.write(out);
+            DataOutputStream wr = new DataOutputStream(connection.getOutputStream());
+
+            if(values.get("action_type") != null) {
+                String str = "";
+                switch (values.get("action_type")) {
+                    case "handshake":
+                        str = "action_type=handshake";
+                        break;
+                    case "pay":
+                        str = "action_type=pay&" +
+                                "card_number=" + values.get("card_number") + "&" +
+                                "month=" + values.get("month") + "&" +
+                                "year=" + values.get("year") + "&" +
+                                "holder=" + values.get("holder") + "&" +
+                                "ccv=" + values.get("ccv") + "&" +
+                                "id=" + values.get("id");
+                        break;
+                    case "supply":
+                        str = "action_type=supply&" +
+                                "name=" + values.get("name") + "&" +
+                                "address=" + values.get("address") + "&" +
+                                "city=" + values.get("city") + "&" +
+                                "country=" + values.get("country") + "&" +
+                                "zip=" + values.get("zip");
+                        break;
+                    case "cancel_pay":
+                        str = "action_type=cancel_pay&" +
+                                "transaction_id=" + values.get("transaction_id");
+                        break;
+                    case "cancel_supply":
+                        str = "action_type=cancel_supply&" +
+                                "transaction_id=" + values.get("transaction_id");
+                        break;
+                }
+                wr.writeBytes(str);
+            }
             wr.close();
 
             //Get Response
@@ -52,11 +99,16 @@ public class HttpClient {
             StringBuilder response = new StringBuilder(); // or StringBuffer if Java version 5+
             String line;
             while ((line = rd.readLine()) != null) {
-                response.append(line);
+                if(line.equals("unexpected-output"))
+                    response.append(String.valueOf(-1));
+                else
+                    response.append(line);
             }
             rd.close();
+            connection.disconnect();
             return new Result(true, response.toString());
         } catch (Exception ex) {
+            if (connection != null) connection.disconnect();
             return new Result(false, "Could not connect to external system.");
         }
     }

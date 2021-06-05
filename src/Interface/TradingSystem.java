@@ -542,15 +542,18 @@ public class TradingSystem {
         if(!owner && !manager)
         {
             this.adminTable.increaseCounter("NormalUsers");
+            this.NormalUsersCounter++;
             return;
         }
         if(owner && !manager)
         {
             this.adminTable.increaseCounter("Owners");
+            this.OwnersCounter++;
             return;
         }
         if(!owner && manager)
         {
+            this.ManagersCounter++;
             this.adminTable.increaseCounter("Managers");
             return;
         }
@@ -1016,6 +1019,8 @@ public class TradingSystem {
 
             store.setNotificationId(subscribeId);
             subscribeToObservable(subscribeId,userId);
+            adminTable.increaseCounter("Owners");
+            this.OwnersCounter++;
             return new Result(true,newId);
         }
         KingLogger.logEvent("OPEN_STORE: User with id " + userId + " cant open the store " + storeName + "because is not registered");
@@ -1058,6 +1063,9 @@ public class TradingSystem {
 
             subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
             sendAlert(userId,"You are now manager in store: "+ getStoreName(storeId));
+            this.adminTable.increaseCounter("Managers");
+            this.ManagersCounter++;
+
         }
         return result;
     }

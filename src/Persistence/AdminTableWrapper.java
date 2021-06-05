@@ -71,8 +71,9 @@ public class AdminTableWrapper {
             ConnectionSource connectionSource = connect();
             // instantiate the dao
             int currentCounter  = getCurrentCounter(counterName);
+            currentCounter++;
             Dao<AdminTableDAO, String> AdminDao = DaoManager.createDao(connectionSource, AdminTableDAO.class);
-            AdminDao.executeRaw("UPDATE AdminTable SET "+counterName+"= "+currentCounter+1+" WHERE Date="+java.time.LocalDate.now());
+            AdminDao.executeRaw("UPDATE AdminTable SET "+counterName+" = "+currentCounter+" WHERE Date = '"+java.time.LocalDate.now().toString()+"'");
             // close the connection source
             connectionSource.close();
         }

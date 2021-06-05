@@ -15,6 +15,7 @@ import Domain.Sessions.SessionInterface;
 import Domain.Sessions.realSession;
 import Domain.User;
 import Persistence.*;
+import Persistence.DAO.AdminTableDAO;
 import Persistence.DAO.CounterDAO;
 import Service.*;
 import javafx.util.Pair;
@@ -22,6 +23,7 @@ import org.eclipse.jetty.websocket.api.Session;
 import org.json.JSONObject;
 
 import java.io.InputStream;
+import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -47,6 +49,14 @@ public class TradingSystem {
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
     private CounterWrapper counterWrapper;
+    private AdminTableWrapper adminTable;
+
+    //LiveStat for systemManager
+    private int GuestsCounter;
+    private int NormalUsersCounter;
+    private int ManagersCounter;
+    private int OwnersCounter;
+    private LocalDate CurrentDate;
 
 
     public TradingSystem (User systemManager, String externalSystemsUrl, boolean testing) {
@@ -64,11 +74,13 @@ public class TradingSystem {
         this.receipts =  new ReceiptWrapper();
 
         this.stores = new StoreWrapper();
-
+        this.adminTable= new AdminTableWrapper();
         this.userAuth = new UserAuth();
         userAuth.register(systemManager.getUserName(), "123");
         users.add(systemManager);
+
         initiateCounters();
+        initiateStats();
         this.counterWrapper = new CounterWrapper();
         this.observers = Collections.synchronizedList(new LinkedList<>());
         this.systemManager = systemManager;
@@ -76,6 +88,26 @@ public class TradingSystem {
         sessionsMap = new ConcurrentHashMap<>();
         demoSessionMap = new ConcurrentHashMap<>();
         KingLogger.logEvent("Trading System initialized");
+
+    }
+
+    private void initiateStats() {
+        AdminTableWrapper AdminWrapper=new AdminTableWrapper();
+        AdminTableDAO adminTableDAO= AdminWrapper.get(java.time.LocalDate.now());
+        if(adminTableDAO == null)
+        {
+            AdminWrapper.add(java.time.LocalDate.now());
+            GuestsCounter = 0;
+            ManagersCounter =0;
+            NormalUsersCounter=0;
+            OwnersCounter = 0;
+        }
+        else {
+            GuestsCounter = adminTableDAO.getGuestsCounter();
+            ManagersCounter = adminTableDAO.getManagers();
+            NormalUsersCounter = adminTableDAO.getNormalUsers();
+            OwnersCounter = adminTableDAO.getOwners();
+        }
     }
 
     public void loadScenario() {
@@ -456,6 +488,7 @@ public class TradingSystem {
         if(userAuth.register(userName,pass)){
             int userId=userCounter.inc();
             users.add(new User(userName, age,  userId, true));
+            adminTable.increaseCounter("NormalUsersCounter");
             return new Result(true,userId);
         }
         else{
@@ -473,6 +506,7 @@ public class TradingSystem {
             {
                     user.setLogged(true);
                     KingLogger.logEvent("LOGIN:  User " + userName + " logged into the system.");
+                    updateAdminCounter(user.getId());
                     return new Result( true,user.getId());
             }
         }
@@ -480,6 +514,50 @@ public class TradingSystem {
         return new Result(false, "Username or Password not correct");
     }
 
+    private void updateAdminCounter(int id) {
+        List<Store> tempStores = this.stores.getAllStores();
+        boolean owner = false;
+        boolean manager = false;
+        for(Store store : tempStores)
+        {
+            List<User> Owners = store.getOwners();
+            List<User> Managers = store.getManagers();
+            for(User CurrentOtowner : Owners)
+            {
+                if(CurrentOtowner.getId() == id)
+                {
+                    owner = true;
+                    break;
+                }
+            }
+            for(User CurrentManager : Managers)
+            {
+                if(CurrentManager.getId() == id)
+                {
+                    manager = true;
+                    break;
+                }
+            }
+        }
+        if(!owner && !manager)
+        {
+            this.adminTable.increaseCounter("NormalUsersCounter");
+            this.NormalUsersCounter++;
+            return;
+        }
+        if(owner && !manager)
+        {
+            this.adminTable.increaseCounter("OwnersCounter");
+            this.OwnersCounter++;
+            return;
+        }
+        if(!owner && manager)
+        {
+            this.ManagersCounter++;
+            this.adminTable.increaseCounter("ManagersCounter");
+            return;
+        }
+    }
     private User getUserByName(String userName) {
         return users.searchUserByName(userName);
     }
@@ -558,8 +636,20 @@ public class TradingSystem {
         guest.setLogged(true);
         users.add(guest);
         int id = guest.getId();
+        adminTable.increaseCounter("GuestsCounter");
+        GuestsCounter++;
         KingLogger.logEvent("GUEST_LOGIN: Guest logged into the system with id: " + id);
         return new Result(true,id);
+    }
+
+    public Result getSystemManagerStats()
+    {
+        JSONObject jsonObject = new JSONObject();
+        jsonObject.put("GuestsCounter",GuestsCounter);
+        jsonObject.put("NormalUsersCounter",NormalUsersCounter);
+        jsonObject.put("ManagersCounter",ManagersCounter);
+        jsonObject.put("OwnersCounter",OwnersCounter);
+        return new Result(true,jsonObject);
     }
 
     public Result isLogged(int userId) {
@@ -579,6 +669,7 @@ public class TradingSystem {
 //                getUserById(userId).setName(userName);
 //                getUserById(userId).setLogged(false);
                 KingLogger.logEvent("GUEST_REGISTER: User " + userName + " registered to the system.");
+                adminTable.increaseCounter("NormalUsersCounter");
                 return new Result(true,userId);
 
             }
@@ -928,6 +1019,8 @@ public class TradingSystem {
 
             store.setNotificationId(subscribeId);
             subscribeToObservable(subscribeId,userId);
+            adminTable.increaseCounter("OwnersCounter");
+            this.OwnersCounter++;
             return new Result(true,newId);
         }
         KingLogger.logEvent("OPEN_STORE: User with id " + userId + " cant open the store " + storeName + "because is not registered");
@@ -970,6 +1063,9 @@ public class TradingSystem {
 
             subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
             sendAlert(userId,"You are now manager in store: "+ getStoreName(storeId));
+            this.adminTable.increaseCounter("ManagersCounter");
+            this.ManagersCounter++;
+
         }
         return result;
     }

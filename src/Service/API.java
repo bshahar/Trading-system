@@ -298,7 +298,6 @@ public class API {
 
     public static void forTest()
     {
-        DataBaseHelper.cleanAllTable();
 
         int registerId1;
         int registerId2;
@@ -593,5 +592,9 @@ public class API {
 
     public static boolean isSystemManager(int userId) {
         return tradingSystem.isSystemManager(userId);
+    }
+
+    public static void addAdminSession(Session session) {
+        tradingSystem.addAdminSession(session);
     }
 }

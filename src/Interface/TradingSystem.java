@@ -65,7 +65,7 @@ public class TradingSystem {
 
         this.userAuth = new UserAuth();
         userAuth.register(systemManager.getUserName(), "123");
-        //users.add(systemManager);
+        users.add(systemManager);
         initiateCounters();
         this.counterWrapper = new CounterWrapper();
         this.observers = Collections.synchronizedList(new LinkedList<>());
@@ -109,6 +109,11 @@ public class TradingSystem {
             opIndexes.add(19);
             addPermissions(registerId2, registerId1, storeId1, opIndexes);
         }
+
+        API.registeredLogout(registerId1);
+        API.registeredLogout(registerId2);
+        API.registeredLogout(registerId3);
+
     }
 
     public static counter getPolicyCounter() {

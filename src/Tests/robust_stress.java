@@ -188,7 +188,7 @@ public class robust_stress {
     @Test
     public void queryToCloseDB() throws SQLException, IOException {
         try {
-            ConnectionSource connectionSource = new JdbcConnectionSource("jdbc:mysql://localhost:3306/mylocal", "root", "123456");
+            ConnectionSource connectionSource = DataBaseHelper.connect();
             connectionSource.close();
             // instantiate the dao
             Dao<UserDAO, String> userManager = DaoManager.createDao(connectionSource, UserDAO.class);
@@ -197,6 +197,7 @@ public class robust_stress {
             // persist the account object to the database
             userManager.create(account);
             // close the connection source
+
             fail();
         }
         catch(Exception e){
@@ -206,7 +207,7 @@ public class robust_stress {
     @Test
     public void buyingWhileClosingDB() {
         try{
-            ConnectionSource connectionSource = new JdbcConnectionSource("jdbc:mysql://localhost:3306/orsonDB","root","orson");
+            ConnectionSource connectionSource = DataBaseHelper.connect();
             Thread thread1= new Thread(new Runnable() {
                 @Override
                 public void run() {

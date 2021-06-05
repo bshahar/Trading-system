@@ -99,6 +99,7 @@ public class DataBaseHelper {
             UserAuthDAOManager.executeRaw("DELETE FROM UserNamePasswords");
             Dao<CounterDAO, String>CounterDAOManager = DaoManager.createDao(connectionSource,CounterDAO.class);
             CounterDAOManager.executeRaw("DELETE FROM Counters");
+
             CounterDAO storeDAO= new CounterDAO(1,0,0,0,0,0,0,0,0,0,0);
             CounterDAOManager.create(storeDAO);
 

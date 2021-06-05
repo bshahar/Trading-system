@@ -806,3 +806,5 @@
  
 [2021-06-05] [08:46:35] [WARNING] BUY_PRODUCTS: User with id 1 couldn't make a purchase in store 2
  
+[2021-06-05] [17:24:42] [WARNING] DATABASE_HELPER: url attribute was not found.
+ 

@@ -8,7 +8,7 @@ import java.io.IOException;
 
 public class Server {
 
-    public static void main(String []args) throws IOException {
+    public static void main(String []args){
         //Spark.secure("security/version2/KeyStore.jks", "123456", null,null);
         Spark.webSocket("/Login", LoginWebSocket.class);
         Spark.webSocket("/Main/*",MainWebSocket.class);
@@ -29,14 +29,22 @@ public class Server {
         Spark.webSocket("/AdminWebSocket", AdminWebSocket.class);
         Spark.webSocket("/myStores/bids", BidsWebSocket.class);
 
-
+        String test;
+        if(args.length > 0) {
+            test = args[0];
+        }
+        else {
+            test = "";
+        }
 
         try {
-            API.initTradingSystem();
-        } catch (IOException e) {
+            API.initTradingSystem(test);
+            API.forTest(test);
+
+        } catch (Exception e) {
             //TODO deal with failure of getting config file
+            e.printStackTrace();
         }
-        API.forTest();
 
 
         Spark.init();

@@ -22,17 +22,14 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="release all tests work">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix external systems">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/errorLog.txt.lck" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/requestedTests.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/requestedTests.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/ReceiptDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/ReceiptDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/robust_stress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/robust_stress.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/HttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/HttpClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +98,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="purchase_tests_db_fixes" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -147,7 +144,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/server-side" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -178,22 +175,19 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Server">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.PurchaseTest.purchaseOneItemSuccessTest">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PlayGround" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Tests.PlayGround" />
+    <configuration name="DiscountAndPurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -201,19 +195,9 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server.Server" />
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -264,13 +248,29 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="PurchaseTest.purchaseOneItemSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.PurchaseTest" />
+      <option name="METHOD_NAME" value="purchaseOneItemSuccessTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
-        <item itemvalue="Application.PlayGround" />
+        <item itemvalue="JUnit.PurchaseTest.purchaseOneItemSuccessTest" />
         <item itemvalue="JUnit.NotficationsTest" />
         <item itemvalue="JUnit.LoginTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.addDiscountOnProductAndOpSuccessTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
       </list>
     </recent_temporary>
   </component>
@@ -298,6 +298,7 @@
       <workItem from="1621980323419" duration="3163000" />
       <workItem from="1622016743077" duration="9914000" />
       <workItem from="1622028989127" duration="7517000" />
+      <workItem from="1622805972040" duration="13730000" />
     </task>
     <task id="LOCAL‎00026" summary="add React to fucking proj">
       <created>1619343570506</created>
@@ -627,7 +628,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="elad do everything!" />
     <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
     <MESSAGE value="#61 db dorin" />
@@ -652,60 +652,51 @@
     <MESSAGE value="fix delete from offers tables" />
     <MESSAGE value="02" />
     <MESSAGE value="xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="xml" />
+    <MESSAGE value="fix external systems" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix external systems" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/Login/LoginWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
           <line>63</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/StoreWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/src/Server/StoreWebSocket.java</url>
           <line>33</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/SearchProductsWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/src/Server/SearchProductsWebSocket.java</url>
           <line>75</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/src/Server/PolicyWebSocket.java</url>
           <line>60</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/src/Server/PolicyWebSocket.java</url>
           <line>67</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/src/Server/PolicyWebSocket.java</url>
           <line>82</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PermissionsWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/src/Server/PermissionsWebSocket.java</url>
           <line>65</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Domain/Store.java</url>
+          <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
           <line>475</line>
           <option name="timeStamp" value="24" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>792</line>
-          <option name="timeStamp" value="266" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>791</line>
-          <option name="timeStamp" value="267" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -721,12 +712,12 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Server.LoginPage.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Server.LoginPage.*</FILTER>
     </SUITE>
   </component>
 </project>

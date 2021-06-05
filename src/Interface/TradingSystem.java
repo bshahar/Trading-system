@@ -541,20 +541,20 @@ public class TradingSystem {
         }
         if(!owner && !manager)
         {
-            this.adminTable.increaseCounter("NormalUsers");
+            this.adminTable.increaseCounter("NormalUsersCounter");
             this.NormalUsersCounter++;
             return;
         }
         if(owner && !manager)
         {
-            this.adminTable.increaseCounter("Owners");
+            this.adminTable.increaseCounter("OwnersCounter");
             this.OwnersCounter++;
             return;
         }
         if(!owner && manager)
         {
             this.ManagersCounter++;
-            this.adminTable.increaseCounter("Managers");
+            this.adminTable.increaseCounter("ManagersCounter");
             return;
         }
     }
@@ -1019,7 +1019,7 @@ public class TradingSystem {
 
             store.setNotificationId(subscribeId);
             subscribeToObservable(subscribeId,userId);
-            adminTable.increaseCounter("Owners");
+            adminTable.increaseCounter("OwnersCounter");
             this.OwnersCounter++;
             return new Result(true,newId);
         }
@@ -1063,7 +1063,7 @@ public class TradingSystem {
 
             subscribeToObservable(getStoreById(storeId).getNotificationId(),userId);
             sendAlert(userId,"You are now manager in store: "+ getStoreName(storeId));
-            this.adminTable.increaseCounter("Managers");
+            this.adminTable.increaseCounter("ManagersCounter");
             this.ManagersCounter++;
 
         }

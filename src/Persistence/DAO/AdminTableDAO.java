@@ -15,11 +15,11 @@ public class AdminTableDAO {
     @DatabaseField
     private int GuestsCounter;
     @DatabaseField
-    private int NormalUsers;
+    private int NormalUsersCounter;
     @DatabaseField
-    private int Managers;
+    private int ManagersCounter;
     @DatabaseField
-    private int Owners;
+    private int OwnersCounter;
 
     public AdminTableDAO() {
     }
@@ -27,9 +27,9 @@ public class AdminTableDAO {
     public AdminTableDAO(String date, int guestsCounter, int normalUsers, int managers, int owners) {
         Date = date;
         GuestsCounter = guestsCounter;
-        NormalUsers = normalUsers;
-        Managers = managers;
-        Owners = owners;
+        NormalUsersCounter = normalUsers;
+        ManagersCounter = managers;
+        OwnersCounter = owners;
     }
 
     public String getDate() {
@@ -49,27 +49,27 @@ public class AdminTableDAO {
     }
 
     public int getNormalUsers() {
-        return NormalUsers;
+        return NormalUsersCounter;
     }
 
     public void setNormalUsers(int normalUsers) {
-        NormalUsers = normalUsers;
+        NormalUsersCounter = normalUsers;
     }
 
     public int getManagers() {
-        return Managers;
+        return ManagersCounter;
     }
 
     public void setManagers(int managers) {
-        Managers = managers;
+        ManagersCounter = managers;
     }
 
     public int getOwners() {
-        return Owners;
+        return OwnersCounter;
     }
 
     public void setOwners(int owners) {
-        Owners = owners;
+        OwnersCounter = owners;
     }
 }
 

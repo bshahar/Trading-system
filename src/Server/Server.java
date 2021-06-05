@@ -1,4 +1,5 @@
 package Server;
+import Persistence.DataBaseHelper;
 import Server.Login.LoginWebSocket;
 import Server.myStores.myStoresWebSocket;
 import Service.API;
@@ -29,20 +30,22 @@ public class Server {
         Spark.webSocket("/AdminWebSocket", AdminWebSocket.class);
         Spark.webSocket("/myStores/bids", BidsWebSocket.class);
 
-        String test;
-        if(args.length > 0) {
-            test = args[0];
-        }
-        else {
-            test = "";
+        String test="";
+        String loadScenario="";
+        for (int i = 0; i < args.length; i++){
+            if(args[i].equals("test")){
+                test = "test";
+            }
+            if(args[i].equals("load")){
+                loadScenario = "load";
+            }
         }
 
         try {
-            API.initTradingSystem(test);
-            API.forTest(test);
+            API.initTradingSystem(test, loadScenario);
+            //API.forTest(test);
 
         } catch (Exception e) {
-            //TODO deal with failure of getting config file
             e.printStackTrace();
         }
 

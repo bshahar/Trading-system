@@ -22,54 +22,17 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix external systems">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/json_simple_1_1_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/resources/appConfig.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Trading-system.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Trading-system.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfigTest.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/AppointmentsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/AppointmentsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/BagWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/BagWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/appConfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/appConfigTest.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfigTest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/CounterWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/CounterWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnCategoriesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnCategoriesWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnProductsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DiscountsOnStoresWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/InventoryWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/InventoryWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/MemberStorePermissionsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/ProductCategoryWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/ProductCategoryWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/ProductReviewsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/ProductReviewsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/ProductWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/ProductWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/PurchaseOnCategoriesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/PurchaseOnCategoriesWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/PurchaseOnStoresWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/PurchaseOnStoresWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/PurchasesOnProductsWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/PurchasesOnProductsWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/ReceiptLinesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/ReceiptLinesWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/ReceiptWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/ReceiptWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreEmployeesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreEmployeesWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreManagerWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreManagerWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreOwnerWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreOwnerWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreReceiptWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreReceiptWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/StoreWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/UserApprovedOffersWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserApprovedOffersWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/UserAuthWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserAuthWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/UserCounterOffersWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserCounterOffersWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/UserMessagesWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserMessagesWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/UserWrapper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/LoginTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/LoginTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/NotficationsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PermissionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PermissionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PlayGround.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PlayGround.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/PurchaseTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/StoreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/StoreTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/robust_stress.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/robust_stress.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,6 +185,7 @@
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Server" />
       <module name="Trading-system" />
+      <option name="PROGRAM_PARAMETERS" value="test" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Server.*" />
@@ -335,13 +299,7 @@
       <workItem from="1622016743077" duration="9914000" />
       <workItem from="1622028989127" duration="7517000" />
       <workItem from="1622805972040" duration="13730000" />
-      <workItem from="1622892400066" duration="12193000" />
-    </task>
-    <task id="LOCAL‎00026" summary="add React to fucking proj">
-      <created>1619343570506</created>
-      <option name="number" value="LOCAL‎00026" />
-      <option name="presentableId" value="LOCAL‎00026" />
-      <updated>1619343570506</updated>
+      <workItem from="1622892400066" duration="17150000" />
     </task>
     <task id="LOCAL‎00027" summary="add React to fucking proj">
       <created>1619355371042</created>
@@ -642,7 +600,14 @@
       <option name="presentableId" value="LOCAL‎00074" />
       <updated>1622102143475</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="configuration files to json, adding abstraction and more">
+      <created>1622905106055</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1622905106056</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -666,7 +631,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
     <MESSAGE value="#61 db dorin" />
     <MESSAGE value="#61 discounts daos" />
@@ -691,53 +655,62 @@
     <MESSAGE value="02" />
     <MESSAGE value="xml" />
     <MESSAGE value="fix external systems" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix external systems" />
+    <MESSAGE value="configuration files to json, adding abstraction and more" />
+    <option name="LAST_COMMIT_MESSAGE" value="configuration files to json, adding abstraction and more" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1622902890147">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1622906977800">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622902890147" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622906977800" />
+    <state x="569" y="114" key="CommitChangelistDialog2" timestamp="1622905103780">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="569" y="114" key="CommitChangelistDialog2/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622905103780" />
     <state x="666" y="261" key="FileChooserDialogImpl" timestamp="1622898567330">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="666" y="261" key="FileChooserDialogImpl/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622898567330" />
-    <state width="1877" height="276" key="GridCell.Tab.0.bottom" timestamp="1622903183181">
+    <state width="1877" height="256" key="GridCell.Tab.0.bottom" timestamp="1622910536346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="276" key="GridCell.Tab.0.bottom/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622903183181" />
-    <state width="1877" height="276" key="GridCell.Tab.0.center" timestamp="1622903183181">
+    <state width="1877" height="256" key="GridCell.Tab.0.bottom/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622910536346" />
+    <state width="1877" height="256" key="GridCell.Tab.0.center" timestamp="1622910536346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="276" key="GridCell.Tab.0.center/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622903183181" />
-    <state width="1877" height="276" key="GridCell.Tab.0.left" timestamp="1622903183181">
+    <state width="1877" height="256" key="GridCell.Tab.0.center/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622910536346" />
+    <state width="1877" height="256" key="GridCell.Tab.0.left" timestamp="1622910536346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="276" key="GridCell.Tab.0.left/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622903183181" />
-    <state width="1877" height="276" key="GridCell.Tab.0.right" timestamp="1622903183181">
+    <state width="1877" height="256" key="GridCell.Tab.0.left/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622910536346" />
+    <state width="1877" height="256" key="GridCell.Tab.0.right" timestamp="1622910536346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="276" key="GridCell.Tab.0.right/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622903183181" />
-    <state width="1877" height="277" key="GridCell.Tab.1.bottom" timestamp="1622903106485">
+    <state width="1877" height="256" key="GridCell.Tab.0.right/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622910536346" />
+    <state width="1877" height="256" key="GridCell.Tab.1.bottom" timestamp="1622910536347">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="277" key="GridCell.Tab.1.bottom/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622903106485" />
-    <state width="1877" height="277" key="GridCell.Tab.1.center" timestamp="1622903106485">
+    <state width="1877" height="256" key="GridCell.Tab.1.bottom/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622910536347" />
+    <state width="1877" height="256" key="GridCell.Tab.1.center" timestamp="1622910536346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="277" key="GridCell.Tab.1.center/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622903106485" />
-    <state width="1877" height="277" key="GridCell.Tab.1.left" timestamp="1622903106485">
+    <state width="1877" height="256" key="GridCell.Tab.1.center/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622910536346" />
+    <state width="1877" height="256" key="GridCell.Tab.1.left" timestamp="1622910536346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="277" key="GridCell.Tab.1.left/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622903106485" />
-    <state width="1877" height="277" key="GridCell.Tab.1.right" timestamp="1622903106485">
+    <state width="1877" height="256" key="GridCell.Tab.1.left/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622910536346" />
+    <state width="1877" height="256" key="GridCell.Tab.1.right" timestamp="1622910536346">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="277" key="GridCell.Tab.1.right/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622903106485" />
+    <state width="1877" height="256" key="GridCell.Tab.1.right/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622910536346" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1622898572616">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="440" y="94" key="SettingsEditor/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622898572616" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1622905118621">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1622905118621" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1622898358541">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -787,14 +760,9 @@
           <option name="timeStamp" value="24" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Service/API.java</url>
-          <line>95</line>
-          <option name="timeStamp" value="39" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Service/API.java</url>
-          <line>92</line>
-          <option name="timeStamp" value="48" />
+          <url>file://$PROJECT_DIR$/src/Server/Server.java</url>
+          <line>44</line>
+          <option name="timeStamp" value="67" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

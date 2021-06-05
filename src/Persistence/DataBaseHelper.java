@@ -21,9 +21,13 @@ public class DataBaseHelper {
 
     private static String test;
 
+    public static void setTest(String test) {
+        DataBaseHelper.test = test;
+    }
+
     public static void cleanAllTable(String isTest) {
         try {
-            test = isTest;
+            //test = isTest;
             ConnectionSource connectionSource = connect();
 
             Dao<UserDAO, String> userManager = DaoManager.createDao(connectionSource, UserDAO.class);

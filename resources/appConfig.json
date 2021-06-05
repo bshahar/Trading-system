@@ -5,7 +5,6 @@
     "systemManagerId":"0",
     "systemManagerAge":"25",
     "externalSystemsUrl":"https://cs-bgu-wsep.herokuapp.com/",
-    "loadScenario":"true",
     "dbHost":"remotemysql.com",
     "dbUserName":"zw9P3SlfWt",
     "dbPassword":"WQHbR3UruT",

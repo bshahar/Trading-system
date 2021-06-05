@@ -20,7 +20,8 @@ public class API {
 
     private static TradingSystem tradingSystem;
 
-    public static void initTradingSystem(String isTest) throws Exception {
+    public static void initTradingSystem(String isTest, String load) throws Exception {
+        DataBaseHelper.setTest(isTest);
         //Properties appProps = new Properties();
         //InputStream input;
         JSONObject jsonObject;
@@ -93,7 +94,7 @@ public class API {
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), true);
         tradingSystem = new TradingSystem(sysManager, externalSystemsUrl, test);
 
-        if(Boolean.parseBoolean(loadScenario)) {
+        if(load.equals("load")) {
             tradingSystem.loadScenario();
         }
 

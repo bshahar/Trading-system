@@ -46,7 +46,7 @@ public class UserAuthWrapper {
             Dao<UserAuthDAO, String> UserAuthDAOManager = DaoManager.createDao(connectionSource,UserAuthDAO.class);
             Map<String,Object> map= new HashMap<>();
             map.put("userName",userName);
-            List<UserAuthDAO> userAuthDAO= UserAuthDAOManager.queryForFieldValues(map);
+            List<UserAuthDAO> userAuthDAO = UserAuthDAOManager.queryForFieldValues(map);
             connectionSource.close();
             return userAuthDAO.size()==1;
         }

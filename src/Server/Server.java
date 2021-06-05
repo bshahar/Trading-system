@@ -1,4 +1,5 @@
 package Server;
+import Persistence.DataBaseHelper;
 import Server.Login.LoginWebSocket;
 import Server.myStores.myStoresWebSocket;
 import Service.API;
@@ -29,6 +30,7 @@ public class Server {
         Spark.webSocket("/AdminWebSocket", AdminWebSocket.class);
         Spark.webSocket("/myStores/bids", BidsWebSocket.class);
 
+        DataBaseHelper.cleanAllTable();
 
 
         try {
@@ -36,6 +38,7 @@ public class Server {
         } catch (IOException e) {
             //TODO deal with failure of getting config file
         }
+
         API.forTest();
 
 

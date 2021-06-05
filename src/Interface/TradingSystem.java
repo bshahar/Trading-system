@@ -26,6 +26,7 @@ import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutionException;
 
 public class TradingSystem {
 
@@ -48,6 +49,7 @@ public class TradingSystem {
     private UserWrapper users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
+    public static Map<Integer , Session> adminSessionMap ;
     private CounterWrapper counterWrapper;
     private AdminTableWrapper adminTable;
 
@@ -86,6 +88,7 @@ public class TradingSystem {
         this.systemManager = systemManager;
         AppointSystemManager(systemManager);
         sessionsMap = new ConcurrentHashMap<>();
+        adminSessionMap= new HashMap<>();
         demoSessionMap = new ConcurrentHashMap<>();
         KingLogger.logEvent("Trading System initialized");
 
@@ -318,6 +321,10 @@ public class TradingSystem {
         return new Result(true, output);
     }
 
+    public void addAdminSession(Session session) {
+        adminSessionMap.put(0,session);
+    }
+
 
     public static enum Permission {
         DEF,
@@ -507,6 +514,7 @@ public class TradingSystem {
                     user.setLogged(true);
                     KingLogger.logEvent("LOGIN:  User " + userName + " logged into the system.");
                     updateAdminCounter(user.getId());
+
                     return new Result( true,user.getId());
             }
         }
@@ -543,18 +551,42 @@ public class TradingSystem {
         {
             this.adminTable.increaseCounter("NormalUsersCounter");
             this.NormalUsersCounter++;
+            JSONObject jsonObject= new JSONObject();
+            jsonObject.put("type","UPDATE_REGISTERED");
+            jsonObject.put("number",NormalUsersCounter);
+            try {
+                adminSessionMap.get(0).getRemote().sendString(jsonObject.toString());
+            }catch(Exception e){
+                System.out.println(e);
+            }
             return;
         }
         if(owner && !manager)
         {
             this.adminTable.increaseCounter("OwnersCounter");
             this.OwnersCounter++;
+            JSONObject jsonObject= new JSONObject();
+            jsonObject.put("type","UPDATE_OWNERS");
+            jsonObject.put("number",OwnersCounter);
+            try {
+                adminSessionMap.get(0).getRemote().sendString(jsonObject.toString());
+            }catch(Exception e){
+                System.out.println(e);
+            }
             return;
         }
         if(!owner && manager)
         {
             this.ManagersCounter++;
             this.adminTable.increaseCounter("ManagersCounter");
+            JSONObject jsonObject= new JSONObject();
+            jsonObject.put("type","UPDATE_MANAGERS");
+            jsonObject.put("number",ManagersCounter);
+            try {
+                adminSessionMap.get(0).getRemote().sendString(jsonObject.toString());
+            }catch(Exception e){
+                System.out.println(e);
+            }
             return;
         }
     }
@@ -638,6 +670,14 @@ public class TradingSystem {
         int id = guest.getId();
         adminTable.increaseCounter("GuestsCounter");
         GuestsCounter++;
+        JSONObject jsonObject= new JSONObject();
+        jsonObject.put("type","UPDATE_GUESTS");
+        jsonObject.put("number",GuestsCounter);
+        try {
+            adminSessionMap.get(0).getRemote().sendString(jsonObject.toString());
+        }catch(Exception e){
+            System.out.println(e);
+        }
         KingLogger.logEvent("GUEST_LOGIN: Guest logged into the system with id: " + id);
         return new Result(true,id);
     }

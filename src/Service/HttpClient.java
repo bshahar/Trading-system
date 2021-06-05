@@ -20,14 +20,6 @@ public class HttpClient {
         }
     }
 
-   /* public Result handshake(Map<String, String> values) {
-        HttpURLConnection connection = null;
-
-        if (connection != null) {
-            return sendRequest(values);
-        }
-        return new Result(false, "Could not create connection to payment system.");
-    }*/
 
     public Result sendRequest(Map<String, String> values) {
         HttpURLConnection connection = null;
@@ -36,23 +28,6 @@ public class HttpClient {
             connection.setRequestMethod("POST");
             connection.setDoOutput(true);
             connection.setUseCaches(false);
-            /*StringJoiner sj = new StringJoiner("&");
-            for (Map.Entry<String, String> entry : values.entrySet())
-                sj.add(URLEncoder.encode(entry.getKey(), "UTF-8") + "="
-                        + URLEncoder.encode(entry.getValue(), "UTF-8"));
-            byte[] out = sj.toString().getBytes(StandardCharsets.UTF_8);
-            int length = out.length;*/
-            StringBuilder sb = new StringBuilder();
-            boolean first = true;
-            for (Map.Entry<String, String> entry : values.entrySet()) {
-                if(first) first = false;
-                else
-                    sb.append("&");
-                sb.append(URLEncoder.encode(entry.getKey(), "UTF-8"));
-                sb.append("=");
-                sb.append(URLEncoder.encode(entry.getValue(), "UTF-8"));
-            }
-            byte[] out = sb.toString().getBytes(StandardCharsets.UTF_8);
 
             //Send request
             DataOutputStream wr = new DataOutputStream(connection.getOutputStream());

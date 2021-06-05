@@ -198,6 +198,38 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="SystemManagerTests.GuestsCounterNoGuestsInside" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
+      <option name="METHOD_NAME" value="GuestsCounterNoGuestsInside" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SystemManagerTests.GuestsCounterWithGuests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
+      <option name="METHOD_NAME" value="GuestsCounterWithGuests" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SystemManagerTests.ManagersCounter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -209,38 +241,6 @@
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
       <option name="METHOD_NAME" value="ManagersCounter" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SystemManagerTests.NormalUsersLoginAndLogoutAndLoginAgain" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
-      <option name="METHOD_NAME" value="NormalUsersLoginAndLogoutAndLoginAgain" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SystemManagerTests.OwnersCounter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
-      <option name="METHOD_NAME" value="OwnersCounter" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -265,10 +265,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.SystemManagerTests" />
+        <item itemvalue="JUnit.SystemManagerTests.GuestsCounterWithGuests" />
+        <item itemvalue="JUnit.SystemManagerTests.GuestsCounterNoGuestsInside" />
         <item itemvalue="JUnit.SystemManagerTests.ManagersCounter" />
         <item itemvalue="JUnit.SystemManagerTests.OwnersCounterLogOutAndLogin" />
-        <item itemvalue="JUnit.SystemManagerTests.OwnersCounter" />
-        <item itemvalue="JUnit.SystemManagerTests.NormalUsersLoginAndLogoutAndLoginAgain" />
       </list>
     </recent_temporary>
   </component>

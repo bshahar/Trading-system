@@ -22,14 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix external systems">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt.lck" beforeDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="xml">
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/HttpClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/HttpClient.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -144,7 +138,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/server-side" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -175,7 +169,7 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.PurchaseTest.purchaseOneItemSuccessTest">
+  <component name="RunManager" selected="JUnit.SystemManagerTests">
     <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -187,7 +181,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscountAndPurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SystemManagerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -196,13 +190,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscountAndPurchaseTest.addDiscountOnProductAndOpSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SystemManagerTests.GuestsCounterNoGuestsInside" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -211,14 +205,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="addDiscountOnProductAndOpSuccessTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
+      <option name="METHOD_NAME" value="GuestsCounterNoGuestsInside" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LoginTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SystemManagerTests.GuestsCounterWithGuests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -227,13 +221,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.LoginTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
+      <option name="METHOD_NAME" value="GuestsCounterWithGuests" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="NotficationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SystemManagerTests.ManagersCounter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -242,13 +237,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
+      <option name="METHOD_NAME" value="ManagersCounter" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="PurchaseTest.purchaseOneItemSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="SystemManagerTests.OwnersCounterLogOutAndLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -257,8 +253,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.PurchaseTest" />
-      <option name="METHOD_NAME" value="purchaseOneItemSuccessTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
+      <option name="METHOD_NAME" value="OwnersCounterLogOutAndLogin" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -266,11 +262,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.PurchaseTest.purchaseOneItemSuccessTest" />
-        <item itemvalue="JUnit.NotficationsTest" />
-        <item itemvalue="JUnit.LoginTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.addDiscountOnProductAndOpSuccessTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
+        <item itemvalue="JUnit.SystemManagerTests" />
+        <item itemvalue="JUnit.SystemManagerTests.GuestsCounterWithGuests" />
+        <item itemvalue="JUnit.SystemManagerTests.GuestsCounterNoGuestsInside" />
+        <item itemvalue="JUnit.SystemManagerTests.ManagersCounter" />
+        <item itemvalue="JUnit.SystemManagerTests.OwnersCounterLogOutAndLogin" />
       </list>
     </recent_temporary>
   </component>
@@ -298,26 +294,10 @@
       <workItem from="1621980323419" duration="3163000" />
       <workItem from="1622016743077" duration="9914000" />
       <workItem from="1622028989127" duration="7517000" />
-      <workItem from="1622805972040" duration="13730000" />
-    </task>
-    <task id="LOCAL‎00026" summary="add React to fucking proj">
-      <created>1619343570506</created>
-      <option name="number" value="LOCAL‎00026" />
-      <option name="presentableId" value="LOCAL‎00026" />
-      <updated>1619343570506</updated>
-    </task>
-    <task id="LOCAL‎00027" summary="add React to fucking proj">
-      <created>1619355371042</created>
-      <option name="number" value="LOCAL‎00027" />
-      <option name="presentableId" value="LOCAL‎00027" />
-      <updated>1619355371042</updated>
-    </task>
-    <task id="LOCAL-00028" summary="logger in the trading system">
-      <created>1619370159468</created>
-      <option name="number" value="00028" />
-      <option name="presentableId" value="LOCAL-00028" />
-      <option name="project" value="LOCAL" />
-      <updated>1619370159468</updated>
+      <workItem from="1622102541936" duration="4267000" />
+      <workItem from="1622134213186" duration="63000" />
+      <workItem from="1622808063867" duration="2485000" />
+      <workItem from="1622889352388" duration="8487000" />
     </task>
     <task id="LOCAL-00029" summary="logger in the code">
       <created>1619449132600</created>
@@ -605,7 +585,28 @@
       <option name="presentableId" value="LOCAL‎00074" />
       <updated>1622102143475</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="xml">
+      <created>1622889407076</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1622889407077</updated>
+    </task>
+    <task id="LOCAL-00076" summary="xml">
+      <created>1622895029907</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1622895029907</updated>
+    </task>
+    <task id="LOCAL-00077" summary="xml">
+      <created>1622898616472</created>
+      <option name="number" value="00077" />
+      <option name="presentableId" value="LOCAL-00077" />
+      <option name="project" value="LOCAL" />
+      <updated>1622898616473</updated>
+    </task>
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,6 +629,7 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
+    <MESSAGE value="elad do everything!" />
     <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
     <MESSAGE value="#61 db dorin" />
@@ -652,51 +654,55 @@
     <MESSAGE value="fix delete from offers tables" />
     <MESSAGE value="02" />
     <MESSAGE value="xml" />
-    <MESSAGE value="fix external systems" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix external systems" />
+    <option name="LAST_COMMIT_MESSAGE" value="xml" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/Login/LoginWebSocket.java</url>
           <line>63</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/StoreWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/StoreWebSocket.java</url>
           <line>33</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/SearchProductsWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/SearchProductsWebSocket.java</url>
           <line>75</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/PolicyWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
           <line>60</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/PolicyWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
           <line>67</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/PolicyWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
           <line>82</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Server/PermissionsWebSocket.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PermissionsWebSocket.java</url>
           <line>65</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Domain/Store.java</url>
+          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Domain/Store.java</url>
           <line>475</line>
           <option name="timeStamp" value="24" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Tests/SystemManagerTests.java</url>
+          <line>72</line>
+          <option name="timeStamp" value="30" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
@@ -706,16 +712,25 @@
         <PinnedItemInfo parentTag="Persistence.DiscountsOnProductsWrapper" memberName="value" />
       </pinned-members>
     </pin-to-top-manager>
+    <watches-manager>
+      <configuration name="JUnit">
+        <watch expression="e" />
+        <watch expression="((SQLException)e).detailMessage" custom="java.sql.SQLException" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$SystemManagerTests_OwnersCounter.ic" NAME="SystemManagerTests.OwnersCounter Coverage Results" MODIFIED="1622897679488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Server.LoginPage.*</FILTER>
     </SUITE>

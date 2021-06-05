@@ -94,11 +94,14 @@ public class DataBaseHelper {
             Dao<UserApprovedOffersDAO, String> usersapproveOffersDAOManager = DaoManager.createDao(connectionSource, UserApprovedOffersDAO.class);
             usersapproveOffersDAOManager.executeRaw("DELETE FROM UserApprovedOffers");
 
+            Dao<AdminTableDAO, String> AdminTableManager = DaoManager.createDao(connectionSource, AdminTableDAO.class);
+            AdminTableManager.executeRaw("DELETE FROM AdminTable");
 
             Dao<UserAuthDAO, String>UserAuthDAOManager = DaoManager.createDao(connectionSource,UserAuthDAO.class);
             UserAuthDAOManager.executeRaw("DELETE FROM UserNamePasswords");
             Dao<CounterDAO, String>CounterDAOManager = DaoManager.createDao(connectionSource,CounterDAO.class);
             CounterDAOManager.executeRaw("DELETE FROM Counters");
+
             CounterDAO storeDAO= new CounterDAO(1,0,0,0,0,0,0,0,0,0,0);
             CounterDAOManager.create(storeDAO);
 

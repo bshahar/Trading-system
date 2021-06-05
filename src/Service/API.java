@@ -9,6 +9,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
+import org.json.JSONObject;
 
 
 import java.io.FileNotFoundException;
@@ -577,6 +578,17 @@ public class API {
     public static Result cancelPurchase(int receiptId) {
         return tradingSystem.cancelPurchase(receiptId);
 
+    }
+
+    /*
+    jsonObject.put("GuestsCounter",GuestsCounter);
+        jsonObject.put("NormalUsersCounter",NormalUsersCounter);
+        jsonObject.put("ManagersCounter",ManagersCounter);
+        jsonObject.put("OwnersCounter",OwnersCounter);
+     */
+    public static Result getSystemManagerStats()
+    {
+       return tradingSystem.getSystemManagerStats();
     }
 
     public static boolean isSystemManager(int userId) {

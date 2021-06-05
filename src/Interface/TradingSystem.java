@@ -51,11 +51,12 @@ public class TradingSystem {
 
     public TradingSystem (User systemManager, String externalSystemsUrl, boolean testing) {
         if(testing) {
-            paymentAdapter = new DemoPayment();
-            supplementAdapter = new DemoSupplement();
-        }else{
             paymentAdapter = new PaymentAdapter(externalSystemsUrl);
             supplementAdapter = new SupplementAdapter(externalSystemsUrl);
+        }else{
+            paymentAdapter = new DemoPayment();
+            supplementAdapter = new DemoSupplement();
+
 
         }
         this.users =  new UserWrapper();
@@ -65,7 +66,7 @@ public class TradingSystem {
 
         this.userAuth = new UserAuth();
         userAuth.register(systemManager.getUserName(), "123");
-        //users.add(systemManager);
+        users.add(systemManager);
         initiateCounters();
         this.counterWrapper = new CounterWrapper();
         this.observers = Collections.synchronizedList(new LinkedList<>());
@@ -83,7 +84,6 @@ public class TradingSystem {
             if (input != null)
                 testingProps.load(input);
         } catch (Exception e) { }
-
         API.register(testingProps.getProperty("u1name"), testingProps.getProperty("u1password"), Integer.parseInt(testingProps.getProperty("u1age")));
         API.register(testingProps.getProperty("u2name"), testingProps.getProperty("u2password"), Integer.parseInt(testingProps.getProperty("u2age")));
         API.register(testingProps.getProperty("u3name"), testingProps.getProperty("u3password"), Integer.parseInt(testingProps.getProperty("u3age")));
@@ -109,6 +109,9 @@ public class TradingSystem {
             opIndexes.add(19);
             addPermissions(registerId2, registerId1, storeId1, opIndexes);
         }
+        API.registeredLogout(registerId1);
+        API.registeredLogout(registerId2);
+        API.registeredLogout(registerId3);
     }
 
     public static counter getPolicyCounter() {
@@ -449,6 +452,7 @@ public class TradingSystem {
         if(userAuth.register(userName,pass)){
             int userId=userCounter.inc();
             users.add(new User(userName, age,  userId, true));
+
             return new Result(true,userId);
         }
         else{

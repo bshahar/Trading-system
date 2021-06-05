@@ -188,7 +188,7 @@ public class robust_stress {
     @Test
     public void queryToCloseDB() throws SQLException, IOException {
         try {
-            ConnectionSource connectionSource = new JdbcConnectionSource("jdbc:mysql://localhost:3306/mylocal", "root", "123456");
+            ConnectionSource connectionSource = new JdbcConnectionSource("jdbc:mysql://localhost:3306/orsonDB", "root", "orson");
             connectionSource.close();
             // instantiate the dao
             Dao<UserDAO, String> userManager = DaoManager.createDao(connectionSource, UserDAO.class);

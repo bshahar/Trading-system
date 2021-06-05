@@ -1,7 +1,11 @@
 package Persistence.DAO;
 
+import Domain.ReceiptLine;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
+
+import javax.persistence.OneToMany;
+import java.util.List;
 
 @DatabaseTable(tableName = "Receipts")
 public class ReceiptDAO {
@@ -20,6 +24,8 @@ public class ReceiptDAO {
     private int paymentTransactionId;
     @DatabaseField
     private int supplementTransactionId;
+
+
 
     public ReceiptDAO() {
         // ORMLite needs a no-arg constructor

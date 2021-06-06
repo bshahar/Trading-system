@@ -1,5 +1,7 @@
 package Tests;
 
+import Domain.Product;
+import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.Receipt;
 import Domain.Result;
 import Persistence.DataBaseHelper;
@@ -338,8 +340,18 @@ public class DiscountAndPurchaseTest {
 
     @Test
     public void approveOfferWithPermissionSuccessTest(){
+        /*
         int offerId = addOfferSuccessTest();
         Assertions.assertTrue(API.approvePurchaseOffer(storeId1,registerId1, productId5,offerId).isResult());
+
+         */
+        int offerId = addOfferSuccessTest();
+        API.approvePurchaseOffer(storeId1,registerId1, productId5,offerId).isResult();
+        Map<PurchaseOffer, Product> res = (Map<PurchaseOffer,Product>)API.getOffersForStore(storeId1,registerId1).getData();
+        if(res.isEmpty()){
+            System.out.println("yayy");
+        }
+       // Assertions.assertTrue(API.approvePurchaseOffer(storeId1,registerId1, productId5,offerId).isResult());
     }
 
     @Test

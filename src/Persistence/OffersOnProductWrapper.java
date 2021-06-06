@@ -68,7 +68,13 @@ public class OffersOnProductWrapper {
             ProductOffersDAO productOffersDaoObj = new ProductOffersDAO(store.getStoreId(),po.getId(),prod.getId());
             productOffersDAO.executeRaw("DELETE FROM ProductOffers WHERE storeId = " + store.getStoreId() + " AND offerId = " + po.getId() + " AND productId = " + prod.getId() + " ;");
             connectionSource.close();
-            this.value = get(store);
+            LinkedList<PurchaseOffer> offers = this.value.get(prod);
+            offers.remove(po);
+            if (offers.isEmpty())
+                this.value.remove(prod);
+            else
+                this.value.put(prod,offers);
+            //this.value = get(store);
 
             /*ConnectionSource connectionSource = connect();
             Dao<PurchaseOffersDAO, String> purchaseOffersDAO = DaoManager.createDao(connectionSource, PurchaseOffersDAO.class);

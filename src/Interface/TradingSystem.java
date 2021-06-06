@@ -124,7 +124,7 @@ public class TradingSystem {
         org.json.simple.JSONObject jsonObject;
         JSONParser jsonParser = new JSONParser();
         try {
-            FileReader reader = reader = new FileReader("resources\\requestedTests.json");
+            FileReader reader = new FileReader("resources\\requestedTests.json");
             jsonObject = (org.json.simple.JSONObject) jsonParser.parse(reader);
         }
 
@@ -134,7 +134,7 @@ public class TradingSystem {
         }
 
         JSONArray registerArray = (JSONArray)jsonObject.get("register");
-        for (int i = 0; i< registerArray.size(); i++){
+        for (int i = 0; registerArray != null && i< registerArray.size(); i++){
             String userName = (String) ((JSONObject)registerArray.get(i)).get("username");
             String password = (String) ((JSONObject)registerArray.get(i)).get("password");
             int age = Math.toIntExact((long)((JSONObject)registerArray.get(i)).get("age"));
@@ -142,28 +142,28 @@ public class TradingSystem {
         }
 
         JSONArray loginArray = (JSONArray)jsonObject.get("login");
-        for (int i = 0; i< loginArray.size(); i++){
+        for (int i = 0;loginArray != null && i< loginArray.size(); i++){
             String userName = (String) ((JSONObject)loginArray.get(i)).get("username");
             String password = (String) ((JSONObject)loginArray.get(i)).get("password");
             API.registeredLogin(userName,password);
         }
 
         JSONArray openStoreArray = (JSONArray)jsonObject.get("openStore");
-        for (int i = 0; i< openStoreArray.size(); i++){
+        for (int i = 0;openStoreArray != null && i< openStoreArray.size(); i++){
             int userOwnerId = Math.toIntExact((long)((JSONObject)openStoreArray.get(i)).get("userOwnerId"));
             String storeName = (String) ((JSONObject)openStoreArray.get(i)).get("storeName");
             API.openStore(userOwnerId,storeName);
         }
 
         JSONArray addProduct = (JSONArray)jsonObject.get("addProduct");
-        for (int i = 0; i< addProduct.size(); i++){
+        for (int i = 0;addProduct != null && i< addProduct.size(); i++){
             int storeOwnerId = Math.toIntExact((long)((JSONObject)addProduct.get(i)).get("storeOwnerId"));
             int storeId = Math.toIntExact((long)((JSONObject)addProduct.get(i)).get("storeId"));
             String name = (String) ((JSONObject)addProduct.get(i)).get("name");
             List <String> categories = new LinkedList();
             JSONArray catList = (JSONArray)((JSONObject)addProduct.get(i)).get("categories");
             for (int j = 0; j < catList.size(); j++){
-                categories.add((String)catList.get(i));
+                categories.add((String)catList.get(j));
             }
             int price = Math.toIntExact((long)((JSONObject)addProduct.get(i)).get("price"));
             String description = (String) ((JSONObject)addProduct.get(i)).get("description");
@@ -172,18 +172,34 @@ public class TradingSystem {
         }
 
         JSONArray addStoreManager = (JSONArray)jsonObject.get("addStoreManager");
-        for(int i = 0; i< addStoreManager.size(); i++){
+        for(int i = 0;addStoreManager != null && i< addStoreManager.size(); i++){
             int appointerUserId = Math.toIntExact((long)((JSONObject)addStoreManager.get(i)).get("appointerUserId"));
             int appointeeUserId = Math.toIntExact((long)((JSONObject)addStoreManager.get(i)).get("appointeeUserId"));
+
+
             int storeId = Math.toIntExact((long)((JSONObject)addStoreManager.get(i)).get("storeId"));
             List<Integer> permission = new LinkedList<>();
             JSONArray permissionArray = (JSONArray) ((JSONObject)addStoreManager.get(i)).get("permission");
             for(int j = 0; j < permissionArray.size(); j++){
-                permission.add(Math.toIntExact((long)(permissionArray.get(i))));
+                permission.add(Math.toIntExact((long)(permissionArray.get(j))));
             }
             if(addStoreManager(appointerUserId, appointeeUserId, storeId).isResult()){
                 addPermissions(appointerUserId, appointeeUserId, storeId, permission);
             }
+        }
+
+        JSONArray logout = (JSONArray)jsonObject.get("logout");
+        for(int i = 0;logout != null && i< logout.size(); i++) {
+            int userId = Math.toIntExact((long)logout.get(i));
+            API.registeredLogout(userId);
+        }
+
+        JSONArray removeProduct = (JSONArray)jsonObject.get("removeProduct");
+        for(int i = 0;removeProduct != null && i< removeProduct.size(); i++) {
+            int managerUserId = Math.toIntExact((long)((JSONObject)removeProduct.get(i)).get("managerUserId"));
+            int storeId = Math.toIntExact((long)((JSONObject)removeProduct.get(i)).get("storeId"));
+            int productId = Math.toIntExact((long)((JSONObject)removeProduct.get(i)).get("prodId"));
+            API.removeProductFromStore(managerUserId, storeId, productId);
         }
     }
 

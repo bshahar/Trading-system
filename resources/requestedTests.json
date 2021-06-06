@@ -47,6 +47,24 @@
       "price": 20,
       "description": "snack",
       "quantity": 100
+    },
+    {
+      "storeOwnerId": 2,
+      "storeId": 1,
+      "name": "Corn",
+      "categories": [
+        "food"
+      ],
+      "price": 10,
+      "description": "tastyCorn",
+      "quantity": 50
+    }
+  ],
+  "removeProduct" : [
+    {
+      "managerUserId" : 2,
+      "storeId" : 1,
+      "prodId" : 2
     }
   ],
   "addStoreManager": [
@@ -56,5 +74,6 @@
       "storeId": 1,
       "permission" : [1, 11, 19]
     }
-  ]
+  ],
+  "logout" : [1]
 }

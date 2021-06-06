@@ -8,7 +8,12 @@ Shahar Bardugo,
 Dorin Matzrafi
 
 
+  
 
-Initiating the system:  
-In order to initialize the system properly, in file "appConfig.properties" insert the data you wish to initialize the system with.  
-This data is: system manager details, external systems' urls, local & remote databases info, and other fields that indicate wheather to run the system in test mode/ load specific scenario to it.
+Configuration:  
+The system have two modes: one for testing and one for regular run. In order to initialize the system in test mode insert as program argument the string "test". When in test mode, the system will load the "appConfigTest.json" using the local database. Otherwise, the remote database will be used.  
+  
+
+
+The system also has the option of loading data automaticlly when it initializes. To do that, insert as program argument the string "load".
+Then, the system will load the json file "requestedTests.json".  In this file, you can execute the following functionalities: register, login, logout, open store, add product to store, remove product from store and appiont store manager. To each function you will need to give the proper parameters, see examples to functions' names and parameters in the current json file. Once this option is active, the system will load the scenario described by the data in the json file.

@@ -26,7 +26,6 @@ import java.io.InputStream;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ExecutionException;
 
 public class TradingSystem {
 
@@ -323,6 +322,21 @@ public class TradingSystem {
 
     public void addAdminSession(Session session) {
         adminSessionMap.put(0,session);
+    }
+
+    public Result loggedGuestLogin(int guestId, String userName, String password) {
+        //login with the given details
+        Result result=login(userName,password);
+
+        //delete guest data
+        if(result.isResult()){
+            deleteGuest(guestId);
+        }
+        return result;
+    }
+
+    private void deleteGuest(int guestId) {
+        users.delete(guestId);
     }
 
 

@@ -71,6 +71,10 @@ public class API {
          */
     }
 
+    public static Result loggedGuestLogin(int guestId,String userName,String password){
+        return tradingSystem.loggedGuestLogin(guestId,userName,password);
+    }
+
     public static Result guestLogin(){
         return tradingSystem.guestLogin();
     }

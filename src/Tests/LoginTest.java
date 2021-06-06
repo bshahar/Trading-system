@@ -19,7 +19,7 @@ public class LoginTest {
     public void setUp() {
         try {
             DataBaseHelper.cleanAllTable("test");
-            API.initTradingSystem("test");
+            API.initTradingSystem("test", "");
         } catch (Exception e) {
             System.out.println("ERROR!");
         }

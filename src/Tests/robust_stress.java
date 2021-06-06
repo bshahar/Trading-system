@@ -51,10 +51,10 @@ public class robust_stress {
     @BeforeEach
     public void setUp() throws Exception {
         DataBaseHelper.cleanAllTable("test");
-        API.initTradingSystem("test");
+        API.initTradingSystem("test", "");
         testProps = new Properties();
         try {
-            API.initTradingSystem("test");
+            API.initTradingSystem("test", "");
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)
                 testProps.load(input);

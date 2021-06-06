@@ -61,14 +61,14 @@ public class PermissionTest {
         DataBaseHelper.cleanAllTable("test");
         Properties testProps = new Properties();
         try {
-            API.initTradingSystem("test");
+            API.initTradingSystem("test", "");
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)
                 testProps.load(input);
             else {
                 throw new FileNotFoundException("Property file was not found.");
             }
-            API.initTradingSystem("test");
+            API.initTradingSystem("test", "");
             String userName1 = "kandabior";
             String password1 = "or321654";
             String userName2 = "elad";

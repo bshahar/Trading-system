@@ -35,7 +35,7 @@ public class StoreTest {
         Properties testProps = new Properties();
         try {
             DataBaseHelper.cleanAllTable("test");
-            API.initTradingSystem("test");
+            API.initTradingSystem("test", "");
             String userName1="kandabior";
             String password1= "or321654";
             String userName2="elad";

@@ -40,7 +40,7 @@ public class PurchaseTest {
                 throw new FileNotFoundException("Property file was not found.");
             }
 
-            API.initTradingSystem("test");
+            API.initTradingSystem("test", "");
             String userName1 = "kandabior";
             String password1 = "or321654";
             String userName2 = "elad";

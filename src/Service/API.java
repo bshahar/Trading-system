@@ -61,7 +61,6 @@ public class API {
           String sysManagerId = (String) jsonObject.get("systemManagerId");
           String sysManagerAge = (String) jsonObject.get("systemManagerAge");
           String externalSystemsUrl = (String) jsonObject.get("externalSystemsUrl");
-          String loadScenario = (String) jsonObject.get("loadScenario");
 
         if(sysManagerName == null){
             KingLogger.logError("INIT_TRADING_SYSTEM: sysManagerName attribute was not found.");
@@ -80,16 +79,6 @@ public class API {
             throw new FileNotFoundException("externalSystemsUrl attribute was not found");
         }
 
-        if(loadScenario == null){
-            KingLogger.logError("INIT_TRADING_SYSTEM: loadScenario attribute was not found.");
-            throw new FileNotFoundException("loadScenario attribute was not found");
-        }
-        else{
-            if(!loadScenario.equals("true") & !loadScenario.equals("false")){
-                KingLogger.logError("INIT_TRADING_SYSTEM: loadScenario attribute can be only true or false.");
-                throw new FileNotFoundException("loadScenario attribute can be only true or false");
-            }
-        }
 
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), true);
         tradingSystem = new TradingSystem(sysManager, externalSystemsUrl, test);

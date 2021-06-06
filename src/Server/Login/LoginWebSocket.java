@@ -39,60 +39,80 @@ public class LoginWebSocket {
                 json.put("message",result.getData());
                 json.put("id", result.getData());
                 session.getRemote().sendString(json.toString());
-            }else {
+            }else if(type.equals("LOGGED_GUEST_LOGIN")) {
                 String email = jo.get("email").toString();
                 String pass = jo.get("password").toString();
-                if (type.equals("REGISTER")) {
-                    int age = jo.getInt("age");
-                    Result result = API.register(email, pass, age);
-                    if (!result.isResult()) {
-                        JSONObject json = new JSONObject();
-                        json.put("result", "false");
-                        json.put("message", result.getData());
-                        session.getRemote().sendString(json.toString());
-                        System.out.println("error register");
-                    } else {
-                        JSONObject json = new JSONObject();
-                        json.put("type", "REGISTER");
-                        json.put("result", "true");
-                        json.put("message", "registered successfully");
-                        session.getRemote().sendString(json.toString());
+                int userId= jo.getInt("userId");
+                Result result=API.loggedGuestLogin(userId,email,pass);
+                if(result.isResult()){
+                    JSONObject jsonObject= new JSONObject();
+                    jsonObject.put("type","LOGGED_GUEST_LOGIN");
+                    jsonObject.put("result","true");
+                    jsonObject.put("data",result.getData());
+                    session.getRemote().sendString(jsonObject.toString());
 
-                        System.out.println("success register");
-
-                    }
-                } else if (type.equals("LOGIN")) {
-                    Result result = API.registeredLogin(email, pass);
-                    if (!result.isResult()) {
-                        JSONObject json = new JSONObject();
-                        json.put("result", "false");
-                        json.put("message", result.getData());
-                        session.getRemote().sendString(json.toString());
-                        System.out.println("error login");
-                    } else {
-                        JSONObject json = new JSONObject();
-                        json.put("type", "LOGIN");
-                        json.put("result", "true");
-                        json.put("message", "login success");
-                        json.put("id", result.getData());
-                        json.put("systemManager",API.isSystemManager((int)result.getData()));
-                        session.getRemote().sendString(json.toString());
-                        System.out.println("success login");
-                    }
-                }else if(type.equals("GUEST_REGISTER"))
-                {
-                    int id=Integer.parseInt(jo.get("userId").toString());
-                    Result result = API.guestRegister(id,jo.get("email").toString(),jo.get("password").toString());
-                    JSONObject json= new JSONObject();
-                    json.put("type", "GUEST_REGISTER");
-                    json.put("result",result.isResult());
-                    json.put("message",result.getData());
-                    session.getRemote().sendString(json.toString());
-
+                }else{
+                    JSONObject jsonObject= new JSONObject();
+                    jsonObject.put("type","LOGGED_GUEST_LOGIN");
+                    jsonObject.put("result","false");
+                    jsonObject.put("message",result.getData());
+                    session.getRemote().sendString(jsonObject.toString());
                 }
+
+            }else{
+                    String email = jo.get("email").toString();
+                    String pass = jo.get("password").toString();
+                    if (type.equals("REGISTER")) {
+                        int age = jo.getInt("age");
+                        Result result = API.register(email, pass, age);
+                        if (!result.isResult()) {
+                            JSONObject json = new JSONObject();
+                            json.put("result", "false");
+                            json.put("message", result.getData());
+                            session.getRemote().sendString(json.toString());
+                            System.out.println("error register");
+                        } else {
+                            JSONObject json = new JSONObject();
+                            json.put("type", "REGISTER");
+                            json.put("result", "true");
+                            json.put("message", "registered successfully");
+                            session.getRemote().sendString(json.toString());
+
+                            System.out.println("success register");
+
+                        }
+                    } else if (type.equals("LOGIN")) {
+                        Result result = API.registeredLogin(email, pass);
+                        if (!result.isResult()) {
+                            JSONObject json = new JSONObject();
+                            json.put("result", "false");
+                            json.put("message", result.getData());
+                            session.getRemote().sendString(json.toString());
+                            System.out.println("error login");
+                        } else {
+                            JSONObject json = new JSONObject();
+                            json.put("type", "LOGIN");
+                            json.put("result", "true");
+                            json.put("message", "login success");
+                            json.put("id", result.getData());
+                            json.put("systemManager",API.isSystemManager((int)result.getData()));
+                            session.getRemote().sendString(json.toString());
+                            System.out.println("success login");
+                        }
+                    }else if(type.equals("GUEST_REGISTER"))
+                    {
+                        int id=Integer.parseInt(jo.get("userId").toString());
+                        Result result = API.guestRegister(id,jo.get("email").toString(),jo.get("password").toString());
+                        JSONObject json= new JSONObject();
+                        json.put("type", "GUEST_REGISTER");
+                        json.put("result",result.isResult());
+                        json.put("message",result.getData());
+                        session.getRemote().sendString(json.toString());
+
+                    }
             }
-
-
     }
 
+
 }
+

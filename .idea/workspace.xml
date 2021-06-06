@@ -22,15 +22,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix external systems">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="update stats in gui">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/appConfig.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfig.properties" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfig.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/AdminWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/AdminWebSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/MainWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/MainWebSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -100,7 +96,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="stressTests" />
+        <entry key="$PROJECT_DIR$" value="AdminStatsInGui" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -268,10 +264,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.Server" />
-        <item itemvalue="JUnit.SystemManagerTests" />
+        <item itemvalue="JUnit.SystemManagerTests.ManagersCounter" />
         <item itemvalue="JUnit.SystemManagerTests.GuestsCounterWithGuests" />
         <item itemvalue="JUnit.SystemManagerTests.GuestsCounterNoGuestsInside" />
-        <item itemvalue="JUnit.SystemManagerTests.ManagersCounter" />
+        <item itemvalue="JUnit.SystemManagerTests" />
       </list>
     </recent_temporary>
   </component>
@@ -303,13 +299,6 @@
       <workItem from="1622134213186" duration="63000" />
       <workItem from="1622808063867" duration="2485000" />
       <workItem from="1622889352388" duration="8487000" />
-    </task>
-    <task id="LOCAL-00029" summary="logger in the code">
-      <created>1619449132600</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1619449132600</updated>
     </task>
     <task id="LOCAL‎00030" summary="pemission action web socket">
       <created>1619534997179</created>
@@ -611,7 +600,13 @@
       <option name="project" value="LOCAL" />
       <updated>1622898616473</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL‎00078" summary="update stats in gui">
+      <created>1622915742577</created>
+      <option name="number" value="LOCAL‎00078" />
+      <option name="presentableId" value="LOCAL‎00078" />
+      <updated>1622915742577</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -634,7 +629,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="elad do everything!" />
     <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
     <MESSAGE value="#61 db dorin" />
@@ -659,7 +653,8 @@
     <MESSAGE value="fix delete from offers tables" />
     <MESSAGE value="02" />
     <MESSAGE value="xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="xml" />
+    <MESSAGE value="update stats in gui" />
+    <option name="LAST_COMMIT_MESSAGE" value="update stats in gui" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -709,6 +704,11 @@
           <line>72</line>
           <option name="timeStamp" value="30" />
         </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Server/Login/LoginWebSocket.java</url>
+          <line>32</line>
+          <option name="timeStamp" value="31" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>
@@ -729,8 +729,8 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Server.LoginPage.*</FILTER>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1622965685624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Server.*</FILTER>
     </SUITE>
     <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$SystemManagerTests_OwnersCounter.ic" NAME="SystemManagerTests.OwnersCounter Coverage Results" MODIFIED="1622897679488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">

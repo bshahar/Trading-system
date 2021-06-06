@@ -123,5 +123,6 @@
     <orderEntry type="library" name="javafx-sdk-11.0" level="project" />
     <orderEntry type="library" name="jfxrt" level="project" />
     <orderEntry type="library" name="json-201401074" level="project" />
+    <orderEntry type="library" name="json-simple-1.1.1" level="project" />
   </component>
 </module>

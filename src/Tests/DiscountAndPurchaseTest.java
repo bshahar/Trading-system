@@ -34,8 +34,8 @@ public class DiscountAndPurchaseTest {
     public void setUp() {
         Properties testProps = new Properties();
         try {
-            DataBaseHelper.cleanAllTable();
-            API.initTradingSystem();
+            DataBaseHelper.cleanAllTable("test");
+            API.initTradingSystem("test", "");
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)
                 testProps.load(input);

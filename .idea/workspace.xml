@@ -23,7 +23,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="transaction">
-      <change beforePath="$PROJECT_DIR$/resources/appConfigTest.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfigTest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/requestedTests.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/requestedTests.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -186,24 +193,13 @@
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Server" />
       <module name="Trading-system" />
-      <option name="PROGRAM_PARAMETERS" value="test" />
+      <option name="PROGRAM_PARAMETERS" value="test load" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="Server.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -270,7 +266,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -300,6 +295,7 @@
       <workItem from="1622889352388" duration="8487000" />
       <workItem from="1622962859066" duration="3038000" />
       <workItem from="1623067112251" duration="1758000" />
+      <workItem from="1623073309950" duration="4249000" />
     </task>
     <task id="LOCAL‎00033" summary="pemission action web socket">
       <created>1619778256313</created>
@@ -615,7 +611,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="1" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -626,12 +622,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="user to db" />
@@ -661,46 +658,92 @@
     <MESSAGE value="transaction" />
     <option name="LAST_COMMIT_MESSAGE" value="transaction" />
   </component>
+  <component name="WindowStateProjectService">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623074229655">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623074229655" />
+    <state width="435" height="466" key="DebuggerActiveHint" timestamp="1623075547638">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="435" height="466" key="DebuggerActiveHint/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623075547638" />
+    <state width="1877" height="194" key="GridCell.Tab.0.bottom" timestamp="1623077116800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.0.bottom/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623077116800" />
+    <state width="1877" height="194" key="GridCell.Tab.0.center" timestamp="1623077116800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.0.center/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623077116800" />
+    <state width="1877" height="194" key="GridCell.Tab.0.left" timestamp="1623077116800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.0.left/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623077116800" />
+    <state width="1877" height="194" key="GridCell.Tab.0.right" timestamp="1623077116800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.0.right/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623077116800" />
+    <state width="1877" height="194" key="GridCell.Tab.1.bottom" timestamp="1623077116800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.1.bottom/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623077116800" />
+    <state width="1877" height="194" key="GridCell.Tab.1.center" timestamp="1623077116800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.1.center/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623077116800" />
+    <state width="1877" height="194" key="GridCell.Tab.1.left" timestamp="1623077116800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.1.left/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623077116800" />
+    <state width="1877" height="194" key="GridCell.Tab.1.right" timestamp="1623077116800">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="194" key="GridCell.Tab.1.right/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623077116800" />
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1623075879069">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623075879069" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/Login/LoginWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/Login/LoginWebSocket.java</url>
           <line>63</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/StoreWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/StoreWebSocket.java</url>
           <line>33</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/SearchProductsWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/SearchProductsWebSocket.java</url>
           <line>75</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
           <line>60</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
           <line>67</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
           <line>82</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PermissionsWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/PermissionsWebSocket.java</url>
           <line>65</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Domain/Store.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Domain/Store.java</url>
           <line>475</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
@@ -736,8 +779,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>203</line>
-          <option name="timeStamp" value="70" />
+          <line>192</line>
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
         <breakpoint enabled="true" type="java-exception">
           <properties class="java.lang.ClassCastException" package="java.lang" />
@@ -748,8 +791,6 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo />
-        <PinnedItemInfo parentTag="Domain.DiscountPolicies.DiscountCondition" memberName="id" />
-        <PinnedItemInfo parentTag="Persistence.DiscountsOnProductsWrapper" memberName="value" />
       </pinned-members>
     </pin-to-top-manager>
   </component>
@@ -758,15 +799,15 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Tests.*</FILTER>
-    </SUITE>
     <SUITE FILE_PATH="coverage/TradingSystem_java$SystemManagerTests_OwnersCounter.ic" NAME="SystemManagerTests.OwnersCounter Coverage Results" MODIFIED="1622897679488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Server.LoginPage.*</FILTER>
+    </SUITE>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Tests.*</FILTER>
     </SUITE>
   </component>
 </project>

@@ -152,15 +152,15 @@ public class TradingSystem {
 
         JSONArray openStoreArray = (JSONArray)jsonObject.get("openStore");
         for (int i = 0;openStoreArray != null && i< openStoreArray.size(); i++){
-            int userOwnerId = Math.toIntExact((long)((org.json.simple.JSONObject)openStoreArray.get(i)).get("userOwnerId"));
+            int userOwnerId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)openStoreArray.get(i)).get("userOwnerId")).getData();
             String storeName = (String) ((org.json.simple.JSONObject)openStoreArray.get(i)).get("storeName");
             API.openStore(userOwnerId,storeName);
         }
 
         JSONArray addProduct = (JSONArray)jsonObject.get("addProduct");
         for (int i = 0;addProduct != null && i< addProduct.size(); i++){
-            int storeOwnerId = Math.toIntExact((long)((org.json.simple.JSONObject)addProduct.get(i)).get("storeOwnerId"));
-            int storeId = Math.toIntExact((long)((org.json.simple.JSONObject)addProduct.get(i)).get("storeId"));
+            int storeOwnerId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)addProduct.get(i)).get("storeOwnerId")).getData();
+            int storeId = (Integer)getStoreIdByName(storeOwnerId, (String)((org.json.simple.JSONObject)addProduct.get(i)).get("storeId")).getData();
             String name = (String) ((org.json.simple.JSONObject)addProduct.get(i)).get("name");
             List <String> categories = new LinkedList();
             JSONArray catList = (JSONArray)((org.json.simple.JSONObject)addProduct.get(i)).get("categories");
@@ -175,11 +175,10 @@ public class TradingSystem {
 
         JSONArray addStoreManager = (JSONArray)jsonObject.get("addStoreManager");
         for(int i = 0;addStoreManager != null && i< addStoreManager.size(); i++){
-            int appointerUserId = Math.toIntExact((long)((org.json.simple.JSONObject)addStoreManager.get(i)).get("appointerUserId"));
-            int appointeeUserId = Math.toIntExact((long)((org.json.simple.JSONObject)addStoreManager.get(i)).get("appointeeUserId"));
+            int appointerUserId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)addStoreManager.get(i)).get("appointerUserId")).getData();
+            int appointeeUserId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)addStoreManager.get(i)).get("appointeeUserId")).getData();
+            int storeId = (Integer)getStoreIdByName(appointerUserId, (String)((org.json.simple.JSONObject)addStoreManager.get(i)).get("storeId")).getData();
 
-
-            int storeId = Math.toIntExact((long)((org.json.simple.JSONObject)addStoreManager.get(i)).get("storeId"));
             List<Integer> permission = new LinkedList<>();
             JSONArray permissionArray = (JSONArray) ((org.json.simple.JSONObject)addStoreManager.get(i)).get("permission");
             for(int j = 0; j < permissionArray.size(); j++){
@@ -192,18 +191,33 @@ public class TradingSystem {
 
         JSONArray logout = (JSONArray)jsonObject.get("logout");
         for(int i = 0;logout != null && i< logout.size(); i++) {
-            int userId = Math.toIntExact((long)logout.get(i));
+            int userId = (Integer) getUserIdByName((String)logout.get(i)).getData();
             API.registeredLogout(userId);
         }
 
         JSONArray removeProduct = (JSONArray)jsonObject.get("removeProduct");
         for(int i = 0;removeProduct != null && i< removeProduct.size(); i++) {
-            int managerUserId = Math.toIntExact((long)((org.json.simple.JSONObject)removeProduct.get(i)).get("managerUserId"));
-            int storeId = Math.toIntExact((long)((org.json.simple.JSONObject)removeProduct.get(i)).get("storeId"));
-            int productId = Math.toIntExact((long)((org.json.simple.JSONObject)removeProduct.get(i)).get("prodId"));
-           Result result =  API.removeProductFromStore(managerUserId, storeId, productId);
-           int a = 2;
+            int managerUserId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)removeProduct.get(i)).get("managerUserId")).getData();
+            int storeId = (Integer)getStoreIdByName(managerUserId, (String)((org.json.simple.JSONObject)removeProduct.get(i)).get("storeId")).getData();
+            int productId = getProdIdByName(storeId,(String)((org.json.simple.JSONObject)removeProduct.get(i)).get("prodId"));
+           API.removeProductFromStore(managerUserId, storeId, productId);
         }
+    }
+
+    public Result getStoreIdByName(int userId, String storeName) {
+        List<Store> stores  = (List<Store>)getAllStoresInfo(userId).getData();
+        for(Store s : stores){
+            if(s.getName().equals(storeName)){
+                return new Result(true, s.getStoreId());
+            }
+        }
+        return new Result(false, "User Name not exist");
+    }
+
+    public int getProdIdByName(int storeId, String prodName) {
+        Store s = getStoreById(storeId);
+        int prodId = s.getProductByOnlyName(prodName);
+        return prodId;
     }
 
     public static counter getPolicyCounter() {

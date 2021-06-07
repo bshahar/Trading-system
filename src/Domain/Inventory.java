@@ -72,6 +72,14 @@ public class Inventory {
         return output;
     }
 
+    public int getProductByOnlyName(String name, int storeId) {
+        for (Product p : products.getAllProducts(storeId)) {
+             if(p.getName().equals(name))
+                return p.getId();
+        }
+        return -1;
+    }
+
     private boolean checkFilter(Product product, Filter filter,double storeRank) {
         if (filter.minPrice > product.getPrice()) {
             return false;

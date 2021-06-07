@@ -143,6 +143,10 @@ public class Store {
          return this.inventory.getProductsByName(filter,this.rate,storeId);
     }
 
+    public int getProductByOnlyName(String name) {
+        return this.inventory.getProductByOnlyName(name, storeId);
+    }
+
     public List<Integer> getProductsByCategory(Filter filter) {
         return this.inventory.getProductsByCategory(filter,this.rate,storeId);
     }

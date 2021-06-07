@@ -50,7 +50,7 @@ public class Server {
             e.printStackTrace();
         }
 
-       API.forTest("test");
+       //API.forTest("test");
         Spark.init();
     }
 }

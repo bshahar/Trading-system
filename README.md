@@ -14,7 +14,7 @@ Trading system , where you can open stores and manage them , buy products ,show 
 Optional argumnets to start the system.
 1. load - inittial the system with optional data (the data  store in the file -"appConfigTest.json")
 ### Command
-    tradingSystem load
+    >tradingSystem load
 
 
 Configuration:  

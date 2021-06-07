@@ -7,23 +7,15 @@ Or Kandabi,
 Shahar Bardugo,
 Dorin Matzrafi
 
-# Corona-API
-
-This project include python service that allowed you to send request and recive answer in json format.
-Using Jenkins and Docker.
-The service will run on localhost:8080
+Trading system , where you can open stores and manage them , buy products ,show statics and more.
 
 
-## Get Status
-Returns a value of success / fail to contact the backend API.
-### Request
-    curl localhost:8080/status
+## Getting started
+Optional argumnets to start the system.
+1. load - inittial the system with optional data (the data  store in the file -"appConfigTest.json")
+### Command
+    tradingSystem load
 
-### Response
-
-    {“status”: “success”}
-
-  
 
 Configuration:  
 The system have two modes: one for testing and one for regular run. In order to initialize the system in test mode insert as program argument the string "test". When in test mode, the system will load the "appConfigTest.json" using the local database. Otherwise, the remote database will be used.  

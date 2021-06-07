@@ -25,9 +25,9 @@ Then you can fill the file in json format with the command you want to execute.
 
 # Register Command
 ## paramters:
-1-username - The Username that you want to insert the system with.
-2-password - that will attach to the user.
-3-age - User age (for purchase policy).
+1. username - The Username that you want to insert the system with.
+2. password - that will attach to the user.
+3. age - User age (for purchase policy).
 ## how to use
      "register": [
     {

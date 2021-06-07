@@ -22,7 +22,6 @@ you should go to the file "appConfigTest.json" that store at /resource.
 Then you can fill the file in json format with the command you want to execute.
 
 ## Command -
-the command include the name of the command,then inside there is ,username , age and password of the new user that you want to register the system.
      "register": [
     {
       "username": "kandabior",
@@ -34,6 +33,7 @@ the command include the name of the command,then inside there is ,username , age
       "age": 16,
       "password": "elad321654"
     }
+the command include the name of the command,then inside there is ,username , age and password of the new user that you want to register the system.
 
 
 

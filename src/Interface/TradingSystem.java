@@ -137,51 +137,51 @@ public class TradingSystem {
 
         JSONArray registerArray = (JSONArray)jsonObject.get("register");
         for (int i = 0; registerArray != null && i< registerArray.size(); i++){
-            String userName = (String) ((JSONObject)registerArray.get(i)).get("username");
-            String password = (String) ((JSONObject)registerArray.get(i)).get("password");
-            int age = Math.toIntExact((long)((JSONObject)registerArray.get(i)).get("age"));
+            String userName = (String) (( org.json.simple.JSONObject )registerArray.get(i)).get("username");
+            String password = (String) (( org.json.simple.JSONObject )registerArray.get(i)).get("password");
+            int age = Math.toIntExact((long)((org.json.simple.JSONObject)registerArray.get(i)).get("age"));
             API.register(userName,password,age);
         }
 
         JSONArray loginArray = (JSONArray)jsonObject.get("login");
         for (int i = 0;loginArray != null && i< loginArray.size(); i++){
-            String userName = (String) ((JSONObject)loginArray.get(i)).get("username");
-            String password = (String) ((JSONObject)loginArray.get(i)).get("password");
+            String userName = (String) ((org.json.simple.JSONObject)loginArray.get(i)).get("username");
+            String password = (String) ((org.json.simple.JSONObject)loginArray.get(i)).get("password");
             API.registeredLogin(userName,password);
         }
 
         JSONArray openStoreArray = (JSONArray)jsonObject.get("openStore");
         for (int i = 0;openStoreArray != null && i< openStoreArray.size(); i++){
-            int userOwnerId = Math.toIntExact((long)((JSONObject)openStoreArray.get(i)).get("userOwnerId"));
-            String storeName = (String) ((JSONObject)openStoreArray.get(i)).get("storeName");
+            int userOwnerId = Math.toIntExact((long)((org.json.simple.JSONObject)openStoreArray.get(i)).get("userOwnerId"));
+            String storeName = (String) ((org.json.simple.JSONObject)openStoreArray.get(i)).get("storeName");
             API.openStore(userOwnerId,storeName);
         }
 
         JSONArray addProduct = (JSONArray)jsonObject.get("addProduct");
         for (int i = 0;addProduct != null && i< addProduct.size(); i++){
-            int storeOwnerId = Math.toIntExact((long)((JSONObject)addProduct.get(i)).get("storeOwnerId"));
-            int storeId = Math.toIntExact((long)((JSONObject)addProduct.get(i)).get("storeId"));
-            String name = (String) ((JSONObject)addProduct.get(i)).get("name");
+            int storeOwnerId = Math.toIntExact((long)((org.json.simple.JSONObject)addProduct.get(i)).get("storeOwnerId"));
+            int storeId = Math.toIntExact((long)((org.json.simple.JSONObject)addProduct.get(i)).get("storeId"));
+            String name = (String) ((org.json.simple.JSONObject)addProduct.get(i)).get("name");
             List <String> categories = new LinkedList();
-            JSONArray catList = (JSONArray)((JSONObject)addProduct.get(i)).get("categories");
+            JSONArray catList = (JSONArray)((org.json.simple.JSONObject)addProduct.get(i)).get("categories");
             for (int j = 0; j < catList.size(); j++){
                 categories.add((String)catList.get(j));
             }
-            int price = Math.toIntExact((long)((JSONObject)addProduct.get(i)).get("price"));
-            String description = (String) ((JSONObject)addProduct.get(i)).get("description");
-            int quantity = Math.toIntExact((long)((JSONObject)addProduct.get(i)).get("quantity"));
+            int price = Math.toIntExact((long)((org.json.simple.JSONObject)addProduct.get(i)).get("price"));
+            String description = (String) ((org.json.simple.JSONObject)addProduct.get(i)).get("description");
+            int quantity = Math.toIntExact((long)((org.json.simple.JSONObject)addProduct.get(i)).get("quantity"));
             API.addProduct(storeOwnerId, storeId, name,categories, price, description, quantity);
         }
 
         JSONArray addStoreManager = (JSONArray)jsonObject.get("addStoreManager");
         for(int i = 0;addStoreManager != null && i< addStoreManager.size(); i++){
-            int appointerUserId = Math.toIntExact((long)((JSONObject)addStoreManager.get(i)).get("appointerUserId"));
-            int appointeeUserId = Math.toIntExact((long)((JSONObject)addStoreManager.get(i)).get("appointeeUserId"));
+            int appointerUserId = Math.toIntExact((long)((org.json.simple.JSONObject)addStoreManager.get(i)).get("appointerUserId"));
+            int appointeeUserId = Math.toIntExact((long)((org.json.simple.JSONObject)addStoreManager.get(i)).get("appointeeUserId"));
 
 
-            int storeId = Math.toIntExact((long)((JSONObject)addStoreManager.get(i)).get("storeId"));
+            int storeId = Math.toIntExact((long)((org.json.simple.JSONObject)addStoreManager.get(i)).get("storeId"));
             List<Integer> permission = new LinkedList<>();
-            JSONArray permissionArray = (JSONArray) ((JSONObject)addStoreManager.get(i)).get("permission");
+            JSONArray permissionArray = (JSONArray) ((org.json.simple.JSONObject)addStoreManager.get(i)).get("permission");
             for(int j = 0; j < permissionArray.size(); j++){
                 permission.add(Math.toIntExact((long)(permissionArray.get(j))));
             }
@@ -198,10 +198,11 @@ public class TradingSystem {
 
         JSONArray removeProduct = (JSONArray)jsonObject.get("removeProduct");
         for(int i = 0;removeProduct != null && i< removeProduct.size(); i++) {
-            int managerUserId = Math.toIntExact((long)((JSONObject)removeProduct.get(i)).get("managerUserId"));
-            int storeId = Math.toIntExact((long)((JSONObject)removeProduct.get(i)).get("storeId"));
-            int productId = Math.toIntExact((long)((JSONObject)removeProduct.get(i)).get("prodId"));
-            API.removeProductFromStore(managerUserId, storeId, productId);
+            int managerUserId = Math.toIntExact((long)((org.json.simple.JSONObject)removeProduct.get(i)).get("managerUserId"));
+            int storeId = Math.toIntExact((long)((org.json.simple.JSONObject)removeProduct.get(i)).get("storeId"));
+            int productId = Math.toIntExact((long)((org.json.simple.JSONObject)removeProduct.get(i)).get("prodId"));
+           Result result =  API.removeProductFromStore(managerUserId, storeId, productId);
+           int a = 2;
         }
     }
 
@@ -1392,7 +1393,7 @@ public class TradingSystem {
                                     subscribeToObservable(getStoreById(storeId).getNotificationId(), userId);
                                     sendAlert(userId, "You are now manager in store: " + getStoreName(storeId));
                                     adminTable.increaseCounter("ManagersCounter");
-                                    ManagersCounter++;
+                                    //ManagersCounter++;
 
                                 }
                             }

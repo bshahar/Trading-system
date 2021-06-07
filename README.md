@@ -7,6 +7,21 @@ Or Kandabi,
 Shahar Bardugo,
 Dorin Matzrafi
 
+# Corona-API
+
+This project include python service that allowed you to send request and recive answer in json format.
+Using Jenkins and Docker.
+The service will run on localhost:8080
+
+
+## Get Status
+Returns a value of success / fail to contact the backend API.
+### Request
+    curl localhost:8080/status
+
+### Response
+
+    {“status”: “success”}
 
   
 

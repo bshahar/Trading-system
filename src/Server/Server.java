@@ -30,7 +30,7 @@ public class Server {
         Spark.webSocket("/AdminWebSocket", AdminWebSocket.class);
         Spark.webSocket("/myStores/bids", BidsWebSocket.class);
 
-        DataBaseHelper.cleanAllTable();
+        DataBaseHelper.cleanAllTable("test");
 
         String test="";
         String loadScenario="";
@@ -50,7 +50,7 @@ public class Server {
             e.printStackTrace();
         }
 
-        API.forTest();
+        API.forTest("test");
         Spark.init();
     }
 }

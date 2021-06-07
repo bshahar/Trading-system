@@ -20,8 +20,8 @@ public class SystemManagerTests {
     @BeforeEach
     public void setUp() {
         try {
-            DataBaseHelper.cleanAllTable();
-            API.initTradingSystem();
+            DataBaseHelper.cleanAllTable("test");
+            API.initTradingSystem("test","");
         } catch (Exception e) {
             System.out.println("ERROR!");
         }

@@ -22,17 +22,12 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="xml">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="transaction">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/errorLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/errorLog.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt.1" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt.1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/appConfigTest.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/appConfigTest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Tests/SystemManagerTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/SystemManagerTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/AdminWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/AdminWebSocket.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -178,7 +173,21 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SystemManagerTests">
+  <component name="RunManager" selected="Application.Server">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server.Server" />
+      <module name="Trading-system" />
+      <option name="PROGRAM_PARAMETERS" value="test" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
@@ -188,21 +197,6 @@
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="NotficationsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.NotficationsTest" />
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -268,7 +262,7 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.NotficationsTest" />
+      <item itemvalue="Application.Server" />
       <item itemvalue="JUnit.PermissionTest" />
       <item itemvalue="JUnit.PurchaseTest" />
       <item itemvalue="JUnit.StoreTest" />
@@ -276,11 +270,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.SystemManagerTests" />
         <item itemvalue="JUnit.StoreTest" />
         <item itemvalue="JUnit.PurchaseTest" />
         <item itemvalue="JUnit.PermissionTest" />
-        <item itemvalue="JUnit.NotficationsTest" />
       </list>
     </recent_temporary>
   </component>
@@ -312,12 +306,6 @@
       <workItem from="1622808063867" duration="2485000" />
       <workItem from="1622889352388" duration="8487000" />
       <workItem from="1622962859066" duration="3038000" />
-    </task>
-    <task id="LOCAL‎00030" summary="pemission action web socket">
-      <created>1619534997179</created>
-      <option name="number" value="LOCAL‎00030" />
-      <option name="presentableId" value="LOCAL‎00030" />
-      <updated>1619534997179</updated>
     </task>
     <task id="LOCAL‎00031" summary="pemission action web socket">
       <created>1619535386117</created>
@@ -620,7 +608,14 @@
       <option name="project" value="LOCAL" />
       <updated>1623050253738</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="transaction">
+      <created>1623057154251</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1623057154251</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -643,7 +638,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="elad do everything!" />
     <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
     <MESSAGE value="#61 db dorin" />
@@ -668,7 +662,8 @@
     <MESSAGE value="fix delete from offers tables" />
     <MESSAGE value="02" />
     <MESSAGE value="xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="xml" />
+    <MESSAGE value="transaction" />
+    <option name="LAST_COMMIT_MESSAGE" value="transaction" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -743,6 +738,10 @@
           <line>219</line>
           <option name="timeStamp" value="56" />
         </line-breakpoint>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.ClassCastException" package="java.lang" />
+          <option name="timeStamp" value="63" />
+        </breakpoint>
       </breakpoints>
     </breakpoint-manager>
     <pin-to-top-manager>

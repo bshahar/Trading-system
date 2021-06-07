@@ -7,6 +7,6 @@
     "externalSystemsUrl":"https://cs-bgu-wsep.herokuapp.com/",
     "dbHost":"remotemysql.com",
     "dbUserName":"root",
-    "dbPassword":"eladsolomon",
-    "dbURL":"jdbc:mysql://localhost:3306/eladlocaldb"
+    "dbPassword":"123456",
+    "dbURL":"jdbc:mysql://localhost:3306/ver4Db"
 }

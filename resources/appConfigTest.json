@@ -8,5 +8,5 @@
     "dbHost":"remotemysql.com",
     "dbUserName":"root",
     "dbPassword":"123456",
-    "dbURL":"jdbc:mysql://localhost:3306/ver4db"
+    "dbURL":"jdbc:mysql://localhost:3306/ver4Db"
 }

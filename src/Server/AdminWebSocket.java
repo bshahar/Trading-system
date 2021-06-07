@@ -74,9 +74,16 @@ public class AdminWebSocket {
 
             }
         }else if (type.equals("GET_SYS_STAT")) {
-            JSONObject jsonObject= (JSONObject) API.getSystemManagerStats().getData();
-            jsonObject.put("type","GET_SYS_STAT");
-            session.getRemote().sendString(jsonObject.toString());
+            try {
+                JSONObject jsonObject= (JSONObject) API.getSystemManagerStats().getData();
+                jsonObject.put("type","GET_SYS_STAT");
+                session.getRemote().sendString(jsonObject.toString());
+            }
+            catch (Exception e)
+            {
+                System.out.println(e);
+            }
+
         }
 
     }

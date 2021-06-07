@@ -51,3 +51,32 @@ The system have two modes: one for testing and one for regular run. In order to 
 
 The system also has the option of loading data automaticlly when it initializes. To do that, insert as program argument the string "load".
 Then, the system will load the json file "requestedTests.json".  In this file, you can execute the following functionalities: register, login, logout, open store, add product to store, remove product from store and appiont store manager. To each function you will need to give the proper parameters, see examples to functions' names and parameters in the current json file. Once this option is active, the system will load the scenario described by the data in the json file.
+
+permission Numbers:
+
+
+"addProduct" - 1
+"appointManager" - 2
+"appointOwner" - 3
+"closeStore" - 4
+"defineDiscountFormat" - 5
+"defineDiscountPolicy" - 6
+"definePurchaseFormat" - 7
+"definePurchasePolicy" - 8
+"editDiscountFormat" - 9
+"editDiscountPolicy" - 10
+"editProduct" - 11
+"editPurchaseFormat" - 12
+"disableEeditPurchasePolicy" - 13
+"getWorkersInfo" - 14
+"openStore" - 15
+"removeManagerAppointment" - 16
+"removeOwnerAppointment" - 17
+"removeProduct" - 19
+"reopenStore" - 20
+"replayMessages" - 21
+"viewMessages" - 21
+"viewPurchaseHistory" - 22
+"responedToOffer" - 23
+
+

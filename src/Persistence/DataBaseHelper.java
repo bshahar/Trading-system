@@ -27,7 +27,7 @@ public class DataBaseHelper {
 
     public static void cleanAllTable(String isTest) {
         try {
-            //test = isTest;
+            test = isTest;
             ConnectionSource connectionSource = connect();
 
             Dao<UserDAO, String> userManager = DaoManager.createDao(connectionSource, UserDAO.class);
@@ -122,6 +122,7 @@ public class DataBaseHelper {
     }
 
     public static ConnectionSource connect() throws Exception{
+
         JSONObject jsonObject;
         boolean isTest = test.equals("test");
         JSONParser jsonParser = new JSONParser();

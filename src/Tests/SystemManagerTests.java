@@ -5,7 +5,7 @@ import Persistence.AdminTableWrapper;
 import Persistence.DataBaseHelper;
 import Persistence.UserWrapper;
 import Service.API;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

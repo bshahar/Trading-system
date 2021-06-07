@@ -14,7 +14,27 @@ Trading system , where you can open stores and manage them , buy products ,show 
 Optional argumnets to start the system.
 1. load - inittial the system with optional data (the data  store in the file -"appConfigTest.json")
 ### Command
-    >tradingSystem load
+    tradingSystem load
+
+# Config file
+There are some option how you can initial the system.
+you should go to the file "appConfigTest.json" that store at /resource.
+Then you can fill the file in json format with the command you want to execute.
+
+## Command -
+the command include the name of the command,then inside there is ,username , age and password of the new user that you want to register the system.
+     "register": [
+    {
+      "username": "kandabior",
+      "age": 20,
+      "password": "or321654"
+    },
+    {
+      "username": "elad",
+      "age": 16,
+      "password": "elad321654"
+    }
+
 
 
 Configuration:  

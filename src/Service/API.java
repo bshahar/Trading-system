@@ -3,16 +3,15 @@ package Service;
 import Domain.*;
 import Interface.TradingSystem;
 import Domain.User;
-import Persistence.DAO.CounterDAO;
 import Persistence.DataBaseHelper;
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -21,39 +20,77 @@ public class API {
 
     private static TradingSystem tradingSystem;
 
-    public static void initTradingSystem() throws IOException {
+    public static void initTradingSystem(String isTest, String load) throws Exception {
+        DataBaseHelper.setTest(isTest);
+        //Properties appProps = new Properties();
+        //InputStream input;
+        JSONObject jsonObject;
+        boolean test = isTest.equals("test");
+        JSONParser jsonParser = new JSONParser();
+        FileReader reader;
 
-        Properties appProps = new Properties();
-
-        InputStream input = API.class.getClassLoader().getResourceAsStream("appConfig.properties");
-        if(input != null)
-            appProps.load(input);
-        else
-            throw new FileNotFoundException("Property file was not found.");
-
-        String sysManagerName = appProps.getProperty("systemManagerName");
-        String sysManagerId = appProps.getProperty("systemManagerId");
-        String sysManagerAge = appProps.getProperty("systemManagerAge");
-        if(sysManagerName.equals("null") || sysManagerId.equals("null") || sysManagerAge.equals("null")){
-            throw new ExceptionInInitializerError("Configuration file not fine");
+        try {
+            if (test) {
+                //input = API.class.getClassLoader().getResourceAsStream("appConfigTest.json");
+                reader = new FileReader("resources\\appConfigTest.json");
+            } else {
+                //input = API.class.getClassLoader().getResourceAsStream("appConfig.json");
+                reader = new FileReader("resources\\appConfig.json");
+            }
         }
+        catch(Exception e){
+            KingLogger.logError("INIT_TRADING_SYSTEM: json file was not found.");
+            throw new FileNotFoundException("json file was not found.");
+        }
+
+        jsonObject = (JSONObject) jsonParser.parse(reader);
+
+        if(jsonObject == null) {
+            KingLogger.logError("INIT_TRADING_SYSTEM: json file was not found.");
+            throw new FileNotFoundException("json file was not found.");
+        }
+
+//        appProps.load(input);
+//        String sysManagerName = appProps.getProperty("systemManagerName");
+//        String sysManagerId = appProps.getProperty("systemManagerId");
+//        String sysManagerAge = appProps.getProperty("systemManagerAge");
+//        String externalSystemsUrl = appProps.getProperty("externalSystemsUrl");
+//        String loadScenario = appProps.getProperty("loadScenario");
+
+          String sysManagerName = (String) jsonObject.get("systemManagerName");
+          String sysManagerId = (String) jsonObject.get("systemManagerId");
+          String sysManagerAge = (String) jsonObject.get("systemManagerAge");
+          String externalSystemsUrl = (String) jsonObject.get("externalSystemsUrl");
+
+        if(sysManagerName == null){
+            KingLogger.logError("INIT_TRADING_SYSTEM: sysManagerName attribute was not found.");
+            throw new FileNotFoundException("sysManagerName attribute was not found");
+        }
+        if(sysManagerId == null){
+            KingLogger.logError("INIT_TRADING_SYSTEM: sysManagerId attribute was not found.");
+            throw new FileNotFoundException("sysManagerId attribute was not found");
+        }
+        if(sysManagerAge == null){
+            KingLogger.logError("INIT_TRADING_SYSTEM: sysManagerAge attribute was not found.");
+            throw new FileNotFoundException("sysManagerAge attribute was not found");
+        }
+        if(externalSystemsUrl == null){
+            KingLogger.logError("INIT_TRADING_SYSTEM: externalSystemsUrl attribute was not found.");
+            throw new FileNotFoundException("externalSystemsUrl attribute was not found");
+        }
+
+
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), true);
-        String externalSystemsUrl = appProps.getProperty("externalSystemsUrl");
-        String tf = appProps.getProperty("forTests");
-        if(!tf.equals("true") & !tf.equals("false")){
-            throw new ExceptionInInitializerError("Configuration file not fine");
-        }
-        boolean forTests = Boolean.parseBoolean(tf);
+        tradingSystem = new TradingSystem(sysManager, externalSystemsUrl, test);
 
-
-        tradingSystem = new TradingSystem(sysManager, externalSystemsUrl, forTests);
-
-
-        if(Boolean.parseBoolean(appProps.getProperty("loadScenario")))
+        if(load.equals("load")) {
             tradingSystem.loadScenario();
+        }
+
+
         /*
         //String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-        //String appConfigPath = rootPath + "appConfig.properties";
+        //String appConfigPath = rootPath + "appConfig.json";
 
         //Properties appProps = new Properties();
         try {
@@ -69,6 +106,10 @@ public class API {
         }
 
          */
+    }
+
+    public static Result loggedGuestLogin(int guestId,String userName,String password){
+        return tradingSystem.loggedGuestLogin(guestId,userName,password);
     }
 
     public static Result guestLogin(){
@@ -296,9 +337,8 @@ public class API {
 //        registeredLogout(registerId3);
 //    }
 
-    public static void forTest()
+    public static void forTest(String isTest)
     {
-        DataBaseHelper.cleanAllTable();
 
         int registerId1;
         int registerId2;
@@ -593,5 +633,9 @@ public class API {
 
     public static boolean isSystemManager(int userId) {
         return tradingSystem.isSystemManager(userId);
+    }
+
+    public static void addAdminSession(Session session) {
+        tradingSystem.addAdminSession(session);
     }
 }

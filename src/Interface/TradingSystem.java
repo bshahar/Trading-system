@@ -20,10 +20,17 @@ import Persistence.DAO.CounterDAO;
 import Service.*;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
-import org.json.JSONObject;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
+import org.json.simple.parser.ParseException;
 
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.time.LocalDate;
+import java.lang.reflect.Array;
 import java.util.*;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -48,6 +55,7 @@ public class TradingSystem {
     private UserWrapper users;
     private List<ObservableType> observers;
     public static Map<Integer , SessionInterface> sessionsMap ;
+    public static Map<Integer , Session> adminSessionMap ;
     private CounterWrapper counterWrapper;
     private AdminTableWrapper adminTable;
 
@@ -68,8 +76,8 @@ public class TradingSystem {
             supplementAdapter = new SupplementAdapter(externalSystemsUrl);
 
         }
-        paymentAdapter = new PaymentAdapter(externalSystemsUrl);
-        supplementAdapter = new SupplementAdapter(externalSystemsUrl);
+        //paymentAdapter = new PaymentAdapter(externalSystemsUrl);
+        //supplementAdapter = new SupplementAdapter(externalSystemsUrl);
         this.users =  new UserWrapper();
         this.receipts =  new ReceiptWrapper();
 
@@ -86,6 +94,7 @@ public class TradingSystem {
         this.systemManager = systemManager;
         AppointSystemManager(systemManager);
         sessionsMap = new ConcurrentHashMap<>();
+        adminSessionMap= new HashMap<>();
         demoSessionMap = new ConcurrentHashMap<>();
         KingLogger.logEvent("Trading System initialized");
 
@@ -110,44 +119,88 @@ public class TradingSystem {
         }
     }
 
-    public void loadScenario() {
-        Properties testingProps = new Properties();
-        InputStream input = API.class.getClassLoader().getResourceAsStream("requestedTests.properties");
+    public void loadScenario() throws Exception {
+        //TODO here we need to write the json function parsing.
+        org.json.simple.JSONObject jsonObject;
+        JSONParser jsonParser = new JSONParser();
         try {
-            if (input != null)
-                testingProps.load(input);
-        } catch (Exception e) { }
-
-        API.register(testingProps.getProperty("u1name"), testingProps.getProperty("u1password"), Integer.parseInt(testingProps.getProperty("u1age")));
-        API.register(testingProps.getProperty("u2name"), testingProps.getProperty("u2password"), Integer.parseInt(testingProps.getProperty("u2age")));
-        API.register(testingProps.getProperty("u3name"), testingProps.getProperty("u3password"), Integer.parseInt(testingProps.getProperty("u3age")));
-
-        int registerId1 = (int) API.registeredLogin(testingProps.getProperty("u1name"), testingProps.getProperty("u1password")).getData();
-        int registerId2 = (int) API.registeredLogin(testingProps.getProperty("u2name"), testingProps.getProperty("u2password")).getData();
-        int registerId3 = (int) API.registeredLogin(testingProps.getProperty("u3name"), testingProps.getProperty("u3password")).getData();
-
-        int storeId1 = (int) API.openStore(registerId2, testingProps.getProperty("storeNameTest")).getData();
-
-        LinkedList<String> catList = new LinkedList<>();
-        catList.add(testingProps.getProperty("categoryFood"));
-
-        int productId = (int) API.addProduct(registerId2, storeId1, testingProps.getProperty("prodBambaName"), catList,
-                Integer.parseInt(testingProps.getProperty("bambaPrice")),
-                testingProps.getProperty("descriptionBamba"),
-                Integer.parseInt(testingProps.getProperty("prodQuantity20"))).getData();
-
-        if(addStoreManager(registerId2, registerId1, storeId1).isResult()) {
-            List<Integer> opIndexes = new LinkedList<>();
-            opIndexes.add(1);
-            opIndexes.add(11);
-            opIndexes.add(19);
-            addPermissions(registerId2, registerId1, storeId1, opIndexes);
+            FileReader reader = new FileReader("resources\\requestedTests.json");
+            jsonObject = (org.json.simple.JSONObject) jsonParser.parse(reader);
         }
 
-        API.registeredLogout(registerId1);
-        API.registeredLogout(registerId2);
-        API.registeredLogout(registerId3);
+        catch(Exception e){
+            KingLogger.logError("LOAD_SCENARIO: json file was not found.");
+            throw new FileNotFoundException("json file was not found.");
+        }
 
+        JSONArray registerArray = (JSONArray)jsonObject.get("register");
+        for (int i = 0; registerArray != null && i< registerArray.size(); i++){
+            String userName = (String) ((JSONObject)registerArray.get(i)).get("username");
+            String password = (String) ((JSONObject)registerArray.get(i)).get("password");
+            int age = Math.toIntExact((long)((JSONObject)registerArray.get(i)).get("age"));
+            API.register(userName,password,age);
+        }
+
+        JSONArray loginArray = (JSONArray)jsonObject.get("login");
+        for (int i = 0;loginArray != null && i< loginArray.size(); i++){
+            String userName = (String) ((JSONObject)loginArray.get(i)).get("username");
+            String password = (String) ((JSONObject)loginArray.get(i)).get("password");
+            API.registeredLogin(userName,password);
+        }
+
+        JSONArray openStoreArray = (JSONArray)jsonObject.get("openStore");
+        for (int i = 0;openStoreArray != null && i< openStoreArray.size(); i++){
+            int userOwnerId = Math.toIntExact((long)((JSONObject)openStoreArray.get(i)).get("userOwnerId"));
+            String storeName = (String) ((JSONObject)openStoreArray.get(i)).get("storeName");
+            API.openStore(userOwnerId,storeName);
+        }
+
+        JSONArray addProduct = (JSONArray)jsonObject.get("addProduct");
+        for (int i = 0;addProduct != null && i< addProduct.size(); i++){
+            int storeOwnerId = Math.toIntExact((long)((JSONObject)addProduct.get(i)).get("storeOwnerId"));
+            int storeId = Math.toIntExact((long)((JSONObject)addProduct.get(i)).get("storeId"));
+            String name = (String) ((JSONObject)addProduct.get(i)).get("name");
+            List <String> categories = new LinkedList();
+            JSONArray catList = (JSONArray)((JSONObject)addProduct.get(i)).get("categories");
+            for (int j = 0; j < catList.size(); j++){
+                categories.add((String)catList.get(j));
+            }
+            int price = Math.toIntExact((long)((JSONObject)addProduct.get(i)).get("price"));
+            String description = (String) ((JSONObject)addProduct.get(i)).get("description");
+            int quantity = Math.toIntExact((long)((JSONObject)addProduct.get(i)).get("quantity"));
+            API.addProduct(storeOwnerId, storeId, name,categories, price, description, quantity);
+        }
+
+        JSONArray addStoreManager = (JSONArray)jsonObject.get("addStoreManager");
+        for(int i = 0;addStoreManager != null && i< addStoreManager.size(); i++){
+            int appointerUserId = Math.toIntExact((long)((JSONObject)addStoreManager.get(i)).get("appointerUserId"));
+            int appointeeUserId = Math.toIntExact((long)((JSONObject)addStoreManager.get(i)).get("appointeeUserId"));
+
+
+            int storeId = Math.toIntExact((long)((JSONObject)addStoreManager.get(i)).get("storeId"));
+            List<Integer> permission = new LinkedList<>();
+            JSONArray permissionArray = (JSONArray) ((JSONObject)addStoreManager.get(i)).get("permission");
+            for(int j = 0; j < permissionArray.size(); j++){
+                permission.add(Math.toIntExact((long)(permissionArray.get(j))));
+            }
+            if(addStoreManager(appointerUserId, appointeeUserId, storeId).isResult()){
+                addPermissions(appointerUserId, appointeeUserId, storeId, permission);
+            }
+        }
+
+        JSONArray logout = (JSONArray)jsonObject.get("logout");
+        for(int i = 0;logout != null && i< logout.size(); i++) {
+            int userId = Math.toIntExact((long)logout.get(i));
+            API.registeredLogout(userId);
+        }
+
+        JSONArray removeProduct = (JSONArray)jsonObject.get("removeProduct");
+        for(int i = 0;removeProduct != null && i< removeProduct.size(); i++) {
+            int managerUserId = Math.toIntExact((long)((JSONObject)removeProduct.get(i)).get("managerUserId"));
+            int storeId = Math.toIntExact((long)((JSONObject)removeProduct.get(i)).get("storeId"));
+            int productId = Math.toIntExact((long)((JSONObject)removeProduct.get(i)).get("prodId"));
+            API.removeProductFromStore(managerUserId, storeId, productId);
+        }
     }
 
     public static counter getPolicyCounter() {
@@ -316,6 +369,25 @@ public class TradingSystem {
            }
         }
         return new Result(true, output);
+    }
+
+    public void addAdminSession(Session session) {
+        adminSessionMap.put(0,session);
+    }
+
+    public Result loggedGuestLogin(int guestId, String userName, String password) {
+        //login with the given details
+        Result result=login(userName,password);
+
+        //delete guest data
+        if(result.isResult()){
+            deleteGuest(guestId);
+        }
+        return result;
+    }
+
+    private void deleteGuest(int guestId) {
+        users.delete(guestId);
     }
 
 
@@ -507,6 +579,7 @@ public class TradingSystem {
                     user.setLogged(true);
                     KingLogger.logEvent("LOGIN:  User " + userName + " logged into the system.");
                     updateAdminCounter(user.getId());
+
                     return new Result( true,user.getId());
             }
         }
@@ -543,18 +616,42 @@ public class TradingSystem {
         {
             this.adminTable.increaseCounter("NormalUsersCounter");
             this.NormalUsersCounter++;
+            JSONObject jsonObject= new JSONObject();
+            jsonObject.put("type","UPDATE_REGISTERED");
+            jsonObject.put("number",NormalUsersCounter);
+            try {
+                adminSessionMap.get(0).getRemote().sendString(jsonObject.toString());
+            }catch(Exception e){
+                System.out.println(e);
+            }
             return;
         }
         if(owner && !manager)
         {
             this.adminTable.increaseCounter("OwnersCounter");
             this.OwnersCounter++;
+            JSONObject jsonObject= new JSONObject();
+            jsonObject.put("type","UPDATE_OWNERS");
+            jsonObject.put("number",OwnersCounter);
+            try {
+                adminSessionMap.get(0).getRemote().sendString(jsonObject.toString());
+            }catch(Exception e){
+                System.out.println(e);
+            }
             return;
         }
         if(!owner && manager)
         {
             this.ManagersCounter++;
             this.adminTable.increaseCounter("ManagersCounter");
+            JSONObject jsonObject= new JSONObject();
+            jsonObject.put("type","UPDATE_MANAGERS");
+            jsonObject.put("number",ManagersCounter);
+            try {
+                adminSessionMap.get(0).getRemote().sendString(jsonObject.toString());
+            }catch(Exception e){
+                System.out.println(e);
+            }
             return;
         }
     }
@@ -638,6 +735,14 @@ public class TradingSystem {
         int id = guest.getId();
         adminTable.increaseCounter("GuestsCounter");
         GuestsCounter++;
+        JSONObject jsonObject= new JSONObject();
+        jsonObject.put("type","UPDATE_GUESTS");
+        jsonObject.put("number",GuestsCounter);
+        try {
+            adminSessionMap.get(0).getRemote().sendString(jsonObject.toString());
+        }catch(Exception e){
+            System.out.println(e);
+        }
         KingLogger.logEvent("GUEST_LOGIN: Guest logged into the system with id: " + id);
         return new Result(true,id);
     }

@@ -1,22 +1,14 @@
 package Persistence;
 
-import Domain.Policy;
 import Domain.Product;
-import Domain.PurchaseFormat.ImmediatePurchase;
 import Domain.PurchaseFormat.PurchaseOffer;
-import Domain.PurchasePolicies.AgeLimitPolicy;
-import Domain.PurchasePolicies.MaxAmountPolicy;
-import Domain.PurchasePolicies.MinAmountPolicy;
 import Domain.Store;
-import Domain.User;
 import Persistence.DAO.*;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
-import com.j256.ormlite.dao.CloseableWrappedIterable;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
-import org.omg.DynamicAny.DynAnyOperations;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -68,7 +60,13 @@ public class OffersOnProductWrapper {
             ProductOffersDAO productOffersDaoObj = new ProductOffersDAO(store.getStoreId(),po.getId(),prod.getId());
             productOffersDAO.executeRaw("DELETE FROM ProductOffers WHERE storeId = " + store.getStoreId() + " AND offerId = " + po.getId() + " AND productId = " + prod.getId() + " ;");
             connectionSource.close();
-            this.value = get(store);
+            LinkedList<PurchaseOffer> offers = this.value.get(prod);
+            offers.remove(po);
+            if (offers.isEmpty())
+                this.value.remove(prod);
+            else
+                this.value.put(prod,offers);
+            //this.value = get(store);
 
             /*ConnectionSource connectionSource = connect();
             Dao<PurchaseOffersDAO, String> purchaseOffersDAO = DaoManager.createDao(connectionSource, PurchaseOffersDAO.class);
@@ -153,27 +151,7 @@ System.out.println(e);
 
     }
 
-    public ConnectionSource connect() throws IOException, SQLException {
-        Properties appProps = new Properties();
-        InputStream input = API.class.getClassLoader().getResourceAsStream("appConfig.properties");
-        if (input != null)
-            appProps.load(input);
-        else
-            throw new FileNotFoundException("Property file was not found.");
-
-        boolean test = appProps.getProperty("forTests").equals("true");
-        String url;
-        String userName;
-        String password;
-        if (test) {
-            url = appProps.getProperty("localDbURL");
-            userName = appProps.getProperty("localDbUserName");
-            password = appProps.getProperty("localDbPassword");
-        } else {
-            url = appProps.getProperty("dbURL");
-            userName = appProps.getProperty("dbUsername");
-            password = appProps.getProperty("dbPassword");
-        }
-        return new JdbcConnectionSource(url, userName, password);
+    public ConnectionSource connect() throws Exception{
+        return DataBaseHelper.connect();
     }
 }

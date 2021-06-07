@@ -1,4 +1,5 @@
 package Server;
+import Persistence.DataBaseHelper;
 import Server.Login.LoginWebSocket;
 import Server.myStores.myStoresWebSocket;
 import Service.API;
@@ -8,7 +9,7 @@ import java.io.IOException;
 
 public class Server {
 
-    public static void main(String []args) throws IOException {
+    public static void main(String []args){
         //Spark.secure("security/version2/KeyStore.jks", "123456", null,null);
         Spark.webSocket("/Login", LoginWebSocket.class);
         Spark.webSocket("/Main/*",MainWebSocket.class);
@@ -29,16 +30,27 @@ public class Server {
         Spark.webSocket("/AdminWebSocket", AdminWebSocket.class);
         Spark.webSocket("/myStores/bids", BidsWebSocket.class);
 
+        DataBaseHelper.cleanAllTable();
 
+        String test="";
+        String loadScenario="";
+        for (int i = 0; i < args.length; i++){
+            if(args[i].equals("test")){
+                test = "test";
+            }
+            if(args[i].equals("load")){
+                loadScenario = "load";
+            }
+        }
 
         try {
-            API.initTradingSystem();
-        } catch (IOException e) {
-            //TODO deal with failure of getting config file
+            API.initTradingSystem(test, loadScenario);
+            //API.forTest(test);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+
         API.forTest();
-
-
         Spark.init();
     }
 }

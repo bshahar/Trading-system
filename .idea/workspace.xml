@@ -22,7 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="xml" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix external systems">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -85,7 +91,7 @@
     </option>
   </component>
   <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="SystemManagment" />
+    <option name="BRANCH" value="origin/purchase_tests_db_fixes" />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -167,7 +173,52 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.SystemManagerTests">
+  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest.approveOfferWithPermissionSuccessTest">
+    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Server.Server" />
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Server.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiscountAndPurchaseTest.approveOfferWithPermissionSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+      <option name="METHOD_NAME" value="approveOfferWithPermissionSuccessTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="DiscountAndPurchaseTest.approveOfferWithoutPermissionFailTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+      <option name="METHOD_NAME" value="approveOfferWithoutPermissionFailTest" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="SystemManagerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -179,22 +230,6 @@
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
       <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SystemManagerTests.GuestsCounterNoGuestsInside" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
-      <option name="METHOD_NAME" value="GuestsCounterNoGuestsInside" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -215,49 +250,16 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SystemManagerTests.ManagersCounter" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
-      <option name="METHOD_NAME" value="ManagersCounter" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="SystemManagerTests.OwnersCounterLogOutAndLogin" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
-      <option name="METHOD_NAME" value="OwnersCounterLogOutAndLogin" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithPermissionSuccessTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithoutPermissionFailTest" />
+        <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.SystemManagerTests" />
         <item itemvalue="JUnit.SystemManagerTests.GuestsCounterWithGuests" />
-        <item itemvalue="JUnit.SystemManagerTests.GuestsCounterNoGuestsInside" />
-        <item itemvalue="JUnit.SystemManagerTests.ManagersCounter" />
-        <item itemvalue="JUnit.SystemManagerTests.OwnersCounterLogOutAndLogin" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="project-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -285,6 +287,14 @@
       <workItem from="1622134213186" duration="63000" />
       <workItem from="1622808063867" duration="2485000" />
       <workItem from="1622889352388" duration="8487000" />
+      <workItem from="1622962859066" duration="3038000" />
+    </task>
+    <task id="LOCAL-00029" summary="logger in the code">
+      <created>1619449132600</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1619449132600</updated>
     </task>
     <task id="LOCAL‎00030" summary="pemission action web socket">
       <created>1619534997179</created>
@@ -586,18 +596,11 @@
       <option name="project" value="LOCAL" />
       <updated>1622898616473</updated>
     </task>
-    <task id="LOCAL-00078" summary="xml">
-      <created>1622899124388</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1622899124388</updated>
-    </task>
-    <option name="localTasksCounter" value="79" />
+    <option name="localTasksCounter" value="78" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="3" />
+    <option name="version" value="2" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -642,6 +645,44 @@
     <MESSAGE value="02" />
     <MESSAGE value="xml" />
     <option name="LAST_COMMIT_MESSAGE" value="xml" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1493" height="176" key="GridCell.Tab.0.bottom" timestamp="1622965957733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="176" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1622965957733" />
+    <state width="1493" height="176" key="GridCell.Tab.0.center" timestamp="1622965957733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="176" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1622965957733" />
+    <state width="1493" height="176" key="GridCell.Tab.0.left" timestamp="1622965957733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="176" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1622965957733" />
+    <state width="1493" height="176" key="GridCell.Tab.0.right" timestamp="1622965957733">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="176" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1622965957733" />
+    <state width="1493" height="176" key="GridCell.Tab.1.bottom" timestamp="1622965957464">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="176" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1622965957464" />
+    <state width="1493" height="176" key="GridCell.Tab.1.center" timestamp="1622965957464">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="176" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1622965957464" />
+    <state width="1493" height="176" key="GridCell.Tab.1.left" timestamp="1622965957464">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="176" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1622965957464" />
+    <state width="1493" height="176" key="GridCell.Tab.1.right" timestamp="1622965957464">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state width="1493" height="176" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1622965957464" />
+    <state x="425" y="187" key="run.anything.popup" timestamp="1622965937188">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="425" y="187" key="run.anything.popup/0.0.1536.824@0.0.1536.824" timestamp="1622965937188" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -695,8 +736,7 @@
     </breakpoint-manager>
     <pin-to-top-manager>
       <pinned-members>
-        <PinnedItemInfo parentTag="Domain.DiscountPolicies.DiscountCondition" memberName="id" />
-        <PinnedItemInfo parentTag="Persistence.DiscountsOnProductsWrapper" memberName="value" />
+        <PinnedItemInfo />
       </pinned-members>
     </pin-to-top-manager>
     <watches-manager>
@@ -711,15 +751,15 @@
     <select />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>Server.LoginPage.*</FILTER>
+    </SUITE>
     <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$SystemManagerTests_OwnersCounter.ic" NAME="SystemManagerTests.OwnersCounter Coverage Results" MODIFIED="1622897679488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
-    </SUITE>
-    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
-    <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1619283679044" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
-      <FILTER>Server.LoginPage.*</FILTER>
     </SUITE>
   </component>
 </project>

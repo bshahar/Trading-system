@@ -1,0 +1,79 @@
+{
+  "register": [
+    {
+      "username": "kandabior",
+      "age": 20,
+      "password": "or321654"
+    },
+    {
+      "username": "elad",
+      "age": 16,
+      "password": "elad321654"
+    },
+    {
+      "username": "erez",
+      "age": 20,
+      "password": "erez321654"
+    }
+  ],
+  "login": [
+    {
+      "username": "kandabior",
+      "password": "or321654"
+    },
+    {
+      "username": "elad",
+      "password": "elad321654"
+    },
+    {
+      "username": "erez",
+      "password": "erez321654"
+    }
+  ],
+  "openStore": [
+    {
+      "userOwnerId": 2,
+      "storeName": "storeNameTest"
+    }
+  ],
+  "addProduct": [
+    {
+      "storeOwnerId": 2,
+      "storeId": 1,
+      "name": "Bamba",
+      "categories": [
+        "food"
+      ],
+      "price": 20,
+      "description": "snack",
+      "quantity": 100
+    },
+    {
+      "storeOwnerId": 2,
+      "storeId": 1,
+      "name": "Corn",
+      "categories": [
+        "food"
+      ],
+      "price": 10,
+      "description": "tastyCorn",
+      "quantity": 50
+    }
+  ],
+  "removeProduct" : [
+    {
+      "managerUserId" : 2,
+      "storeId" : 1,
+      "prodId" : 2
+    }
+  ],
+  "addStoreManager": [
+    {
+      "appointerUserId": 2,
+      "appointeeUserId": 1,
+      "storeId": 1,
+      "permission" : [1, 11, 19]
+    }
+  ],
+  "logout" : [1]
+}

@@ -23,6 +23,7 @@ public class AdminWebSocket {
     @OnWebSocketConnect
     public void connected(Session session) {
         sessions.add(session);
+        API.addAdminSession(session);
     }
 
     @OnWebSocketClose
@@ -72,6 +73,11 @@ public class AdminWebSocket {
                 session.getRemote().sendString(jsonOut.toString());
 
             }
+        }else if (type.equals("GET_SYS_STAT")) {
+            JSONObject jsonObject= (JSONObject) API.getSystemManagerStats().getData();
+            jsonObject.put("type","GET_SYS_STAT");
+            session.getRemote().sendString(jsonObject.toString());
         }
+
     }
 }

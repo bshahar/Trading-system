@@ -29,6 +29,7 @@ public class MainWebSocket {
 
         sessions.remove(session);
         int id  = Integer.parseInt(session.getUpgradeRequest().getParameterMap().get("userId").get(0));
+        API.registeredLogout(id);
         API.removeSession(id);
     }
 

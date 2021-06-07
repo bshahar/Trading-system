@@ -1052,3 +1052,9 @@
  
 [2021-05-27] [11:59:01] [WARNING] BUY_PRODUCTS: User with id 0 couldn't make a purchase in store 0
  
+[2021-06-05] [17:24:42] [WARNING] DATABASE_HELPER: url attribute was not found.
+ 
+[2021-06-06] [14:04:30] [WARNING] INIT_TRADING_SYSTEM: loadScenario attribute was not found.
+ 
+[2021-06-06] [14:05:07] [WARNING] INIT_TRADING_SYSTEM: loadScenario attribute was not found.
+ 

@@ -23,10 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="transaction">
+      <change afterPath="$PROJECT_DIR$/resources/UnitConfigurationTest.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Tests/ConfigurationFileTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/requestedTests.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/requestedTests.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +140,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/jars/json-simple-1.1.1 (1).jar" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/resources" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -155,11 +154,6 @@
     <property name="settings.editor.selected.configurable" value="Errors" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="Domain" />
-      <recent name="Server" />
-      <recent name="Permissions" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\elads\OneDrive\Documents\TradingSystem\Trading-system\jars" />
       <recent name="C:\Users\דורין\Desktop\סדנה חדש\Trading-system\resources" />
@@ -167,40 +161,21 @@
       <recent name="C:\Users\erez1\IdeaProjects\Trading-system\src\Persistance" />
       <recent name="C:\Users\erez1\IdeaProjects\Trading-system\.idea\libraries" />
     </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\erez1\IdeaProjects\Trading-system22\resources" />
+    </key>
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="Persistance" />
       <recent name="" />
     </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="Domain" />
+      <recent name="Server" />
+      <recent name="Permissions" />
+    </key>
   </component>
-  <component name="RunManager" selected="Application.Server">
-    <configuration name="PlayGround" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Tests.PlayGround" />
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server.Server" />
-      <module name="Trading-system" />
-      <option name="PROGRAM_PARAMETERS" value="test load" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="PurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.ConfigurationFileTest">
+    <configuration name="ConfigurationFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -209,13 +184,13 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.PurchaseTest" />
+      <option name="MAIN_CLASS_NAME" value="Tests.ConfigurationFileTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="StoreTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConfigurationFileTest.checkAddProductNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -224,13 +199,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.StoreTest" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Tests.ConfigurationFileTest" />
+      <option name="METHOD_NAME" value="checkAddProductNotFound" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="SystemManagerTests" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConfigurationFileTest.checkAddStoreManager" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -239,26 +215,59 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.SystemManagerTests" />
-      <option name="TEST_OBJECT" value="class" />
+      <option name="MAIN_CLASS_NAME" value="Tests.ConfigurationFileTest" />
+      <option name="METHOD_NAME" value="checkAddStoreManager" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigurationFileTest.checkLogoutNotFound" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.ConfigurationFileTest" />
+      <option name="METHOD_NAME" value="checkLogoutNotFound" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConfigurationFileTest.checkRemoveProdect" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.ConfigurationFileTest" />
+      <option name="METHOD_NAME" value="checkRemoveProdect" />
+      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="Application.Server" />
-      <item itemvalue="Application.PlayGround" />
-      <item itemvalue="JUnit.PurchaseTest" />
-      <item itemvalue="JUnit.StoreTest" />
-      <item itemvalue="JUnit.SystemManagerTests" />
+      <item itemvalue="JUnit.ConfigurationFileTest.checkRemoveProdect" />
+      <item itemvalue="JUnit.ConfigurationFileTest.checkAddStoreManager" />
+      <item itemvalue="JUnit.ConfigurationFileTest.checkAddProductNotFound" />
+      <item itemvalue="JUnit.ConfigurationFileTest.checkLogoutNotFound" />
+      <item itemvalue="JUnit.ConfigurationFileTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Server" />
-        <item itemvalue="Application.PlayGround" />
-        <item itemvalue="JUnit.SystemManagerTests" />
-        <item itemvalue="JUnit.StoreTest" />
-        <item itemvalue="JUnit.PurchaseTest" />
+        <item itemvalue="JUnit.ConfigurationFileTest" />
+        <item itemvalue="JUnit.ConfigurationFileTest.checkLogoutNotFound" />
+        <item itemvalue="JUnit.ConfigurationFileTest.checkAddProductNotFound" />
+        <item itemvalue="JUnit.ConfigurationFileTest.checkAddStoreManager" />
+        <item itemvalue="JUnit.ConfigurationFileTest.checkRemoveProdect" />
       </list>
     </recent_temporary>
   </component>
@@ -628,7 +637,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
     <MESSAGE value="#61 db dorin" />
     <MESSAGE value="#61 discounts daos" />
@@ -653,49 +661,54 @@
     <MESSAGE value="02" />
     <MESSAGE value="xml" />
     <MESSAGE value="transaction" />
-    <option name="LAST_COMMIT_MESSAGE" value="transaction" />
+    <MESSAGE value="json shorts Register And Login" />
+    <option name="LAST_COMMIT_MESSAGE" value="json shorts Register And Login" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623078385812">
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1623142820911">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623078385812" />
+    <state x="414" y="175" key="#com.intellij.execution.impl.EditConfigurationsDialog/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623142820911" />
     <state width="435" height="466" key="DebuggerActiveHint" timestamp="1623075547638">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state width="435" height="466" key="DebuggerActiveHint/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623075547638" />
-    <state width="1877" height="194" key="GridCell.Tab.0.bottom" timestamp="1623078425458">
+    <state width="1877" height="276" key="GridCell.Tab.0.bottom" timestamp="1623143951608">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.0.bottom/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623078425458" />
-    <state width="1877" height="194" key="GridCell.Tab.0.center" timestamp="1623078425458">
+    <state width="1877" height="276" key="GridCell.Tab.0.bottom/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623143951608" />
+    <state width="1877" height="276" key="GridCell.Tab.0.center" timestamp="1623143951608">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.0.center/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623078425458" />
-    <state width="1877" height="194" key="GridCell.Tab.0.left" timestamp="1623078425458">
+    <state width="1877" height="276" key="GridCell.Tab.0.center/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623143951608" />
+    <state width="1877" height="276" key="GridCell.Tab.0.left" timestamp="1623143951608">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.0.left/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623078425458" />
-    <state width="1877" height="194" key="GridCell.Tab.0.right" timestamp="1623078425458">
+    <state width="1877" height="276" key="GridCell.Tab.0.left/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623143951608" />
+    <state width="1877" height="276" key="GridCell.Tab.0.right" timestamp="1623143951608">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.0.right/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623078425458" />
-    <state width="1877" height="194" key="GridCell.Tab.1.bottom" timestamp="1623078425458">
+    <state width="1877" height="276" key="GridCell.Tab.0.right/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623143951608" />
+    <state width="1877" height="284" key="GridCell.Tab.1.bottom" timestamp="1623143364544">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.1.bottom/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623078425458" />
-    <state width="1877" height="194" key="GridCell.Tab.1.center" timestamp="1623078425458">
+    <state width="1877" height="284" key="GridCell.Tab.1.bottom/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623143364544" />
+    <state width="1877" height="284" key="GridCell.Tab.1.center" timestamp="1623143364544">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.1.center/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623078425458" />
-    <state width="1877" height="194" key="GridCell.Tab.1.left" timestamp="1623078425458">
+    <state width="1877" height="284" key="GridCell.Tab.1.center/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623143364544" />
+    <state width="1877" height="284" key="GridCell.Tab.1.left" timestamp="1623143364544">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.1.left/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623078425458" />
-    <state width="1877" height="194" key="GridCell.Tab.1.right" timestamp="1623078425458">
+    <state width="1877" height="284" key="GridCell.Tab.1.left/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623143364544" />
+    <state width="1877" height="284" key="GridCell.Tab.1.right" timestamp="1623143364544">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="194" key="GridCell.Tab.1.right/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623078425458" />
+    <state width="1877" height="284" key="GridCell.Tab.1.right/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623143364544" />
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2" timestamp="1623140801674">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="253" key="Vcs.Push.Dialog.v2/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623140801674" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1623075879069">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>

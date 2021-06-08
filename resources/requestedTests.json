@@ -1,4 +1,16 @@
 {
+  "RegisterAndLoginUser": [
+    {
+      "username": "dorin",
+      "age": 26,
+      "password": "dorin321654"
+    },
+    {
+      "username": "shahar",
+      "age": 25,
+      "password": "shahar321654"
+    }
+  ],
   "register": [
     {
       "username": "kandabior",

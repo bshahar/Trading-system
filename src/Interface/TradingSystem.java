@@ -135,6 +135,15 @@ public class TradingSystem {
             throw new FileNotFoundException("json file was not found.");
         }
 
+        JSONArray initializeUser = (JSONArray)jsonObject.get("RegisterAndLoginUser");
+        for (int i = 0; initializeUser != null && i< initializeUser.size(); i++) {
+            String userName = (String) (( org.json.simple.JSONObject )initializeUser.get(i)).get("username");
+            String password = (String) (( org.json.simple.JSONObject )initializeUser.get(i)).get("password");
+            int age = Math.toIntExact((long)((org.json.simple.JSONObject)initializeUser.get(i)).get("age"));
+            API.register(userName,password,age);
+            API.registeredLogin(userName,password);
+        }
+
         JSONArray registerArray = (JSONArray)jsonObject.get("register");
         for (int i = 0; registerArray != null && i< registerArray.size(); i++){
             String userName = (String) (( org.json.simple.JSONObject )registerArray.get(i)).get("username");

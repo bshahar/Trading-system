@@ -21,13 +21,11 @@ Explenation on each mode later in this document.
 
 
 # Config file
-There are some option how you can initial the system.
-you should go to the file "appConfigTest.json" that store at /resource.
-Then you can fill the file in json format with the command you want to execute.
+The system has two modes: one for testing and one for regular run. In order to initialize the system in test mode insert as program argument the string "test". When in test mode, the system will load the "appConfigTest.json" using the local database. Otherwise, the system will load the file "appConfig.json", and remote database will be used. The configuration files are located at /resources. Please note that you wrote the correct database name & password for the system to be able to run.
 
 # Register Command
 ## parameters:
-1. username - The user name you wish to log in to the system with.
+1. username - the user name you wish to log in to the system with.
 2. password - that will attach to that user.
 3. age - user age (for purchase policies).
 ## how to use
@@ -46,9 +44,6 @@ Then you can fill the file in json format with the command you want to execute.
 
 
 
-Configuration:  
-The system have two modes: one for testing and one for regular run. In order to initialize the system in test mode insert as program argument the string "test". When in test mode, the system will load the "appConfigTest.json" using the local database. Otherwise, the remote database will be used.  
-  
 
 
 The system also has the option of loading data automaticlly when it initializes. To do that, insert as program argument the string "load".

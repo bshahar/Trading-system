@@ -12,7 +12,7 @@ Trading system- where you can open stores and manage them, buy products, show st
 
 # Getting started
 Optional argumnets to start the system.
-1. load - initialןזק the system with optional data (the data store in the file -"appConfigTest.json")
+1. load - initialize the system with optional data (the data store in the file -"appConfigTest.json")
 ## How to use
     tradingSystem load
 

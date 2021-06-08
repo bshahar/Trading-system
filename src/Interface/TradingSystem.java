@@ -18,6 +18,7 @@ import Persistence.*;
 import Persistence.DAO.AdminTableDAO;
 import Persistence.DAO.CounterDAO;
 import Service.*;
+import Tests.PermissionTest;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
 import org.json.JSONObject;
@@ -244,10 +245,19 @@ public class TradingSystem {
     public Result addPurchaseOffer(int storeId, int userId, int prodId, double offer, int numOfProd) {
         Store st = getStoreById(storeId);
         if(st != null && st.prodExists(prodId))  {
-            int offerId = st.addPurchaseOffer(prodId, getUserById(userId), offer, numOfProd);
-            List<User> ownersManagers = new LinkedList<>();
+            //int offerId = st.addPurchaseOffer(prodId, getUserById(userId), offer, numOfProd);
+            LinkedList<User> ownersManagers = new LinkedList<>();
             ownersManagers.addAll(st.getOwners());
-            ownersManagers.addAll(st.getManagers());
+            //ownersManagers.addAll(st.getManagers());
+            for(User u : st.getManagers()){
+                if(checkPermissions(u.getId(),storeId, Permission.ResponedToOffer.ordinal()))
+                    ownersManagers.add(u);
+            }
+            LinkedList<Integer> ownersManagersId = new LinkedList<>();
+            for (User u : ownersManagers){
+                ownersManagersId.add(u.getId());
+            }
+            int offerId = st.addPurchaseOffer(prodId, getUserById(userId), offer, numOfProd,ownersManagersId);
             for(User u:ownersManagers){
                 sendAlert(u.getId(),"Someone has made an offer on " + getProductById(prodId).getName() +" with id " + prodId);
             }

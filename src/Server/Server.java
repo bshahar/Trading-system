@@ -39,7 +39,7 @@ public class Server {
             //TODO deal with failure of getting config file
         }
 
-        API.forTest();
+        //API.forTest();
 
 
         Spark.init();

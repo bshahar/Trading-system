@@ -102,6 +102,9 @@ public class DataBaseHelper {
             Dao<CounterDAO, String>CounterDAOManager = DaoManager.createDao(connectionSource,CounterDAO.class);
             CounterDAOManager.executeRaw("DELETE FROM Counters");
 
+            Dao<LeftToApproveDAO, String>LeftToApproveDAOManager = DaoManager.createDao(connectionSource,LeftToApproveDAO.class);
+            LeftToApproveDAOManager.executeRaw("DELETE FROM LeftToApprove");
+
             CounterDAO storeDAO= new CounterDAO(1,0,0,0,0,0,0,0,0,0,0);
             CounterDAOManager.create(storeDAO);
 

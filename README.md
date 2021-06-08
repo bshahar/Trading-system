@@ -7,12 +7,12 @@ Or Kandabi,
 Shahar Bardugo,
 Dorin Matzrafi
 
-Trading system , where you can open stores and manage them , buy products ,show statics and more.
+Trading system- where you can open stores and manage them, buy products, show statics and more!
 
 
 # Getting started
 Optional argumnets to start the system.
-1. load - inittial the system with optional data (the data  store in the file -"appConfigTest.json")
+1. load - initialןזק the system with optional data (the data store in the file -"appConfigTest.json")
 ## How to use
     tradingSystem load
 
@@ -25,9 +25,9 @@ Then you can fill the file in json format with the command you want to execute.
 
 # Register Command
 ## parameters:
-1. username - The Username that you want to insert the system with.
-2. password - that will attach to the user.
-3. age - User age (for purchase policy).
+1. username - The user name you wish to log in to the system with.
+2. password - that will attach to that user.
+3. age - user age (for purchase policies).
 ## how to use
      "register": [
     {
@@ -52,7 +52,7 @@ The system have two modes: one for testing and one for regular run. In order to 
 The system also has the option of loading data automaticlly when it initializes. To do that, insert as program argument the string "load".
 Then, the system will load the json file "requestedTests.json".  In this file, you can execute the following functionalities: register, login, logout, open store, add product to store, remove product from store and appiont store manager. To each function you will need to give the proper parameters, see examples to functions' names and parameters in the current json file. Once this option is active, the system will load the scenario described by the data in the json file.
 
-permission Numbers:
+Permission numbers:
 
 
 "addProduct" - 1

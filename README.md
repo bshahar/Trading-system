@@ -30,16 +30,16 @@ The system has two modes: one for testing and one for regular run. In order to i
 3. age - user age (for purchase policies).
 ## how to use
      "register": [
-    {
-      "username": "kandabior",
-      "age": 20,
-      "password": "or321654"
-    },
-    {
-      "username": "elad",
-      "age": 16,
-      "password": "elad321654"
-    }
+      {
+        "username": "kandabior",
+        "age": 20,
+        "password": "or321654"
+      },
+      {
+        "username": "elad",
+        "age": 16,
+        "password": "elad321654"
+      }
 
 
 
@@ -52,28 +52,28 @@ Then, the system will load the json file "requestedTests.json".  In this file, y
 Permission numbers:
 
 
-"addProduct" - 1
-"appointManager" - 2
-"appointOwner" - 3
-"closeStore" - 4
-"defineDiscountFormat" - 5
-"defineDiscountPolicy" - 6
-"definePurchaseFormat" - 7
-"definePurchasePolicy" - 8
-"editDiscountFormat" - 9
-"editDiscountPolicy" - 10
-"editProduct" - 11
-"editPurchaseFormat" - 12
-"disableEeditPurchasePolicy" - 13
-"getWorkersInfo" - 14
-"openStore" - 15
-"removeManagerAppointment" - 16
-"removeOwnerAppointment" - 17
-"removeProduct" - 19
-"reopenStore" - 20
-"replayMessages" - 21
-"viewMessages" - 21
-"viewPurchaseHistory" - 22
-"responedToOffer" - 23
+"addProduct" - 1  
+"appointManager" - 2  
+"appointOwner" - 3  
+"closeStore" - 4  
+"defineDiscountFormat" - 5   
+"defineDiscountPolicy" - 6  
+"definePurchaseFormat" - 7  
+"definePurchasePolicy" - 8  
+"editDiscountFormat" - 9  
+"editDiscountPolicy" - 10  
+"editProduct" - 11  
+"editPurchaseFormat" - 12  
+"disableEeditPurchasePolicy" - 13  
+"getWorkersInfo" - 14  
+"openStore" - 15  
+"removeManagerAppointment" - 16  
+"removeOwnerAppointment" - 17  
+"removeProduct" - 19  
+"reopenStore" - 20  
+"replayMessages" - 21  
+"viewMessages" - 21  
+"viewPurchaseHistory" - 22  
+"responedToOffer" - 23  
 
 

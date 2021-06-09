@@ -27,7 +27,7 @@ Please note that you wrote the correct database name & password for the system t
 
 
 # Load data
-The system has the option of loading data automaticlly when it initializes. To do that, insert as program argument the string "load". Then, the system will load the json file "requestedTests.json". In this file, you can execute the following functionalities: register & login (seperatly or combined), logout, open store, add product to store, remove product from store and appiont store manager. To each function you will need to give the proper parameters, see examples to functions' names and parameters below. Once this option is active, the system will load the scenario described by the data in the json file.
+The system has the option of loading data automaticlly when it initializes. To do that, insert as program argument the string "load". Then, the system will load the json file "requestedTests.json". In this file, you can execute the following functionalities: register & login (seperatly or combined), logout, open store, add product to store, remove product from store, appiont store manager and appiont store owner. To each function you will need to give the proper parameters, see examples to functions' names and parameters below. Once this option is active, the system will load the scenario described by the data in the json file.
 
 ## Register
 ### parameters:

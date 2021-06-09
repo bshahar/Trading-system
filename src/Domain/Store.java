@@ -5,6 +5,7 @@ import Domain.DiscountFormat.Discount;
 import Domain.DiscountFormat.SimpleDiscount;
 import Domain.DiscountPolicies.DiscountCondition;
 import Domain.PurchaseFormat.ImmediatePurchase;
+import Domain.PurchaseFormat.Purchase;
 import Domain.PurchaseFormat.PurchaseOffer;
 import Domain.PurchasePolicies.PurchaseCondition;
 import Interface.TradingSystem;
@@ -601,26 +602,12 @@ public class Store {
         return this.receipts.remove(receipt,storeId);
     }
 
-    public int addPurchaseOffer(int prodId, User user, double offer, int numOfProd) {
+    public int addPurchaseOffer(int prodId, User user, double offer, int numOfProd, LinkedList<Integer> ownersManagers) {
         int offerId =  offerCounter.inc();
         if(user.isRegistered()) {
             PurchaseOffer po = new PurchaseOffer(offerId,offer,numOfProd,user);
+            po.addOwnersAndMangersLeft(ownersManagers);
             this.offersOnProduct.add(this.storeId, getProductById(prodId), po);
-            /*if (this.offersOnProduct.contains(getProductById(prodId))) {
-                List<PurchaseOffer> offers = this.offersOnProduct.get(getProductById(prodId));
-                Iterator<PurchaseOffer> iterator = offers.iterator();
-                while (iterator.hasNext()) {
-                    PurchaseOffer p = iterator.next();
-                    if (p.getUser().equals(user)) {
-                        offers.remove(p);
-                    }
-                }
-                offers.add(new PurchaseOffer(offerId,offer,numOfProd,user));
-            } else {
-                LinkedList<PurchaseOffer> offers = new LinkedList();
-                offers.add(new PurchaseOffer(offerId,offer,numOfProd,user));
-                this.offersOnProduct.put(getProductById(prodId), offers);
-            }*/
             return offerId;
 
         }
@@ -646,49 +633,65 @@ public class Store {
            this.offersOnProduct.remove(this, getProductById(prodId), po);
     }
 
-    public Result responedToOffer(int prodId, int offerId, String responed, double counterOffer, String option) {
+    public Result responedToOffer(int prodId, int offerId, String responed, double counterOffer, String option, int userId) {
         if(option.equals("ACT")) {
             switch (responed) {
                 case "APPROVED":
-                    double offer = 0;
-                    int amount = 0;
-                    User user = null;
                     List<PurchaseOffer> offers = this.offersOnProduct.get(this, getProductById(prodId));
-                    for (PurchaseOffer p : offers) {
-                        if (p.getId() == offerId) {
-                            offer = p.getPriceOfOffer();
-                            user = p.getUser();
-                            amount = p.getNumOfProd();
+                    PurchaseOffer p = null;
+                    for (PurchaseOffer po : offers) {
+                        if (po.getId() == offerId) {
+                            p = po;
                         }
                     }
+                    if(p!=null) {
+                        p.removeOwnerAfterApproved(userId);
+                        if (p.allOwnersApproved() && !p.HasCounterOffer()) {
 
-                    if (user != null) {
-                        Bag bag = user.getBagByStoreId(this.storeId);
-                        if (bag == null) {
-                            bag = new Bag(this, user.getId());
-                            user.getBags().add(bag);
+                            double offer = p.getPriceOfOffer();
+                            int amount = p.getNumOfProd();
+                            ;
+                            User user = p.getUser();
+                            if (user != null) {
+                                Bag bag = user.getBagByStoreId(this.storeId);
+                                if (bag == null) {
+                                    bag = new Bag(this, user.getId());
+                                    user.getBags().add(bag);
+                                }
+                                bag.productsAmounts.add(getProductById(prodId), amount, storeId, user.getId());
+                                bag.productsApproved.add(this.storeId, user.getId(), getProductById(prodId), offer);
+                                removeOffer(prodId, offerId);
+                                return new Result(true, "the offer approved");
+                            }
                         }
-                        bag.productsAmounts.add(getProductById(prodId), amount,storeId,user.getId());
-                        bag.productsApproved.add(this.storeId,user.getId(), getProductById(prodId), offer);
-                        removeOffer(prodId, offerId);
-                        return new Result(true, "the offer approved");
+                        return new Result(false, "the offer was approved by one owner/manager");
                     }
                     return new Result(false, "the offer wasn't found");
                 case "DISAPPROVED":
-                    removeOffer(prodId, offerId);
-                    return new Result(true, "the offer disapproved");
-                case "COUNTEROFFER":
-                    user = null;
-                    offers = this.offersOnProduct.get(this, getProductById(prodId));
-                    PurchaseOffer po = null;
-                    for (PurchaseOffer p : offers) {
-                        if (p.getId() == offerId) {
-                            //p.setPriceOfOffer(counterOffer);
-                            this.offersOnProduct.updateOfferPurchase(p.getId(), counterOffer);
-                            user = p.getUser();
-                            po = p;
+                    List<PurchaseOffer> offers2 = this.offersOnProduct.get(this, getProductById(prodId));
+                    PurchaseOffer p2 = null;
+                    for (PurchaseOffer po : offers2) {
+                        if (po.getId() == offerId) {
+                            p2 = po;
                         }
                     }
+                    if(!p2.HasCounterOffer()) {
+                        removeOffer(prodId, offerId);
+                        return new Result(true, "the offer disapproved");
+                    }
+                case "COUNTEROFFER":
+                    User user = null;
+                    offers = this.offersOnProduct.get(this, getProductById(prodId));
+                    PurchaseOffer po = null;
+                    for (PurchaseOffer p1 : offers) {
+                        if (p1.getId() == offerId) {
+                            //p.setPriceOfOffer(counterOffer);
+                            this.offersOnProduct.updateOfferPurchase(p1.getId(), counterOffer);
+                            user = p1.getUser();
+                            po = p1;
+                        }
+                    }
+                    po.setCounterOffer();
                     if (user != null) {
                         UserCounterOffersWrapper counterOffersWrapper = new UserCounterOffersWrapper();
                        /* Bag bag = user.getBagByStoreId(this.storeId);
@@ -713,7 +716,8 @@ public class Store {
             for (Map.Entry<Product, LinkedList<PurchaseOffer>> entry : offersOnProduct.get(this).entrySet()) {
                 List<PurchaseOffer> offers = entry.getValue();
                 for (PurchaseOffer p: offers) {
-                    output.put(p,entry.getKey());
+                    if(!p.HasCounterOffer())
+                       output.put(p,entry.getKey());
                 }
             }
             return new Result(true, output);

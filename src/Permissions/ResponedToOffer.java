@@ -15,6 +15,6 @@ public class ResponedToOffer {
     }
 
     public Result action(int prodId, int offerId , String responed, double counterOffer, String option) {
-            return this.store.responedToOffer(prodId, offerId, responed, counterOffer, option);
+            return this.store.responedToOffer(prodId, offerId, responed, counterOffer, option, this.member.getId());
     }
 }

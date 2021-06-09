@@ -13,7 +13,7 @@ export default function RegisterScreen({ route, navigation }) {
 
   const { back, userId } = route.params;
 
-  var client = new W3CWebSocket('wss://localhost:4567/Login');
+  var client = new W3CWebSocket('ws://localhost:4567/Login');
   client.onerror = function () {
     console.log('Connection Error');
   };
@@ -69,7 +69,7 @@ export default function RegisterScreen({ route, navigation }) {
         value={age}
         onChangeText={(text) => setAge(text)} />
       <View style={{ padding: 5 }}>
-        <Button title={'Register'} onPress={() => Register(userName, password, client, back, userId)} />
+        <Button title={'Register'} onPress={() => Register(userName, password, client, back, userId,age)} />
         {back ?
           <TouchableOpacity onPress={() => navigation.pop()}>
             <Text style={styles.login}>Cancel Registration</Text>
@@ -84,7 +84,7 @@ export default function RegisterScreen({ route, navigation }) {
   );
 }
 
-const Register = (userName, password, client, back, userId) => {
+const Register = (userName, password, client, back, userId,age) => {
   if (back) {
     client.send(JSON.stringify({ "type": "GUEST_REGISTER", "email": userName, "password": password, "userId": userId,"age":age }));
 

@@ -45,7 +45,7 @@ export default function AddProductScreen({ route, navigation }) {
 
       <View style={{ padding: 5 }}>
         <Button title='Add Product' onPress={() => {
-          var client = new W3CWebSocket(`wss://localhost:4567/myStores/StorePermissions/action`);
+          var client = new W3CWebSocket(`ws://localhost:4567/myStores/StorePermissions/action`);
           client.onmessage = function (event) {
             const parsedMessage = JSON.parse(event.data);
 

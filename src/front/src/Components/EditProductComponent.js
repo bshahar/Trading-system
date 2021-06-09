@@ -12,7 +12,7 @@ export default function EditProductComponent({ userId, storeId, productName, pro
     return (
         <View style={{padding:5, flexDirection: 'row' ,alignItems:'center' }}>
             <Feather name='trash-2' color="red" size={25} onPress={()=>{
-                var client = new W3CWebSocket(`wss://localhost:4567/myStores/StorePermissions/action`);
+                var client = new W3CWebSocket(`ws://localhost:4567/myStores/StorePermissions/action`);
                 client.onmessage = function (event) {
                     const parsedMessage = JSON.parse(event.data);
 
@@ -45,7 +45,7 @@ export default function EditProductComponent({ userId, storeId, productName, pro
             <TextInput style={{ width: 30, height: 30, borderWidth: 1, borderRadius:2 }} value={newAmount} onChangeText={(text) => setAmount(text)} placeholder={'Amount'} />
             <Text>      </Text>
             <Button title={'Edit'} onPress={() => {
-                var client = new W3CWebSocket(`wss://localhost:4567/myStores/StorePermissions/action`);
+                var client = new W3CWebSocket(`ws://localhost:4567/myStores/StorePermissions/action`);
                 client.onmessage = function (event) {
                     const parsedMessage = JSON.parse(event.data);
 

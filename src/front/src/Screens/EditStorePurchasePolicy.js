@@ -23,6 +23,9 @@ export default function EditStorePurchasePolicy({ route, navigation }) {
                         <View style={{ padding: 5 }}>
                             <Button title={'On Product'} onPress={() => { navigation.navigate("EditPurchaseScreen", { userId: userId, storeId: storeId, basedOn: 'product',productId:productId, registered: registered }) }} />
                         </View>
+                        <View style={{ padding: 5 }}>
+                            <Button title={'Remove Exists Policy'} color='red' onPress={() => {removePolicyByProduct(productId,userId,storeId,navigation) }} />
+                        </View>
                     </View>
                 </View>
                 <View style={{ padding: 5 }}>
@@ -33,12 +36,18 @@ export default function EditStorePurchasePolicy({ route, navigation }) {
                         <View style={{ padding: 5 }}>
                             <Button title={'On Category'} onPress={() => { navigation.navigate("EditPurchaseScreen", { userId: userId, storeId: storeId, basedOn: 'category',category:category, registered: registered }) }} />
                         </View>
+                        <View style={{ padding: 5 }}>
+                            <Button title={'Remove Exists Policy'} color='red' onPress={() => {removePolicyByCategory(category,userId,storeId,navigation) }} />
+                        </View>
                     </View>
                 </View>
-                <View style={{ alignSelf:'center', padding: 5 }}>
+                <View style={{  padding: 5 }}>
                     <View style={{ padding: 5, borderWidth: 2, borderRadius: 3, borderColor: 'grey' }}>
                         <View style={{ alignSelf: 'center', padding: 5 }}>
                             <Button title={'On Store'} onPress={() => { navigation.navigate("EditPurchaseScreen", { userId: userId, storeId: storeId, basedOn: 'store', registered: registered }) }} />
+                        </View>
+                        <View style={{ padding: 5 }}>
+                            <Button title={'Remove Exists Policy'} color='red' onPress={() => {removePolicyByStore(userId,storeId,navigation) }} />
                         </View>
 
                     </View>
@@ -60,6 +69,82 @@ export default function EditStorePurchasePolicy({ route, navigation }) {
 };
 
 
+const removePolicyByProduct = (productId, userId, storeId,navigation) => {
+    var client = new W3CWebSocket(`ws://localhost:4567/deletePolicyAndPurchase`);
+    client.onopen = function () {
+        client.send(JSON.stringify({
+            "type": "REMOVE_PURCHASE_PRODUCT",
+            "userId": userId,
+            "storeId": storeId,
+            "productId": productId
+        }));
+    }
+
+    client.onmessage = function (event) {
+        const parsedMessage = JSON.parse(event.data);
+        if (parsedMessage.type == "REMOVE_PURCHASE_PRODUCT") {
+            var result = parsedMessage.result;
+            if (result) {
+                alert(parsedMessage.message);
+                navigation.pop();
+            }
+            else {
+                alert(parsedMessage.message);
+            }
+        } 
+    }
+};
+
+const removePolicyByCategory = (category, userId, storeId,navigation) => {
+    var client = new W3CWebSocket(`ws://localhost:4567/deletePolicyAndPurchase`);
+    client.onopen = function () {
+        client.send(JSON.stringify({
+            "type": "REMOVE_PURCHASE_CATEGORY",
+            "userId": userId,
+            "storeId": storeId,
+            "category":category
+        }));
+    }
+
+    client.onmessage = function (event) {
+        const parsedMessage = JSON.parse(event.data);
+        if (parsedMessage.type == "REMOVE_PURCHASE_CATEGORY") {
+            var result = parsedMessage.result;
+            if (result) {
+                alert(parsedMessage.message);
+                navigation.pop();
+            }
+            else {
+                alert(parsedMessage.message);
+            }
+        } 
+    }
+};
+
+const removePolicyByStore = (userId, storeId,navigation) => {
+    var client = new W3CWebSocket(`ws://localhost:4567/deletePolicyAndPurchase`);
+    client.onopen = function () {
+        client.send(JSON.stringify({
+            "type": "REMOVE_PURCHASE_STORE",
+            "userId": userId,
+            "storeId": storeId,
+        }));
+    }
+
+    client.onmessage = function (event) {
+        const parsedMessage = JSON.parse(event.data);
+        if (parsedMessage.type == "REMOVE_PURCHASE_STORE") {
+            var result = parsedMessage.result;
+            if (result) {
+                alert(parsedMessage.message);
+                navigation.pop();
+            }
+            else {
+                alert(parsedMessage.message);
+            }
+        } 
+    }
+};
 
 
 

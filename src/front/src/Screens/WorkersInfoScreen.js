@@ -8,7 +8,7 @@ export default function WorkersIfoScreen({ route, navigation }) {
     const { userId, storeId, storeName } = route.params;
     const [users, setUsers] = useState([]);
     useEffect(() => {
-        var client = new W3CWebSocket('wss://localhost:4567/myStores/StorePermissions/action');
+        var client = new W3CWebSocket('ws://localhost:4567/myStores/StorePermissions/action');
 
         client.onerror = function () {
             console.log('Connection Error');

@@ -10,7 +10,7 @@ export default function StorePurchaseHistoryScreen({ route, navigation }) {
     const { userId, storeId, storeName } = route.params;
     const [purchases, setPurchases] = useState([]);
     useEffect(() => {
-        var client = new W3CWebSocket('wss://localhost:4567/myStores/StorePermissions/action');
+        var client = new W3CWebSocket('ws://localhost:4567/myStores/StorePermissions/action');
         client.onerror = function () {
             console.log('Connection Error');
         };
@@ -44,7 +44,7 @@ export default function StorePurchaseHistoryScreen({ route, navigation }) {
                 {purchases.map((item) => {
                     return (
                         <View style={{ padding: 5 }}>
-                            <Receipt storeName={item.storeName} lines={item.lines} totalCost={item.totalCost} />
+                            <Receipt userName={item.userName} storeName={item.storeName} lines={item.lines} totalCost={item.totalCost} />
                         </View>
                     )
                 })}

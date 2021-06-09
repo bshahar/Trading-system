@@ -64,7 +64,7 @@ export default function SearchProductScreen({ route, navigation }) {
       </View>
       <View>
         <Button title={'SEARCH'} onPress={() => {
-          var client = new W3CWebSocket('wss://localhost:4567/search');
+          var client = new W3CWebSocket('ws://localhost:4567/search');
           client.onerror = function () {
             console.log('Connection Error');
           };

@@ -21,7 +21,10 @@ export default function EditStoreDiscountPolicy({ route, navigation }) {
                             <TextInput placeholder={'Enter Product Id'} value={productId} onChangeText={(text) => { setProductId(text) }} style={{ borderWidth: 1, padding: 5 }} />
                         </View>
                         <View style={{ padding: 5 }}>
-                            <Button title={'On Product'} onPress={() => { navigation.navigate("EditDiscountScreen", { userId: userId, storeId: storeId, basedOn: 'product',productId:productId, registered: registered }) }} />
+                            <Button title={'On Product'} onPress={() => { navigation.navigate("EditDiscountScreen", { userId: userId, storeId: storeId, basedOn: 'product', productId: productId, registered: registered }) }} />
+                        </View>
+                        <View style={{ padding: 5 }}>
+                            <Button title={'Remove Exists Policy'} color='red' onPress={() => {removePolicyByProduct(productId,userId,storeId,navigation) }} />
                         </View>
                     </View>
                 </View>
@@ -31,36 +34,105 @@ export default function EditStoreDiscountPolicy({ route, navigation }) {
                             <TextInput placeholder={'Enter Category'} value={category} onChangeText={(text) => { setCategory(text) }} style={{ borderWidth: 1, padding: 5 }} />
                         </View>
                         <View style={{ padding: 5 }}>
-                            <Button title={'On Category'} onPress={() => { navigation.navigate("EditDiscountScreen", { userId: userId, storeId: storeId, basedOn: 'category',category:category, registered: registered }) }} />
+                            <Button title={'On Category'} onPress={() => { navigation.navigate("EditDiscountScreen", { userId: userId, storeId: storeId, basedOn: 'category', category: category, registered: registered }) }} />
+                        </View>
+                        <View style={{ padding: 5 }}>
+                            <Button title={'Remove Exists Policy'} color='red' onPress={() => {removePolicyByCategory(category,userId,storeId,navigation) }} />
                         </View>
                     </View>
                 </View>
-                <View style={{ alignSelf:'center', padding: 5 }}>
+                <View style={{ alignSelf: 'center', padding: 5 }}>
                     <View style={{ padding: 5, borderWidth: 2, borderRadius: 3, borderColor: 'grey' }}>
-                        <View style={{ alignSelf: 'center', padding: 5 }}>
+                        <View style={{ padding: 5 }}>
                             <Button title={'On Store'} onPress={() => { navigation.navigate("EditDiscountScreen", { userId: userId, storeId: storeId, basedOn: 'store', registered: registered }) }} />
                         </View>
-
+                        <View style={{ padding: 5 }}>
+                            <Button title={'Remove Exists Policy'} color='red' onPress={() => { removePolicyByStore(userId,storeId,navigation)}} />
+                        </View>
                     </View>
-
                 </View>
-
-
-
             </View>
-
-
         </View>
-
-
-
-
 
     );
 };
 
+const removePolicyByProduct = (productId, userId, storeId,navigation) => {
+    var client = new W3CWebSocket(`ws://localhost:4567/deletePolicyAndPurchase`);
+    client.onopen = function () {
+        client.send(JSON.stringify({
+            "type": "REMOVE_DISCOUNT_PRODUCT",
+            "userId": userId,
+            "storeId": storeId,
+            "productId": productId
+        }));
+    }
 
+    client.onmessage = function (event) {
+        const parsedMessage = JSON.parse(event.data);
+        if (parsedMessage.type == "REMOVE_DISCOUNT_PRODUCT") {
+            var result = parsedMessage.result;
+            if (result) {
+                alert(parsedMessage.message);
+                navigation.pop();
+            }
+            else {
+                alert(parsedMessage.message);
+            }
+        } 
+    }
+};
 
+const removePolicyByCategory = (category, userId, storeId,navigation) => {
+    var client = new W3CWebSocket(`ws://localhost:4567/deletePolicyAndPurchase`);
+    client.onopen = function () {
+        client.send(JSON.stringify({
+            "type": "REMOVE_DISCOUNT_CATEGORY",
+            "userId": userId,
+            "storeId": storeId,
+            "category":category
+        }));
+    }
+
+    client.onmessage = function (event) {
+        const parsedMessage = JSON.parse(event.data);
+        if (parsedMessage.type == "REMOVE_DISCOUNT_CATEGORY") {
+            var result = parsedMessage.result;
+            if (result) {
+                alert(parsedMessage.message);
+                navigation.pop();
+            }
+            else {
+                alert(parsedMessage.message);
+            }
+        } 
+    }
+};
+
+const removePolicyByStore = (userId, storeId,navigation) => {
+    var client = new W3CWebSocket(`ws://localhost:4567/deletePolicyAndPurchase`);
+    client.onopen = function () {
+        client.send(JSON.stringify({
+            "type": "REMOVE_DISCOUNT_STORE",
+            "userId": userId,
+            "storeId": storeId,
+        }));
+    }
+
+    client.onmessage = function (event) {
+        const parsedMessage = JSON.parse(event.data);
+        if (parsedMessage.type == "REMOVE_DISCOUNT_STORE") {
+            var result = parsedMessage.result;
+            if (result) {
+                alert(parsedMessage.message);
+                navigation.pop();
+            }
+            else {
+                alert(parsedMessage.message);
+            }
+        } 
+    }
+};
 
 
 

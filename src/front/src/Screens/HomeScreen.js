@@ -10,13 +10,9 @@ export default function HomeScreen({ route, navigation }) {
   const [stores, setStores] = useState([]);
   const [isReload,setIsReload]= useState(reload)
   const [firstTime, setFirstTime] = useState(true);
-
+  
   useEffect(() => {
-    var client = new W3CWebSocket(`wss://localhost:4567/Main?userId=${userId}`);
-
-
-
-
+    var client = new W3CWebSocket(`ws://localhost:4567/Main?userId=${userId}`);
     client.onerror = function () {
       console.log('Connection Error');
     };
@@ -89,11 +85,13 @@ export default function HomeScreen({ route, navigation }) {
 
   return (
     <View style={{ flex: 1 }}>
-      <BannerRegister navigation={navigation} userId={userId} registered={registered} />
+      <BannerRegister navigation={navigation} userId={userId} registered={registered}  />
       <View style={styles.container}>
         <Text>Home Screen</Text>
         <Text>User connected: {registered}</Text>
         <Text>{registered}</Text>
+        
+
 
         <View style={styles.storeList}>
           {stores.map((item) => {

@@ -11,7 +11,7 @@ export default function MyCartScreen({ route, navigation }) {
   const [bags, setBags] = useState([]);
 
   useEffect(() => {
-    var client = new W3CWebSocket('wss://localhost:4567/Cart');
+    var client = new W3CWebSocket('ws://localhost:4567/Cart');
     client.onerror = function () {
       console.log('Connection Error');
     };

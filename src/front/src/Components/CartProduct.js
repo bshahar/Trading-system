@@ -4,12 +4,13 @@ var W3CWebSocket = require('websocket').w3cwebsocket;
 
 
 
-export default function CartProduct({ productName, productAmount }) {
+export default function CartProduct({ productName, productAmount,productPrice }) {
 
     return (
         <View style={styles.container}>
             <Text>{productName},    </Text>
             <Text>Amount:   {productAmount} </Text>
+            <Text>Price:   {productPrice} </Text>
         </View>
     );
 };

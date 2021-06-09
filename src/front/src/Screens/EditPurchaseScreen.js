@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, CheckBox, TextInput, Button } from 'react-nativ
 import BannerRegister from '../Components/BannerRegister';
 import OpenStore from '../Components/OpenStore';
 import { Picker } from '@react-native-picker/picker'
-import { set } from 'react-native-reanimated';
 
 var W3CWebSocket = require('websocket').w3cwebsocket;
 
@@ -26,7 +25,7 @@ export default function EditPurchaseScreen({ route, navigation }) {
     const [hour, setHour] =useState("");
 
     useEffect(() => {
-        var client = new W3CWebSocket(`wss://localhost:4567/getDiscountAndPurchasesPolicies`);
+        var client = new W3CWebSocket(`ws://localhost:4567/getDiscountAndPurchasesPolicies`);
         client.onerror = function () {
             console.log('Connection Error');
         };
@@ -201,7 +200,7 @@ export default function EditPurchaseScreen({ route, navigation }) {
             {list.map((item) => { return (<View style={{ padding: 5 }}><Text>Policy Name: {item.policyName}, Condition: {item.params}</Text></View>) })}
             <View style={{ padding: 5, width: 150 }}>
                 <Button color={'green'} title={'Finish And Update Policy'} onPress={() => {
-                    var client = new W3CWebSocket(`wss://localhost:4567/discountAndPurchasesPolicies`);
+                    var client = new W3CWebSocket(`ws://localhost:4567/discountAndPurchasesPolicies`);
                     client.onopen = function () {
                         if (!checkNecessary()) {
 

@@ -21,7 +21,7 @@ export default function MenagerPermissionsScreen({ route, navigation }) {
 
 
     useEffect(() => {
-        var client = new W3CWebSocket('wss://localhost:4567/myStores/UpdatePermissions');
+        var client = new W3CWebSocket('ws://localhost:4567/myStores/UpdatePermissions');
         client.onerror = function () {
             console.log('Connection Error');
         };
@@ -119,7 +119,7 @@ export default function MenagerPermissionsScreen({ route, navigation }) {
             </View>
             <View style={{ padding:5 }}>
                 <Button title={'Update Permissions'} onPress={() => {
-                    var client = new W3CWebSocket(`wss://localhost:4567/myStores/UpdatePermissions`);
+                    var client = new W3CWebSocket(`ws://localhost:4567/myStores/UpdatePermissions`);
                     client.onmessage = function (event) {
                         const parsedMessage = JSON.parse(event.data);
 

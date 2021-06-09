@@ -1,0 +1,51 @@
+{
+  "RegisterAndLoginUser": [
+    {
+      "username": "U1",
+      "age": 26,
+      "password": "u1pass"
+    },
+    {
+      "username": "U2",
+      "age": 25,
+      "password": "u2pass"
+    },
+    {
+      "username": "U3",
+      "age": 25,
+      "password": "u3pass"
+    },
+    {
+      "username": "U4",
+      "age": 25,
+      "password": "u4pass"
+    }
+  ],
+  "openStore": [
+    {
+      "userOwnerId": "U1",
+      "storeName": "S1"
+    },
+  ],
+  "addProduct": [
+    {
+      "storeOwnerId": "U1",
+      "storeId": "S1",
+      "name": "Wine",
+      "categories": [
+        "Drink",
+        "Alcohol"
+      ],
+      "price": 35,
+      "description": "red wine 15% alcohol",
+      "quantity": 40
+    }
+  ],
+  "addStoreOwner": [
+    {
+      "appointerUserId": "U1",
+      "appointeeUserId": "U4",
+      "storeId": "S1"
+    }
+  ]
+}

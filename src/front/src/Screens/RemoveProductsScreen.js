@@ -9,7 +9,7 @@ export default function RemoveProductScreen({ route, navigation }) {
     const { userId, storeId } = route.params;
     const [products, setProducts] = useState([]);
     useEffect(() => {
-        var client = new W3CWebSocket('wss://localhost:4567/Store/currentStore');
+        var client = new W3CWebSocket('ws://localhost:4567/Store/currentStore');
         client.onerror = function () {
             console.log('Connection Error');
         };
@@ -66,17 +66,3 @@ export default function RemoveProductScreen({ route, navigation }) {
     );
 };
 
-
-
-
-
-
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        flexDirection: 'row',
-        backgroundColor: '#fff',
-        alignItems: 'center',
-        justifyContent: 'center',
-    },
-});

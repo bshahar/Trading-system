@@ -274,6 +274,8 @@ public class TradingSystem {
         if(responed.equals("APPROVED") && r.isResult()){
             sendAlert(informTo,"Your offer had been approved!");
         }
+        else if(responed.equals("APPROVED") && !r.isResult()){
+        }
         else if(responed.equals("DISAPPROVED") && r.isResult()){
             sendAlert(informTo,"Your offer had been disapproved.");
         }

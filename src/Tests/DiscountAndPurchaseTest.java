@@ -382,6 +382,18 @@ public class DiscountAndPurchaseTest {
         Assertions.assertEquals(expectedTotal, actualTotal);
     }
 
+    @Test
+    public void buyProductAfterCounterOfferAndApproveMoreThanOne(){
+        API.addStoreOwner(registerId1, registerId3, storeId1);
+        int offerId = addOfferSuccessTest();
+        API.counterPurchaseOffer(storeId1,registerId1, productId5,offerId,15);
+        API.approveCounterOffer(storeId1,registerId2, productId5,true);
+        double expectedTotal = 60;
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, paymentMap, supplementMap).getData().toString());
+        double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
+        Assertions.assertEquals(expectedTotal, actualTotal);
+    }
+
    /* public void getOfferOfStore(){
         int offerId = addOfferSuccessTest();
         API.getOffersForStore(storeId1,registerId1);

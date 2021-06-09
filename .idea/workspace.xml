@@ -22,18 +22,13 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix external systems">
-      <change afterPath="$PROJECT_DIR$/src/Persistence/DAO/LeftToApproveDAO.java" afterDir="false" />
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="update offer before tests">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt.1" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt.1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Domain/PurchaseFormat/PurchaseOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/PurchaseOffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/Store.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Permissions/ResponedToOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Permissions/ResponedToOffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DAO/PurchaseOffersDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DAO/PurchaseOffersDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/DataBaseHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/OffersOnProductWrapper.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -180,21 +175,8 @@
       <recent name="" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest.buyProductWithMoreThanOneOwnerSuccess">
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Server.Server" />
-      <module name="Trading-system" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="Server.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="DiscountAndPurchaseTest.addOfferSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="JUnit.DiscountAndPurchaseTest">
+    <configuration name="DiscountAndPurchaseTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -204,8 +186,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
       <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="addOfferSuccessTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -242,6 +223,22 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApproveMoreThanOne" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="Trading-system" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="Tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="Tests" />
+      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
+      <option name="METHOD_NAME" value="buyProductAfterCounterOfferAndApproveMoreThanOne" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="DiscountAndPurchaseTest.buyProductWithMoreThanOneOwnerSuccess" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
@@ -260,11 +257,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductWithMoreThanOneOwnerSuccess" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithoutPermissionFailTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.addOfferSuccessTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithPermissionSuccessTest" />
-        <item itemvalue="Application.Server" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithoutPermissionFailTest" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApproveMoreThanOne" />
+        <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductWithMoreThanOneOwnerSuccess" />
       </list>
     </recent_temporary>
   </component>
@@ -296,14 +293,8 @@
       <workItem from="1622808063867" duration="2485000" />
       <workItem from="1622889352388" duration="8487000" />
       <workItem from="1622962859066" duration="3038000" />
-      <workItem from="1622967511006" duration="22188000" />
-    </task>
-    <task id="LOCAL-00029" summary="logger in the code">
-      <created>1619449132600</created>
-      <option name="number" value="00029" />
-      <option name="presentableId" value="LOCAL-00029" />
-      <option name="project" value="LOCAL" />
-      <updated>1619449132600</updated>
+      <workItem from="1622967511006" duration="22350000" />
+      <workItem from="1623173254718" duration="7677000" />
     </task>
     <task id="LOCAL‎00030" summary="pemission action web socket">
       <created>1619534997179</created>
@@ -605,7 +596,13 @@
       <option name="project" value="LOCAL" />
       <updated>1622898616473</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL‎00078" summary="update offer before tests">
+      <created>1623173059861</created>
+      <option name="number" value="LOCAL‎00078" />
+      <option name="presentableId" value="LOCAL‎00078" />
+      <updated>1623173059861</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,7 +625,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="elad do everything!" />
     <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
     <MESSAGE value="#61 db dorin" />
@@ -653,45 +649,50 @@
     <MESSAGE value="fix delete from offers tables" />
     <MESSAGE value="02" />
     <MESSAGE value="xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="xml" />
+    <MESSAGE value="update offer before tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="update offer before tests" />
   </component>
   <component name="WindowStateProjectService">
     <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser" timestamp="1623146348592">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="574" y="96" key="#com.intellij.ide.util.MemberChooser/0.0.1536.824@0.0.1536.824" timestamp="1623146348592" />
-    <state width="1493" height="173" key="GridCell.Tab.0.bottom" timestamp="1623172892460">
+    <state width="1493" height="323" key="GridCell.Tab.0.bottom" timestamp="1623229249491">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="173" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623172892460" />
-    <state width="1493" height="173" key="GridCell.Tab.0.center" timestamp="1623172892460">
+    <state width="1493" height="323" key="GridCell.Tab.0.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623229249491" />
+    <state width="1493" height="323" key="GridCell.Tab.0.center" timestamp="1623229249491">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="173" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1623172892460" />
-    <state width="1493" height="173" key="GridCell.Tab.0.left" timestamp="1623172892460">
+    <state width="1493" height="323" key="GridCell.Tab.0.center/0.0.1536.824@0.0.1536.824" timestamp="1623229249491" />
+    <state width="1493" height="323" key="GridCell.Tab.0.left" timestamp="1623229249491">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="173" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1623172892460" />
-    <state width="1493" height="173" key="GridCell.Tab.0.right" timestamp="1623172892460">
+    <state width="1493" height="323" key="GridCell.Tab.0.left/0.0.1536.824@0.0.1536.824" timestamp="1623229249491" />
+    <state width="1493" height="323" key="GridCell.Tab.0.right" timestamp="1623229249491">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="173" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1623172892460" />
-    <state width="1493" height="532" key="GridCell.Tab.1.bottom" timestamp="1623172938446">
+    <state width="1493" height="323" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1623229249491" />
+    <state width="1493" height="323" key="GridCell.Tab.1.bottom" timestamp="1623229271423">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="532" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623172938446" />
-    <state width="1493" height="532" key="GridCell.Tab.1.center" timestamp="1623172938446">
+    <state width="1493" height="323" key="GridCell.Tab.1.bottom/0.0.1536.824@0.0.1536.824" timestamp="1623229271423" />
+    <state width="1493" height="323" key="GridCell.Tab.1.center" timestamp="1623229271423">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="532" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1623172938446" />
-    <state width="1493" height="532" key="GridCell.Tab.1.left" timestamp="1623172938446">
+    <state width="1493" height="323" key="GridCell.Tab.1.center/0.0.1536.824@0.0.1536.824" timestamp="1623229271423" />
+    <state width="1493" height="323" key="GridCell.Tab.1.left" timestamp="1623229271422">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="532" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1623172938446" />
-    <state width="1493" height="532" key="GridCell.Tab.1.right" timestamp="1623172938446">
+    <state width="1493" height="323" key="GridCell.Tab.1.left/0.0.1536.824@0.0.1536.824" timestamp="1623229271422" />
+    <state width="1493" height="323" key="GridCell.Tab.1.right" timestamp="1623229271423">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state width="1493" height="532" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1623172938446" />
+    <state width="1493" height="323" key="GridCell.Tab.1.right/0.0.1536.824@0.0.1536.824" timestamp="1623229271423" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1623173070023">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1623173070023" />
     <state x="478" y="147" width="579" height="530" key="find.popup" timestamp="1623172869504">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -751,13 +752,8 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>374</line>
-          <option name="timeStamp" value="34" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>35</line>
-          <option name="timeStamp" value="36" />
+          <line>386</line>
+          <option name="timeStamp" value="49" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

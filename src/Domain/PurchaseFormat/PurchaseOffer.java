@@ -5,6 +5,7 @@ import Domain.PurchasePolicies.PurchasePolicy;
 import Domain.User;
 
 import java.util.Date;
+import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -34,7 +35,13 @@ public class PurchaseOffer extends Purchase {
     }
 
     public void removeOwnerAfterApproved(int ownerId){
-        this.ownersAndMangersLeft.remove(ownerId);
+        Iterator<Integer> it = this.ownersAndMangersLeft.iterator();
+        while (it.hasNext()){
+            int i = it.next();
+            if(i==ownerId){
+               it.remove();
+            }
+        }
     }
 
     public boolean allOwnersApproved(){

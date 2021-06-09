@@ -47,7 +47,7 @@ public class OffersOnProductWrapper {
             for (Integer u: users) {
                 Dao<LeftToApproveDAO, String> leftToApproveDao = DaoManager.createDao(connectionSource, LeftToApproveDAO.class);
                 LeftToApproveDAO leftToApproveDAOObj = new LeftToApproveDAO(purchaseOffer.getId(), u);
-                purchaseOfferDao.create(purchaseOfferDAOObj);
+                leftToApproveDao.create(leftToApproveDAOObj);
             }
 
             Dao<ProductOffersDAO, String> productOffersDAO = DaoManager.createDao(connectionSource, ProductOffersDAO.class);
@@ -56,6 +56,7 @@ public class OffersOnProductWrapper {
 
             connectionSource.close();
         } catch (Exception e) {
+            System.out.println("hiii");
         }
         if(this.value.containsKey(prod)) {
             LinkedList<PurchaseOffer> offers = this.value.get(prod);

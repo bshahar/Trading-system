@@ -27,7 +27,7 @@ Please note that you wrote the correct database name & password for the system t
 
 
 # Load data
-The system has the option of loading data automaticlly when it initializes. To do that, insert as program argument the string "load". Then, the system will load the json file "requestedTests.json". In this file, you can execute the following functionalities: register & login (seperatly or combined), logout, open store, add product to store, remove product from store, appiont store manager and appiont store owner. To each function you will need to give the proper parameters, see examples to functions' names and parameters below. Once this option is active, the system will load the scenario described by the data in the json file.
+The system has the option of loading data automaticlly when it initializes. To do that, insert as program argument the string "load_FILENAME.json". Then, the system will load the json file "FILENAME.json". In this file, you can execute the following functionalities: register & login (seperatly or combined), logout, open store, add product to store, remove product from store, appiont store manager and appiont store owner. To each function you will need to give the proper parameters, see examples to functions' names and parameters below. Once this option is active, the system will load the scenario described by the data in the json file.
 
 ## Register
 ### parameters:
@@ -151,6 +151,20 @@ Same for Login function.
         "appointeeUserId": "kandabior",
         "storeId": "storeNameTest1",
         "permission" : [1, 11, 19]
+      }
+    ]
+    
+## Add store Owner
+### parameters:
+1. appointerUserId - the store owner user name in the system.
+2. appointeeUserId - the user name of the appointee.
+3. storeId - name of the store as it is in the system.
+### How to use
+    "addStoreOwner": [
+      {
+        "appointerUserId": "elad",
+        "appointeeUserId": "kandabior",
+        "storeId": "storeNameTest1",
       }
     ]
 

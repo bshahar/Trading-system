@@ -22,12 +22,8 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="fix external systems">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="main with offer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Domain/PurchaseFormat/PurchaseOffer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Domain/PurchaseFormat/PurchaseOffer.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Server/BidsWebSocket.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/BidsWebSocket.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,12 +294,6 @@
       <workItem from="1622962859066" duration="3038000" />
       <workItem from="1622967511006" duration="22350000" />
       <workItem from="1623173254718" duration="7677000" />
-    </task>
-    <task id="LOCAL‎00030" summary="pemission action web socket">
-      <created>1619534997179</created>
-      <option name="number" value="LOCAL‎00030" />
-      <option name="presentableId" value="LOCAL‎00030" />
-      <updated>1619534997179</updated>
     </task>
     <task id="LOCAL‎00031" summary="pemission action web socket">
       <created>1619535386117</created>
@@ -605,7 +595,13 @@
       <option name="presentableId" value="LOCAL‎00078" />
       <updated>1623173059861</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL‎00079" summary="main with offer">
+      <created>1623241835787</created>
+      <option name="number" value="LOCAL‎00079" />
+      <option name="presentableId" value="LOCAL‎00079" />
+      <updated>1623241835787</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -628,7 +624,6 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="user to db" />
     <MESSAGE value="Bid GUI" />
     <MESSAGE value="#61 db dorin" />
     <MESSAGE value="#61 discounts daos" />
@@ -653,7 +648,8 @@
     <MESSAGE value="02" />
     <MESSAGE value="xml" />
     <MESSAGE value="update offer before tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="update offer before tests" />
+    <MESSAGE value="main with offer" />
+    <option name="LAST_COMMIT_MESSAGE" value="main with offer" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -705,7 +701,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Tests/DiscountAndPurchaseTest.java</url>
-          <line>386</line>
+          <line>405</line>
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -715,7 +711,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>938</line>
+          <line>950</line>
           <option name="timeStamp" value="75" />
         </line-breakpoint>
       </breakpoints>

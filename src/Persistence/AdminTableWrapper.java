@@ -1,5 +1,6 @@
 package Persistence;
 
+import Domain.Result;
 import Domain.User;
 import Persistence.DAO.AdminTableDAO;
 import Persistence.DAO.MemberStorePermissionsDAO;
@@ -11,6 +12,7 @@ import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
 import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
+import org.json.JSONObject;
 
 
 import java.io.FileNotFoundException;
@@ -18,6 +20,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.*;
 
 public class AdminTableWrapper {
@@ -34,6 +37,27 @@ public class AdminTableWrapper {
         catch (Exception e)
         {
             return null;
+        }
+    }
+
+    public Result get(String date)
+    {
+        try {
+            ConnectionSource connectionSource = connect();
+            Dao<AdminTableDAO, String> AdminManager = DaoManager.createDao(connectionSource, AdminTableDAO.class);
+            AdminTableDAO adminTableDAO = AdminManager.queryForId(date);
+            connectionSource.close();
+            JSONObject jsonObject= new JSONObject();
+            jsonObject.put("GuestsCounter",adminTableDAO.getGuestsCounter());
+            jsonObject.put("NormalUsersCounter",adminTableDAO.getNormalUsers());
+            jsonObject.put("ManagersCounter",adminTableDAO.getOwners());
+            jsonObject.put("OwnersCounter",adminTableDAO.getManagers());
+
+            return new Result(true,jsonObject);
+        }
+        catch (Exception e)
+        {
+            return new Result(false,"cant get stats for the given date");
         }
     }
 
@@ -114,7 +138,8 @@ public class AdminTableWrapper {
             // instantiate the dao
             Dao<AdminTableDAO, String> adminManager = DaoManager.createDao(connectionSource, AdminTableDAO.class);
             // create an instance of Account
-            String now = date.toString();
+            DateTimeFormatter formatter= DateTimeFormatter.ofPattern("DD/MM/YYYY");
+            String now = formatter.format(date);
             AdminTableDAO adminTable = new AdminTableDAO(now,0,0,0,0);
             // persist the account object to the database
             adminManager.create(adminTable);
@@ -125,5 +150,29 @@ public class AdminTableWrapper {
         {
             return ;
         }
+    }
+
+    public void addToStats() {
+        try {
+            ConnectionSource connectionSource = connect();
+            // instantiate the dao
+            Dao<AdminTableDAO, String> adminManager = DaoManager.createDao(connectionSource, AdminTableDAO.class);
+            // create an instance of Account
+
+            AdminTableDAO adminTable = new AdminTableDAO("08/06/2021",1,2,3,4);
+            // persist the account object to the database
+            adminManager.create(adminTable);
+
+            AdminTableDAO adminTable2 = new AdminTableDAO("07/06/2021",4,5,6,7);
+            // persist the account object to the database
+            adminManager.create(adminTable2);
+            // close the connection source
+            connectionSource.close();
+        }
+        catch (Exception e)
+        {
+            return ;
+        }
+
     }
 }

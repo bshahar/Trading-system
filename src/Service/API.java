@@ -3,6 +3,7 @@ package Service;
 import Domain.*;
 import Interface.TradingSystem;
 import Domain.User;
+import Persistence.AdminTableWrapper;
 import Persistence.DataBaseHelper;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
@@ -290,6 +291,9 @@ public class API {
         addProduct(registerId1, storeId2,"Water",catList2 ,5,"FOOD", 13 ).getData();
         registeredLogout(registerId1);
 
+        AdminTableWrapper adminTableWrapper= new AdminTableWrapper();
+        adminTableWrapper.addToStats();
+
 
 
 
@@ -542,5 +546,9 @@ public class API {
 
     public static void addAdminSession(Session session) {
         tradingSystem.addAdminSession(session);
+    }
+
+    public static Result getSystemManagerStatsPerDay(String date) {
+        return tradingSystem.getSystemManagerStatsPerDay(date);
     }
 }

@@ -444,6 +444,14 @@ public class TradingSystem {
         users.delete(guestId);
     }
 
+    public Result getSystemManagerStatsPerDay(String date) {
+        AdminTableWrapper adminTableWrapper= new AdminTableWrapper();
+        return adminTableWrapper.get(date);
+
+
+
+    }
+
 
     public static enum Permission {
         DEF,

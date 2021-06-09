@@ -47,13 +47,13 @@ public class Server {
         }
 
         try {
-            API.initTradingSystem(test, loadScenario);
-            //API.forTest(test);
+            DataBaseHelper.cleanAllTable("test");
+            API.initTradingSystem("test", loadScenario);
+            API.forTest("test");
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-       //API.forTest("test");
         Spark.init();
     }
 }

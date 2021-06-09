@@ -4,7 +4,6 @@ import Service.KingLogger;
 import javafx.util.Pair;
 import org.json.simple.JSONArray;
 import org.json.simple.parser.JSONParser;
-import org.junit.BeforeClass;
 import org.junit.jupiter.api.*;
 
 import java.io.FileNotFoundException;
@@ -12,7 +11,8 @@ import java.io.FileReader;
 import java.util.LinkedList;
 import java.util.List;
 
-import static org.junit.Assert.fail;
+import static org.junit.jupiter.api.Assertions.fail;
+
 
 @TestInstance(TestInstance.Lifecycle.PER_CLASS)
 public class ConfigurationFileTest {

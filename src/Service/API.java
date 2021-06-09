@@ -274,10 +274,10 @@ public class API {
         storeId2=(int)openStore(registerId1,"elad store").getData();
         addStoreOwner(registerId1,orId1,storeId1);
         addStoreOwner(registerId1,orId2,storeId1);
-        addStoreOwner(registerId1,orId3,storeId1);
-        addStoreOwner(registerId1,orId4,storeId1);
-        addStoreOwner(registerId1,orId5,storeId1);
-        addStoreOwner(registerId1,orId6,storeId1);
+//        addStoreOwner(registerId1,orId3,storeId1);
+//        addStoreOwner(registerId1,orId4,storeId1);
+//        addStoreOwner(registerId1,orId5,storeId1);
+//        addStoreOwner(registerId1,orId6,storeId1);
 
 
         LinkedList<String> catList= new LinkedList<>();

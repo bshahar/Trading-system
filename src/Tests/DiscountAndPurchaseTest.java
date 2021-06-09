@@ -19,6 +19,7 @@ public class DiscountAndPurchaseTest {
 
     private int registerId1;
     private int registerId2;
+    private int registerId3;
     private int storeId1;
     private int productId1;
     private int productId2;
@@ -63,6 +64,8 @@ public class DiscountAndPurchaseTest {
 
         registerId1 = (int) API.registeredLogin(testProps.getProperty("user1name"), testProps.getProperty("user1password")).getData();
         registerId2 = (int) API.registeredLogin(testProps.getProperty("user2name"), testProps.getProperty("user2password")).getData();
+        API.register("shahar", "123456", 24);
+        registerId3 = (int) API.registeredLogin("shahar", "123456").getData();
 
         storeId1 = (int) API.openStore(registerId1, testProps.getProperty("storeNameTest")).getData();
         LinkedList<String> catList1 = new LinkedList<>();
@@ -340,18 +343,9 @@ public class DiscountAndPurchaseTest {
 
     @Test
     public void approveOfferWithPermissionSuccessTest(){
-        /*
         int offerId = addOfferSuccessTest();
         Assertions.assertTrue(API.approvePurchaseOffer(storeId1,registerId1, productId5,offerId).isResult());
 
-         */
-        int offerId = addOfferSuccessTest();
-        API.approvePurchaseOffer(storeId1,registerId1, productId5,offerId).isResult();
-        Map<PurchaseOffer, Product> res = (Map<PurchaseOffer,Product>)API.getOffersForStore(storeId1,registerId1).getData();
-        if(res.isEmpty()){
-            System.out.println("yayy");
-        }
-       // Assertions.assertTrue(API.approvePurchaseOffer(storeId1,registerId1, productId5,offerId).isResult());
     }
 
     @Test
@@ -366,6 +360,31 @@ public class DiscountAndPurchaseTest {
 
     @Test
     public void buyProductAfterCounterOfferAndApprove(){
+        int offerId = addOfferSuccessTest();
+        API.counterPurchaseOffer(storeId1,registerId1, productId5,offerId,15);
+        API.approveCounterOffer(storeId1,registerId2, productId5,true);
+        double expectedTotal = 60;
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, paymentMap, supplementMap).getData().toString());
+        double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
+        Assertions.assertEquals(expectedTotal, actualTotal);
+    }
+
+    @Test
+    public void buyProductWithMoreThanOneOwnerSuccess(){
+
+        API.addStoreOwner(registerId1, registerId3, storeId1);
+        int offerId = addOfferSuccessTest();
+        API.approvePurchaseOffer(storeId1,registerId1, productId5,offerId);
+        API.approvePurchaseOffer(storeId1,registerId3, productId5,offerId);
+        double expectedTotal = 40;
+        int receiptId = Integer.parseInt(API.buyProduct(registerId2, storeId1, paymentMap, supplementMap).getData().toString());
+        double actualTotal = ((Receipt) (API.getReceipt(receiptId).getData())).getTotalCost();
+        Assertions.assertEquals(expectedTotal, actualTotal);
+    }
+
+    @Test
+    public void buyProductAfterCounterOfferAndApproveMoreThanOne(){
+        API.addStoreOwner(registerId1, registerId3, storeId1);
         int offerId = addOfferSuccessTest();
         API.counterPurchaseOffer(storeId1,registerId1, productId5,offerId,15);
         API.approveCounterOffer(storeId1,registerId2, productId5,true);

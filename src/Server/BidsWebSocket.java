@@ -45,18 +45,23 @@ public class BidsWebSocket {
                 JSONObject[] jsonoffers = new JSONObject[offers.size()];
                 int counter = 0;
                 for (PurchaseOffer purchaseOffer : offers.keySet()) {
-                    JSONObject offer = new JSONObject();
-                    offer.put("offerId", purchaseOffer.getId());
-                    offer.put("amount", purchaseOffer.getNumOfProd());
-                    offer.put("price", purchaseOffer.getPriceOfOffer());
-                    Product product = offers.get(purchaseOffer);
-                    offer.put("productId", product.getId());
-                    offer.put("productName", product.getName());
-                    offer.put("userName", purchaseOffer.getUser().getUserName());
-                    jsonoffers[counter] = offer;
-                    counter++;
+                    if(purchaseOffer.getLeftToApprove().contains(userId)){
+                        JSONObject offer = new JSONObject();
+                        offer.put("offerId", purchaseOffer.getId());
+                        offer.put("amount", purchaseOffer.getNumOfProd());
+                        offer.put("price", purchaseOffer.getPriceOfOffer());
+                        Product product = offers.get(purchaseOffer);
+                        offer.put("productId", product.getId());
+                        offer.put("productName", product.getName());
+                        offer.put("userName", purchaseOffer.getUser().getUserName());
+                        jsonoffers[counter] = offer;
+                        counter++;
+                    }
+                }if(counter==0){
+                    json.put("offers", new JSONObject[0]);
+                }else{
+                    json.put("offers", jsonoffers);
                 }
-                json.put("offers", jsonoffers);
             } else {
                 json.put("message", result.getData());
             }

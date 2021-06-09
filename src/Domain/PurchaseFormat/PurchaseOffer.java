@@ -4,10 +4,7 @@ import Domain.Bag;
 import Domain.PurchasePolicies.PurchasePolicy;
 import Domain.User;
 
-import java.util.Date;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 public class PurchaseOffer extends Purchase {
     private int id;
@@ -91,4 +88,8 @@ public class PurchaseOffer extends Purchase {
     public void setIsApproved(boolean isApproved){this.isApproved = isApproved;}
 
     public int getNumOfProd(){return this.numOfProd;}
+
+    public List<Integer> getLeftToApprove() {
+        return ownersAndMangersLeft;
+    }
 }

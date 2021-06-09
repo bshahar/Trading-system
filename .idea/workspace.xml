@@ -23,7 +23,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="main with offer">
+      <change afterPath="$PROJECT_DIR$/src/Server/AdminWebSocketDay.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Persistence/AdminTableWrapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Persistence/AdminTableWrapper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Server/Server.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Server/Server.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Service/API.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Service/API.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -92,7 +98,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="stressTests" />
+        <entry key="$PROJECT_DIR$" value="main" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -167,6 +173,9 @@
     <key name="ImportMappingsDialog.RecentPackages">
       <recent name="Persistance" />
       <recent name="" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="Server" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Server">
@@ -294,12 +303,6 @@
       <workItem from="1622962859066" duration="3038000" />
       <workItem from="1622967511006" duration="22350000" />
       <workItem from="1623173254718" duration="7677000" />
-    </task>
-    <task id="LOCAL‎00031" summary="pemission action web socket">
-      <created>1619535386117</created>
-      <option name="number" value="LOCAL‎00031" />
-      <option name="presentableId" value="LOCAL‎00031" />
-      <updated>1619535386117</updated>
     </task>
     <task id="LOCAL‎00032" summary="pemission action web socket">
       <created>1619774310985</created>
@@ -601,7 +604,13 @@
       <option name="presentableId" value="LOCAL‎00079" />
       <updated>1623241835787</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL‎00080" summary="main with offer">
+      <created>1623245272865</created>
+      <option name="number" value="LOCAL‎00080" />
+      <option name="presentableId" value="LOCAL‎00080" />
+      <updated>1623245272865</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -705,14 +714,14 @@
           <option name="timeStamp" value="49" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Service/API.java</url>
-          <line>290</line>
-          <option name="timeStamp" value="74" />
+          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
+          <line>958</line>
+          <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>950</line>
-          <option name="timeStamp" value="75" />
+          <url>file://$PROJECT_DIR$/src/Server/AdminWebSocketDay.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="76" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

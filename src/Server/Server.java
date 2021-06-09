@@ -28,6 +28,7 @@ public class Server {
         Spark.webSocket("/getDiscountAndPurchasesPolicies", GetPolicyWebSocket.class);
         Spark.webSocket("/deletePolicyAndPurchase", RemovePolicyAndPurchases.class);
         Spark.webSocket("/AdminWebSocket", AdminWebSocket.class);
+        Spark.webSocket("/AdminWebSocketDay", AdminWebSocketDay.class);
         Spark.webSocket("/myStores/bids", BidsWebSocket.class);
 
         DataBaseHelper.cleanAllTable("test");

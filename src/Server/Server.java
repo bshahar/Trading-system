@@ -39,7 +39,10 @@ public class Server {
                 test = "test";
             }
             if(args[i].contains("load")){
-                loadScenario = args[i].split("_")[1];
+                String [] arr = args[i].split("_");
+                if(arr.length > 1) {
+                    loadScenario = arr[1];
+                }
             }
         }
 

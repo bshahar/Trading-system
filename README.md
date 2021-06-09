@@ -45,6 +45,11 @@ The system has the option of loading data automaticlly when it initializes. To d
           "username": "elad",
           "age": 16,
           "password": "elad321654"
+        },
+        {
+          "username": "erez",
+          "age": 26,
+          "password": "erez321654"
         }
       ]
 
@@ -163,7 +168,7 @@ Same for Login function.
     "addStoreOwner": [
       {
         "appointerUserId": "elad",
-        "appointeeUserId": "kandabior",
+        "appointeeUserId": "erez",
         "storeId": "storeNameTest1"
       }
     ]

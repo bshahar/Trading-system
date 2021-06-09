@@ -252,11 +252,11 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Server" />
       <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithPermissionSuccessTest" />
       <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithoutPermissionFailTest" />
       <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApproveMoreThanOne" />
       <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductWithMoreThanOneOwnerSuccess" />
-      <item itemvalue="Application.Server" />
     </list>
     <recent_temporary>
       <list>

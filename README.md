@@ -164,7 +164,7 @@ Same for Login function.
       {
         "appointerUserId": "elad",
         "appointeeUserId": "kandabior",
-        "storeId": "storeNameTest1",
+        "storeId": "storeNameTest1"
       }
     ]
 

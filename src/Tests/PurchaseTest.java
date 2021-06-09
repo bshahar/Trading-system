@@ -31,7 +31,7 @@ public class PurchaseTest {
     public void setUp()  {
         testProps = new Properties();
         try {
-            DataBaseHelper.cleanAllTable();
+            DataBaseHelper.cleanAllTable("test");
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null) {
                 testProps.load(input);
@@ -40,7 +40,7 @@ public class PurchaseTest {
                 throw new FileNotFoundException("Property file was not found.");
             }
 
-            API.initTradingSystem();
+            API.initTradingSystem("test", "");
             String userName1 = "kandabior";
             String password1 = "or321654";
             String userName2 = "elad";

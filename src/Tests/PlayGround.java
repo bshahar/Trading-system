@@ -1,24 +1,14 @@
 package Tests;
 
-import Domain.User;
-import Persistence.DAO.CounterDAO;
-import Persistence.DAO.StoreDAO;
-import Persistence.DAO.UserDAO;
 import Persistence.DataBaseHelper;
-import Persistence.UserWrapper;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
 import com.j256.ormlite.support.ConnectionSource;
-import com.j256.ormlite.table.TableUtils;
-import org.w3c.dom.css.Counter;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.SQLException;
-import java.util.List;
 import java.util.Properties;
 
 public class PlayGround {
@@ -41,7 +31,7 @@ public class PlayGround {
 //        CounterDAO storeDAO= new CounterDAO(1,0,0,0,0,0,0,0,0,0,0);
 //        storeDAOManager.create(storeDAO);
 //        connectionSource.close();
-        DataBaseHelper.cleanAllTable();
+        DataBaseHelper.cleanAllTable("test");
 //        connectionSource.close();
        // API.initTradingSystem();
         //API.register("elad","sol",22);
@@ -49,7 +39,7 @@ public class PlayGround {
 
     public static ConnectionSource connect() throws IOException, SQLException {
         Properties appProps = new Properties();
-        InputStream input = API.class.getClassLoader().getResourceAsStream("appConfig.properties");
+        InputStream input = API.class.getClassLoader().getResourceAsStream("appConfig.json");
         if(input != null)
             appProps.load(input);
         else

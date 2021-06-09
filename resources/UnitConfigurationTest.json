@@ -1,0 +1,94 @@
+{
+  "RegisterAndLoginUser": [
+    {
+      "username": "dorin",
+      "age": 26,
+      "password": "dorin321654"
+    },
+    {
+      "username": "shahar",
+      "age": 25,
+      "password": "shahar321654"
+    }
+  ],
+  "register": [
+    {
+      "username": "kandabior",
+      "age": 20,
+      "password": "or321654"
+    },
+    {
+      "username": "elad",
+      "age": 16,
+      "password": "elad321654"
+    },
+    {
+      "username": "erez",
+      "age": 20,
+      "password": "erez321654"
+    }
+  ],
+  "login": [
+    {
+      "username": "kandabior",
+      "password": "or321654"
+    },
+    {
+      "username": "elad",
+      "password": "elad321654"
+    },
+    {
+      "username": "erez",
+      "password": "erez321654"
+    }
+  ],
+  "openStore": [
+    {
+      "userOwnerId": "elad",
+      "storeName": "storeNameTest1"
+    },
+    {
+      "userOwnerId": "elad",
+      "storeName": "storeNameTest2"
+    }
+  ],
+  "addProd": [
+    {
+      "storeOwnerId": "elad",
+      "storeId": "storeNameTest1",
+      "name": "Bamba",
+      "categories": [
+        "food"
+      ],
+      "price": 20,
+      "description": "snack",
+      "quantity": 100
+    },
+    {
+      "storeOwnerId": "elad",
+      "storeId": "storeNameTest1",
+      "name": "Corn",
+      "categories": [
+        "food"
+      ],
+      "price": 10,
+      "description": "tastyCorn",
+      "quantity": 50
+    }
+  ],
+  "removeProduct" : [
+    {
+      "managerUserId" : "elad",
+      "storeId" : "storeNameTest1",
+      "prodId" : "Corn"
+    }
+  ],
+  "addStoreManager": [
+    {
+      "appointerUserId": "elad",
+      "appointeeUserId": "kandabior",
+      "storeId": "storeNameTest1",
+      "permission" : [1, 11, 19]
+    }
+  ]
+}

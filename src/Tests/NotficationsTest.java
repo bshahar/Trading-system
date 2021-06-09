@@ -27,10 +27,10 @@ public class NotficationsTest {
 
     @BeforeEach
     public void setUp() {
-        DataBaseHelper.cleanAllTable();
+        DataBaseHelper.cleanAllTable("test");
         Properties testProps = new Properties();
         try {
-            API.initTradingSystem();
+            API.initTradingSystem("test", "");
             InputStream input = getClass().getClassLoader().getResourceAsStream("testsSetUp.properties");
             if(input != null)
                 testProps.load(input);

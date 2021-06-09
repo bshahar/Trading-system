@@ -34,8 +34,8 @@ public class StoreTest {
     public void setUp() {
         Properties testProps = new Properties();
         try {
-            DataBaseHelper.cleanAllTable();
-            API.initTradingSystem();
+            DataBaseHelper.cleanAllTable("test");
+            API.initTradingSystem("test", "");
             String userName1="kandabior";
             String password1= "or321654";
             String userName2="elad";
@@ -215,7 +215,7 @@ public class StoreTest {
     @Test
     //AT-13 success
     public void addProductToStoreSuccessTest() throws Exception {
-        DataBaseHelper.cleanAllTable();
+        DataBaseHelper.cleanAllTable("test");
         setUp();
         List<String> categories = new LinkedList<>();
         categories.add("FOOD");

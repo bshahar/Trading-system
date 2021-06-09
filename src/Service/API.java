@@ -3,16 +3,15 @@ package Service;
 import Domain.*;
 import Interface.TradingSystem;
 import Domain.User;
-import Persistence.DAO.CounterDAO;
 import Persistence.DataBaseHelper;
-import com.j256.ormlite.dao.Dao;
-import com.j256.ormlite.dao.DaoManager;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
-import org.json.JSONObject;
+import org.json.simple.JSONObject;
+import org.json.simple.parser.JSONParser;
 
 
 import java.io.FileNotFoundException;
+import java.io.FileReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.*;
@@ -21,39 +20,67 @@ public class API {
 
     private static TradingSystem tradingSystem;
 
-    public static void initTradingSystem() throws IOException {
+    public static void initTradingSystem(String isTest, String loadFileName) throws Exception {
+        DataBaseHelper.setTest(isTest);
+        JSONObject jsonObject;
+        boolean test = isTest.equals("test");
+        JSONParser jsonParser = new JSONParser();
+        FileReader reader;
 
-        Properties appProps = new Properties();
-
-        InputStream input = API.class.getClassLoader().getResourceAsStream("appConfig.properties");
-        if(input != null)
-            appProps.load(input);
-        else
-            throw new FileNotFoundException("Property file was not found.");
-
-        String sysManagerName = appProps.getProperty("systemManagerName");
-        String sysManagerId = appProps.getProperty("systemManagerId");
-        String sysManagerAge = appProps.getProperty("systemManagerAge");
-        if(sysManagerName.equals("null") || sysManagerId.equals("null") || sysManagerAge.equals("null")){
-            throw new ExceptionInInitializerError("Configuration file not fine");
+        try {
+            if (test) {
+                reader = new FileReader("resources\\appConfigTest.json");
+            } else {
+                reader = new FileReader("resources\\appConfig.json");
+            }
         }
+        catch(Exception e){
+            KingLogger.logError("INIT_TRADING_SYSTEM: json file was not found.");
+            throw new FileNotFoundException("json file was not found.");
+        }
+
+        jsonObject = (JSONObject) jsonParser.parse(reader);
+
+        if(jsonObject == null) {
+            KingLogger.logError("INIT_TRADING_SYSTEM: json file was not found.");
+            throw new FileNotFoundException("json file was not found.");
+        }
+
+          String sysManagerName = (String) jsonObject.get("systemManagerName");
+          String sysManagerId = (String) jsonObject.get("systemManagerId");
+          String sysManagerAge = (String) jsonObject.get("systemManagerAge");
+          String externalSystemsUrl = (String) jsonObject.get("externalSystemsUrl");
+
+        if(sysManagerName == null){
+            KingLogger.logError("INIT_TRADING_SYSTEM: sysManagerName attribute was not found.");
+            throw new FileNotFoundException("sysManagerName attribute was not found");
+        }
+        if(sysManagerId == null){
+            KingLogger.logError("INIT_TRADING_SYSTEM: sysManagerId attribute was not found.");
+            throw new FileNotFoundException("sysManagerId attribute was not found");
+        }
+        if(sysManagerAge == null){
+            KingLogger.logError("INIT_TRADING_SYSTEM: sysManagerAge attribute was not found.");
+            throw new FileNotFoundException("sysManagerAge attribute was not found");
+        }
+        if(externalSystemsUrl == null){
+            KingLogger.logError("INIT_TRADING_SYSTEM: externalSystemsUrl attribute was not found.");
+            throw new FileNotFoundException("externalSystemsUrl attribute was not found");
+        }
+
+
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), true);
-        String externalSystemsUrl = appProps.getProperty("externalSystemsUrl");
-        String tf = appProps.getProperty("forTests");
-        if(!tf.equals("true") & !tf.equals("false")){
-            throw new ExceptionInInitializerError("Configuration file not fine");
+        sysManager.setSystemManager(true);
+        tradingSystem = new TradingSystem(sysManager, externalSystemsUrl, test);
+
+        if(!loadFileName.equals("")) {
+            tradingSystem.loadScenario(loadFileName);
         }
-        boolean forTests = Boolean.parseBoolean(tf);
 
 
-        tradingSystem = new TradingSystem(sysManager, externalSystemsUrl, forTests);
-
-
-        if(Boolean.parseBoolean(appProps.getProperty("loadScenario")))
-            tradingSystem.loadScenario();
         /*
         //String rootPath = Thread.currentThread().getContextClassLoader().getResource("").getPath();
-        //String appConfigPath = rootPath + "appConfig.properties";
+        //String appConfigPath = rootPath + "appConfig.json";
 
         //Properties appProps = new Properties();
         try {
@@ -215,92 +242,7 @@ public class API {
 
 
 
-
-//    public static void forTest() {
-//        Properties testProps = new Properties();
-//
-//        try {
-//            InputStream input = API.class.getClassLoader().getResourceAsStream("systemExampleSetUp.properties");
-//            if (input != null)
-//                testProps.load(input);
-//        } catch (Exception e) {
-//        }
-//
-//
-//        //guests
-//        int guestId1;
-//        int guestId2;
-//        //stores
-//        int storeId1;
-//        int storeId2;
-//        String userName1 = testProps.getProperty("user1");
-//        String userName2 = testProps.getProperty("user2");
-//        String userName3 = testProps.getProperty("user3");
-//        String password = testProps.getProperty("usersPassword");
-//        //TODO why initialized twice???
-//        int registerId1 = (int) register(userName1, password, Integer.parseInt(testProps.getProperty("usersAge"))).getData();
-//        int registerId2 = (int) register(userName2, password, Integer.parseInt(testProps.getProperty("usersAge"))).getData();
-//        int registerId3 = (int) register(userName3, password, 20).getData();
-//        register(testProps.getProperty("newUser1"), password, Integer.parseInt(testProps.getProperty("usersAge")));
-//        register(testProps.getProperty("newUser2"), password, Integer.parseInt(testProps.getProperty("usersAge")));
-//        register(testProps.getProperty("newUser3"), password, Integer.parseInt(testProps.getProperty("usersAge")));
-//        register(testProps.getProperty("newUser4"), password, Integer.parseInt(testProps.getProperty("usersAge")));
-//        register(testProps.getProperty("newUser5"), password, Integer.parseInt(testProps.getProperty("usersAge")));
-//        register(testProps.getProperty("newUser6"), password, Integer.parseInt(testProps.getProperty("usersAge")));
-//        registerId1 = (int) registeredLogin(userName1, password).getData();
-//        storeId1 = (int) openStore(registerId1, testProps.getProperty("store1Name")).getData();
-//        storeId2 = (int) openStore(registerId1, testProps.getProperty("store2Name")).getData();
-//        addStoreOwner(registerId1, 4, storeId1);
-//        addStoreOwner(registerId1, 5, storeId1);
-//        addStoreOwner(registerId1, 6, storeId1);
-//        addStoreOwner(registerId1, 7, storeId1);
-//        addStoreOwner(registerId1, 8, storeId1);
-//        addStoreOwner(registerId1, 9, storeId1);
-//
-//        LinkedList<String> catList1 = new LinkedList<>();
-//        catList1.add(testProps.getProperty("categoryFood1"));
-//        LinkedList<String> catList2 = new LinkedList<>();
-//        catList2.add(testProps.getProperty("categoryFood2"));
-//        addProduct(registerId1, storeId1, testProps.getProperty("prod1Name"), catList2,
-//                Integer.parseInt(testProps.getProperty("prod1Price")), testProps.getProperty("prodDescFood"),
-//                Integer.parseInt(testProps.getProperty("prodQuantity10"))).getData();
-//        addProduct(registerId1, storeId1, testProps.getProperty("prod2Name"), catList1,
-//                Integer.parseInt(testProps.getProperty("prod2Price")), testProps.getProperty("prodDescFood2"),
-//                Integer.parseInt(testProps.getProperty("prodQuantity2"))).getData();
-//        addProduct(registerId1, storeId1, testProps.getProperty("prod3Name"), catList1,
-//                Integer.parseInt(testProps.getProperty("prod3Price")), testProps.getProperty("prodDescHello"),
-//                Integer.parseInt(testProps.getProperty("prodQuantity20"))).getData();
-//        addProduct(registerId1, storeId2, testProps.getProperty("prod4Name"), catList2,
-//                Integer.parseInt(testProps.getProperty("prod4Price")), testProps.getProperty("prodDescFood"),
-//                Integer.parseInt(testProps.getProperty("prodQuantity13"))).getData();
-//        registeredLogout(registerId1);
-//
-//        registerId3 = (int) registeredLogin(userName3, password).getData();
-//        addProductToCart(registerId3, 1, 1, 2);
-//        addProductToCart(registerId3, 2, 2, 2);
-//        addProductToCart(registerId3, 2, 4, 2);
-//
-//        Map<String, String> payment = new HashMap<>();
-//        payment.put("card_number", testProps.getProperty("creditCardNumber"));
-//        payment.put("month", testProps.getProperty("creditExpMonth"));
-//        payment.put("year", testProps.getProperty("creditExpYear"));
-//        payment.put("holder", testProps.getProperty("user1name"));
-//        payment.put("cvv", testProps.getProperty("creditCvv"));
-//        payment.put("id", String.valueOf(registerId1));
-//
-//        Map<String, String> supplement = new HashMap<>();
-//        supplement.put("name", testProps.getProperty("user1name"));
-//        supplement.put("address", testProps.getProperty("supplyAddress"));
-//        supplement.put("city", testProps.getProperty("supplyCity"));
-//        supplement.put("country", testProps.getProperty("supplyCountry"));
-//        supplement.put("zip", testProps.getProperty("supplyZipCode"));
-//
-//        buyProduct(registerId3, storeId1, payment, supplement);
-//        buyProduct(registerId3, storeId2, payment, supplement);
-//        registeredLogout(registerId3);
-//    }
-
-    public static void forTest()
+    public static void forTest(String isTest)
     {
 
         int registerId1;

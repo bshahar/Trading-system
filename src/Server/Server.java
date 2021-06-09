@@ -38,8 +38,8 @@ public class Server {
             if(args[i].equals("test")){
                 test = "test";
             }
-            if(args[i].equals("load")){
-                loadScenario = "load";
+            if(args[i].contains("load")){
+                loadScenario = args[i].split("_")[1];
             }
         }
 

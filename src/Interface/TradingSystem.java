@@ -78,8 +78,6 @@ public class TradingSystem {
             supplementAdapter = new SupplementAdapter(externalSystemsUrl);
 
         }
-        //paymentAdapter = new PaymentAdapter(externalSystemsUrl);
-        //supplementAdapter = new SupplementAdapter(externalSystemsUrl);
         this.users =  new UserWrapper();
         this.receipts =  new ReceiptWrapper();
 
@@ -121,12 +119,12 @@ public class TradingSystem {
         }
     }
 
-    public void loadScenario() throws Exception {
+    public void loadScenario(String loadFileName) throws Exception {
         //TODO here we need to write the json function parsing.
         org.json.simple.JSONObject jsonObject;
         JSONParser jsonParser = new JSONParser();
         try {
-            FileReader reader = new FileReader("resources\\requestedTests.json");
+            FileReader reader = new FileReader("resources\\" + loadFileName);
             jsonObject = (org.json.simple.JSONObject) jsonParser.parse(reader);
         }
 
@@ -196,6 +194,14 @@ public class TradingSystem {
             if(addStoreManager(appointerUserId, appointeeUserId, storeId).isResult()){
                 addPermissions(appointerUserId, appointeeUserId, storeId, permission);
             }
+        }
+
+        JSONArray addStoreOwner = (JSONArray)jsonObject.get("addStoreOwner");
+        for(int i = 0;addStoreOwner != null && i< addStoreOwner.size(); i++) {
+            int appointerUserId = (Integer) getUserIdByName((String) ((org.json.simple.JSONObject) addStoreOwner.get(i)).get("appointerUserId")).getData();
+            int appointeeUserId = (Integer) getUserIdByName((String) ((org.json.simple.JSONObject) addStoreOwner.get(i)).get("appointeeUserId")).getData();
+            int storeId = (Integer) getStoreIdByName(appointerUserId, (String) ((org.json.simple.JSONObject) addStoreOwner.get(i)).get("storeId")).getData();
+            API.addStoreOwner(appointerUserId,appointeeUserId, storeId);
         }
 
         JSONArray logout = (JSONArray)jsonObject.get("logout");

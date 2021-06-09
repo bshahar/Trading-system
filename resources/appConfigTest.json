@@ -1,9 +1,9 @@
 {
     "systemVersion":"1.0",
     "systemName":"Trading System",
-    "systemManagerName":"EOEDS",
+    "systemManagerName":"A1",
     "systemManagerId":"0",
-    "systemManagerAge":"25",
+    "systemManagerAge":"0",
     "externalSystemsUrl":"https://cs-bgu-wsep.herokuapp.com/",
     "dbHost":"remotemysql.com",
     "dbUserName":"root",

@@ -20,10 +20,8 @@ public class API {
 
     private static TradingSystem tradingSystem;
 
-    public static void initTradingSystem(String isTest, String load) throws Exception {
+    public static void initTradingSystem(String isTest, String loadFileName) throws Exception {
         DataBaseHelper.setTest(isTest);
-        //Properties appProps = new Properties();
-        //InputStream input;
         JSONObject jsonObject;
         boolean test = isTest.equals("test");
         JSONParser jsonParser = new JSONParser();
@@ -31,10 +29,8 @@ public class API {
 
         try {
             if (test) {
-                //input = API.class.getClassLoader().getResourceAsStream("appConfigTest.json");
                 reader = new FileReader("resources\\appConfigTest.json");
             } else {
-                //input = API.class.getClassLoader().getResourceAsStream("appConfig.json");
                 reader = new FileReader("resources\\appConfig.json");
             }
         }
@@ -49,13 +45,6 @@ public class API {
             KingLogger.logError("INIT_TRADING_SYSTEM: json file was not found.");
             throw new FileNotFoundException("json file was not found.");
         }
-
-//        appProps.load(input);
-//        String sysManagerName = appProps.getProperty("systemManagerName");
-//        String sysManagerId = appProps.getProperty("systemManagerId");
-//        String sysManagerAge = appProps.getProperty("systemManagerAge");
-//        String externalSystemsUrl = appProps.getProperty("externalSystemsUrl");
-//        String loadScenario = appProps.getProperty("loadScenario");
 
           String sysManagerName = (String) jsonObject.get("systemManagerName");
           String sysManagerId = (String) jsonObject.get("systemManagerId");
@@ -81,10 +70,11 @@ public class API {
 
 
         User sysManager = new User(sysManagerName, Integer.parseInt(sysManagerAge), Integer.parseInt(sysManagerId), true);
+        sysManager.setSystemManager(true);
         tradingSystem = new TradingSystem(sysManager, externalSystemsUrl, test);
 
-        if(load.equals("load")) {
-            tradingSystem.loadScenario();
+        if(!loadFileName.equals("")) {
+            tradingSystem.loadScenario(loadFileName);
         }
 
 

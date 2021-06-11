@@ -6,8 +6,10 @@ import Domain.Store;
 import Persistence.DAO.*;
 import Persistence.connection.JdbcConnectionSource;
 import Service.API;
+import com.j256.ormlite.dao.BaseDaoImpl;
 import com.j256.ormlite.dao.Dao;
 import com.j256.ormlite.dao.DaoManager;
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.stmt.query.In;
 import com.j256.ormlite.support.ConnectionSource;
 
@@ -31,16 +33,22 @@ public class OffersOnProductWrapper {
     public void add(int storeId, Product prod, PurchaseOffer purchaseOffer) {
         try {
             ConnectionSource connectionSource = connect();
-            Dao<PurchaseOffersDAO, String> purchaseOfferDao = DaoManager.createDao(connectionSource, PurchaseOffersDAO.class);
-            PurchaseOffersDAO purchaseOfferDAOObj = new PurchaseOffersDAO(purchaseOffer.getId(), purchaseOffer.getPriceOfOffer(),purchaseOffer.getUser().getId(),purchaseOffer.getNumOfProd(), purchaseOffer.getCounterOffer());
-            purchaseOfferDao.create(purchaseOfferDAOObj);
+            Dao<LeftToApproveDAO, String> dao  = DaoManager.createDao(connectionSource, LeftToApproveDAO.class);
 
+            ForeignCollection<LeftToApproveDAO> lta = dao.assignEmptyForeignCollection(tmp, "leftToApproveDAOS");
             LinkedList<Integer> users = purchaseOffer.getManager();
             for (Integer u: users) {
+                lta.add(new LeftToApproveDAO(u));
+                /*
                 Dao<LeftToApproveDAO, String> leftToApproveDao = DaoManager.createDao(connectionSource, LeftToApproveDAO.class);
                 LeftToApproveDAO leftToApproveDAOObj = new LeftToApproveDAO(purchaseOffer.getId(), u);
-                leftToApproveDao.create(leftToApproveDAOObj);
+                leftToApproveDao.create(leftToApproveDAOObj);*/
             }
+
+
+            Dao<PurchaseOffersDAO, String> purchaseOfferDao = DaoManager.createDao(connectionSource, PurchaseOffersDAO.class);
+            PurchaseOffersDAO purchaseOfferDAOObj = new PurchaseOffersDAO(purchaseOffer.getId(), purchaseOffer.getPriceOfOffer(),purchaseOffer.getUser().getId(),purchaseOffer.getNumOfProd(), purchaseOffer.getCounterOffer(), lta);
+            purchaseOfferDao.create(purchaseOfferDAOObj);
 
             Dao<ProductOffersDAO, String> productOffersDAO = DaoManager.createDao(connectionSource, ProductOffersDAO.class);
             ProductOffersDAO productOfferDaoObj = new ProductOffersDAO(storeId, purchaseOffer.getId(), prod.getId());
@@ -48,7 +56,7 @@ public class OffersOnProductWrapper {
 
             connectionSource.close();
         } catch (Exception e) {
-            System.out.println("hiii");
+           System.out.println("hiii");
         }
         if(this.value.containsKey(prod)) {
             LinkedList<PurchaseOffer> offers = this.value.get(prod);

@@ -1,7 +1,11 @@
 package Persistence.DAO;
 
+import com.j256.ormlite.dao.ForeignCollection;
 import com.j256.ormlite.field.DatabaseField;
+import com.j256.ormlite.field.ForeignCollectionField;
 import com.j256.ormlite.table.DatabaseTable;
+
+import java.util.LinkedList;
 
 @DatabaseTable(tableName = "PurchaseOffers")
 public class PurchaseOffersDAO {
@@ -14,20 +18,31 @@ public class PurchaseOffersDAO {
     private int userId;
     @DatabaseField
     private int quantity;
-
     @DatabaseField
     private int counter;
+
+    public ForeignCollection<LeftToApproveDAO> getLeftToApproveDAOS() {
+        return leftToApproveDAOS;
+    }
+
+    public void setLeftToApproveDAOS(ForeignCollection<LeftToApproveDAO> leftToApproveDAOS) {
+        this.leftToApproveDAOS = leftToApproveDAOS;
+    }
+
+    @ForeignCollectionField(eager=false)
+    private ForeignCollection<LeftToApproveDAO> leftToApproveDAOS;
 
     public PurchaseOffersDAO() {
         // ORMLite needs a no-arg constructor
     }
 
-    public PurchaseOffersDAO(int id, double priceOfOffer, int userId, int quantity, int counter) {
+    public PurchaseOffersDAO(int id, double priceOfOffer, int userId, int quantity, int counter, ForeignCollection<LeftToApproveDAO> leftToApprove) {
         this.id = id;
         this.priceOfOffer = priceOfOffer;
         this.userId = userId;
         this.quantity = quantity;
         this.counter = counter;
+        this.leftToApproveDAOS = leftToApprove;
     }
 
 

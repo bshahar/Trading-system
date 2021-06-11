@@ -306,7 +306,6 @@ public class TradingSystem {
                     });
         }catch (Exception e)
         {
-
         }
         return result[0];
 

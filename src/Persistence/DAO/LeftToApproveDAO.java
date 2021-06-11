@@ -3,11 +3,21 @@ package Persistence.DAO;
 import com.j256.ormlite.field.DatabaseField;
 import com.j256.ormlite.table.DatabaseTable;
 
-@DatabaseTable(tableName = "LeftToApprove")
+@DatabaseTable
 public class LeftToApproveDAO {
 
-    @DatabaseField(uniqueCombo = true)
-    private int offerId;
+    public PurchaseOffersDAO getPo() {
+        return po;
+    }
+
+    public void setPo(PurchaseOffersDAO po) {
+        this.po = po;
+    }
+
+    @DatabaseField(foreign = true, foreignAutoRefresh = true)
+    private PurchaseOffersDAO po;
+   /* @DatabaseField(uniqueCombo = true)
+    private int offerId;*/
     @DatabaseField(uniqueCombo = true)
     private int userId;
 
@@ -16,19 +26,19 @@ public class LeftToApproveDAO {
     }
 
 
-    public LeftToApproveDAO(int offerId, int userId) {
-        this.offerId = offerId;
+    public LeftToApproveDAO( int userId) {
+        //this.offerId = offerId;
         this.userId = userId;
     }
 
 
-    public int getOfferId() {
+    /*public int getOfferId() {
         return offerId;
     }
 
     public void setOfferId(int offerId) {
         this.offerId = offerId;
-    }
+    }*/
 
     public int getUserId() {
         return userId;

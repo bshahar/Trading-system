@@ -87,8 +87,7 @@
     {
       "appointerUserId": "elad",
       "appointeeUserId": "kandabior",
-      "storeId": "storeNameTest1",
-      "permission" : [1, 11, 19]
+      "storeId": "storeNameTest1"
     }
   ],
   "logout" : ["kandabior"]

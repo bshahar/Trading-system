@@ -186,15 +186,7 @@ public class TradingSystem {
             int appointerUserId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)addStoreManager.get(i)).get("appointerUserId")).getData();
             int appointeeUserId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)addStoreManager.get(i)).get("appointeeUserId")).getData();
             int storeId = (Integer)getStoreIdByName(appointerUserId, (String)((org.json.simple.JSONObject)addStoreManager.get(i)).get("storeId")).getData();
-
-            List<Integer> permission = new LinkedList<>();
-            JSONArray permissionArray = (JSONArray) ((org.json.simple.JSONObject)addStoreManager.get(i)).get("permission");
-            for(int j = 0; j < permissionArray.size(); j++){
-                permission.add(Math.toIntExact((long)(permissionArray.get(j))));
-            }
-            if(addStoreManager(appointerUserId, appointeeUserId, storeId).isResult()){
-                addPermissions(appointerUserId, appointeeUserId, storeId, permission);
-            }
+            API.addStoreManager(appointerUserId,appointeeUserId, storeId);
         }
 
         JSONArray addStoreOwner = (JSONArray)jsonObject.get("addStoreOwner");

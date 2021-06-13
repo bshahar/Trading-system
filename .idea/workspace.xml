@@ -24,7 +24,8 @@
   <component name="ChangeListManager">
     <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="main with offer">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/eventLog.txt" beforeDir="false" afterPath="$PROJECT_DIR$/eventLog.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/requestedTests.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/requestedTests.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -298,6 +299,7 @@
       <workItem from="1622962859066" duration="3038000" />
       <workItem from="1622967511006" duration="22350000" />
       <workItem from="1623173254718" duration="7677000" />
+      <workItem from="1623576954733" duration="755000" />
     </task>
     <task id="LOCAL‎00032" summary="pemission action web socket">
       <created>1619774310985</created>
@@ -609,7 +611,7 @@
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
-    <option name="version" value="2" />
+    <option name="version" value="1" />
   </component>
   <component name="UnknownFeatures">
     <option featureType="com.intellij.fileTypeFactory" implementationName="*.css" />
@@ -620,12 +622,13 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="#61 db dorin" />
@@ -659,42 +662,42 @@
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/Login/LoginWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/Login/LoginWebSocket.java</url>
           <line>63</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/StoreWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/StoreWebSocket.java</url>
           <line>33</line>
           <option name="timeStamp" value="14" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/SearchProductsWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/SearchProductsWebSocket.java</url>
           <line>75</line>
           <option name="timeStamp" value="16" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
           <line>60</line>
           <option name="timeStamp" value="19" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
           <line>67</line>
           <option name="timeStamp" value="20" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/PolicyWebSocket.java</url>
           <line>82</line>
           <option name="timeStamp" value="21" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Server/PermissionsWebSocket.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Server/PermissionsWebSocket.java</url>
           <line>65</line>
           <option name="timeStamp" value="22" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/../../סדנה/Trading-system/src/Domain/Store.java</url>
+          <url>file://$USER_HOME$/סדנה/Trading-system/src/Domain/Store.java</url>
           <line>475</line>
           <option name="timeStamp" value="24" />
         </line-breakpoint>
@@ -710,7 +713,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/Interface/TradingSystem.java</url>
-          <line>958</line>
+          <line>950</line>
           <option name="timeStamp" value="75" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
@@ -723,8 +726,6 @@
     <pin-to-top-manager>
       <pinned-members>
         <PinnedItemInfo />
-        <PinnedItemInfo parentTag="Domain.DiscountPolicies.DiscountCondition" memberName="id" />
-        <PinnedItemInfo parentTag="Persistence.DiscountsOnProductsWrapper" memberName="value" />
       </pinned-members>
     </pin-to-top-manager>
     <watches-manager>
@@ -743,10 +744,10 @@
     <SUITE FILE_PATH="coverage/TradingSystem_java$Server.ic" NAME="Server Coverage Results" MODIFIED="1622965685624" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Server.*</FILTER>
     </SUITE>
-    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$SystemManagerTests_OwnersCounter.ic" NAME="SystemManagerTests.OwnersCounter Coverage Results" MODIFIED="1622897679488" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
     </SUITE>
+    <SUITE FILE_PATH="coverage/TradingSystem_java$StoreTest_addOwnerFailTest.ic" NAME="StoreTest.addOwnerFailTest Coverage Results" MODIFIED="1617732992390" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
     <SUITE FILE_PATH="coverage/TradingSystem_java$MyTest_loginSuccessTest.ic" NAME="MyTest.loginSuccessTest Coverage Results" MODIFIED="1621266219751" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
       <FILTER>Tests.*</FILTER>
     </SUITE>

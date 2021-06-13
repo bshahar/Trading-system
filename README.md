@@ -96,11 +96,11 @@ Same for Login function.
 ### How to use
     "openStore": [
       {
-        "userOwnerId": "elad",
+        "userOwnerName": "elad",
         "storeName": "storeNameTest1"
       },
       {
-        "userOwnerId": "elad",
+        "userOwnerName": "elad",
         "storeName": "storeNameTest2"
       }
     ]
@@ -117,8 +117,8 @@ Same for Login function.
 ### How to use
     "addProduct": [
       {
-        "storeOwnerId": "elad",
-        "storeId": "storeNameTest1",
+        "storeOwnerName": "elad",
+        "storeName": "storeNameTest1",
         "name": "Bamba",
         "categories": [
           "food"
@@ -137,9 +137,9 @@ Same for Login function.
 ### How to use
     "removeProduct" : [
       {
-        "managerUserId" : "elad",
-        "storeId" : "storeNameTest1",
-        "prodId" : "Corn"
+        "managerUserName" : "elad",
+        "storeName" : "storeNameTest1",
+        "prodName" : "Corn"
       }
     ]
 
@@ -152,9 +152,9 @@ Same for Login function.
 ### How to use
     "addStoreManager": [
       {
-        "appointerUserId": "elad",
-        "appointeeUserId": "kandabior",
-        "storeId": "storeNameTest1"
+        "appointerUserName": "elad",
+        "appointeeUserName": "kandabior",
+        "storeName": "storeNameTest1"
       }
     ]
     
@@ -166,9 +166,9 @@ Same for Login function.
 ### How to use
     "addStoreOwner": [
       {
-        "appointerUserId": "elad",
-        "appointeeUserId": "erez",
-        "storeId": "storeNameTest1"
+        "appointerUserName": "elad",
+        "appointeeUserName": "erez",
+        "storeName": "storeNameTest1"
       }
     ]
 

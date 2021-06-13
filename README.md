@@ -157,7 +157,7 @@ Same for Login function.
       }
     ]
     
-## Add store Owner
+## Add store owner
 ### parameters:
 1. appointerUserName - the store owner user name in the system.
 2. appointeeUserName - the user name of the appointee.

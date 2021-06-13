@@ -160,15 +160,15 @@ public class TradingSystem {
 
         JSONArray openStoreArray = (JSONArray)jsonObject.get("openStore");
         for (int i = 0;openStoreArray != null && i< openStoreArray.size(); i++){
-            int userOwnerId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)openStoreArray.get(i)).get("userOwnerId")).getData();
+            int userOwnerId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)openStoreArray.get(i)).get("userOwnerName")).getData();
             String storeName = (String) ((org.json.simple.JSONObject)openStoreArray.get(i)).get("storeName");
             API.openStore(userOwnerId,storeName);
         }
 
         JSONArray addProduct = (JSONArray)jsonObject.get("addProduct");
         for (int i = 0;addProduct != null && i< addProduct.size(); i++){
-            int storeOwnerId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)addProduct.get(i)).get("storeOwnerId")).getData();
-            int storeId = (Integer)getStoreIdByName(storeOwnerId, (String)((org.json.simple.JSONObject)addProduct.get(i)).get("storeId")).getData();
+            int storeOwnerId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)addProduct.get(i)).get("storeOwnerName")).getData();
+            int storeId = (Integer)getStoreIdByName(storeOwnerId, (String)((org.json.simple.JSONObject)addProduct.get(i)).get("storeName")).getData();
             String name = (String) ((org.json.simple.JSONObject)addProduct.get(i)).get("name");
             List <String> categories = new LinkedList();
             JSONArray catList = (JSONArray)((org.json.simple.JSONObject)addProduct.get(i)).get("categories");
@@ -191,9 +191,9 @@ public class TradingSystem {
 
         JSONArray addStoreOwner = (JSONArray)jsonObject.get("addStoreOwner");
         for(int i = 0;addStoreOwner != null && i< addStoreOwner.size(); i++) {
-            int appointerUserId = (Integer) getUserIdByName((String) ((org.json.simple.JSONObject) addStoreOwner.get(i)).get("appointerUserId")).getData();
-            int appointeeUserId = (Integer) getUserIdByName((String) ((org.json.simple.JSONObject) addStoreOwner.get(i)).get("appointeeUserId")).getData();
-            int storeId = (Integer) getStoreIdByName(appointerUserId, (String) ((org.json.simple.JSONObject) addStoreOwner.get(i)).get("storeId")).getData();
+            int appointerUserId = (Integer) getUserIdByName((String) ((org.json.simple.JSONObject) addStoreOwner.get(i)).get("appointerUserName")).getData();
+            int appointeeUserId = (Integer) getUserIdByName((String) ((org.json.simple.JSONObject) addStoreOwner.get(i)).get("appointeeUserName")).getData();
+            int storeId = (Integer) getStoreIdByName(appointerUserId, (String) ((org.json.simple.JSONObject) addStoreOwner.get(i)).get("storeName")).getData();
             API.addStoreOwner(appointerUserId,appointeeUserId, storeId);
         }
 
@@ -205,9 +205,9 @@ public class TradingSystem {
 
         JSONArray removeProduct = (JSONArray)jsonObject.get("removeProduct");
         for(int i = 0;removeProduct != null && i< removeProduct.size(); i++) {
-            int managerUserId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)removeProduct.get(i)).get("managerUserId")).getData();
-            int storeId = (Integer)getStoreIdByName(managerUserId, (String)((org.json.simple.JSONObject)removeProduct.get(i)).get("storeId")).getData();
-            int productId = getProdIdByName(storeId,(String)((org.json.simple.JSONObject)removeProduct.get(i)).get("prodId"));
+            int managerUserId = (Integer) getUserIdByName((String)((org.json.simple.JSONObject)removeProduct.get(i)).get("managerUserName")).getData();
+            int storeId = (Integer)getStoreIdByName(managerUserId, (String)((org.json.simple.JSONObject)removeProduct.get(i)).get("storeName")).getData();
+            int productId = getProdIdByName(storeId,(String)((org.json.simple.JSONObject)removeProduct.get(i)).get("prodName"));
            API.removeProductFromStore(managerUserId, storeId, productId);
         }
     }

@@ -44,18 +44,18 @@
   ],
   "openStore": [
     {
-      "userOwnerId": "elad",
+      "userOwnerName": "elad",
       "storeName": "storeNameTest1"
     },
     {
-      "userOwnerId": "elad",
+      "userOwnerName": "elad",
       "storeName": "storeNameTest2"
     }
   ],
   "addProd": [
     {
-      "storeOwnerId": "elad",
-      "storeId": "storeNameTest1",
+      "storeOwnerName": "elad",
+      "storeName": "storeNameTest1",
       "name": "Bamba",
       "categories": [
         "food"
@@ -65,8 +65,8 @@
       "quantity": 100
     },
     {
-      "storeOwnerId": "elad",
-      "storeId": "storeNameTest1",
+      "storeOwnerName": "elad",
+      "storeName": "storeNameTest1",
       "name": "Corn",
       "categories": [
         "food"
@@ -78,17 +78,16 @@
   ],
   "removeProduct" : [
     {
-      "managerUserId" : "elad",
-      "storeId" : "storeNameTest1",
-      "prodId" : "Corn"
+      "managerUserName" : "elad",
+      "storeName" : "storeNameTest1",
+      "prodName" : "Corn"
     }
   ],
   "addStoreManager": [
     {
-      "appointerUserId": "elad",
-      "appointeeUserId": "kandabior",
-      "storeId": "storeNameTest1",
-      "permission" : [1, 11, 19]
+      "appointerUserName": "elad",
+      "appointeeUserName": "kandabior",
+      "storeName": "storeNameTest1"
     }
   ]
 }

@@ -23,14 +23,14 @@
   ],
   "openStore": [
     {
-      "userOwnerId": "U1",
+      "userOwnerName": "U1",
       "storeName": "S1"
-    },
+    }
   ],
   "addProduct": [
     {
-      "storeOwnerId": "U1",
-      "storeId": "S1",
+      "storeOwnerName": "U1",
+      "storeName": "S1",
       "name": "Wine",
       "categories": [
         "Drink",
@@ -43,9 +43,9 @@
   ],
   "addStoreOwner": [
     {
-      "appointerUserId": "U1",
-      "appointeeUserId": "U4",
-      "storeId": "S1"
+      "appointerUserName": "U1",
+      "appointeeUserName": "U4",
+      "storeName": "S1"
     }
   ]
 }

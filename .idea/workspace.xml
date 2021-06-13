@@ -22,10 +22,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="main with offer">
+    <list default="true" id="93a92e7d-c4aa-415c-829a-c3c8f0349e1a" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/AviScenario.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/AviScenario.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/UnitConfigurationTest.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/UnitConfigurationTest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Trading-system/requestedTests.json" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Trading-system/requestedTests.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/AviScenario.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/AviScenario.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/UnitConfigurationTest.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/UnitConfigurationTest.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/requestedTests.json" beforeDir="false" afterPath="$PROJECT_DIR$/resources/requestedTests.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Interface/TradingSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Interface/TradingSystem.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Tests/ConfigurationFileTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Tests/ConfigurationFileTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -151,7 +157,7 @@
     <property name="project.structure.proportion" value="0.22987013" />
     <property name="project.structure.side.proportion" value="0.5440977" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="settings.editor.selected.configurable" value="Errors" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.fonts.default" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
@@ -174,7 +180,7 @@
       <recent name="Server" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Server">
+  <component name="RunManager" selected="JUnit.ConfigurationFileTest">
     <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="Server.Server" />
       <module name="Trading-system" />
@@ -188,7 +194,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="DiscountAndPurchaseTest.approveOfferWithPermissionSuccessTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ConfigurationFileTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="Trading-system" />
       <extension name="coverage">
         <pattern>
@@ -197,9 +203,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="Tests" />
-      <option name="MAIN_CLASS_NAME" value="Tests.DiscountAndPurchaseTest" />
-      <option name="METHOD_NAME" value="approveOfferWithPermissionSuccessTest" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="Tests.ConfigurationFileTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -254,18 +259,18 @@
     </configuration>
     <list>
       <item itemvalue="Application.Server" />
-      <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithPermissionSuccessTest" />
       <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithoutPermissionFailTest" />
       <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApproveMoreThanOne" />
       <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductWithMoreThanOneOwnerSuccess" />
+      <item itemvalue="JUnit.ConfigurationFileTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.ConfigurationFileTest" />
         <item itemvalue="Application.Server" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductWithMoreThanOneOwnerSuccess" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.buyProductAfterCounterOfferAndApproveMoreThanOne" />
         <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithoutPermissionFailTest" />
-        <item itemvalue="JUnit.DiscountAndPurchaseTest.approveOfferWithPermissionSuccessTest" />
       </list>
     </recent_temporary>
   </component>
@@ -299,13 +304,7 @@
       <workItem from="1622962859066" duration="3038000" />
       <workItem from="1622967511006" duration="22350000" />
       <workItem from="1623173254718" duration="7677000" />
-      <workItem from="1623576954733" duration="755000" />
-    </task>
-    <task id="LOCAL‎00032" summary="pemission action web socket">
-      <created>1619774310985</created>
-      <option name="number" value="LOCAL‎00032" />
-      <option name="presentableId" value="LOCAL‎00032" />
-      <updated>1619774310985</updated>
+      <workItem from="1623576954733" duration="1824000" />
     </task>
     <task id="LOCAL‎00033" summary="pemission action web socket">
       <created>1619778256313</created>
@@ -607,7 +606,14 @@
       <option name="presentableId" value="LOCAL‎00080" />
       <updated>1623245272865</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="..">
+      <created>1623577731784</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1623577731784</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -649,14 +655,44 @@
     <MESSAGE value="..." />
     <MESSAGE value="fix approve offer test" />
     <MESSAGE value="." />
-    <MESSAGE value=".." />
     <MESSAGE value="fix delete from offers tables" />
     <MESSAGE value="02" />
     <MESSAGE value="xml" />
     <MESSAGE value="update offer before tests" />
     <MESSAGE value="main with offer" />
     <MESSAGE value="get analitics per day" />
-    <option name="LAST_COMMIT_MESSAGE" value="get analitics per day" />
+    <MESSAGE value=".." />
+    <option name="LAST_COMMIT_MESSAGE" value=".." />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="579" y="118" key="CommitChangelistDialog2" timestamp="1623577730170">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="579" y="118" key="CommitChangelistDialog2/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623577730170" />
+    <state width="1230" height="159" key="GridCell.Tab.0.bottom" timestamp="1623579426545">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1230" height="159" key="GridCell.Tab.0.bottom/0.0.1280.680@0.0.1280.680" timestamp="1623579426545" />
+    <state width="1230" height="159" key="GridCell.Tab.0.center" timestamp="1623579426545">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1230" height="159" key="GridCell.Tab.0.center/0.0.1280.680@0.0.1280.680" timestamp="1623579426545" />
+    <state width="1230" height="159" key="GridCell.Tab.0.left" timestamp="1623579426545">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1230" height="159" key="GridCell.Tab.0.left/0.0.1280.680@0.0.1280.680" timestamp="1623579426545" />
+    <state width="1230" height="159" key="GridCell.Tab.0.right" timestamp="1623579426545">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state width="1230" height="159" key="GridCell.Tab.0.right/0.0.1280.680@0.0.1280.680" timestamp="1623579426545" />
+    <state x="139" y="0" key="SettingsEditor" timestamp="1623578628930">
+      <screen x="0" y="0" width="1280" height="680" />
+    </state>
+    <state x="139" y="0" key="SettingsEditor/0.0.1280.680@0.0.1280.680" timestamp="1623578628930" />
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2" timestamp="1623577746521">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="552" y="257" key="Vcs.Push.Dialog.v2/-1920.0.1280.693/0.0.1920.1040@0.0.1920.1040" timestamp="1623577746521" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

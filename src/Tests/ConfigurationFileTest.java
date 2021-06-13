@@ -74,7 +74,7 @@ public class ConfigurationFileTest {
     @Test
     public void checkOpenStore(){
         JSONArray openStore = (JSONArray)jsonObject.get("openStore");
-        String userName = (String) (( org.json.simple.JSONObject )openStore.get(0)).get("userOwnerId");
+        String userName = (String) (( org.json.simple.JSONObject )openStore.get(0)).get("userOwnerName");
         String storeName = (String) (( org.json.simple.JSONObject )openStore.get(0)).get("storeName");
         Assertions.assertEquals("elad", userName);
         Assertions.assertEquals("storeNameTest1", storeName);
@@ -83,9 +83,9 @@ public class ConfigurationFileTest {
     @Test
     public void checkRemoveProdect(){
         JSONArray removeProduct = (JSONArray)jsonObject.get("removeProduct");
-        String userName = (String) (( org.json.simple.JSONObject )removeProduct.get(0)).get("managerUserId");
-        String storeName = (String) (( org.json.simple.JSONObject )removeProduct.get(0)).get("storeId");
-        String productName = (String) (( org.json.simple.JSONObject )removeProduct.get(0)).get("prodId");
+        String userName = (String) (( org.json.simple.JSONObject )removeProduct.get(0)).get("managerUserName");
+        String storeName = (String) (( org.json.simple.JSONObject )removeProduct.get(0)).get("storeName");
+        String productName = (String) (( org.json.simple.JSONObject )removeProduct.get(0)).get("prodName");
         Assertions.assertEquals("elad", userName);
         Assertions.assertEquals("storeNameTest1", storeName);
         Assertions.assertEquals("Corn", productName);
@@ -94,14 +94,12 @@ public class ConfigurationFileTest {
     @Test
     public void checkAddStoreManager(){
         JSONArray addStoreManager = (JSONArray)jsonObject.get("addStoreManager");
-        String appointer = (String) (( org.json.simple.JSONObject )addStoreManager.get(0)).get("appointerUserId");
-        String appointee = (String) (( org.json.simple.JSONObject )addStoreManager.get(0)).get("appointeeUserId");
-        String storeName = (String) (( org.json.simple.JSONObject )addStoreManager.get(0)).get("storeId");
-        JSONArray permission = (JSONArray) (( org.json.simple.JSONObject )addStoreManager.get(0)).get("permission");
+        String appointer = (String) (( org.json.simple.JSONObject )addStoreManager.get(0)).get("appointerUserName");
+        String appointee = (String) (( org.json.simple.JSONObject )addStoreManager.get(0)).get("appointeeUserName");
+        String storeName = (String) (( org.json.simple.JSONObject )addStoreManager.get(0)).get("storeName");
         Assertions.assertEquals("elad", appointer);
         Assertions.assertEquals("kandabior", appointee);
         Assertions.assertEquals("storeNameTest1", storeName);
-        Assertions.assertEquals(3, permission.size());
     }
 
     @Test

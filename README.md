@@ -16,7 +16,7 @@ Optional argumnets to start the system:
 2. load - initialize the system with data in it (the data is stored in the file -"requestedTests.json").  
 Explenation on each mode later in this document.
 ## How to use
-    tradingSystem test load
+    tradingSystem test load_FILENAME.json
 
 
 
@@ -91,7 +91,7 @@ Same for Login function.
 
 ## Open store
 ### parameters:
-1. userOwnerId - the owner user name in the system.
+1. userOwnerName - the owner user name in the system.
 2. storeName - name of the store to be shown in the system.
 ### How to use
     "openStore": [
@@ -107,8 +107,8 @@ Same for Login function.
 
 ## Add product to a store
 ### parameters:
-1. storeOwnerId - the owner user name in the system.
-2. storeId - name of the store as it is in the system.
+1. storeOwnerName - the owner user name in the system.
+2. storeName - name of the store as it is in the system.
 3. name - prduct name.
 4. categories - list of categories the product is associated to.
 5. price
@@ -131,9 +131,9 @@ Same for Login function.
 
 ## Remove product from a store
 ### parameters:
-1. managerUserId - the owner/ manager user name in the system.
-2. storeId - name of the store as it is in the system.
-3. prodId - prduct name.
+1. managerUserName - the owner/ manager user name in the system.
+2. storeName - name of the store as it is in the system.
+3. prodName - prduct name.
 ### How to use
     "removeProduct" : [
       {
@@ -145,10 +145,9 @@ Same for Login function.
 
 ## Add store manager
 ### parameters:
-1. appointerUserId - the store owner user name in the system.
-2. appointeeUserId - the user name of the appointee.
-3. storeId - name of the store as it is in the system.
-4. permission - list of permissions' indexes to add to the appointee. See numbers in list below.
+1. appointerUserName - the store owner user name in the system.
+2. appointeeUserName - the user name of the appointee.
+3. storeName - name of the store as it is in the system.
 ### How to use
     "addStoreManager": [
       {
@@ -160,9 +159,9 @@ Same for Login function.
     
 ## Add store Owner
 ### parameters:
-1. appointerUserId - the store owner user name in the system.
-2. appointeeUserId - the user name of the appointee.
-3. storeId - name of the store as it is in the system.
+1. appointerUserName - the store owner user name in the system.
+2. appointeeUserName - the user name of the appointee.
+3. storeName - name of the store as it is in the system.
 ### How to use
     "addStoreOwner": [
       {

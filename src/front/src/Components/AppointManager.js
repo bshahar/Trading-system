@@ -15,7 +15,7 @@ export default function AppointManager({storeName,userId,storeId}) {
             </View>
             <View style={{ padding: 5 }}>
                 <Button title={'Add manager'} onPress={() => {
-                    var client = new W3CWebSocket(`wss://localhost:4567/myStores/StorePermissions/action`);
+                    var client = new W3CWebSocket(`ws://localhost:4567/myStores/StorePermissions/action`);
                     client.onmessage = function (event) {
                         const parsedMessage = JSON.parse(event.data);
 
@@ -45,7 +45,7 @@ export default function AppointManager({storeName,userId,storeId}) {
 
             <View style={{ padding: 5 }}>
                 <Button title={'Remove manager'} color={'red'} onPress={() => {
-                    var client = new W3CWebSocket(`wss://localhost:4567/myStores/StorePermissions/action`);
+                    var client = new W3CWebSocket(`ws://localhost:4567/myStores/StorePermissions/action`);
                     client.onmessage = function (event) {
                         const parsedMessage = JSON.parse(event.data);
 

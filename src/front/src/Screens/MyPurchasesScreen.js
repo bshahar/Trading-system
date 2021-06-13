@@ -10,7 +10,7 @@ export default function MyPurchasesScreen({ route, navigation }) {
   const { userId, registered } = route.params;
   const [purchases, setPurchases] = useState([]);
   useEffect(() => {
-    var client = new W3CWebSocket('wss://localhost:4567/myPurchases');
+    var client = new W3CWebSocket('ws://localhost:4567/myPurchases');
     client.onerror = function () {
       console.log('Connection Error');
     };
@@ -49,7 +49,7 @@ export default function MyPurchasesScreen({ route, navigation }) {
       {purchases.map((item) => {
         return (
           <View style={{ padding: 5 }}>
-            <Receipt storeName={item.storeName} lines={item.lines} totalCost={item.totalCost} />
+            <Receipt navigation={navigation} receiptId={item.receiptId}  showCancel={true} userName={item.userName} storeName={item.storeName} lines={item.lines} totalCost={item.totalCost} />
           </View>
         )
       })}

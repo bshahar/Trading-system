@@ -12,7 +12,7 @@ export default function MyStoresScreen({ route, navigation }) {
   const [stores, setStores] = useState([]);
 
   useEffect(() => {
-    var client = new W3CWebSocket('wss://localhost:4567/myStores');
+    var client = new W3CWebSocket('ws://localhost:4567/myStores');
     client.onerror = function () {
       console.log('Connection Error');
     };

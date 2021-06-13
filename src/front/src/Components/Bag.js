@@ -9,7 +9,7 @@ export default function Bag({ navigation, storeId, storeName, products, userId, 
     const renderedProducts =
         <View>
             {products.map((item) => {
-                return <CartProduct productName={item.productName} productAmount={item.productAmount} />
+                return <CartProduct productName={item.productName} productAmount={item.productAmount} productPrice={item.productPrice} />
             })}
         </View>
     return (

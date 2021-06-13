@@ -3,6 +3,7 @@ package Service;
 import Domain.*;
 import Interface.TradingSystem;
 import Domain.User;
+import Persistence.AdminTableWrapper;
 import Persistence.DataBaseHelper;
 import javafx.util.Pair;
 import org.eclipse.jetty.websocket.api.Session;
@@ -274,10 +275,10 @@ public class API {
         storeId2=(int)openStore(registerId1,"elad store").getData();
         addStoreOwner(registerId1,orId1,storeId1);
         addStoreOwner(registerId1,orId2,storeId1);
-        addStoreOwner(registerId1,orId3,storeId1);
-        addStoreOwner(registerId1,orId4,storeId1);
-        addStoreOwner(registerId1,orId5,storeId1);
-        addStoreOwner(registerId1,orId6,storeId1);
+//        addStoreOwner(registerId1,orId3,storeId1);
+//        addStoreOwner(registerId1,orId4,storeId1);
+//        addStoreOwner(registerId1,orId5,storeId1);
+//        addStoreOwner(registerId1,orId6,storeId1);
 
 
         LinkedList<String> catList= new LinkedList<>();
@@ -289,6 +290,9 @@ public class API {
         addProduct(registerId1, storeId1,"Banana",catList ,4,"Hello", 20 ).getData();
         addProduct(registerId1, storeId2,"Water",catList2 ,5,"FOOD", 13 ).getData();
         registeredLogout(registerId1);
+
+        AdminTableWrapper adminTableWrapper= new AdminTableWrapper();
+        adminTableWrapper.addToStats();
 
 
 
@@ -542,5 +546,9 @@ public class API {
 
     public static void addAdminSession(Session session) {
         tradingSystem.addAdminSession(session);
+    }
+
+    public static Result getSystemManagerStatsPerDay(String date) {
+        return tradingSystem.getSystemManagerStatsPerDay(date);
     }
 }

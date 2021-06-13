@@ -17,7 +17,7 @@ export default function MyStoreScreen({ route, navigation }) {
 
 
   useEffect(() => {
-    var client = new W3CWebSocket('wss://localhost:4567/myStores/StorePermissions');
+    var client = new W3CWebSocket('ws://localhost:4567/myStores/StorePermissions');
     client.onerror = function () {
       console.log('Connection Error');
     };
@@ -90,10 +90,10 @@ export default function MyStoreScreen({ route, navigation }) {
             return (
               <View>
                 <View style={{ padding: 5 }}>
-                  <Button title={'Add Store Discount Policy'} onPress={() => { navigation.navigate('AddStoreDiscountPolicy', { userId: userId, storeId: storeId,registered:registered }) }} />
+                  <Button title={'Add Store Discount Policy'} onPress={() => { navigation.navigate('AddStoreDiscountPolicy', { userId: userId, storeId: storeId, registered: registered }) }} />
                 </View>
                 <View style={{ padding: 5 }}>
-                  <Button title={'Edit Store Discount Policy'} onPress={() => { navigation.navigate('EditStoreDiscountPolicy', { userId: userId, storeId: storeId,registered:registered }) }} />
+                  <Button title={'Edit Store Discount Policy'} onPress={() => { navigation.navigate('EditStoreDiscountPolicy', { userId: userId, storeId: storeId, registered: registered }) }} />
                 </View>
               </View>
 
@@ -102,10 +102,18 @@ export default function MyStoreScreen({ route, navigation }) {
             return (
               <View>
                 <View style={{ padding: 5 }}>
-                  <Button title={'Add Store Purchase Policy'} onPress={() => { navigation.navigate('AddStorePurchasePolicy', { userId: userId, storeId: storeId,registered:registered }) }} />
+                  <Button title={'Add Store Purchase Policy'} onPress={() => { navigation.navigate('AddStorePurchasePolicy', { userId: userId, storeId: storeId, registered: registered }) }} />
                 </View>
                 <View style={{ padding: 5 }}>
-                  <Button title={'Edit Store Purchase Policy'} onPress={() => { navigation.navigate('EditStorePurchasePolicy', { userId: userId, storeId: storeId,registered:registered }) }} />
+                  <Button title={'Edit Store Purchase Policy'} onPress={() => { navigation.navigate('EditStorePurchasePolicy', { userId: userId, storeId: storeId, registered: registered }) }} />
+                </View>
+              </View>
+            );
+          case 'ResponedToOffer':
+            return (
+              <View>
+                <View style={{ padding: 5 }}>
+                  <Button title={"Menage Store's Bids "} onPress={() => { navigation.navigate('StoreBids', { userId: userId, storeId: storeId, registered: registered }) }} />
                 </View>
               </View>
             );

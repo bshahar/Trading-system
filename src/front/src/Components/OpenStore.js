@@ -15,7 +15,7 @@ export default function OpenStore({userId,navigation}) {
             </View>
             <View style={{ padding: 5 }}>
                 <Button title={'Open Store'} onPress={() => {
-                    var client = new W3CWebSocket(`wss://localhost:4567/myStores/openStore`);
+                    var client = new W3CWebSocket(`ws://localhost:4567/myStores/openStore`);
                     client.onmessage = function (event) {
                         const parsedMessage = JSON.parse(event.data);
 

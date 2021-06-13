@@ -154,8 +154,7 @@ Same for Login function.
       {
         "appointerUserId": "elad",
         "appointeeUserId": "kandabior",
-        "storeId": "storeNameTest1",
-        "permission" : [1, 11, 19]
+        "storeId": "storeNameTest1"
       }
     ]
     
@@ -173,32 +172,6 @@ Same for Login function.
       }
     ]
 
-
-### Permission numbers:
-
-"addProduct" - 1  
-"appointManager" - 2  
-"appointOwner" - 3  
-"closeStore" - 4  
-"defineDiscountFormat" - 5   
-"defineDiscountPolicy" - 6  
-"definePurchaseFormat" - 7  
-"definePurchasePolicy" - 8  
-"editDiscountFormat" - 9  
-"editDiscountPolicy" - 10  
-"editProduct" - 11  
-"editPurchaseFormat" - 12  
-"disableEeditPurchasePolicy" - 13  
-"getWorkersInfo" - 14  
-"openStore" - 15  
-"removeManagerAppointment" - 16  
-"removeOwnerAppointment" - 17  
-"removeProduct" - 19  
-"reopenStore" - 20  
-"replayMessages" - 21  
-"viewMessages" - 21  
-"viewPurchaseHistory" - 22  
-"responedToOffer" - 23  
 
 
 

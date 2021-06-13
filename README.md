@@ -13,7 +13,7 @@ Trading system- where you can open stores and manage them, sale & buy products, 
 # Getting started
 Optional argumnets to start the system:
 1. test - initialize the system in test mode.
-2. load - initialize the system with data in it (the data is stored in the file -"requestedTests.json").  
+2. load_FILENAME.json - initialize the system with data in it (the data is stored in the file -"FILENAME.json").  
 Explenation on each mode later in this document.
 ## How to use
     tradingSystem test load_FILENAME.json
